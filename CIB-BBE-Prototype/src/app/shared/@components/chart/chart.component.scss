@@ -1,0 +1,11 @@
+::ng-deep .ag-chart-wrapper {
+  height: calc(100%) !important;
+  direction: ltr !important;
+}
+
+.show-select {
+  height: calc(100% - 45px) !important;
+}
+.hide-select {
+  height: 100% !important;
+}

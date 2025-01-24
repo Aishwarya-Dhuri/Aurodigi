@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Setup",
+    "widgets": [
+      {
+        "cols": 8,
+        "rows": 12,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Calendar",
+        "componentName": "calender",
+        "id": "calender",
+        "serviceUrl": "calender",
+        "isChecked": false
+      },
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Credit Line Details",
+        "componentName": "chart",
+        "serviceUrl": "widgets/creditLineDetails",
+        "id": "creditLineDetails",
+        "isChecked": false
+      },
+      {
+        "cols": 8,
+        "rows": 12,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Reconciliation Summary",
+        "componentName": "chart",
+        "serviceUrl": "widgets/reconcilationSummary",
+        "id": "reconcilationSummary",
+        "isChecked": false
+      },
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "User Monitoring",
+        "componentName": "chart",
+        "serviceUrl": "widgets/userMonitoring",
+        "id": "userMonitoring",
+        "isChecked": false
+      },
+
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Trade – Transaction wise summary",
+        "serviceUrl": "widgets/transactionWiseSummary",
+        "componentName": "chart",
+        "id": "transactionWiseSummary",
+        "isChecked": false
+      },
+
+      {
+        "cols": 16,
+        "rows": 10,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Top 5 Supplier",
+        "componentName": "columnChart",
+        "serviceUrl": "widgets/top5Supplier",
+        "id": "top5Supplier",
+        "isChecked": false
+      },
+      {
+        "cols": 10,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Pending authorization – Apply Finance",
+        "componentName": "cards",
+        "serviceUrl": "widgets/pendingAuthorizationApplyFinance",
+        "id": "pendingAuthorizationApplyFinance",
+        "isChecked": false
+      }
+    ],
+    "isExpand": true
+  },
+  {
+    "name": "Payment",
+    "widgets": [
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Pending authorization for payments",
+        "componentName": "chart",
+        "serviceUrl": "widgets/pendingAuthorizationForPayments",
+        "id": "pendingAuthorizationForPayments",
+        "isChecked": false
+      },
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Cheque Return Details",
+        "componentName": "table",
+        "serviceUrl": "widgets/chequeReturnDetails",
+        "id": "chequeReturnDetails",
+        "isChecked": false
+      },
+      {
+        "cols": 8,
+        "rows": 10,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Cheque Printing Queue",
+        "componentName": "chart",
+        "serviceUrl": "widgets/chequePrintingQueue",
+        "id": "chequePrintingQueue",
+        "isChecked": false
+      }
+    ],
+    "isExpand": false
+  },
+  {
+    "name": "VAM",
+    "widgets": [
+      {
+        "cols": 8,
+        "rows": 8,
+        "minItemCols": 8,
+        "minItemRows": 8,
+        "title": "Vam Pending Authorization",
+        "componentName": "chart",
+        "serviceUrl": "widgets/vamPendingAuthorization",
+        "id": "vamPendingAuthorization",
+        "isChecked": false
+      }
+    ],
+    "isExpand": false
+  }
+]

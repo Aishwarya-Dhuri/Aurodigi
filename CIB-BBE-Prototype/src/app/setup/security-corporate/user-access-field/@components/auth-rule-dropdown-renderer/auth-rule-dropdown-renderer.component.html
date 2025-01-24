@@ -1,0 +1,10 @@
+<aps-custom-select
+  id="authRule"
+  name="authRule"
+  label=""
+  dataUrl="setup/security/userFieldAccess/private/dropdown/authRules"
+  [(ngModel)]="cellValue"
+  [value]="cellValue"
+  [showLabel]="false"
+  [disabled]="params.context.componentParent.stepperDetails.currentStep == 2"
+></aps-custom-select>

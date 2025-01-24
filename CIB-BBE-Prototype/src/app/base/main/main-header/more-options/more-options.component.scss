@@ -1,0 +1,38 @@
+.more-options-wrapper {
+  width: 13rem;
+
+  .option {
+    width: 3rem;
+    vertical-align: top;
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+
+      i {
+        margin-top: 1.125rem !important;
+      }
+    }
+
+    .text {
+      text-align: center;
+    }
+  }
+
+  .option:hover {
+    color: var(--primary-color) !important;
+
+    .icon {
+      background-color: var(--primary-color-light-shade-1) !important;
+    }
+  }
+
+  .option:not(:last-child) {
+    margin-right: 0.875rem;
+  }
+
+  .divider-h {
+    height: 0px;
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "label": "OAT",
+      "total": 0,
+      "pending": 1
+    },
+    {
+      "label": "Single Payment",
+      "total": 49,
+      "pending": 72
+    },
+    { "label": "Bulk Pay", "total": 82, "pending": 20 }
+  ],
+  "series": [
+    {
+      "type": "bar",
+      "xKey": "label",
+      "yKeys": ["total", "pending"],
+      "yNames": ["Total", "Pending"],
+      "grouped": true,
+      "shadow": { "enabled": false },
+      "lineDashOffset": 25
+    }
+  ],
+  "axes": [
+    { "type": "category", "position": "left" },
+    {
+      "type": "number",
+      "position": "bottom",
+      "title": {
+        "text": "Values",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

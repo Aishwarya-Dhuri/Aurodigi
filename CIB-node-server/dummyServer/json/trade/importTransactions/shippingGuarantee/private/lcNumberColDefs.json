@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "LC Number",
+      "field": "id",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Beneficiary Name",
+      "field": "beneficiaryName"
+    }
+  ]
+}

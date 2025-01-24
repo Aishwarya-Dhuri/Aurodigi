@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+            <div class="p-px-1 p-py-3 text-size-16 text-bold">
+                {{ 'Schedule Job Details' | apsTranslate }}
+            </div>
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card" *ngIf="stepperDetails.currentStep == 1">
+                    <div class="aps-card-body">
+                        <div class="p-grid">
+                            <div class="p-p-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <aps-custom-select id="moduleId" name="moduleId" label="Module"
+                                    dataUrl="setup/process/jobMonitoring/private/dropdown/moduleList"
+                                    [(ngModel)]="formData.moduleId" [value]="formData.moduleId" [disabled]="true">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-p-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <aps-custom-select id="jobId" name="jobId" label="Job Name"
+                                    dataUrl="setup/process/jobMonitoring/private/dropdown/jobTypeList"
+                                    [(ngModel)]="formData.jobId" [value]="formData.jobId" [disabled]="true">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <aps-custom-select id="frequencyTypeId" name="frequencyTypeId" label="Frequency Type"
+                                    dataUrl="setup/process/jobMonitoring/private/dropdown/frequencyTypeList"
+                                    [(ngModel)]="formData.frequencyTypeId" [value]="formData.frequencyTypeId">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4">
+                                <aps-form-input id="weekly" name="weekly" [label]="'Weekly' | apsTranslate"
+                                    [(ngModel)]="formData.weekly" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4">
+                                <aps-form-input id="month" name="month" [label]="'Month' | apsTranslate"
+                                    [(ngModel)]="formData.month" required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <app-aps-calender [label]="'Time' | apsTranslate" id="time" [timeOnly]="true"
+                                    [(ngModel)]="formData.time" required="true"></app-aps-calender>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-card" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+                    <div class="aps-card-body">
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Module' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.moduleName }}</div>
+                                </div>
+                            </div>
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Job Name' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.jobName }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Frequency Type' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.frequencyTypeName }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Weekly' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.weekly }}</div>
+                                </div>
+                            </div>
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Month' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.month }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-px-3 p-col-12 p-md-4 p-lg-4 p-sm-12">
+                                <div class="p-p-2">
+                                    <div class="text-size-12 text-color-light-shade-1">
+                                        {{ 'Time' | apsTranslate }}
+                                    </div>
+                                    <div class="text-size-14">{{ formData.time }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="p-col-12">
+            <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+        </div>
+    </div>
+</div>

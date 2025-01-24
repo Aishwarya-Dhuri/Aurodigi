@@ -1,0 +1,16 @@
+[
+  {
+    "headerName": "Corporate Code",
+    "field": "corporateCode"
+  },
+  {
+    "headerName": "Corporate Name",
+    "field": "corporateName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "initActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  { "headerName": "Instrument Dispatch To", "field": "instrumentDispatchTo" },
+  { "headerName": "Instrument Dispatch Mode", "field": "instrumentDispatchMode" },
+  { "headerName": "Beneficiary Advice Dispatch Mode", "field": "beneficiaryAdviceDispatchMode" },
+  {
+    "headerName": "Effective From",
+    "field": "effectiveFrom"
+  },
+  {
+    "headerName": "Effective Till",
+    "field": "effectiveTill"
+  },
+  { "headerName": "Status", "field": "status" }
+]

@@ -1,0 +1,26 @@
+<app-widgets-header
+  [heading]="title"
+  [showChangeChartOption]="showChangeChartOption"
+  (action)="this.actionEvent($event)"
+></app-widgets-header>
+
+<div class="calender-container gridster-item-content">
+  <div>
+    <!-- <p-fullCalendar
+      [style]="{ height: '100%' }"
+      [events]="events"
+      [options]="options"
+    ></p-fullCalendar> -->
+
+    <p-calendar [(ngModel)]="date" [inline]="true"></p-calendar>
+  </div>
+
+  <div class="daily-plan-wrapper">
+    <div class="text-size-16 text-bold text-color-dark-shade-1">{{ date | date }}</div>
+
+    <div class="border border-radius-4 p-my-2 p-p-2" *ngFor="let message of messages">
+      <div class="text-size-14 text-color-dark-shade-1">{{ message.heading }}</div>
+      <div class="text-size-12 text-color-normal">{{ message.subHeading }}</div>
+    </div>
+  </div>
+</div>

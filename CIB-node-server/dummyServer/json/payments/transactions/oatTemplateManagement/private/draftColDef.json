@@ -1,0 +1,16 @@
+{
+  "columnDefs": [
+    { "headerName": "Credit Account No", "field": "creditAccountNo" },
+    { "headerName": "Payment Method", "field": "paymentMethod", "tooltipField": "paymentMethod" },
+    { "headerName": "Channel", "field": "channel" },
+    { "headerName": "Value Date", "field": "valueDate" },
+    {
+      "headerName": "Payable Amount",
+      "field": "payableAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

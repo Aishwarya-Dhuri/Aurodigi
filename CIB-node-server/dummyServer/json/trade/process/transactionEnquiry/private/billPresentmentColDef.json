@@ -1,0 +1,49 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "corporateReferenceNo"
+    },
+    {
+      "headerName": "Invoice Number",
+      "field": "invoiceNumber"
+    },
+    {
+      "headerName": "LC Number",
+      "field": "lcNumber"
+    },
+    {
+      "headerName": "Bill Date",
+      "field": "billDate"
+    },
+    {
+      "headerName": "Bill Amount",
+      "field": "billAmount"
+    },
+    {
+      "headerName": "Type of Bill Presentment",
+      "field": "typeOfBillPresentment"
+    },
+    {
+      "headerName": "Applicant Name",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "ImporterName",
+      "field": "importerName"
+    },
+    {
+      "headerName": "Collection/Purchase",
+      "field": "type"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  { "headerName": "Draft Name", "field": "draftName", "isShowOnCardView": true },
+  { "headerName": "Description", "field": "draftDesc", "isShowOnCardView": false },
+  { "headerName": "MOL ID", "field": "molId", "isShowOnCardView": true },
+  {
+    "headerName": "Debit Account Number",
+    "field": "debitFromAccountNumber",
+    "isShowOnCardView": true
+  },
+  { "headerName": "Debit Account Title", "field": "debitAccountTitle", "isShowOnCardView": false },
+  {
+    "headerName": "Total Amount",
+    "field": "totalAmount",
+    "cellRenderer": "currencyRenderer",
+    "isShowOnCardView": false
+  },
+  {
+    "headerName": "Salary Date",
+    "field": "salaryMonth",
+    "cellRenderer": "dateRenderer",
+    "isShowOnCardView": false
+  },
+  { "headerName": "No. of Records", "field": "edrCount", "isShowOnCardView": false },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "isShowOnCardView": false
+  }
+]

@@ -1,0 +1,97 @@
+.user-notifications-container {
+  display: block;
+
+  .notifications-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    padding: 12px;
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      color: var(--text-color-dark-shade-1);
+      font-size: 1rem;
+      font-family: 'CIB Bold';
+
+      i,
+      .app-icon {
+        margin: 1px 0.5rem 0;
+      }
+
+      .notifications-count {
+        display: inline-block;
+        margin: 3px 0.5rem;
+        padding: 2px 4px;
+        border-radius: 7px;
+        font-size: 0.5625rem;
+        color: var(--inverted-text-color);
+        background-color: var(--color-error);
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .notification-day {
+    font-size: 0.875rem;
+    font-family: 'CIB Bold';
+    color: var(--text-color-dark-shade-1);
+    padding: 0.25rem 16px;
+    border-radius: 3px;
+    background-color: var(--background-color);
+  }
+
+  .notifications {
+    display: block;
+    overflow-y: scroll;
+    height: calc(100vh - 4.5rem);
+
+    .notification-wrapper {
+      display: block;
+      padding: 0 16px;
+
+      .notification {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--background-color);
+
+        .notification-title {
+          font-size: 0.75rem;
+          color: var(--text-color-dark-shade-1);
+          font-family: 'CIB Bold';
+          margin-bottom: 6px;
+        }
+
+        .notification-body {
+          font-size: 0.75rem;
+          // line-height: 14px;
+          color: var(--text-color-dark-shade-1);
+          margin-bottom: 6px;
+        }
+
+        .notification-time {
+          font-size: 0.625rem;
+          color: var(--text-color);
+        }
+      }
+
+      .notification:hover {
+        background-color: var(--primary-color-light-shade-1);
+      }
+    }
+  }
+}

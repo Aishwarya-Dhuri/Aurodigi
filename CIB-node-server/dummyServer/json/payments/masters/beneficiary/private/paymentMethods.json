@@ -1,0 +1,82 @@
+[
+  {
+    "pmid": 0,
+    "label": "Internal Fund Transfer",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs1",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs1",
+    "accounts": []
+  },
+  {
+    "pmid": 1,
+    "label": "RTGS",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs1",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs1",
+    "accounts": []
+  },
+  {
+    "pmid": 2,
+    "label": "Outward Telegraphic Transfer",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs1",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs1",
+    "accounts": []
+  },
+  {
+    "pmid": 3,
+    "label": "Cashier Order",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs2",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs2",
+    "accounts": []
+  },
+  {
+    "pmid": 4,
+    "label": "Corporate Cheque",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs2",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs2",
+    "accounts": []
+  },
+  {
+    "pmid": 5,
+    "label": "Own Cheque",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs2",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs2",
+    "accounts": []
+  },
+  {
+    "pmid": 6,
+    "label": "SLIPS",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs1",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs1",
+    "accounts": []
+  },
+  {
+    "pmid": 7,
+    "label": "CEFTS",
+    "data": "0",
+    "maxLimitCurrency": "",
+    "maxLimitAmount": "",
+    "colDefsUrl": "payments/masters/beneficiary/private/colDefs1",
+    "reviewColDefsUrl": "payments/masters/beneficiary/private/reviewColDefs1",
+    "accounts": []
+  }
+]

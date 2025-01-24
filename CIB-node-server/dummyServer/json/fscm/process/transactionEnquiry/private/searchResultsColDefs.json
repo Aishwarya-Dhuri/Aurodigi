@@ -1,0 +1,14 @@
+{
+  "columnDefs": [
+    { "headerName": "Seller Code", "field": "sellerCode" },
+    { "headerName": "Buyer Code", "field": "buyerCode" },
+    { "headerName": "Product Code", "field": "productCode" },
+    { "headerName": "Program ref No", "field": "programRefNo" },
+    { "headerName": "Invoice Number", "field": "invoiceNumber" },
+    { "headerName": "Invoice Amount", "field": "invoiceAmount" },
+    { "headerName": "Invoice Date", "field": "invoiceDate" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Tracking ID", "field": "trackingId" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

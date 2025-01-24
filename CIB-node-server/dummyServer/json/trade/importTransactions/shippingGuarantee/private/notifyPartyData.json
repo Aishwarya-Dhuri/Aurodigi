@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "notifyPartyCode": "Bene220000665",
+      "notifyPartyName": "AB Corp",
+      "notifyPartyAddress1": [
+        {
+          "address": "Delhi"
+        }
+      ]
+    },
+    {
+      "notifyPartyCode": "Bene220000666",
+      "notifyPartyName": "HPCC",
+      "notifyPartyAddress1": [
+        {
+          "address": "Bangalore"
+        }
+      ]
+    },
+    {
+      "notifyPartyCode": "Bene220000665",
+      "notifyPartyName": "RA Group",
+      "notifyPartyAddress1": [
+        {
+          "address": "Mumbai"
+        }
+      ]
+    }
+  ]
+}

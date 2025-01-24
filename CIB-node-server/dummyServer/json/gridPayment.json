@@ -1,0 +1,74 @@
+[
+  {
+    "cols": 8,
+    "rows": 12,
+    "y": 0,
+    "x": 0,
+    "minItemCols": 8,
+    "minItemRows": 8,
+    "product": "setup",
+    "isShow": true,
+    "title": "Calendar",
+    "componentName": "calender",
+    "id": "calender",
+    "serviceUrl": "widgets/transactionWiseSummary"
+  },
+  {
+    "cols": 8,
+    "rows": 8,
+    "y": 0,
+    "x": 8,
+    "minItemCols": 8,
+    "minItemRows": 8,
+    "product": "setup",
+    "isShow": true,
+    "title": "Pending authorization for payments",
+    "componentName": "chart",
+    "serviceUrl": "widgets/transactionChecker",
+    "id": "transactionChecker"
+  },
+
+  {
+    "cols": 8,
+    "rows": 8,
+    "y": 0,
+    "x": 16,
+    "minItemCols": 8,
+    "minItemRows": 8,
+    "product": "setup",
+    "isShow": true,
+    "title": "Cheque Return Details",
+    "componentName": "table",
+    "serviceUrl": "widgets/invoiceOverdueTracker",
+    "id": "invoiceOverdueTracker"
+  },
+  {
+    "cols": 8,
+    "rows": 10,
+    "y": 8,
+    "x": 8,
+    "minItemCols": 8,
+    "minItemRows": 8,
+    "product": "setup",
+    "isShow": true,
+    "title": "Cheque Printing Queue",
+    "componentName": "chart",
+    "serviceUrl": "widgets/chequePrintingQueue",
+    "id": "chequePrintingQueue"
+  },
+
+  {
+    "cols": 6,
+    "rows": 8,
+    "y": 8,
+    "x": 18,
+    "minItemCols": 7,
+    "minItemRows": 8,
+    "product": "setup",
+    "isShow": true,
+    "title": "Advertisement",
+    "componentName": "advertisement",
+    "serviceUrl": "widgets/advertisement",
+    "id": "advertisement"
+  }
+]

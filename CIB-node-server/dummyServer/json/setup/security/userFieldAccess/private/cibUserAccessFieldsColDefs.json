@@ -1,0 +1,29 @@
+[
+  {
+    "headerName": "Category",
+    "field": "category"
+  },
+  {
+    "headerName": "Field",
+    "field": "field"
+  },
+  {
+    "headerName": "Criticality",
+    "field": "criticality"
+  },
+  {
+    "headerName": "CIB Admin",
+    "field": "cibAdmin",
+    "cellRenderer": "checkboxRenderer"
+  },
+  {
+    "headerName": "CIB User Profile",
+    "field": "cibUserProfile",
+    "cellRenderer": "checkboxRenderer"
+  },
+  {
+    "headerName": "Auth Rule",
+    "field": "authRule",
+    "cellRenderer": "authRuleDropdownRenderer"
+  }
+]

@@ -1,0 +1,13 @@
+<app-modal [(isShow)]="showConfirmModel" *ngIf="showConfirmModel" [headerText]="confirmData.header">
+  <div class="p-py-3" body>
+    {{ confirmData.message }}
+  </div>
+
+  <div class="left-right-container" footer>
+    <div class="left-container"></div>
+    <div class="right-container">
+      <button type="button" class="btn btn-md btn-secondary p-mr-2" (click)="reject()">No</button>
+      <button type="button" class="btn btn-md btn-primary" (click)="confirm()">Yes</button>
+    </div>
+  </div>
+</app-modal>

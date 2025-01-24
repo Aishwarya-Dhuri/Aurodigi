@@ -1,0 +1,54 @@
+{
+  "structureDetails": {
+    "structureType": "Intracompany",
+    "structureName": "NSCorpGroup",
+    "mainAccount": "IND-HDFC-001186941212-SAR",
+    "sweepType": "Upstream",
+    "executionSequence": "CreditFirst"
+  },
+  "frequencyDetails": {
+    "frequencyOfExecution": "custom",
+    "preDefined": { "dates": [""] },
+    "intraDay": {
+      "recurrenceFrequency": "",
+      "numberOfOccurrence": "",
+      "startDateTime": "",
+      "endDateTime": "",
+      "noEndDate": "",
+      "recurrenceDays": []
+    },
+    "custom": {
+      "recurrenceFrequency": "Weekly",
+      "numberOfOccurrence": "2",
+      "startDate": "09/29/2021",
+      "endDate": "10/29/2021",
+      "noEndDate": "",
+      "recurrenceDays": ["Friday", "Wednesday"]
+    }
+  },
+  "interestSetUp": {
+    "positiveRate": "RBPINT-RB",
+    "overdraftRate": "RD3-RDINT",
+    "lendingRate": "SAR-LND",
+    "borrowingRate": "SAR-BRW",
+    "applyToSubAccount": "Yes",
+    "selectedBy": "System",
+    "PNGenerationFrequency": "Monthly",
+    "PNGenerationMonth": "june",
+    "PNGenerationDay": "monday"
+  },
+  "clusterDetails": {
+    "belongsToClusterCode": "CTS0011001100110011455",
+    "belongsToClusterName": "MYRNewCluster1",
+    "leadForClusterCode": "CTS0000000001111111666",
+    "leadForClusterName": "MYROldCluster2",
+    "fundingAccount": "USA-BoA-001186941212-SAR",
+    "onHoliday": "Process",
+    "failureRule": "Resume"
+  },
+  "exceptionHandling": {
+    "fundingAccount": "USA-BoA-001186941212-SAR",
+    "onHoliday": "Process",
+    "failureRule": "Resume"
+  }
+}

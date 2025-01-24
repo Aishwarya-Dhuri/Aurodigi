@@ -1,0 +1,6 @@
+[
+  { "field": "uaid", "headerName": "User ID" },
+  { "field": "firstName", "headerName": "First Name" },
+  { "field": "lastName", "headerName": "Last Name" },
+  { "field": "profile", "headerName": "Profile" }
+]

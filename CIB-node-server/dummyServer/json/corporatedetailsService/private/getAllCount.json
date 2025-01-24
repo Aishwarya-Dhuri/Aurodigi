@@ -1,0 +1,17 @@
+{
+  "responseStatus": {
+    "status": "0",
+    "message": ""
+  },
+  "entityIdentifier": "",
+  "loggable": false,
+  "entityName": "CORPORATEDETAILS",
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+  "listCount": [
+    {
+      "displayName": "Review",
+      "recordCount": 3,
+      "url": "getAuthorizedList"
+    }
+  ]
+}

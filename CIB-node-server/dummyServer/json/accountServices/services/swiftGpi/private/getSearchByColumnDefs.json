@@ -1,0 +1,78 @@
+[
+  {
+    "headerName": "UETR Number",
+    "field": "uetrNumber",
+    "hide": "true",
+    "lockVisible": "true",
+    "filter": "false",
+    "sortable": "false"
+  },
+  {
+    "headerName": "Batch No",
+    "field": "id",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Payer",
+    "field": "payer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Payee",
+    "field": "payee",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Transaction Amount",
+    "field": "transactionAmount",
+    "cellRenderer": "currencyRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Charges Born By Payer",
+    "field": "chargesBornByPayer",
+    "cellRenderer": "currencyRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Charges Born By Payee",
+    "field": "chargesBornByPayee",
+    "cellRenderer": "currencyRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Total Duration",
+    "field": "totalDuration",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "false",
+    "sortable": "true"
+  }
+]

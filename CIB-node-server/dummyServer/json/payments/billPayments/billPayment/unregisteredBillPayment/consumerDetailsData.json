@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "checkbox": "",
+    "consumer": "Consumer 1",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "selected": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      }
+    ]
+  }
+]

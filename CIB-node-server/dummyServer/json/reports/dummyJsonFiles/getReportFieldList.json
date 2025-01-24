@@ -1,0 +1,66 @@
+{
+  "dataList": [
+    {
+      "fieldSequence": 1,
+      "isDependent": false,
+      "isMandatory": false,
+      "fieldName": "userOrModule",
+      "fieldType": "RADIO",
+      "labelName": "User/Module",
+      "fieldValueList": "user:User,module:Module",
+      "defaultValue": "user"
+    },
+    {
+      "fieldName": "toDate",
+      "labelName": "To Date",
+      "fieldType": "DATE",
+      "fieldSequence": 8,
+      "onlyForGroup": "N",
+      "isDependent": false,
+      "isMandatory": true
+    },
+    {
+      "fieldName": "fromDate",
+      "labelName": "From Date",
+      "fieldType": "DATE",
+      "columnValue": "19-JUL-2016",
+      "fieldSequence": 7,
+      "onlyForGroup": "N",
+      "isDependent": false,
+      "isMandatory": true
+    },
+    {
+      "fieldName": "master",
+      "labelName": "Module",
+      "fieldType": "SELECT",
+      "fieldValueList": "1:Setup,2:Payments,6:FSCM",
+      "fieldSequence": 3,
+      "onlyForGroup": "N",
+      "isDependent": false,
+      "isMandatory": false
+    },
+    {
+      "fieldName": "reportFileType",
+      "labelName": "Report File Type",
+      "fieldType": "RADIO",
+      "fieldValueList": "xls:EXCEL,pdf:PDF,online:ONLINE",
+      "defaultValue": "xls",
+      "fieldSequence": 9,
+      "onlyForGroup": "N",
+      "isDependent": false,
+      "isMandatory": true
+    },
+    {
+      "fieldName": "actions",
+      "labelName": "Action Performed",
+      "fieldType": "MULTISELECT",
+      "fieldSequence": 5,
+      "onlyForGroup": "N",
+      "isDependent": false,
+      "isMandatory": false
+    }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

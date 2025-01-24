@@ -1,0 +1,14 @@
+[
+  {
+    "headerName": "Currency Name",
+    "field": "currencyName"
+  },
+  {
+    "headerName": "Currency Code",
+    "field": "currencyCode"
+  },
+  {
+    "headerName": "Exchange Rate",
+    "field": "exchangeRate"
+  }
+]

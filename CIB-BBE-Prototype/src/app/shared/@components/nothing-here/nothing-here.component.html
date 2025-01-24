@@ -1,0 +1,49 @@
+<div class="p-grid p-jc-center">
+  <div [ngClass]="colClass">
+    <div class="skeleton-container">
+      <div class="list">
+        <div class="p-grid">
+          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-p-0">
+            <div class="list-circle circle-primary">
+              <app-icon class="check-icon" icon="fa-check"></app-icon>
+            </div>
+          </div>
+          <div class="p-md-9 p-lg-9 p-sm-12 p-col-12 p-p-0">
+            <div class="row-skeleton row-skeleton-70"></div>
+            <div class="row-skeleton row-skeleton-90"></div>
+          </div>
+        </div>
+      </div>
+      <div class="list list-light">
+        <div class="p-grid">
+          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-p-0">
+            <div class="list-circle circle-light"></div>
+          </div>
+          <div class="p-md-9 p-lg-9 p-sm-12 p-col-12 p-p-0">
+            <div class="row-skeleton row-skeleton-70"></div>
+            <div class="row-skeleton row-skeleton-90"></div>
+          </div>
+        </div>
+      </div>
+      <div class="list list-extra-light">
+        <div class="p-grid">
+          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-p-0">
+            <div class="list-circle circle-extra-light"></div>
+          </div>
+          <div class="p-md-9 p-lg-9 p-sm-12 p-col-12 p-p-0">
+            <div class="row-skeleton row-skeleton-70"></div>
+            <div class="row-skeleton row-skeleton-90"></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-mt-2" [ngClass]="headingClasses">
+        {{ 'msg_nothing_here_yet' | translate }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-grid p-jc-center">
+  <div class="p-p-0" [ngClass]="colClass">
+    <div class="p-text-center" [ngClass]="messageClasses">{{ message }}</div>
+  </div>
+</div>

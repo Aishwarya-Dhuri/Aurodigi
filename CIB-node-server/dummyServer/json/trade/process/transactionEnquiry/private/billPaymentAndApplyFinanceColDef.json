@@ -1,0 +1,53 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "id"
+    },
+    {
+      "headerName": "Trade Bill No.",
+      "field": "tradeBillNumber"
+    },
+    {
+      "headerName": "Draft At",
+      "field": "draftAt"
+    },
+    {
+      "headerName": "DA/DP",
+      "field": "daDp"
+    },
+    {
+      "headerName": "LC Number",
+      "field": "lcNumber"
+    },
+    {
+      "headerName": "Bill Amount",
+      "field": "billAmount"
+    },
+    {
+      "headerName": "Bill Due Date",
+      "field": "tradeBillDueDate"
+    },
+    {
+      "headerName": "Discrepant",
+      "field": "discrepant"
+    },
+    {
+      "headerName": "Payment Option",
+      "field": "paymentOptions"
+    },
+    {
+      "headerName": "Financed",
+      "field": "financed"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

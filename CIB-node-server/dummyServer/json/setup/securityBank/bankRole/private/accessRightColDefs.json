@@ -1,0 +1,37 @@
+[
+  {
+    "headerName": "View",
+    "field": "VIEW",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Data Entry",
+    "field": "DATA_ENTRY",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Authorize",
+    "field": "AUTHORIZE",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Enable/Disable",
+    "field": "ENABLE_DISABLE",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Execute",
+    "field": "EXECUTE",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Verifer",
+    "field": "VERIFER",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  },
+  {
+    "headerName": "Self Auth",
+    "field": "SELFAUTH",
+    "cellRenderer": "assignRightsCheckboxRenderer"
+  }
+]

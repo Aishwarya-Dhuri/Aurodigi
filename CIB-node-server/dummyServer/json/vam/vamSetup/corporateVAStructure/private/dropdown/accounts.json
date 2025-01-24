@@ -1,0 +1,25 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "01",
+      "displayName": "10002000101121-PHP",
+      "enrichments": { "accountDesc": "Payable Account", "accountBranch": "Down Town Branch" }
+    },
+    {
+      "id": "02",
+      "displayName": "10002000101122-PHP",
+      "enrichments": { "accountDesc": "Payable Account", "accountBranch": "Down Town Branch" }
+    },
+    {
+      "id": "03",
+      "displayName": "10002000101123-PHP",
+      "enrichments": { "accountDesc": "Payable Account", "accountBranch": "Down Town Branch" }
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

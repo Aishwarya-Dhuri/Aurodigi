@@ -1,0 +1,143 @@
+.fc .fc-toolbar .fc-button {
+}
+
+.fc-toolbar h2 {
+  text-align: center;
+  padding: 0 0.25rem;
+}
+
+.fc-scroller .fc-day-grid-container {
+  height: 100% !important;
+}
+
+.p-grid {
+  margin: 0 !important;
+}
+
+.fc th {
+  text-align: center !important;
+}
+
+.fc tr {
+  text-align: center !important;
+}
+
+.p-button {
+  /*padding: 0.625rem;*/
+  border-radius: 6px;
+  border: none !important;
+}
+
+/*19Oct*/
+.fc-toolbar h2 {
+  font-size: 0.875rem !important;
+  margin: 0 !important;
+}
+
+.calender-container,
+.fc-toolbar,
+.fc-header-toolbar {
+  font-size: 0.875rem !important;
+}
+
+.fc-dayGridDay-view .fc-content-skeleton,
+.fc-dayGridWeek-view .fc-content-skeleton {
+  padding: 16px !important;
+}
+.fc-dayGrid-view .fc-body .fc-row {
+  min-height: 6px !important;
+}
+.fc-row.fc-rigid {
+  overflow: hidden !important;
+}
+.fc-row.fc-rigid .fc-content-skeleton {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+.fc-day-top.fc-other-month {
+  opacity: 0.3 !important;
+}
+.fc-dayGrid-view .fc-day-number,
+.fc-dayGrid-view .fc-week-number {
+  padding: 2px !important;
+}
+.fc-dayGrid-view th.fc-day-number,
+.fc-dayGrid-view th.fc-week-number {
+  padding: 0 2px !important;
+}
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  /*float: right!important;*/
+  text-align: center !important;
+}
+.fc-rtl .fc-dayGrid-view .fc-day-top .fc-day-number {
+  /*float: left!important;*/
+  text-align: center !important;
+}
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-week-number {
+  /*float: left!important;*/
+  border-radius: 0 0 3px !important;
+  text-align: center !important;
+}
+.fc-rtl .fc-dayGrid-view .fc-day-top .fc-week-number {
+  /*float: right!important;*/
+  border-radius: 0 0 0 3px !important;
+  text-align: center !important;
+}
+.fc-dayGrid-view .fc-day-top .fc-week-number {
+  min-width: 16px !important;
+  text-align: center !important;
+  background-color: #f2f2f2 !important;
+  color: grey !important;
+}
+.fc-dayGrid-view td.fc-week-number {
+  text-align: center !important;
+}
+.fc-dayGrid-view td.fc-week-number > * {
+  display: inline-block !important;
+  min-width: 16px !important;
+}
+.fc-view-container * {
+  font-size: 0.8125rem !important;
+}
+.fc-button-group {
+  height: 26px !important;
+}
+.fc-view,
+.fc-view > table tr td {
+  border: 1px solid #ffffff !important;
+  text-align: center !important;
+}
+.fc td,
+.fc th {
+  border-style: none !important;
+}
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  float: none !important;
+}
+.fc-widget-content hr.fc-divider {
+  display: none !important;
+}
+.fc-head .fc-head-container div {
+  border-right: none !important;
+}
+.fc-widget-content .fc-day-grid .fc-row {
+  border-right-width: 0px !important;
+  border-right: none !important;
+}
+.fc-view-container .fc-head .fc-head-container .fc-widget-header {
+  margin-bottom: 16px !important;
+}
+
+// AG Grid Start
+.ag-theme-alpine .ag-filter-apply-panel {
+  padding: 12px 12px 12px 0;
+}
+.grid-row-text-size {
+  font-size: var(--font-size-13) !important;
+}
+.grid-header-text-size {
+  font-size: var(--font-size-13) !important;
+}
+// AG Grid End

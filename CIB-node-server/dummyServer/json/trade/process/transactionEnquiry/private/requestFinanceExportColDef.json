@@ -1,0 +1,53 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "corporateReferenceNo"
+    },
+    {
+      "headerName": "Transaction Date",
+      "field": "transactionDate"
+    },
+    {
+      "headerName": "Type Of Packing Credit",
+      "field": "typeOfPackingCredit"
+    },
+    {
+      "headerName": "LC NO",
+      "field": "lcNumber"
+    },
+    {
+      "headerName": "Invoice Number",
+      "field": "invoiceNumber"
+    },
+    {
+      "headerName": "Buyer Names",
+      "field": "buyerName"
+    },
+    {
+      "headerName": "Applicant Names",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "Loan Amount",
+      "field": "loanAmount"
+    },
+    {
+      "headerName": "Tenor(Days)",
+      "field": "loanAppliedFor"
+    },
+    {
+      "headerName": "Account to be Credited",
+      "field": "accountToBeCredited"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

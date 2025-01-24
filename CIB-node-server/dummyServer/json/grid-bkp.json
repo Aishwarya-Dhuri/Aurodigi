@@ -1,0 +1,254 @@
+{
+  "1": [
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 0,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Calendar",
+      "componentName": "calender",
+      "id": "calender",
+      "serviceUrl": "widgets/transactionWiseSummary"
+    },
+
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 0,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Collection for Upcomming 2 Months",
+      "serviceUrl": "widgets/collectionForUpcomming2Months",
+      "componentName": "chart",
+      "id": "collectionForUpcomming2Months"
+    },
+
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 0,
+      "x": 16,
+
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Reconciliation Amount Summary",
+      "serviceUrl": "widgets/reconcilationSummary",
+      "componentName": "chart",
+      "id": "reconciliationSummary"
+    },
+
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 8,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Advertisement",
+      "serviceUrl": "widgets/reconcilationSummary",
+      "componentName": "advertisement",
+      "id": "advertisement"
+    },
+
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 8,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Invoice Overdue Tracker",
+      "componentName": "cards",
+      "serviceUrl": "widgets/invoiceOverdueTracker",
+      "id": "invoiceOverdueTracker"
+    },
+
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 8,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Transaction Wise Summary",
+      "componentName": "chart",
+      "id": "transactionWiseSummary",
+      "serviceUrl": "widgets/transactionWiseSummary"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 16,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Payment Summary",
+      "componentName": "chart",
+      "serviceUrl": "widgets/paymentSummary",
+      "id": "paymentSummary"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 16,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Payment Method Wise",
+      "componentName": "chart",
+      "serviceUrl": "widgets/paymentMethodWise",
+      "id": "paymentMethodWise"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 16,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Top 5 Collections",
+      "componentName": "chart",
+      "serviceUrl": "widgets/top5Collections",
+      "id": "top5Collections"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 24,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Finance Repayment Dealer",
+      "componentName": "chart",
+      "serviceUrl": "widgets/financeRepaymentDealer",
+      "id": "financeRepaymentDealer"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 24,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Transaction (Checker)",
+      "componentName": "chart",
+      "serviceUrl": "widgets/transactionChecker",
+      "id": "transactionChecker"
+    },
+    {
+      "cols": 8,
+      "rows": 12,
+      "y": 24,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "VAM Pending Authorization",
+      "componentName": "chart",
+      "serviceUrl": "widgets/vamPendingAuthorization",
+      "id": "vamPendingAuthorization"
+    }
+  ],
+  "2": [
+    {
+      "cols": 8,
+      "rows": 12,
+      "y": 0,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Calendar",
+      "componentName": "calender",
+      "id": "calender",
+      "serviceUrl": "widgets/transactionWiseSummary"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 0,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Top Five Collections",
+      "componentName": "chart",
+      "serviceUrl": "widgets/top5Collections",
+      "id": "top5Collections"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 0,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Transaction (Checker)",
+      "componentName": "chart",
+      "serviceUrl": "widgets/transactionChecker",
+      "id": "transactionChecker"
+    },
+    {
+      "cols": 8,
+      "rows": 12,
+      "y": 12,
+      "x": 0,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "VAM Pending Authorization",
+      "componentName": "chart",
+      "serviceUrl": "widgets/vamPendingAuthorization",
+      "id": "vamPendingAuthorization"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 8,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Cheque Return Details",
+      "componentName": "table",
+      "serviceUrl": "widgets/invoiceOverdueTracker",
+      "id": "invoiceOverdueTracker"
+    },
+    {
+      "cols": 8,
+      "rows": 8,
+      "y": 8,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Finance Repayment Dealer",
+      "componentName": "chart",
+      "serviceUrl": "widgets/financeRepaymentDealer",
+      "id": "financeRepaymentDealer"
+    },
+
+    {
+      "cols": 8,
+      "rows": 10,
+      "y": 16,
+      "x": 8,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Advertisement",
+      "serviceUrl": "widgets/reconcilationSummary",
+      "componentName": "advertisement",
+      "id": "advertisement"
+    },
+
+    {
+      "cols": 8,
+      "rows": 10,
+      "y": 16,
+      "x": 16,
+      "minItemCols": 8,
+      "minItemRows": 8,
+      "title": "Payment Method Wise",
+      "componentName": "chart",
+      "serviceUrl": "widgets/paymentMethodWise",
+      "id": "paymentMethodWise"
+    }
+  ]
+}

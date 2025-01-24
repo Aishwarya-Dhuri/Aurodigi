@@ -1,0 +1,15 @@
+{
+  "columnDefs": [
+    { "headerName": "Service Provider", "field": "serviceProvider" },
+    { "headerName": "Consumer Name", "field": "consumerName" },
+    { "headerName": "Bill Date", "field": "billDate" },
+    { "headerName": "Service Type", "field": "serviceType" },
+    { "headerName": "Account Number", "field": "accountNumber" },
+    { "headerName": "Transaction Id", "field": "transactionId" },
+    { "headerName": "Payment Amount", "field": "paymentAmount" },
+    { "headerName": "Channel", "field": "channel" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "fail Reason", "field": "failReason" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

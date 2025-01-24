@@ -1,0 +1,101 @@
+<div
+  [ngClass]="{
+    'select-control-rtl': direction === 'rtl',
+    'background-primary': backgroundStyle === 'primary'
+  }"
+>
+  <div
+    class="default-style"
+    [ngClass]="{
+      'bordered-style': style === 'style3' || style === 'style4',
+      'disable-floating-label': style === 'style2' || style === 'style4',
+      'no-label': !showLabel
+    }"
+  >
+    <div class="form-group">
+      <div class="input-group" [ngClass]="{ 'input-group-error': error }">
+        <div class="main-input-control">
+          <input class="" type="text" [(ngModel)]="value" />
+        </div>
+
+        <input
+          [id]="elementId"
+          [name]="name"
+          [class]="class"
+          [ngClass]="{
+            'select-control-with-icon': icon
+          }"
+          (blur)="touched()"
+          [(ngModel)]="showCount ? displayCount : displayName"
+          (click)="isDisabled ? null : onClickDropdown($event)"
+          (focus)="isDisabled ? null : toggleDropdown($event)"
+          (focusout)="hideDropdown($event)"
+          [disabled]="isDisabled"
+          [readOnly]="true"
+          type="text"
+        />
+
+        <label
+          class="input-label"
+          [for]="id + label"
+          (click)="isDisabled ? null : toggleDropdown($event)"
+          [ngClass]="{ 'input-label-floating': value, 'input-label-with-icon-container': icon }"
+          *ngIf="showLabel"
+        >
+          <span class="label">
+            {{ label | apsTranslate }}<span class="required" *ngIf="required">*</span>
+          </span>
+        </label>
+
+        <div class="icon" *ngIf="icon" (click)="isDisabled ? null : toggleDropdown($event)">
+          <app-icon icon="{{ icon }}" class="app-icon"></app-icon>
+        </div>
+
+        <div class="actions-wrapper">
+          <div class="action" (click)="isDisabled ? null : toggleDropdown($event)">
+            <app-icon icon="fa-chevron-down" [class]="colorClass + ' app-icon'"></app-icon>
+          </div>
+          <div class="action" *ngIf="showDelete" (click)="onDelete()">
+            <app-icon icon="fa-trash-alt" class="app-icon"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <span *ngIf="helpText && !error" class="input-help-text">{{ helpText }}</span>
+      <span *ngIf="error" class="input-error">This field is required</span>
+    </div>
+
+    <!-- <ul class="aps-card options" *ngIf="showOptions">
+      <li class="option" *ngFor="let d of data" (click)="onOptionSelect(d.id)">
+        {{ d.displayName }}
+      </li>
+    </ul> -->
+  </div>
+</div>
+
+<div class="multi-select-container">
+  <div class="multi-select">
+    <p-multiSelect
+      #multiSelect
+      id="multiSelect"
+      [(options)]="data"
+      [(ngModel)]="multiSelectData"
+      (onChange)="onOptionSelect($event.value)"
+      selectedItemsLabel=""
+      optionLabel="displayName"
+      optionValue="id"
+      appendTo="body"
+      [tabindex]="-1"
+      [disabled]="isDisabled"
+      [readonly]="readonly"
+      [filter]="filter"
+      [showHeader]="showHeader"
+      [showToggleAll]="showToggleAll"
+      styleClass="text-size-14"
+    >
+      <ng-template pTemplate="header" *ngIf="headerTemplate">
+        <ng-container [ngTemplateOutlet]="headerTemplate"></ng-container>
+      </ng-template>
+    </p-multiSelect>
+  </div>
+</div>

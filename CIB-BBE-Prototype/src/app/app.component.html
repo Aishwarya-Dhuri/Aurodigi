@@ -1,0 +1,12 @@
+<link [href]="fontFileUrl" rel="stylesheet" />
+<div
+  class="layout"
+  [ngClass]="{
+    'layout-rtl': direction === 'rtl',
+    tablet: viewport === 'tablet',
+    mobile: viewport === 'mobile'
+  }"
+>
+  <app-accessibility></app-accessibility>
+  <router-outlet></router-outlet>
+</div>

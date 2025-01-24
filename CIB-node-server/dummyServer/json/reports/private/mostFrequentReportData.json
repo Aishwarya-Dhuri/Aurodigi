@@ -1,0 +1,74 @@
+[
+  {
+    "id": 105,
+    "reportName": "Role Report",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 2,
+    "reportName": "Accept Inventory from Bank",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 3,
+    "reportName": "SI and Future Dated Transactions",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 4,
+    "reportName": "Standard Instructions",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 5,
+    "reportName": "Cheque Reprinting Authorization",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 6,
+    "reportName": "Corporate User Report",
+    "productName": "payments",
+    "category": "audit",
+    "generatedDate": "6 SEP 2020",
+    "fromDate": "25 SEP 2021",
+    "toDate": "30 SEP 2021"
+  },
+  {
+    "id": 7,
+    "reportName": "Account wise User Access Report",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  },
+  {
+    "id": 8,
+    "reportName": "MT Registration Report 2",
+    "productName": "FSCM",
+    "category": "Generic",
+    "generatedDate": "5 SEP 2020",
+    "fromDate": "20 SEP 2021",
+    "toDate": "25 SEP 2021"
+  }
+]

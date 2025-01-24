@@ -1,0 +1,32 @@
+ [
+  {
+    "headerName": "Credit Card Number",
+    "field": "creditCardNumber",
+    "cellRenderer": "renderAccountNumber"
+  },
+  { "headerName": "Embossed Name", "field": "embossedName" },
+  { "headerName": "Card Type", "field": "cardType" },
+  { "headerName": "Due Date", "field": "dueDate" },
+  { "headerName": "Currency", "field": "currency" },
+  {
+    "headerName": "Credit Card Limit",
+    "field": "creditCardLimit",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Total Amount Due",
+    "field": "totalAmountDue",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Total Outstanding Amount",
+    "field": "totalOutstandingAmount",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

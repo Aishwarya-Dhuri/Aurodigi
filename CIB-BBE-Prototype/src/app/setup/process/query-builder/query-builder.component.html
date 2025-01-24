@@ -1,0 +1,290 @@
+<div class="container">
+    <!-- <div class="p-px-1 p-py-3 text-size-16 text-bold">
+        {{ 'Profile Details' | apsTranslate }}
+    </div> -->
+    <form name="corporateProfileForm" #bankProfileForm="ngForm">
+        <div *ngIf="stepperDetails.currentStep == 1">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Select Module' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14"> User Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="userType" value="Bank" label="Bank"
+                                    [(ngModel)]="formData.userType">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="userType" value="Corporate" label="Corporate"
+                                    [(ngModel)]="formData.userType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="alphaNumeric" id="queryName" name="queryName"
+                                [label]="'Query Name' | apsTranslate" [(ngModel)]="formData.queryName" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="moduleId" id="moduleId"
+                                [(ngModel)]="formData.moduleId"
+                                dataUrl="setup/process/queryBuilder/private/dropdown/moduleId"
+                                (change)="onModuleChange(formData.moduleId)" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Sub Module' | apsTranslate" name="subModule" id="subModule"
+                                [(ngModel)]="formData.subModule" [data]="subProductArray"
+                                (change)="onCategoryChange(formData.subModule)" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-4 p-col-12 p-md-4 p-sm-12">
+                            <div class="text-size-14">{{ 'Output Format' | apsTranslate }}</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="outputFormat" value="XLS" label="XLS"
+                                    [(ngModel)]="formData.outputFormat" [required]="true">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="outputFormat" value="HTML Format"
+                                    label="HTML Format" [(ngModel)]="formData.outputFormat" [required]="true">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="outputFormat" value="PDF" label="PDF"
+                                    [(ngModel)]="formData.outputFormat" [required]="true">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="outputFormat" value="TEXT" label="TEXT"
+                                    [(ngModel)]="formData.outputFormat" [required]="true">
+                                </p-radioButton>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2">{{ 'Query Field' | apsTranslate }}</div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                            <div class="text-size-14 text-semi-bold text-center">Query Field</div>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2 p-sm-12"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                            <div class="text-size-14 text-semi-bold text-center">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-3 p-pb-3 p-pt-0">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12 border p-p-0 aps-h-250 ">
+                            <div class="text-size-14 text-semi-bold p-py-2 p-px-3 border-bottom hover-background-color-primary-light-shade-2 pointer"
+                                *ngFor="let item of moduleList;let i = index" (click)="onAssignClick(i)">
+                                <span>{{i + 1}}) </span><span>{{item.displayName}}</span>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2 p-sm-12 text-center vertical-center">
+                            <app-icon styleClasses="text-size-42" icon="fa-arrows-alt-h"></app-icon>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12 border p-p-0 aps-h-250">
+                            <ng-container *ngIf="formData.moduleMapping.length > 0">
+                                <div class="text-size-14 text-semi-bold p-py-2 p-px-3 border-bottom hover-background-color-primary-light-shade-2 pointer"
+                                    *ngFor="let item of formData.moduleMapping;let i = index"
+                                    (click)="onRemoveClick(i)">
+                                    <span>{{i + 1}}) </span><span>{{item.displayName}}</span>
+                                </div>
+                            </ng-container>
+                            <app-nothing-here colSize="11" *ngIf="formData.moduleMapping.length == 0">
+                            </app-nothing-here>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3 p-px-2">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Criteria Field' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-custom-select [label]="'Field' | apsTranslate" name="fieldSelect" id="fieldSelect"
+                                [(ngModel)]="transactionFormData.fieldSelect" [value]="transactionFormData.fieldSelect"
+                                dataUrl="setup/process/queryBuilder/private/dropdown/fieldList" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-custom-select [label]="'Operator' | apsTranslate" name="operator" id="operator"
+                                [(ngModel)]="transactionFormData.operator" [value]="transactionFormData.operator"
+                                dataUrl="setup/process/queryBuilder/private/dropdown/operator" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-form-input inputType="alphaNumeric" id="queryName" name="queryName"
+                                [label]="'Value' | apsTranslate" [(ngModel)]="transactionFormData.fieldValue"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Condition</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="userType" value="AND" label="AND"
+                                    [(ngModel)]="transactionFormData.condition">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="userType" value="OR" label="OR"
+                                    [(ngModel)]="transactionFormData.condition">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                        <!-- <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Authorization Rule' | apsTranslate" name="authorizationRule"
+                                id="authorizationRule" [(ngModel)]="transactionFormData.authorizationRule"
+                                [value]="transactionFormData.authorizationRule"
+                                dataUrl="setup/security/corporateOnboarding/private/dropdown/authorizationRule"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div> -->
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <button class="btn btn-md btn-primary p-mt-2"
+                                (click)="editIndex > -1 ? onUpdateTransaction() : onAddTransactionClick()">
+                                {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12 p-md-12 p-sm-12">
+                            <app-ag-grid-listing #currencySellInit id="currencySellInit"
+                                [gridOptions]="currencySellGridOptions" [rowData]="formData.transaction"
+                                (gridReady)="onCurrencySellInitGridReady($event)" [supressAutoFit]="true"
+                                colDefUrl="setup/process/queryBuilder/private/userDetailsColDefs">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2">{{ 'Order By' | apsTranslate }}</div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                            <div class="text-size-14 text-semi-bold text-center">Query Field</div>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2 p-sm-12"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                            <div class="text-size-14 text-semi-bold text-center">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-3 p-pb-3 p-pt-0">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12 border p-p-0 aps-h-250 ">
+                            <div class="text-size-14 text-semi-bold p-py-2 p-px-3 border-bottom hover-background-color-primary-light-shade-2 pointer"
+                                *ngFor="let item of orderByQueryField;let i = index" (click)="onAssignOrderByClick(i)">
+                                <span>{{i + 1}}) </span><span>{{item.displayName}}</span>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2 p-sm-12 text-center vertical-center">
+                            <app-icon styleClasses="text-size-42" icon="fa-arrows-alt-h"></app-icon>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-sm-12 border p-p-0 aps-h-250">
+                            <ng-container *ngIf="formData.orderByQueryFieldAssign.length > 0">
+                                <div class="text-size-14 text-semi-bold p-py-2 p-px-3 border-bottom hover-background-color-primary-light-shade-2 pointer"
+                                    *ngFor="let item of formData.orderByQueryFieldAssign;let i = index"
+                                    (click)="onRemoveOrderByClick(i)">
+                                    <span>{{i + 1}}) </span><span>{{item.displayName}}</span>
+                                </div>
+                            </ng-container>
+                            <app-nothing-here colSize="11" *ngIf="formData.orderByQueryFieldAssign.length == 0">
+                            </app-nothing-here>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Alert Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Alert Code" [value]="formData.alertCode">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Alert Name" [value]="formData.alertName">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Module" [value]="formData.moduleId">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Category" [value]="formData.categoryId">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Event" [value]="formData.eventId">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <div class="text-size-14"> Channel</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-3" name="channelEmail" binary="true" label="Email"
+                                    [(ngModel)]="formData.channelEmail" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="channelSMS" binary="true" label="SMS"
+                                    [(ngModel)]="formData.channelSMS" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="channelOnline" binary="true" label="Online"
+                                    [(ngModel)]="formData.channelOnline" [disabled]="true">
+                                </p-checkbox>
+                            </div>
+
+                        </div>
+                        <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+                            <div class="text-size-14"> Send Alerts to</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-3" name="alertBank" binary="true" label="Bank"
+                                    [(ngModel)]="formData.alertBank" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="alertCorporate" binary="true" label="Corporate"
+                                    [(ngModel)]="formData.alertCorporate" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="alertcorporateClient" binary="true"
+                                    label="Corporate Client" [(ngModel)]="formData.alertcorporateClient"
+                                    [disabled]="true">
+                                </p-checkbox>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Alert Text Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

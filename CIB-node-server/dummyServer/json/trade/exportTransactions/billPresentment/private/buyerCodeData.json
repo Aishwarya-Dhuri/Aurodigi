@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "buyerCode": "Bene220000665",
+      "buyerName": "AB Corp",
+      "buyerAccountNo": "111002670010"
+    },
+    {
+      "id": 2883623,
+      "buyerCode": "Bene220000666",
+      "buyerName": "HPCC",
+      "buyerAccountNo": "111002670011"
+    },
+    {
+      "id": 2883623,
+      "buyerCode": "Bene220000665",
+      "buyerName": "RA Group",
+      "buyerAccountNo": "111002670013"
+    },
+    {
+      "id": 2883623,
+      "buyerCode": "Bene220000666",
+      "buyerName": "AB Corp",
+      "buyerAccountNo": "111002670014"
+    },
+    {
+      "id": 2883623,
+      "buyerCode": "Bene220000665",
+      "buyerName": "RA Group",
+      "buyerAccountNo": "111002670015"
+    },
+    {
+      "id": 2883623,
+      "buyerCode": "Bene220000666",
+      "buyerName": "RA Group",
+      "buyerAccountNo": "111002670016"
+    }
+  ]
+}

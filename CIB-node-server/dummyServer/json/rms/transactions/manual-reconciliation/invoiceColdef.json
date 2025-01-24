@@ -1,0 +1,37 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Invoice ID",
+      "field": "id",
+      "checkboxSelection": true,
+      "sortable": false
+    },
+    {
+      "headerName": "Invoice Amt",
+      "field": "invoiceAmount",
+      "cellRenderer": "currencyRenderer",
+      "sortable": false
+    },
+    {
+      "headerName": "Outstanding Amt",
+      "field": "outstandingAmount",
+      "cellRenderer": "currencyRenderer",
+      "sortable": false
+    },
+    {
+      "headerName": "Balance",
+      "field": "balance",
+      "cellRenderer": "editCurrencyRenderer",
+      "sortable": false
+    },
+    { "headerName": "Invoice Date", "field": "invoiceDate", "sortable": false },
+    { "headerName": "Due Date", "field": "dueDate", "sortable": false },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer",
+      "pinned": "right",
+      "sortable": false
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+.accordion-tree-container {
+  width: 100%;
+
+  .accordion-tree-wrapper {
+    height: 3rem;
+    padding: 16px;
+    border-bottom: 1px solid var(--background-color);
+    white-space: nowrap;
+    color: var(--text-color-dark-shade-1);
+
+    .left-container {
+      width: calc(100% - 48px);
+
+      .tree-node-checkbox-container {
+        display: inline-block;
+        vertical-align: top;
+
+        .tree-node-checkbox {
+          display: block;
+          width: 18px;
+          height: 18px;
+          border-radius: 2px;
+          border: 1px solid var(--background-color-dark-2);
+          cursor: pointer;
+        }
+
+        .tree-node-checkbox-check {
+          background-color: var(--primary-color);
+          border-color: var(--primary-color);
+          text-align: center;
+
+          .app-icon,
+          i {
+            display: block;
+            margin-top: 1px;
+            font-size: 0.75rem;
+            color: var(--inverted-text-color);
+          }
+        }
+      }
+
+      .tree-label {
+        display: inline-block;
+        width: calc(100% - 40px);
+        vertical-align: top;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.875rem;
+        margin: 0 24px;
+        font-family: 'CIB SemiBold';
+      }
+    }
+
+    .right-container {
+      .data {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 0.875rem;
+        margin: 0 8px;
+        font-family: 'CIB SemiBold';
+      }
+
+      .icon {
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+
+        i {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  .accordion-tree-wrapper-partial-selected {
+    background-color: var(--background-color-light-2);
+  }
+
+  .accordion-tree-wrapper-selected {
+    background-color: var(--primary-color-light-shade-1);
+    color: var(--primary-color);
+  }
+
+  .sub-tree-nodes {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .sub-tree-nodes-expanded {
+    height: max-content;
+  }
+}
+
+.label-with-icon-container .label,
+.info-card .label {
+  font-size: 0.875rem !important;
+  font-family: 'CIB SemiBold' !important;
+}

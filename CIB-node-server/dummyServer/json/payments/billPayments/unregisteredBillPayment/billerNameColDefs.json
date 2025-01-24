@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Biller Code",
+      "field": "billerCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Biller Name",
+      "field": "billerName"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="p-px-1 p-py-3 text-size-16 text-bold">
+    {{ 'Profile Details' | apsTranslate }}
+  </div>
+  <form name="corporateProfileForm" #bankProfileForm="ngForm">
+    <div class="aps-card aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == 1">
+      <div class="aps-card-body">
+        <div class="p-grid">
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Profile Code' | apsTranslate" name="profileCode"
+              id="profileCode" [(ngModel)]="formData.profileCode" required="true">
+            </aps-form-input>
+          </div>
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <aps-form-input inputType="normal" id="profileName" name="ProfileName"
+              [label]="'Profile Name' | apsTranslate" [(ngModel)]="formData.profileName" required="true">
+            </aps-form-input>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom" name="effectiveFrom"
+              [showIcon]="true" [(ngModel)]="formData.effectiveFrom" required="true">
+            </app-aps-calender>
+          </div>
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill" name="effectiveTill"
+              [showIcon]="true" [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aps-card aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+      <div class="aps-card-body">
+        <div class="p-grid">
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <div class="p-p-2">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ 'Profile Code' | apsTranslate }}
+              </div>
+              <div class="text-size-14">{{ formData.profileCode }}</div>
+            </div>
+          </div>
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <div class="p-p-2">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ 'Profile Name' | apsTranslate }}
+              </div>
+              <div class="text-size-14">{{ formData.profileName }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <div class="p-p-2">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ 'Effective From' | apsTranslate }}
+              </div>
+              <div class="text-size-14">{{ formData.effectiveFrom }}</div>
+            </div>
+          </div>
+          <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+            <div class="p-p-2">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ 'Effective Till' | apsTranslate }}
+              </div>
+              <div class="text-size-14">{{ formData.effectiveTill }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- Form Actions -->
+  <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

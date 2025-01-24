@@ -1,0 +1,17 @@
+:host ::ng-deep {
+  .confirmation-model .p-dialog-content {
+    background-color: #fff;
+    flex-wrap: wrap;
+    .p-confirm-dialog-icon {
+      font-size: 5.5rem;
+      width: 100%;
+      text-align: center;
+    }
+    .p-confirm-dialog-message {
+      width: 100%;
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+  }
+}

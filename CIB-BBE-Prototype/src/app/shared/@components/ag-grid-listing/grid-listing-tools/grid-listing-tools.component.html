@@ -1,0 +1,109 @@
+<app-backdrop
+  [background]="'rgba(0, 0, 0, 0)'"
+  [zIndex]="5"
+  (close)="
+    columnConfiguration
+      ? (columnConfiguration = false)
+      : showMoreOptions
+      ? (showMoreOptions = false)
+      : (downloadOptions = false)
+  "
+  *ngIf="downloadOptions || showMoreOptions || columnConfiguration"
+></app-backdrop>
+
+<div class="ag-grid-listing-tools">
+  <div
+    class="aps-search-container-1"
+    [ngClass]="{ 'search-container-mobile': viewport !== 'web' }"
+    *ngIf="showSearch"
+  >
+    <input
+      type="text"
+      [(ngModel)]="filterValue"
+      class="input-search"
+      (input)="onFilterRecords()"
+      placeholder="Enter keyword to search"
+    />
+    <div class="icon">
+      <!-- <i class="pi pi-search"></i> -->
+      <app-icon icon="fa-search" class="app-icon"></app-icon>
+    </div>
+  </div>
+
+  <div class="icon-container" (click)="onRefresh()" *ngIf="showRefresh">
+    <!-- <i class="pi pi-refresh"></i> -->
+    <app-icon icon="fa-refresh" class="app-icon"></app-icon>
+  </div>
+
+  <div class="icon-container" (click)="onRefresh()" *ngIf="showPrint">
+    <!-- <i class="pi pi-print"></i> -->
+    <app-icon icon="fa-print" class="app-icon"></app-icon>
+  </div>
+
+  <div
+    class="icon-container"
+    (click)="onChangeFloatFilter(!floatingFilter)"
+    *ngIf="showFloatingFilter"
+  >
+    <!-- <i class="pi pi-search-plus"></i> -->
+    <app-icon icon="fa-search-plus" class="app-icon"></app-icon>
+  </div>
+
+  <ng-container *ngIf="label">
+    <div class="divider-v"></div>
+
+    <div class="label pointer" (click)="downloadFile()">{{ label }}</div>
+  </ng-container>
+
+  <div class="divider-v" *ngIf="columnConfig || showMail || downloadOptions || moreOptions"></div>
+
+  <div class="icon-container" (click)="columnConfiguration = true" *ngIf="columnConfig">
+    <!-- <i class="pi pi-sliders-v"></i> -->
+    <app-icon icon="fa-sliders-v" class="app-icon"></app-icon>
+
+    <div class="column-configuration-container" *ngIf="columnConfiguration">
+      <app-column-configuration
+        class="fade-in-animation"
+        [columnDefs]="colDefs"
+        (applyColDefs)="applyColDefs.emit($event)"
+      ></app-column-configuration>
+    </div>
+  </div>
+  <div class="icon-container" *ngIf="showMail">
+    <!-- <i class="pi pi-envelope"></i> -->
+    <app-icon icon="fa-envelope" class="app-icon"></app-icon>
+  </div>
+  <div class="icon-container" (click)="downloadOptions = !downloadOptions" *ngIf="showDownload">
+    <!-- <i class="pi pi-download"></i> -->
+    <app-icon icon="fa-arrow-to-bottom" class="app-icon"></app-icon>
+
+    <div class="download-options-container" *ngIf="downloadOptions">
+      <app-download-options class="fade-in-animation"></app-download-options>
+    </div>
+  </div>
+  <div class="icon-container" (click)="showMoreOptions = !showMoreOptions" *ngIf="moreOptions">
+    <!-- <i class="pi pi-ellipsis-v"></i> -->
+    <app-icon icon="fa-ellipsis-v" class="app-icon"></app-icon>
+
+    <div class="download-options-container" *ngIf="showMoreOptions">
+      <app-listing-more-options class="fade-in-animation"></app-listing-more-options>
+    </div>
+  </div>
+
+  <div class="toggle-select-container" *ngIf="listingTypes">
+    <div
+      class="action pointer text-color-dark-shade-1"
+      (click)="onListTypeChange('grid')"
+      [ngClass]="{ active: listingType === 'grid' }"
+    >
+      <app-icon icon="fa-list" class="app-icon"></app-icon>
+    </div>
+    <div
+      class="action pointer text-color-dark-shade-1"
+      (click)="onListTypeChange('card')"
+      [ngClass]="{ active: listingType === 'card' }"
+    >
+      <app-icon icon="fa-th-large" class="app-icon"></app-icon>
+    </div>
+  </div>
+</div>

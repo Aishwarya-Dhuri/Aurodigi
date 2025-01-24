@@ -1,0 +1,20 @@
+[
+  {
+    "headerName": "Corporate Client Id",
+    "field": "id",
+    "checkboxSelection": true,
+    "sortable": false
+  },
+  {
+    "headerName": "Corporate Client Code",
+    "field": "corporateClientCode",
+    "checkboxSelection": false,
+    "sortable": false
+  },
+  {
+    "headerName": "Corporate Client Name",
+    "field": "corporateClientName",
+    "checkboxSelection": false,
+    "sortable": false
+  }
+]

@@ -1,0 +1,63 @@
+<app-backdrop
+  [background]="'rgba(0, 0, 0, 0.5)'"
+  [zIndex]="5"
+  (close)="closeMenus()"
+  *ngIf="fullScreenMenu"
+>
+</app-backdrop>
+
+<div class="top-menu-container background-color-light-4 aps-w-100p border-top">
+  <div
+    class="fullscreen-menu p-shadow-2"
+    (mouseleave)="closeMenus()"
+    [ngClass]="{
+      'fullscreen-menu-expand': fullScreenMenu && fullScreenMenus.length > 0
+    }"
+    *ngIf="fullScreenMenu && fullScreenMenus.length > 0"
+  >
+    <app-fullscreen-menus
+      [showHeader]="true"
+      [parentMenu]="activeMenu"
+      [menus]="fullScreenMenus"
+      class="fade-in-animation"
+      (closeFullScreen)="closeMenus()"
+    ></app-fullscreen-menus>
+  </div>
+
+  <div class="menus">
+    <div class="menu-wrapper" *ngFor="let menu of menus; let i = index">
+      <div
+        class="menu"
+        [ngClass]="{ active: menu.moduleName === activeMenu }"
+        (click)="
+          menu.menus.length > 0
+            ? !menu.isShortMenu
+              ? openFullscreen(menu.moduleName, menu.menus)
+              : toggleShortMenu(menu.moduleName)
+            : ''
+        "
+      >
+        <div class="icon">
+          <app-icon icon="{{ menu.icon }}" class="app-icon"></app-icon>
+        </div>
+        <div class="text">{{ menu.moduleName }}</div>
+        <div class="lock" *ngIf="menu.isLock">
+          <app-icon icon="fa-lock" class="app-icon"></app-icon>
+        </div>
+
+        <div
+          class="short-menu p-shadow-2"
+          [ngClass]="{
+            'short-menu-expand':
+              shortMenu && activeMenu === menu.moduleName && menu.menus.length > 0
+          }"
+          (click)="closeMenus()"
+          (mouseleave)="closeMenus()"
+          *ngIf="menu.isShortMenu"
+        >
+          <app-short-menus [menus]="menu.menus" class="fade-in-animation"></app-short-menus>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

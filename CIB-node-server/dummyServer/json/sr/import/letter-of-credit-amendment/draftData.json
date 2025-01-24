@@ -1,0 +1,146 @@
+[
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "lcNumber": "12587465",
+    "lcAmount": "100000",
+    "applicantName": "Richard",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "initiate",
+        "type": "BUTTON",
+        "displayName": "Initiate",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  }
+]

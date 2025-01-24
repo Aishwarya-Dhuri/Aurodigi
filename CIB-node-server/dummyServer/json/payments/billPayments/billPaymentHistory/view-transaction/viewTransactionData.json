@@ -1,0 +1,26 @@
+[
+  {
+    "serviceProvider": "serviceProvider",
+    "consumerName": "consumerName",
+    "billDate": "21 Jul 2021",
+    "serviceType": "serviceType",
+    "accountNumber": "accountNumber",
+    "transactionId": "transactionId",
+    "billAmount": "10000",
+    "paymentAmount": "1000",
+    "channel": "channel",
+    "status": "Approved",
+    "failReason": "failReason",
+    "actions": [
+      {
+        "index": 1,
+        "onClick": "print",
+        "type": "ICON",
+        "displayName": "Print",
+        "icon": "fa-print",
+        "methodName": "onPrint",
+        "parameterList": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "data": [
+    {
+      "id": 1493729,
+      "initiateType": "BENEFICIARYWISE",
+      "channel": "H2H",
+      "debitAccountNo": "1721235315262394",
+      "paymentMethod": "IFT",
+      "payableAmount": "12456711.00",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Mokshada Yash Kelkar",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493728,
+      "initiateType": "PAYMENTMETHODWISE",
+      "channel": "H2H",
+      "debitAccountNo": "1721235315262394",
+      "paymentMethod": "Corporate Cheque",
+      "payableAmount": "786786.01",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Sujeet Kumar Chaturvedi",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493727,
+      "initiateType": "BENEFICIARYWISE",
+      "channel": "H2H",
+      "debitAccountNo": "1721235315262394",
+      "paymentMethod": "UAEFTS",
+      "payableAmount": "5555.00",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Neeta Rohidas Sarode",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493726,
+      "initiateType": "BENEFICIARYWISE",
+      "channel": "H2H",
+      "debitAccountNo": "1721235315262393",
+      "paymentMethod": "Outward Telegraphic Transfer",
+      "payableAmount": "10.10",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Amol Tulshidas More",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493751,
+      "initiateType": "BENEFICIARYWISE",
+      "channel": "H2H",
+      "debitAccountNo": "1721235315262396",
+      "paymentMethod": "UAEFTS",
+      "payableAmount": "50005.05",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Shubham More",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 5
+}

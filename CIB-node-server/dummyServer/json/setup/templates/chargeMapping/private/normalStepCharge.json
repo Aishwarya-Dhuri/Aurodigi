@@ -1,0 +1,28 @@
+{
+  "clusterDetails": [
+    {
+      "templateCode": "REPORTMAPPINGCHARGE",
+      "productName": "-",
+      "event": "Report Mapping Charges",
+      "currency": "THB",
+      "calFrequency": "EOD",
+      "postingFrequency": "EOD"
+    },
+    {
+      "templateCode": "SUBSCRIPTIONCHARGE",
+      "productName": "-",
+      "event": "Subscription Charges",
+      "currency": "THB",
+      "calFrequency": "Onetime",
+      "postingFrequency": "Onetime"
+    },
+    {
+      "templateCode": "ADMINISTRATIONCHARGE",
+      "productName": "-",
+      "event": "Administration Charges",
+      "currency": "THB",
+      "calFrequency": "Monthly",
+      "postingFrequency": "Yearly"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "Account-Servie-chequeStatusEnquiry",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "billerName",
+      "displayName": "Biller Name",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "account-services/services/cheque-status-enquiry/private/getBiller",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "accountNo",
+      "displayName": "Account No",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "account-services/services/cheque-status-enquiry/private/getAccountNo",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "consumerNo",
+      "displayName": "Consumer No",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

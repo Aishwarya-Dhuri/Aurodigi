@@ -1,0 +1,93 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "loginDetails": {
+    "advertisementDetailsList": [
+      {
+        "default1image": "Homepage1.jpg",
+        "default1SystemImageName": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Login/Advertisement/Sys_08Oct2020_1602136337492_Homepage1.jpg&serviceName=cms",
+        "default1clicked": false,
+        "default1url": null,
+        "image1": "",
+        "systemImage1": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Login/Advertisement/&serviceName=cms",
+        "image1clicked": false,
+        "imageurl": null,
+        "image1effectivefrom": "",
+        "imageeffectivetill": "",
+        "actualImage": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Login/Advertisement/Sys_08Oct2020_1602136337492_Homepage1.jpg&serviceName=cms",
+        "actualClicked": false,
+        "actualUrl": null
+      }
+    ],
+    "linksDetailsList": [
+      {
+        "displayName": "Testing",
+        "linkType": "LINK",
+        "link": "http://172.16.0.228:8090/bankCashProGUI/#!/dashboardsetup",
+        "uploadFileName": null,
+        "systemUploadFileName": null
+      },
+      {
+        "displayName": "Support",
+        "linkType": "LINK",
+        "link": "https://www.adcb.com/en/personal/",
+        "uploadFileName": null,
+        "systemUploadFileName": null
+      },
+      {
+        "displayName": "User Credentials",
+        "linkType": "LINK",
+        "link": "https://www.adcb.com/en/personal/",
+        "uploadFileName": null,
+        "systemUploadFileName": null
+      }
+    ]
+  },
+  "logoutDetails": {
+    "advertisementDetailsList": [
+      {
+        "default1image": "Logout page.jpg",
+        "default1SystemImageName": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Logout/Advertisement/Sys_24Sep2020_1600949473572_Logout_page.jpg&serviceName=cms",
+        "default1clicked": false,
+        "default1url": null,
+        "image1": "",
+        "systemImage1": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Logout/Advertisement/&serviceName=cms",
+        "image1clicked": false,
+        "imageurl": null,
+        "image1effectivefrom": "",
+        "imageeffectivetill": "",
+        "actualImage": "http://172.16.0.163:7090/cashProServiceAPI/imgServlet?imgName=Logout/Advertisement/Sys_24Sep2020_1600949473572_Logout_page.jpg&serviceName=cms",
+        "actualClicked": false,
+        "actualUrl": null
+      }
+    ],
+    "supportingtext": "Logout Enquiry24x7 Customer Support Helpline: 1928736 24x7 Toll-free Number: Email ID: bank@bankname.com",
+    "feeback": "For any enquiries please get in touch using our Bank Customer Care helpdesk, through any of the following contact details24x7 Customer Support Helpline: 1928736 24x7 Toll-free Number: Email ID: bank@bankname.com",
+    "connectMap": [
+      {
+        "displayname": "Youtube",
+        "link": "https://www.youtube.com",
+        "linkIcon": "btns-icon fa-youtube-square pull-right"
+      },
+      {
+        "displayname": "Linkedin",
+        "link": "https://www.linkedin.com",
+        "linkIcon": "btns-icon fa-linkedin-square pull-right"
+      },
+      {
+        "displayname": "Facebook",
+        "link": "https://www.facebook.com",
+        "linkIcon": "btns-icon icon-facebook pull-right"
+      },
+      {
+        "displayname": "Twitter",
+        "link": "https://www.twitter.com",
+        "linkIcon": "btns-icon icon-twitter pull-right"
+      },
+      { "displayname": "Instragram", "link": "", "linkIcon": "btns-icon icon-instagram pull-right" }
+    ]
+  },
+  "landingDetails": { "advertisementDetailsList": null },
+  "previousJsonValue": { "advertisementDetailsList": null },
+  "loggable": false,
+  "entityIdentifier": ""
+}

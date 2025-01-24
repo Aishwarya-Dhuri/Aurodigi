@@ -1,0 +1,13 @@
+[
+  { "headerName": "Event", "field": "event" },
+  { "headerName": "Channel", "field": "channel" },
+  { "headerName": "Transaction Type", "field": "transactionType" },
+  {
+    "headerName": "Transaction Amount",
+    "field": "transactionAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Modified By", "field": "modifiedBy" },
+  { "headerName": "Modification Date", "field": "modifiedOn", "cellRenderer": "dateRenderer" },
+  { "headerName": "Status", "field": "status" }
+]

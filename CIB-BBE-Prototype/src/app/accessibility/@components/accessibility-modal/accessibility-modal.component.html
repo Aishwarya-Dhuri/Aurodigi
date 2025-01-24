@@ -1,0 +1,795 @@
+<div class="text-right">
+  <app-icon icon="fa-times text-size-16 pointer" (click)="cancel()"></app-icon>
+</div>
+<div class="text-size-18 text-bold text-center p-p-2">Accessiblity Adjustments</div>
+<div class="p-grid g-margin-x">
+  <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+    <div
+      class="aps-card background-color-dark-5 border-radius-6 primary-border-1px-on-hover text-color-primary-hover pointer p-p-2"
+      (click)="resetSetting()"
+    >
+      <div class="inline-items text-center">
+        <div class="item p-pr-2">
+          <app-icon icon="fa-sync"></app-icon>
+        </div>
+        <div class="item">
+          <div class="text-size-14 text-semi-bold">Rest Setting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+    <div
+      class="aps-card background-color-dark-5 border-radius-6 primary-border-1px-on-hover text-color-primary-hover pointer p-p-2"
+      (click)="hideInteface()"
+    >
+      <div class="inline-items text-center">
+        <div class="item p-pr-2">
+          <app-icon icon="fa-eye-slash"></app-icon>
+        </div>
+        <div class="item">
+          <div class="text-size-14 text-semi-bold">Hide Interface</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="p-grid aps-h-340 overflow-y-scroll g-margin-x"
+  [ngClass]="{ 'aps-w-500': viewport == 'web' }"
+>
+  <div class="p-col-12">
+    <div class="border p-p-2">
+      <div class="text-size-16 text-semi-bold p-p-2">
+        Choose the right accessibility profile for you
+      </div>
+      <div
+        class="aps-card p-p-3 p-mb-2 p-mx-2 border-radius-6"
+        [ngClass]="{
+          'primary-border-1px-on-hover-active': accessibilityConfig.isDyslexiaFriendly,
+          'background-color-dark-5 primary-border-1px-on-hover':
+            !accessibilityConfig.isDyslexiaFriendly
+        }"
+      >
+        <div class="inline-items left-right-container">
+          <div class="item left-container">
+            <div class="text-size-14 text-semi-bold">Dyslexia Friendly</div>
+            <div class="text-size-12">As letters can appear less crowded</div>
+          </div>
+          <div class="item right-container p-py-2">
+            <p-inputSwitch
+              id="dyxlexiaFriendly"
+              name="dyxlexiaFriendly"
+              [(ngModel)]="accessibilityConfig.isDyslexiaFriendly"
+              (onChange)="toggleDyxlexiaFriendly()"
+            >
+            </p-inputSwitch>
+          </div>
+        </div>
+        <div class="inline-items text-center" *ngIf="accessibilityConfig.isDyslexiaFriendly">
+          <div class="item">
+            <app-icon
+              icon="fa-chevron-circle-left"
+              class="text-size-20"
+              [ngClass]="{
+                'text-color-primary-hover pointer': accessibilityConfig.dyslexiaFriendly > 1
+              }"
+              (click)="changeDyslexiaFriendly(accessibilityConfig.dyslexiaFriendly - 1)"
+            >
+            </app-icon>
+          </div>
+          <div class="item">
+            <span class="text-size-12 p-px-3">
+              {{
+                accessibilityConfig.dyslexiaFriendly === 1
+                  ? 'Arial'
+                  : accessibilityConfig.dyslexiaFriendly === 2
+                  ? 'Calibri'
+                  : accessibilityConfig.dyslexiaFriendly === 3
+                  ? 'Verdana'
+                  : ''
+              }}</span
+            >
+          </div>
+          <div class="item">
+            <app-icon
+              icon="fa-chevron-circle-right"
+              class="text-size-20"
+              [ngClass]="{
+                'text-color-primary-hover pointer': accessibilityConfig.dyslexiaFriendly < 3
+              }"
+              (click)="changeDyslexiaFriendly(accessibilityConfig.dyslexiaFriendly + 1)"
+            >
+            </app-icon>
+          </div>
+        </div>
+        <!-- <div class="inline-items">
+                    <div class="item p-mr-2">
+                        <app-icon icon="fa-text-size" class="text-size-24"></app-icon>
+                    </div>
+                    <div class="item p-pt-1">
+                        <span class="text-size-14 text-semi-bold">Dyslexia Friendly</span>
+                    </div>
+                </div> -->
+      </div>
+      <div
+        class="p-p-3 p-mb-2 p-mx-2 border-radius-6"
+        [ngClass]="{
+          'primary-border-1px-on-hover-active': accessibilityConfig.isSeizerSafeProfile,
+          'background-color-dark-5 primary-border-1px-on-hover':
+            !accessibilityConfig.isSeizerSafeProfile
+        }"
+      >
+        <div class="inline-items left-right-container">
+          <div class="item left-container">
+            <div class="text-size-14 text-semi-bold">Seizer Safe Profile</div>
+            <div class="text-size-12">Eliminates flashes and reduces color</div>
+          </div>
+          <div class="item right-container p-py-2">
+            <p-inputSwitch
+              id="seizerSafeProfile"
+              name="seizerSafeProfile"
+              [(ngModel)]="accessibilityConfig.isSeizerSafeProfile"
+              (onChange)="toggleSeizerSafeProfile()"
+            >
+            </p-inputSwitch>
+          </div>
+        </div>
+        <div class="text-size-12" *ngIf="accessibilityConfig.isSeizerSafeProfile">
+          Seizures caused by light are known as photosensitive epilepsy. Content that flickers,
+          flashes, or blinks can trigger photosensitive epilepsy
+        </div>
+      </div>
+      <div
+        class="border-bottom p-p-3 p-mb-2 p-mx-2 border-radius-6"
+        [ngClass]="{
+          'primary-border-1px-on-hover-active': accessibilityConfig.isVisionImpairedProfile,
+          'background-color-dark-5 primary-border-1px-on-hover':
+            !accessibilityConfig.isVisionImpairedProfile
+        }"
+      >
+        <div class="inline-items left-right-container">
+          <div class="item left-container">
+            <div class="text-size-14 text-semi-bold">Vision Impaired Profile</div>
+            <div class="text-size-12">Enhance the website's visual</div>
+          </div>
+          <div class="item right-container p-py-2">
+            <p-inputSwitch
+              id="visionImpairedProfile"
+              name="visionImpairedProfile"
+              [(ngModel)]="accessibilityConfig.isVisionImpairedProfile"
+              (onChange)="toggleVisionImpairedProfile()"
+            >
+            </p-inputSwitch>
+          </div>
+        </div>
+        <div class="text-size-12" *ngIf="accessibilityConfig.isVisionImpairedProfile">
+          describes what people with low vision need for electronic content, tools, and technologies
+          to be accessible.
+        </div>
+      </div>
+      <div
+        class="border-bottom p-p-3 p-mb-2 p-mx-2 border-radius-6"
+        [ngClass]="{
+          'primary-border-1px-on-hover-active': accessibilityConfig.isCognitiveDisabilityProfile,
+          'background-color-dark-5 primary-border-1px-on-hover':
+            !accessibilityConfig.isCognitiveDisabilityProfile
+        }"
+      >
+        <div class="inline-items left-right-container">
+          <div class="item left-container">
+            <div class="text-size-14 text-semi-bold">Cognitive Disability Profile</div>
+            <div class="text-size-12">Assist with reading and focusing</div>
+          </div>
+          <div class="item right-container p-py-2">
+            <p-inputSwitch
+              id="cognitiveDisabilityProfile"
+              name="cognitiveDisabilityProfile"
+              [(ngModel)]="accessibilityConfig.isCognitiveDisabilityProfile"
+              (onChange)="toggleCognitiveDisabilityProfile()"
+            >
+            </p-inputSwitch>
+          </div>
+        </div>
+        <div class="text-size-12" *ngIf="accessibilityConfig.isCognitiveDisabilityProfile">
+          Intellectual disability is a term used when a person has certain limitations in mental
+          functioning and in skills such as communicating, taking care of themselves-, and social
+          skills.
+        </div>
+      </div>
+      <!-- <div class="inline-items left-right-container border-bottom p-p-3 p-mb-2 p-mx-2 border-radius-6" [ngClass]="{'primary-border-1px-on-hover-active':accessibilityConfig.isADHDFriendlyProfile,
+                'background-color-dark-5 primary-border-1px-on-hover': !accessibilityConfig.isADHDFriendlyProfile}">
+                <div class="item left-container">
+                    <div class="text-size-14 text-semi-bold">ADHD Friendly Profile</div>
+                    <div class=" text-size-12">More focus and fewer distractions</div>
+                </div>
+                <div class="item right-container p-py-2">
+                    <p-inputSwitch id="isADHDFriendlyProfile" name="isADHDFriendlyProfile"
+                        [(ngModel)]="accessibilityConfig.isADHDFriendlyProfile"
+                        (onChange)="toggleADHDFriendlyProfile()">
+                    </p-inputSwitch>
+                </div>
+            </div> -->
+    </div>
+  </div>
+  <div class="p-col-12">
+    <div class="border p-p-2">
+      <div class="text-size-16 text-semi-bold p-p-2">Content Adjustments</div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.contentScalingBy != 0,
+              'background-color-dark-5 primary-border-1px-on-hover':
+                accessibilityConfig.contentScalingBy == 0
+            }"
+          >
+            <div class="inline-items">
+              <div class="item p-mr-2">
+                <app-icon icon="fa-expand" class="text-size-24"></app-icon>
+              </div>
+              <div class="item p-pt-1">
+                <span class="text-size-14 text-semi-bold">Content Scaling</span>
+              </div>
+            </div>
+            <div class="inline-items">
+              <div class="item">
+                <app-icon
+                  icon="fa-plus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.contentScalingBy < 15
+                  }"
+                  (click)="changeContentScaling(accessibilityConfig.contentScalingBy + 5)"
+                >
+                </app-icon>
+              </div>
+              <div class="item">
+                <span class="text-size-12 p-px-3">
+                  {{
+                    accessibilityConfig.contentScalingBy == 0
+                      ? 'Default'
+                      : accessibilityConfig.contentScalingBy
+                  }}</span
+                >
+              </div>
+              <div class="item">
+                <app-icon
+                  icon="fa-minus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.contentScalingBy > -15
+                  }"
+                  (click)="changeContentScaling(accessibilityConfig.contentScalingBy - 5)"
+                >
+                </app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            (click)="toggleReadableFont()"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isReadableFont,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isReadableFont
+            }"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-text-size" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Readable Font</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            (click)="changeHighlightTitles()"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isHightlightTitles,
+              'background-color-dark-5 text-color-primary-hover':
+                !accessibilityConfig.isHightlightTitles
+            }"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-h-square" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Highlight Titles</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            (click)="changeHighlightLinks()"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isHightlightLinks,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isHightlightLinks
+            }"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-link" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Highlight Links</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.adjustFontSizeBy != 0,
+              'background-color-dark-5 primary-border-1px-on-hover':
+                accessibilityConfig.adjustFontSizeBy == 0
+            }"
+          >
+            <div class="inline-items">
+              <div class="item p-mr-2">
+                <app-icon icon="fa-font" class="text-size-24"></app-icon>
+              </div>
+              <div class="item p-pt-1">
+                <span class="text-size-14 text-semi-bold">Adjust Font Size</span>
+              </div>
+            </div>
+            <div class="inline-items">
+              <div class="item">
+                <app-icon
+                  icon="fa-plus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.adjustFontSizeBy < 3
+                  }"
+                  (click)="changeAdjustFontSizeBy(accessibilityConfig.adjustFontSizeBy + 1)"
+                >
+                </app-icon>
+              </div>
+              <div class="item">
+                <span class="text-size-12 p-px-3">
+                  {{
+                    accessibilityConfig.adjustFontSizeBy == 0
+                      ? 'Default'
+                      : accessibilityConfig.adjustFontSizeBy
+                  }}</span
+                >
+              </div>
+              <div class="item">
+                <app-icon
+                  icon="fa-minus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.adjustFontSizeBy > -3
+                  }"
+                  (click)="changeAdjustFontSizeBy(accessibilityConfig.adjustFontSizeBy - 1)"
+                >
+                </app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isAlignCenter,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isAlignCenter
+            }"
+            (click)="toggleAlignCenter()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-align-center" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Align Center</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.lineHeightBy != 0,
+              'background-color-dark-5 primary-border-1px-on-hover':
+                accessibilityConfig.lineHeightBy == 0
+            }"
+          >
+            <div class="inline-items">
+              <div class="item p-mr-2">
+                <app-icon icon="fa-line-height" class="text-size-24"></app-icon>
+              </div>
+              <div class="item p-pt-1">
+                <span class="text-size-14 text-semi-bold">Adjust Line Height</span>
+              </div>
+            </div>
+            <div class="inline-items">
+              <div class="item">
+                <app-icon
+                  icon="fa-plus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.lineHeightBy < 0.5
+                  }"
+                  (click)="changeLineHeight(accessibilityConfig.lineHeightBy + 0.5)"
+                >
+                </app-icon>
+              </div>
+              <div class="item">
+                <span class="text-size-12 p-px-3">
+                  {{
+                    accessibilityConfig.lineHeightBy == 0
+                      ? 'Default'
+                      : accessibilityConfig.lineHeightBy
+                  }}</span
+                >
+              </div>
+              <div class="item">
+                <app-icon
+                  icon="fa-minus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.lineHeightBy > -0.5
+                  }"
+                  (click)="changeLineHeight(accessibilityConfig.lineHeightBy - 0.5)"
+                >
+                </app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isAlignLeft,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isAlignLeft
+            }"
+            (click)="toggleAlignLeft()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-align-left" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Align Left</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.letterSpacingBy != 0,
+              'background-color-dark-5 primary-border-1px-on-hover':
+                accessibilityConfig.letterSpacingBy == 0
+            }"
+          >
+            <div class="inline-items">
+              <div class="item p-mr-2">
+                <app-icon icon="fa-arrow-h" class="text-size-24"></app-icon>
+              </div>
+              <div class="item p-pt-1">
+                <span class="text-size-14 text-semi-bold">Adjust Letter Spacing</span>
+              </div>
+            </div>
+            <div class="inline-items">
+              <div class="item">
+                <app-icon
+                  icon="fa-plus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.letterSpacingBy < 1
+                  }"
+                  (click)="changeLetterSpacing(accessibilityConfig.letterSpacingBy + 1)"
+                >
+                </app-icon>
+              </div>
+              <div class="item">
+                <span class="text-size-12 p-px-3">
+                  {{
+                    accessibilityConfig.letterSpacingBy == 0
+                      ? 'Default'
+                      : accessibilityConfig.letterSpacingBy
+                  }}</span
+                >
+              </div>
+              <div class="item">
+                <app-icon
+                  icon="fa-minus-circle"
+                  class="text-size-20"
+                  [ngClass]="{
+                    'text-color-primary-hover pointer': accessibilityConfig.letterSpacingBy > -1
+                  }"
+                  (click)="changeLetterSpacing(accessibilityConfig.letterSpacingBy - 1)"
+                >
+                </app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isAlignRight,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isAlignRight
+            }"
+            (click)="toggleAlignRight()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-align-right" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Align Right</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12">
+    <div class="border p-p-2">
+      <div class="text-size-16 text-semi-bold p-p-2">Color Adjustments</div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': !accessibilityConfig.isDarkContrast,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                accessibilityConfig.isDarkContrast
+            }"
+            (click)="toggleDarkContrast()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-moon" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Dark Contrast</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isLightContrast,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isLightContrast
+            }"
+            (click)="toggleLightContrast()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-sun" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Light Contrast</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isMonochrome,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isMonochrome
+            }"
+            (click)="toggleMonochrome()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-tint" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Monochrome</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isHighSaturation,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isHighSaturation
+            }"
+            (click)="toggleHighSaturation()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-adjust" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">High Saturation</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.textColor,
+              'background-color-dark-5 primary-border-1px-on-hover': !accessibilityConfig.textColor
+            }"
+          >
+            <span class="text-size-14 text-semi-bold">Adjust Text Colors</span>
+            <div class="inline-items p-p-1">
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-blue border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTextColor('#28407e')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-primary border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTextColor('#00bfa8')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-yellow border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTextColor('#afde40')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-red border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTextColor('#e02525')"
+                ></span>
+              </div>
+              <div class="item">
+                <span
+                  class="inline-block palette-color-orange border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTextColor('#e0941b')"
+                ></span>
+              </div>
+            </div>
+            <div
+              class="text-size-12 pointer text-color-primary-hover"
+              (click)="toggleAdjustTextColor('')"
+            >
+              Default
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isHighContrast,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isHighContrast
+            }"
+            (click)="toggleHighContrast()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-adjust" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">High Contrast</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-8 p-lg-8 p-sm-12">
+          <div
+            class="aps-card text-center p-p-2"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.titleColor,
+              'background-color-dark-5 primary-border-1px-on-hover': !accessibilityConfig.titleColor
+            }"
+          >
+            <span class="text-size-14 text-semi-bold">Adjust Title Colors</span>
+            <div class="inline-items p-p-1">
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-blue border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTitleColor('#28407e')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-primary border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTitleColor('#00bfa8')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-yellow border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTitleColor('#afde40')"
+                ></span>
+              </div>
+              <div class="item p-pr-1">
+                <span
+                  class="inline-block palette-color-red border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTitleColor('#e02525')"
+                ></span>
+              </div>
+              <div class="item">
+                <span
+                  class="inline-block palette-color-orange border-radius-4 color-palette-size primary-border-on-hover pointer"
+                  (click)="toggleAdjustTitleColor('#e0941b')"
+                ></span>
+              </div>
+            </div>
+            <div
+              class="text-size-12 pointer text-color-primary-hover"
+              (click)="toggleAdjustTitleColor('')"
+            >
+              Default
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12">
+    <div class="border p-p-2">
+      <div class="text-size-16 text-semi-bold p-p-2">Orientation Adjustments</div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isHideImage,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isHideImage
+            }"
+            (click)="toggleHideImage()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-image" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Hide Image</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isReadingGuide,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isReadingGuide
+            }"
+            (click)="toggleReadingGuide()"
+          >
+            <div class="text-center p-p-3">
+              <app-icon icon="fa-bookmark" class="text-size-24"></app-icon>
+              <div class="text-size-12 text-semi-bold">Reading Guide</div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="p-col-12 p-md-4 p-lg-4 p-sm-12">
+                    <div class="aps-card pointer"
+                        [ngClass]="{'primary-border-1px-on-hover-active' : accessibilityConfig.isReadingMask,
+                        'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover' : !accessibilityConfig.isReadingMask}"
+                        (click)="toggleReadingMask()">
+                        <div class="text-center p-p-3">
+                            <app-icon icon="fa-bring-forward" class="text-size-24"></app-icon>
+                            <div class="text-size-12 text-semi-bold">Reading Mask</div>
+                        </div>
+                    </div>
+                </div> -->
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isBigBlackCursor,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isBigBlackCursor
+            }"
+            (click)="toggleBigBlackCursor()"
+          >
+            <div class="text-center p-p-3">
+              <i class="fas fa-mouse-pointer text-size-24"></i>
+              <div class="text-size-12 text-semi-bold">Big Black Cursor</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6 p-sm-12">
+          <div
+            class="aps-card pointer"
+            [ngClass]="{
+              'primary-border-1px-on-hover-active': accessibilityConfig.isBigWhiteCursor,
+              'background-color-dark-5 primary-border-1px-on-hover text-color-primary-hover':
+                !accessibilityConfig.isBigWhiteCursor
+            }"
+            (click)="toggleBigWhiteCursor()"
+          >
+            <div class="text-center p-p-3">
+              <i class="far fa-mouse-pointer text-size-24"></i>
+              <div class="text-size-12 text-semi-bold">Big White Cursor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

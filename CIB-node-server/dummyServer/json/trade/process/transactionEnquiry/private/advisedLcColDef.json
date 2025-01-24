@@ -1,0 +1,45 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "corporateReferenceNo"
+    },
+    {
+      "headerName": "LC Number",
+      "field": "id"
+    },
+    {
+      "headerName": "No. of Amendments",
+      "field": "noOfAmendments"
+    },
+    {
+      "headerName": "Applicant Name",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "LC Amount",
+      "field": "amount"
+    },
+    {
+      "headerName": "Draft At",
+      "field": "draftAt"
+    },
+    {
+      "headerName": "Usance",
+      "field": "usance"
+    },
+    {
+      "headerName": "LC Issue Date",
+      "field": "transactionDate"
+    },
+    {
+      "headerName": "LC Expiry Date",
+      "field": "expiryDate"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "billerCode": "Zain",
+    "billerName": "Zain"
+  },
+  {
+    "billerCode": "Mobily",
+    "billerName": "Mobily"
+  },
+  {
+    "billerCode": "Saudi Telecom Comp",
+    "billerName": "Saudi Telecom Comp"
+  },
+  {
+    "billerCode": "POST",
+    "billerName": "POST"
+  },
+  {
+    "billerCode": "FEDEX",
+    "billerName": "FEDEX"
+  },
+  {
+    "billerCode": "DHL",
+    "billerName": "DHL"
+  }
+]

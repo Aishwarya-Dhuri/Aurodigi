@@ -1,0 +1,32 @@
+[
+  {
+    "label": "inbox",
+    "icon": "fas fa-inbox",
+    "badge": 10,
+    "click": "getInboxData"
+  },
+  {
+    "label": "sent",
+    "icon": "far fa-paper-plane",
+    "badge": 2,
+    "click": "getSentData"
+  },
+  {
+    "label": "starred",
+    "icon": "far fa-star",
+    "badge": 5,
+    "click": "getInboxData"
+  },
+  {
+    "label": "draft",
+    "icon": "far fa-file",
+    "badge": 13,
+    "click": "getInboxData"
+  },
+  {
+    "label": "trash",
+    "icon": "far fa-trash-alt",
+    "badge": 4,
+    "click": "getInboxData"
+  }
+]

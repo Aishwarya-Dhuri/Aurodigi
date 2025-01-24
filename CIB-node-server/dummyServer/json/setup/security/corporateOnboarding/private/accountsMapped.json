@@ -1,0 +1,17 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Account Number",
+      "field": "accountNumber",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Account Type",
+      "field": "accountType"
+    },
+    {
+      "headerName": "Currency",
+      "field": "currency"
+    }
+  ]
+}

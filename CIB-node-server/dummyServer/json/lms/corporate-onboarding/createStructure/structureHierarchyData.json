@@ -1,0 +1,866 @@
+[
+  {
+    "accountNo": "IND-HDFC-678-789-789-SAR",
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "add",
+        "type": "ICON",
+        "displayName": "Add",
+        "icon": "fa-plus"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "view",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      },
+      {
+        "index": 3,
+        "paramList": "",
+        "methodName": "suspend",
+        "type": "ICON",
+        "displayName": "Suspend",
+        "icon": "fa-ban"
+      },
+      {
+        "index": 4,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ],
+    "children": [
+      {
+        "accountNo": "IND-HSBC-333-000-111-SAR",
+        "bank": "HDFC",
+        "country": "IND",
+        "currency": "SAR",
+        "accType": "Current",
+        "type": "Internal",
+        "actions": [
+          {
+            "index": 0,
+            "paramList": "",
+            "methodName": "add",
+            "type": "ICON",
+            "displayName": "Add",
+            "icon": "fa-plus"
+          },
+          {
+            "index": 1,
+            "paramList": "",
+            "methodName": "edit",
+            "type": "ICON",
+            "displayName": "Edit",
+            "icon": "fa-pencil"
+          },
+          {
+            "index": 2,
+            "paramList": "",
+            "methodName": "view",
+            "type": "ICON",
+            "displayName": "View",
+            "icon": "fa-eye"
+          },
+          {
+            "index": 3,
+            "paramList": "",
+            "methodName": "suspend",
+            "type": "ICON",
+            "displayName": "Suspend",
+            "icon": "fa-ban"
+          },
+          {
+            "index": 4,
+            "paramList": "",
+            "methodName": "delete",
+            "type": "ICON",
+            "displayName": "Delete",
+            "icon": "fa-trash"
+          }
+        ],
+        "children": [
+          {
+            "accountNo": "IND-HDFC-678-789-789-SAR",
+            "bank": "HDFC",
+            "country": "IND",
+            "currency": "SAR",
+            "accType": "Current",
+            "type": "Internal",
+            "actions": [
+              {
+                "index": 0,
+                "paramList": "",
+                "methodName": "add",
+                "type": "ICON",
+                "displayName": "Add",
+                "icon": "fa-plus"
+              },
+              {
+                "index": 1,
+                "paramList": "",
+                "methodName": "edit",
+                "type": "ICON",
+                "displayName": "Edit",
+                "icon": "fa-pencil"
+              },
+              {
+                "index": 2,
+                "paramList": "",
+                "methodName": "view",
+                "type": "ICON",
+                "displayName": "View",
+                "icon": "fa-eye"
+              },
+              {
+                "index": 3,
+                "paramList": "",
+                "methodName": "suspend",
+                "type": "ICON",
+                "displayName": "Suspend",
+                "icon": "fa-ban"
+              },
+              {
+                "index": 4,
+                "paramList": "",
+                "methodName": "delete",
+                "type": "ICON",
+                "displayName": "Delete",
+                "icon": "fa-trash"
+              }
+            ]
+          },
+          {
+            "accountNo": "IND-HSBC-333-000-111-SAR",
+            "bank": "HDFC",
+            "country": "IND",
+            "currency": "SAR",
+            "accType": "Current",
+            "type": "Internal",
+            "actions": [
+              {
+                "index": 0,
+                "paramList": "",
+                "methodName": "add",
+                "type": "ICON",
+                "displayName": "Add",
+                "icon": "fa-plus"
+              },
+              {
+                "index": 1,
+                "paramList": "",
+                "methodName": "edit",
+                "type": "ICON",
+                "displayName": "Edit",
+                "icon": "fa-pencil"
+              },
+              {
+                "index": 2,
+                "paramList": "",
+                "methodName": "view",
+                "type": "ICON",
+                "displayName": "View",
+                "icon": "fa-eye"
+              },
+              {
+                "index": 3,
+                "paramList": "",
+                "methodName": "suspend",
+                "type": "ICON",
+                "displayName": "Suspend",
+                "icon": "fa-ban"
+              },
+              {
+                "index": 4,
+                "paramList": "",
+                "methodName": "delete",
+                "type": "ICON",
+                "displayName": "Delete",
+                "icon": "fa-trash"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountNo": "IND-HDFC-678-789-789-SAR",
+        "bank": "HDFC",
+        "country": "IND",
+        "currency": "SAR",
+        "accType": "Current",
+        "type": "Internal",
+        "actions": [
+          {
+            "index": 0,
+            "paramList": "",
+            "methodName": "add",
+            "type": "ICON",
+            "displayName": "Add",
+            "icon": "fa-plus"
+          },
+          {
+            "index": 1,
+            "paramList": "",
+            "methodName": "edit",
+            "type": "ICON",
+            "displayName": "Edit",
+            "icon": "fa-pencil"
+          },
+          {
+            "index": 2,
+            "paramList": "",
+            "methodName": "view",
+            "type": "ICON",
+            "displayName": "View",
+            "icon": "fa-eye"
+          },
+          {
+            "index": 3,
+            "paramList": "",
+            "methodName": "suspend",
+            "type": "ICON",
+            "displayName": "Suspend",
+            "icon": "fa-ban"
+          },
+          {
+            "index": 4,
+            "paramList": "",
+            "methodName": "delete",
+            "type": "ICON",
+            "displayName": "Delete",
+            "icon": "fa-trash"
+          }
+        ]
+      },
+      {
+        "accountNo": "IND-HSBC-333-000-111-SAR",
+        "bank": "HDFC",
+        "country": "IND",
+        "currency": "SAR",
+        "accType": "Current",
+        "type": "Internal",
+        "actions": [
+          {
+            "index": 0,
+            "paramList": "",
+            "methodName": "add",
+            "type": "ICON",
+            "displayName": "Add",
+            "icon": "fa-plus"
+          },
+          {
+            "index": 1,
+            "paramList": "",
+            "methodName": "edit",
+            "type": "ICON",
+            "displayName": "Edit",
+            "icon": "fa-pencil"
+          },
+          {
+            "index": 2,
+            "paramList": "",
+            "methodName": "view",
+            "type": "ICON",
+            "displayName": "View",
+            "icon": "fa-eye"
+          },
+          {
+            "index": 3,
+            "paramList": "",
+            "methodName": "suspend",
+            "type": "ICON",
+            "displayName": "Suspend",
+            "icon": "fa-ban"
+          },
+          {
+            "index": 4,
+            "paramList": "",
+            "methodName": "delete",
+            "type": "ICON",
+            "displayName": "Delete",
+            "icon": "fa-trash"
+          }
+        ]
+      },
+      {
+        "accountNo": "IND-HDFC-678-121-789-SAR",
+        "bank": "HDFC",
+        "country": "IND",
+        "currency": "SAR",
+        "accType": "Current",
+        "type": "Internal",
+        "actions": [
+          {
+            "index": 0,
+            "paramList": "",
+            "methodName": "add",
+            "type": "ICON",
+            "displayName": "Add",
+            "icon": "fa-plus"
+          },
+          {
+            "index": 1,
+            "paramList": "",
+            "methodName": "edit",
+            "type": "ICON",
+            "displayName": "Edit",
+            "icon": "fa-pencil"
+          },
+          {
+            "index": 2,
+            "paramList": "",
+            "methodName": "view",
+            "type": "ICON",
+            "displayName": "View",
+            "icon": "fa-eye"
+          },
+          {
+            "index": 3,
+            "paramList": "",
+            "methodName": "suspend",
+            "type": "ICON",
+            "displayName": "Suspend",
+            "icon": "fa-ban"
+          },
+          {
+            "index": 4,
+            "paramList": "",
+            "methodName": "delete",
+            "type": "ICON",
+            "displayName": "Delete",
+            "icon": "fa-trash"
+          }
+        ],
+        "children": [
+          {
+            "accountNo": "IND-HSBC-333-000-111-SAR",
+            "bank": "HDFC",
+            "country": "IND",
+            "currency": "SAR",
+            "accType": "Current",
+            "type": "Internal",
+            "actions": [
+              {
+                "index": 0,
+                "paramList": "",
+                "methodName": "add",
+                "type": "ICON",
+                "displayName": "Add",
+                "icon": "fa-plus"
+              },
+              {
+                "index": 1,
+                "paramList": "",
+                "methodName": "edit",
+                "type": "ICON",
+                "displayName": "Edit",
+                "icon": "fa-pencil"
+              },
+              {
+                "index": 2,
+                "paramList": "",
+                "methodName": "view",
+                "type": "ICON",
+                "displayName": "View",
+                "icon": "fa-eye"
+              },
+              {
+                "index": 3,
+                "paramList": "",
+                "methodName": "suspend",
+                "type": "ICON",
+                "displayName": "Suspend",
+                "icon": "fa-ban"
+              },
+              {
+                "index": 4,
+                "paramList": "",
+                "methodName": "delete",
+                "type": "ICON",
+                "displayName": "Delete",
+                "icon": "fa-trash"
+              }
+            ],
+            "children": [
+              {
+                "accountNo": "IND-HDFC-678-789-789-SAR",
+                "bank": "HDFC",
+                "country": "IND",
+                "currency": "SAR",
+                "accType": "Current",
+                "type": "Internal",
+                "actions": [
+                  {
+                    "index": 0,
+                    "paramList": "",
+                    "methodName": "add",
+                    "type": "ICON",
+                    "displayName": "Add",
+                    "icon": "fa-plus"
+                  },
+                  {
+                    "index": 1,
+                    "paramList": "",
+                    "methodName": "edit",
+                    "type": "ICON",
+                    "displayName": "Edit",
+                    "icon": "fa-pencil"
+                  },
+                  {
+                    "index": 2,
+                    "paramList": "",
+                    "methodName": "view",
+                    "type": "ICON",
+                    "displayName": "View",
+                    "icon": "fa-eye"
+                  },
+                  {
+                    "index": 3,
+                    "paramList": "",
+                    "methodName": "suspend",
+                    "type": "ICON",
+                    "displayName": "Suspend",
+                    "icon": "fa-ban"
+                  },
+                  {
+                    "index": 4,
+                    "paramList": "",
+                    "methodName": "delete",
+                    "type": "ICON",
+                    "displayName": "Delete",
+                    "icon": "fa-trash"
+                  }
+                ],
+                "children": [
+                  {
+                    "accountNo": "IND-HSBC-333-000-111-SAR",
+                    "bank": "HDFC",
+                    "country": "IND",
+                    "currency": "SAR",
+                    "accType": "Current",
+                    "type": "Internal",
+                    "actions": [
+                      {
+                        "index": 0,
+                        "paramList": "",
+                        "methodName": "add",
+                        "type": "ICON",
+                        "displayName": "Add",
+                        "icon": "fa-plus"
+                      },
+                      {
+                        "index": 1,
+                        "paramList": "",
+                        "methodName": "edit",
+                        "type": "ICON",
+                        "displayName": "Edit",
+                        "icon": "fa-pencil"
+                      },
+                      {
+                        "index": 2,
+                        "paramList": "",
+                        "methodName": "view",
+                        "type": "ICON",
+                        "displayName": "View",
+                        "icon": "fa-eye"
+                      },
+                      {
+                        "index": 3,
+                        "paramList": "",
+                        "methodName": "suspend",
+                        "type": "ICON",
+                        "displayName": "Suspend",
+                        "icon": "fa-ban"
+                      },
+                      {
+                        "index": 4,
+                        "paramList": "",
+                        "methodName": "delete",
+                        "type": "ICON",
+                        "displayName": "Delete",
+                        "icon": "fa-trash"
+                      }
+                    ]
+                  },
+                  {
+                    "accountNo": "IND-HDFC-678-789-789-SAR",
+                    "bank": "HDFC",
+                    "country": "IND",
+                    "currency": "SAR",
+                    "accType": "Current",
+                    "type": "Internal",
+                    "actions": [
+                      {
+                        "index": 0,
+                        "paramList": "",
+                        "methodName": "add",
+                        "type": "ICON",
+                        "displayName": "Add",
+                        "icon": "fa-plus"
+                      },
+                      {
+                        "index": 1,
+                        "paramList": "",
+                        "methodName": "edit",
+                        "type": "ICON",
+                        "displayName": "Edit",
+                        "icon": "fa-pencil"
+                      },
+                      {
+                        "index": 2,
+                        "paramList": "",
+                        "methodName": "view",
+                        "type": "ICON",
+                        "displayName": "View",
+                        "icon": "fa-eye"
+                      },
+                      {
+                        "index": 3,
+                        "paramList": "",
+                        "methodName": "suspend",
+                        "type": "ICON",
+                        "displayName": "Suspend",
+                        "icon": "fa-ban"
+                      },
+                      {
+                        "index": 4,
+                        "paramList": "",
+                        "methodName": "delete",
+                        "type": "ICON",
+                        "displayName": "Delete",
+                        "icon": "fa-trash"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "accountNo": "IND-HSBC-333-000-111-SAR",
+                "bank": "HDFC",
+                "country": "IND",
+                "currency": "SAR",
+                "accType": "Current",
+                "type": "Internal",
+                "actions": [
+                  {
+                    "index": 0,
+                    "paramList": "",
+                    "methodName": "add",
+                    "type": "ICON",
+                    "displayName": "Add",
+                    "icon": "fa-plus"
+                  },
+                  {
+                    "index": 1,
+                    "paramList": "",
+                    "methodName": "edit",
+                    "type": "ICON",
+                    "displayName": "Edit",
+                    "icon": "fa-pencil"
+                  },
+                  {
+                    "index": 2,
+                    "paramList": "",
+                    "methodName": "view",
+                    "type": "ICON",
+                    "displayName": "View",
+                    "icon": "fa-eye"
+                  },
+                  {
+                    "index": 3,
+                    "paramList": "",
+                    "methodName": "suspend",
+                    "type": "ICON",
+                    "displayName": "Suspend",
+                    "icon": "fa-ban"
+                  },
+                  {
+                    "index": 4,
+                    "paramList": "",
+                    "methodName": "delete",
+                    "type": "ICON",
+                    "displayName": "Delete",
+                    "icon": "fa-trash"
+                  }
+                ],
+                "children": [
+                  {
+                    "accountNo": "IND-HDFC-678-789-789-SAR",
+                    "bank": "HDFC",
+                    "country": "IND",
+                    "currency": "SAR",
+                    "accType": "Current",
+                    "type": "Internal",
+                    "actions": [
+                      {
+                        "index": 0,
+                        "paramList": "",
+                        "methodName": "add",
+                        "type": "ICON",
+                        "displayName": "Add",
+                        "icon": "fa-plus"
+                      },
+                      {
+                        "index": 1,
+                        "paramList": "",
+                        "methodName": "edit",
+                        "type": "ICON",
+                        "displayName": "Edit",
+                        "icon": "fa-pencil"
+                      },
+                      {
+                        "index": 2,
+                        "paramList": "",
+                        "methodName": "view",
+                        "type": "ICON",
+                        "displayName": "View",
+                        "icon": "fa-eye"
+                      },
+                      {
+                        "index": 3,
+                        "paramList": "",
+                        "methodName": "suspend",
+                        "type": "ICON",
+                        "displayName": "Suspend",
+                        "icon": "fa-ban"
+                      },
+                      {
+                        "index": 4,
+                        "paramList": "",
+                        "methodName": "delete",
+                        "type": "ICON",
+                        "displayName": "Delete",
+                        "icon": "fa-trash"
+                      }
+                    ]
+                  },
+                  {
+                    "accountNo": "IND-HSBC-333-000-111-SAR",
+                    "bank": "HDFC",
+                    "country": "IND",
+                    "currency": "SAR",
+                    "accType": "Current",
+                    "type": "Internal",
+                    "actions": [
+                      {
+                        "index": 0,
+                        "paramList": "",
+                        "methodName": "add",
+                        "type": "ICON",
+                        "displayName": "Add",
+                        "icon": "fa-plus"
+                      },
+                      {
+                        "index": 1,
+                        "paramList": "",
+                        "methodName": "edit",
+                        "type": "ICON",
+                        "displayName": "Edit",
+                        "icon": "fa-pencil"
+                      },
+                      {
+                        "index": 2,
+                        "paramList": "",
+                        "methodName": "view",
+                        "type": "ICON",
+                        "displayName": "View",
+                        "icon": "fa-eye"
+                      },
+                      {
+                        "index": 3,
+                        "paramList": "",
+                        "methodName": "suspend",
+                        "type": "ICON",
+                        "displayName": "Suspend",
+                        "icon": "fa-ban"
+                      },
+                      {
+                        "index": 4,
+                        "paramList": "",
+                        "methodName": "delete",
+                        "type": "ICON",
+                        "displayName": "Delete",
+                        "icon": "fa-trash"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "accountNo": "IND-HDFC-678-789-789-SAR",
+            "bank": "HDFC",
+            "country": "IND",
+            "currency": "SAR",
+            "accType": "Current",
+            "type": "Internal",
+            "actions": [
+              {
+                "index": 0,
+                "paramList": "",
+                "methodName": "add",
+                "type": "ICON",
+                "displayName": "Add",
+                "icon": "fa-plus"
+              },
+              {
+                "index": 1,
+                "paramList": "",
+                "methodName": "edit",
+                "type": "ICON",
+                "displayName": "Edit",
+                "icon": "fa-pencil"
+              },
+              {
+                "index": 2,
+                "paramList": "",
+                "methodName": "view",
+                "type": "ICON",
+                "displayName": "View",
+                "icon": "fa-eye"
+              },
+              {
+                "index": 3,
+                "paramList": "",
+                "methodName": "suspend",
+                "type": "ICON",
+                "displayName": "Suspend",
+                "icon": "fa-ban"
+              },
+              {
+                "index": 4,
+                "paramList": "",
+                "methodName": "delete",
+                "type": "ICON",
+                "displayName": "Delete",
+                "icon": "fa-trash"
+              }
+            ],
+            "children": [
+              {
+                "accountNo": "IND-HSBC-333-000-111-SAR",
+                "bank": "HDFC",
+                "country": "IND",
+                "currency": "SAR",
+                "accType": "Current",
+                "type": "Internal",
+                "actions": [
+                  {
+                    "index": 0,
+                    "paramList": "",
+                    "methodName": "add",
+                    "type": "ICON",
+                    "displayName": "Add",
+                    "icon": "fa-plus"
+                  },
+                  {
+                    "index": 1,
+                    "paramList": "",
+                    "methodName": "edit",
+                    "type": "ICON",
+                    "displayName": "Edit",
+                    "icon": "fa-pencil"
+                  },
+                  {
+                    "index": 2,
+                    "paramList": "",
+                    "methodName": "view",
+                    "type": "ICON",
+                    "displayName": "View",
+                    "icon": "fa-eye"
+                  },
+                  {
+                    "index": 3,
+                    "paramList": "",
+                    "methodName": "suspend",
+                    "type": "ICON",
+                    "displayName": "Suspend",
+                    "icon": "fa-ban"
+                  },
+                  {
+                    "index": 4,
+                    "paramList": "",
+                    "methodName": "delete",
+                    "type": "ICON",
+                    "displayName": "Delete",
+                    "icon": "fa-trash"
+                  }
+                ]
+              },
+              {
+                "accountNo": "IND-HDFC-678-789-789-SAR",
+                "bank": "HDFC",
+                "country": "IND",
+                "currency": "SAR",
+                "accType": "Current",
+                "type": "Internal",
+                "actions": [
+                  {
+                    "index": 0,
+                    "paramList": "",
+                    "methodName": "add",
+                    "type": "ICON",
+                    "displayName": "Add",
+                    "icon": "fa-plus"
+                  },
+                  {
+                    "index": 1,
+                    "paramList": "",
+                    "methodName": "edit",
+                    "type": "ICON",
+                    "displayName": "Edit",
+                    "icon": "fa-pencil"
+                  },
+                  {
+                    "index": 2,
+                    "paramList": "",
+                    "methodName": "view",
+                    "type": "ICON",
+                    "displayName": "View",
+                    "icon": "fa-eye"
+                  },
+                  {
+                    "index": 3,
+                    "paramList": "",
+                    "methodName": "suspend",
+                    "type": "ICON",
+                    "displayName": "Suspend",
+                    "icon": "fa-ban"
+                  },
+                  {
+                    "index": 4,
+                    "paramList": "",
+                    "methodName": "delete",
+                    "type": "ICON",
+                    "displayName": "Delete",
+                    "icon": "fa-trash"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

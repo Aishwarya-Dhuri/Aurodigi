@@ -1,0 +1,19 @@
+[
+  { "headerName": "POS Date", "field": "transactionDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Value Date", "field": "valueDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Reference Number", "field": "customerReferenceNumber" },
+  { "headerName": "Transaction Description", "field": "transactionDescription" },
+  { "headerName": "Transaction CCY", "field": "currency" },
+  {
+    "headerName": "Transaction Amount",
+    "field": "balance",
+    "cellRenderer": "amountRenderer"
+  },
+  { "headerName": "Debit Amount", "field": "debitAmount", "cellRenderer": "amountRenderer" },
+  { "headerName": "Credit Amount", "field": "creditAmount", "cellRenderer": "amountRenderer" },
+  {
+    "headerName": "Amount (base CCY)",
+    "field": "balance",
+    "cellRenderer": "baseCurrencyRenderer"
+  }
+]

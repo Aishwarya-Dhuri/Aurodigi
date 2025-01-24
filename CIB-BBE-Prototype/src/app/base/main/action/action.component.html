@@ -1,0 +1,117 @@
+<ng-container *ngIf="showActionContainer">
+  <div
+    class="action-container backbround-color-light-shade-4 inline-block p-mt-1 p-mx-2"
+    *ngIf="actions"
+  >
+    <div class="action-wrapper float-right">
+      <div
+        class="widget-actions p-mx-2 border-radius-5 background-color inline-block"
+        *ngIf="actions.actions"
+      >
+        <div
+          class="text-color-dark-shade-1 inline-block"
+          *ngFor="let action of actions.actions"
+          [ngClass]="{ active: action.actionName === activeAction.actionName }"
+          (click)="changeAction(action)"
+        >
+          <app-icon icon="{{ action.icon }}" styleClasses="p-m-1"></app-icon>
+        </div>
+      </div>
+
+      <div
+        class="widget-actions p-mx-2 border-radius-5 background-color inline-block hide-on-mobile"
+        *ngIf="actions.widgetsActions"
+      >
+        <div
+          class="text-color-dark-shade-1 pointer inline-block"
+          [ngClass]="{ active: gridType === 0 }"
+          (click)="changeGrid(0)"
+        >
+          <app-icon
+            [styleClasses]="'p-m-1 text-size-14' + (gridType === 0 ? 'fas-default-color' : '')"
+            icon="fa-dice-one"
+          >
+          </app-icon>
+        </div>
+        <div
+          class="text-color-dark-shade-1 pointer inline-block"
+          [ngClass]="{ active: gridType === 1 }"
+          (click)="changeGrid(1)"
+        >
+          <app-icon
+            [styleClasses]="'p-m-1 text-size-14' + (gridType === 1 ? 'fas-default-color' : '')"
+            icon="fa-dice-two"
+          >
+          </app-icon>
+        </div>
+        <div
+          class="text-color-dark-shade-1 pointer inline-block"
+          [ngClass]="{ active: gridType === 2 }"
+          (click)="changeGrid(2)"
+        >
+          <app-icon
+            [styleClasses]="'p-m-1 text-size-14' + (gridType === 2 ? 'fas-default-color' : '')"
+            icon="fa-dice-three"
+          >
+          </app-icon>
+        </div>
+        <div
+          class="text-color-dark-shade-1 pointer inline-block"
+          [ngClass]="{ active: gridType === 3 }"
+          (click)="changeGrid(3)"
+        >
+          <app-icon
+            [styleClasses]="'p-m-1 text-size-14' + (gridType === 3 ? 'fas-default-color' : '')"
+            icon="fa-dice-four"
+          >
+          </app-icon>
+        </div>
+      </div>
+
+      <div class="actions inline-block">
+        <div class="inline-block pointer" *ngIf="actions.refresh">
+          <app-icon
+            icon="fa-sync"
+            styleClasses="p-mx-2 text-size-14 text-color-dark-shade-1"
+          ></app-icon>
+        </div>
+        <div
+          class="inline-block pointer hide-on-mobile"
+          (click)="openSidebar(sidebarComponents.widgets)"
+          *ngIf="actions.widgets"
+        >
+          <app-icon
+            icon="fa-th-large"
+            styleClasses="p-mx-2 text-size-14 text-color-dark-shade-1"
+          ></app-icon>
+        </div>
+        <div class="inline-block pointer" *ngIf="actions.download">
+          <app-icon
+            icon="fa-arrow-to-bottom"
+            styleClasses="p-mx-2 text-size-14 text-color-dark-shade-1"
+          ></app-icon>
+        </div>
+        <div class="inline-block pointer" *ngIf="actions.print">
+          <app-icon
+            icon="fa-print"
+            styleClasses="p-mx-2 text-size-14 text-color-dark-shade-1"
+            (click)="onPrint()"
+          >
+          </app-icon>
+        </div>
+      </div>
+      <div class="actions inline-block">
+        <div
+          class="inline-block pointer"
+          (click)="openSidebar(sidebarComponents.quickLinks)"
+          *ngIf="actions.quickLinks"
+        >
+          <app-icon
+            icon="fa-link"
+            styleClasses="p-mx-2 text-size-14 text-color-dark-shade-1"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

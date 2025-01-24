@@ -1,0 +1,261 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+            <div class="aps-card p-mb-2">
+                <div class="aps-card-header aps-py-12 p-px-3">
+                    <div class="text-bold">{{ 'Dynamic Discounting Template' | apsTranslate }}</div>
+                </div>
+
+                <form name="dynamicDiscountingForm" #dynamicDiscountingForm="ngForm">
+                    <div class="aps-card-body p-p-2" *ngIf="stepperDetails.currentStep == 1">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="templateCode" name="templateCode" label="Template Code"
+                                    [(ngModel)]="formData.templateCode" [required]="true"></aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="dynamicDiscountingtemplateName"
+                                    name="dynamicDiscountingtemplateName" label="Template Name"
+                                    [(ngModel)]="formData.dynamicDiscountingtemplateName"
+                                    [required]="true"></aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <app-aps-calender label="Effective From" name="effectiveFrom" [showIcon]="true"
+                                    [required]="true" [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <app-aps-calender label="Effective Till" name="effectiveTill" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                            </div>
+
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Discount Applicable At' | apsTranslate"
+                                    name="discountApplicableAt" id="discountApplicableAt"
+                                    [(ngModel)]="formData.discountApplicableAt" [value]="formData.discountApplicableAt"
+                                    [required]="true"
+                                    dataUrl="setup/templates/dynamicDiscountingTemplate/private/dropdown/discountApplicableAt">
+                                </aps-custom-select>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Calculate total period from' | apsTranslate"
+                                    name="totalPeriodFrom" id="totalPeriodFrom" [(ngModel)]="formData.totalPeriodFrom"
+                                    [value]="formData.totalPeriodFrom" [required]="true"
+                                    dataUrl="setup/templates/dynamicDiscountingTemplate/private/dropdown/totalPeriodFrom">
+                                </aps-custom-select>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.discountApplicableAt === 'Invoice Level'">
+                                <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                                    {{ 'Auto Apply Discount ' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="autoApplyDiscount" name="autoApplyDiscount"
+                                        [(ngModel)]="formData.autoApplyDiscount">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+
+
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.discountApplicableAt === 'Program Level'">
+                                <aps-form-input id="minTotalPeriod" name="minTotalPeriod" label="Min Total Period"
+                                    [(ngModel)]="formData.minTotalPeriod" [required]="true"></aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.discountApplicableAt === 'Program Level'">
+                                <aps-form-input id="maxTotalPeriod" name="maxTotalPeriod" label="Max Total Period"
+                                    [(ngModel)]="formData.maxTotalPeriod"></aps-form-input>
+                            </div>
+                        </div>
+
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Discount Basis' | apsTranslate" name="discountBasis"
+                                    id="discountBasis" [(ngModel)]="formData.discountBasis"
+                                    [value]="formData.discountBasis" [required]="true"
+                                    dataUrl="setup/templates/dynamicDiscountingTemplate/private/dropdown/discountBasis">
+                                </aps-custom-select>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                                    {{ 'Discount on Partial Payment ' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="discountOnPartialPayment" name="discountOnPartialPayment"
+                                        [(ngModel)]="formData.discountOnPartialPayment">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Discount Apply' | apsTranslate" name="discountApply"
+                                    id="discountApply" [(ngModel)]="formData.discountApply"
+                                    [value]="formData.discountApply" [required]="true"
+                                    dataUrl="setup/templates/dynamicDiscountingTemplate/private/dropdown/discountApply">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <div class="aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+                        <div class="aps-card-body">
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Template Code' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.templateCode }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Template Name' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.dynamicDiscountingtemplateName }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Effective From' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.effectiveFrom }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Effective Till' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.effectiveTill }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Discount Applicable At' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.discountApplicableAt }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Calculate total period from' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.totalPeriodFrom }}</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3"
+                                    *ngIf="formData.discountApplicableAt === 'Invoice Level'">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Auto Apply Discount' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.autoApplyDiscount }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3"
+                                    *ngIf="formData.discountApplicableAt === 'Program Level'">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Min Total Period' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.minTotalPeriod }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3"
+                                    *ngIf="formData.discountApplicableAt === 'Program Level'">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Max Total Period' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.maxTotalPeriod }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Discount Basis' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.discountBasis }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Discount on Partial Payment' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.discountOnPartialPayment }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Discount Apply' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.discountApply }}</div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

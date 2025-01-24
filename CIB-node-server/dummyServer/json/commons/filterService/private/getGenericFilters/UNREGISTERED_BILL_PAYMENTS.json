@@ -1,0 +1,77 @@
+{
+  "type": "accountServies-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "biller",
+      "displayName": "Biller",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": true,
+      "colDefUrl": "payments/billPayments/unregisteredBillPayment/billerNameColDefs",
+      "rowDefUrl": "payments/billPayments/unregisteredBillPayment/billerNameData",
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "billerCode,billerName",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "product",
+      "displayName": "Product",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "payments/billPayments/unregisteredBillPayment/getProduct",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "consumerNo",
+      "displayName": "Consumer No",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": "product",
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

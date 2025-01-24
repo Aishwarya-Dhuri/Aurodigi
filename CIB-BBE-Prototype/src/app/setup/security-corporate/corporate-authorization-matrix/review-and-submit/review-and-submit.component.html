@@ -1,0 +1,216 @@
+<app-modal [(isShow)]="accountUsers" size="md" headerText="{{ 'Users' | apsTranslate }}">
+    <div class="aps-h-250" body>
+        <app-ag-grid-listing #usersListing id="usersListing" [frameworkComponents]="userFrameworkComponents"
+            [columnDefs]="usersColDefs" [rowData]="usersRowData" [gridOptions]="gridOptions">
+        </app-ag-grid-listing>
+    </div>
+</app-modal>
+
+<div class="text-bold text-color-dark-shade-1 p-pb-3 text-size-16">
+    {{ 'Review and Submit' | apsTranslate }}
+</div>
+
+<div class="aps-card p-p-2">
+    <div class="p-grid">
+        <div class="p-col-12">
+            <div class="text-size-14 text-semi-bold text-color-normal">
+                {{ 'Matrix Details' | apsTranslate }}
+            </div>
+        </div>
+        
+    </div>
+    <div class="p-grid">
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Corporate Code' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.corporateCode }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Corporate Name' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.corporateName }}</div>
+        </div>
+    </div>
+    <div class="p-grid">
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Product Type' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.product }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Select Module' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.module }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Matrix Name' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.matrixName }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Authorization Level' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.authorizationLevel }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Authorization Mode' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.authorizationMode }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Allow Skip' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.allowSkip }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Currency' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.currency }}</div>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <div class="text text-size-12">{{ 'Payment Method' | apsTranslate }}</div>
+            <div class="text text-size-14">{{ parentRef.formData.paymentMethods }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="aps-card p-mt-3">
+    <div class="aps-py-12 p-px-3">
+        <div class="left-right-container">
+            <div class="left-container text-bold">
+                {{ 'Accounts' | apsTranslate }}
+            </div>
+            <div class="right-container" (click)="isShowAccountsList = !isShowAccountsList">
+                <app-icon icon="{{ isShowAccountsList ? 'fa-chevron-up' : 'fa-chevron-down' }}"></app-icon>
+            </div>
+        </div>
+    </div>
+    <div class="border-top aps-h-300" *ngIf="isShowAccountsList">
+        <app-ag-grid-listing #accountsListing id="accounts" [gridOptions]="gridOptions" [columnDefs]="accountColDefs"
+            [rowData]="parentRef.formData.accounts">
+        </app-ag-grid-listing>
+    </div>
+</div>
+
+<div class="left-right-container p-my-3">
+    <div class="left-container">
+        <div class="text-bold p-pt-2">
+            {{ parentRef.formData.matrixStructureType == 'Slab' ? 'Slabs' : ('Users' | apsTranslate)
+            }}<span class="">*</span>
+        </div>
+    </div>
+    <div class="right-container">
+        <div class="toggle-select-container">
+            <div class="action pointer text-color-dark-shade-1" (click)="listType = 'list'"
+                [ngClass]="{ active: listType == 'list' }">
+                <app-icon icon="fa-list"></app-icon>
+            </div>
+            <div class="action pointer text-color-dark-shade-1" (click)="listType = 'card'"
+                [ngClass]="{ active: listType == 'card' }">
+                <app-icon icon="fa-th-large"></app-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="listType == 'card'">
+    <div class="aps-card p-p-3 p-mt-3" *ngFor="let slab of parentRef.formData.slabs; let i = index">
+        <div class="p-grid" [ngClass]="{
+          'aps-filled-card-1': slab.isExpanded
+        }">
+            <div class="p-md-5 p-sm-12 p-col-12">
+                <div class="border-right">
+                    <div class="text-size-12 p-mb-2">{{ 'Slab Amount' | apsTranslate }}</div>
+                    <div class="inline-items">
+                        <div class="item">
+                            <div class="label-with-icon-container">
+                                <span class="icon">
+                                    <img src="assets/images/currency/{{ currencyService.getCurrencyName() | async }}.png"
+                                        alt="" />
+                                </span>
+                                <span class="label">
+                                    {{ currencyService.getCurrencyName() | async }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <span class="text-bold" *ngIf="parentRef.formData.matrixStructureType == 'Slab'">
+                                <app-base-currency [amount]="slab.slabStartRange"></app-base-currency>
+                                <span class="inline-block">&nbsp;-&nbsp;</span>
+                                <app-base-currency [amount]="slab.slabEndRange"></app-base-currency>
+                            </span>
+                            <span class="text-bold" *ngIf="parentRef.formData.matrixStructureType != 'Slab'">
+                                {{ 'For All Amount Range' | apsTranslate }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-md-2 p-sm-12 p-col-12">
+                <div class="count text-bold p-p-2">{{ slab.profiles.length }}</div>
+                <div class="text text-size-16">{{ 'Total Profiles' | apsTranslate }}</div>
+            </div>
+
+            <div class="p-md-3 p-sm-12 p-col-12">
+                <div class="text-color-primary text-bold">
+                    <div class="" *ngIf="slab.profiles.length == 0">--</div>
+
+                    <p-avatarGroup (click)="onClickUsers(slab.users)" *ngIf="slab.profiles.length > 0">
+                        <p-avatar shape="circle" image="assets/images/avatar.png"
+                            *ngFor="let user of slab.users | slice: 0:3">
+                        </p-avatar>
+                        <p-avatar *ngIf="slab.users.length > 3" label="+{{ slab.users.length - 3 }}"
+                            shape="circle"></p-avatar>
+                    </p-avatarGroup>
+                </div>
+                <div class="p-pt-1 text-size-16">{{ 'Total Number of Users' | apsTranslate }}</div>
+            </div>
+
+            <div class="p-md-2 p-sm-12 p-col-12">
+                <div class="left-right-container">
+                    <div class="left-container"></div>
+                    <div class="right-container">
+                        <div class="" *ngIf="slab.profiles.length > 0">
+                            <app-icon [icon]="slab.isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'" class="pointer"
+                                (click)="slab.isExpanded ? (slab.isExpanded = false) : (slab.isExpanded = true)"></app-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="" *ngIf="slab.isExpanded">
+            <div class="p-grid" *ngFor="let profile of slab.profiles">
+                <div class="p-md-2 p-sm-12 p-col-12">
+                    <div class="text-bold border-right">
+                        {{ profile.profileName }}
+                    </div>
+                </div>
+                <div class="p-md-3 p-sm-12 p-col-12">
+                    <div class="text-color-light-shade-1">
+                        {{ 'Number of Signatories' | apsTranslate }}
+                    </div>
+                    <div class="text-bold">{{ profile.noOfSignatories }}</div>
+                </div>
+                <div class="p-md-7 p-sm-12 p-col-12">
+                    <div class="left-right-container">
+                        <div class="left-container text-size-14">
+                            <div class="text-color-light-shade-1">{{ 'Priority' | apsTranslate }}</div>
+                            <div class="text-bold">{{ profile.priority }}</div>
+                        </div>
+                        <div class="right-container text-color-primary text-bold">
+                            <p-avatarGroup (click)="onClickUsers(profile.users)">
+                                <p-avatar shape="circle" image="assets/images/avatar.png"
+                                    *ngFor="let user of profile.users | slice: 0:3">
+                                </p-avatar>
+                                <p-avatar *ngIf="profile.users.length > 3" label="+{{ profile.users.length - 3 }}"
+                                    shape="circle">
+                                </p-avatar>
+                            </p-avatarGroup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="listType == 'list'">
+    <div class="aps-h-300">
+        <app-ag-grid-listing #listing id="accountLabel" [context]="context" [frameworkComponents]="frameworkComponents"
+            [gridOptions]="gridOptions" [columnDefs]="slabColDefs" [rowData]="parentRef.formData.slabs">
+        </app-ag-grid-listing>
+    </div>
+</ng-container>

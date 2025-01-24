@@ -1,0 +1,20 @@
+{
+  "clusterDetails": [
+    {
+      "templateCode": "RATANCHARGE",
+      "productName": "-",
+      "event": "Subscription Charges",
+      "currency": "THB",
+      "calFrequency": "Onetime",
+      "postingFrequency": "Onetime"
+    },
+    {
+      "templateCode": "ChargeSetupAdmin",
+      "productName": "-",
+      "event": "Administration Charges",
+      "currency": "THB",
+      "calFrequency": "Immediate",
+      "postingFrequency": "Immediate"
+    }
+  ]
+}

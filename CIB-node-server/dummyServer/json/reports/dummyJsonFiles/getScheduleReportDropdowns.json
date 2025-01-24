@@ -1,0 +1,26 @@
+{
+  "channelList": [
+    { "id": "H2H", "displayName": "H2H" },
+    { "id": "EMAIL", "displayName": "Email" }
+  ],
+  "reportFrequencyList": [
+    { "id": "DAILY", "displayName": "Daily" },
+    { "id": "WEEKLY", "displayName": "Weekly" },
+    { "id": "MONTHLY", "displayName": "Monthly" }
+  ],
+  "generatedAtList": [{ "id": "TIMEBASED", "displayName": "Time Based" }],
+  "activationDayList": [
+    { "id": "TODAY", "displayName": "Today" },
+    { "id": "TOMORROW", "displayName": "Tomorrow" }
+  ],
+  "reportFormatList": [{ "id": "TEXT", "displayName": "Text" }],
+  "downloadFormatList": [
+    { "id": "EXCEL", "displayName": "Excel" },
+    { "id": "PDF", "displayName": "PDF" },
+    { "id": "RTF", "displayName": "RTF" },
+    { "id": "TEXT", "displayName": "Text" }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

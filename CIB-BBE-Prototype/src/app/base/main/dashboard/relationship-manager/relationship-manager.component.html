@@ -1,0 +1,1848 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12">
+      <div class="aps-card">
+        <div class="p-grid">
+          <div class="p-md-3 p-sm-12 p-col-12 p-p-0">
+            <div class="aps-card aps-filled-card-primary-sm p-p-3 aps-h-100p">
+              <div class="primary-light-dropdown aps-w-100p">
+                <p-dropdown appendTo="body" class="custom-dropdown" [(ngModel)]="selectedCorporate"
+                  [options]="rmCorporates" optionLabel="displayName" optionValue="id"
+                  placeholder="{{ 'Select a Corporate' | apsTranslate }}" (onChange)="changeCorporate($event)"
+                  [showClear]="false"></p-dropdown>
+              </div>
+
+              <div class="p-grid text-color-primary-light-shade-2 p-pt-2">
+                <div class="p-col-3 p-p-0">
+                  <div class="text-size-12 text-semi-bold">
+                    {{ 'Sanctioned Limit' | apsTranslate }}
+                  </div>
+                </div>
+                <div class="p-col-9 p-p-0 text-right">
+                  <div class="text-size-14 text-bold">
+                    <!-- <app-base-currency [amount]="rmDetails.totalAllocatedLimit"></app-base-currency> -->
+                    <app-base-currency [amount]="sanctionedLimit"></app-base-currency>
+                  </div>
+                </div>
+
+                <div class="p-col-3 p-p-0">
+                  <div class="inline-items p-mt-1">
+                    <div class="item p-mr-1">
+                      <div class="ellipse ellipse-utilized"></div>
+                    </div>
+                    <div class="item">
+                      <div class="text-size-10">{{ 'Utilized Limit' | apsTranslate }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-9 p-p-0 text-right">
+                  <div class="text-size-12 text-semi-bold p-my-1">
+                    <!-- <app-base-currency [amount]="rmDetails.utilizedLimit"></app-base-currency> -->
+                    <app-base-currency [amount]="utilizedLimit"></app-base-currency>
+                  </div>
+                </div>
+
+                <div class="p-col-3 p-p-0">
+                  <div class="inline-items">
+                    <div class="item p-mr-1">
+                      <div class="ellipse ellipse-available"></div>
+                    </div>
+                    <div class="item">
+                      <div class="text-size-10">{{ 'Available Limit' | apsTranslate }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-9 p-p-0 text-right">
+                  <div class="text-size-12 text-semi-bold">
+                    <!-- <app-base-currency [amount]="rmDetails.availableLimit"></app-base-currency> -->
+                    <app-base-currency [amount]="availableLimit"></app-base-currency>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-mt-1">
+                <!-- <app-limit-bar [utilized]="rmDetails.utilizedLimit" [available]="rmDetails.availableLimit"
+                  [showLegend]="false"></app-limit-bar> -->
+
+                <app-limit-bar [utilized]="utilizedLimit" [available]="availableLimit"
+                  [showLegend]="false"></app-limit-bar>
+              </div>
+
+              <div class="text-right">
+                <div class="text-size-14 text-color-invert pointer text-color-primary-hover"
+                  (click)="showLimitDetails = true">
+                  view more..
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-md-6 p-sm-12 p-col-12">
+            <div class="p-grid aps-h-100p">
+              <div class="p-md-6 p-sm-12 p-col-12 p-py-0 p-my-2 border-right">
+                <div class="text-size-20 text-bold p-pb-2">
+                  {{ 'Ledger Balance' | apsTranslate }}
+                </div>
+                <div class="p-grid">
+                  <div class="p-md-5 p-sm-12 p-col-12 p-pl-0">
+                    <div class="text-size-14 text-bold">
+                      {{ rmDetails.noOfAccounts }}
+                    </div>
+
+                    <div class="text-size-12">{{ 'No. of Accounts' | apsTranslate }}</div>
+                  </div>
+                  <div class="p-md-7 p-sm-12 p-col-12">
+                    <div class="text-size-14 text-bold">
+                      <app-base-currency [amount]="rmDetails.ledgerBalance"></app-base-currency>
+                    </div>
+                    <div class="text-size-12">{{ 'Ledger Balance' | apsTranslate }}</div>
+                    <div class="text-right">
+                      <div class="link pointer text-color-primary-hover" (click)="showLedgerBalance = true">view more..
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-md-6 p-sm-12 p-col-12 aps-h-100p">
+                <div class="text-size-20 text-bold p-pb-2 p-pl-2">
+                  {{ 'Monthly Average Balance' | apsTranslate }}
+                </div>
+
+                <div class="p-grid">
+                  <div class="p-md-5 p-sm-12 p-col-12">
+                    <div class="text-size-14 text-bold">
+                      {{ rmDetails.noOfAccounts }}
+                    </div>
+
+                    <div class="text-size-12">{{ 'No. of Accounts' | apsTranslate }}</div>
+                  </div>
+                  <div class="p-md-7 p-sm-12 p-col-12">
+                    <div class="text-size-14 text-bold">
+                      <app-base-currency [amount]="rmDetails.monthlyAverageBalance"></app-base-currency>
+                    </div>
+                    <div class="text-size-12">{{ 'MAB' | apsTranslate }}</div>
+                    <div class="text-right">
+                      <div class="link pointer text-color-primary-hover" (click)="showMonthlyAverageBalance = true">
+                        view more..
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-md-3 p-sm-12 p-col-12 p-py-0 p-my-3 p-px-3 border-left">
+            <div class="aps-h-100p">
+              <app-insights [insights]="insights" [height]="100"></app-insights>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-md-9 p-sm-12 p-col-12">
+      <div class="left-right-container p-mb-3 aps-w-100p overflow-x-scroll overflow-y-hidden hide-scroll p-p-1">
+        <div class="left-container">
+          <div class="inline-items">
+            <ng-container *ngFor="let tab of tabs; let i = index">
+              <div class="item p-mr-3" *ngIf="i < 4">
+                <div class="aps-card pointer text-color-primary-hover p-p-2"
+                  [ngClass]="activeTab == tab ? 'aps-card-primary' : ''" (click)="activeTab = tab">
+                  <div class="text-size-14">{{ tab }}</div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="right-container">
+          <div class="aps-card pointer text-color-primary-hover p-p-2"
+            [ngClass]="activeTab == tabs[4] ? 'aps-card-primary' : ''" (click)="activeTab = tabs[4]">
+            <div class="label-with-icon-container text-size-14">
+              <!-- <div class="icon">
+                <app-icon icon="fa-play"></app-icon>
+              </div> -->
+              <div class="label white-space-nowrap">{{ tabs[4] }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!---------------------OVERALL START-------------------->
+      <gridster [options]="gridsterOptions" class="gridster-container" *ngIf="activeTab == tabs[0]">
+        <ng-container *ngFor="let item of overallGridData">
+          <gridster-item class="gridster-item fade-in-animation aps-shadow-1" [item]="item" *ngIf="item.isShow">
+            <ndc-dynamic [ndcDynamicComponent]="gridComponents[item.component]" [ndcDynamicInputs]="{
+                parentRef: this
+              }">
+            </ndc-dynamic>
+          </gridster-item>
+        </ng-container>
+      </gridster>
+      <!---------------------OVERALL END---------------------->
+
+      <!---------------------CORPORATE WISE START---------------------->
+      <div class="p-grid g-margin-x" *ngIf="activeTab == tabs[1]">
+        <div class="p-md-4 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-card aps-h-100p">
+            <ng-container *ngFor="let tab of corporateInfoTabs; let i = index">
+              <div class="p-p-3 border-bottom text-size-14 text-semi-bold" [ngClass]="
+                  tab == activeCorporateInfoTab
+                    ? 'border-primary border-radius-4 text-color-primary'
+                    : ''
+                " (click)="scroll(tab, i)">
+                {{ tab }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="p-md-8 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-h-400 overflow-y-scroll overflow-x-hidden">
+            <div class="p-grid p-p-1 g-margin-x">
+              <div class="p-col-12 p-pt-0">
+                <div class="aps-card p-p-2">
+                  <div class="p-grid">
+                    <div class="p-md-6 p-sm-12 p-col-12">
+                      <aps-custom-select id="selectedClient" name="selectedClient" label="Corporate"
+                        [data]="corporateList" [(ngModel)]="selectedClient" [value]="selectedClient"
+                        (change)="changeClient($event)">
+                      </aps-custom-select>
+                    </div>
+                    <div class="p-md-6 p-sm-12 p-col-12">
+                      <app-pie-chart [options]="corporateProductWiseDistributionOptions" mobileHeight="250"
+                        webHeight="150" *ngIf="!corporateProductWiseDistributionLoading; else loadingDataTemplate">
+                      </app-pie-chart>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ng-container *ngIf="corporateDetails && selectedClient != 'Across Clients'">
+                <div class="p-col-12">
+                  <div class="aps-card" id="section-1">
+                    <div class="aps-card-header p-px-3 aps-py-12 text-bold text-size-14">
+                      Client Info
+                    </div>
+                    <div class="aps-card-body p-p-2">
+                      <div class="p-grid">
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Company Name" [value]="corporateDetails.clientInfo.companyName">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="LEI (Legal Entity Identifier)"
+                            [value]="corporateDetails.clientInfo.legalEntityIdentifier"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Business Group"
+                            [value]="corporateDetails.clientInfo.businessGroup"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="CIN (Corporate Identification Number)"
+                            [value]="corporateDetails.clientInfo.corporateIdentificationNumber"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Region Code" [value]="corporateDetails.clientInfo.regionCode">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="NAT ID" [value]="corporateDetails.clientInfo.natId">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="State" [value]="corporateDetails.clientInfo.state">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="RM Mapped" [value]="corporateDetails.clientInfo.rmMapped">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="AM Mapped" [value]="corporateDetails.clientInfo.amMapped">
+                          </app-review-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12">
+                  <div class="aps-card" id="section-2">
+                    <div class="aps-card-header p-px-3 aps-py-12 text-bold text-size-14">
+                      Account Info
+                    </div>
+                    <div class="aps-card-body p-p-2">
+                      <div class="p-grid">
+                        <div class="p-md-6 p-sm-12 p-col-12">
+                          <app-review-form-field label="SBA" [value]="corporateDetails.accountInfo.sma">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-6 p-sm-12 p-col-12">
+                          <app-review-form-field label="Sector" [value]="corporateDetails.accountInfo.sector">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-6 p-sm-12 p-col-12">
+                          <app-review-form-field label="Industry" [value]="corporateDetails.accountInfo.industry">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-6 p-sm-12 p-col-12">
+                          <app-review-form-field label="Account No" [value]="corporateDetails.accountInfo.accountNo">
+                          </app-review-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12">
+                  <div class="aps-card" id="section-3">
+                    <div class="aps-card-header p-px-3 aps-py-12 text-bold text-size-14">
+                      Credit Ratings
+                    </div>
+                    <div class="aps-card-body p-p-2">
+                      <div class="p-grid">
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Sr No." [value]="corporateDetails.creditRatings.srNo">
+                          </app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Rating: Short / Medium / Long"
+                            [value]="corporateDetails.creditRatings.rating"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Analyst Employee ID"
+                            [value]="corporateDetails.creditRatings.analystEmployeeId"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Business Group"
+                            [value]="corporateDetails.creditRatings.businessGroup"></app-review-form-field>
+                        </div>
+                        <div class="p-md-4 p-sm-12 p-col-12">
+                          <app-review-form-field label="Issue Date" [value]="corporateDetails.creditRatings.issueDate">
+                          </app-review-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------------CORPORATE WISE END---------------------->
+
+      <!-- <gridster [options]="gridsterOptions" class="gridster-container" *ngIf="activeTab == tabs[2]">
+        <ng-container *ngFor="let item of productWiseGridData">
+          <gridster-item class="gridster-item fade-in-animation aps-shadow-1" [item]="item" *ngIf="item.isShow">
+            <ndc-dynamic [ndcDynamicComponent]="gridComponents[item.component]" [ndcDynamicInputs]="{
+                parentRef: this
+              }">
+            </ndc-dynamic>
+          </gridster-item>
+        </ng-container>
+      </gridster> -->
+
+
+      <!---------------------PRODUCT WISE START---------------------->
+      <div class="p-grid g-margin-x" *ngIf="activeTab == tabs[2]">
+        <div class="p-md-4 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-card aps-h-100p">
+            <ng-container *ngFor="let product of products; let i = index">
+              <div class="p-p-3 border-bottom text-size-14 text-semi-bold" [ngClass]="
+              products[i] == activeProduct ? 'border-primary border-radius-4 text-color-primary':''"
+                (click)="activeProduct = product">
+                {{ product }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="p-md-8 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-card p-p-3 aps-h-450">
+            <ng-container *ngIf="activeProduct == products[0]">
+              <div class="p-grid g-margin-x">
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="paymentFilterBy" name="paymentFilterBy" label="Filter By" [data]="filterByList"
+                    [(ngModel)]="paymentFilterBy" [value]="paymentFilterBy">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="paymentProduct" name="paymentProduct" label="Product"
+                    [data]="paymentProductList" [(ngModel)]="paymentProduct" [value]="paymentProduct">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate"
+                    [data]="productCorporateList" [(ngModel)]="paymentCorporate" [value]="paymentCorporate">
+                  </aps-custom-select>
+                </div>
+              </div>
+
+              <div class="p-grid g-margin-x">
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>400</div>
+                      </div>
+                      <div class="right-container">
+                        <div>4,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showSuccessfullPaymentsModal = true">Successful Payments</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>30</div>
+                      </div>
+                      <div class="right-container">
+                        <div>10,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span class="pointer text-color-primary-hover"
+                        (click)="showFailedPaymentsModal = true">Failed
+                        Payments</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>290</div>
+                      </div>
+                      <div class="right-container">
+                        <div>1,75,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span (click)="showPendingPaymentsModal = true"
+                        class="pointer text-color-primary-hover">Pending
+                        Payments</span></div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"> </div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>20</div>
+                      </div>
+                      <div class="right-container">
+                        <div>4,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover">Rejected Payments</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>10</div>
+                      </div>
+                      <div class="right-container">
+                        <div>50,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover">Bank Rejected</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="activeProduct == products[1]">
+              <div class="p-grid g-margin-x">
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="tradeFilterBy" name="tradeFilterBy" label="Filter By" [data]="filterByList"
+                    [(ngModel)]="tradeFilterBy" [value]="tradeFilterBy">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="tradeProduct" name="tradeProduct" label="Product" [data]="tradeProductList"
+                    [(ngModel)]="tradeProduct" [value]="tradeProduct">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="tradeCorporate" name="tradeCorporate" label="Corporate"
+                    [data]="productCorporateList" [(ngModel)]="tradeCorporate" [value]="tradeCorporate">
+                  </aps-custom-select>
+                </div>
+              </div>
+
+              <div class="p-grid g-margin-x">
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>500</div>
+                      </div>
+                      <div class="right-container">
+                        <div>5,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover" (click)="showIssuedTradeModal = true">Issued</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>100</div>
+                      </div>
+                      <div class="right-container">
+                        <div>53,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span class="pointer text-color-primary-hover"
+                        (click)="showAmendedTradeModal = true">Amended</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>30</div>
+                      </div>
+                      <div class="right-container">
+                        <div>20,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span (click)="showExpiredTradeModal = true"
+                        class="pointer text-color-primary-hover">Expired</span></div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"> </div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>12</div>
+                      </div>
+                      <div class="right-container">
+                        <div>27,300.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span class="pointer text-color-primary-hover"
+                        (click)="showCancelledTradeModal = true">Cancelled</span></div>
+                  </div>
+                </div>
+
+                <!-- <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>10</div>
+                      </div>
+                      <div class="right-container">
+                        <div>50,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">Issued</div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>10</div>
+                      </div>
+                      <div class="right-container">
+                        <div>50,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">Bank Payments</div>
+                  </div>
+                </div> -->
+              </div>
+
+
+
+
+            </ng-container>
+            <ng-container *ngIf="activeProduct == products[2]">
+              <div class="p-grid g-margin-x">
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="setupFilterBy" name="setupFilterBy" label="Filter By" [data]="filterByList"
+                    [(ngModel)]="setupFilterBy" [value]="setupFilterBy">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="setupProduct" name="setupProduct" label="Product" [data]="setupProductList"
+                    [(ngModel)]="setupProduct" [value]="setupProduct">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="setupCorporate" name="setupCorporate" label="Corporate"
+                    [data]="productCorporateList" [(ngModel)]="setupCorporate" [value]="setupCorporate">
+                  </aps-custom-select>
+                </div>
+              </div>
+
+              <div class="p-grid g-margin-x">
+                <div class="p-col-4">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="text-center">100</div>
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showSetupAuthorizedModal = true">Authorized</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-4">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="text-center">340</div>
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showSetupPendingModal = true">Pending</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-4">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="text-center">340</div>
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showSetupRejectedModal = true">Rejected</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+            </ng-container>
+            <ng-container *ngIf="activeProduct == products[3]">
+              <div class="p-grid g-margin-x">
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="fscmFilterBy" name="fscmFilterBy" label="Filter By" [data]="filterByList"
+                    [(ngModel)]="fscmFilterBy" [value]="fscmFilterBy">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="fscmProduct" name="fscmProduct" label="Product" [data]="fscmProductList"
+                    [(ngModel)]="fscmProduct" [value]="fscmProduct">
+                  </aps-custom-select>
+                </div>
+                <div class="p-md-4 p-sm-12 p-col-12 p-py-0">
+                  <aps-custom-select id="fscmCorporate" name="fscmCorporate" label="Corporate"
+                    [data]="productCorporateList" [(ngModel)]="fscmCorporate" [value]="fscmCorporate">
+                  </aps-custom-select>
+                </div>
+              </div>
+
+              <div class="p-grid g-margin-x">
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>1000</div>
+                      </div>
+                      <div class="right-container">
+                        <div>50,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center"> <span (click)="showfscmInvoiceEnteredModal = true"
+                        class="pointer text-color-primary-hover">Invoices Entered</span></div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"> </div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>20</div>
+                      </div>
+                      <div class="right-container">
+                        <div>4,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showfscmInvoiceAcceptedModal = true">Invoices Accepted</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-6">
+                  <div class="aps-card p-py-2 p-px-3 backgroundImage">
+                    <div class="left-right-container">
+                      <div class="left-container"></div>
+                      <div class="right-container">
+                        <div>
+                          <app-currency-select-dropdown selectStyleClass="select"></app-currency-select-dropdown>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="left-right-container text-size-13">
+                      <div class="left-container">
+                        <div>10</div>
+                      </div>
+                      <div class="right-container">
+                        <div>50,00,000.00</div>
+                      </div>
+                    </div>
+                    <hr class="p-my-2">
+                    <div class="text-center">
+                      <span class="pointer text-color-primary-hover"
+                        (click)="showfscmInvoiceRejectedModal = true">Invoices Rejected</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <!---------------------PRODUCT WISE END---------------------->
+
+
+      <!---------------------MY PERFORMANCE START---------------------->
+      <div class="p-grid g-margin-x" *ngIf="activeTab == tabs[3]">
+        <div class="p-col-12 p-pt-0">
+          <div class="aps-card">
+            <div class="p-px-3 aps-pt-12">
+              <div class="p-grid">
+                <div class="p-md-4 p-sm-12 p-col-12 p-p-0">
+                  <aps-custom-select name="year" id="year" label="Year"
+                    dataUrl="commons/relationshipManagerService/private/dropdown/years"
+                    [value]="selectedPerformanceYear" [(ngModel)]="selectedPerformanceYear"
+                    (change)="onChangeFinancialYear()"></aps-custom-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-pt-0">
+          <div class="aps-card">
+            <div class="aps-card-header p-px-3 aps-py-12 text-size-14 text-semi-bold">
+              {{ 'Reps Targets and Actual' }}
+            </div>
+            <div class="aps-card-body">
+              <div class="aps-h-300">
+                <ng-container *ngIf="!isLoadPerformanceOptions; else loadingDataTemplate">
+                  <aps-chart #chart [options]="performanceOptions"></aps-chart>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---------------------MY PERFORMANCE END---------------------->
+
+
+      <!---------------------REFERENCES START---------------------->
+      <div class="p-grid g-margin-x" *ngIf="activeTab == tabs[4]">
+        <div class="p-md-4 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-card aps-h-100p">
+            <ng-container *ngFor="let ref of references; let i = index">
+              <div class="p-p-3 border-bottom text-size-14 text-semi-bold" [ngClass]="
+                  references[i] == activeReference
+                    ? 'border-primary border-radius-4 text-color-primary'
+                    : ''
+                " (click)="activeReference = ref">
+                {{ ref }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="p-md-8 p-sm-12 p-col-12 p-pt-0">
+          <div class="aps-card p-p-3">
+            <ng-container *ngIf="activeReference == references[0]">
+              <div class="inline-items video-list aps-w-100p overflow-x-scroll overflow-y-hidden">
+                <div class="item video p-mr-3" *ngFor="let demoVideo of referencesData.demoVideos">
+                  <div class="aps-h-150" (click)="playVideo(demoVideo)">
+                    <img [src]="getAssetUrl(demoVideo.displayImageUrl)" class="aps-h-100p" alt="" />
+                    <div class="play-icon">
+                      <app-icon icon="fa-play-circle" styleClasses="text-size-24 text-color-inverse"></app-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="activeReference == references[1]">
+              <div class="p-grid">
+                <div class="p-md-3 p-sm-12 p-col-12" *ngFor="let guideline of referencesData.guidelines">
+                  <div class="aps-card pointer text-color-primary-hover p-p-2"
+                    (click)="downloadLink(guideline.fileUrl)">
+                    <div class="label-with-icon-container">
+                      <div class="icon">
+                        <app-icon icon="fa-file"></app-icon>
+                      </div>
+                      <div class="label">{{ guideline.fileName }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="activeReference == references[2]">
+              <div class="p-grid">
+                <div class="p-md-3 p-sm-12 p-col-12" *ngFor="let presentation of referencesData.presentation">
+                  <div class="aps-card pointer text-color-primary-hover p-p-2"
+                    (click)="downloadLink(presentation.fileUrl)">
+                    <div class="label-with-icon-container">
+                      <div class="icon">
+                        <app-icon icon="fa-file"></app-icon>
+                      </div>
+                      <div class="label">{{ presentation.fileName }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="activeReference == references[3]">
+              <div class="p-grid">
+                <div class="p-md-3 p-sm-12 p-col-12" *ngFor="let misList of referencesData.misList">
+                  <div class="aps-card pointer text-color-primary-hover p-p-2" (click)="downloadLink(misList.fileUrl)">
+                    <div class="label-with-icon-container">
+                      <div class="icon">
+                        <app-icon icon="fa-file"></app-icon>
+                      </div>
+                      <div class="label">{{ misList.fileName }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <!---------------------REFERENCES END---------------------->
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12">
+      <div class="aps-card p-px-3 p-pb-3">
+        <p-tabView orientation="middle">
+          <p-tabPanel header="My Task" headerStyleClass="text-size-14">
+            <div class="aps-h-450 p-pr-1 overflow-y-scroll overflow-x-hidden">
+              <ng-container *ngIf="rmTasks.length > 0; else nothingHereYetTemplate">
+                <div class="p-py-3 border-bottom" *ngFor="let task of rmTasks">
+                  <div class="text-size-14 text-color-dark-shade-1">
+                    {{ task.task }}
+                  </div>
+                  <div class="text-size-12 text-color-normal" [class]="task.status">
+                    Due on {{ task.dueDate | amCalendar }}
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="My Reminder" headerStyleClass="text-size-14">
+            <div class="text-size-14 text-bold">Your Tasks for Today</div>
+            <div class="aps-h-380 p-pr-1 overflow-y-scroll overflow-x-hidden">
+              <ng-container *ngIf="rmReminders.length > 0; else nothingHereYetTemplate">
+                <div class="label-with-icon-container p-py-2" *ngFor="let reminder of rmReminders">
+                  <div class="icon">
+                    <app-icon icon="fa-check-circle"></app-icon>
+                  </div>
+                  <div class="label">
+                    <div class="text-size-13">{{ reminder.task }}</div>
+                    <div class="text-size-12 text-color-light-shade-1">
+                      {{ reminder.dateTime | amCalendar }}
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+
+            <div class="text-right p-pt-3">
+              <button class="btn btn-md btn-secondary" (click)="showRmReminderModal = true">
+                <app-icon icon="fa-plus" class="p-mr-2"></app-icon> Add new Task
+              </button>
+            </div>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingDataTemplate>
+  <p class="text-center p-py-3">Loading...</p>
+</ng-template>
+
+<ng-template #nothingHereYetTemplate>
+  <app-nothing-here colSize="12"></app-nothing-here>
+</ng-template>
+
+
+<!------------------------All Modal Start------------------------->
+<app-modal [(isShow)]="showRmReminderModal" size="md" headerText="Reminder" (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12">
+      <aps-form-input name="task" id="task" label="Task" [(ngModel)]="rmReminder.task" [required]="true">
+      </aps-form-input>
+    </div>
+    <div class="p-md-6 p-sm-12 p-col-12">
+      <app-aps-calender name="date" id="date" label="Date" [(ngModel)]="rmReminder.date" [monthNavigator]="true"
+        [yearNavigator]="true" [required]="true">
+      </app-aps-calender>
+    </div>
+    <div class="p-md-6 p-sm-12 p-col-12">
+      <app-aps-calender name="time" id="time" label="Time" [timeOnly]="true" [(ngModel)]="rmReminder.time"
+        [required]="true"></app-aps-calender>
+    </div>
+    <div class="p-col-12 text-right">
+      <button class="btn btn-md btn-secondary p-mr-3" (click)="resetReminderForm()">CANCEL</button>
+      <button class="btn btn-md btn-primary" (click)="addNewReminder()"
+        [disabled]="!rmReminder.task || !rmReminder.date || !rmReminder.time">
+        ADD
+      </button>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showDeviationMatrix" size="md" headerText="Deviation Matrix">
+  <div body class="aps-h-250 aps-w-100p">
+    <app-ag-grid-listing [colDefUrl]="deviationMatrixColDefs" [rowDefUrl]="deviationMatrixDataUrl"
+      [gridOptions]="gridServerSideOptions"></app-ag-grid-listing>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showLimitDetails" size="md" headerText="Limit Details">
+  <div body class="aps-h-250 aps-w-100p">
+    <app-ag-grid-listing [colDefUrl]="limitDetailsColDefs" [rowDefUrl]="limitDetailsDataUrl"
+      [rowDefReq]="{ corporate: selectedCorporate }" [gridOptions]="gridServerSideOptions"></app-ag-grid-listing>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showLedgerBalance" size="md" headerText="Ledger Balance">
+  <div body class="aps-h-250 aps-w-100p">
+    <app-ag-grid-listing [colDefUrl]="ledgerBalanceColDefs" [rowDefUrl]="ledgerBalanceDataUrl"
+      [rowDefReq]="{ corporate: selectedCorporate }" [gridOptions]="gridServerSideOptions"></app-ag-grid-listing>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showMonthlyAverageBalance" size="md" headerText="Monthly Average Balance">
+  <div body class="aps-h-250 aps-w-100p">
+    <app-ag-grid-listing [colDefUrl]="monthlyAverageBalanceColDefs" [rowDefUrl]="monthlyAverageBalanceDataUrl"
+      [rowDefReq]="{ corporate: selectedCorporate }" [gridOptions]="gridServerSideOptions"></app-ag-grid-listing>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showVideo" headerText="Demo Video" *ngIf="showVideo && activeDemoVideo"
+  (onClose)="activeDemoVideo = null">
+  <div class="" body>
+    <div class="aps-h-300">
+      <video controls="" class="aps-h-100p aps-w-100p">
+        <source type="video/mp4" [src]="getAssetUrl(activeDemoVideo.videoUrl)" />
+        Your Browser not supported to play Videos
+      </video>
+    </div>
+    <div class="p-pt-3 text-right">
+      <button class="btn btn-md btn-primary" (click)="downloadLink(activeDemoVideo.videoUrl)">
+        DOWNLOAD
+      </button>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showSuccessfullPaymentsModal" size="lg" headerText="Successful Vendor Payments"
+  (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="paymentSuccessfulColDefUrl" [rowData]="paymentSuccessfulDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="onDownloadPayments()">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="onExportPayments()">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showFailedPaymentsModal" size="lg" headerText="Failed Payments">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-150">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }"
+        [columnDefs]="paymentFailedColDefUrl" [rowData]="paymentFailedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporates" name="exportCorporates" label="Corporates" [data]="exportCorporatesList"
+        [(ngModel)]="exportCorporates" [value]="exportCorporates">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showFailedPaymentsModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showFailedPaymentsModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showPendingPaymentsModal" size="lg" headerText="Pending Payments">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-150">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }"
+        [columnDefs]="paymentPendingColDefUrl" [rowData]="paymentPendingDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporates" name="exportCorporates" label="Corporates" [data]="exportCorporatesList"
+        [(ngModel)]="exportCorporates" [value]="exportCorporates">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showPendingPaymentsModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showPendingPaymentsModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showIssuedTradeModal" size="lg" headerText="Trade Finance Issued">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing #tradeFinanceIssued id="radeFinanceIssued" [supressAutoFit]="true"
+        [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [columnDefs]="tradeIssuedColDefUrl"
+        [rowData]="tradeIssuedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummaryTrade"
+        id="downloadSummaryTrade" [(ngModel)]="downloadSummaryTrade"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummaryTrade"
+        id="downloadSummaryTrade" [(ngModel)]="downloadSummaryTrade"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummaryTrade ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormatTrade" id="downloadFormatTrade"
+        [(ngModel)]="downloadFormatTrade"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormatTrade" id="downloadFormatTrade"
+        [(ngModel)]="downloadFormatTrade"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormatTrade" id="downloadFormatTrade"
+        [(ngModel)]="downloadFormatTrade"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummaryTrade ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporatesTrade" name="exportCorporatesTrade" label="Corporates"
+        [data]="exportCorporatesList" [(ngModel)]="exportCorporatesTrade" [value]="exportCorporatesTrade">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormatTrade" name="exportFormatTrade" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormatTrade" [value]="exportFormatTrade">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDateTrade" name="exportDateTrade" label="Date" [data]="exportDateList"
+        [(ngModel)]="exportDateTrade" [value]="exportDateTrade">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummaryTrade ==='Download Summary' || downloadSummaryTrade ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummaryTrade ==='Download Summary'"
+            (click)="onDownload()">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummaryTrade ==='Export Transaction'"
+            (click)="onExport()">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showAmendedTradeModal" size="lg" headerText="Amended">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-150">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }"
+        [columnDefs]="tradeAmendedColDefUrl" [rowData]="tradeAmendedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporates" name="exportCorporates" label="Corporates" [data]="exportCorporatesList"
+        [(ngModel)]="exportCorporates" [value]="exportCorporates">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showAmendedTradeModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showAmendedTradeModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showExpiredTradeModal" size="lg" headerText="Expired">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-150">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }"
+        [columnDefs]="tradeExpiredColDefUrl" [rowData]="tradeExpiredDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporates" name="exportCorporates" label="Corporates" [data]="exportCorporatesList"
+        [(ngModel)]="exportCorporates" [value]="exportCorporates">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showExpiredTradeModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showExpiredTradeModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showCancelledTradeModal" size="lg" headerText="Cancelled">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-150">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }"
+        [columnDefs]="tradeCancelledColDefUrl" [rowData]="tradeCancelledDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportCorporates" name="exportCorporates" label="Corporates" [data]="exportCorporatesList"
+        [(ngModel)]="exportCorporates" [value]="exportCorporates">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showCancelledTradeModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showCancelledTradeModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showSetupAuthorizedModal" size="lg" headerText="Authorized" (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="setupAuthorizedColDefUrl" [rowData]="setupAuthorizedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummarySetup"
+        id="downloadSummarySetup" [(ngModel)]="downloadSummarySetup"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummarySetup"
+        id="downloadSummarySetup" [(ngModel)]="downloadSummarySetup"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummarySetup ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormatSetup" id="downloadFormatSetup"
+        [(ngModel)]="downloadFormatSetup"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormatSetup" id="downloadFormatSetup"
+        [(ngModel)]="downloadFormatSetup"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormatSetup" id="downloadFormatSetup"
+        [(ngModel)]="downloadFormatSetup"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummarySetup ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="setupCorporate" name="setupCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="setupCorporate" [value]="setupCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormatSetup" name="exportFormatSetup" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormatSetup" [value]="exportFormatSetup">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDateSetup" name="exportDateSetup" label="Date" [data]="exportDateList"
+        [(ngModel)]="exportDate" [value]="exportDateSetup">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummarySetup ==='Download Summary' || downloadSummarySetup ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummarySetup ==='Download Summary'"
+            (click)="showSetupAuthorizedModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummarySetup ==='Export Transaction'"
+            (click)="showSetupAuthorizedModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showSetupPendingModal" size="lg" headerText="Pending" (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="tradePendingColDefUrl" [rowData]="tradePendingDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showSetupPendingModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showSetupPendingModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showSetupRejectedModal" size="lg" headerText="Rejected" (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="setupRejectedColDefUrl" [rowData]="setupRejectedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showSetupRejectedModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showSetupRejectedModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showfscmInvoiceEnteredModal" size="lg" headerText="Invoice Entered"
+  (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="fscmInvoiceEnteredColDefUrl" [rowData]="fscmInvoiceEnteredDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showfscmInvoiceEnteredModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showfscmInvoiceEnteredModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showfscmInvoiceAcceptedModal" size="lg" headerText="Invoice Accepted"
+  (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="fscmInvoiceAcceptedColDefUrl" [rowData]="fscmInvoiceAcceptedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showfscmInvoiceAcceptedModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showfscmInvoiceAcceptedModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<app-modal [(isShow)]="showfscmInvoiceRejectedModal" size="lg" headerText="Invoice Rejected"
+  (onClose)="resetReminderForm()">
+  <div body class="p-grid g-margin-x">
+    <div class="p-col-12 aps-h-200">
+      <app-ag-grid-listing [gridOptions]="gridOptions1" [context]="{ componentParent: this }" [supressAutoFit]="true"
+        [columnDefs]="fscmInvoiceRejectedColDefUrl" [rowData]="fscmInvoiceRejectedDataUrl"></app-ag-grid-listing>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x">
+    <div class="p-col-4">
+      <p-radioButton class="p-mr-2" label="Download Summary" value="Download Summary" name="downloadSummary"
+        id="downloadSummary" [(ngModel)]="downloadSummary"></p-radioButton>
+      <p-radioButton label="Export Transaction" value="Export Transaction" name="downloadSummary" id="downloadSummary"
+        [(ngModel)]="downloadSummary"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Download Summary'">
+    <div class="p-col-12">
+      <p-radioButton class="p-mr-2" label="PDF" value="PDF" name="downloadFormat" id="downloadSummary"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Excel" value="Excel" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+      <p-radioButton class="p-mr-2" label="Text" value="Text" name="downloadFormat" id="downloadFormat"
+        [(ngModel)]="downloadFormat"></p-radioButton>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x" *ngIf="downloadSummary ==='Export Transaction'">
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="paymentCorporate" name="paymentCorporate" label="Corporate" [data]="productCorporateList"
+        [(ngModel)]="paymentCorporate" [value]="paymentCorporate" disabled>
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportFormat" name="exportFormat" label="Format" [data]="exportFormatList"
+        [(ngModel)]="exportFormat" [value]="exportFormat">
+      </aps-custom-select>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12 p-py-0">
+      <aps-custom-select id="exportDate" name="exportDate" label="Date" [data]="exportDateList" [(ngModel)]="exportDate"
+        [value]="exportDate">
+      </aps-custom-select>
+    </div>
+  </div>
+
+  <div class="p-grid g-margin-x"
+    *ngIf="downloadSummary ==='Download Summary' || downloadSummary ==='Export Transaction'">
+    <div class="p-col-12">
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Download Summary'"
+            (click)="showfscmInvoiceRejectedModal = false">DOWNLOAD</button>
+          <button class="btn btn-md btn-primary" *ngIf="downloadSummary ==='Export Transaction'"
+            (click)="showfscmInvoiceRejectedModal = false">EXPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<!-------------------------All Modal End-------------------------->

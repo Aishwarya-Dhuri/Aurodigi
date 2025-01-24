@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "depositStartDate": "11/20/2016",
+      "depositAmount": "2,000",
+      "interestAmount": "20.00",
+      "transactionType": "Principal Inflow",
+      "transactionDate": "11/10/2016",
+      "transactionAmount": "20.00",
+      "cumulativeBalance": "2,000.00"
+    }
+  ],
+  "lastRow": 1
+}

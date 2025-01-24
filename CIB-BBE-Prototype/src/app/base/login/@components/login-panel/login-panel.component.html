@@ -1,0 +1,126 @@
+<div class="login-panel-container">
+  <form class="login-form border-radius-20" name=" loginStep1Form" #loginStep1Form="ngForm">
+    <div class="text-size-20 text-bold p-pb-2" *ngIf="!isStep1Completed">
+      {{ 'Login' | apsTranslate }}
+    </div>
+    <div class="text-size-20 text-bold p-pb-2" *ngIf="isStep1Completed">
+      {{ 'Authentication' | apsTranslate }}
+    </div>
+    <ng-container *ngIf="!isStep1Completed; else step2">
+      <div class="p-py-2">
+        <span class="p-input-icon-left aps-w-100p">
+          <i class="fal fa-user"></i>
+          <input
+            id="userName"
+            name="userName"
+            type="text"
+            [(ngModel)]="loginForm.userName"
+            #userName="ngModel"
+            autocomplete="username"
+            [placeholder]="'User Name' | apsTranslate"
+            pInputText
+            alphaNumericInput
+            [required]="true"
+            (focus)="isInvalidCredentials = false"
+          />
+        </span>
+        <span
+          [hidden]="userName.valid || userName.pristine"
+          class="p-px-2 text-color-danger text-size-12"
+        >
+          {{ 'Provide User Name' | apsTranslate }}
+        </span>
+      </div>
+      <div class="p-py-2">
+        <span class="p-input-icon-left p-input-icon-right aps-w-100p">
+          <i class="fal fa-lock"></i>
+          <input
+            id="password"
+            name="password"
+            [type]="isViewPassword ? 'text' : 'password'"
+            #password="ngModel"
+            [(ngModel)]="loginForm.password"
+            [placeholder]="'Password' | apsTranslate"
+            autocomplete="current-password"
+            pInputText
+            alphaNumericInput
+            [required]="true"
+            (focus)="isInvalidCredentials = false"
+          />
+          <i
+            class="fal pointer"
+            [ngClass]="isViewPassword ? ' fa-eye-slash' : ' fa-eye'"
+            (click)="isViewPassword = !isViewPassword"
+          ></i>
+        </span>
+        <span
+          [hidden]="password.valid || password.pristine"
+          class="p-px-2 text-color-danger text-size-12"
+        >
+          {{ 'Provide Password' | apsTranslate }}
+        </span>
+      </div>
+      <div class="left-right-container text-size-10">
+        <div class="left-container">
+          <a class="link pointer">{{ 'Forgot Password ?' | apsTranslate }}</a>
+        </div>
+        <div class="right-container">
+          <div class="link pointer hide-on-mobile">
+            <app-icon icon="fa-keyboard"></app-icon>
+            {{ 'Show Virtual Keyboard' | apsTranslate }}
+          </div>
+        </div>
+      </div>
+      <div class="p-px-2 p-py-3">
+        <p-checkbox
+          id="tnc"
+          name="tnc"
+          [(ngModel)]="loginForm.acceptTermsConditions"
+          label="{{ 'I agree to the Terms & Conditions' | apsTranslate }}"
+          [binary]="true"
+        ></p-checkbox>
+      </div>
+      <div class="p-mt-5 p-py-2 p-text-center aps-w-100p">
+        <span [hidden]="!isInvalidCredentials" class="p-px-2 text-color-danger text-size-14">
+          {{ 'Invalid credentials' | apsTranslate }}
+        </span>
+        <button
+          class="aps-w-100p btn btn-md btn-primary"
+          (click)="checkLoginDetails()"
+          [disabled]="loginStep1Form.invalid || !loginForm.acceptTermsConditions"
+        >
+          {{ 'PROCEED' | apsTranslate }}
+        </button>
+      </div>
+      <div class="p-py-2">
+        <button class="aps-w-100p btn btn-md btn-tertiary"
+          (click)="loginForm.userName=''; loginForm.password='';loginForm.acceptTermsConditions=false">
+          {{ 'RESET' | apsTranslate }}
+        </button>
+      </div>
+    </ng-container>
+  </form>
+  <ng-template #step2>
+    <app-second-factor-authentication></app-second-factor-authentication>
+  </ng-template>
+
+  <div class="step-container">
+    <div class="p-grid p-jc-center">
+      <div class="p-col-12 p-pt-3 p-px-1 p-pb-0">
+        <div class="step-circle active" [ngClass]="{ complete: isStep1Completed }">
+          <div class="p-d-flex p-jc-center" *ngIf="isStep1Completed">
+            <i class="fal fa fa-check check text-size-14 p-mt-1"></i>
+          </div>
+        </div>
+      </div>
+      <div class="p-col-12 p-py-0">
+        <div class="p-d-flex p-jc-center">
+          <div class="step-line"></div>
+        </div>
+      </div>
+      <div class="p-col-12 p-pt-0 p-px-1 p-pb-3">
+        <div class="step-circle" [ngClass]="{ active: isStep1Completed }"></div>
+      </div>
+    </div>
+  </div>
+</div>

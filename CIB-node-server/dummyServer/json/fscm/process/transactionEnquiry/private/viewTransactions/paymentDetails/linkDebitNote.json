@@ -1,0 +1,7 @@
+[
+  {
+    "type": "grid",
+    "colDefUrl": "fscm/process/transactionEnquiry/private/viewtransactions/paymentDetails/linkDebitNoteColDefs",
+    "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/linkDebitNoteRowData"
+  }
+]

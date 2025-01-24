@@ -1,0 +1,15 @@
+<div class="inline-items" *ngIf="params.data.profiles.length > 0">
+    <div class="item p-mr-2">
+        <app-icon icon="fa-pencil" class="text-color-primary pointer"
+            (click)="params.context.componentParent.onEditSlab(index)"></app-icon>
+    </div>
+    <div class="item p-mr-2">
+        <app-icon icon="fa-trash-alt" class="text-color-primary pointer"
+            (click)="params.context.componentParent.onDeleteSlab(index)"></app-icon>
+    </div>
+</div>
+
+<button class="btn btn-md btn-tertiary" *ngIf="params.data.profiles.length == 0"
+    (click)="params.context.componentParent.onEditSlab(index)">
+    {{ 'ADD' | apsTranslate }}
+</button>

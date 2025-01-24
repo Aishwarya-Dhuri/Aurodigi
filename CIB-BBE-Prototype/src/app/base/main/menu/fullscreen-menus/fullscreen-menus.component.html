@@ -1,0 +1,142 @@
+<div class="full-screen-menu-container">
+  <div class="search-bar-wrapper">
+    <div class="search-bar">
+      <span class="aps-w-100p p-input-icon-left">
+        <!-- <i class="pi pi-search"></i> -->
+        <i class="fal fa-search"></i>
+        <input class="input-search" type="text" pInputText placeholder="Enter Keyword to Search" />
+      </span>
+    </div>
+
+    <div class="close-fullscreen-menu">
+      <!-- <i class="pi pi-times" (click)="closeFullScreenMenu()"></i> -->
+      <app-icon icon="fa-times" class="app-icon" (click)="closeFullScreenMenu()"></app-icon>
+    </div>
+  </div>
+
+  <div class="menu-panel" (click)="closeFullScreenMenu()">
+    <div class="menu-heading" *ngIf="showHeader">{{ parentMenu }}</div>
+    <div class="menus-container">
+      <div class="menu-wrapper" *ngFor="let menu of menus">
+        <div class="main-menu">
+          {{ menu.displayName }}
+          <ng-container *ngIf="menu.menus">
+            <div
+              class="menu"
+              [ngClass]="{ 'menu-mb-0': menu1.id === currentMenu }"
+              *ngFor="let menu1 of menu.menus"
+              (mouseenter)="openSubMenu(menu1.id)"
+              (mouseleave)="closeSubMenu()"
+            >
+              <div class="icon">
+                <i
+                  class="pi"
+                  [ngClass]="
+                    menu1.id === currentMenu
+                      ? 'pi-chevron-down text-size-12'
+                      : 'pi-chevron-right text-size-12'
+                  "
+                ></i>
+              </div>
+              <div class="text">{{ menu1.displayName }}</div>
+
+              <ng-container *ngIf="menu1.menuLinksDetail">
+                <div
+                  class="sub-menu"
+                  *ngFor="let menu2 of menu1.menuLinksDetail.link"
+                  [ngClass]="{
+                    'sub-menu-expand': menu1.id === currentMenu
+                  }"
+                >
+                  <!-- [routerLink]="
+                  menu1.entityName === 'CURRENCY'
+                    ? menu2.key === 'INIT'
+                      ? '/setup/generalMasters/industry/initiate'
+                      : '/setup/generalMasters/industry/listing'
+                    : '/dashboard'
+                " -->
+                  <div
+                    class="text"
+                    (click)="
+                      handleRoute(
+                        menu1,
+                        menu2.url,
+                        menu.displayName + '/' + menu1.displayName + '/' + menu2.displayName
+                      )
+                    "
+                  >
+                    {{ menu2.displayName }}
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="frequently-used-links">
+    <div class="quick-link-wrapper">
+      <div class="quick-link">
+        Frequently Used
+        <div class="link" *ngFor="let link of menus.quickLinks">
+          <div class="icon">
+            <i class="pi pi-clock"></i>
+          </div>
+          <div class="text">
+            {{ link.label }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advertise-wrapper">
+      <div class="image">
+        <img src="./../../../../assets/images/advertise.png" alt="" />
+      </div>
+    </div>
+  </div> -->
+
+  <div class="frequently-used-links">
+    <div class="quick-link-wrapper">
+      <div class="quick-link">
+        Frequently Used
+        <div class="link">
+          <div class="icon">
+            <!-- <i class="pi pi-clock"></i> -->
+            <app-icon icon="fa-clock" class="app-icon"></app-icon>
+          </div>
+          <div class="text">WPS Registered MOL / Pending Authorization Listing Page</div>
+        </div>
+        <div class="link">
+          <div class="icon">
+            <!-- <i class="pi pi-clock"></i> -->
+            <app-icon icon="fa-clock" class="app-icon"></app-icon>
+          </div>
+          <div class="text">WPS Registered MOL / Pending Authorization Listing Page</div>
+        </div>
+        <div class="link">
+          <div class="icon">
+            <!-- <i class="pi pi-clock"></i> -->
+            <app-icon icon="fa-clock" class="app-icon"></app-icon>
+          </div>
+          <div class="text">WPS Registered MOL / Pending Authorization Listing Page</div>
+        </div>
+        <div class="link">
+          <div class="icon">
+            <!-- <i class="pi pi-clock"></i> -->
+            <app-icon icon="fa-clock" class="app-icon"></app-icon>
+          </div>
+          <div class="text">WPS Registered MOL / Pending Authorization Listing Page</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advertise-wrapper">
+      <div class="image">
+        <img src="./../../../../assets/images/advertise.png" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="header-wrapper">
+  <div class="left-right-container fade-in-animation" *ngIf="!enableSearchInput">
+    <div class="left-container">
+      <div class="text-size-14 text-semi-bold text-color-normal p-p-3">
+        {{ heading }}
+      </div>
+    </div>
+    <div class="right-container">
+      <div
+        class="search-icon pointer text-size-14 text-semi-bold text-color-normal p-p-3"
+        *ngIf="enableSearch"
+      >
+        <app-icon icon="fa-search" (click)="enableSearchInput = true"></app-icon>
+      </div>
+
+      <div class="close-icon pointer p-ml-2" *ngIf="enableClose">
+        <app-icon icon="fa-times" (click)="close.emit()"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="aps-search-container-2 fade-in-animation" *ngIf="enableSearchInput">
+    <input
+      type="text"
+      class="aps-search-input"
+      placeholder="Search in {{ heading }}"
+      [(ngModel)]="searchValue"
+      (input)="onSearchInput()"
+    />
+    <div class="search-icon">
+      <app-icon icon="fa-search"></app-icon>
+    </div>
+    <div class="close-icon pointer">
+      <app-icon icon="fa-times" (click)="enableSearchInput = false"></app-icon>
+    </div>
+  </div>
+</div>

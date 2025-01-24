@@ -1,0 +1,225 @@
+[
+  {
+    "label": "Payments",
+    "products": [
+      {
+        "label": "Sub Product wise Account Mapping",
+        "subProducts": [
+          {
+            "label": "Sub Product 1",
+            "subProducts": [],
+            "key": "SUBPRODUCT1",
+            "parent": "SUBPRODUCTWISEACCOUNTMAPPING"
+          },
+          {
+            "label": "Sub Product 2",
+            "subProducts": [],
+            "key": "SUBPRODUCT2",
+            "parent": "SUBPRODUCTWISEACCOUNTMAPPING"
+          }
+        ],
+        "key": "SUBPRODUCTWISEACCOUNTMAPPING",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Own Account Transfer",
+        "subProducts": [],
+        "key": "OWNACCOUNTTRANSFER",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "CASA Conventional Accounts",
+        "subProducts": [],
+        "key": "CASACONVENTIONALACCOUNTS",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "CASA Islamic Accounts",
+        "subProducts": [],
+        "key": "CASAISLAMICACCOUNTS",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Loan Conventional",
+        "subProducts": [],
+        "key": "LOANCONVENTIONAL",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Loan Islamic Accounts",
+        "subProducts": [],
+        "key": "LOANISLAMICACCOUNTS",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Fixed Deposit Accounts",
+        "subProducts": [],
+        "key": "FIXEDDEPOSITACCOUNTS",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "External Account Mapping",
+        "subProducts": [],
+        "key": "EXTERNALACCOUNTMAPPING",
+        "parent": "PAYMENTS"
+      },
+      { "label": "Send to Bank", "subProducts": [], "key": "SENDTOBANK", "parent": "PAYMENTS" },
+      {
+        "label": "FD Initiation",
+        "subProducts": [
+          {
+            "label": "Sub Product 1",
+            "subProducts": [],
+            "key": "SUBPRODUCT1",
+            "parent": "FDINITIATION"
+          },
+          {
+            "label": "Sub Product 2",
+            "subProducts": [],
+            "key": "SUBPRODUCT2",
+            "parent": "FDINITIATION"
+          }
+        ],
+        "key": "FDINITIATION",
+        "parent": "PAYMENTS"
+      },
+      { "label": "Credit Card", "subProducts": [], "key": "CREDITCARD", "parent": "PAYMENTS" },
+      { "label": "Debit Card", "subProducts": [], "key": "DEBITCARD", "parent": "PAYMENTS" },
+      { "label": "Bill Payment", "subProducts": [], "key": "BILLPAYMENT", "parent": "PAYMENTS" },
+      {
+        "label": "MT101 Incoming",
+        "subProducts": [],
+        "key": "MT101INCOMING",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "MT101 Outgoing",
+        "subProducts": [],
+        "key": "MT101OUTGOING",
+        "parent": "PAYMENTS"
+      },
+      { "label": "WPS", "subProducts": [], "key": "WPS", "parent": "PAYMENTS" },
+      {
+        "label": "WPS - Send to Bank",
+        "subProducts": [],
+        "key": "WPS-SENDTOBANK",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Merchant Payment",
+        "subProducts": [],
+        "key": "MERCHANTPAYMENT",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "ETF Processing",
+        "subProducts": [],
+        "key": "ETFPROCESSING",
+        "parent": "PAYMENTS"
+      },
+      {
+        "label": "Government Payments",
+        "subProducts": [],
+        "key": "GOVERNMENTPAYMENTS",
+        "parent": "PAYMENTS"
+      },
+      { "label": "Wallet", "subProducts": [], "key": "WALLET", "parent": "PAYMENTS" }
+    ],
+    "key": "PAYMENTS"
+  },
+  {
+    "label": "Trade",
+    "products": [
+      {
+        "label": "Letter of Credit",
+        "subProducts": [],
+        "key": "LETTEROFCREDIT",
+        "parent": "TRADE"
+      },
+      {
+        "label": "Letter of Credit Amend",
+        "subProducts": [],
+        "key": "LETTEROFCREDITAMEND",
+        "parent": "TRADE"
+      },
+      {
+        "label": "Bill Payment And Apply Finance",
+        "subProducts": [],
+        "key": "BILLPAYMENTANDAPPLYFINANCE",
+        "parent": "TRADE"
+      },
+      {
+        "label": "Request Finance - Import",
+        "subProducts": [],
+        "key": "REQUESTFINANCE-IMPORT",
+        "parent": "TRADE"
+      },
+      { "label": "OTT Request", "subProducts": [], "key": "OTTREQUEST", "parent": "TRADE" },
+      {
+        "label": "Shipping Guarantee",
+        "subProducts": [],
+        "key": "SHIPPINGGUARANTEE",
+        "parent": "TRADE"
+      },
+      { "label": "Bank Guarantee", "subProducts": [], "key": "BANKGUARANTEE", "parent": "TRADE" },
+      {
+        "label": "Bank Guarantee Amend",
+        "subProducts": [],
+        "key": "BANKGUARANTEEAMEND",
+        "parent": "TRADE"
+      },
+      {
+        "label": "Bill Presentment",
+        "subProducts": [],
+        "key": "BILLPRESENTMENT",
+        "parent": "TRADE"
+      },
+      {
+        "label": "Request Finance - Export",
+        "subProducts": [],
+        "key": "REQUESTFINANCE-EXPORT",
+        "parent": "TRADE"
+      }
+    ],
+    "key": "TRADE"
+  },
+  { "label": "Collections", "products": [], "key": "COLLECTIONS" },
+  {
+    "label": "FSCM",
+    "products": [
+      { "label": "Invoice Payment", "subProducts": [], "key": "INVOICEPAYMENT", "parent": "FSCM" },
+      {
+        "label": "Finance Repayment",
+        "subProducts": [],
+        "key": "FINANCEREPAYMENT",
+        "parent": "FSCM"
+      }
+    ],
+    "key": "FSCM"
+  },
+  {
+    "label": "VAM",
+    "products": [
+      { "label": "POBO", "subProducts": [], "key": "POBO", "parent": "VAM" },
+      { "label": "COBO", "subProducts": [], "key": "COBO", "parent": "VAM" }
+    ],
+    "key": "VAM"
+  },
+  { "label": "LMS", "products": [], "key": "LMS" },
+  {
+    "label": "Direct Debit",
+    "products": [
+      {
+        "label": "Direct Debit Accounts",
+        "subProducts": [],
+        "key": "DIRECTDEBITACCOUNTS",
+        "parent": "DIRECTDEBIT"
+      }
+    ],
+    "key": "DIRECTDEBIT"
+  },
+  { "label": "RMS", "products": [], "key": "RMS" },
+  { "label": "Cashflow Forecasting", "products": [], "key": "CASHFLOWFORECASTING" },
+  { "label": "Wealth Management", "products": [], "key": "WEALTHMANAGEMENT" },
+  { "label": "Escrow Accounts", "products": [], "key": "ESCROWACCOUNTS" }
+]

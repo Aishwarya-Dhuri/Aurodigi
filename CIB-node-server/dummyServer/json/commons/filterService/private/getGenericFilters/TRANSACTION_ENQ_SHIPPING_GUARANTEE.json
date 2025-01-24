@@ -1,0 +1,334 @@
+{
+  "type": "Trade-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "sgNumber",
+      "displayName": "SG Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "transactionDate",
+      "displayName": "Transaction Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "sgCurrency",
+      "displayName": "SG Currency",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/generalMasters/currency/private/currencyList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "Currency Code",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "Currency",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "sgAmount",
+      "displayName": "SG Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "sgIssueDate",
+      "displayName": "SG Issue Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "sgExpiryDate",
+      "displayName": "SG Expiry Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "claimExpiryDate",
+      "displayName": "Claim Expiry Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "beneficiaryName",
+      "displayName": "Beneficiary Name",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "trade/exportTransactions/bankGuarantee/private/beneficiaryColDefs",
+      "rowDefUrl": "trade/exportTransactions/bankGuarantee/private/beneficiaryData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "BENEFICIARYSEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_corporate_type",
+            "name": "id",
+            "type": "String",
+            "value": "SPONSOR",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "id,name",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "applicantName",
+      "displayName": "Applicant Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "onBehalfOf",
+      "displayName": "On Behalf Of",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "invoiceNumber",
+      "displayName": "Invoice Number",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "typeOfGuarantee",
+      "displayName": "Type of Guarantee",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "trade/importTransactions/shippingGuarantee/private/dropdown/typeOfGuaranteeList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "userRefNumber",
+      "displayName": "user Ref No",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/importTransactions/shippingGuarantee/private/dropdown/statusList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "typeOfGuarantee",
+      "displayName": "Type of Guarantee",
+      "type": "String",
+      "value": "Shipping Guarantee",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Shipping Guarantee"
+    },
+    {
+      "name": "sgIssueDate",
+      "displayName": "SG Issue Date",
+      "type": "Date",
+      "value": "15-Oct-2021",
+      "value1": "",
+      "operator": "",
+      "displayValue": "15 OCT 2021"
+    },
+    {
+      "name": "sgExpiryDate",
+      "displayName": "SG Expiry Date",
+      "type": "Date",
+      "value": "15-Oct-2021",
+      "value1": "",
+      "operator": "",
+      "displayValue": "15 OCT 2021"
+    },
+    {
+      "name": "sgCurrency",
+      "displayName": "SG Currency",
+      "type": "String",
+      "value": "0",
+      "value1": "",
+      "operator": "",
+      "displayValue": "SAR"
+    },
+    {
+      "name": "sgAmount",
+      "displayName": "SG Amount",
+      "type": "String",
+      "value": "100000",
+      "value1": "",
+      "operator": "",
+      "displayValue": "100000"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

@@ -1,0 +1,191 @@
+<div class="p-grid">
+  <!-- Grid -->
+  <div class="p-col-12">
+    <div class="aps-card aps-w-100p" [style.height.px]="cardHeight">
+      <gridster [ngClass]="{ 'grid-container': !isGridEdit }" [options]="options">
+        <gridster-item [item]="item" *ngFor="let item of parentGridItem.cardData; let i = index">
+          <!-- Item Edit Action icons -->
+          <div class="left-right-container p-py-1 p-px-2" *ngIf="isGridEdit">
+            <div class="left-container"></div>
+            <div class="right-container text-size-14">
+              <app-icon
+                *ngIf="item.isConfigurable"
+                class="pointer p-mx-1"
+                icon="fa fa-pencil"
+                (click)="parentRef.configureItem(item)"
+                (touchstart)="parentRef.configureItem(item)"
+              >
+              </app-icon>
+              <app-icon
+                class="draggable drag-field-selector p-mx-1"
+                icon="fa fa-arrows-alt"
+              ></app-icon>
+              <app-icon
+                class="pointer p-mx-1"
+                icon="fa fa-trash-alt"
+                (click)="removeItem(item)"
+                (touchstart)="removeItem(item)"
+              >
+              </app-icon>
+            </div>
+          </div>
+          <!-- Generic Type Item -->
+          <div class="aps-h-100p aps-w-100p p-px-2" *ngIf="item.itemType == 'GENERIC'">
+            <div class="text-bold p-p-2" *ngIf="item.componentClassName == 'HEADING'">
+              {{ item.value }}
+            </div>
+            <div class="text-semi-bold p-p-2" *ngIf="item.componentClassName == 'SUB_HEADING'">
+              {{ item.value }}
+            </div>
+            <div
+              class="text-size-12 text-color-light-shade-1"
+              *ngIf="item.componentClassName == 'LABEL'"
+            >
+              {{ item.label }}
+            </div>
+            <app-review-form-field
+              *ngIf="item.componentClassName == 'LABEL_VALUE'"
+              [label]="item.label"
+              [value]="item.value"
+            >
+            </app-review-form-field>
+            <ng-container *ngIf="item.componentClassName == 'AG_GRID'">
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [colDefUrl]="item.colDefUrl"
+                [rowDefUrl]="item.rowDefUrl"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && !item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [columnDefs]="item.colDefs"
+                [rowDefUrl]="item.rowDefUrl"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [colDefUrl]="item.colDefUrl"
+                [rowData]="item.rowData"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && !item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [columnDefs]="item.colDefs"
+                [rowData]="item.rowData"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+            </ng-container>
+          </div>
+          <!-- Form Inputs -->
+          <div class="p-p-2" *ngIf="item.itemType != 'GENERIC'">
+            <aps-form-input
+              *ngIf="item.componentClassName == 'FORM_INPUT'"
+              [id]="item.elementId"
+              [name]="item.elementId"
+              [(ngModel)]="item.value"
+              [label]="item.label"
+              [required]="item.required"
+              [inputType]="item.inputType"
+            >
+            </aps-form-input>
+            <app-aps-calender
+              *ngIf="item.componentClassName == 'FORM_CALENDER'"
+              [id]="item.elementId"
+              [name]="item.elementId"
+              [(ngModel)]="item.value"
+              [label]="item.label"
+              [selectionMode]="item.selectionMode"
+              [numberOfMonths]="item.numberOfMonths"
+              [required]="item.required"
+            >
+            </app-aps-calender>
+            <app-aps-calender
+              *ngIf="item.componentClassName == 'FORM_TIME'"
+              [id]="item.elementId"
+              [name]="item.elementId"
+              [(ngModel)]="item.value"
+              [label]="item.label"
+              [required]="item.required"
+              [timeOnly]="true"
+            >
+            </app-aps-calender>
+            <ng-container *ngIf="item.componentClassName == 'FORM_SELECT'">
+              <aps-custom-select
+                *ngIf="item.isApiBasedOptions"
+                [id]="item.elementId"
+                [name]="item.elementId"
+                [(ngModel)]="item.value"
+                [value]="item.value"
+                [label]="item.label"
+                [required]="item.required"
+                [dataUrl]="item.dataUrl"
+              >
+              </aps-custom-select>
+              <aps-custom-select
+                *ngIf="!item.isApiBasedOptions"
+                [id]="item.elementId"
+                [name]="item.elementId"
+                [(ngModel)]="item.value"
+                [value]="item.value"
+                [label]="item.label"
+                [required]="item.required"
+                [data]="item.fieldOptionList"
+              >
+              </aps-custom-select>
+            </ng-container>
+            <ng-container *ngIf="item.componentClassName == 'FORM_CHECKBOX'">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ item.label }}<sup class="text-color-danger" *ngIf="item.required">*</sup>
+              </div>
+              <p-checkbox
+                *ngFor="let option of item.fieldOptionList"
+                [id]="item.elementId"
+                [name]="item.elementId"
+                [value]="option.id"
+                styleClass="p-mx-1"
+                [label]="option.displayName"
+                [(ngModel)]="item.value"
+              >
+              </p-checkbox>
+            </ng-container>
+            <ng-container *ngIf="item.componentClassName == 'FORM_RADIO'">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ item.label }}<sup class="text-color-danger" *ngIf="item.required">*</sup>
+              </div>
+              <p-radioButton
+                *ngFor="let option of item.fieldOptionList"
+                [id]="item.elementId"
+                [name]="item.elementId"
+                [value]="option.id"
+                styleClass="p-mx-1"
+                [label]="option.displayName"
+                [(ngModel)]="item.value"
+              >
+              </p-radioButton>
+            </ng-container>
+            <ng-container *ngIf="item.componentClassName == 'FORM_TOGGLE_SWITCH'">
+              <div class="text-size-12 text-color-light-shade-1">
+                {{ item.label }}<sup class="text-color-danger" *ngIf="item.required">*</sup>
+              </div>
+              <div class="p-py-2 p-px-3">
+                <p-inputSwitch
+                  [id]="item.elementId"
+                  [name]="item.elementId"
+                  [(ngModel)]="item.value"
+                ></p-inputSwitch>
+              </div>
+            </ng-container>
+          </div>
+        </gridster-item>
+      </gridster>
+    </div>
+  </div>
+</div>

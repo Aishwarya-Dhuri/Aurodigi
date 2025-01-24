@@ -1,0 +1,53 @@
+::ng-deep .p-multiselect {
+    background-color: white !important;
+
+    border-bottom: 1px solid var(--background-color-dark-5) !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+}
+
+::ng-deep .p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext {
+    padding-right: 1.571rem;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--background-color-dark-5);
+}
+
+.p-multiselect-panel .p-multiselect-items {
+    padding: 0 1.8rem !important;
+
+    .p-checkbox {
+        padding: 0 0.6rem !important;
+    }
+}
+
+.radio-toolbar-container .radio-toolbar label {
+    font-size: 0.875rem !important;
+    padding: 4px !important;
+}
+
+.radio-toolbar {
+    input[type='radio'] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+    }
+
+    input[type='radio']:checked+label {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    label {
+        cursor: pointer;
+        display: inline-block;
+        width: 50%;
+        border-radius: 0 4px 4px 0;
+        text-align: center;
+        border: 1px solid var(--background-color-dark-6);
+
+        &:nth-child(2) {
+            border-radius: 4px 0 0 4px;
+        }
+    }
+}

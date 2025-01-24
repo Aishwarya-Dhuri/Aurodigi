@@ -1,0 +1,5 @@
+[
+  { "headerName": "Product", "field": "product" },
+  { "headerName": "CCY", "field": "ccy" },
+  { "headerName": "Amount", "field": "amount" }
+]

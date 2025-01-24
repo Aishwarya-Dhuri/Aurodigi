@@ -1,0 +1,77 @@
+{
+  "data": [
+    {
+      "id": "165432",
+      "beneficiaryAddress": "AB Corp, WB, 1234",
+      "beneficiaryEmail": "ab.corp@gmail.com",
+      "beneficiaryBankAddress": "Punjab National Bank, RM Road, 1234",
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "AB Corp",
+      "beneficiaryBank": "Punjab National Bank",
+      "beneficiaryAccountNo": "111002670010",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    },
+    {
+      "id": "165433",
+      "beneficiaryAddress": "HPCC, WB, 1234",
+      "beneficiaryEmail": "hpcc@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene220000667",
+      "beneficiaryName": "HPCC",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670011",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    },
+    {
+      "id": "165434",
+      "beneficiaryAddress": "RA Group, WB, 1234",
+      "beneficiaryEmail": "ra.group@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene220000667",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670013",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    },
+    {
+      "id": "165435",
+      "beneficiaryAddress": "AB Corp, WB, 1234",
+      "beneficiaryEmail": "ab.corp@gmail.com",
+      "beneficiaryBankAddress": "Punjab National Bank, RM Road, 1234",
+      "beneficiaryCode": "Bene220000666",
+      "beneficiaryName": "AB Corp",
+      "beneficiaryBank": "Punjab National Bank",
+      "beneficiaryAccountNo": "111002670014",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    },
+    {
+      "id": "165436",
+      "beneficiaryAddress": "RA Group, WB, 1234",
+      "beneficiaryEmail": "ra.group@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670015",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    },
+    {
+      "id": "165437",
+      "beneficiaryAddress": "RA Group, WB, 1234",
+      "beneficiaryEmail": "ab.corp@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene220000666",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670016",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "India"
+    }
+  ],
+  "lastRow": 6
+}

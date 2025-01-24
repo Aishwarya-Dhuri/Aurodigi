@@ -1,0 +1,28 @@
+{
+  "clusterDetails": [
+    {
+      "moduleName": "REPORTMAPPINGCHARGE",
+      "alertName": "-",
+      "category": "Report Mapping Charges",
+      "eventName": "THB",
+      "channel": "EOD",
+      "alertTo": "EOD"
+    },
+    {
+      "moduleName": "SUBSCRIPTIONCHARGE",
+      "alertName": "-",
+      "category": "Subscription Charges",
+      "eventName": "THB",
+      "channel": "Onetime",
+      "alertTo": "Onetime"
+    },
+    {
+      "moduleName": "ADMINISTRATIONCHARGE",
+      "alertName": "-",
+      "category": "Administration Charges",
+      "eventName": "THB",
+      "channel": "Monthly",
+      "alertTo": "Yearly"
+    }
+  ]
+}

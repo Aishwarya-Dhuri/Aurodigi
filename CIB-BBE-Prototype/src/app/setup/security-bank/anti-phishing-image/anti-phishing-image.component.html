@@ -1,0 +1,69 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3 aps-h-400 overflow-scroll">
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="categoryCode" name="categoryCode"
+                                [label]="'Category Code' | apsTranslate" [(ngModel)]="formData.categoryCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="categoryName" name="categoryName"
+                                [label]="'Category Name' | apsTranslate" [(ngModel)]="formData.categoryName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-6"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <upload-form-control [isMultiple]="true" [files]="formData.imageCategory"
+                                [hideDragDropContainerOnFIleUpload]="false" (onUploaded)="onImageFileSelected($event)">
+                            </upload-form-control>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3 aps-h-400">
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Category Code" [value]="formData.categoryCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Category Name" [value]="formData.categoryName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+
+                    <div class="p-md-3 p-sm-3 p-col-12" *ngFor="let document of formData.imageCategory">
+                        <div class="aps-card p-p-2">
+                            <div class="label-with-icon-container">
+                                <div class="icon">
+                                    <aps-icon icon="fa-file"></aps-icon>
+                                </div>
+                                <div class="label">
+                                    <div class="text-size-14">
+                                        {{ document.fileName }}
+                                    </div>
+                                    <div class="text-size-10 text-color-normal">
+                                        {{ (document.fileSize / 1024 / 1024).toFixed(2) }} MB
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

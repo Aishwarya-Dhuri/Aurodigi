@@ -1,0 +1,113 @@
+{
+  "type": "Seller",
+  "customerType": "Bank Customer",
+  "code": "123",
+  "name": "TATA",
+  "nameLocal": "TL",
+  "taxIdentificationNumber": "123456",
+  "taxBranch": "BR23",
+  "logo": [],
+  "address1": "Mumbai - 81",
+  "address2": "",
+  "address3": "",
+  "location": "Mumbai",
+  "province": "M",
+  "country": "Ind",
+  "city": "MUM",
+  "postalCode": "400081",
+  "emailId": "example@aps.com",
+  "mobileNumber": "98756321478",
+  "telephoneNumber": "98765456987",
+  "contactDetails": [
+    {
+      "srNo": 1,
+      "contactPersonName": "P1",
+      "emailId": "p1@aps.com",
+      "designation": "SE",
+      "telephoneNumber": "9853601478",
+      "actions": [
+        {
+          "index": 0,
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "paramList": "srNo, contactPerson, emailId, designation, telephoneNumber",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 1,
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "paramList": "srNo, contactPerson, emailId, designation, telephoneNumber",
+          "icon": "fa-trash"
+        }
+      ]
+    }
+  ],
+  "parameters": [
+    {
+      "securityOfficer": [{ "corporateUserAdministrationBy": "Bank" }],
+      "otherParameterConfiguration": [
+        {
+          "holidayAccess": "Yes",
+          "reportAccessOnHoliday": "Yes",
+          "verificationRequired": "Yes",
+          "noOfVerifiers": "3"
+        }
+      ],
+      "isIpMapping": "Yes",
+      "ipMapping": [
+        {
+          "srNo": 1,
+          "startRange": "192.168.0.0",
+          "endRange": "192.168.255.255",
+          "actions": [
+            {
+              "index": 0,
+              "methodName": "edit",
+              "type": "ICON",
+              "displayName": "Edit",
+              "icon": "fa-pencil",
+              "paramList": "srNo, startRange, endRange"
+            },
+            {
+              "index": 1,
+              "methodName": "delete",
+              "type": "ICON",
+              "displayName": "Delete",
+              "icon": "fa-trash",
+              "paramList": "srNo, startRange, endRange"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "authenticationRules": [
+    {
+      "srNo": 1,
+      "moduleName": "FSCM",
+      "transactionName": "Credit/Debit Note Entry",
+      "authorizationRule": "Authorization Matrix",
+      "actions": [
+        {
+          "index": 0,
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil",
+          "paramList": "srNo, moduleName, transactionName, authorizationRule"
+        },
+        {
+          "index": 1,
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash",
+          "paramList": "srNo, moduleName, transactionName, authorizationRule"
+        }
+      ]
+    }
+  ]
+}

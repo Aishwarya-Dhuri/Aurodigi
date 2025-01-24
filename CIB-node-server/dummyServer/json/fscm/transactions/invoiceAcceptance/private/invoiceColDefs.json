@@ -1,0 +1,11 @@
+[
+  {
+    "headerName": "Invoice Number",
+    "field": "invoiceNumber",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true
+  },
+  { "headerName": "Invoice Generation Date", "field": "invoiceGenerationDate" },
+  { "headerName": "Invoice Due Date", "field": "invoiceDueDate" },
+  { "headerName": "Invoice Amount", "field": "invoiceAmount" }
+]

@@ -1,0 +1,18 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "dataMap": {
+    "broadcastMessages": [
+      {
+        "briefMessage": "Message to Corporate",
+        "messageDescription": "The Central Bank  announces the issuance of a Discussion Paper on Central Bank Digital Currency for public comments. The Discussion Paper examines the applicability of a potential Central Bank Digital Currency (CBDC). It is part of Central Bank's initiatives to ensure informed policy decisions regarding innovations. "
+      },
+      {
+        "briefMessage": "Message to Corporate",
+        "messageDescription": "The Monetary Policy Committee retained the Central Bank Rate (CBR) at 9.00 percent at its recent meeting."
+      }
+    ]
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

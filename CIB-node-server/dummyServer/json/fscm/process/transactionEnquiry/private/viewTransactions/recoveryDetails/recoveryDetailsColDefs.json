@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch Number", "field": "batchNumber", "cellRenderer": "linkRenderer" },
+    { "headerName": "Finance Amount", "field": "financeAmount" },
+    { "headerName": "Recovered Principle", "field": "recoveredPrinciple" },
+    { "headerName": "Recovered Interest", "field": "recoveredInterest" },
+    { "headerName": "Recovered Margin", "field": "recoveredMargin" },
+    { "headerName": "Recovered Amount", "field": "recoveredAmount" }
+  ]
+}

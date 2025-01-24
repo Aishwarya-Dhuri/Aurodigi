@@ -1,0 +1,29 @@
+[
+  {
+    "headerName": "Corporate Ref No",
+    "field": "corporateRefNo"
+  },
+  {
+    "headerName": "Initiate Type",
+    "field": "initiateType"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "headerName": "User ID",
+    "field": "userId"
+  },
+  {
+    "headerName": "First Name",
+    "field": "firstName"
+  },
+  {
+    "headerName": "Last Name",
+    "field": "lastName"
+  },
+  {
+    "headerName": "Email ID",
+    "field": "emailId"
+  },
+  {
+    "headerName": "Mobile Number",
+    "field": "mobileNo"
+  },
+  {
+    "headerName": "Profile Name",
+    "field": "profileName"
+  },
+  {
+    "headerName": "Gender",
+    "field": "gender"
+  },
+  {
+    "headerName": "Category",
+    "field": "category"
+  },
+  {
+    "headerName": "Corporate Role",
+    "field": "corporateRole"
+  },
+  {
+    "headerName": "Actions",
+    "field": "initActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

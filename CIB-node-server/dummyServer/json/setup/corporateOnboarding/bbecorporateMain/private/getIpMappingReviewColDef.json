@@ -1,0 +1,14 @@
+[
+  {
+    "field": "srNo",
+    "headerName": "Sr No"
+  },
+  {
+    "field": "startRange",
+    "headerName": "Start Range"
+  },
+  {
+    "field": "endRange",
+    "headerName": "End Range"
+  }
+]

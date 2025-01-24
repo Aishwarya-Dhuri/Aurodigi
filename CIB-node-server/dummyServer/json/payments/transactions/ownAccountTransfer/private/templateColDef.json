@@ -1,0 +1,18 @@
+{
+  "columnDefs": [
+    { "headerName": "Template Name", "field": "templateName" },
+    { "headerName": "Credit Account No", "field": "creditAccountNo" },
+    { "headerName": "Debit Account", "field": "debitAccountNo" },
+    { "headerName": "Debit Amount", "field": "debitAmount" },
+    { "headerName": "Payment Method", "field": "paymentMethod" },
+    { "headerName": "Transaction Date", "field": "transactionDate" },
+    {
+      "headerName": "Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

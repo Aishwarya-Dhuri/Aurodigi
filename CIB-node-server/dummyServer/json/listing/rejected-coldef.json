@@ -1,0 +1,60 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "columnDefs": [
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Profile Code",
+      "field": "profileCode",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Profile Name",
+      "field": "profileName",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Corporate Name",
+      "field": "corporateName",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Reject Reason",
+      "field": "rejectReason",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "cellRenderer": "rejectReasonCellRenderer",
+      "loggable": false,
+      "entityIdentifier": ""
+    }
+  ],
+  "loggable": false,
+  "entityIdentifier": ""
+}

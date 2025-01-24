@@ -1,0 +1,770 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div
+      class="p-col-12 p-md-3 p-lg-3 p-pb-0"
+      *ngIf="isHeaderLoaded && stepperDetails.currentStep < stepperDetails.headings.length"
+    >
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+    <div
+      class="p-col-12 p-pb-0 p-mb-3"
+      [ngClass]="{ 'p-md-9 p-lg-9': stepperDetails.currentStep < stepperDetails.headings.length }"
+    >
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Document Details')">
+        <form name="step1Form" #step1Form="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Document Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Product' | apsTranslate"
+                    name="product"
+                    id="product"
+                    [(ngModel)]="formData.cashProProductId"
+                    [value]="formData.cashProProductId"
+                    [data]="productList"
+                    [required]="true"
+                    (change)="onProductChange()"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Module' | apsTranslate"
+                    name="module"
+                    id="module"
+                    [(ngModel)]="formData.moduleName"
+                    [value]="formData.moduleName"
+                    [data]="moduleList"
+                    [required]="true"
+                    (change)="onModuleChange()"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <div class="aps-w-90p inline-block">
+                    <aps-custom-select
+                      [label]="'Document Template Type' | apsTranslate"
+                      name="documentTemplateType"
+                      id="documentTemplateType"
+                      [(ngModel)]="formData.docTemplateTypeId"
+                      [value]="formData.docTemplateTypeId"
+                      [data]="documentTemplateTypeList"
+                      [required]="true"
+                      (change)="onDocumentTemplateTypeChange()"
+                    >
+                    </aps-custom-select>
+                  </div>
+                  <div
+                    class="inline-block p-pt-3 p-px-1 text-size-20 pointer"
+                    [apsHide]="!triggerPoint"
+                  >
+                    <app-icon icon="fa fa-info-circle" [pTooltip]="triggerPoint"></app-icon>
+                  </div>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Document Name' | apsTranslate"
+                    name="documentName"
+                    id="documentName"
+                    [(ngModel)]="formData.documentDesignName"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Format Level' | apsTranslate"
+                    name="formatLevel"
+                    id="formatLevel"
+                    [(ngModel)]="formData.formatLevel"
+                    [value]="formData.formatLevel"
+                    dataUrl="setup/templates/documentDesigner/private/dropdown/formatLevel"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Display Data from' | apsTranslate"
+                    name="displayDataFrom"
+                    id="displayDataFrom"
+                    [(ngModel)]="formData.displayDataFrom"
+                    [value]="formData.displayDataFrom"
+                    dataUrl="setup/templates/documentDesigner/private/dropdown/displayDataFrom"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid" [apsHide]="channelList.length == 0">
+                <div class="p-col-12 p-md-8 p-lg-8">
+                  <div class="text-size-12 text-color-light-shade-1 p-pt-2 p-px-2">
+                    {{ 'Channel' | apsTranslate }}
+                  </div>
+                  <ng-container *ngFor="let channel of channelList">
+                    <p-checkbox
+                      class="p-px-2 p-pb-2"
+                      name="documentDesignType"
+                      [label]="channel.displayName"
+                      [value]="channel.id"
+                      [(ngModel)]="formData.documentDesignType"
+                      (onChange)="onDocumentDesignTypeChange()"
+                    ></p-checkbox>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="p-grid" [apsHide]="channelList.length == 0">
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!isApplicable('Email')">
+                  <aps-custom-select
+                    [label]="'Email Format Type' | apsTranslate"
+                    name="emailFormatType"
+                    id="emailFormatType"
+                    [(ngModel)]="formData.fileType"
+                    [value]="formData.fileType"
+                    dataUrl="setup/templates/documentDesigner/private/dropdown/emailFormatType"
+                    (change)="onFileTypeChange($event)"
+                    [required]="isApplicable('Email')"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <app-aps-calender
+                    [label]="'Effective From' | apsTranslate"
+                    name="effectiveFrom"
+                    id="effectiveFrom"
+                    [showIcon]="true"
+                    [(ngModel)]="formData.effectiveFrom"
+                    required="true"
+                  >
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <app-aps-calender
+                    [label]="'Effective Till' | apsTranslate"
+                    name="effectiveTill"
+                    id="effectiveTill"
+                    [showIcon]="true"
+                    [(ngModel)]="formData.effectiveTill"
+                  >
+                  </app-aps-calender>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Email Details')">
+        <form name="emailForm" #emailForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Email Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-8 p-lg-8">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Email Subject' | apsTranslate"
+                    name="emailSubject"
+                    id="emailSubject"
+                    [(ngModel)]="formData.emailSubject"
+                    [required]="isApplicable('Email')"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="emailBody"
+                    name="emailBody"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.emailbody"
+                    [required]="isApplicable('Email')"
+                  ></editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Document Header Details')">
+        <form name="documentHeaderForm" #documentHeaderForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Document Header Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="documentHeader"
+                    name="documentHeader"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.documentHeader"
+                    [required]="
+                      isApplicable('Print') ||
+                      (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')
+                    "
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Page Header Details')">
+        <form name="pageHeaderForm" #pageHeaderForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Page Header Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="pageHeader"
+                    name="pageHeader"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.pageHeader"
+                    [required]="
+                      isApplicable('Print') ||
+                      (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')
+                    "
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Text Details')">
+        <form name="textForm" #textForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Text Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="textEdtr"
+                    name="textEdtr"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.text"
+                    [required]="
+                      isApplicable('Print') ||
+                      (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')
+                    "
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Page Footer Details')">
+        <form name="pageFooterForm" #pageFooterForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Page Footer Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="pageFooter"
+                    name="pageFooter"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.pageFooter"
+                    [required]="
+                      isApplicable('Print') ||
+                      (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')
+                    "
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Document Footer Details')">
+        <form name="documentFooterForm" #documentFooterForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Document Footer Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="documentFooter"
+                    name="documentFooter"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.documentFooter"
+                    [required]="
+                      isApplicable('Print') ||
+                      (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')
+                    "
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('SMS Details')">
+        <form name="smsForm" #smsForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'SMS Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="sms"
+                    name="sms"
+                    [init]="plainEditorInitConfig"
+                    [(ngModel)]="formData.sms"
+                    [required]="isApplicable('SMS')"
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Online Details')">
+        <form name="onlineForm" #onlineForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Online Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="online"
+                    name="online"
+                    [init]="editorInitConfig"
+                    [(ngModel)]="formData.online"
+                    [required]="isApplicable('Online')"
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Push Notification Details')">
+        <form name="pushNotificationForm" #pushNotificationForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Push Notification Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12" *ngIf="!isTagListLoading">
+                  <editor
+                    id="pushNotification"
+                    name="pushNotification"
+                    [init]="plainEditorInitConfig"
+                    [(ngModel)]="formData.pushNotification"
+                    [required]="isApplicable('Push Notification')"
+                  >
+                  </editor>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Watermark Details')">
+        <form name="smsForm" #smsForm="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Watermark Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Watermark Text' | apsTranslate"
+                    name="watermarkText"
+                    id="watermarkText"
+                    [(ngModel)]="formData.waterMarkText"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Watermark Direction' | apsTranslate"
+                    name="watermarkDirection"
+                    id="watermarkDirection"
+                    [(ngModel)]="formData.waterMarkDirection"
+                    [value]="formData.waterMarkDirection"
+                    dataUrl="setup/templates/documentDesigner/private/dropdown/waterMarkDirection"
+                    [required]="true"
+                    (change)="onWaterMarkDirectionChange($event)"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != getStepNumber('Review and Submit')">
+        <div class="p-py-3 text-size-16 text-bold">
+          {{ 'Review Details & Confirm' | apsTranslate }}
+        </div>
+        <!-- Document Details Review-->
+        <div class="aps-card p-px-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Document Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Product' | apsTranslate"
+                [value]="formData.cashProProductName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Module' | apsTranslate"
+                [value]="formData.moduleName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Document Template Type' | apsTranslate"
+                [value]="formData.docTemplateTypeName"
+              ></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Document Name' | apsTranslate"
+                [value]="formData.documentDesignName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Format Level' | apsTranslate"
+                [value]="formData.formatLevel"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Display Data from' | apsTranslate"
+                [value]="formData.displayDataFrom"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Channel' | apsTranslate"
+                [value]="formData.documentDesignType"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3" [apsHide]="isApplicable('Email')">
+              <app-review-form-field
+                [label]="'Email Format Type' | apsTranslate"
+                [value]="formData.fileTypeName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Effective From' | apsTranslate"
+                [value]="formData.effectiveFrom"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Effective Till' | apsTranslate"
+                [value]="formData.effectiveTill ? formData.effectiveTill : '-'"
+              >
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Email Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Email Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Email Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Email Subject' | apsTranslate"
+                [value]="formData.emailSubject"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="emailBodyReview"
+                name="emailBodyReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.emailbody"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Document Header Details Review-->
+        <div
+          class="aps-card p-px-3 p-mt-3"
+          [apsHide]="getStepNumber('Document Header Details') == -1"
+        >
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Document Header Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="documentHeaderDetailsReview"
+                name="documentHeaderDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.documentHeader"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Page Header Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Page Header Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Page Header Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="pageHeaderDetailsReview"
+                name="pageHeaderDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.pageHeader"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Text Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Text Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Text Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="textDetailsReview"
+                name="textDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.text"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Page Footer Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Page Footer Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Page Footer Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="pageFooterDetailsReview"
+                name="pageFooterDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.pageFooter"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Document Footer Details Review-->
+        <div
+          class="aps-card p-px-3 p-mt-3"
+          [apsHide]="getStepNumber('Document Footer Details') == -1"
+        >
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Document Footer Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="documentFooterDetailsReview"
+                name="documentFooterDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.documentFooter"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- SMS Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('SMS Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'SMS Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="smsDetailsReview"
+                name="smsDetailsReview"
+                [init]="plainEditorInitConfig"
+                [(ngModel)]="formData.sms"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Online Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Online Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Online Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="onlineDetailsReview"
+                name="onlineDetailsReview"
+                [init]="editorInitConfig"
+                [(ngModel)]="formData.online"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Push Notification Details Review-->
+        <div
+          class="aps-card p-px-3 p-mt-3"
+          [apsHide]="getStepNumber('Push Notification Details') == -1"
+        >
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Push Notification Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12" *ngIf="!isTagListLoading">
+              <editor
+                id="pushNotificationDetailsReview"
+                name="pushNotificationDetailsReview"
+                [init]="plainEditorInitConfig"
+                [(ngModel)]="formData.pushNotification"
+                [disabled]="true"
+              ></editor>
+            </div>
+          </div>
+        </div>
+        <!-- Watermark Details Review-->
+        <div class="aps-card p-px-3 p-mt-3" [apsHide]="getStepNumber('Watermark Details') == -1">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Watermark Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Watermark Text' | apsTranslate"
+                [value]="formData.waterMarkText"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Watermark Direction' | apsTranslate"
+                [value]="formData.waterMarkDirectionName"
+              >
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-pt-0">
+      <app-stepper-footer [parentRef]="this">
+        <ng-container left-content>
+          <ng-container
+            *ngIf="
+              (isApplicable('Print') ||
+                (isApplicable('Email') && formData.fileType == 'Attachment (PDF)')) &&
+              stepperDetails.currentStep == getStepNumber('Review and Submit')
+            "
+          >
+            <button
+              class="p-mr-3 btn btn-md btn-secondary text-size-14 text-semi-bold"
+              (click)="onPreviewClick()"
+            >
+              <span>{{ 'PREVIEW' | apsTranslate }}</span>
+            </button>
+          </ng-container>
+        </ng-container>
+      </app-stepper-footer>
+    </div>
+  </div>
+  <!-- save as Draft Modal -->
+  <app-modal
+    *ngIf="isShowPreview"
+    [(isShow)]="isShowPreview"
+    size="lg"
+    [headerText]="'Preview' | apsTranslate"
+  >
+    <div class="p-grid" body>
+      <div class="p-col-12" *ngIf="!isTagListLoading">
+        <editor
+          id="finalPreview"
+          name="finalPreview"
+          [init]="plainEditorInitConfig"
+          [(ngModel)]="previewData"
+          [disabled]="true"
+        ></editor>
+      </div>
+    </div>
+  </app-modal>
+</div>

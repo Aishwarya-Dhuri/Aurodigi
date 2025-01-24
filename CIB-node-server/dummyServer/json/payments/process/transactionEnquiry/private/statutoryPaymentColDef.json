@@ -1,0 +1,15 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch No", "field": "id" },
+    { "headerName": "Channel", "field": "channelName" },
+    { "headerName": "Payment Type", "field": "paymentDetails" },
+    { "headerName": "Payment Method", "field": "paymentMethodName" },
+    { "headerName": "Institute Name", "field": "institutionType" },
+    { "headerName": "Transaction Date", "field": "valueDate" },
+    { "headerName": "Value Date", "field": "valueDate" },
+    { "headerName": "Currency", "field": "currencyName" },
+    { "headerName": "Amount", "field": "totalAmount" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

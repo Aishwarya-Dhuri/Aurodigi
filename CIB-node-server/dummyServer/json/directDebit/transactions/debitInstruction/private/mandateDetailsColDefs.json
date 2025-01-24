@@ -1,0 +1,33 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Mandate Reference Number",
+      "field": "mandateRefNo",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "UMRN",
+      "field": "umrn"
+    },
+    {
+      "headerName": "Product Name",
+      "field": "prodName"
+    },
+    {
+      "headerName": "Customer Name",
+      "field": "customerName"
+    },
+    {
+      "headerName": "Customer Bank",
+      "field": "customerBank"
+    },
+    {
+      "headerName": "Customer Account Number",
+      "field": "customerAccNo"
+    },
+    {
+      "headerName": "Customer Bank IFSC",
+      "field": "customerBankIfsc"
+    }
+  ]
+}

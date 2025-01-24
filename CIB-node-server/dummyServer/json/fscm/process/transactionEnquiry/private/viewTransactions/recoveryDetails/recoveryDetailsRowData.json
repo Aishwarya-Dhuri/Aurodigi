@@ -1,0 +1,14 @@
+[
+  {
+    "batchNumber": {
+      "header": "Recovery Details",
+      "label": "R021128001",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/recoveryDetails/recoveryDetails"
+    },
+    "financeAmount": "THB 16,000.00",
+    "recoveredPrinciple": "THB 16,000.00",
+    "recoveredInterest": "THB 4.67",
+    "recoveredMargin": "THB 3,995.33",
+    "recoveredAmount": "THB 20,000.00"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "columnDefs": [
+    { "headerName": "Corporate Group", "field": "corporateGroup" },
+    { "headerName": "Corporate Name", "field": "corporateName" },
+    { "headerName": "Structure Name", "field": "structureName" },
+    { "headerName": "Structure Type", "field": "structureType" },
+    { "headerName": "Main Account Number", "field": "mainAccountNumber" },
+    { "headerName": "Execution Frequency", "field": "executionFrequency" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

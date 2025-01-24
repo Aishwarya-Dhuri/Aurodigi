@@ -1,0 +1,49 @@
+[
+  {
+    "headerName": "LC Number",
+    "field": "id"
+  },
+  {
+    "headerName": "Transferred LC Ref No",
+    "field": "advisedLcRefNumber"
+  },
+  {
+    "headerName": "LC Issuance Date",
+    "field": "effectiveDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "LC Advising Date",
+    "field": "lcAdvisingDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "LC Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "amount"
+  },
+  {
+    "headerName": "Exporter / Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "expiryDate"
+  },
+  {
+    "headerName": "No of Amendments",
+    "field": "noOfAmendments"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

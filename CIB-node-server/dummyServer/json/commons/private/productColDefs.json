@@ -1,0 +1,11 @@
+[
+  {
+    "headerName": "Product Code",
+    "checkboxSelection": true,
+    "field": "productCode"
+  },
+  {
+    "headerName": "Product Name",
+    "field": "productName"
+  }
+]

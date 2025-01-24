@@ -1,0 +1,6 @@
+{
+  "columnDefs": [
+    { "headerName": "Tracking Code", "field": "trackingCode", "checkboxSelection": true },
+    { "headerName": "Tracking Name", "field": "trackingName" }
+  ]
+}

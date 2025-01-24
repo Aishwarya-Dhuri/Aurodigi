@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "batchNo": "12345678",
+      "channel": "H2H",
+      "paymentType": "Payment Request",
+      "uploadFileName": "UploadFile1.txt",
+      "uploadedDateTime": "05 Aug 2021 | 08:12",
+      "status": "Error",
+      "ack/nack": ""
+    },
+    {
+      "batchNo": "12345679",
+      "channel": "H2H",
+      "paymentType": "WPS",
+      "uploadFileName": "UploadFile2.xls",
+      "uploadedDateTime": "17 Aug 2021 | 09:00",
+      "status": "Error",
+      "ack/nack": ""
+    },
+    {
+      "batchNo": "123456710",
+      "channel": "API",
+      "paymentType": "Bill Payment",
+      "uploadFileName": "UploadFile3.xls",
+      "uploadedDateTime": "10 Sep 2021 | 08:12",
+      "status": "Pending Upload",
+      "ack/nack": ""
+    },
+    {
+      "batchNo": "123456711",
+      "channel": "H2H",
+      "paymentType": "WPS",
+      "uploadFileName": "UploadFile4.xls",
+      "uploadedDateTime": "11 Mar 2021 | 10:12",
+      "status": "Upload Success",
+      "ack/nack": ""
+    },
+    {
+      "batchNo": "123456710",
+      "channel": "API",
+      "paymentType": "Bill Payment",
+      "uploadFileName": "UploadFile3.xls",
+      "uploadedDateTime": "10 Sep 2021 | 08:12",
+      "status": "Pending Upload",
+      "ack/nack": ""
+    }
+  ],
+  "lastRow": 5
+}

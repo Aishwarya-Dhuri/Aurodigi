@@ -1,0 +1,2321 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Service Package Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <!-- <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3  p-pb-0">
+                            <aps-form-input id="corporateCode" label="Service Package Code" name="corporateCode"
+                                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                [(ngModel)]="formData.corporateCode" disabled="true" required="true">
+                            </aps-form-input>
+                            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                            </app-search-modal>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2 p-pb-0" *ngIf="formData.corporateCode">
+                            <div class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2">
+                                Corporate Name
+                            </div>
+                            <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                                {{ formData.corporateName }}
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="serviceTemplateCode" name="serviceTemplateCode"
+                                [label]="'Service Package Code' | apsTranslate"
+                                [(ngModel)]="formData.serviceTemplateCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="serviceTemplateName" name="serviceTemplateName"
+                                [label]="'Service Package Name' | apsTranslate"
+                                [(ngModel)]="formData.serviceTemplateName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <!-- <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="corporateProductCode" name="corporateProductCode"
+                                [label]="'Corporate Product Code' | apsTranslate"
+                                [(ngModel)]="formData.corporateProductCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="corporateProductName" name="corporateProductName"
+                                [label]="'Corporate Product Name' | apsTranslate"
+                                [(ngModel)]="formData.corporateProductName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div> -->
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="product" id="product"
+                                [(ngModel)]="formData.product" [value]="formData.product" [data]="productArray"
+                                [required]="true" (change)="oncChangeProduct(formData.product)">
+                            </aps-custom-select>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Product' | apsTranslate" name="subProduct" id="subProduct"
+                                [(ngModel)]="formData.subProduct" [value]="formData.subProduct" [data]="subProductArray"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Customer Category' | apsTranslate" name="customerCategory"
+                                id="customerCategory" [(ngModel)]="formData.customerCategory"
+                                [value]="formData.customerCategory" [data]="customerCategoryArray" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2 p-pb-3" *ngIf="formData.product ==='Payments'">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <div class="text-size-14"> Template For</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="templateFor" value="Corporate" label="Corporate"
+                                    [(ngModel)]="formData.templateFor">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="templateFor" value="Group" label="Group"
+                                    [(ngModel)]="formData.templateFor">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2" name="templateFor" value="Both" label="Both"
+                                    [(ngModel)]="formData.templateFor">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div *ngIf="formData.product === 'Payments'">
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Configuration Details </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14"> Check Duplicate CRN Number</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="checkDuplicateCrnNo" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.checkDuplicateCrnNo">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="checkDuplicateCrnNo" value="No"
+                                        label="No" [(ngModel)]="formData.checkDuplicateCrnNo">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select id="accountPosting" name="accountPosting" label="Account Posting"
+                                    [(ngModel)]="formData.accountPosting" required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/accountPosting">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Enrichment Required<sup>*</sup></div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="enrichmentRequired" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.enrichmentRequired">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="enrichmentRequired" value="No" label="No"
+                                        [(ngModel)]="formData.enrichmentRequired">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.enrichmentRequired === 'Yes'">
+                                <aps-custom-select id="enrichment" name="enrichment" label="Enrichment"
+                                    [(ngModel)]="formData.enrichment" required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/enrichment">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Charge Applicable' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isChargeApplicable" name="isChargeApplicable"
+                                        [(ngModel)]="formData.isChargeApplicable">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isChargeApplicable === true">
+                                <div class="text-size-14">Charge Type<sup>*</sup></div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="chargeType" value="Per Transaction Charge"
+                                        label="Per Transaction Charge" [(ngModel)]="formData.chargeType">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-1" name="chargeType" value="File Based Charge"
+                                        label="File Based Charge" [(ngModel)]="formData.chargeType">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12" *ngIf="formData.isChargeApplicable === true">
+                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                    name="normalChargeCategory" id="normalChargeCategory"
+                                    [(ngModel)]="formData.normalChargeCategory" [data]="normalChargeCategoryList"
+                                    [required]="true">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12" *ngIf="formData.isChargeApplicable === true">
+                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                    name="promotionalChargeCategory" id="promotionalChargeCategory"
+                                    [(ngModel)]="formData.promotionalChargeCategory"
+                                    [data]="promotionalChargeCategoryList" [required]="true">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2 p-pb-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Allow Runtime Beneficiary<sup>*</sup></div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="allowRuntimeBene" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.allowRuntimeBene">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="allowRuntimeBene" value="No" label="No"
+                                        [(ngModel)]="formData.allowRuntimeBene">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Beneficiary Auto Authorize<sup>*</sup></div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="beneAutoAuth" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.beneAutoAuth">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="beneAutoAuth" value="No" label="No"
+                                        [(ngModel)]="formData.beneAutoAuth">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Beneficiary Library Update<sup>*</sup></div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="beneLibUpdate" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.beneLibUpdate">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="beneLibUpdate" value="No" label="No"
+                                        [(ngModel)]="formData.beneLibUpdate">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-mt-2">
+                                <p-checkbox [binary]="true" id="forceDebit" name="forceDebit" class="p-mr-2"
+                                    [(ngModel)]="formData.forceDebit" [value]="formData.forceDebit" label="Force Debit">
+                                </p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2">Datalayout Details</div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="table-container p-pl-2">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                            <th class="p-p-2 text-left">Upload For</th>
+                                            <th class="p-p-2 text-left">Data Layout</th>
+                                            <th class="p-p-2 text-left">Partial Upload</th>
+                                            <th class="p-p-2 text-left">H2H</th>
+                                            <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="">
+                                        <tr class="text-size-12 text-color-normal border-bottom">
+                                            <td class="p-p-2 text-size-14">
+                                                Payment Request
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-dropdown appendTo="body" class="custom-dropdown"
+                                                    [options]="dataLayoutPaymentRequestList" optionLabel="displayName"
+                                                    optionValue="id" placeholder="Please Select"
+                                                    [showClear]="false"></p-dropdown>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-inputSwitch id="isDataLayoutPaymentRequest"
+                                                    name="isDataLayoutPaymentRequest"
+                                                    [(ngModel)]="isDataLayoutPaymentRequest">
+                                                </p-inputSwitch>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-inputSwitch id="isH2hPaymentRequest" name="isH2hPaymentRequest"
+                                                    [(ngModel)]="isH2hPaymentRequest">
+                                                </p-inputSwitch>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <div *ngIf="isH2hPaymentRequest === true">
+                                                    <p-radioButton class="p-pt-2" name="h2hAuthReqPaymentRequest"
+                                                        value="Yes" label="Yes" [(ngModel)]="h2hAuthReqPaymentRequest">
+                                                    </p-radioButton>
+                                                    <p-radioButton class="p-pt-2 p-px-3" name="h2hAuthReqPaymentRequest"
+                                                        value="No" label="No" [(ngModel)]="h2hAuthReqPaymentRequest">
+                                                    </p-radioButton>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="text-size-12 text-color-normal border-bottom">
+                                            <td class="p-p-2 text-size-14">
+                                                Beneficiary Upload
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-dropdown appendTo="body" class="custom-dropdown"
+                                                    [options]="dataLayoutBeneUploadList" optionLabel="displayName"
+                                                    optionValue="id" placeholder="Please Select"
+                                                    [showClear]="false"></p-dropdown>
+                                            </td>
+                                            <td class="p-p-2">
+                                            </td>
+                                            <td class="p-p-2">
+                                            </td>
+                                            <td class="p-p-2">
+                                            </td>
+                                        </tr>
+                                        <tr class="text-size-12 text-color-normal border-bottom">
+                                            <td class="p-p-2 text-size-14">
+                                                Bill Payment Upload
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-dropdown appendTo="body" class="custom-dropdown"
+                                                    [options]="dataLayoutBillPaymentUploadList"
+                                                    optionLabel="displayName" optionValue="id"
+                                                    placeholder="Please Select" [showClear]="false"></p-dropdown>
+                                            </td>
+                                            <td class="p-p-2"></td>
+                                            <td class="p-p-2">
+                                                <p-inputSwitch id="isH2hBillPaymentUpload" name="isH2hBillPaymentUpload"
+                                                    [(ngModel)]="isH2hBillPaymentUpload">
+                                                </p-inputSwitch>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <div *ngIf="isH2hBillPaymentUpload === true">
+                                                    <p-radioButton class="p-pt-2" name="h2hAuthReqBillPaymentUpload"
+                                                        value="Yes" label="Yes"
+                                                        [(ngModel)]="h2hAuthReqBillPaymentUpload">
+                                                    </p-radioButton>
+                                                    <p-radioButton class="p-pt-2 p-px-3"
+                                                        name="h2hAuthReqBillPaymentUpload" value="No" label="No"
+                                                        [(ngModel)]="h2hAuthReqBillPaymentUpload">
+                                                    </p-radioButton>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="text-size-12 text-color-normal border-bottom">
+                                            <td class="p-p-2 text-size-14">
+                                                Biller Registration
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-dropdown appendTo="body" class="custom-dropdown"
+                                                    [options]="dataLayoutBillerRegistrationList"
+                                                    optionLabel="displayName" optionValue="id"
+                                                    placeholder="Please Select" [showClear]="false"></p-dropdown>
+                                            </td>
+                                            <td class="p-p-2"></td>
+                                            <td class="p-p-2">
+                                                <p-inputSwitch id="isH2hBillerRegistration"
+                                                    name="isH2hBillerRegistration"
+                                                    [(ngModel)]="isH2hBillerRegistration">
+                                                </p-inputSwitch>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <div *ngIf="isH2hBillerRegistration === true">
+                                                    <p-radioButton class="p-pt-2" name="h2hAuthReqBillerRegistration"
+                                                        value="Yes" label="Yes"
+                                                        [(ngModel)]="h2hAuthReqBillerRegistration">
+                                                    </p-radioButton>
+                                                    <p-radioButton class="p-pt-2 p-px-3"
+                                                        name="h2hAuthReqBillerRegistration" value="No" label="No"
+                                                        [(ngModel)]="h2hAuthReqBillerRegistration">
+                                                    </p-radioButton>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-mb-3">
+                    <div class="aps-card-body">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+                                <div class="aps-card aps-h-400">
+                                    <div class="aps-card-header">
+                                        <app-header-with-search heading="Services"
+                                            (search)="(null)"></app-header-with-search>
+                                    </div>
+                                    <div class="aps-card-body overflow-scroll">
+                                        <div class="p-mr-2" *ngFor="let list of serviceDetailsListingTypes">
+                                            <div class=" p-px-2 p-py-1 text-color-normal text-semi-bold pointer border-bottom"
+                                                [ngClass]="{ 'aps-card-primary1': list.label  == serviceDetailsSelectedListing?.label}"
+                                                (click)="serviceDetailsSelectededListing(list)">
+                                                <div class="left-right-container">
+                                                    <div class="left-container">
+                                                        <span class="p-py-0 p-pl-2 inline-block">
+                                                            <p-checkbox [binary]="true" id="copyToRm" name="copyToRm"
+                                                                [(ngModel)]="list.checkbox" [value]="list.checkbox">
+                                                            </p-checkbox>
+                                                        </span>
+                                                        <span class="p-py-1 p-pl-3 inline-block text-size-14">
+                                                            {{list.label}}&nbsp;</span>
+                                                    </div>
+                                                    <div class="right-container">
+                                                        <span class="p-py-1 p-pr-2 inline-block">{{list.count}}</span>
+                                                        <span class="p-py-1 inline-block"><app-icon
+                                                                icon="fa-chevron-right" styleClasses="text-size-14"
+                                                                rtlIcon="fa-chevron-left"></app-icon></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-9 p-lg-9 p-py-0 p-pr-0">
+                                <div class="aps-card aps-h-400">
+                                    <div
+                                        *ngIf="serviceDetailsSelectedListing.id === 1 || serviceDetailsSelectedListing.id === 2 || serviceDetailsSelectedListing.id === 3 || serviceDetailsSelectedListing.id === 4 || serviceDetailsSelectedListing.id === 5 || serviceDetailsSelectedListing.id === 6">
+                                        <div class="p-grid">
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <aps-form-input inputType="normal" id="aliasName" name="aliasName"
+                                                    [label]="'Alias Name' | apsTranslate"
+                                                    [(ngModel)]="formData.aliasName" required="true">
+                                                </aps-form-input>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-size-14 text-bold p-pl-2">Cover Note Details</div>
+                                        <div class="p-grid">
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <aps-custom-select id="printCoverNote" name="printCoverNote"
+                                                    label="Print Cover Note" [(ngModel)]="formData.printCoverNote"
+                                                    required="true"
+                                                    dataUrl="setup/security/serviceTemplate/private/dropdown/printCoverNote">
+                                                </aps-custom-select>
+                                            </div>
+
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <aps-custom-select id="emailCoverNote" name="emailCoverNote"
+                                                    label="Email Cover Note" [(ngModel)]="formData.emailCoverNote"
+                                                    required="true"
+                                                    dataUrl="setup/security/serviceTemplate/private/dropdown/emailCoverNote">
+                                                </aps-custom-select>
+                                            </div>
+
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <aps-custom-select id="smsCovernote" name="smsCovernote"
+                                                    label="SMS Cover Note" [(ngModel)]="formData.smsCovernote"
+                                                    required="true"
+                                                    dataUrl="setup/security/serviceTemplate/private/dropdown/smsCovernote">
+                                                </aps-custom-select>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-size-14 text-bold p-pl-2">Other Details</div>
+                                        <div class="p-grid p-pb-2">
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <div class="text-size-14">Use Send To Bank<sup>*</sup></div>
+                                                <div class="text-size-14">
+                                                    <p-radioButton class="p-pt-2" name="useSendToBank" value="Yes"
+                                                        label="Yes" [(ngModel)]="formData.useSendToBank">
+                                                    </p-radioButton>
+                                                    <p-radioButton class="p-pt-2 p-px-3" name="useSendToBank" value="No"
+                                                        label="No" [(ngModel)]="formData.useSendToBank">
+                                                    </p-radioButton>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-size-14 text-bold p-pl-2">Cut Off Time Details</div>
+                                        <div class="p-grid">
+                                            <div class="p-col-12 p-md-3 p-lg-3">
+                                                <aps-form-input inputType="normal" id="cutOffTime" name="cutOffTime"
+                                                    [label]="'Cut Off Time' | apsTranslate"
+                                                    [(ngModel)]="formData.cutOffTime" required="true">
+                                                </aps-form-input>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="formData.product === 'Collection'">
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                <aps-custom-select id="uploadFormat" name="uploadFormat" label="Upload Format"
+                                    [(ngModel)]="formData.uploadFormat" required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/uploadFormat">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                <aps-custom-select id="defaultEnrichmentTemplate" name="defaultEnrichmentTemplate"
+                                    label="Deposit Enrichment Template" [(ngModel)]="formData.defaultEnrichmentTemplate"
+                                    required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/defaultEnrichmentTemplate">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                <aps-custom-select id="instrumentEnrichmentTemplate" name="instrumentEnrichmentTemplate"
+                                    label="Instrument Enrichment Template"
+                                    [(ngModel)]="formData.instrumentEnrichmentTemplate" required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/instrumentEnrichmentTemplate">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <div class="text-size-14">Charge Waive</div>
+                                <p-radioButton id="chargeWaive" name="chargeWaive" class="p-mr-2" label="Yes"
+                                    value="Yes" [(ngModel)]="formData.chargeWaive"
+                                    (click)="onYesRadioBtnClick(formData.chargeWaive)"></p-radioButton>
+                                <p-radioButton id="chargeWaive" name="chargeWaive" label="No" value="No"
+                                    [(ngModel)]="formData.chargeWaive"></p-radioButton>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="chargeTemplate" name="chargeTemplate" label="Charge Template"
+                                    [disabled]="formData.chargeWaive ==='Yes'" [(ngModel)]="formData.chargeTemplate"
+                                    required="true" [value]="formData.chargeTemplate"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/chargeTemplate">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="alertTemplate" name="alertTemplate" label="Alert Template"
+                                    [(ngModel)]="formData.alertTemplate" required="true"
+                                    [value]="formData.alertTemplate"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/alertTemplate">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Corporate Arrangement </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Customer Credit Type <sup>*</sup></div>
+                                <p-radioButton id="customerCreditType" name="customerCreditType" class="p-mr-2"
+                                    label="Guaranteed" value="Guaranteed" required="true"
+                                    [(ngModel)]="formData.customerCreditType"></p-radioButton>
+                                <p-radioButton id="customerCreditType" name="customerCreditType" label="Clearfunds"
+                                    value="Clearfunds" [(ngModel)]="formData.customerCreditType"
+                                    required="true"></p-radioButton>
+
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.customerCreditType === 'Guaranteed'">
+                                <aps-form-input inputType="normal" id="guaranteedDays" name="guaranteedDays"
+                                    [label]="'Guaranteed Days' | apsTranslate" [(ngModel)]="formData.guaranteedDays"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.customerCreditType === 'Clearfunds'">
+                                <aps-form-input inputType="normal" id="clearfundsDays" name="clearfundsDays"
+                                    [label]="'Clearfunds Days' | apsTranslate" [(ngModel)]="formData.clearfundsDays"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Out of fund Applicable' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isOutOffFundApplicable" name="isOutOffFundApplicable"
+                                        [(ngModel)]="formData.isOutOffFundApplicable">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOutOffFundApplicable == true">
+                                <aps-form-input inputType="normal" id="gracePeriod" name="gracePeriod"
+                                    [label]="'Grace Period' | apsTranslate" [(ngModel)]="formData.gracePeriod"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOutOffFundApplicable == true">
+                                <aps-form-input inputType="normal" id="plrRate" name="plrRate"
+                                    [label]="'PLR Rate' | apsTranslate" [(ngModel)]="formData.plrRate" required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Reversal of Guaranteed Credit' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isReversalOfGuaranteedCredit" name="isReversalOfGuaranteedCredit"
+                                        [(ngModel)]="formData.isReversalOfGuaranteedCredit">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isReversalOfGuaranteedCredit == true">
+                                <aps-form-input inputType="normal" id="reversalDays" name="reversalDays"
+                                    [label]="'Reversal Days' | apsTranslate" [(ngModel)]="formData.reversalDays"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Int on Delayed Paid Liq' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isIntOnDelayed" name="isIntOnDelayed"
+                                        [(ngModel)]="formData.isIntOnDelayed">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isIntOnDelayed == true">
+                                <aps-form-input inputType="normal" id="gracePeriodIntOnDelayed"
+                                    name="gracePeriodIntOnDelayed" [label]="'Grace Period' | apsTranslate"
+                                    [(ngModel)]="formData.gracePeriodIntOnDelayed" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isIntOnDelayed == true">
+                                <aps-form-input inputType="normal" id="plrRateIntOnDelayed" name="plrRateIntOnDelayed"
+                                    [label]="'PLR Rate' | apsTranslate" [(ngModel)]="formData.plrRateIntOnDelayed"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Deferred Data Entry' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isDeferredDataEntry" name="isDeferredDataEntry"
+                                        [(ngModel)]="formData.isDeferredDataEntry">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isDeferredDataEntry == true">
+                                <aps-form-input inputType="normal" id="maximumDays" name="maximumDays"
+                                    [label]="'Maximum Days' | apsTranslate" [(ngModel)]="formData.maximumDays"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Corporate Client' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isCorporateClient" name="isCorporateClient"
+                                        [(ngModel)]="formData.isCorporateClient">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Return and Charge Details </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Virtual Account Mapping Required' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isVAMappingRequired" name="isVAMappingRequired"
+                                        [(ngModel)]="formData.isVAMappingRequired">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired == false">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="creditMode" name="creditMode" label="Credit Mode"
+                                    [(ngModel)]="formData.creditMode" required="true" [value]="formData.creditMode"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/creditMode">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0" *ngIf="formData.creditMode ==='Pay Order'">
+                                <aps-form-input inputType="normal" id="payOrderFavouring" name="payOrderFavouring"
+                                    [label]="'Pay Order Favouring' | apsTranslate"
+                                    [(ngModel)]="formData.payOrderFavouring" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.creditMode ==='Internal Account'">
+                                <aps-custom-select id="selectAccount" name="selectAccount" label="Select Account"
+                                    [(ngModel)]="formData.selectAccount" required="true"
+                                    [value]="formData.selectAccount"
+                                    (change)="onSelectAccountChange(formData.selectAccount)"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/selectAccount">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.selectAccount">
+                                <div
+                                    class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2">
+                                    Account Description
+                                </div>
+                                <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                                    {{ formData.accountDescription1 }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.creditMode ==='External Fund Transfer'">
+                                <aps-custom-select id="externalAccountNo" name="externalAccountNo"
+                                    label="External Account Number" [(ngModel)]="formData.externalAccountNo"
+                                    required="true" [value]="formData.externalAccountNo"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/externalAccountNo">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired == false">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="accountingEntries" name="accountingEntries"
+                                    label="Accounting Entries" [(ngModel)]="formData.accountingEntries" required="true"
+                                    [value]="formData.accountingEntries"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/accountingEntries">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired == true">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="debitMode" name="debitMode" label="External Account Number"
+                                    [(ngModel)]="formData.debitMode" required="true" [value]="formData.debitMode"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/debitMode">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select id="selectAccountOn" name="selectAccountOn" label="Select Account"
+                                    [(ngModel)]="formData.selectAccountOn" required="true"
+                                    [value]="formData.selectAccountOn"
+                                    (change)="onSelectAccountOnChange(formData.selectAccountOn)"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/selectAccountOn">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.selectAccountOn">
+                                <div
+                                    class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2">
+                                    Account Description
+                                </div>
+                                <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                                    {{ formData.accountDescription }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Funding Details </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Return Applicable' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isReturnApplicable" name="isReturnApplicable"
+                                        [(ngModel)]="formData.isReturnApplicable">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Late Return Applicable' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isLateReturnApplicable" name="isLateReturnApplicable"
+                                        [(ngModel)]="formData.isLateReturnApplicable">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                <div class="text-size-14">
+                                    {{ 'Return to CMS Hub' | apsTranslate }}
+                                </div>
+                                <div class="p-px-3">
+                                    <p-inputSwitch id="isReturnToCmsHub" name="isReturnToCmsHub"
+                                        [(ngModel)]="formData.isReturnToCmsHub">
+                                    </p-inputSwitch>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 ">
+                                <aps-custom-select id="physicalChequeReturn" name="physicalChequeReturn"
+                                    label="Physical Cheque Return" [(ngModel)]="formData.physicalChequeReturn"
+                                    required="true" [value]="formData.physicalChequeReturn"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/physicalChequeReturn">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2 p-pb-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Return Recovery <sup>*</sup></div>
+                                <p-radioButton id="returnCategory" name="returnCategory" class="p-mr-2"
+                                    label="Partially" value="Partially" required="true"
+                                    [(ngModel)]="formData.returnCategory"></p-radioButton>
+                                <p-radioButton id="returnCategory" name="returnCategory" label="Fully" value="Fully"
+                                    [(ngModel)]="formData.returnCategory" required="true"></p-radioButton>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">Charge Recovery <sup>*</sup></div>
+                                <p-radioButton id="chargeCategory" name="chargeCategory" class="p-mr-2"
+                                    label="Partially" value="Partially" required="true"
+                                    [(ngModel)]="formData.chargeCategory"></p-radioButton>
+                                <p-radioButton id="chargeCategory" name="chargeCategory" label="Fully" value="Fully"
+                                    [(ngModel)]="formData.chargeCategory" required="true"></p-radioButton>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="formData.product === 'FSCM'">
+                <div *ngIf="formData.subProduct === 'EIPP'">
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                    <aps-custom-select id="fileUploadBy" name="fileUploadBy" label="File Upload By"
+                                        [(ngModel)]="formData.fileUploadBy" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/fileUploadBy">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+
+                            <div class="p-grid p-px-2">
+                                <div class="table-container p-pl-2">
+                                    <table class="table">
+                                        <thead>
+                                            <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                                <th class="p-p-2 text-left">Upload For</th>
+                                                <th class="p-p-2 text-left">Data Layout</th>
+                                                <th class="p-p-2 text-left">Partial Upload</th>
+                                                <th class="p-p-2 text-left">H2H Prefix</th>
+                                                <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="">
+                                            <tr class="text-size-12 text-color-normal border-bottom"
+                                                *ngFor="let fileUpload of fileUploads">
+                                                <td class="p-p-2 text-size-14">
+                                                    {{fileUpload.uploadFor}}
+                                                </td>
+                                                <td class="p-p-2">
+                                                    <p-dropdown appendTo="body" class="custom-dropdown"
+                                                        [options]="fileUpload.dataLayout" optionLabel="displayName"
+                                                        optionValue="id" placeholder="Please Select"
+                                                        [showClear]="false"></p-dropdown>
+                                                </td>
+                                                <td class="p-p-2">
+                                                    <div>
+                                                        <span
+                                                            class="text-color-primary-hover pointer border-bottom">View
+                                                            Download
+                                                            File Format</span>
+                                                    </div>
+                                                </td>
+                                                <td class="p-p-2"></td>
+                                                <td class="p-p-2"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                    <aps-custom-select id="enrichment" name="enrichment" label="Enrichment"
+                                        [(ngModel)]="formData.enrichment" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/enrichment">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                    <aps-custom-select id="uploadType" name="uploadType" label="Upload Type"
+                                        [(ngModel)]="formData.uploadType" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/uploadType">
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="workflow" name="workflow" label="Workflow"
+                                        [(ngModel)]="formData.workflow" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/workflow">
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="duplicateLogicInvNo" name="duplicateLogicInvNo"
+                                        label="Duplicate Logic on Invoice No" [(ngModel)]="formData.duplicateLogicInvNo"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/duplicateLogicInvNo">
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Charge Applicable' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isChargeApplicable" name="isChargeApplicable"
+                                            [(ngModel)]="formData.isChargeApplicable">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-grid p-px-2" *ngIf="formData.isChargeApplicable === true">
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="normalChangeCategory" name="normalChangeCategory"
+                                        label="Normal Change Category" [(ngModel)]="formData.normalChangeCategory"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/normalChangeCategory">
+                                    </aps-custom-select>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="promotionalChargeCategory" name="promotionalChargeCategory"
+                                        label="Promotional Charge Category"
+                                        [(ngModel)]="formData.promotionalChargeCategory" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/promotionalChargeCategory">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Finance/Payment Details </div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="recovery" name="recovery" label="Recovery"
+                                        [(ngModel)]="formData.recovery" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/recovery">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="invoicePayment" name="invoicePayment" label="Invoice Payment"
+                                        [(ngModel)]="formData.invoicePayment" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/invoicePayment">
+                                    </aps-custom-select>
+                                </div>
+
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Partial Payment' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isParialPayment" name="isParialPayment"
+                                            [(ngModel)]="formData.isParialPayment">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Out of System Settled Allowed' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isOutOfSysSettAll" name="isOutOfSysSettAll"
+                                            [(ngModel)]="formData.isOutOfSysSettAll">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Dummy Invoice Allowed' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isDummyInvoiceAllowed" name="isDummyInvoiceAllowed"
+                                            [(ngModel)]="formData.isDummyInvoiceAllowed">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Overdue Invoice Accpeted' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isOverInvoiceAccepted" name="isOverInvoiceAccepted"
+                                            [(ngModel)]="formData.isOverInvoiceAccepted">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoiceAccepted === true">
+                                    <aps-form-input inputType="normal" id="maximumOverdueDays" name="maximumOverdueDays"
+                                        [label]="'Maximum Overdue Days' | apsTranslate"
+                                        [(ngModel)]="formData.maximumOverdueDays" required="true">
+                                    </aps-form-input>
+                                </div>
+
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Overdue Invoice Payment Accpeted' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isOverInvoicePaymentAccepted"
+                                            name="isOverInvoicePaymentAccepted"
+                                            [(ngModel)]="formData.isOverInvoicePaymentAccepted">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3"
+                                    *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                                    <aps-form-input inputType="normal" id="maximumOverduePaymentDays"
+                                        name="maximumOverduePaymentDays"
+                                        [label]="'Maximum Overdue Payment Days' | apsTranslate"
+                                        [(ngModel)]="formData.maximumOverduePaymentDays" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Late Penalty Applicable' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isLatePenaltyApplicable" name="isLatePenaltyApplicable"
+                                            [(ngModel)]="formData.isLatePenaltyApplicable">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isLatePenaltyApplicable === true">
+                                    <aps-custom-select id="latePenaltyTemplate" name="latePenaltyTemplate"
+                                        label="Late Penalty Template" [(ngModel)]="formData.latePenaltyTemplate"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/latePenaltyTemplate">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'CN/DN Date Validation' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isCnDnDateValid" name="isCnDnDateValid"
+                                            [(ngModel)]="formData.isCnDnDateValid">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'CN/DN Invoice Validation' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isCnDnInvoiceValid" name="isCnDnInvoiceValid"
+                                            [(ngModel)]="formData.isCnDnInvoiceValid">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'VAT/WHT Calculation' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isWatWhtCalculation" name="isWatWhtCalculation"
+                                            [(ngModel)]="formData.isWatWhtCalculation">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="ifHoliday" name="ifHoliday" label="If Holiday"
+                                        [(ngModel)]="formData.ifHoliday" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/ifHoliday">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Future Dated Payment' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isFutureDatedPayment" name="isFutureDatedPayment"
+                                            [(ngModel)]="formData.isFutureDatedPayment">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3"
+                                    *ngIf="formData.isFutureDatedPayment == true">
+                                    <div class="text-size-14">
+                                        {{ 'Future Hold' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isFutureHold" name="isFutureHold"
+                                            [(ngModel)]="formData.isFutureHold">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                                    <aps-form-input inputType="normal" id="futureMaxDays" name="futureMaxDays"
+                                        [label]="'Future Max Days' | apsTranslate" [(ngModel)]="formData.futureMaxDays"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                                    <aps-form-input inputType="normal" id="futureChargeAfter" name="futureChargeAfter"
+                                        [label]="'Future Charge After' | apsTranslate"
+                                        [(ngModel)]="formData.futureChargeAfter" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Tracking ID' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isTrackingId" name="isTrackingId"
+                                            [(ngModel)]="formData.isTrackingId">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3" *ngIf="formData.isTrackingId === true">
+                                    <div class="text-size-14">
+                                        {{ 'Multiple Tracking ID per File' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isMultipleTracking" name="isMultipleTracking"
+                                            [(ngModel)]="formData.isMultipleTracking">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                                    <div class="text-size-14">
+                                        {{ 'Dynamic Discount Applicable' | apsTranslate }}
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="isDynamicDiscountApplicable"
+                                            name="isDynamicDiscountApplicable"
+                                            [(ngModel)]="formData.isDynamicDiscountApplicable">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3"
+                                    *ngIf="formData.isDynamicDiscountApplicable == true">
+                                    <aps-custom-select id="dynamicDiscountTemplate" name="dynamicDiscountTemplate"
+                                        label="Dynamic Discount Template" [(ngModel)]="formData.dynamicDiscountTemplate"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/dynamicDiscountTemplate">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Finance/Payment Details </div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="table-container p-pl-2">
+                                    <table class="table">
+                                        <tbody class="">
+                                            <tr class="text-size-12 text-color-normal border-bottom"
+                                                *ngFor="let subDoc of subDocs">
+                                                <td class="text-size-14">
+                                                    {{subDoc.name}}
+                                                </td>
+                                                <td class="">
+                                                    <aps-form-input inputType="normal" id="subDoc.aliasName"
+                                                        name="subDoc.aliasName" [showLabel]="false"
+                                                        [value]="subDoc.aliasName" [(ngModel)]="subDoc.aliasName"
+                                                        required="true">
+                                                    </aps-form-input>
+                                                </td>
+                                                <td class="p-pl-3">
+                                                    <p-checkbox [binary]="true" id="subDoc.checkbox"
+                                                        name="subDoc.checkbox" [(ngModel)]="subDoc.checkbox"
+                                                        [value]="subDoc.checkbox">
+                                                    </p-checkbox>
+                                                </td>
+                                                <td class="text-size-14">Mandatory in Consolidated File</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-size-12 p-px-2 text-semi-bold">Note: Alias name should be comma
+                                    seperated</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Color Mapping </div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="normalInvoice" name="normalInvoice" label="Normal Invoice"
+                                        [(ngModel)]="formData.normalInvoice" required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="invoiceOnDueDate" name="invoiceOnDueDate"
+                                        label="Invoice on Due Date" [(ngModel)]="formData.invoiceOnDueDate"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3">
+                                    <aps-custom-select id="invoiceAfterDueDate" name="invoiceAfterDueDate"
+                                        label="Invoice after Due Date" [(ngModel)]="formData.invoiceAfterDueDate"
+                                        required="true"
+                                        dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                                    </aps-custom-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div *ngIf="formData.subProduct === 'Seller Finance'">
+                    Seller Finance
+                </div>
+                <div *ngIf="formData.subProduct === 'Buyer Finance'">
+                    Buyer Finance
+                </div>
+                <div *ngIf="formData.subProduct === 'Warehouse Finance'">
+                    Customer Category
+                </div>
+            </div>
+
+            <div *ngIf="formData.product === 'VAM'">
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-form-input inputType="normal" id="maxLengthOfVA" name="maxLengthOfVA"
+                                    [label]="'Maximum length of Virtual Account' | apsTranslate"
+                                    [(ngModel)]="formData.maxLengthOfVA" required="true">
+                                </aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <div class="text-size-14">VA Status on creation</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="vaStatusOnCreation" value="Active"
+                                        label="Active" [(ngModel)]="formData.vaStatusOnCreation">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="vaStatusOnCreation" value="Inactive"
+                                        label="Inactive" [(ngModel)]="formData.vaStatusOnCreation">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select id="issuanceUploadFormat" name="issuanceUploadFormat"
+                                    label="Issuance Upload Format" [(ngModel)]="formData.issuanceUploadFormat"
+                                    required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/issuanceUploadFormat">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select id="issuanceDownloadFormat" name="issuanceDownloadFormat"
+                                    label="Issuance Download Format" [(ngModel)]="formData.issuanceDownloadFormat"
+                                    required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/issuanceDownloadFormat">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select id="actualEnricmentTemplate" name="actualEnricmentTemplate"
+                                    label="Actual Enricment Template" [(ngModel)]="formData.actualEnricmentTemplate"
+                                    required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/actualEnricmentTemplate">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select id="vaEnrichmentTemplate" name="vaEnrichmentTemplate"
+                                    label="VA Enrichment Template" [(ngModel)]="formData.vaEnrichmentTemplate"
+                                    required="true"
+                                    dataUrl="setup/security/serviceTemplate/private/dropdown/vaEnrichmentTemplate">
+                                </aps-custom-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Service Package Details </div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Service Package Code" [value]="formData.serviceTemplateCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Service Package Name" [value]="formData.serviceTemplateName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <!-- <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Product Code" [value]="formData.corporateProductCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Product Name" [value]="formData.corporateProductName">
+                        </app-review-form-field>
+                    </div>
+                </div> -->
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Module" [value]="formData.product">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Product" [value]="formData.subProduct">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Customer Category" [value]="formData.customerCategory">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2" *ngIf="formData.product ==='Payments'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Template For" [value]="formData.templateFor">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="formData.product === 'Payments'">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Configuration Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Check Duplicate CRN Number"
+                                [value]="formData.checkDuplicateCrnNo">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Account Posting" [value]="formData.accountPosting">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Enrichment Required" [value]="formData.enrichmentRequired">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.enrichmentRequired === 'Yes'">
+                            <app-review-form-field label="Enrichment" [value]="formData.formData.enrichment">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                            <div class="text-size-14">
+                                {{ 'Charge Applicable' | apsTranslate }}
+                            </div>
+                            <div class="p-px-3">
+                                <p-inputSwitch id="isChargeApplicable" name="isChargeApplicable"
+                                    [(ngModel)]="formData.isChargeApplicable" disabled>
+                                </p-inputSwitch>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isChargeApplicable === true">
+                            <app-review-form-field label="Charge Type" [value]="formData.chargeType">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isChargeApplicable === true">
+                            <app-review-form-field label="Normal Charge Group" [value]="formData.normalChargeCategory">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isChargeApplicable === true">
+                            <app-review-form-field label="Promotional Charge Group"
+                                [value]="formData.promotionalChargeCategory">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Allow Runtime Beneficiary"
+                                [value]="formData.allowRuntimeBene">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Beneficiary Auto Authorize" [value]="formData.beneAutoAuth">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Beneficiary Library Update" [value]="formData.beneLibUpdate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-mt-2">
+                            <p-checkbox [binary]="true" id="forceDebit" name="forceDebit" class="p-mr-2" disabled
+                                [(ngModel)]="formData.forceDebit" [value]="formData.forceDebit" label="Force Debit">
+                            </p-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Datalayout Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="table-container p-pl-2">
+                            <table class="table">
+                                <thead>
+                                    <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                        <th class="p-p-2 text-left">Upload For</th>
+                                        <th class="p-p-2 text-left">Data Layout</th>
+                                        <th class="p-p-2 text-left">Partial Upload</th>
+                                        <th class="p-p-2 text-left">H2H</th>
+                                        <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr class="text-size-12 text-color-normal border-bottom">
+                                        <td class="p-p-2 text-size-14">
+                                            Payment Request
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-dropdown appendTo="body" class="custom-dropdown"
+                                                [options]="dataLayoutPaymentRequestList" optionLabel="displayName"
+                                                optionValue="id" placeholder="Please Select"
+                                                [showClear]="false"></p-dropdown>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-inputSwitch id="isDataLayoutPaymentRequest"
+                                                name="isDataLayoutPaymentRequest"
+                                                [(ngModel)]="isDataLayoutPaymentRequest">
+                                            </p-inputSwitch>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-inputSwitch id="isH2hPaymentRequest" name="isH2hPaymentRequest"
+                                                [(ngModel)]="isH2hPaymentRequest">
+                                            </p-inputSwitch>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <div *ngIf="isH2hPaymentRequest === true">
+                                                <p-radioButton class="p-pt-2" name="h2hAuthReqPaymentRequest"
+                                                    value="Yes" label="Yes" [(ngModel)]="h2hAuthReqPaymentRequest">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-3" name="h2hAuthReqPaymentRequest"
+                                                    value="No" label="No" [(ngModel)]="h2hAuthReqPaymentRequest">
+                                                </p-radioButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="text-size-12 text-color-normal border-bottom">
+                                        <td class="p-p-2 text-size-14">
+                                            Beneficiary Upload
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-dropdown appendTo="body" class="custom-dropdown"
+                                                [options]="dataLayoutBeneUploadList" optionLabel="displayName"
+                                                optionValue="id" placeholder="Please Select"
+                                                [showClear]="false"></p-dropdown>
+                                        </td>
+                                        <td class="p-p-2">
+                                        </td>
+                                        <td class="p-p-2">
+                                        </td>
+                                        <td class="p-p-2">
+                                        </td>
+                                    </tr>
+                                    <tr class="text-size-12 text-color-normal border-bottom">
+                                        <td class="p-p-2 text-size-14">
+                                            Bill Payment Upload
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-dropdown appendTo="body" class="custom-dropdown"
+                                                [options]="dataLayoutBillPaymentUploadList" optionLabel="displayName"
+                                                optionValue="id" placeholder="Please Select"
+                                                [showClear]="false"></p-dropdown>
+                                        </td>
+                                        <td class="p-p-2"></td>
+                                        <td class="p-p-2">
+                                            <p-inputSwitch id="isH2hBillPaymentUpload" name="isH2hBillPaymentUpload"
+                                                [(ngModel)]="isH2hBillPaymentUpload">
+                                            </p-inputSwitch>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <div *ngIf="isH2hBillPaymentUpload === true">
+                                                <p-radioButton class="p-pt-2" name="h2hAuthReqBillPaymentUpload"
+                                                    value="Yes" label="Yes" [(ngModel)]="h2hAuthReqBillPaymentUpload">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-3" name="h2hAuthReqBillPaymentUpload"
+                                                    value="No" label="No" [(ngModel)]="h2hAuthReqBillPaymentUpload">
+                                                </p-radioButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr class="text-size-12 text-color-normal border-bottom">
+                                        <td class="p-p-2 text-size-14">
+                                            Biller Registration
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-dropdown appendTo="body" class="custom-dropdown"
+                                                [options]="dataLayoutBillerRegistrationList" optionLabel="displayName"
+                                                optionValue="id" placeholder="Please Select"
+                                                [showClear]="false"></p-dropdown>
+                                        </td>
+                                        <td class="p-p-2"></td>
+                                        <td class="p-p-2">
+                                            <p-inputSwitch id="isH2hBillerRegistration" name="isH2hBillerRegistration"
+                                                [(ngModel)]="isH2hBillerRegistration">
+                                            </p-inputSwitch>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <div *ngIf="isH2hBillerRegistration === true">
+                                                <p-radioButton class="p-pt-2" name="h2hAuthReqBillerRegistration"
+                                                    value="Yes" label="Yes" [(ngModel)]="h2hAuthReqBillerRegistration">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-3" name="h2hAuthReqBillerRegistration"
+                                                    value="No" label="No" [(ngModel)]="h2hAuthReqBillerRegistration">
+                                                </p-radioButton>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-mb-3">
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+                            <div class="aps-card aps-h-400">
+                                <div class="aps-card-header">
+                                    <app-header-with-search heading="Services"
+                                        (search)="(null)"></app-header-with-search>
+                                </div>
+                                <div class="aps-card-body overflow-scroll">
+                                    <div class="p-mr-2" *ngFor="let list of serviceDetailsListingTypes">
+                                        <div class=" p-px-2 p-py-1 text-color-normal text-semi-bold pointer border-bottom"
+                                            [ngClass]="{ 'aps-card-primary1': list.label  == serviceDetailsSelectedListing?.label}"
+                                            (click)="serviceDetailsSelectededListing(list)">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <span class="p-py-0 p-pl-2 inline-block">
+                                                        <p-checkbox disabled [binary]="true" id="copyToRm"
+                                                            name="copyToRm" [(ngModel)]="list.checkbox"
+                                                            [value]="list.checkbox">
+                                                        </p-checkbox>
+                                                    </span>
+                                                    <span class="p-py-1 p-pl-3 inline-block text-size-14">
+                                                        {{list.label}}&nbsp;</span>
+                                                </div>
+                                                <div class="right-container">
+                                                    <span class="p-py-1 p-pr-2 inline-block">{{list.count}}</span>
+                                                    <span class="p-py-1 inline-block"><app-icon icon="fa-chevron-right"
+                                                            styleClasses="text-size-14"
+                                                            rtlIcon="fa-chevron-left"></app-icon></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-9 p-lg-9 p-py-0 p-pr-0">
+                            <div class="aps-card aps-h-400">
+                                <div
+                                    *ngIf="serviceDetailsSelectedListing.id === 1 || serviceDetailsSelectedListing.id === 2 || serviceDetailsSelectedListing.id === 3 || serviceDetailsSelectedListing.id === 4 || serviceDetailsSelectedListing.id === 5 || serviceDetailsSelectedListing.id === 6">
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <aps-form-input inputType="normal" id="aliasName" name="aliasName"
+                                                [label]="'Alias Name' | apsTranslate" [(ngModel)]="formData.aliasName"
+                                                required="true">
+                                            </aps-form-input>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-size-14 text-bold p-pl-2">Cover Note Details</div>
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <aps-custom-select id="printCoverNote" name="printCoverNote"
+                                                label="Print Cover Note" [(ngModel)]="formData.printCoverNote"
+                                                required="true"
+                                                dataUrl="setup/security/serviceTemplate/private/dropdown/printCoverNote">
+                                            </aps-custom-select>
+                                        </div>
+
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <aps-custom-select id="emailCoverNote" name="emailCoverNote"
+                                                label="Email Cover Note" [(ngModel)]="formData.emailCoverNote"
+                                                required="true"
+                                                dataUrl="setup/security/serviceTemplate/private/dropdown/emailCoverNote">
+                                            </aps-custom-select>
+                                        </div>
+
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <aps-custom-select id="smsCovernote" name="smsCovernote"
+                                                label="SMS Cover Note" [(ngModel)]="formData.smsCovernote"
+                                                required="true"
+                                                dataUrl="setup/security/serviceTemplate/private/dropdown/smsCovernote">
+                                            </aps-custom-select>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-size-14 text-bold p-pl-2">Other Details</div>
+                                    <div class="p-grid p-pb-2">
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <div class="text-size-14">Use Send To Bank<sup>*</sup></div>
+                                            <div class="text-size-14">
+                                                <p-radioButton class="p-pt-2" name="useSendToBank" value="Yes"
+                                                    label="Yes" [(ngModel)]="formData.useSendToBank">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-3" name="useSendToBank" value="No"
+                                                    label="No" [(ngModel)]="formData.useSendToBank">
+                                                </p-radioButton>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-size-14 text-bold p-pl-2">Cut Off Time Details</div>
+                                    <div class="p-grid">
+                                        <div class="p-col-12 p-md-3 p-lg-3">
+                                            <aps-form-input inputType="normal" id="cutOffTime" name="cutOffTime"
+                                                [label]="'Cut Off Time' | apsTranslate"
+                                                [(ngModel)]="formData.cutOffTime" required="true">
+                                            </aps-form-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="formData.product === 'Collection'">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Upload Format" [value]="formData.uploadFormat">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Deposit Enrichment Template"
+                                [value]="formData.defaultEnrichmentTemplate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Instrument Enrichment Template"
+                                [value]="formData.instrumentEnrichmentTemplate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Charge Waive" [value]="formData.chargeWaive">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.chargeWaive ==='No'">
+                            <app-review-form-field label="Charge Template" [value]="formData.chargeTemplate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Alert Template" [value]="formData.alertTemplate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Corporate Arrangement </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Customer Credit Type" [value]="formData.customerCreditType">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.customerCreditType ==='Guaranteed'">
+                            <app-review-form-field label="Guaranteed Days" [value]="formData.guaranteedDays">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.customerCreditType ==='Clearfunds'">
+                            <app-review-form-field label="Clearfund Days" [value]="formData.clearfundsDays">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Out of Fund Applicable"
+                                [value]="(formData.isOutOffFundApplicable ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOutOffFundApplicable === true">
+                            <app-review-form-field label="Grace Period" [value]="formData.gracePeriod">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOutOffFundApplicable === true">
+                            <app-review-form-field label="PLR Rate" [value]="formData.plrRate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Reversal of Guaranteed Credit"
+                                [value]="(formData.isReversalOfGuaranteedCredit ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isReversalOfGuaranteedCredit === true">
+                            <app-review-form-field label="Reversal Days" [value]="formData.reversalDays">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Int on Delayed Paid Liq"
+                                [value]="(formData.isIntOnDelayed ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isIntOnDelayed === true">
+                            <app-review-form-field label="Grace Period" [value]="formData.gracePeriodIntOnDelayed">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isIntOnDelayed === true">
+                            <app-review-form-field label="PLR Rate" [value]="formData.plrRateIntOnDelayed">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Deffered Data Entry"
+                                [value]="(formData.isDeferredDataEntry ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isDeferredDataEntry === true">
+                            <app-review-form-field label="Maximum Days" [value]="formData.maximumDays">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Corporate Client"
+                                [value]="(formData.isCorporateClient ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Return and Charge Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Virtual Account Mapping Required"
+                                [value]="(formData.isVAMappingRequired ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired === false">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Credit Mode" [value]="formData.creditMode">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.creditMode === 'Pay Order'">
+                            <app-review-form-field label="Pay Order Favouring" [value]="formData.payOrderFavouring">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.creditMode === 'Internal Account'">
+                            <app-review-form-field label="Select Account" [value]="formData.payOrderFavouring">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.payOrderFavouring">
+                            <app-review-form-field label="Account Description" [value]="formData.accountDescription">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.creditMode ==='External Fund Transfer'">
+                            <app-review-form-field label="External Account Number" [value]="formData.externalAccountNo">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired === false">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Accounting Entries" [value]="formData.accountingEntries">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+
+                    <div class="p-grid p-px-2" *ngIf="formData.isVAMappingRequired === true">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="External Account Number" [value]="formData.externalAccountNo">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Select Account" [value]="formData.selectAccountOn">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.selectAccountOn">
+                            <app-review-form-field label="Account Description" [value]="formData.accountDescription1">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Funding Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Return Applicable"
+                                [value]="(formData.isReturnApplicable ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Late Return Applicable"
+                                [value]="(formData.isLateReturnApplicable ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Return to CMS Hub"
+                                [value]="(formData.isReturnToCmsHub ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Physcial Cheque Return"
+                                [value]="(formData.physicalChequeReturn ? 'Yes' : 'No') | apsTranslate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Return Recovery" [value]="formData.returnCategory">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Charge Recovery" [value]="formData.chargeCategory">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div *ngIf="formData.product === 'FSCM'">
+            <div *ngIf="formData.subProduct === 'EIPP'">
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="File Upload By" [value]="formData.fileUploadBy">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="table-container p-pl-2">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                            <th class="p-p-2 text-left">Upload For</th>
+                                            <th class="p-p-2 text-left">Data Layout</th>
+                                            <th class="p-p-2 text-left">Partial Upload</th>
+                                            <th class="p-p-2 text-left">H2H Prefix</th>
+                                            <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="">
+                                        <tr class="text-size-12 text-color-normal border-bottom"
+                                            *ngFor="let fileUpload of fileUploads">
+                                            <td class="p-p-2 text-size-14">
+                                                {{fileUpload.uploadFor}}
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-dropdown appendTo="body" class="custom-dropdown"
+                                                    [options]="fileUpload.dataLayout" optionLabel="displayName"
+                                                    optionValue="id" placeholder="Please Select" [showClear]="false"
+                                                    disabled></p-dropdown>
+                                            </td>
+                                            <td class="p-p-2">
+                                                <div>
+                                                    <span class="text-color-primary-hover pointer border-bottom">View
+                                                        Download
+                                                        File Format</span>
+                                                </div>
+                                            </td>
+                                            <td class="p-p-2"></td>
+                                            <td class="p-p-2"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Enrichment" [value]="formData.enrichment">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Upload Type" [value]="formData.uploadType">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Workflow" [value]="formData.workflow">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Duplicate Logic on Invoice No"
+                                    [value]="formData.duplicateLogicInvNo">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Charge Applicable"
+                                    [value]="(formData.isChargeApplicable ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2" *ngIf="formData.isChargeApplicable === true">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Normal Charge Category"
+                                    [value]="formData.normalChangeCategory">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Promtional Charge Category"
+                                    [value]="formData.promotionalChargeCategory">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Finance/Payment Details </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Recovery" [value]="formData.recovery">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Invoice Payment" [value]="formData.invoicePayment">
+                                </app-review-form-field>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Partial Payment"
+                                    [value]="(formData.isParialPayment ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Out of System Settled Allowed"
+                                    [value]="(formData.isOutOfSysSettAll ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Dummy Invoice Allowed"
+                                    [value]="(formData.isDummyInvoiceAllowed ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Overdue Invoice Accepted"
+                                    [value]="(formData.isOverInvoiceAccepted ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoiceAccepted === true">
+                                <app-review-form-field label="Maximum Overdue Days"
+                                    [value]="formData.maximumOverdueDays">
+                                </app-review-form-field>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Overdue Invoice Payment Accepted"
+                                    [value]="(formData.isOverInvoicePaymentAccepted ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                                <app-review-form-field label="Maximum Overdue Payment days"
+                                    [value]="formData.maximumOverduePaymentDays">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Late Penalty Applicable"
+                                    [value]="(formData.isLatePenaltyApplicable ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isLatePenaltyApplicable === true">
+                                <app-review-form-field label="Late Penalty Template"
+                                    [value]="formData.latePenaltyTemplate">
+                                </app-review-form-field>
+                            </div>
+
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="CN/DN Date Validation"
+                                    [value]="(formData.isCnDnDateValid ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="CN/DN Invoice Validation"
+                                    [value]="(formData.isCnDnInvoiceValid ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="VAT/WHT Calculation"
+                                    [value]="(formData.isWatWhtCalculation ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="If Holiday" [value]="formData.ifHoliday">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Future Dated Payment"
+                                    [value]="(formData.isFutureDatedPayment ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Future Hold"
+                                    [value]="(formData.isFutureHold ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Future Max Days" [value]="formData.futureMaxDays">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Future Charge" [value]="formData.futureChargeAfter">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Tracking ID"
+                                    [value]="(formData.isTrackingId ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isTrackingId === true">
+                                <app-review-form-field label="Tracking ID"
+                                    [value]="(formData.isTrackingId ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Dynamic Discount Applicable"
+                                    [value]="(formData.isDynamicDiscountApplicable ? 'Yes' : 'No') | apsTranslate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isDynamicDiscountApplicable === true">
+                                <app-review-form-field label="Dynamic Discount Template"
+                                    [value]="formData.dynamicDiscountTemplate">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Finance/Payment Details </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="table-container p-pl-2">
+                                <table class="table">
+                                    <tbody class="">
+                                        <tr class="text-size-12 text-color-normal border-bottom"
+                                            *ngFor="let subDoc of subDocs">
+                                            <td class="text-size-14">
+                                                {{subDoc.name}}
+                                            </td>
+                                            <td class="">
+                                                <aps-form-input inputType="normal" id="subDoc.aliasName"
+                                                    name="subDoc.aliasName" [showLabel]="false"
+                                                    [value]="subDoc.aliasName" [(ngModel)]="subDoc.aliasName"
+                                                    required="true" disabled>
+                                                </aps-form-input>
+                                            </td>
+                                            <td class="p-pl-3">
+                                                <p-checkbox [binary]="true" id="subDoc.checkbox" name="subDoc.checkbox"
+                                                    [(ngModel)]="subDoc.checkbox" [value]="subDoc.checkbox" disabled>
+                                                </p-checkbox>
+                                            </td>
+                                            <td class="text-size-14">Mandatory in Consolidated File</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aps-card p-mb-3">
+                    <div class="aps-card-header p-p-1">
+                        <div class="text-size-16 text-semi-bold p-p-2"> Color Mapping </div>
+                    </div>
+                    <div class="aps-card-body">
+                        <div class="p-grid p-px-2">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Normal Invoice" [value]="formData.normalInvoice">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Invoice on Due Date" [value]="formData.invoiceOnDueDate">
+                                </app-review-form-field>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-review-form-field label="Invoice after Due Date"
+                                    [value]="formData.invoiceAfterDueDate">
+                                </app-review-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="formData.product === 'VAM'">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Configuration </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Maximum Length of Virtual Account"
+                                [value]="formData.maxLengthOfVA">
+                            </app-review-form-field>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="VA Status on creation" [value]="formData.vaStatusOnCreation">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="VA Status on creation" [value]="formData.vaStatusOnCreation">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="VA Status on creation" [value]="formData.vaStatusOnCreation">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Issuance Upload Format"
+                                [value]="formData.issuanceUploadFormat">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Issuance Download Format"
+                                [value]="formData.issuanceDownloadFormat">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Actual Enrichment Template"
+                                [value]="formData.actualEnricmentTemplate">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="VA Enrichment Template"
+                                [value]="formData.vaEnrichmentTemplate">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <app-modal [(isShow)]="isShowModal" size="md" [headerText]="'Charge Waive'">
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="text-size-14">Enter Reason to Charge Waive</div>
+            </div>
+            <div class="p-col-12">
+                <textarea [(ngModel)]="rejectReason" class="textarea aps-w-100p" placeholder="Enter Reason"
+                    name="requestBody" id="requestBody" rows="4"></textarea>
+            </div>
+            <div class="p-col-12 text-right">
+                <button type="submit" class="btn btn-md btn-primary text-bold" [disabled]="!rejectReason"
+                    (click)="isShowModal = false">
+                    Submit
+                </button>
+            </div>
+
+        </div>
+    </app-modal>
+
+
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

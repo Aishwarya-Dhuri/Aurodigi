@@ -1,0 +1,21 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch No", "field": "id" },
+    { "headerName": "Payment Mathod", "field": "paymentMethodName" },
+    { "headerName": "Value Date", "field": "valueDate" },
+    { "headerName": "Transaction Date", "field": "transactionDate" },
+    { "headerName": "Channel", "field": "channelName" },
+    { "headerName": "Credit Account No", "field": "creditAccountNo" },
+    { "headerName": "Transaction Number", "field": "id" },
+    { "headerName": "Instrument Date", "field": "transactionDate" },
+    { "headerName": "Instrument No", "field": "id" },
+    { "headerName": "Debit Account No", "field": "debitAccountNo" },
+    { "headerName": "Debit CCY", "field": "debitCurrencyCode" },
+    { "headerName": "Debit Amount", "field": "debitAmount", "cellRenderer": "amountRenderer" },
+    { "headerName": "Credit CCY", "field": "creditCurrencyCode" },
+    { "headerName": "Credit Amount", "field": "creditAmount", "cellRenderer": "amountRenderer" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Reject Reason", "field": "rejectReason" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

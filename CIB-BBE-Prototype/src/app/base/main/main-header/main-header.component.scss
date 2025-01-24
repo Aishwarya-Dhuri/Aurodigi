@@ -1,0 +1,71 @@
+.header-container {
+  min-height: 2.375rem;
+
+  .logo-container {
+    width: 25%;
+    min-height: 2.375rem;
+
+    .logo-img {
+      width: 6rem;
+      height: 2.375rem;
+    }
+  }
+
+  .toggle-icons-container {
+    width: 30%;
+    position: relative;
+    padding-top: 0.1rem;
+
+    .more-options-container {
+      z-index: 10;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+    }
+
+    .help-options-container,
+    .user-info-container {
+      z-index: 10;
+      position: absolute;
+      top: 2rem;
+      right: 0;
+    }
+
+    .profile-image {
+      margin-top: 0.1rem;
+      height: 1.8rem;
+      width: 1.8rem;
+      overflow: hidden;
+    }
+  }
+}
+
+.notify-container {
+  position: relative;
+
+  .notify {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-error);
+    border-radius: 4px;
+    top: 0px;
+    right: -1px;
+  }
+}
+
+.divider-v {
+  min-height: 1.5rem;
+}
+
+@media screen and (max-width: 991px) {
+  .header-container {
+    .logo-container {
+      width: 43%;
+    }
+
+    .toggle-icons-container {
+      width: 57%;
+    }
+  }
+}

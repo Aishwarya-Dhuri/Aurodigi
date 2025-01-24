@@ -1,0 +1,195 @@
+<div class="aps-card aps-h-500">
+  <div class="aps-card-header overflow-visible">
+    <div class="left-right-container p-px-3">
+      <div class="left-container">
+        <div class="inline-items aps-py-12" *ngIf="selectedRows.length > 0">
+          <div class="item">
+            <app-icon
+              icon="fa-envelope"
+              pTooltip="Mark as Read"
+              (click)="markAllAsRead()"
+            ></app-icon>
+          </div>
+          <div class="item p-px-2">
+            <app-icon
+              icon="fa-star"
+              pTooltip="Mark as Favourite"
+              (click)="markAllAsFavourite()"
+            ></app-icon>
+          </div>
+          <div class="item">
+            <app-icon icon="fa-trash-alt" pTooltip="Delete" (click)="deleteAllMail()"></app-icon>
+          </div>
+        </div>
+      </div>
+      <div class="right-container aps-py-12">
+        <app-grid-listing-tools
+          (filterRecords)="mailListingGrid ? mailListingGrid.onFilter($event) : null"
+          (applyColDefs)="mailListingGrid ? mailListingGrid.onApplyConfig($event) : null"
+          [colDefs]="mailListingGrid ? mailListingGrid.columnDefs : []"
+          [columnConfig]="true"
+          [showRefresh]="true"
+          [showFloatingFilter]="false"
+          [moreOptions]="false"
+          [showMail]="false"
+          [showDownload]="false"
+          [showPrint]="false"
+          [showPrint]="false"
+        >
+        </app-grid-listing-tools>
+      </div>
+    </div>
+  </div>
+  <div class="aps-card-body" *ngIf="!loading">
+    <app-ag-grid-listing
+      #listingGrid
+      [colDefUrl]="colDefUrl"
+      [rowData]="rowData"
+      [supressAutoFit]="true"
+      [gridOptions]="{ rowModelType: 'clientSide' }"
+      [frameworkComponents]="frameworkComponents"
+      [context]="context"
+      (rowSelected)="onRowSelected($event)"
+    ></app-ag-grid-listing>
+  </div>
+</div>
+
+<!-- <div class="common-vertical-layout-css">
+  <div class="header-section">
+    <app-generic-search
+      class="isDesktopView"
+      [filtersArray]="listingData?.filters"
+    ></app-generic-search>
+    <div class="p-formgrid p-grid p-pt-1">
+      <div class="p-col-4 p-md-4">
+        <app-action-button
+          *ngIf="selectedMailsUniqueLinks.length > 0"
+          [actionBtnArray]="selectedMailsUniqueLinks"
+          [selectedIdArray]="selectedMailsIds"
+        ></app-action-button>
+      </div>
+      <div class="p-col-8 p-md-8 p-as-center">
+        <app-mailbox-pagination
+          [totalPages]="listingData?.totalPages"
+          [pageNumber]="listingData?.pageNumber"
+        >
+        </app-mailbox-pagination>
+      </div>
+    </div>
+  </div>
+  <div class="content-section message-section aps-h-300">
+    <div class="common-table-section" *ngIf="isListingShow">
+      <p-table
+        [value]="listingData.dataList"
+        styleClass="p-datatable-striped"
+        selectionMode="single"
+        [scrollable]="true"
+        scrollHeight="flex"
+        [virtualScroll]="true"
+        (sortFunction)="customSort($event)"
+        [customSort]="true"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>
+              <p-tableHeaderCheckbox
+                (click)="isAllRecordSelected($event, allRecord.checked)"
+                #allRecord
+              >
+              </p-tableHeaderCheckbox>
+            </th>
+            <th></th>
+            <ng-container *ngFor="let header of listingData.headers; let i = index">
+              <th
+                pSortableColumn="{{ header.displayName }}"
+                *ngIf="header.isDisplay == 'Y'"
+                [class]="{ isItemVisible: header.isMobileDisplay == 'N' }"
+              >
+                <span *ngIf="header.displayName"
+                  >{{ header.displayName }}
+                  <p-sortIcon field="{{ header.displayName }}"></p-sortIcon
+                ></span>
+                <i *ngIf="!header.displayName" class="fas fa-paperclip"></i>
+              </th>
+            </ng-container>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dataList let-rowIndex="rowIndex">
+          <tr
+            (click)="onRowSelect(dataList)"
+            [pSelectableRow]="dataList"
+            [class]="{ 'p-text-bold': checkUnReadMail(listingData.links[rowIndex]) }"
+          >
+            <td>
+              <p-tableCheckbox
+                (click)="
+                  isSingleRecordSelected(
+                    $event,
+                    singleRecord.checked,
+                    singleRecord.value,
+                    listingData.links[rowIndex]
+                  )
+                "
+                [value]="dataList"
+                #singleRecord
+              ></p-tableCheckbox>
+            </td>
+            <ng-container *ngFor="let link of listingData.links[rowIndex]; let i = index">
+              <td
+                *ngIf="
+                  link.displayName == listingItemLables[0] ||
+                  link.displayName == listingItemLables[1]
+                "
+              >
+                <button
+                  pButton
+                  pRipple
+                  type="button"
+                  class="p-button-rounded p-button-text"
+                  (click)="this[link.onClick]($event, rowIndex)"
+                  icon="{{ link.icon }}"
+                ></button>
+              </td>
+            </ng-container>
+            <ng-container *ngFor="let data of dataList; let i = index">
+              <td
+                *ngIf="listingData.headers[i].isDisplay == 'Y'"
+                [class]="{ isItemVisible: listingData.headers[i].isMobileDisplay == 'N' }"
+              >
+                <button
+                  *ngIf="i == listingItemIndexes[0]"
+                  title="{{ data }}"
+                  (click)="downloadAttachment($event, data)"
+                  pButton
+                  pRipple
+                  type="button"
+                  class="p-button-rounded p-button-text"
+                  icon="fas fa-paperclip"
+                  [label]="data"
+                ></button>
+                <span *ngIf="i != listingItemIndexes[0]" [innerHTML]="data"></span>
+              </td>
+            </ng-container>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td class="p-text-center">No Mail Found</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="footer-section">
+    <div class="p-formgrid p-grid">
+      <div class="p-col-4 p-md-4"></div>
+      <div class="p-col-8 p-md-8 p-as-center">
+        <app-mailbox-pagination
+          [totalPages]="listingData?.totalPages"
+          [pageNumber]="listingData?.pageNumber"
+        >
+        </app-mailbox-pagination>
+      </div>
+    </div>
+  </div>
+</div> -->

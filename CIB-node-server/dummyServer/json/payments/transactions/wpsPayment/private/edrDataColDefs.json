@@ -1,0 +1,58 @@
+[
+  { "headerName": "Employee Id", "field": "employeeId" },
+  { "headerName": "Credit Account", "field": "creditAccount" },
+  { "headerName": "Routing Code AgentId", "field": "routingCodeAgentId" },
+  { "headerName": "Pay Start Date", "field": "payStartDate", "cellRenderer": "dateRenderer" },
+  {
+    "headerName": "Request Status",
+    "field": "requestStatus"
+  },
+  {
+    "headerName": "Reject / Fail Reason",
+    "field": "rejectFailReason"
+  },
+  { "headerName": "Pay End Date", "field": "payEndDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "No. of Days in Month", "field": "noOfDaysInMonth" },
+  { "headerName": "Fixed Salary", "field": "fixedSalary", "cellRenderer": "currencyRenderer" },
+  {
+    "headerName": "Variable Salary",
+    "field": "variableSalary",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "No. of Days With Unpaid Leaves", "field": "noOfDaysWithUnpaidLeaves" },
+  {
+    "headerName": "Housing Allowance",
+    "field": "housingAllowance",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Conveyance Allowance",
+    "field": "conveyanceAllowance",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Medical Allowance",
+    "field": "medicalAllowance",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Annual Passage Allowance",
+    "field": "annualPassageAllowance",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Overtime Allowance",
+    "field": "overtimeAllowance",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "All Other Allowances",
+    "field": "allOtherAllowances",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Leave Encashment",
+    "field": "leaveEncashment",
+    "cellRenderer": "currencyRenderer"
+  }
+]

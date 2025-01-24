@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "buyerName": "Anil",
+      "buyerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "buyerName": "Mayank",
+      "buyerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "buyerName": "Anil",
+      "buyerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "buyerName": "Mayank",
+      "buyerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "buyerName": "Anil",
+      "buyerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "buyerName": "Mayank",
+      "buyerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "buyerName": "Anil",
+      "buyerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "buyerName": "Mayank",
+      "buyerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    }
+  ],
+  "lastRow": 8
+}

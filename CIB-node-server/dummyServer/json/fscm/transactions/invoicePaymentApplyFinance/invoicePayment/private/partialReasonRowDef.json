@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "id": "1001",
+      "reasonCode": "PR001",
+      "reasonName": "Will be paid next month",
+      "reasonNameThai": "จ่ายเดือนหน้า "
+    },
+    {
+      "id": "1002",
+      "reasonCode": "PR002",
+      "reasonName": "Other Reason",
+      "reasonNameThai": "เหตุผลอื่น"
+    }
+  ],
+  "lastRow": 2
+}

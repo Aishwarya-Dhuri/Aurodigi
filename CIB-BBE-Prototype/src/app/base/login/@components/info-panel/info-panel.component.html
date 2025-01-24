@@ -1,0 +1,89 @@
+<div class="info-panel inline-block">
+  <!-- Broadcast messages -->
+  <div class="message-container inline-block border-radius-20">
+    <div class="message-icon inline-block text-size-20">
+      <app-icon icon="fa-bullhorn"></app-icon>
+    </div>
+    <div class="message inline-block">
+      <div class="text-bold text-size-14 inline-block">
+        {{ 'Important Information' | apsTranslate }}
+      </div>
+      <div class="message-body text-size-12">
+        {{ broadcastMessage?.messageDescription }}
+      </div>
+
+      <div class="carousel-wrapper">
+        <div
+          *ngFor="let broadcastMessage of broadcastMessages; let i = index"
+          class="carousel"
+          [ngClass]="{ 'carousel-active': broadcastMessageIndex === i }"
+          (click)="changeMessage(i)"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message container -->
+  <div class="message-container inline-block border-radius-20">
+    <div class="message-icon inline-block text-size-20">
+      <app-icon icon="fa-comments-alt"></app-icon>
+    </div>
+    <div class="message inline-block">
+      <div class="text-bold text-size-14 inline-block">{{ 'Message' | apsTranslate }}</div>
+      <div class="message-body text-size-12">
+        {{ broadcastMessages[0]?.messageDescription }}
+      </div>
+
+      <!-- <div class="carousel-wrapper">
+        <div *ngFor="let broadcastMessage of broadcastMessages; let i = index" class="carousel"
+          [ngClass]="{ 'carousel-active': broadcastMessageIndex === i }" (click)="changeMessage(i)"></div>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Banner container -->
+  <div class="banner-container border-radius-20">
+    <img [src]="bannerImageUrl" class="banner-image" />
+    <div class="banner-message">
+      {{ screenDetails?.mainHeading }}
+      <div class="carousel-wrapper">
+        <div
+          *ngFor="let carousal of screenDetails?.backgroundImages; let i = index"
+          class="carousel"
+          [ngClass]="{ 'carousel-active': backgroundImageIndex === i }"
+          (click)="changeBgImage(i)"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Useful links -->
+  <div class="p-mx-1 left-right-container">
+    <div class="left-container">
+      <div
+        class="help inline-block p-my-2 p-mx-3 text-size-16 pointer"
+        *ngFor="let help of screenDetails?.helpOptions"
+        (click)="help.id === 'dv' ? (demoVideo = true) : ''"
+      >
+        <app-icon [icon]="help.icon"></app-icon> {{ help.label }}
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="p-mx-3">
+        <div class="social-icon inline-block p-m-2" *ngFor="let social of footerData?.socialMedias">
+          <i class="fab" [class]="social.icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question button -->
+  <div class="question-button float-right p-py-2 p-mx-4">
+    <button
+      class="aps-w-100p btn btn-lg btn-tertiary text-size-16 text-semi-bold p-shadow-10 border-radius-20 p-px-4"
+    >
+      <i class="text-size-16 fas fa-comment-dots"></i>
+      {{ 'Questions?' | apsTranslate }}
+    </button>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+[
+  {
+    "chequeNo": "100101",
+    "chequeAmount": "1100000",
+    "liquidationDate": "15-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100102",
+    "chequeAmount": "950000",
+    "liquidationDate": "17-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100103",
+    "chequeAmount": "68000",
+    "liquidationDate": "18-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100104",
+    "chequeAmount": "49000",
+    "liquidationDate": "20-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100105",
+    "chequeAmount": "120500",
+    "liquidationDate": "22-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100106",
+    "chequeAmount": "950000",
+    "liquidationDate": "25-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100107",
+    "chequeAmount": "1100000",
+    "liquidationDate": "27-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100108",
+    "chequeAmount": "49000",
+    "liquidationDate": "30-Jan-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100109",
+    "chequeAmount": "68000",
+    "liquidationDate": "02-Feb-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100110",
+    "chequeAmount": "1100000",
+    "liquidationDate": "03-Feb-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100111",
+    "chequeAmount": "49000",
+    "liquidationDate": "05-Feb-2023",
+    "returnReason": "Insufficient Fund"
+  },
+  {
+    "chequeNo": "100112",
+    "chequeAmount": "120500",
+    "liquidationDate": "07-Feb-2023",
+    "returnReason": "Insufficient Fund"
+  }
+]

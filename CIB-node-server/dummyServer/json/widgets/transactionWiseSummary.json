@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "label": "LC",
+      "pending": 20,
+      "authorized": 25
+    },
+    {
+      "label": "BG",
+      "pending": 15,
+      "authorized": 25
+    },
+    { "label": "SG", "pending": 20, "authorized": 45 }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "label",
+      "yKeys": ["pending", "authorized"],
+      "yNames": ["Pending", "Authorized"],
+      "grouped": true,
+      "shadow": { "enabled": true }
+    }
+  ],
+  "axes": [
+    {
+      "type": "category",
+      "position": "bottom",
+      "title": {
+        "text": "Type of Transaction",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    },
+    {
+      "type": "number",
+      "position": "left",
+      "title": {
+        "text": "No of transactions",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[
+  { "headerName": "Field Name", "field": "fieldName" },
+  {
+    "headerName": "Field Type",
+    "field": "fieldType"
+  },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

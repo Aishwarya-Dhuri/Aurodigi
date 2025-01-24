@@ -1,0 +1,130 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "entityIdentifier": "",
+  "loggable": false,
+  "entityName": "CORPORATEDETAILS",
+  "headers": [
+    {
+      "displayName": "Id",
+      "type": "String",
+      "isDisplay": "N"
+    },
+    {
+      "displayName": "Corporate Code",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Corporate Name",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Category",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "RM Name",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Agreement Ref No",
+      "type": "String",
+      "isDisplay": "Y"
+    },
+    {
+      "displayName": "Agreement Expiry Date",
+      "type": "String",
+      "isDisplay": "Y"
+    }
+  ],
+  "dataList": [
+    [
+      1,
+      "990003",
+      "Thai Beverage Public Company Limited ",
+      "Gold",
+      "Mark Twain",
+      "102359103",
+      "01-Apr-2020"
+    ],
+    [
+      2,
+      "990008",
+      "Ceylon Petroleum Corporation",
+      "Gold",
+      "Richard Agassi",
+      "88991212",
+      "01-Apr-2021"
+    ],
+    [
+      3,
+      "990009",
+      "Advanced Info Service Public Company Limited",
+      "Silver",
+      "Mark Twain",
+      "77182812",
+      "01-Apr-2020"
+    ]
+  ],
+  "filters": [
+    {
+      "displayName": "Corporate Name",
+      "name": "CorporateName",
+      "type": "String"
+    },
+    {
+      "displayName": "RM Name",
+      "name": "RMName",
+      "type": "String"
+    },
+    {
+      "displayName": "Account Number",
+      "name": "AccountNumber",
+      "type": "String"
+    },
+    {
+      "displayName": "User id",
+      "name": "Userid",
+      "type": "String"
+    }
+  ],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 1,
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+  "links": [
+    [
+      {
+        "index": 1,
+        "displayName": "View",
+        "icon": "fa fa-eye",
+        "url": null,
+        "onClick": "view('hhg84lelODc=,4')('hhg84lelODc=,4')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "View",
+        "icon": "fa fa-eye",
+        "url": null,
+        "onClick": "view('hhg84lelODc=,4')('hhg84lelODc=,4')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "View",
+        "icon": "fa fa-eye",
+        "url": null,
+        "onClick": "view('hhg84lelODc=,4')('hhg84lelODc=,4')"
+      }
+    ]
+  ]
+}

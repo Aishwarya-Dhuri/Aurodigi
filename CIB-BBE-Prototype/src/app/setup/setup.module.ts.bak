@@ -1,0 +1,57 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { SharedModule } from '../shared/shared.module';
+import { CIBConfigurationComponent } from './cib-setup/cib-configuration/cib-configuration.component';
+import { DynamicCardBuilderComponent } from './cib-setup/dynamic-form-builder/@components/dynamic-card-builder/dynamic-card-builder.component';
+import { DynamicFormBuilderComponent } from './cib-setup/dynamic-form-builder/dynamic-form-builder.component';
+import { BankProfileComponent } from './security-bank/bank-profile/bank-profile.component';
+import { AssignRightsCheckboxRendererComponent } from './security-bank/bank-role/@components/assign-rights-checkbox-renderer/assign-rights-checkbox-renderer.component';
+import { BankRoleComponent } from './security-bank/bank-role/bank-role.component';
+import { BankUserComponent } from './security-bank/bank-user/bank-user.component';
+import { CorporateProfileComponent } from './security-corporate/corporate-profile/corporate-profile.component';
+import { CorporateRoleComponent } from './security-corporate/corporate-role/corporate-role.component';
+import { CorporateUserComponent } from './security-corporate/corporate-user/corporate-user.component';
+import { SetupRoutingModule } from './setup-routing.module';
+import { DocumentDesignerComponent } from './templates/document-designer/document-designer.component';
+import { UserAccessFieldComponent } from './security-corporate/user-access-field/user-access-field.component';
+import { CheckboxRendererComponent } from './security-corporate/user-access-field/@components/checkbox-renderer/checkbox-renderer.component';
+import { AuthRuleDropdownRendererComponent } from './security-corporate/user-access-field/@components/auth-rule-dropdown-renderer/auth-rule-dropdown-renderer.component';
+import { LockRendererComponent } from './security-corporate/user-access-field/@components/lock-renderer/lock-renderer.component';
+import { MailCategoryComponent } from './general-masters/mail-category/mail-category.component';
+import { WidgetBuilderComponent } from './cib-setup/widget-builder/widget-builder.component';
+import { JobMonitoringComponent } from './process/job-monitoring/job-monitoring.component';
+import { JobMonitoringListingComponent } from './process/job-monitoring/job-monitoring-listing/job-monitoring-listing.component';
+import { JobMonitoringInitiateComponent } from './process/job-monitoring/job-monitoring-initiate/job-monitoring-initiate.component';
+import { InterfaceConfigurationComponent } from './process/interface-configuration/interface-configuration.component';
+
+@NgModule({
+  declarations: [
+    BankProfileComponent,
+    AssignRightsCheckboxRendererComponent,
+    BankRoleComponent,
+    BankUserComponent,
+
+    CorporateProfileComponent,
+    CorporateRoleComponent,
+    CorporateUserComponent,
+
+    DynamicCardBuilderComponent,
+    DynamicFormBuilderComponent,
+    WidgetBuilderComponent,
+    DocumentDesignerComponent,
+    CIBConfigurationComponent,
+    UserAccessFieldComponent,
+    CheckboxRendererComponent,
+    LockRendererComponent,
+    AuthRuleDropdownRendererComponent,
+    MailCategoryComponent,
+    JobMonitoringComponent,
+    JobMonitoringListingComponent,
+    JobMonitoringInitiateComponent,
+    InterfaceConfigurationComponent,
+  ],
+  providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }],
+  imports: [CommonModule, SharedModule, SetupRoutingModule, EditorModule],
+})
+export class SetupModule {}

@@ -1,0 +1,71 @@
+.main-layout {
+  position: relative;
+  display: block;
+
+  .main-container {
+    width: 100%;
+
+    .header-container {
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 2;
+
+      .secondary-header-container {
+        width: 100%;
+        background-color: var(--background-color-light-4);
+      }
+    }
+
+    .action-container {
+      padding: 0.25rem 1rem 0.25rem 22px;
+    }
+
+    .app-menu-container {
+      width: 0;
+    }
+
+    .router-outlet-container {
+      width: 100%;
+      -webkit-transition: 0.25s ease-in;
+      transition: 0.25s ease-in;
+    }
+  }
+
+  .app-footer-container {
+    background-color: var(--text-color-dark-shade-1);
+    border-top: 7px solid var(--footer-border-top-color);
+  }
+
+  .app-sidebar-container {
+    position: fixed;
+    z-index: 10;
+    display: none;
+    top: 0;
+    right: 0;
+  }
+
+  .app-sidebar-container-toggle {
+    display: block;
+  }
+}
+
+.menu-sidebar {
+  .app-menu-container {
+    width: 4.25rem !important;
+  }
+
+  .router-outlet-container {
+    width: calc(100% - 4.25rem) !important;
+  }
+}
+
+.menu-sidebar-pinned {
+  .app-menu-container {
+    width: 16rem !important;
+  }
+
+  .router-outlet-container {
+    width: calc(100% - 16rem) !important;
+  }
+}

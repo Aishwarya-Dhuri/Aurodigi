@@ -1,0 +1,85 @@
+{
+  "layout": [
+    {
+      "columnName": "",
+      "dataType": "",
+      "sequenceNumber": "",
+      "operations": ""
+    }
+  ],
+  "header": [
+    {
+      "columnName": "",
+      "dataType": "",
+      "sequenceNumber": "",
+      "operations": ""
+    }
+  ],
+  "detail": [
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    },
+    {
+      "columnName": "User Id",
+      "dataType": "TEXT",
+      "sequenceNumber": "1",
+      "operations": "Create Authorized"
+    }
+  ],
+  "footer": [
+    {
+      "columnName": "",
+      "dataType": "",
+      "sequenceNumber": "",
+      "operations": ""
+    }
+  ],
+  "enrichmentFields": [
+    {
+      "columnName": "",
+      "dataType": "",
+      "sequenceNumber": "",
+      "operations": ""
+    }
+  ],
+  "lastRow": 1
+}

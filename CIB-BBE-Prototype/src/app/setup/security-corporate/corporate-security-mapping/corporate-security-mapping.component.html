@@ -1,0 +1,376 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <div class="p-grid g-margin-x">
+            <div class="p-col-12">
+                <form name="corporateSecurityMappingForm" #corporateSecurityMappingForm="ngForm">
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Corporate Details</div>
+                        </div>
+
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid ">
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="corporateId" label="Corporate Id" name="corporateId"
+                                        rightIcon="fa-search" (onRightIcon)="isShowCorporateIdSearch = true"
+                                        [(ngModel)]="formData.corporateId" required="true"
+                                        (onSelection)="onCorporateIdSelect($event)">
+                                    </aps-form-input>
+
+                                    <app-search-modal [(isShow)]="isShowCorporateIdSearch" header="Corporate Id Details"
+                                        colDefUrl="setup/security/corporateSecurityMapping/private/corporateIdColDefs"
+                                        rowDefUrl="setup/security/corporateSecurityMapping/private/corporateIdData"
+                                        (onSelection)="onCorporateIdSelect($event)">
+                                    </app-search-modal>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                        [(ngModel)]="formData.corporateName" disabled="true" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Security Mapping</div>
+                        </div>
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid">
+
+                                <div class="p-col-12 p-md-3 p-lg-3 ">
+                                    <div class="text-size-14">Encryption Type<sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <p-radioButton class="p-pt-2" name="encryptionType" value="PKI" label="PKI"
+                                        [(ngModel)]="formData.encryptionType">
+                                    </p-radioButton> &nbsp;
+
+                                    <p-radioButton class="p-pt-2" name="encryptionType" value="Symmetric"
+                                        label="Symmetric" [(ngModel)]="formData.encryptionType">
+                                    </p-radioButton> &nbsp;
+                                    <p-radioButton class="p-pt-2" name="None" value="None" label="None"
+                                        [(ngModel)]="formData.encryptionType">
+                                    </p-radioButton>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <div class="text-size-14">Upload Type<sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <p-checkbox name="uploadType" binary="true" label="Not encrypted"
+                                        [(ngModel)]="formData.uploadType">
+                                    </p-checkbox>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <div class="text-size-14">Upload Key File
+                                        <sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <upload-form-control [files]="formData.keyFile"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onSupportingDocumentUploaded($event)"></upload-form-control>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-py-5">
+                                    <aps-form-input id="keyId" label="Key Id" name="keyId" [(ngModel)]="formData.keyId"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="keyId" label="Encryption Key" name="encryptionKey"
+                                        [(ngModel)]="formData.encryptionKey" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <div class="text-size-14">MT940 Encryption Required
+                                    </div>
+                                    <p-radioButton class="p-pt-2" name="encryptionRequired" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.encryptionRequired">
+                                    </p-radioButton> &nbsp;
+
+                                    <p-radioButton class="p-pt-2" name="encryptionRequired" value="No" label="No"
+                                        [(ngModel)]="formData.encryptionRequired">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> FTP Details</div>
+                        </div>
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid">
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="hostName" label="Host Name" name="hostName"
+                                        [(ngModel)]="formData.hostName">
+                                    </aps-form-input>
+
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="userName" label="User Name" name="userName"
+                                        [(ngModel)]="formData.userName">
+                                    </aps-form-input>
+
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="password" label="Password" name="password" type="password"
+                                        [(ngModel)]="formData.password">
+                                    </aps-form-input>
+
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-py-3 ">
+                                    <button class="btn btn-md btn-primary">Test connection</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-2">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Other Details</div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="sorceFolderName" label="Source Folder Name"
+                                        name="sorceFolderName" [(ngModel)]="formData.sorceFolderName">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <aps-form-input id="destinationFolderName" label="Destination Folder Name"
+                                        name="destinationFolderName" [(ngModel)]="formData.destinationFolderName">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 ">
+                                    <div class="text-size-14">Reports to be generated
+                                    </div>
+                                    <p-radioButton class="p-pt-2" name="reportsTobeGenerated" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.reportsTobeGenerated">
+                                    </p-radioButton> &nbsp;
+
+                                    <p-radioButton class="p-pt-2" name="reportsTobeGenerated" value="No" label="No"
+                                        [(ngModel)]="formData.reportsTobeGenerated">
+                                    </p-radioButton>
+
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                                    <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                                        Report Password Protection<sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <div class="p-px-3">
+                                        <p-inputSwitch id="reportPasswordProtection" name="reportPasswordProtection"
+                                            [(ngModel)]="formData.reportPasswordProtection">
+                                        </p-inputSwitch>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 ">
+                                    <div class="text-size-14">Web Service alert response
+                                    </div>
+                                    <p-radioButton class="p-pt-2" name="webServiceAlertResponse" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.webServiceAlertResponse">
+                                    </p-radioButton> &nbsp;
+
+                                    <p-radioButton class="p-pt-2" name="webServiceAlertResponse" value="No" label="No"
+                                        [(ngModel)]="formData.webServiceAlertResponse">
+                                    </p-radioButton>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="aps-h-600 p-pt-2 " *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Corporate Details</div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Id' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateId }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateName }}</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Security Mapping</div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ ' Encryption Type' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.encryptionType }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Upload Type' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.uploadType }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Key Id' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.keyId }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Encryption Key' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.encryptionKey }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'MT940 Encryption Required' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.encryptionRequired }}</div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">FTP Details</div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Host Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.hostName }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'User Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.userName }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Password' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.password }}</div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Other Details</div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Source Folder Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.sorceFolderName }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Destination Folder Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.destinationFolderName }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Reports to be generated' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.reportsTobeGenerated }}</div>
+
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Report Password Protection' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.reportPasswordProtection }}</div>
+
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Web Service alert response' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.webServiceAlertResponse }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

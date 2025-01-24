@@ -1,0 +1,30 @@
+[
+  {
+    "headerName": "Sr No.",
+    "field": "index"
+  },
+  {
+    "headerName": "Module Name",
+    "field": "moduleName"
+  },
+  {
+    "headerName": "Alert Name",
+    "field": "alertName"
+  },
+  {
+    "headerName": "Category",
+    "field": "category"
+  },
+  {
+    "headerName": "Event Name",
+    "field": "eventName"
+  },
+  {
+    "headerName": "Channel",
+    "field": "channel"
+  },
+  {
+    "headerName": "Alert To",
+    "field": "alertTo"
+  }
+]

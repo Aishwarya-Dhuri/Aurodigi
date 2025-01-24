@@ -1,0 +1,35 @@
+<div class="breadcrumb-container inline-block">
+  <div
+    class="inline-block pointer border-primary border-radius-5 background-color-primary"
+    *ngIf="actions?.backBtn"
+    (click)="back()"
+  >
+    <app-icon
+      icon="fa-chevron-left"
+      rtlIcon="fa-chevron-right"
+      styleClasses="p-mx-2 text-size-14 text-color-inverted"
+    >
+    </app-icon>
+  </div>
+  <div class="divider-v inline-block p-mx-2 border-right" *ngIf="actions?.backBtn"></div>
+  <div class="inline-block pointer p-mx-1" routerLink="/dashboard/consolidated">
+    <app-icon icon="fa-home" styleClasses="text-size-16"></app-icon>
+  </div>
+  <div class="divider-v inline-block p-mx-2 border-right"></div>
+  <div class="inline-block p-mx-1 text-size-16 text-bold">
+    {{ breadcrumbList[breadcrumbList.length - 1]?.label }}
+  </div>
+  <div class="divider-v inline-block p-mx-2 border-right hide-on-mobile"></div>
+  <div class="inline-block hide-on-mobile" *ngFor="let breadcrumb of breadcrumbList; let i = index">
+    <div class="inline-block p-mx-1" *ngIf="i != 0">
+      <app-icon
+        icon="fa-chevron-right"
+        styleClasses="text-size-14"
+        rtlIcon="fa-chevron-left"
+      ></app-icon>
+    </div>
+    <div class="inline-block p-mx-1 text-size-14">
+      {{ breadcrumb.label }}
+    </div>
+  </div>
+</div>

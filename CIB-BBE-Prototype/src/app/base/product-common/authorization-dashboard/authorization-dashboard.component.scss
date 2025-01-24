@@ -1,0 +1,47 @@
+.expand-container {
+  width: 60px;
+  height: 20px;
+  border-radius: 0 0 6px 6px;
+  text-align: center;
+  /* color: var(--inverted-text-color); */
+  /* background-color: var(--primary-color); */
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.aps-h-10 {
+  height: 10px;
+}
+
+.aps-mt-6px {
+  margin-top: 6px;
+}
+
+.aps-mt-8px {
+  margin-top: 8px;
+}
+
+.legend {
+  width: 6px;
+  height: 6px;
+}
+
+:host ::ng-deep {
+  .ag-chart-wrapper {
+    height: 100% !important;
+    direction: ltr !important;
+  }
+
+  .p-overlaypanel {
+    margin-top: 0;
+  }
+
+  .p-overlaypanel:after,
+  .p-overlaypanel:before {
+    content: none;
+  }
+
+  .p-overlaypanel .p-overlaypanel-content {
+    padding: 0;
+  }
+}

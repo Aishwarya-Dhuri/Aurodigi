@@ -1,0 +1,21 @@
+.profile-pic {
+  position: relative;
+  img {
+    width: 3.375rem;
+    height: 3.375rem;
+  }
+
+  .cam-icon {
+    position: absolute;
+    bottom: 0;
+    right: -0.25rem;
+  }
+
+  .input {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+}

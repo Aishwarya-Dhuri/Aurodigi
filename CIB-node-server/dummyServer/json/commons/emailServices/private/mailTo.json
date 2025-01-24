@@ -1,0 +1,129 @@
+{
+  "dataMap": {
+    "CorporateUserList": [
+      {
+        "id": "keRCkFiEdSQ=",
+        "displayName": "newau-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "newauuser3@gmail.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "WzxvJfzj3rg=",
+        "displayName": "newau-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "newauuser1@gmail.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "tKiTacs+IRk=",
+        "displayName": "makerswap-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "make@fd.dcs"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "uJcyzZb6ypI=",
+        "displayName": "makeradmin-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "maker@dfsfv.sdffdf"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "kfiBMrDW6+o=",
+        "displayName": "augrp-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "augrpuser1@adsf.af"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "NgCkdToTeDo=",
+        "displayName": "100401-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "100401maker1@ll.cc"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "F3OslLsjQLQ=",
+        "displayName": "100401-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "newuser@gmail.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "Ml2lpHvVj9o=",
+        "displayName": "100401-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "100401maker3@ll.cc"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "nDs2Q3dW2Qw=",
+        "displayName": "100401-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "newuser@gmail.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "lrKwb8Fge3U=",
+        "displayName": "group check2-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "a@a.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "DTfIX7DPN3g=",
+        "displayName": "group check1-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "CORPORATE",
+          "emailAddress": "a@a.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      }
+    ]
+  },
+  "entityIdentifier": "",
+  "entity": ""
+}

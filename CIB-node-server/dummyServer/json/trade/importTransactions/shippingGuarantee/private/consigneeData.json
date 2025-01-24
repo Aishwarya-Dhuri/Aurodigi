@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "consigneeCode": "Bene220000665",
+      "consigneeName": "AB Corp",
+      "consigneeAddress1": [
+        {
+          "address": "Delhi"
+        }
+      ]
+    },
+    {
+      "consigneeCode": "Bene220000666",
+      "consigneeName": "HPCC",
+      "consigneeAddress1": [
+        {
+          "address": "Bangalore"
+        }
+      ]
+    },
+    {
+      "consigneeCode": "Bene220000665",
+      "consigneeName": "RA Group",
+      "consigneeAddress1": [
+        {
+          "address": "Mumbai"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+  { "headerName": "DDA Details", "field": "accountNumber" },
+  { "headerName": "Account Type", "field": "accountType" },
+  { "headerName": "CCY", "field": "currency" },
+  { "headerName": "Balance", "field": "ledgerBalance", "cellRenderer": "currencyRenderer" }
+]

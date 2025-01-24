@@ -1,0 +1,14 @@
+.accordian-container {
+  padding: 0 4.5rem;
+  .accordian-heading {
+    height: 2rem;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color-light);
+    margin: 1rem 0 1rem -4rem;
+    width: 40%;
+
+    .step-no-container {
+      min-width: 3.725rem;
+    }
+  }
+}

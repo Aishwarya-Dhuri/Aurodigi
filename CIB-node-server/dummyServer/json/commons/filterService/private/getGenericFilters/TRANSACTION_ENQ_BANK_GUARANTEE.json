@@ -1,0 +1,301 @@
+{
+  "type": "Fscm-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "bgNumber",
+      "displayName": "BG Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "withAndWithoutAmendment",
+      "displayName": "With / Without Amendments",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/bankGuarantee/private/dropdown/amendmentList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "typeOfApplicationOrUndertaking",
+      "displayName": "Type of Application/Undertaking",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/bankGuarantee/private/dropdown/typeOfApplicationOrUndertaking",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "bgIssueDate",
+      "displayName": "BG Issue Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "bgExpiryDate",
+      "displayName": "BG Expiry Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "claimExpiryDate",
+      "displayName": "Claim Expiry Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "bgCurrency",
+      "displayName": "BG Currency",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "bgAmount",
+      "displayName": "BG Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "beneficiaryBankName",
+      "displayName": "Beneficiary Bank Name",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "trade/exportTransactions/bankGuarantee/private/beneficiaryColDefs",
+      "rowDefUrl": "trade/exportTransactions/bankGuarantee/private/beneficiaryData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "BENEFICIARYSEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_corporate_type",
+            "name": "id",
+            "type": "String",
+            "value": "SPONSOR",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "id,name",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "applicantName",
+      "displayName": "Applicant Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "onBehalfOf",
+      "displayName": "On Behalf Of",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "userRefNumber",
+      "displayName": "corporateRefNo",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/bankGuarantee/private/dropdown/statusList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "bgExpiryDate",
+      "displayName": "BG Expiry Date",
+      "type": "Date",
+      "value": "15-Oct-2021",
+      "value1": "",
+      "operator": "",
+      "displayValue": "15 OCT 2021"
+    },
+    {
+      "name": "bgCurrency",
+      "displayName": "BG Currency",
+      "type": "String",
+      "value": "SAR",
+      "value1": "",
+      "operator": "",
+      "displayValue": "SAR"
+    },
+    {
+      "name": "bgAmount",
+      "displayName": "BG Amount",
+      "type": "String",
+      "value": "100000",
+      "value1": "",
+      "operator": "",
+      "displayValue": "100000"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

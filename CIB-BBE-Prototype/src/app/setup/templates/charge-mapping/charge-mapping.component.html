@@ -1,0 +1,452 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Template Type Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div>{{templateName}}</div>
+                        <div class=" p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Template Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="templateType" value="Normal" label="Normal"
+                                    [(ngModel)]="formData.templateType">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="templateType" value="Promotional"
+                                    label="Promotional" [(ngModel)]="formData.templateType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Charge Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Charge Category Code' | apsTranslate"
+                                name="chargeCatCode" id="chargeCatCode" [(ngModel)]="formData.chargeCatCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Charge Category Name' | apsTranslate"
+                                name="chargeCatName" id="chargeCatName" [(ngModel)]="formData.chargeCatName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                                [(ngModel)]="formData.module" [value]="formData.module"
+                                (change)="onChangeModule(formData.module)"
+                                dataUrl="setup/templates/chargeMapping/private/dropdown/module" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender label="Effective From" name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender label="Effective Till" name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <p-checkbox id="isCopyFromChargeMapping" name="isCopyFromChargeMapping"
+                                label="Copy Existing Charge Mapping" [binary]="true"
+                                [(ngModel)]="formData.isCopyFromChargeMapping"></p-checkbox>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select name="copyClusterFromExisting" id="copyClusterFromExisting"
+                                label="Copy Existing Charge Mapping" [(ngModel)]="formData.copyClusterFromExisting"
+                                [value]="formData.copyClusterFromExisting"
+                                [disabled]="!formData.isCopyFromChargeMapping" [data]="copyChargeMappingList"
+                                (change)="formData.copyClusterFromExistingName = $event.displayName"
+                                [required]="true"></aps-custom-select>
+                        </div>
+                        <div class="p-col-1">
+                            <button class="btn btn-md btn-primary" [disabled]="!formData.copyClusterFromExisting"
+                                (click)="onCopyFromExistingCLuster(formData.copyClusterFromExisting)">
+                                {{ 'Copy' | apsTranslate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Corporate Template Mapping </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <aps-custom-select name="search" id="search" label="Search" [(ngModel)]="formData.search"
+                                [value]="formData.search"
+                                dataUrl="setup/templates/chargeMapping/private/dropdown/search">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-5 p-sm-6 p-col-12">
+                            <div class="aps-search-container">
+                                <input type="text" name="searchField" id="searchField" autocomplete="off"
+                                    [(ngModel)]="formData.searchField" class="aps-search-input"
+                                    placeholder="Enter Value">
+                            </div>
+                        </div>
+
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <div class="left-right-container">
+                                <div class="left-container">
+                                    <button class="btn btn-md btn-primary p-mt-2 p-mr-3"
+                                        [disabled]="!formData.searchField" (click)="onGoCorpMapping()">
+                                        {{ 'Go' | apsTranslate }}
+                                    </button>
+                                    <button class="btn btn-md btn-primary p-mt-2" [disabled]="!formData.searchField"
+                                        (click)="onResetCorpMapping()">
+                                        {{ 'Reset' | apsTranslate }}
+                                    </button>
+                                </div>
+                                <div class="right-container"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="aps-card-header">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                    </div>
+                                    <div class="right-container p-mr-2">
+                                        <button class="btn btn-md btn-primary" (click)="onCorpAddNewTemplate()">
+                                            {{ 'Add New Template' | apsTranslate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12" *ngIf="!loadingList">
+                            <app-ag-grid-listing #clusterDetailsList id="clusterDetailsList"
+                                colDefUrl="setup/templates/chargeMapping/private/clusterDetailsColDefs"
+                                [context]="{ componentParent: this }" [gridOptions]="gridOptions"
+                                [rowData]="formData.clusterDetails"></app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1">Product Template Mapping</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <aps-custom-select name="chargeMapping" id="search" label="Search"
+                                [(ngModel)]="formData.productTemplateSearch" [value]="formData.productTemplateSearch"
+                                dataUrl="setup/templates/chargeMapping/private/dropdown/search">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-5 p-sm-6 p-col-12">
+                            <div class="aps-search-container">
+                                <input type="text" name="searchProductField" id="searchProductField" autocomplete="off"
+                                    [(ngModel)]="formData.searchProductField" class="aps-search-input"
+                                    placeholder="Enter Value">
+                            </div>
+                        </div>
+
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <div class="left-right-container">
+                                <div class="left-container">
+                                    <button class="btn btn-md btn-primary p-mt-2 p-mr-3"
+                                        [disabled]="!formData.searchField" (click)="onGoProductMapping()">
+                                        {{ 'Go' | apsTranslate }}
+                                    </button>
+                                    <button class="btn btn-md btn-primary p-mt-2" [disabled]="!formData.searchField"
+                                        (click)="onResetProdcutMapping()">
+                                        {{ 'Reset' | apsTranslate }}
+                                    </button>
+                                </div>
+                                <div class="right-container"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            <div class="aps-card-header">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                    </div>
+                                    <div class="right-container p-mr-2">
+                                        <button class="btn btn-md btn-primary" (click)="onAddNewPrintBranch()">
+                                            {{ 'Add New Template' | apsTranslate }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12" *ngIf="!productMappingLoadingList">
+                            <app-ag-grid-listing #productMappingDetailsList id="productMappingDetailsList"
+                                colDefUrl="setup/templates/chargeMapping/private/clusterDetailsColDefs"
+                                [rowData]="formData.clusterDetails" [context]="{ componentParent: this }"
+                                [gridOptions]="gridOptions"></app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Template Type Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Template Type' | apsTranslate" [value]="formData.templateType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Charge Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Category Code' | apsTranslate"
+                            [value]="formData.chargeCatCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Category Name' | apsTranslate"
+                            [value]="formData.chargeCatName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Module' | apsTranslate" [value]="formData.module">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Effective From' | apsTranslate"
+                            [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Effective Till' | apsTranslate"
+                            [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox id="isCopyFromChargeMapping" name="isCopyFromChargeMapping"
+                            label="Copy Existing Charge Mapping" [binary]="true"
+                            [(ngModel)]="formData.isCopyFromChargeMapping" disabled></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Copy Existing' | apsTranslate"
+                            [value]="formData.copyChargeMapping">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Corporate Template Mapping</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Search' | apsTranslate" [value]="formData.search">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [showLabel]="false" [value]="formData.chargeCatName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------Modals------------>
+    <app-modal [(isShow)]="isShowCorpTempMappingDetails" size="lg" headerText="Charge Template">
+        <div class="overflow-scroll">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Charge Template Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Template Code' | apsTranslate"
+                            [value]="corpMapDetails.templateCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Template Name' | apsTranslate"
+                            [value]="corpMapDetails.templateName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Module' | apsTranslate" [value]="corpMapDetails.module">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Level' | apsTranslate"
+                            [value]="corpMapDetails.chargeLevel">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Currency' | apsTranslate" [value]="corpMapDetails.currency">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Event' | apsTranslate"
+                            [value]="corpMapDetails.chargeEvent">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Applicable' | apsTranslate"
+                            [value]="corpMapDetails.chargeApplicable">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Charge Frequency Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Calculation Frequency' | apsTranslate"
+                            [value]="corpMapDetails.calFrequency">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Posting Frequency' | apsTranslate"
+                            [value]="corpMapDetails.postingFrequency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Round Off' | apsTranslate"
+                            [value]="corpMapDetails.chargeRoundOff">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Round Decimal' | apsTranslate"
+                            [value]="corpMapDetails.chargeRoundDecimal">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Tax Applicable' | apsTranslate"
+                            [value]="corpMapDetails.taxApplicable">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Charge Strategy Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Charge Basis' | apsTranslate"
+                            [value]="corpMapDetails.chargeBasis">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Strategy Type' | apsTranslate"
+                            [value]="corpMapDetails.strategyType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Variable Charge (Per Thousand)' | apsTranslate"
+                            [value]="corpMapDetails.varCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Fixed Charge' | apsTranslate"
+                            [value]="corpMapDetails.fixedCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Minimum Charge' | apsTranslate"
+                            [value]="corpMapDetails.minCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Maximum Charge' | apsTranslate"
+                            [value]="corpMapDetails.maxCharge">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+
+    <app-modal [(isShow)]="isShowCorpAddNewTemplate" size="md" headerText="Charge Template">
+        <div class="p-md-12 p-sm-12 p-col-12">
+            <div class="p-grid g-margin-x">
+                <div class="p-col-12 p-px-0 ">
+                    <div class="aps-h-200">
+                        <app-ag-grid-listing #CorpAddNewTemplate id="CorpAddNewTemplate"
+                            colDefUrl="setup/templates/chargeMapping/private/corpMappingAddNewTemplateColDef"
+                            rowDefUrl="setup/templates/chargeMapping/private/corpMappingAddNewTemplateRowDef"
+                            (rowSelected)="onRowSelectedCorpAddNewTemp($event)"
+                            [gridOptions]="corpAddNewTempGridOptions"></app-ag-grid-listing>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+    <!------------Modals------------>
+
+
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

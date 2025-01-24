@@ -1,0 +1,5 @@
+[
+  { "headerName": "Days", "field": "weekday" },
+  { "headerName": "Start Time", "field": "startTime" },
+  { "headerName": "End Time", "field": "endTime" }
+]

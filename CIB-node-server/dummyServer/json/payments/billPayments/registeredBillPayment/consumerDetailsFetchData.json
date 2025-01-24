@@ -1,0 +1,37 @@
+[
+  {
+    "id": "10",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 May 2024",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 May 2024",
+    "selected": false,
+    "actions": []
+  },
+  {
+    "id": "11",
+    "checkbox": "",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 May 2024",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 May 2024",
+    "selected": false,
+    "actions": []
+  },
+  {
+    "id": "12",
+    "checkbox": "",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 May 2024",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 May 2024",
+    "selected": false,
+    "actions": []
+  }
+]

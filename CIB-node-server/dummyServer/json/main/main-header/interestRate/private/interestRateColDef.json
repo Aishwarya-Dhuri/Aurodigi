@@ -1,0 +1,30 @@
+[
+  {
+    "headerName": "Amount",
+    "field": "amount"
+  },
+  {
+    "headerName": "Less than 3 Months",
+    "field": "lessThan3Months"
+  },
+  {
+    "headerName": "3 to 5 Months",
+    "field": "3to5Months"
+  },
+  {
+    "headerName": "6 to 11 Months",
+    "field": "6to11Months"
+  },
+  {
+    "headerName": "1 Year",
+    "field": "1Year"
+  },
+  {
+    "headerName": "2 Year",
+    "field": "2Year"
+  },
+  {
+    "headerName": "3 Year",
+    "field": "3Year"
+  }
+]

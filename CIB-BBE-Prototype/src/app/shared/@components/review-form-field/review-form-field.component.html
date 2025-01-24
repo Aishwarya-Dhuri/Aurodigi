@@ -1,0 +1,22 @@
+<div class="text-size-12 text-color-light-shade-1">{{ label | translate }}</div>
+<div class="text-size-14">
+  <div class="" *ngIf="type == 'text'">
+    {{ value }}
+  </div>
+  <app-base-currency
+    [amount]="value"
+    [currency]="baseCurrency"
+    *ngIf="type == 'baseCurrency'"
+  ></app-base-currency>
+  <div class="aps-card p-p-2" *ngIf="type == 'file' && value">
+    <div class="inline-items">
+      <div class="item">
+        <app-icon icon="fa-file"></app-icon>
+      </div>
+      <div class="item text-color-normal p-px-2">
+        <div class="text-size-12">{{ value.fileName }}</div>
+        <div class="text-size-10">{{ (+value.fileSize / 1024 / 1024).toFixed(2) }}Mb</div>
+      </div>
+    </div>
+  </div>
+</div>

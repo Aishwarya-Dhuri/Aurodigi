@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "type": "Quarter 1",
+      "dueInvoice": 0,
+      "dueAmount": 0,
+      "paidInvoice": 0,
+      "paidAmount": 0
+    },
+    {
+      "type": "Quarter 2",
+      "dueInvoice": 0,
+      "dueAmount": 0,
+      "paidInvoice": 0,
+      "paidAmount": 0
+    },
+    {
+      "type": "Quarter 3",
+      "dueInvoice": 0,
+      "dueAmount": 0,
+      "paidInvoice": 0,
+      "paidAmount": 0
+    },
+    {
+      "type": "Quarter 4",
+      "dueInvoice": 0,
+      "dueAmount": 0,
+      "paidInvoice": 1,
+      "paidAmount": 2000
+    }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "type",
+      "yKeys": ["dueAmount", "paidAmount"],
+      "yNames": ["Due Amount", "Paid Amount"],
+      "grouped": true,
+      "shadow": { "enabled": true }
+    },
+    {
+      "type": "line",
+      "xKey": "type",
+      "yKey": "paidInvoice",
+      "yName": "Paid Invoice",
+      "lineTension": 2,
+      "strokeWidth": 2,
+      "marker": {
+        "shape": "circle",
+        "size": 6
+      }
+    },
+    {
+      "type": "line",
+      "xKey": "type",
+      "yKey": "dueInvoice",
+      "yName": "Due Invoice",
+      "lineTension": 2,
+      "strokeWidth": 2,
+      "marker": {
+        "shape": "circle",
+        "size": 6
+      }
+    }
+  ],
+  "axes": [
+    { "type": "category", "position": "bottom", "label": { "rotation": 45 } },
+    {
+      "type": "number",
+      "position": "left",
+      "keys": ["dueAmount", "paidAmount"]
+    },
+    {
+      "type": "number",
+      "position": "right",
+      "keys": ["dueInvoice", "paidInvoice"],
+      "lineTension": 2,
+      "min": 0
+    }
+  ]
+}

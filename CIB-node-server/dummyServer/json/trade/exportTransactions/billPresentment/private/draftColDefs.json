@@ -1,0 +1,25 @@
+[
+  {
+    "headerName": "Draft Name",
+    "field": "draftName"
+  },
+  {
+    "headerName": "Initiation Type",
+    "field": "initiationType"
+  },
+  {
+    "headerName": "Currency",
+    "field": "billCurrency"
+  },
+  {
+    "headerName": "Amount",
+    "field": "billAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

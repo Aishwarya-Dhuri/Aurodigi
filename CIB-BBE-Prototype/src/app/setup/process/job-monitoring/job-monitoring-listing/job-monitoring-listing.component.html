@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12" *ngIf="selectedFilters.length > 0">
+            <app-searched-by-view [filters]="selectedFilters" (onModify)="onModifyClick()"
+                (onClear)="onClearClick()"></app-searched-by-view>
+        </div>
+        <div class="p-col-12">
+            <div class="aps-card aps-h-350">
+                <div class="aps-card-header p-px-3 aps-py-12">
+                    <div class="text-size-14 text-semi-bold">{{'Search Result' | apsTranslate}}</div>
+                </div>
+                <div class="aps-card-body gridster-item-content">
+                    <app-ag-grid-listing #jobMoitoringGrid [colDefUrl]="colDefUrl" [rowDefUrl]="rowDefUrl"
+                        [gridOptions]="gridOptions"></app-ag-grid-listing>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

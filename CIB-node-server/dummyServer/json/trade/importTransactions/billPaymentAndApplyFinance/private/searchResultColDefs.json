@@ -1,0 +1,61 @@
+[
+  {
+    "headerName": "Trade Bill No.",
+    "field": "tradeBillNumber"
+  },
+  {
+    "headerName": "Trade Bill Date",
+    "field": "tradeBillDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "DA/DP",
+    "field": "daDp"
+  },
+  {
+    "headerName": "Trade Bill Due Date",
+    "field": "tradeBillDueDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Bill Amount",
+    "field": "billAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "LC Number",
+    "field": "lcNumber"
+  },
+  {
+    "headerName": "Importer/Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Exporter/Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "USANCE/SIGHT",
+    "field": "usanceSight"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "lcExpiryDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Bill Status",
+    "field": "billStatus",
+    "cellRenderer": "billStatusRenderer"
+  },
+  {
+    "headerName": "Discrepant",
+    "field": "discrepant"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

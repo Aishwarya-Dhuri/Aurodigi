@@ -1,0 +1,19 @@
+{
+  "columnDefs": [
+    { "headerName": "Transaction Reference No", "field": "transactionReferenceNo" },
+    { "headerName": "TransactionDate", "field": "transactionDate" },
+    { "headerName": "Corporate Name", "field": "corporateName" },
+    { "headerName": "Debit Account", "field": "debitAccount" },
+    { "headerName": "Debit CCY", "field": "debitCurrency", "cellRenderer": "amountRenderer" },
+    { "headerName": "Debit Amount", "field": "debitAmount", "cellRenderer": "amountRenderer" },
+    { "headerName": "Payable CCY", "field": "payableCurrency" },
+    { "headerName": "Payable AMount", "field": "payableAmount", "cellRenderer": "amountRenderer" },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Beneficiary Account No", "field": "beneficiaryAccountNo" },
+    {
+      "headerName": "Failed Reason",
+      "field": "failedReason",
+      "cellRenderer": "rejectReasonRenderer"
+    }
+  ]
+}

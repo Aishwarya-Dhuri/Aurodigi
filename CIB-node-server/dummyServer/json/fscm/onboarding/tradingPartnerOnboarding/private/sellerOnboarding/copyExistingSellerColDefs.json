@@ -1,0 +1,8 @@
+{
+  "columnDefs": [
+    { "headerName": "Seller Name", "field": "sellerName", "checkboxSelection": true },
+    { "headerName": "Seller Code", "field": "sellerCode" },
+    { "headerName": "Tax Branch", "field": "taxBranch" },
+    { "headerName": "Customer Type", "field": "customerType" }
+  ]
+}

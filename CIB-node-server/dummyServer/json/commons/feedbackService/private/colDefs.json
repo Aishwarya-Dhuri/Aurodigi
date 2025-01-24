@@ -1,0 +1,5 @@
+[
+  { "headerName": "Feedback Type", "field": "feedbackType" },
+  { "headerName": "Remark", "field": "remark" },
+  { "headerName": "Submitted Date / Time", "field": "modifiedSysOn" }
+]

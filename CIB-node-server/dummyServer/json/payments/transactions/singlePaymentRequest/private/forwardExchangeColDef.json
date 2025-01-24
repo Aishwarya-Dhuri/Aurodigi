@@ -1,0 +1,21 @@
+{
+  "columnDefs": [
+    { "headerName": "MF Contract", "field": "mfContract", "checkboxSelection": true },
+    { "headerName": "Currency", "field": "currency" },
+    { "headerName": "MF Rates", "field": "mfRate", "type": "rightAligned" },
+    {
+      "headerName": "O/S Amount",
+      "field": "osAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Utilised Amount",
+      "field": "utilisedAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "id": "2883623",
+      "corporateCode": "01060120600",
+      "corporateName": "FORD"
+    },
+    {
+      "id": "2883624",
+      "corporateCode": "01060120601",
+      "corporateName": "AUDI"
+    },
+    {
+      "id": "2883625",
+      "corporateCode": "01060120602",
+      "corporateName": "Maruti Suzuki"
+    },
+    {
+      "id": "2883626",
+      "corporateCode": "01060120603",
+      "corporateName": "TATA"
+    },
+    {
+      "id": "2883627",
+      "corporateCode": "01060120604",
+      "corporateName": "JIO"
+    },
+    {
+      "id": "2883628",
+      "corporateCode": "01060120605",
+      "corporateName": "Airtel"
+    },
+    {
+      "id": "2883629",
+      "corporateCode": "01060120606",
+      "corporateName": "Tesla"
+    },
+    {
+      "id": "2883630",
+      "corporateCode": "01060120607",
+      "corporateName": "Bajaj"
+    },
+    {
+      "id": "2883631",
+      "corporateCode": "01060120608",
+      "corporateName": "Honda"
+    },
+    {
+      "id": "2883632",
+      "corporateCode": "01060120609",
+      "corporateName": "KK Corp"
+    }
+  ],
+  "lastRow": 10
+}

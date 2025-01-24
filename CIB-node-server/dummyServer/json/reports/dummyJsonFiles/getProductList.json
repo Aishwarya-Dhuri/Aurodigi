@@ -1,0 +1,9 @@
+{
+  "dataList": [
+    { "id": "setup", "displayName": "Setup", "enrichments": { "productId": "1" } },
+    { "id": "payments", "displayName": "Payments", "enrichments": { "productId": "2" } }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,1198 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "entityName": "CORPORATEPROFILE",
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+  "data": [
+    {
+      "profileName": "sahi233cfeProfile975",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi233cfeProfile975",
+      "id": "XK0CbgIYszw=,3",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi24cfeProfile922",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi24cfeProfile922",
+      "id": "Sy0FtL4HxWc=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi328cfeProfile755",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "update rehected",
+      "profileCode": "sahi328cfeProfile755",
+      "id": "px65KZD4DZY=,3",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi18cfeProfile982",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi18cfeProfile982",
+      "id": "GWQiME/p9PQ=,7",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi741cfeProfile718",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi741cfeProfile718",
+      "id": "HzP91V6hlhE=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi12cfeProfile660",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "asdsadasdsad",
+      "profileCode": "sahi12cfeProfile660",
+      "id": "18JpevO5sOg=,16",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi472cfeProfile274",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi472cfeProfile274",
+      "id": "UUiJMfrw/0M=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi330cfeProfile36",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi330cfeProfile36",
+      "id": "Li+p5lCtkJs=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "System",
+      "corporateName": "-",
+      "rejectReason": "sadasdsa",
+      "profileCode": "SYSTEM",
+      "id": "xoE7+AGvk3o=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "apsara p",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Update Rejected",
+      "profileCode": "APSARAP",
+      "id": "WkKXMmzqWXI=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "dfgdfg",
+      "corporateName": "-",
+      "rejectReason": "hi",
+      "profileCode": "FVDFG",
+      "id": "G2xCE1bfp0I=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "22222",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "fg",
+      "profileCode": "11111",
+      "id": "66t+AVotk+w=,3",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "asd",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Create rehected",
+      "profileCode": "ASD",
+      "id": "p1RJwCBno4M=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi553cfeProfile748",
+      "corporateName": "asqpaaflnf",
+      "rejectReason": "Rejected by User",
+      "profileCode": "sahi553cfeProfile748",
+      "id": "+G9Lz98hfVw=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "ONE 0001",
+      "corporateName": "Silverline Technologies Ltd.",
+      "rejectReason": "dsf",
+      "profileCode": "ONE0001",
+      "id": "tl5spOcKq8g=,3",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "gdfgfdg",
+      "corporateName": "aaafaagfiv",
+      "rejectReason": "gege",
+      "profileCode": "FDFD",
+      "id": "r70w6j77rfE=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "SAHI542PROFILE50",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI542PROFILE50",
+      "id": "HEreq8gpU/A=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "SAHI185PROFILE11",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI185PROFILE11",
+      "id": "53rOi6n9lWE=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi673cp395",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHI673CP395",
+      "id": "5uVVLTJ9xVo=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi511cp53",
+      "corporateName": "All About You",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI511CP53",
+      "id": "NBkwhotv7Oc=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi504cp96",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI504CP96",
+      "id": "XX/UnlQv6aw=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi51cp866",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI51CP866",
+      "id": "cjCQdlatL9I=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi544cp662",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHI544CP662",
+      "id": "A8Kg9BCTtu4=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia203bp360",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHIA203BP360",
+      "id": "C7mZhbRUjDU=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia48bp4",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHIA48BP4",
+      "id": "ecixYXCIhY0=,4",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia40bp6",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHIA40BP6",
+      "id": "mVOlJg3VKPY=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia84bp2",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHIA84BP2",
+      "id": "/iZWmnts7gE=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia24bp10",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHIA24BP10",
+      "id": "XdH/n+haiPA=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia31bp3",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHIA31BP3",
+      "id": "ri/PLyylNxI=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia90bp7",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHIA90BP7",
+      "id": "ze1kS0Xpv10=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia51bp7",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHIA51BP7",
+      "id": "+fH1+8d2WYY=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi660cp474",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHI660CP474",
+      "id": "X12M5FrGqSg=,4",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi594cp136",
+      "corporateName": "All About You",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHI594CP136",
+      "id": "dFCn+opAFf4=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahi573cp503",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHI573CP503",
+      "id": "mmRQQeL5HGA=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia8bp3",
+      "corporateName": "-",
+      "rejectReason": "rejected",
+      "profileCode": "SAHIA8BP3",
+      "id": "sd78uhpnLFs=,5",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 6,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    },
+    {
+      "profileName": "sahia313bp375",
+      "corporateName": "-",
+      "rejectReason": "Reject All",
+      "profileCode": "SAHIA313BP375",
+      "id": "6eN5RWAP07s=,1",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 8,
+          "displayName": "Resubmit",
+          "icon": "refresh",
+          "url": "route~resubmit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 9,
+          "displayName": "Accept Reject",
+          "icon": "how_to_reg",
+          "url": "private/acceptReject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ]
+    }
+  ],
+  "lastRow": 36,
+  "loggable": false,
+  "entityIdentifier": ""
+}

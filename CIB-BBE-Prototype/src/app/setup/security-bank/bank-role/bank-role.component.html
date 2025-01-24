@@ -1,0 +1,265 @@
+<!-- <div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == 1">
+      <form name="roleDetailsForm" #roleDetailsForm="ngForm">
+        <div class="text-size-16 text-bold p-px-1 p-py-3">
+          {{ 'Role Details' | apsTranslate }}
+        </div>
+        <div class="aps-card aps-h-400">
+          <div class="p-grid">
+            <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+              <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleId" id="moduleId"
+                [(ngModel)]="formData.moduleId" dataUrl="commons/commonService/private/getProductList"
+                (change)="onModuleChange($event)" [required]="true">
+              </aps-custom-select>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+              <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Role Code' | apsTranslate" name="roleCode"
+                id="roleCode" [(ngModel)]="formData.roleCode" required="true">
+              </aps-form-input>
+            </div>
+            <div class="p-px-2 p-col-12 p-md-4 p-sm-12">
+              <aps-form-input inputType="alphaNumeric" [label]="'Role Name' | apsTranslate" name="roleName"
+                id="roleName" [(ngModel)]="formData.roleName" required="true">
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+              <app-aps-calender [label]="'Effective From' | apsTranslate" name="effectiveFrom" id="effectiveFrom"
+                [showIcon]="true" [(ngModel)]="formData.effectiveFrom" required="true">
+              </app-aps-calender>
+            </div>
+            <div class="p-px-2 p-col-12 p-md-4 p-sm-12">
+              <app-aps-calender [label]="'Effective Till' | apsTranslate" name="effectiveTill" id="effectiveTill"
+                [showIcon]="true" [(ngModel)]="formData.effectiveTill">
+              </app-aps-calender>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == 2">
+      <div class="text-size-16 text-bold p-px-1 p-py-3">
+        {{ 'Assign Rights' | apsTranslate }}
+      </div>
+      <div class="aps-card aps-h-400">
+        <div class="p-grid aps-h-320" *ngIf="isAssignRightGridDataLoaded">
+          <div class="p-col-12 p-md-12 p-sm-12 p-p-0">
+            <app-ag-grid-listing #assignRightsView id="assignRightsGrid" [groupDefaultExpanded]="1"
+              [rowData]="assignRightGridData" colDefUrl="setup/securityBank/bankRole/private/accessRightColDefs"
+              [gridOptions]="assignRightGridOptions">
+            </app-ag-grid-listing>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == 3">
+      <div class="text-size-16 text-bold p-px-1 p-py-3">
+        {{ 'Widgets' | apsTranslate }}
+      </div>
+      <div class="aps-card aps-h-400">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-3 p-sm-12" *ngFor="let widget of widgetList">
+            <div class="p-px-0 text-center">
+              <img [src]="widget.imageUrl" height="200px" width="250px" />
+            </div>
+            <div class="p-px-3">
+              <p-checkbox name="roleWidgets" [value]="widget.id" [label]="widget.title" [disabled]="widget.mandatory"
+                [(ngModel)]="selectedWidgets">
+              </p-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+      <div class="p-py-3 text-size-16 text-bold" *ngIf="!viewOnAnotherComponent">
+        {{ 'Review Details & Confirm' | apsTranslate }}
+      </div>
+      <div class="aps-card p-px-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ 'Role Details' | apsTranslate }}
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <app-review-form-field label="Module Name" [value]="formData.moduleName"></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <app-review-form-field label="Role Code" [value]="formData.roleCode"></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <app-review-form-field label="Role Name" [value]="formData.roleName"></app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <app-review-form-field label="Effective From" [value]="formData.effectiveFrom"></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <app-review-form-field label="Effective Till" [value]="formData.effectiveTill"></app-review-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="aps-card p-mt-3 p-px-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ 'Rights Details' | apsTranslate }}
+        </div>
+        <div class="p-grid aps-h-320" *ngIf="isAssignRightGridDataLoaded">
+          <div class="p-col-12 p-md-12 p-sm-12 p-p-0">
+            <app-ag-grid-listing #assignRightsView id="assignRightsGrid" [rowData]="assignRightGridData"
+              colDefUrl="setup/securityBank/bankRole/private/accessRightColDefs" [gridOptions]="assignRightGridOptions">
+            </app-ag-grid-listing>
+          </div>
+        </div>
+      </div>
+
+      <div class="aps-card p-mt-3 p-px-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ 'Widgets' | apsTranslate }}
+        </div>
+        <div class="p-grid">
+          <ng-container *ngFor="let widget of widgetList">
+            <div class="p-col-12 p-md-3 p-sm-12" *ngIf="selectedWidgets.includes(widget.id)">
+              <div class="p-px-0 text-center">
+                <img [src]="widget.imageUrl" height="200px" width="250px" />
+              </div>
+              <div class="p-px-3">
+                <span> {{widget.title}}</span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-stepper-footer [parentRef]="this" *ngIf="!viewOnAnotherComponent"></app-stepper-footer>
+</div> -->
+
+<aps-stepper [parentRef]="this"></aps-stepper>
+
+<ng-template stepRefNo="1">
+  <form name="roleDetailsForm" #roleDetailsForm="ngForm">
+    <div class="p-grid">
+      <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+        <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleId" id="moduleId"
+          [(ngModel)]="formData.moduleId" dataUrl="commons/commonService/private/getProductList"
+          (change)="onModuleChange($event)" [required]="true">
+        </aps-custom-select>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+        <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Role Code' | apsTranslate" name="roleCode"
+          id="roleCode" [(ngModel)]="formData.roleCode" required="true">
+        </aps-form-input>
+      </div>
+      <div class="p-px-2 p-col-12 p-md-4 p-sm-12">
+        <aps-form-input inputType="alphaNumeric" [label]="'Role Name' | apsTranslate" name="roleName" id="roleName"
+          [(ngModel)]="formData.roleName" required="true">
+        </aps-form-input>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+        <app-aps-calender [label]="'Effective From' | apsTranslate" name="effectiveFrom" id="effectiveFrom"
+          [showIcon]="true" [(ngModel)]="formData.effectiveFrom" required="true">
+        </app-aps-calender>
+      </div>
+      <div class="p-px-2 p-col-12 p-md-4 p-sm-12">
+        <app-aps-calender [label]="'Effective Till' | apsTranslate" name="effectiveTill" id="effectiveTill"
+          [showIcon]="true" [(ngModel)]="formData.effectiveTill">
+        </app-aps-calender>
+      </div>
+    </div>
+  </form>
+</ng-template>
+<ng-template stepRefNo="2">
+  <div class="p-grid aps-h-320" *ngIf="isAssignRightGridDataLoaded">
+    <div class="p-col-12 p-md-12 p-sm-12 p-p-0">
+      <app-ag-grid-listing #assignRightsView id="assignRightsGrid" [groupDefaultExpanded]="1"
+        [rowData]="assignRightGridData" colDefUrl="setup/securityBank/bankRole/private/accessRightColDefs"
+        [gridOptions]="assignRightGridOptions">
+      </app-ag-grid-listing>
+    </div>
+  </div>
+</ng-template>
+<ng-template stepRefNo="3">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-3 p-sm-12" *ngFor="let widget of widgetList">
+      <div class="p-px-0 text-center">
+        <img [src]="widget.imageUrl" height="200px" width="250px" />
+      </div>
+      <div class="p-px-3">
+        <p-checkbox name="roleWidgets" [value]="widget.id" [label]="widget.title" [disabled]="widget.mandatory"
+          [(ngModel)]="selectedWidgets">
+        </p-checkbox>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template [stepRefNo]="stepperDetails.headings.length">
+  <div class="aps-card p-px-3">
+    <div class="p-py-3 text-size-14 text-semi-bold">
+      {{ 'Role Details' | apsTranslate }}
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <app-review-form-field label="Module Name" [value]="formData.moduleName"></app-review-form-field>
+      </div>
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <app-review-form-field label="Role Code" [value]="formData.roleCode"></app-review-form-field>
+      </div>
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <app-review-form-field label="Role Name" [value]="formData.roleName"></app-review-form-field>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom"></app-review-form-field>
+      </div>
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill"></app-review-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="aps-card p-mt-3 p-px-3">
+    <div class="p-py-3 text-size-14 text-semi-bold">
+      {{ 'Rights Details' | apsTranslate }}
+    </div>
+    <div class="p-grid aps-h-320" *ngIf="isAssignRightGridDataLoaded">
+      <div class="p-col-12 p-md-12 p-sm-12 p-p-0">
+        <app-ag-grid-listing #assignRightsView id="assignRightsGrid" [rowData]="assignRightGridData"
+          colDefUrl="setup/securityBank/bankRole/private/accessRightColDefs" [gridOptions]="assignRightGridOptions">
+        </app-ag-grid-listing>
+      </div>
+    </div>
+  </div>
+
+  <div class="aps-card p-mt-3 p-px-3">
+    <div class="p-py-3 text-size-14 text-semi-bold">
+      {{ 'Widgets' | apsTranslate }}
+    </div>
+    <div class="p-grid">
+      <ng-container *ngFor="let widget of widgetList">
+        <div class="p-col-12 p-md-3 p-sm-12" *ngIf="selectedWidgets.includes(widget.id)">
+          <div class="p-px-0 text-center">
+            <img [src]="widget.imageUrl" height="200px" width="250px" />
+          </div>
+          <div class="p-px-3">
+            <span> {{ widget.title }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

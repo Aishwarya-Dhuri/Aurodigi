@@ -1,0 +1,126 @@
+[
+  {
+    "type": "tabs",
+    "mainHeader": "",
+    "data": [
+      {
+        "label": "Repayment Details",
+        "data": [
+          {
+            "type": "details",
+            "data": [
+              {
+                "label": "Sponsor Name",
+                "value": "LK Automobiles"
+              },
+              {
+                "label": "Seller/Buyer Name",
+                "value": "KK Seller"
+              },
+              {
+                "label": "Invoice Number",
+                "value": "CCBBMMNN"
+              },
+              {
+                "label": "Maturity Date",
+                "value": "20 Jun 2035"
+              },
+              {
+                "label": "Invoice Amount",
+                "value": "THB 20,000.00"
+              },
+              {
+                "label": "Finance Amount",
+                "value": "16,000.00"
+              },
+              {
+                "label": "Repaid Amount",
+                "value": "THB 0.00"
+              },
+              {
+                "label": "Recovered Principal",
+                "value": "THB 16,000.00"
+              },
+              {
+                "label": "Recovered Interest",
+                "value": "4.67%"
+              },
+              {
+                "label": "Recovered Margin",
+                "value": "3,995.33"
+              },
+              {
+                "label": "Recovered Amount",
+                "value": "THB 20,000.00"
+              },
+              {
+                "label": "Status",
+                "value": "Fully Paid"
+              },
+              {
+                "label": "Payment Mode",
+                "value": "Fund Transfer - CASA"
+              },
+              {
+                "label": "Account",
+                "value": "11100001612345002-CASA"
+              },
+              {
+                "label": "",
+                "value": ""
+              },
+              {
+                "label": "",
+                "value": ""
+              },
+              {
+                "label": "",
+                "value": ""
+              },
+              {
+                "label": "Total Payable",
+                "value": "THB 20,000.00"
+              }
+            ]
+          },
+          {
+            "type": "makerCheckerDetails",
+            "header": "Maker Checker Details",
+            "data": [
+              {
+                "label": "Maker",
+                "value": "Rudra Maker (rudramaker)"
+              },
+              {
+                "label": "Maker Date Time",
+                "value": "20 Jun 2021, 12:13:30"
+              },
+              {
+                "label": "Checker",
+                "value": "Rudra Checker (rudrachecker)"
+              },
+              {
+                "label": "Checker Date Time",
+                "value": "20 Jun 2021, 12:13:42"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Acceptance Details",
+        "data": [
+          {
+            "type": "details",
+            "data": [
+              {
+                "label": "Supplier Operating Account",
+                "value": "4975839743347348"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+<app-widgets-header
+  [heading]="title"
+  [showChangeChartOption]="showChangeChartOption"
+  (action)="this.actionEvent($event)"
+></app-widgets-header>
+<div class="p-mt-2" *ngIf="!widgetObj.dynamicWidgetId">
+  <app-select-group-button (onSelectionValue)="timePeriodChanged($event)"></app-select-group-button>
+</div>
+
+<div class="table-container gridster-item-content">
+  <ng-container *ngIf="widgetObj.dynamicWidgetId && !isLoading">
+    <app-ag-grid-listing
+      #agGrid
+      [id]="widgetObj.dynamicWidgetId"
+      [columnDefs]="options.tableGridWidgetColDefList"
+      [rowData]="options.rowData"
+      [gridOptions]="{ pagination: false }"
+    >
+    </app-ag-grid-listing>
+  </ng-container>
+  <table class="table" *ngIf="!widgetObj.dynamicWidgetId">
+    <thead>
+      <tr class="text-size-10 text-center background-color-dark-3 text-color-dark-shade-1">
+        <th class="p-p-2">Cheque Number</th>
+        <th class="p-p-2">Cheque Amount</th>
+        <th class="p-p-2">Liquidation Date</th>
+        <th class="p-p-2">Return Reason</th>
+      </tr>
+    </thead>
+    <tbody class="">
+      <tr class="text-size-10 text-color-normal" *ngFor="let d of data">
+        <td class="p-p-2 text-center">
+          {{ d.chequeNo }}
+        </td>
+        <td class="p-p-2 text-center">
+          {{ d.chequeAmount }}
+        </td>
+        <td class="p-p-2">
+          {{ d.liquidationDate }}
+        </td>
+        <td class="p-p-2">
+          {{ d.returnReason }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

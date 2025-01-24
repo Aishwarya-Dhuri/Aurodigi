@@ -1,0 +1,140 @@
+<div class="authentication-container">
+  <div class="p-mt-3"></div>
+  <p class="text-size-14 text-color-light-shade-2" *ngIf="!verificationMode">
+    {{ 'Select a verification method to proceed' | apsTranslate }}
+  </p>
+  <!-- SMS -->
+  <div
+    class="verification-mode inline-block pointer text-color-light-shade-2"
+    *ngIf="userDetails.smsVerification && (!verificationMode || verificationMode === 'SMS')"
+    [ngClass]="{ 'verification-active': verificationMode == 'SMS' }"
+    (click)="verificationMode = 'SMS'; generateOTP()"
+  >
+    <div class="verification-icon p-pt-1 border border-radius-5">
+      <app-icon icon="fa-comment" class="app-icon"></app-icon>
+    </div>
+    <div class="verification-label p-text-center text-size-12">{{ 'SMS' | apsTranslate }}</div>
+  </div>
+  <!-- Mobile -->
+  <div
+    class="verification-mode inline-block pointer text-color-light-shade-2"
+    *ngIf="userDetails.mobileVerification && (!verificationMode || verificationMode === 'MOBILE')"
+    [ngClass]="{ 'verification-active': verificationMode == 'MOBILE', 'p-ml-5': !verificationMode }"
+    (click)="verificationMode = 'MOBILE'"
+  >
+    <div class="verification-icon p-pt-1 border border-radius-5">
+      <app-icon icon="fa-mobile" class="app-icon"></app-icon>
+    </div>
+    <div class="verification-label p-text-center text-size-12">{{ 'Mobile' | apsTranslate }}</div>
+  </div>
+  <!-- Biometric -->
+  <div
+    class="verification-mode inline-block pointer text-color-light-shade-2"
+    *ngIf="
+      userDetails.biometricVerification && (!verificationMode || verificationMode === 'BIOMETRIC')
+    "
+    [ngClass]="{
+      'verification-active': verificationMode == 'BIOMETRIC',
+      'p-ml-5': !verificationMode
+    }"
+    (click)="verificationMode = 'BIOMETRIC'"
+  >
+    <div class="verification-icon p-pt-1 border border-radius-5">
+      <app-icon icon="fa-fingerprint" class="app-icon"></app-icon>
+    </div>
+    <div class="verification-label p-text-center text-size-12">
+      {{ 'Biometric' | apsTranslate }}
+    </div>
+  </div>
+
+  <ng-container *ngIf="verificationMode">
+    <p class="text-size-14 text-color-light-shade-2" *ngIf="verificationMode == 'SMS'">
+      {{ 'We have send a verification code on your registered number ' | apsTranslate }}
+      {{ getMaskedNumber() }}
+    </p>
+    <p class="text-size-14 text-color-light-shade-2" *ngIf="verificationMode == 'MOBILE'">
+      {{ 'Enter verification code generated on your mobile ' | apsTranslate }}
+    </p>
+    <p class="text-size-14 text-color-light-shade-2" *ngIf="verificationMode == 'BIOMETRIC'">
+      {{ 'Put the finger on the fingerprint scanner to verify ' | apsTranslate }}
+    </p>
+
+    <ng-container *ngIf="verificationMode == 'SMS' || verificationMode == 'MOBILE'">
+      <form name="loginStep2Form" #loginStep2Form="ngForm">
+        <div class="p-py-2">
+          <span class="p-input-icon-left p-input-icon-right aps-w-100p">
+            <i class="fal fa-lock"></i>
+            <input
+              id="verificationCode"
+              name="verificationCode"
+              [type]="isViewVerificationCode ? 'text' : 'password'"
+              #verificationCodeInput="ngModel"
+              [(ngModel)]="verificationCode"
+              [placeholder]="'Verification Code' | apsTranslate"
+              autocomplete="current-password"
+              pInputText
+              numericInput
+              [required]="true"
+            />
+            <i
+              class="fal pointer"
+              [ngClass]="isViewVerificationCode ? ' fa-eye-slash' : ' fa-eye'"
+              (click)="isViewVerificationCode = !isViewVerificationCode"
+            ></i>
+          </span>
+          <span
+            [hidden]="verificationCodeInput.valid || verificationCodeInput.pristine"
+            class="p-px-2 text-color-danger text-size-12"
+          >
+            {{ 'Provide Verification Code' | apsTranslate }}
+          </span>
+          <span class="p-px-2 text-color-danger text-size-12" *ngIf="invalidVerificationCode">
+            {{ 'Entered verification code is Invalid' | apsTranslate }}
+          </span>
+        </div>
+        <div class="left-right-container text-color-light-shade-2 text-size-12">
+          <div class="left-container">
+            <ng-container *ngIf="verificationMode == 'SMS'">
+              <a class="pointer"> {{ 'Resend Code' | apsTranslate }}</a>
+              <app-icon icon="fa-clock" class="p-px-1"></app-icon> 00:{{ getTime() }}
+            </ng-container>
+          </div>
+          <div class="right-container">
+            <div class="pointer">
+              <app-icon icon="fa-keyboard"></app-icon>
+              {{ 'Show Virtual Keyboard' | apsTranslate }}
+            </div>
+          </div>
+        </div>
+        <div class="p-mt-5 p-py-2">
+          <button
+            class="aps-w-100p btn btn-md btn-primary"
+            (click)="validateOTP()"
+            [disabled]="loginStep2Form.invalid"
+          >
+            {{ 'PROCEED' | apsTranslate }}
+          </button>
+        </div>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="verificationMode == 'BIOMETRIC'">
+      <div class="biomatric-container p-d-flex p-jc-center aps-w-100p">
+        <img
+          class="image"
+          [ngClass]="{ 'gray-scale': isBiometricGray }"
+          src="./../../../../assets/images/img/biomatric.PNG"
+          alt=""
+          (click)="onBiometricLogin()"
+        />
+      </div>
+    </ng-container>
+
+    <div
+      class="p-py-2 p-text-center aps-w-100p pointer"
+      [ngClass]="{ 'p-mt-4': verificationMode == 'BIOMETRIC' }"
+      (click)="!submit ? (verificationMode = null) : ''; verificationCode = ''"
+    >
+      {{ 'Use different verification mode' | apsTranslate }}
+    </div>
+  </ng-container>
+</div>

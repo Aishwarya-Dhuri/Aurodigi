@@ -1,0 +1,19 @@
+<div class="left-right-container">
+  <div class="left-container"></div>
+  <div class="right-container gridster-item-content">
+    <div
+      class="inline-items text-color-dark-shade-1 text-size-12 background-color-dark-5 border-radius-4"
+    >
+      <div
+        class="item pointer p-px-2 p-py-1"
+        *ngFor="let option of options"
+        [ngClass]="{
+          'background-color-primary text-color-inverted border-radius-4': option === selectedOption
+        }"
+        (click)="onOptionChanged(option)"
+      >
+        {{ option.displayName }}
+      </div>
+    </div>
+  </div>
+</div>

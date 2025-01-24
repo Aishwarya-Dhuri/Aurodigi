@@ -1,0 +1,23 @@
+<div class="p-grid">
+  <div class="p-col-12 p-py-0 p-pl-0">
+    <ng-container *ngIf="dataList">
+      <div
+        (click)="onCardClick(data)"
+        *ngFor="let data of dataList"
+        [ngClass]="{ 'data-card-active': data.isSelected }"
+        class="data-card aps-card p-mb-2 p-p-3"
+      >
+        <div class="text-size-16 text-bold">{{ data.header }}</div>
+
+        <!--Sub Heading start-->
+        <div *ngIf="data.subHeading" class="text-size-12 p-mt-1">
+          <div class="inline-items">
+            <div class="item">{{ data.subHeading }}</div>
+          </div>
+        </div>
+        <!--Sub Heading End-->
+      </div>
+    </ng-container>
+    <app-nothing-here *ngIf="!dataList || dataList.length == 0" colSize="12"></app-nothing-here>
+  </div>
+</div>

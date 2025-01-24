@@ -1,0 +1,68 @@
+<app-show-widget
+  [widgetComponent]="visibleWidgetComponent"
+  *ngIf="visibleWidgetComponent"
+  (action)="outputAction($event)"
+></app-show-widget>
+
+<app-modal [(isShow)]="changeTitle" size="md" headerText="{{ 'Change Title' | apsTranslate }}">
+  <div class="p-my-3" body>
+    <aps-form-input
+      id="title"
+      name="title"
+      label="{{ 'Title' | apsTranslate }}"
+      [(ngModel)]="title"
+      [required]="true"
+    >
+    </aps-form-input>
+  </div>
+
+  <div class="left-right-container" footer>
+    <div class="left-container"></div>
+    <div class="right-container">
+      <button
+        type="button"
+        pButton
+        icon="pi pi-times"
+        (click)="changeTitle = false"
+        label="Cancel"
+        class="p-button-text p-button-secondary"
+      ></button>
+      <button
+        type="button"
+        pButton
+        icon="pi pi-check"
+        (click)="saveChangeTitle()"
+        label="Save"
+      ></button>
+    </div>
+  </div>
+</app-modal>
+
+<div *ngIf="!loadingDashboard">
+  <gridster [options]="options" class="grid-container">
+    <ng-container *ngFor="let item of dashboard; let i = index">
+      <gridster-item
+        class="item fade-in-animation"
+        [ngClass]="{ 'aps-shadow-1': item.isBoxShadow }"
+        *ngIf="item.isShow"
+        id="widget-{{ i }}"
+        [item]="item"
+      >
+        <div class="component">
+          <ndc-dynamic
+            [ndcDynamicComponent]="item.componentType"
+            [ndcDynamicInputs]="{
+              index: i,
+              item: item,
+              title: item.title,
+              serviceUrl: item.serviceUrl,
+              showChangeChartOption: item.isChangeChartApplicable
+            }"
+            [ndcDynamicOutputs]="outputs"
+          >
+          </ndc-dynamic>
+        </div>
+      </gridster-item>
+    </ng-container>
+  </gridster>
+</div>

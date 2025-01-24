@@ -1,0 +1,16 @@
+.table-container {
+  height: calc(100% - 72px);
+  width: 100%;
+  padding: 0.5rem 0;
+  overflow: scroll;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td,
+    th {
+      border: 1px solid var(--background-color-dark-5);
+    }
+  }
+}

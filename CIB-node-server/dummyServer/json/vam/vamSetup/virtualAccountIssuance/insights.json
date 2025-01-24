@@ -1,0 +1,54 @@
+{
+  "corporates_insights": [
+    {
+      "icon": "fa-info-circle",
+      "label": "Tata Motors has the most credit lines in past 4 weeks"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Five corporates have unutilised credit that can be leveraged."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Two corporates have been given credit line enhancements in the past quarter"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Tata Motors has the most credit lines in past 4 weeks"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Five corporates have unutilised credit that can be leveraged."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Two corporates have been given credit line enhancements in the past quarter"
+    }
+  ],
+  "accoount_insights": [
+    {
+      "icon": "fa-info-circle",
+      "label": "Tata Motors has the most credit lines in past 4 weeks"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Five corporates have unutilised credit that can be leveraged."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Two corporates have been given credit line enhancements in the past quarter"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Tata Motors has the most credit lines in past 4 weeks"
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Five corporates have unutilised credit that can be leveraged."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Two corporates have been given credit line enhancements in the past quarter"
+    }
+  ]
+}

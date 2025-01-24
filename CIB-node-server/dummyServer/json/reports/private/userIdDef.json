@@ -1,0 +1,20 @@
+[
+  {
+    "headerName": "User ID",
+    "field": "userId",
+    "checkboxSelection": true,
+    "sortable": false
+  },
+  {
+    "headerName": "First Name",
+    "field": "firstName",
+    "checkboxSelection": false,
+    "sortable": false
+  },
+  {
+    "headerName": "Last Name",
+    "field": "lastName",
+    "checkboxSelection": false,
+    "sortable": false
+  }
+]

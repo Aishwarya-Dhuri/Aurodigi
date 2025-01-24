@@ -1,0 +1,13 @@
+:host ::ng-deep {
+  .isModeMessage {
+    padding: 10px;
+    .p-divider.p-divider-horizontal {
+      margin: 0;
+    }
+    .message-Data {
+      table {
+        width: 100% !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "Telecom",
+      "displayName": "Telecom"
+    },
+    {
+      "id": "Postpaid",
+      "displayName": "Postpaid"
+    },
+    {
+      "id": "Express",
+      "displayName": "Express"
+    },
+    {
+      "id": "Same Day",
+      "displayName": "Same Day"
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

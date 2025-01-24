@@ -1,0 +1,917 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+            <div class="aps-card p-mb-2">
+                <div class="aps-card-header aps-py-12 p-px-3">
+                    <div class="text-bold">{{ 'Data Layout' | apsTranslate }}</div>
+                </div>
+
+                <form name="dataLayoutForm" #dataLayoutForm="ngForm">
+                    <div class="aps-card-body p-p-2" *ngIf="stepperDetails.currentStep == 1">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12  p-px-3">
+                                <div class="text-size-14 text-bold">
+                                    Data Layout Name
+                                </div>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="dataLayoutCode" name="dataLayoutCode" label="Data Layout Code"
+                                    [(ngModel)]="formData.dataLayoutCode" [required]="true"></aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="dataLayoutName" name="dataLayoutName" label="Data Layout Name"
+                                    [(ngModel)]="formData.dataLayoutName" [required]="true"></aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0 p-px-3">
+                                <div class="text-size-14 text-bold">
+                                    Data Layout Details
+                                </div>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+
+                                <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleName"
+                                    id="moduleName" [(ngModel)]="formData.moduleName" [value]="formData.moduleName"
+                                    (change)="onModuleChange(formData.moduleName)"
+                                    dataUrl="setup/templates/dataLayout/private/dropdown/module" [required]="true">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                                *ngIf="formData.moduleName !== 'Warehouse Finance'">
+                                <div class="text-size-14">Format Type</div>
+                                <p-radioButton class="p-pt-2" name="formatType" value="upload" label="Upload"
+                                    [(ngModel)]="formData.formatType">
+                                </p-radioButton>
+                                &nbsp;
+                                <p-radioButton *ngIf="formData.moduleName === 'FSCM' " class="p-pt-2" name="formatType"
+                                    value="download" label="Download" [(ngModel)]="formData.formatType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Sub Module Name' | apsTranslate" name="submoduleName"
+                                    [data]="submoduleName" id="submoduleName" [(ngModel)]="formData.submoduleName"
+                                    [value]="formData.submoduleName">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <div class="text-size-14">Choose File Type
+                                </div>
+                                <p-radioButton class="p-pt-2" name="fileType" value="textCSV" label="Text/CSV "
+                                    [(ngModel)]="formData.fileType">
+                                </p-radioButton> &nbsp;
+                                <p-radioButton class="p-pt-2" name="fileType" value="xlsExcel" label="XLS/Excel"
+                                    [(ngModel)]="formData.fileType">
+                                </p-radioButton>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Default Date Format' | apsTranslate"
+                                    name="defaultDateFormat" id="defaultDateFormat"
+                                    [(ngModel)]="formData.defaultDateFormat" [value]="formData.defaultDateFormat"
+                                    dataUrl="setup/templates/dataLayout/private/dropdown/defaultDateFormat"
+                                    [required]="true">
+                                </aps-custom-select>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-custom-select [label]="'Data Layout Format' | apsTranslate" name="dataLayoutFormat"
+                                    id="dataLayoutFormat" [(ngModel)]="formData.dataLayoutFormat"
+                                    [value]="formData.dataLayoutFormat"
+                                    dataUrl="setup/templates/dataLayout/private/dropdown/dataLayoutFormat"
+                                    [required]="true">
+                                </aps-custom-select>
+                            </div>
+
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="noOfLinesHeader" name="noOfLinesHeader"
+                                    label="Number of Lines Header"
+                                    [(ngModel)]="formData.noOfLinesHeader"></aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <aps-form-input id="noOfLinesFooter" name="noOfLinesFooter"
+                                    label="Number of Lines Footer"
+                                    [(ngModel)]="formData.noOfLinesFooter"></aps-form-input>
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                                <div class="text-size-14">Text Type</div>
+                                <p-radioButton class="p-pt-2" name="textType" value="delimiter" label="Delimiter"
+                                    [(ngModel)]="formData.textType">
+                                </p-radioButton> &nbsp;
+
+                                <p-radioButton class="p-pt-2" name="textType" value="fixedLength" label="Fixed Length"
+                                    [(ngModel)]="formData.textType">
+                                </p-radioButton>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3 p-py-0" *ngIf="formData.textType === 'delimiter' ">
+                                <aps-form-input id="delimiterValue" name="delimiterValue" label="Delimiter Value"
+                                    [(ngModel)]="formData.delimiterValue"></aps-form-input>
+
+                            </div>
+                        </div>
+
+                        <div class="p-grid p-py-4">
+                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0">
+                                <div class="text-size-14 text-bold">
+                                    Data mapping
+                                </div>
+                            </div>
+                            <div class="p-md-3 p-sm-12 p-col-12 p-pl-0">
+                                <div class="aps-card aps-h-450">
+                                    <div class="aps-card-header">
+                                        <app-header-with-search heading="Layout"
+                                            (search)="(null)"></app-header-with-search>
+                                    </div>
+
+
+                                    <div class="aps-card-body overflow-scroll">
+
+                                        <div class="p-mr-2" *ngFor="let list of sidebarlist">
+                                            <div class=" p-px-2 p-py-1 text-color-normal text-semi-bold pointer border-bottom"
+                                                [ngClass]="{ 'aps-card-primary1': list.label  == selectedList?.label}"
+                                                (click)="sidebarSelectededListing(list)">
+                                                <div class="left-right-container">
+                                                    <div class="left-container">
+
+                                                        <span class="p-py-1 p-pl-3 inline-block text-size-14">
+                                                            {{list.label}}&nbsp;</span>
+                                                    </div>
+                                                    <div class="right-container">
+                                                        <span class="p-py-1 p-pr-2 inline-block">{{list.count}}</span>
+                                                        <span class="p-py-1 inline-block"><app-icon
+                                                                icon="fa-chevron-right" styleClasses="text-size-14"
+                                                                rtlIcon="fa-chevron-left"></app-icon></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-md-9 p-sm-12 p-col-12 p-pr-0">
+                                <div class="aps-card aps-h-450">
+                                    <div *ngIf="selectedList.id === 1">
+                                        <div class="p-col-12 p-md-12 p-lg-12">
+                                            <button class="btn btn-md btn-primary" (click)="showModal()">Add More
+                                                Columns</button>
+                                            <div class="p-grid aps-h-200">
+                                                <div class="p-col-12 p-md-12 p-sm-12">
+                                                    <app-ag-grid-listing #headergrid id="headergrid"
+                                                        [gridOptions]="columnGridOptions" [rowData]="formData.newColumn"
+                                                        (gridReady)="onGridReady($event)" [supressAutoFit]="true"
+                                                        colDefUrl="setup/templates/dataLayout/private/addColDefs">
+                                                    </app-ag-grid-listing>
+                                                </div>
+                                            </div>
+
+                                            <app-modal [(isShow)]="showHeaderAddModal" size="md"
+                                                [headerText]="'Add New Column (Header)' | apsTranslate">
+                                                <div class="overflow-y-scroll ">
+                                                    <form name="newColumnHeaderForm" #newColumnHeaderForm="ngForm">
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-custom-select [label]="'Data Field' | apsTranslate"
+                                                                    name="datafield" id="datafield"
+                                                                    [(ngModel)]="newColumData.datafield"
+                                                                    [value]="newColumData.datafield"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/datafield"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="datafield" name="datafield"
+                                                                    label="Data Field (Display Name)"
+                                                                    [(ngModel)]="newColumData.datafield"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="sequenceNumber"
+                                                                    name="sequenceNumber" label="Sequence Number"
+                                                                    [(ngModel)]="newColumData.sequenceNumber"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-custom-select [label]="'Data Type' | apsTranslate"
+                                                                    name="dataType" id="dataType"
+                                                                    [(ngModel)]="newColumData.dataType"
+                                                                    [value]="newColumData.dataType"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/dataType"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-form-input id="defaultData" name="defaultData"
+                                                                    label="Default Data"
+                                                                    [(ngModel)]="newColumData.defaultData"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-form-input id="dataValue" name="dataValue"
+                                                                    label="Data Value"
+                                                                    [(ngModel)]="newColumData.dataValue"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0">
+                                                                <div class="text-size-14 text-bold">
+                                                                    Validation
+                                                                </div>
+
+                                                                <p-checkbox id="validatecheck" name="validatecheck"
+                                                                    label="Validate" [binary]="true"
+                                                                    [(ngModel)]="newColumData.validatecheck"></p-checkbox>
+
+                                                                &nbsp;
+                                                                <p-checkbox id="allowNull" name="allowNull"
+                                                                    label="Allow Null" [binary]="true"
+                                                                    [(ngModel)]="newColumData.allowNull"></p-checkbox>
+                                                            </div>
+
+
+                                                            <div class="p-col-12 p-md-3 p-lg-3 "
+                                                                *ngIf="newColumData.validatecheck">
+                                                                <aps-form-input id="minLength" name="minLength"
+                                                                    label="Minimum Length"
+                                                                    [(ngModel)]="newColumData.minLength"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-3 p-lg-3 "
+                                                                *ngIf="newColumData.validatecheck">
+                                                                <aps-form-input id="maxLength" name="maxLength"
+                                                                    label="Maximum Length"
+                                                                    [(ngModel)]="newColumData.maxLength"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid mt-2">
+                                                            <div class="left-right-container">
+                                                                <div
+                                                                    class="right-container p-col-12 p-md-12 p-lg-12 mt-2">
+                                                                    <button class="btn btn-md btn-primary"
+                                                                        [disabled]="newColumnHeaderForm.invalid"
+                                                                        (click)="editIndex > -1 ? onUpdateColumn() : onAddNewColumnClick()">
+                                                                        {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </app-modal>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="selectedList.id === 2">
+                                        <div class="p-col-12 p-md-12 p-lg-12">
+                                            <button class="btn btn-md btn-primary"
+                                                (click)="showAddDetailColumnModal()">Add More Columns</button>
+                                            <div class="p-grid aps-h-200">
+                                                <div class="p-col-12 p-md-12 p-sm-12">
+                                                    <app-ag-grid-listing #detailgrid id="detailgrid"
+                                                        [gridOptions]="columnGridOptions"
+                                                        [rowData]="formData.newDetailColumn"
+                                                        (gridReady)="onDetailGridReady($event)" [supressAutoFit]="true"
+                                                        colDefUrl="setup/templates/dataLayout/private/detailColDefs">
+                                                    </app-ag-grid-listing>
+                                                </div>
+                                            </div>
+
+                                            <app-modal [(isShow)]="showDetailAddModal" size="md"
+                                                [headerText]="'Add New Column (Detail)' | apsTranslate">
+                                                <div class="overflow-y-scroll ">
+                                                    <form name="newColumnDetailForm" #newColumnDetailForm="ngForm">
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-custom-select [label]="'Data Field' | apsTranslate"
+                                                                    name="detaildatafield" id="detaildatafield"
+                                                                    [(ngModel)]="newColumData.detaildatafield"
+                                                                    [value]="newColumData.detaildatafield"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/detaildatafield"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="detaildatafield"
+                                                                    name="detaildatafield"
+                                                                    label="Data Field (Display Name)"
+                                                                    [(ngModel)]="newColumData.detaildatafield"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="detailsequenceNumber"
+                                                                    name="detailsequenceNumber" label="Sequence Number"
+                                                                    [(ngModel)]="newColumData.detailsequenceNumber"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-custom-select [label]="'Data Type' | apsTranslate"
+                                                                    name="dataType" id="detaildataType"
+                                                                    [(ngModel)]="newColumData.detaildataType"
+                                                                    [value]="newColumData.detaildataType"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/dataType"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+
+                                                                <div class="text-size-14">Default Data</div>
+
+                                                                <p-radioButton class="p-pt-2" name="detaildefaultData"
+                                                                    value="Default" label="Default"
+                                                                    [(ngModel)]="formData.detaildefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2 " name="detaildefaultData"
+                                                                    value="Blank" label="Blank"
+                                                                    [(ngModel)]="formData.detaildefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2" name="detaildefaultData"
+                                                                    value="None" label="None"
+                                                                    [(ngModel)]="formData.detaildefaultData">
+                                                                </p-radioButton>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-form-input id="detaildataValue"
+                                                                    name="detaildataValue" label="Data Value"
+                                                                    [required]="formData.detaildefaultData === 'Default' ? true : false"
+                                                                    [(ngModel)]="newColumData.detaildataValue"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0">
+                                                                <div class="text-size-14 text-bold">
+                                                                    Validation
+                                                                </div>
+
+                                                                <p-checkbox id="detailvalidatecheck"
+                                                                    name="detailvalidatecheck" label="Validate"
+                                                                    [binary]="true"
+                                                                    [(ngModel)]="newColumData.detailvalidatecheck"></p-checkbox>
+
+                                                                &nbsp;
+                                                                <p-checkbox id="detailallowNull" name="detailallowNull"
+                                                                    label="Allow Null" [binary]="true"
+                                                                    [(ngModel)]="newColumData.detailallowNull"></p-checkbox>
+                                                            </div>
+
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 "
+                                                                *ngIf="newColumData.detailvalidatecheck">
+                                                                <aps-form-input id="detailminLength"
+                                                                    name="detailminLength" label="Minimum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.detailminLength"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4"
+                                                                *ngIf="newColumData.detailvalidatecheck">
+                                                                <aps-form-input id="detailmaxLength"
+                                                                    name="detailmaxLength" label="Maximum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.detailmaxLength"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-12 p-lg-12">
+                                                                <div class="text-size-14 text-bold">
+                                                                    TEXT/CSV Details
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 ">
+                                                                <aps-form-input id="detailStartPosition"
+                                                                    name="detailStartPosition" label="Start Position"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.detailStartPosition"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="detailEndPosition"
+                                                                    name="detailEndPosition" label="End Position"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.detailEndPosition"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="detailPaddingCharacter"
+                                                                    name="detailPaddingCharacter"
+                                                                    label="Padding Character" [required]="true"
+                                                                    [(ngModel)]="newColumData.detailPaddingCharacter"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <div class="text-size-14">Padding Position</div>
+
+                                                                <p-radioButton class="p-pt-2"
+                                                                    name="detailPaddingPosition" value="Prefix"
+                                                                    label="Prefix"
+                                                                    [(ngModel)]="formData.detailPaddingPosition">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2 "
+                                                                    name="detailPaddingPosition" value="Suffix"
+                                                                    label="Suffix"
+                                                                    [(ngModel)]="formData.detailPaddingPosition">
+                                                                </p-radioButton>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid mt-2">
+                                                            <div class="left-right-container">
+                                                                <div
+                                                                    class="right-container p-col-12 p-md-12 p-lg-12 mt-2">
+                                                                    <button class="btn btn-md btn-primary"
+                                                                        [disabled]="newColumnDetailForm.invalid"
+                                                                        (click)="editIndex > -1 ? onUpdateDetailColumn() : onAddNewDetailColumnClick()">
+                                                                        {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </app-modal>
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="selectedList.id === 3">
+                                        <div class="p-col-12 p-md-12 p-lg-12">
+                                            <button class="btn btn-md btn-primary"
+                                                (click)="showAddFooterColumnModal()">Add More Columns</button>
+                                            <div class="p-grid aps-h-200">
+                                                <div class="p-col-12 p-md-12 p-sm-12">
+                                                    <app-ag-grid-listing #footergrid id="footergrid"
+                                                        [gridOptions]="columnGridOptions"
+                                                        [rowData]="formData.newFooterColumn"
+                                                        (gridReady)="onFooterGridReady($event)" [supressAutoFit]="true"
+                                                        colDefUrl="setup/templates/dataLayout/private/footerColDefs">
+                                                    </app-ag-grid-listing>
+                                                </div>
+                                            </div>
+                                            <app-modal [(isShow)]="showFooterAddModal" size="md"
+                                                [headerText]="'Add New Column (Footer)' | apsTranslate">
+                                                <div class="overflow-y-scroll ">
+                                                    <form name="newColumnFooterForm" #newColumnFooterForm="ngForm">
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-custom-select [label]="'Data Field' | apsTranslate"
+                                                                    name="footerdatafield" id="footerdatafield"
+                                                                    [(ngModel)]="newColumData.footerdatafield"
+                                                                    [value]="newColumData.footerdatafield"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/footerdatafield"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="footerdatafield"
+                                                                    name="footerdatafield"
+                                                                    label="Data Field (Display Name)"
+                                                                    [(ngModel)]="newColumData.footerdatafield"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="footersequenceNumber"
+                                                                    name="footersequenceNumber" label="Sequence Number"
+                                                                    [(ngModel)]="newColumData.footersequenceNumber"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-custom-select [label]="'Data Type' | apsTranslate"
+                                                                    name="dataType" id="footerdataType"
+                                                                    [(ngModel)]="newColumData.footerdataType"
+                                                                    [value]="newColumData.footerdataType"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/dataType"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+
+                                                                <div class="text-size-14">Default Data</div>
+
+                                                                <p-radioButton class="p-pt-2" name="footerdefaultData"
+                                                                    value="Default" label="Default"
+                                                                    [(ngModel)]="formData.footerdefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2 " name="footerdefaultData"
+                                                                    value="Blank" label="Blank"
+                                                                    [(ngModel)]="formData.footerdefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2" name="footerdefaultData"
+                                                                    value="None" label="None"
+                                                                    [(ngModel)]="formData.footerdefaultData">
+                                                                </p-radioButton>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-form-input id="footerdataValue"
+                                                                    name="footerdataValue" label="Data Value"
+                                                                    [required]="formData.footerdataValue === 'Default' ? true : false"
+                                                                    [(ngModel)]="newColumData.footerdataValue"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0">
+                                                                <div class="text-size-14 text-bold">
+                                                                    Validation
+                                                                </div>
+
+                                                                <p-checkbox id="footervalidatecheck"
+                                                                    name="footervalidatecheck" label="Validate"
+                                                                    [binary]="true"
+                                                                    [(ngModel)]="newColumData.footervalidatecheck"></p-checkbox>
+
+                                                                &nbsp;
+                                                                <p-checkbox id="footerallowNull" name="footerallowNull"
+                                                                    label="Allow Null" [binary]="true"
+                                                                    [(ngModel)]="newColumData.footerallowNull"></p-checkbox>
+                                                            </div>
+
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 "
+                                                                *ngIf="newColumData.detailvalidatecheck">
+                                                                <aps-form-input id="footerminLength"
+                                                                    name="footerminLength" label="Minimum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.footerminLength"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4"
+                                                                *ngIf="newColumData.detailvalidatecheck">
+                                                                <aps-form-input id="footermaxLength"
+                                                                    name="footermaxLength" label="Maximum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.footermaxLength"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="p-grid mt-2">
+                                                            <div class="left-right-container">
+                                                                <div
+                                                                    class="right-container p-col-12 p-md-12 p-lg-12 mt-2">
+                                                                    <button class="btn btn-md btn-primary"
+                                                                        [disabled]="newColumnFooterForm.invalid"
+                                                                        (click)="editIndex > -1 ? onUpdateFooterColumn() : onAddNewFooterColumnClick()">
+                                                                        {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </app-modal>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="selectedList.id === 4">
+                                        <div class="p-col-12 p-md-12 p-lg-12">
+                                            <button class="btn btn-md btn-primary"
+                                                (click)="showAddEnrichmentColumnModal()">Add More Columns</button>
+                                            <div class="p-grid aps-h-200">
+                                                <div class="p-col-12 p-md-12 p-sm-12">
+                                                    <app-ag-grid-listing #enrichmentgrid id="enrichmentgrid"
+                                                        [gridOptions]="columnGridOptions"
+                                                        [rowData]="formData.newEnrichmentColumn"
+                                                        (gridReady)="onEnrichmentGridReady($event)"
+                                                        [supressAutoFit]="true"
+                                                        colDefUrl="setup/templates/dataLayout/private/enrichmentColDefs">
+                                                    </app-ag-grid-listing>
+                                                </div>
+                                            </div>
+
+
+                                            <app-modal [(isShow)]="showEnrichmentAddModal" size="md"
+                                                [headerText]="'Add New Column (Footer)' | apsTranslate">
+                                                <div class="overflow-y-scroll ">
+                                                    <form name="newColumnEnrichmentForm"
+                                                        #newColumnEnrichmentForm="ngForm">
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-custom-select [label]="'Data Field' | apsTranslate"
+                                                                    name="enrichmentdatafield" id="enrichmentdatafield"
+                                                                    [(ngModel)]="newColumData.enrichmentdatafield"
+                                                                    [value]="newColumData.enrichmentdatafield"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/footerdatafield"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="enrichmentdatafield"
+                                                                    name="enrichmentdatafield"
+                                                                    label="Data Field (Display Name)"
+                                                                    [(ngModel)]="newColumData.enrichmentdatafield"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4">
+                                                                <aps-form-input id="enrichmentsequenceNumber"
+                                                                    name="enrichmentsequenceNumber"
+                                                                    label="Sequence Number"
+                                                                    [(ngModel)]="newColumData.enrichmentsequenceNumber"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-custom-select [label]="'Data Type' | apsTranslate"
+                                                                    name="dataType" id="enrichmentdataType"
+                                                                    [(ngModel)]="newColumData.enrichmentdataType"
+                                                                    [value]="newColumData.enrichmentdataType"
+                                                                    dataUrl="setup/templates/dataLayout/private/dropdown/dataType"
+                                                                    [required]="true">
+                                                                </aps-custom-select>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+
+                                                                <div class="text-size-14">Default Data</div>
+
+                                                                <p-radioButton class="p-pt-2"
+                                                                    name="enrichmentdefaultData" value="Default"
+                                                                    label="Default"
+                                                                    [(ngModel)]="formData.enrichmentdefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2 "
+                                                                    name="enrichmentdefaultData" value="Blank"
+                                                                    label="Blank"
+                                                                    [(ngModel)]="formData.enrichmentdefaultData">
+                                                                </p-radioButton>
+
+                                                                &nbsp;
+
+                                                                <p-radioButton class="p-pt-2"
+                                                                    name="enrichmentdefaultData" value="None"
+                                                                    label="None"
+                                                                    [(ngModel)]="formData.enrichmentdefaultData">
+                                                                </p-radioButton>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                                                                <aps-form-input id="enrichmentdataValue"
+                                                                    name="enrichmentdataValue" label="Data Value"
+                                                                    [required]="formData.enrichmentdataValue === 'Default' ? true : false"
+                                                                    [(ngModel)]="newColumData.enrichmentdataValue"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="p-grid">
+                                                            <div class="p-col-12 p-md-12 p-lg-12 p-py-0">
+                                                                <div class="text-size-14 text-bold">
+                                                                    Validation
+                                                                </div>
+
+                                                                <p-checkbox id="enrichmentvalidatecheck"
+                                                                    name="enrichmentvalidatecheck" label="Validate"
+                                                                    [binary]="true"
+                                                                    [(ngModel)]="newColumData.enrichmentvalidatecheck"></p-checkbox>
+
+                                                                &nbsp;
+                                                                <p-checkbox id="enrichmentallowNull"
+                                                                    name="enrichmentvalidatecheck" label="Allow Null"
+                                                                    [binary]="true"
+                                                                    [(ngModel)]="newColumData.enrichmentvalidatecheck"></p-checkbox>
+                                                            </div>
+
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4 "
+                                                                *ngIf="newColumData.enrichmentvalidatecheck">
+                                                                <aps-form-input id="enrichmentminLength"
+                                                                    name="enrichmentminLength" label="Minimum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.enrichmentminLength"></aps-form-input>
+                                                            </div>
+
+                                                            <div class="p-col-12 p-md-4 p-lg-4"
+                                                                *ngIf="newColumData.detailvalidatecheck">
+                                                                <aps-form-input id="enrichmentmaxLength"
+                                                                    name="enrichmentmaxLength" label="Maximum Length"
+                                                                    [required]="true"
+                                                                    [(ngModel)]="newColumData.enrichmentmaxLength"></aps-form-input>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="p-grid mt-2">
+                                                            <div class="left-right-container">
+                                                                <div
+                                                                    class="right-container p-col-12 p-md-12 p-lg-12 mt-2">
+                                                                    <button class="btn btn-md btn-primary"
+                                                                        [disabled]="newColumnEnrichmentForm.invalid"
+                                                                        (click)="editIndex > -1 ? onUpdateEnrichmentColumn() : onAddNewEnrichmentColumnClick()">
+                                                                        {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </app-modal>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+                        <div class="aps-card-body">
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12  p-px-3">
+                                    <div class="text-size-14 text-bold">
+                                        Data Layout Name
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Data Layout Code' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.dataLayoutName }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Data Layout Name' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.dataLayoutName }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12 p-py-0 p-px-3">
+                                    <div class="text-size-14 text-bold">
+                                        Data Layout Details
+                                    </div>
+                                </div>
+
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Module Name' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.moduleName }}</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Format Type' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.formatType }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Sub Module Name' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.submoduleName }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Format Type' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.formatType }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Default Date Format' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.defaultDateFormat }}</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Data Layout Format' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.dataLayoutFormat }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Number of Lines Header' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.noOfLinesHeader }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Number of Lines Footer' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.noOfLinesFooter }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Text Type' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.textType }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Delimiter Value' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.delimiterValue }}</div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

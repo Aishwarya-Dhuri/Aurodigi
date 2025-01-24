@@ -1,0 +1,30 @@
+[
+  { "headerName": "Holdings", "field": "holdings", "cellRenderer": "holdingsRenderer" },
+  {
+    "headerName": "Investment Value",
+    "field": "investmentValue",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Market Value", "field": "marketValue", "cellRenderer": "currencyRenderer" },
+  {
+    "headerName": "Unrealized Gain/Loss",
+    "field": "unrealizedGainLoss",
+    "cellRenderer": "gainLossRenderer"
+  },
+  {
+    "headerName": "Today's Gain/Loss",
+    "field": "todaysGainLoss",
+    "cellRenderer": "gainLossRenderer"
+  },
+  {
+    "headerName": "Realized Profit/Loss",
+    "field": "realizedProfitLoss",
+    "cellRenderer": "gainLossRenderer"
+  },
+  {
+    "headerName": "Dividend Interest",
+    "field": "dividendInterest",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Total Gain/Loss", "field": "totalsGainLoss", "cellRenderer": "gainLossRenderer" }
+]

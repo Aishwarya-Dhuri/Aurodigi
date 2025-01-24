@@ -1,0 +1,221 @@
+.menu-container {
+  display: block;
+  position: fixed;
+  height: calc(100vh - 4rem);
+  border-radius: 10px;
+  width: 3.25rem;
+  margin: 1rem 0.5rem 1rem 1rem;
+  padding: 0.5rem;
+  background-color: var(--background-color-light-4);
+  z-index: 10;
+  -webkit-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
+
+  @media screen and (max-width: 991px) {
+    top: 0;
+  }
+
+  .short-menu {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--background-color-light-4);
+    top: 0rem;
+    left: 2.75rem;
+  }
+
+  .short-menu-expand {
+    display: block;
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+  }
+
+  .fullscreen-menu {
+    position: fixed;
+    width: calc(100vw - 5.25rem);
+    height: calc(100vh - 5.5rem);
+    padding: 0.5rem;
+    border-radius: 10px;
+    z-index: 10;
+    display: none;
+    background-color: var(--background-color-light-4);
+    top: 5.5rem;
+    left: 4.25rem;
+    -webkit-transition: 0.25s ease-in;
+    transition: 0.25s ease-out;
+  }
+
+  .fullscreen-menu-expand {
+    display: block;
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 0.25rem 0;
+    // margin: 0 auto;
+    cursor: pointer;
+    position: relative;
+
+    .menu {
+      padding: 0 0.625rem;
+      border-radius: 5px;
+      vertical-align: middle;
+      transition: all 0.125s;
+      white-space: nowrap;
+
+      .icon {
+        display: inline-block;
+        width: 20px;
+
+        i,
+        .app-icon {
+          font-size: 0.9375rem;
+          // padding: 1px;
+        }
+      }
+
+      .text {
+        display: none;
+        width: calc(100% - 20px);
+        font-size: 1rem;
+
+        .left-container {
+          padding: 0 0.5rem;
+        }
+      }
+    }
+  }
+
+  .menus {
+    width: 100%;
+    margin: 0 auto;
+    color: var(--text-color-dark-shade-1);
+
+    .hide-mobile-menus {
+      display: none;
+    }
+
+    .menu-wrapper {
+      display: block;
+      position: relative;
+
+      .menu {
+        padding: 0.5625rem 0.625rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 0.25rem 0;
+        border-radius: 5px;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: all 0.125s;
+        white-space: nowrap;
+
+        .icon {
+          width: 20px;
+          display: inline-block;
+
+          i,
+          .app-icon {
+            padding: 1px;
+          }
+        }
+
+        .text {
+          display: none;
+          width: calc(100% - 20px);
+          font-size: 1rem;
+
+          .left-container {
+            padding: 0 0.5rem;
+          }
+        }
+      }
+
+      .menu:hover {
+        background-color: var(--background-color);
+        color: var(--text-color-dark-shade-1);
+      }
+
+      .active {
+        background-color: var(--primary-color) !important;
+        color: var(--inverted-text-color) !important;
+      }
+    }
+  }
+}
+
+.menu-container-expand {
+  width: 15rem;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+
+  .short-menu {
+    left: 14.5rem;
+  }
+
+  .fullscreen-menu {
+    left: 16rem;
+    width: calc(100vw - 17rem);
+  }
+
+  .menu-toggle {
+    margin: 0;
+
+    .menu {
+      width: 100%;
+
+      .text {
+        display: inline-block;
+      }
+    }
+  }
+
+  .menus {
+    .menu-wrapper {
+      margin: 0;
+
+      .menu {
+        width: 100%;
+
+        .text {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.menu-container-static-overlay {
+  border-radius: 10px;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  top: 0;
+  margin: 1rem 0.5rem 1rem 0;
+  height: calc(100vh - 2rem);
+  border-radius: 0 10px 10px 0;
+
+  .fullscreen-menu {
+    top: 1rem;
+    left: 3.3rem;
+    height: calc(100vh - 2rem);
+    width: calc(100vw - 4.3rem);
+  }
+
+  @media screen and (max-width: 991px) {
+    top: 0;
+    margin: 0;
+    height: calc(100vh - 2rem);
+  }
+}
+
+.menu-container-static-overlay-hide {
+  width: 0rem;
+  overflow: hidden;
+  padding: 0;
+  -webkit-transition: 0.25s ease-in;
+  transition: 0.25s ease-out;
+}

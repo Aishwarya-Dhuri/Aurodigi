@@ -1,0 +1,27 @@
+[
+  { "headerName": "Account No", "field": "accountNo" },
+  { "headerName": "Account Name", "field": "accountName" },
+  { "headerName": "Bank Name", "field": "bankName" },
+  { "headerName": "Currency", "field": "currency" },
+  {
+    "headerName": "Available Balance",
+    "field": "availableBalance",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Available Balance (Base CCY)",
+    "field": "availableBalanceBaseCcy",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Last Updated Date Time",
+    "field": "lastUpdatedDateTime",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

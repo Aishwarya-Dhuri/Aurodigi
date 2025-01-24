@@ -1,0 +1,161 @@
+{
+  "data": [
+    {
+      "id": 1493721,
+      "line3": "UAEFTS",
+      "line2": "31-Jul-2020",
+      "line1": "Suryakant Deshmukh",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493720,
+      "line3": "IFT",
+      "line2": "31-Jul-2020",
+      "line1": "Anand M Biradar",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493719,
+      "line3": "UAEFTS",
+      "line2": "31-Jul-2020",
+      "line1": "Sachin Prakash Tadmadge",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493718,
+      "line3": "IFT",
+      "line2": "31-Jul-2020",
+      "line1": "Gajendra Rajaram Madane",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493717,
+      "line3": "UAEFTS",
+      "line2": "31-Jul-2020",
+      "line1": "Kishor Ram Punatkar",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493716,
+      "line3": "IFT",
+      "line2": "31-Jul-2020",
+      "line1": "Anil Ramesh Sen",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493715,
+      "line3": "UAEFTS",
+      "line2": "31-Jul-2020",
+      "line1": "Swapnil Vishnu Sonavane",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493714,
+      "line3": "SWIFT",
+      "line2": "31-Jul-2020",
+      "line1": "Sagar Girish Mude",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493713,
+      "line3": "UAEFTS",
+      "line2": "31-Jul-2020",
+      "line1": "Aniket Pannalal Koshta",
+      "actions": [
+        { "index": 1, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493712,
+      "line3": "SWIFT",
+      "line2": "31-Jul-2020",
+      "line1": "Kishor Lahu Thorat",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "totalRecords": 10
+}

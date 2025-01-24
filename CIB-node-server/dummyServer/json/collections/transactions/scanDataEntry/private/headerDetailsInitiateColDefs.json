@@ -1,0 +1,35 @@
+[
+  {
+    "headerName": "Cheque Number",
+    "field": "chequeNumber"
+  },
+  {
+    "headerName": "MICR Code",
+    "field": "micrCode"
+  },
+  {
+    "headerName": "Drawee Bank",
+    "field": "draweeBank"
+  },
+  {
+    "headerName": "Drawee Branch",
+    "field": "draweeBranch"
+  },
+  {
+    "headerName": "Clearing Location",
+    "field": "clrLoc"
+  },
+  {
+    "headerName": "Cheque Amount",
+    "field": "chequeAmt"
+  },
+  {
+    "headerName": "Cheque Date",
+    "field": "chequeDate"
+  },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

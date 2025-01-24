@@ -1,0 +1,1939 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <div class="p-grid g-margin-x">
+            <div class="p-col-12">
+                <form name="corporateMainForm" #corporateMainForm="ngForm">
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> Corporate Details</div>
+                        </div>
+
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid ">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="cid" label="CID" name="cid"
+                                    [(ngModel)]="formData.cid"  required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="corporateCode" label="Corporate Code" name="corporateCode"
+                                        rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                        [(ngModel)]="formData.corporateCode" disabled="true" required="true">
+                                    </aps-form-input>
+        
+                                    <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                        header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                        [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateCodeSelected($event)">
+                                    </app-search-modal>
+                                </div>
+        
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                        [(ngModel)]="formData.corporateName" disabled="true" required="true">
+                                    </aps-form-input>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="corporateAliasCode" label="Corporate Alias Code" name="corporateAliasCode"
+                                        [(ngModel)]="formData.corporateAliasCode" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid ">
+                              
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="trnNo" label="TRN No" name="trnNo"
+                                        [(ngModel)]="formData.trnNo" >
+                                    </aps-form-input>
+                                </div>
+        
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-form-input id="uniqueIdNo" label="Unique ID No" name="uniqueIdNo"
+                                                [(ngModel)]="formData.uniqueIdNo" >
+                                    </aps-form-input>
+                                   
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <div class="text-size-14">Holding Company</div>
+                                    <p-radioButton class="p-pt-2" name="holdingCompany" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.holdingCompany">
+                                    </p-radioButton> &nbsp;
+
+                                    <p-radioButton class="p-pt-2" name="holdingCompany" value="No" label="No"
+                                        [(ngModel)]="formData.holdingCompany">
+                                    </p-radioButton>
+                                </div>
+        
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <aps-custom-select [label]="'Country Code' | apsTranslate" name="countryCode" id="countryCode" required="true"
+                                    [(ngModel)]="formData.countryCode" [data]="countryCodeArr" >
+                                     </aps-custom-select>
+                                </div>
+                             
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-14 text-bold">
+                                        Contact Information
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-12 p-lg-12 ">
+                                    <div class="table-container">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                                    <th class="p-p-2 text-left">Person Name</th>
+                                                    <th class="p-p-2 text-left">Designation</th>
+                                                    <th class="p-p-2 text-left">Email Id</th>
+                                                    <th class="p-p-2 text-left">Telephone No</th>
+                                                </tr>
+        
+                                                <ng-container *ngFor="let contactInfo of formData.contactInfo; let i = index">
+                                                    <tr class="text-size-12 text-color-normal border-bottom">
+        
+                                                        <td class="p-px-1">
+                                                            <aps-form-input name="contactPersonName-{{ i }}" id="contactPersonName-{{ i }}"
+                                                            label="Person Name" [(ngModel)]="contactInfo.contactPersonName"
+                                                           ></aps-form-input>
+                                                        </td>
+                                                        <td class="p-px-1">
+                                                            <aps-form-input name="designation-{{ i }}" id="designation-{{ i }}" label="Designation"
+                                                             [(ngModel)]="contactInfo.designation" ></aps-form-input>
+                                                        </td>
+                                                        <td class="p-px-1">
+                                                            <aps-form-input name="emailId-{{ i }}" id="emailId-{{ i }}" label="Email ID"
+                                                            [(ngModel)]="contactInfo.emailId" ></aps-form-input>
+                                                        </td>
+                                                        <td class="p-px-1">
+                                                            <aps-form-input name="telNo-{{ i }}" id="telNo-{{ i }}" label="Tel No"
+                                                                    [(ngModel)]="contactInfo.telNo" ></aps-form-input>
+                                                        </td>
+                                                    </tr>
+                                                </ng-container>
+        
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                               
+                                <div class="p-col-12 p-md-12 p-lg-12  p-px-2 p-py-0">
+                                    <button class="btn btn-md btn-secondary btn-sm" (click)="addContactInfo()">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Account Mapping</div>
+                        </div>
+
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-2 background-color-dark-5 p-py-1">
+                                    <div class="text-size-12 text-semi-bold">Account Number</div>
+                                </div>
+                           
+                                <div class="p-col-2 background-color-dark-5 p-py-1">
+                                    <div class="text-size-12 text-semi-bold">Account Title</div>
+                                </div>
+                                <div class="p-col-2 background-color-dark-5 p-py-1">
+                                    <div class="text-size-12 text-semi-bold">Account Type</div>
+                                </div>
+                             
+                                <div class="p-col-2 background-color-dark-5 p-py-1">
+                                    <div class="text-size-12 text-semi-bold">Currency</div>
+                                </div>
+                                <div class="p-col-2 background-color-dark-5 p-py-1">
+                                    <div class="text-size-12 text-semi-bold">Branch</div>
+                                </div>
+                            </div>
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-2 ">
+                                    <p-checkbox id="tnc" name="tnc" label="101010009388539" [binary]="true"  [(ngModel)]="formData.accNoCheckbox1"></p-checkbox>
+                                    <p-checkbox id="tnc" name="tnc" label="101010009388577" [binary]="true"  [(ngModel)]="formData.accNoCheckbox2"></p-checkbox>
+                                </div>
+                         
+                                <div class="p-col-2 ">
+                                    <div class="text-size-14 text-semi-bold">Corporate Saving Account</div>
+                                    <div class="text-size-14 text-semi-bold">Receivable Saving Account</div>
+                                </div>
+
+                                <div class="p-col-2 ">
+                                    <div class="text-size-14 text-semi-bold">Open</div>
+                                    <div class="text-size-14 text-semi-bold">Open</div>
+                                </div>
+
+                                <div class="p-col-2 ">
+                                    <div class="text-size-14 text-semi-bold">INR</div>
+                                    <div class="text-size-14 text-semi-bold">INR</div>
+                                </div>
+
+                                <div class="p-col-2">
+                                    <div class="text-size-14 text-semi-bold">-</div>
+                                    <div class="text-size-14 text-semi-bold">-</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Registered /Corporate Office</div>
+                        </div>
+
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-14 text-bold">
+                                        Registered Office
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficeaddress1" name="registeredOfficeaddress1"
+                                        [label]="'Address' | apsTranslate" [(ngModel)]="formData.registeredOfficeaddress1" required="true">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses >= 2">
+                                    <aps-form-input (onRightIcon)="removeAddress()" inputType="alphaNumeric" id="registeredOfficeaddress2"
+                                        name="registeredOfficeaddress2" [label]="'Address' | apsTranslate" [(ngModel)]="formData.registeredOfficeaddress2"
+                                        required="true" rightIcon="fa-trash-alt">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses === 3">
+                                    <aps-form-input (onRightIcon)="removeAddress()" inputType="alphaNumeric" id="registeredOfficeaddress3"
+                                        name="registeredOfficeaddress3" [label]="'Address' | apsTranslate" [(ngModel)]="formData.registeredOfficeaddress3"
+                                        required="true" rightIcon="fa-trash-alt">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-md-2 p-sm-12 p-col-12 p-mt-2">
+                                    <button class="btn btn-md btn-secondary" (click)="addAddress()"
+                                        [disabled]="noOfAddresses === 3">
+                                        <app-icon icon="fa-plus p-mr-2"></app-icon>ADD MORE
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficelocationName" name="registeredOfficelocationName" [label]="'Location Name' | apsTranslate"
+                                        [(ngModel)]="formData.registeredOfficelocationName" required="true">
+                                    </aps-form-input>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficepinCode" name="registeredOfficepinCode"
+                                        [label]="'Pin/Zip Code' | apsTranslate" [(ngModel)]="formData.registeredOfficepinCode" required="true">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficeprovince" name="registeredOfficeprovince"
+                                        [label]="'Province' | apsTranslate" [(ngModel)]="formData.registeredOfficeprovince" required="true">
+                                    </aps-form-input>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficemobileNo" name="registeredOfficemobileNo"
+                                        [label]="'Tel./Mobile Number' | apsTranslate" [(ngModel)]="formData.registeredOfficemobileNo" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficecountry" name="registeredOfficecountry"
+                                        [label]="'Country' | apsTranslate" [(ngModel)]="formData.registeredOfficecountry" required="true">
+                                    </aps-form-input>
+                                </div>
+
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficefaxNo" name="registeredOfficefaxNo"
+                                        [label]="'Fax Number' | apsTranslate" [(ngModel)]="formData.registeredOfficefaxNo" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficecity" name="registeredOfficecity"
+                                        [label]="'City' | apsTranslate" [(ngModel)]="formData.registeredOfficecity" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="registeredOfficeEmailId" name="registeredOfficeEmailId"
+                                        [label]="'Email Id' | apsTranslate" [(ngModel)]="formData.registeredOfficeEmailId" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+
+                            <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-14 text-bold">
+                                        Corporate Office
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <p-checkbox [binary]="true" id="sameAddressAsAbove" name="sameAddressAsAbove" label="Same as above"
+                                                [(ngModel)]="formData.sameAddressAsAbove"  (onChange)="hideCorporateAddressFields()">
+                                    </p-checkbox>
+
+                                </div>
+                            </div>
+
+                            <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" >
+                                    <aps-form-input inputType="alphaNumeric" id="address1" name="address1"
+                                        [label]="'Address' | apsTranslate" [(ngModel)]="formData.address1" 
+                                        [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses >= 2">
+                                    <aps-form-input (onRightIcon)="removeAddress()" inputType="alphaNumeric" id="address2"
+                                        name="address2" [label]="'Address' | apsTranslate" [(ngModel)]="formData.address2"
+                                        [required]="!formData.sameAddressAsAbove ? true : false" rightIcon="fa-trash-alt">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses === 3">
+                                    <aps-form-input (onRightIcon)="removeAddress()" inputType="alphaNumeric" id="address3"
+                                        name="address3" [label]="'Address' | apsTranslate" [(ngModel)]="formData.address3"
+                                        [required]="!formData.sameAddressAsAbove ? true : false" rightIcon="fa-trash-alt">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-md-2 p-sm-12 p-col-12 p-mt-2">
+                                    <button class="btn btn-md btn-secondary" (click)="addAddress()"
+                                        [disabled]="noOfAddresses === 3">
+                                        <app-icon icon="fa-plus p-mr-2"></app-icon>ADD MORE
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="city" name="locationName" [label]="'Location Name' | apsTranslate"
+                                        [(ngModel)]="formData.locationName" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="pinCode" name="pinCode"
+                                        [label]="'Pin/Zip Code' | apsTranslate" [(ngModel)]="formData.pinCode" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+            
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="province" name="province"
+                                        [label]="'Province' | apsTranslate" [(ngModel)]="formData.province"[required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="mobileNo" name="mobileNo"
+                                        [label]="'Tel./Mobile Number' | apsTranslate" [(ngModel)]="formData.mobileNo" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="country" name="country"
+                                        [label]="'Country' | apsTranslate" [(ngModel)]="formData.country" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="faxNo" name="faxNo"
+                                        [label]="'Fax Number' | apsTranslate" [(ngModel)]="formData.faxNo" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="city" name="city"
+                                        [label]="'City' | apsTranslate" [(ngModel)]="formData.city" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                                    <aps-form-input inputType="alphaNumeric" id="emailId" name="emailId"
+                                        [label]="'Email Id' | apsTranslate" [(ngModel)]="formData.emailId" [required]="!formData.sameAddressAsAbove ? true : false">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-px-2 p-py-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Parameter</div>
+                        </div>
+
+                        <div class="aps-card-body p-p-2">
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-14 text-bold">
+                                        Security Office
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <div class="text-size-14">Password Setup</div>
+                                    <p-radioButton class="p-pt-2" name="passwordSetup" value="autoGeneration" label="Auto Generation"
+                                        [(ngModel)]="formData.passwordSetup">
+                                    </p-radioButton> 
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-lg-3 p-pb-0 p-py-0">
+                                    <div class="text-size-14">Corporate User Administration By</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="corpUserAdmBy" value="Corporate"
+                                            label="Corporate" [(ngModel)]="formData.corpUserAdmBy">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="corpUserAdmBy" value="Bank" label="Bank"
+                                            [(ngModel)]="formData.corpUserAdmBy">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-14 text-bold">
+                                        Other Parameter Configuration
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-sm-3 ">
+                                    <div class="text-size-14">Upload Corporate Logo</div>
+                                    <upload-form-control [files]="formData.corporateLogo"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onSupportingDocumentUploaded($event)"></upload-form-control>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <aps-custom-select [label]="'Category Wise Charges' | apsTranslate" name="categoryWiseCharges"          id="categoryWiseCharges" 
+                                    [(ngModel)]="formData.categoryWiseCharges" [data]="categoryWiseChargesArr" >
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class=" p-col-12 p-md-3 p-sm-3">
+                                    <div class="text-size-14">Holiday Access</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="holidayAccess" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.holidayAccess">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="holidayAccess" value="No" label="No"
+                                            [(ngModel)]="formData.holidayAccess">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+
+                                <div class=" p-col-12 p-md-3 p-sm-3">
+                                    <div class="text-size-14">Apply Promotional Charges</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="appplyPromotionalCharges" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.appplyPromotionalCharges">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="appplyPromotionalCharges" value="No" label="No"
+                                            [(ngModel)]="formData.appplyPromotionalCharges">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <div class="text-size-14">Remote Access on Holiday</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="remoteAccessOnHoliday" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.remoteAccessOnHoliday">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="remoteAccessOnHoliday" value="No"
+                                            label="No" [(ngModel)]="formData.remoteAccessOnHoliday">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <aps-custom-select [label]="'Promotional Charges' | apsTranslate" name="promotionalCharges"          id="promotionalCharges" 
+                                    [(ngModel)]="formData.promotionalCharges" [data]="promotionalChargesArr" >
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <aps-custom-select [label]="'H2H File Processing' | apsTranslate" name="h2hFileProcessing"          id="h2hFileProcessing" 
+                                    [(ngModel)]="formData.h2hFileProcessing" [data]="h2hFileProcessingArr" >
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <aps-custom-select [label]="'Default Charge Account' | apsTranslate" name="defaultChargeAmount"          id="defaultChargeAmount"
+                                    [(ngModel)]="formData.defaultChargeAmount" [data]="defaultChargeAmountArr" >
+                                    </aps-custom-select>
+                                </div>
+
+                                <div class=" p-col-12 p-md-6 p-sm-12">
+                                    <div class="text-size-14">Debit Transaction Charges From</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="debitTransactionChargesFrom" value="Transaction Debit Account" label="Transaction Debit Account"
+                                            [(ngModel)]="formData.debitTransactionChargesFrom">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="debitTransactionChargesFrom" value="Default Charge Account" label="Default Charge Account"
+                                            [(ngModel)]="formData.debitTransactionChargesFrom">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2"> IP Mapping </div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="p-grid p-px-2">
+                                <div class="p-col-12 p-md-3 p-sm-3">
+                                    <div class="text-size-14">IP Mapping</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="ipMapping" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.ipMapping">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="ipMapping" value="No" label="No"
+                                            [(ngModel)]="formData.ipMapping">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="p-grid p-px-2" *ngIf="formData.ipMapping === 'Yes'">
+                                <div class="p-col-12">
+                                    <form #form="ngForm" (ngSubmit)="onSubmitIpMapped(form)">
+                                        <div class="p-grid">
+                                            <div class="p-md-4 p-lg-4 p-sm-12 p-col-12">
+                                                <div class="text-size-14 text-color-light-shade-1">Start Range</div>
+                                                <div class="p-grid">
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                                                        <aps-form-input name="startRange1" id="startRange1"
+                                                            label="Start Range 1" required="true" numericInput maxLength="3"
+                                                            [showLabel]="false" [(ngModel)]="ipMapping.startRange1">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                                                        <aps-form-input name="startRange2" id="startRange2"
+                                                            label="Start Range 2" required="true" numericInput maxLength="3"
+                                                            [showLabel]="false" [(ngModel)]="ipMapping.startRange2">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                                                        <aps-form-input name="startRange3" id="startRange3"
+                                                            label="Start Range 3" required="true" numericInput maxLength="3"
+                                                            [showLabel]="false" [(ngModel)]="ipMapping.startRange3">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0 p-pr-0">
+                                                        <aps-form-input name="startRange4" id="startRange4"
+                                                            label="Start Range 4" required="true" numericInput maxLength="3"
+                                                            [showLabel]="false" [(ngModel)]="ipMapping.startRange4">
+                                                        </aps-form-input>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="p-col-12 p-md-1 p-lg-1 p-sm-12 p-pt-4"></div>
+    
+                                            <div class="p-md-4 p-lg-4 p-sm-12 p-col-12">
+                                                <div class="text-size-14 text-color-light-shade-1">End Range</div>
+                                                <div class="p-grid">
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                                                        <aps-form-input name="endRange1" id="endRange1" label="End Range 1"
+                                                            required="true" numericInput maxLength="3" [showLabel]="false"
+                                                            [(ngModel)]="ipMapping.endRange1">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                                        <aps-form-input name="endRange2" id="endRange2" label="End Range 2"
+                                                            required="true" numericInput maxLength="3" [showLabel]="false"
+                                                            [(ngModel)]="ipMapping.endRange2">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                                        <aps-form-input name="endRange3" id="endRange3" label="End Range 3"
+                                                            required="true" numericInput maxLength="3" [showLabel]="false"
+                                                            [(ngModel)]="ipMapping.endRange3">
+                                                        </aps-form-input>
+                                                    </div>
+                                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                                        <aps-form-input name="endRange4" id="endRange4" label="End Range 4"
+                                                            required="true" numericInput maxLength="3" [showLabel]="false"
+                                                            [(ngModel)]="ipMapping.endRange4">
+                                                        </aps-form-input>
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="p-md-2 p-lg-2 p-sm-12 p-col-12 p-mt-5">
+                                                <button type="submit" class="btn btn-md btn-primary text-bold">
+                                                    {{ editing ? 'SAVE' : 'ADD' }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+    
+    
+                                <div class="p-col-12" *ngIf="ipMappingData.ipMapping.length > 0">
+                                    <div class="ag-grid-listing aps-h-150 border-radius-5">
+                                        <app-ag-grid-listing id="ipMappedGrid" #ipMappedGrid [colDefUrl]="ipMappingColDefs"
+                                            [gridOptions]="ipMappedGridOptions"
+                                            [rowData]="ipMappingData.ipMapping">
+                                        </app-ag-grid-listing>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Authorisation Rule</div>
+                        </div>
+                        <div class="aps-card-body">
+                            <form name="authorizationRuleForm" #authorizationRuleForm="ngForm">
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                                        [(ngModel)]="authorizationRuleFormData.module" [value]="formData.module"
+                                        dataUrl="setup/security/corporateMain/private/dropdown/module" [required]="true">
+                                    </aps-custom-select>
+                                    </div>
+
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Transaction Name' | apsTranslate" name="transactionName" id="transactionName"
+                                        [(ngModel)]="authorizationRuleFormData.transactionName" [value]="formData.transactionName"
+                                        dataUrl="setup/security/corporateMain/private/dropdown/transactionName" [required]="true">
+                                    </aps-custom-select>
+                                    </div>
+
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Authorization Rule' | apsTranslate" name="authorizationRule" id="authorizationRule"
+                                        [(ngModel)]="authorizationRuleFormData.authorizationRule" [value]="formData.authorizationRule"
+                                        dataUrl="setup/security/corporateMain/private/dropdown/authorizationRule" [required]="true">
+                                    </aps-custom-select>
+                                    </div>
+
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <button class="btn btn-md btn-primary p-mt-2"
+                                            (click)="editIndex > -1 ? onUpdateTransaction() : onAddTransactionClick()">
+                                            {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                <div class="p-grid aps-h-200">
+                                    <div class="p-col-12 p-md-12 p-sm-12">
+                                        <app-ag-grid-listing #authRulegrid id="authRulegrid"
+                                            [gridOptions]="authRuleGridOptions" [rowData]="formData.authrule"
+                                            (gridReady)="onAuthRuleGridReady($event)" [supressAutoFit]="true"
+                                            colDefUrl="setup/security/corporateMain/private/userDetailsColDefs">
+                                        </app-ag-grid-listing>
+                                    </div>
+                                </div>
+                            </form>
+                         
+                        </div>
+                    </div>
+
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Other Information</div>
+                        </div>
+                        <div class="aps-card-body">
+                            <form name="authorizationRuleForm" #authorizationRuleForm="ngForm">
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-12 p-lg-12">
+                                        <div class="text-size-14 text-bold">
+                                           Other
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Industry Description' | apsTranslate" name="industryDescription"  id="industryDescription" 
+                                        [(ngModel)]="formData.industryDescription" [data]="industryDescriptionArr" >
+                                        </aps-custom-select>
+                                    </div>
+                                </div>
+
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-12 p-lg-12">
+                                        <div class="text-size-14 text-bold">
+                                            Relationship Manager
+                                        </div>
+                                    </div>
+                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                        <aps-form-input                 name="relationshipManagerName"                              id="relationshipManagerName" 
+                                            label="Relationship Manager Name"
+                                            [(ngModel)]="formData.relationshipManagerName">
+                                        </aps-form-input>
+                                    </div>
+
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Login Id' | apsTranslate" name="loginId"  id="loginId" 
+                                        [(ngModel)]="formData.loginId" [data]="loginIdArr" >
+                                        </aps-custom-select>
+                                    </div>
+
+                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                        <aps-form-input   name="employeeCode"   id="employeeCode" 
+                                            label="Employee Code"   [(ngModel)]="formData.employeeCode">
+                                        </aps-form-input>
+                                    </div>
+                                  
+                                    
+                                </div>
+
+                                <div class="p-grid p-px-2">
+                                    
+                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                        <aps-form-input   name="accountManager"   id="accountManager" 
+                                            label="Account Manager"   [(ngModel)]="formData.accountManager">
+                                        </aps-form-input>
+                                    </div>
+
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Login Id' | apsTranslate" name="accManagerloginId"  id="accManagerloginId" 
+                                        [(ngModel)]="formData.accManagerloginId" [data]="loginIdArr" >
+                                        </aps-custom-select>
+                                    </div>
+
+                                    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                                        <aps-form-input   name="accManageremployeeCode"   id="accManageremployeeCode" 
+                                            label="Employee Code"   [(ngModel)]="formData.accManageremployeeCode">
+                                        </aps-form-input>
+                                    </div>
+                                  
+                                    
+                                </div>
+
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-12 p-lg-12">
+                                        <div class="text-size-14 text-bold">
+                                            Core Branch Details
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-custom-select [label]="'Core Branch Id' | apsTranslate" name="coreBranchId"  id="coreBranchId" 
+                                        [(ngModel)]="formData.coreBranchId" [data]="coreBranchIdArr" >
+                                        </aps-custom-select>
+                                    </div>
+
+                                </div>
+
+                                
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-12 p-lg-12">
+                                        <div class="text-size-14 text-bold">
+                                            Agreement Details
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <app-aps-calender label="Aggrement Date" name="aggrementDate" [showIcon]="true"
+                                            [(ngModel)]="formData.aggrementDate"></app-aps-calender>
+                                    </div>
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <app-aps-calender label="Expiry Date" name="expiryDate" [showIcon]="true"
+                                            [(ngModel)]="formData.expiryDate"></app-aps-calender>
+                                    </div>
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-form-input inputType="numeric" id="referenceNumber" name="referenceNumber"
+                                            label="Reference Number" [(ngModel)]="formData.referenceNumber">
+                                        </aps-form-input>
+                                    </div>
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <aps-form-input inputType="numeric" id="noOfDaysForReview" name="noOfDaysForReview"
+                                            label="No. of days for Review" [(ngModel)]="formData.noOfDaysForReview">
+                                        </aps-form-input>
+                                    </div>
+
+                                </div>
+                             
+                                <div class="p-grid p-px-2">
+                                    <div class="p-col-12 p-md-12 p-lg-12 p-py-0" >
+                                        <div class="text-size-14 text-bold">
+                                            Other Details
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <app-aps-calender label="Effective From" name="effectiveFrom" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                                    </div>
+                                    <div class="p-col-12 p-md-3 p-lg-3">
+                                        <app-aps-calender label="Effective Till" name="effectiveTill" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                                    </div>
+                                   
+                                   
+
+                                </div>
+
+                            </form>
+                         
+                        </div>
+                    </div>
+
+                    <div class="aps-card p-mb-3">
+                        <div class="aps-card-header p-p-1">
+                            <div class="text-size-16 text-semi-bold p-p-2">Module Mapping</div>
+                        </div>
+                        <div class="aps-card-body">
+                            <div class="table-container p-pl-2">
+                                <table class="table p-py-2">
+                                    <thead>
+                                        <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                          
+                                            <th class="p-p-2 text-left">Module Name</th>
+                                            <th class="p-p-2 text-left">Charge Applicable</th>
+                                            <th class="p-p-2 text-left">Normal charge Category</th>
+                                            <th class="p-p-2 text-left">Promotional Charge Category</th>
+                                            <th class="p-p-2 text-left">Default Charge Account</th>
+                                            <th class="p-p-2 text-left">Verification Level</th>
+                                            <th class="p-p-2 text-left">Verification Required</th>
+                                            <th class="p-p-2 text-left">Total Verifiers</th>
+                                        </tr>
+
+                                        <tr class="text-size-12 ">
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" id="setupModulecheck" name="setupModulecheck" [(ngModel)]="formData.setupModulecheck">
+                                                </p-checkbox> Setup
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" [disabled]="!formData.setupModulecheck" [(ngModel)]="formData.setupChargeApplicablecheck" id="setupChargeApplicablecheck" name="setupChargeApplicablecheck">
+                                                </p-checkbox> 
+                                            </td>
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                                name="setupNormalChargeCategory" id="setupNormalChargeCategory" [disabled]="!formData.setupChargeApplicablecheck"
+                                                 [(ngModel)]="formData.setupNormalChargeCategory"
+                                                [value]="setupNormalChargeCategory" [data]="normalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                                name="setuppromotionalChargeCategory" id="setuppromotionalChargeCategory" [disabled]="!formData.setupChargeApplicablecheck"
+                                                 [(ngModel)]="formData.setuppromotionalChargeCategory"
+                                                [value]="setuppromotionalChargeCategory" [data]="promotionalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Default Charge Account' | apsTranslate"
+                                                name="setupDefaultChargeAccount" id="setupDefaultChargeAccount" [disabled]="!formData.setupChargeApplicablecheck"
+                                                 [(ngModel)]="formData.setupDefaultChargeAccount"
+                                                [value]="setupDefaultChargeAccount" [data]="defaultChargeAccountArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2" rowspan="5">
+                                                <p-radioButton class="p-pt-2" name="verificationLevel" value="Batch" label="Batch"
+                                                [(ngModel)]="formData.verificationLevel">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 " name="verificationLevel" value="Transaction"
+                                                    label="Transaction" [(ngModel)]="formData.verificationLevel">
+                                                </p-radioButton>
+                                            </td>
+
+                                            <td class="p-p-2" rowspan="2">
+
+                                                <p-radioButton class="p-pt-2" name="verficationRequired1" value="Yes" label="Yes"
+                                                [(ngModel)]="formData.verficationRequired1">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-2" name="verficationRequired1" value="No"
+                                                    label="No" [(ngModel)]="formData.verficationRequired1">
+                                                </p-radioButton>
+                                            </td>
+
+                                            <td class="p-p-2" rowspan="2">
+                                                <aps-form-input inputType="normal" id="noOfVerifier1" name="noOfVerifier1"
+                                                [label]="'Number of Verifier' | apsTranslate" [(ngModel)]="formData.noOfVerifier1"
+                                               >
+                                            </aps-form-input>
+                                            </td>
+                                            
+                                           
+                                         
+                                        </tr>
+
+                                        <tr class="text-size-12 ">
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" id="paymentsModulecheck" name="paymentsModulecheck" [(ngModel)]="formData.paymentsModulecheck">
+                                                </p-checkbox> Payments
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" [disabled]="!formData.paymentsModulecheck" [(ngModel)]="formData.paymentsChargeApplicablecheck" id="paymentsChargeApplicablecheck" name="paymentsChargeApplicablecheck">
+                                                </p-checkbox> 
+                                            </td>
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                                name="paymentsNormalChargeCategory" id="paymentsNormalChargeCategory" [disabled]="!formData.paymentsChargeApplicablecheck"
+                                                 [(ngModel)]="formData.paymentsNormalChargeCategory"
+                                                [value]="paymentsNormalChargeCategory" [data]="normalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                                name="paymentspromotionalChargeCategory" id="paymentspromotionalChargeCategory" [disabled]="!formData.paymentsChargeApplicablecheck"
+                                                 [(ngModel)]="formData.paymentspromotionalChargeCategory"
+                                                [value]="paymentspromotionalChargeCategory" [data]="promotionalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Default Charge Account' | apsTranslate"
+                                                name="paymentsDefaultChargeAccount" id="paymentsDefaultChargeAccount" [disabled]="!formData.paymentsChargeApplicablecheck"
+                                                 [(ngModel)]="formData.paymentsDefaultChargeAccount"
+                                                [value]="paymentsDefaultChargeAccount" [data]="defaultChargeAccountArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            
+                                           
+                                        </tr>
+
+                                        <tr class="text-size-12 ">
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" id="vamPoboModulecheck" name="vamPoboModulecheck" [(ngModel)]="formData.vamPoboModulecheck">
+                                                </p-checkbox> VAM - POBO
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" [disabled]="!formData.vamPoboModulecheck" [(ngModel)]="formData.vamPoboChargeApplicablecheck" id="vamPoboChargeApplicablecheck" name="vamPoboChargeApplicablecheck">
+                                                </p-checkbox> 
+                                            </td>
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                                name="vamPoboNormalChargeCategory" id="vamPoboNormalChargeCategory" [disabled]="!formData.vamPoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamPoboNormalChargeCategory"
+                                                [value]="vamPoboNormalChargeCategory" [data]="normalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                                name="vamPobopromotionalChargeCategory" id="vamPobopromotionalChargeCategory" [disabled]="!formData.vamPoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamPobopromotionalChargeCategory"
+                                                [value]="vamPobopromotionalChargeCategory" [data]="promotionalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Default Charge Account' | apsTranslate"
+                                                name="vamPoboDefaultChargeAccount" id="vamPoboDefaultChargeAccount" [disabled]="!formData.vamPoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamPoboDefaultChargeAccount"
+                                                [value]="vamPoboDefaultChargeAccount" [data]="defaultChargeAccountArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2" rowspan="3">
+
+                                                <p-radioButton class="p-pt-2" name="verficationRequired2" value="Yes" label="Yes"
+                                                [(ngModel)]="formData.verficationRequired2">
+                                                </p-radioButton>
+                                                <p-radioButton class="p-pt-2 p-px-2" name="verficationRequired2" value="No"
+                                                    label="No" [(ngModel)]="formData.verficationRequired2">
+                                                </p-radioButton>
+                                            </td>
+
+                                            <td class="p-p-2" rowspan="3">
+                                                <aps-form-input inputType="normal" id="noOfVerifier2" name="noOfVerifier2"
+                                                [label]="'Number of Verifier' | apsTranslate" [(ngModel)]="formData.noOfVerifier2">
+                                            </aps-form-input>
+                                            </td>
+                                           
+                                        </tr>
+
+                                        <tr class="text-size-12 ">
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" id="vamCoboModulecheck" name="vamCoboModulecheck" [(ngModel)]="formData.vamCoboModulecheck">
+                                                </p-checkbox> VAM - COBO
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" [disabled]="!formData.vamCoboModulecheck" [(ngModel)]="formData.vamCoboChargeApplicablecheck" id="vamCoboChargeApplicablecheck" name="vamCoboChargeApplicablecheck">
+                                                </p-checkbox> 
+                                            </td>
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                                name="vamCoboNormalChargeCategory" id="vamCoboNormalChargeCategory" [disabled]="!formData.vamCoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamCoboNormalChargeCategory"
+                                                [value]="vamCoboNormalChargeCategory" [data]="normalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                                name="vamCobopromotionalChargeCategory" id="vamCobopromotionalChargeCategory" [disabled]="!formData.vamCoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamCobopromotionalChargeCategory"
+                                                [value]="vamCobopromotionalChargeCategory" [data]="promotionalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Default Charge Account' | apsTranslate"
+                                                name="vamCoboDefaultChargeAccount" id="vamCoboDefaultChargeAccount" [disabled]="!formData.vamCoboChargeApplicablecheck"
+                                                 [(ngModel)]="formData.vamCoboDefaultChargeAccount"
+                                                [value]="vamCoboDefaultChargeAccount" [data]="defaultChargeAccountArr">
+                                            </aps-custom-select>
+                                            </td>
+                                           
+                                        </tr>
+
+                                        <tr class="text-size-12 ">
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" id="tradeModulecheck" name="tradeModulecheck" [(ngModel)]="formData.tradeModulecheck">
+                                                </p-checkbox> Trade
+                                            </td>
+                                            <td class="p-p-2">
+                                                <p-checkbox [binary]="true" [disabled]="!formData.tradeModulecheck" [(ngModel)]="formData.tradeChargeApplicablecheck" id="tradeChargeApplicablecheck" name="setupChargeApplicablecheck">
+                                                </p-checkbox> 
+                                            </td>
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Normal Charge Category' | apsTranslate"
+                                                name="tradeNormalChargeCategory" id="tradeNormalChargeCategory" [disabled]="!formData.tradeChargeApplicablecheck"
+                                                 [(ngModel)]="formData.tradeNormalChargeCategory"
+                                                [value]="tradeNormalChargeCategory" [data]="normalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                                                name="tradepromotionalChargeCategory" id="tradepromotionalChargeCategory" [disabled]="!formData.tradeChargeApplicablecheck"
+                                                 [(ngModel)]="formData.tradepromotionalChargeCategory"
+                                                [value]="tradepromotionalChargeCategory" [data]="promotionalChargeCategoryArr">
+                                            </aps-custom-select>
+                                            </td>
+
+
+                                            <td class="p-p-2">
+                                                <aps-custom-select [label]="'Default Charge Account' | apsTranslate"
+                                                name="tradeDefaultChargeAccount" id="tradeDefaultChargeAccount" [disabled]="!formData.tradeChargeApplicablecheck"
+                                                 [(ngModel)]="formData.tradeDefaultChargeAccount"
+                                                [value]="tradeDefaultChargeAccount" [data]="defaultChargeAccountArr">
+                                            </aps-custom-select>
+                                            </td>
+                                           
+                                        </tr>
+
+                                        
+                                    </thead>
+
+                                </table>
+
+                            </div>
+                         
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div class="p-pt-2 " *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Corporate Main</div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'CID' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.cid }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Code' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateCode }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateName }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Alias Code' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateAliasCode }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'TRN No' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.trnNo }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Unique ID No' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.uniqueIdNo }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Holding Company' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.holdingCompany }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Country Code' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.countryCode }}</div>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Contact Information
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-12 p-lg-12 ">
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                        <th class="p-p-2 text-left">Person Name</th>
+                                        <th class="p-p-2 text-left">Designation</th>
+                                        <th class="p-p-2 text-left">Email Id</th>
+                                        <th class="p-p-2 text-left">Telephone No</th>
+                                    </tr>
+
+                                    <ng-container *ngFor="let contactInfo of formData.contactInfo; let i = index">
+                                        <tr class="text-size-12 text-color-normal border-bottom">
+                                            <td class="p-p-2">
+                                                {{ contactInfo.contactPersonName }}
+                                            </td>
+                                            <td class="p-p-2">
+                                                {{ contactInfo.designation }}
+                                            </td>
+                                            <td class="p-p-2">
+                                                {{ contactInfo.emailId }}
+                                            </td>
+                                            <td class="p-p-2">
+                                                {{ contactInfo.telNo }}
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Account Mapping</div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-2 background-color-dark-5 p-py-1">
+                        <div class="text-size-12 text-semi-bold">Account Number</div>
+                    </div>
+               
+                    <div class="p-col-2 background-color-dark-5 p-py-1">
+                        <div class="text-size-12 text-semi-bold">Account Title</div>
+                    </div>
+                    <div class="p-col-2 background-color-dark-5 p-py-1">
+                        <div class="text-size-12 text-semi-bold">Account Type</div>
+                    </div>
+                 
+                    <div class="p-col-2 background-color-dark-5 p-py-1">
+                        <div class="text-size-12 text-semi-bold">Currency</div>
+                    </div>
+                    <div class="p-col-2 background-color-dark-5 p-py-1">
+                        <div class="text-size-12 text-semi-bold">Branch</div>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2">
+                    <div class="p-col-2 ">
+                        <p-checkbox id="tnc" name="tnc" label="101010009388539" [binary]="true"  [(ngModel)]="formData.accNoCheckbox1"></p-checkbox>
+                        <p-checkbox id="tnc" name="tnc" label="101010009388577" [binary]="true"  [(ngModel)]="formData.accNoCheckbox2"></p-checkbox>
+                    </div>
+             
+                    <div class="p-col-2 ">
+                        <div class="text-size-14 text-semi-bold">Corporate Saving Account</div>
+                        <div class="text-size-14 text-semi-bold">Receivable Saving Account</div>
+                    </div>
+
+                    <div class="p-col-2 ">
+                        <div class="text-size-14 text-semi-bold">Open</div>
+                        <div class="text-size-14 text-semi-bold">Open</div>
+                    </div>
+
+                    <div class="p-col-2 ">
+                        <div class="text-size-14 text-semi-bold">INR</div>
+                        <div class="text-size-14 text-semi-bold">INR</div>
+                    </div>
+
+                    <div class="p-col-2">
+                        <div class="text-size-14 text-semi-bold">-</div>
+                        <div class="text-size-14 text-semi-bold">-</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Registered /Corporate Office</div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-12 p-lg-12">
+                            <div class="text-size-14 text-bold">
+                                Registered Office
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficeaddress1 }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficeaddress2 }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficeaddress2 }}</div>
+                        </div>
+
+                       
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Location Name' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficelocationName }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Pin/Zip Code' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficepinCode }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Province' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficeprovince }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Tel./Mobile Number' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficemobileNo }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Country' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficecountry }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Fax Number' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficefaxNo }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'City' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficecity }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 "  *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Email Id' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.registeredOfficeEmailId }}</div>
+                        </div>
+
+                       
+                    </div>
+
+
+                    <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                        <div class="p-col-12 p-md-12 p-lg-12">
+                            <div class="text-size-14 text-bold">
+                                Corporate Office
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.address1 }}</div>
+                        </div>
+    
+                        <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses >= 2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.address2 }}</div>
+                        </div>
+    
+                        <div class="p-col-12 p-md-3 p-sm-12 p-pb-0" *ngIf="noOfAddresses === 3">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Address' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.address3 }}</div>
+                        </div>
+    
+                       
+                    </div>
+
+                    <div class="p-grid" *ngIf="!formData.sameAddressAsAbove">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Location Name' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.locationName }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Pin/Zip Code' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.pinCode }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Province' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.province }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Tel./Mobile Number' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.mobileNo }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Country' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.country }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Fax Number' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.faxNo }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'City' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.faxNo }}</div>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Email Id' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.emailId }}</div>
+                        </div>
+                    
+                    </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Parameter</div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Security Office
+                        </div>
+                    </div>
+                </div>
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Password Setup' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.passwordSetup }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate User Administration By' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corpUserAdmBy }}</div>
+                    </div>
+
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Other Parameter Configuration
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                       
+                        <upload-form-control [files]="formData.corporateLogo"
+                        [hideDragDropContainerOnFIleUpload]="true"
+                        (onUploaded)="onSupportingDocumentUploaded($event)"></upload-form-control>
+                        <div class="text-size-14">{{ formData.corporateLogo }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Category Wise Charges' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.categoryWiseCharges }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Holiday Access' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.holidayAccess }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Apply Promotional Charges' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.appplyPromotionalCharges }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Category Wise Charges' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.categoryWiseCharges }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Remote Access on Holiday' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.remoteAccessOnHoliday }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Promotional Charges' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.promotionalCharges }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'H2H File Processing' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.h2hFileProcessing }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Default Charge Account' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.defaultChargeAmount }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Debit Transaction Charges From' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.debitTransactionChargesFrom }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">IP Mapping </div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'IP Mapping' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.ipMapping }}</div>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2"  *ngIf="formData.ipMapping === 'Yes'">
+                    <div class="p-col-12" *ngIf="ipMappingData.ipMapping.length > 0">
+                        <div class="ag-grid-listing aps-h-150 border-radius-5">
+                            <app-ag-grid-listing id="ipMappedGrid" #ipMappedGrid [colDefUrl]="ipMappingColDefs"
+                                [gridOptions]="ipMappedGridOptions"
+                                [rowData]="ipMappingData.ipMapping">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Authorisation Rule </div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="p-grid" >
+                    <div class="p-col-12 p-md-12 p-sm-12">
+                        <app-ag-grid-listing #authRulegrid id="authRulegrid"
+                            [gridOptions]="authRuleGridOptions" [rowData]="formData.authrule"
+                            (gridReady)="onAuthRuleGridReady($event)" [supressAutoFit]="true"
+                            colDefUrl="setup/security/corporateMain/private/userDetailsColDefs">
+                        </app-ag-grid-listing>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Other Information</div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                           Other
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.industryDescription }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.industryDescription }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.industryDescription }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.industryDescription }}</div>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                           Relationship Manager
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Relationship Manager Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.relationshipManagerName }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Login Id' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.loginId }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.employeeCode }}</div>
+                    </div>
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Industry Description' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.industryDescription }}</div>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Core Branch Details
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Core Branch Id' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.coreBranchId }}</div>
+                    </div>
+                </div>
+
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Agreement Details
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Aggrement Date' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.aggrementDate }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Expiry Date' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.expiryDate }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Reference Number' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.referenceNumber }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'No. of days for Review' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.noOfDaysForReview }}</div>
+                    </div>
+
+                    
+                </div>
+
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-12 p-lg-12">
+                        <div class="text-size-14 text-bold">
+                            Other Details
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" >
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Effective From' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.effectiveFrom }}</div>
+                    </div>
+
+                    <div class="p-px-3 p-col-12 p-md-3 p-lg-3 ">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Effective Till' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.expiryDate }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-px-2 p-py-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Module Mapping</div>
+            </div>
+
+            <div class="aps-card-body p-p-2">
+                <div class="table-container p-pl-2">
+                    <table class="table p-py-2">
+                        <thead>
+                            <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                <th class="p-p-2 text-left">Module Name</th>
+                                <th class="p-p-2 text-left">Charge Applicable</th>
+                                <th class="p-p-2 text-left">Normal charge Category</th>
+                                <th class="p-p-2 text-left">Promotional Charge Category</th>
+                                <th class="p-p-2 text-left">Default Charge Account</th>
+                                <th class="p-p-2 text-left">Verification Level</th>
+                                <th class="p-p-2 text-left">Verification Required</th>
+                                <th class="p-p-2 text-left">Total Verifiers</th>
+                            </tr>
+
+                            <tr class="text-size-12 ">
+                                <td class="p-p-2">
+                                    {{ formData.setupModulecheck }}
+                                </td>
+                                <td class="p-p-2">
+                                  
+                                    {{ formData.setupChargeApplicablecheck }}
+
+                                </td>
+                                <td class="p-p-2">
+                                     {{ formData.setupNormalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                {{ formData.setuppromotionalChargeCategory }}
+                                </td>
+
+
+                                <td class="p-p-2">
+                                  
+                                {{ formData.setupDefaultChargeAccount }}
+
+                                </td>
+
+                                <td class="p-p-2" rowspan="5">
+                                    {{ formData.verificationLevel }}
+                                </td>
+
+                                <td class="p-p-2" rowspan="2">
+
+                                    {{ formData.verficationRequired1 }}
+
+                                </td>
+
+                                <td class="p-p-2" rowspan="2">
+                                   
+
+                                {{ formData.noOfVerifier1 }}
+
+                                </td>
+                                
+                               
+                             
+                            </tr>
+
+                            <tr class="text-size-12 ">
+                                <td class="p-p-2">
+                                    {{ formData.paymentsModulecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.paymentsChargeApplicablecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                     {{ formData.paymentsNormalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.paymentspromotionalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.paymentsDefaultChargeAccount }}
+                                </td>
+
+                              
+                               
+                                
+                            </tr>
+                            
+                            <tr class="text-size-12 ">
+                                <td class="p-p-2">
+                                    {{ formData.vamPoboModulecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamPoboChargeApplicablecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                     {{ formData.vamPoboNormalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamPobopromotionalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamPoboDefaultChargeAccount }}
+                                </td>
+
+                                <td class="p-p-2" rowspan="2">
+                                    {{ formData.verficationRequired2 }}
+                                </td>
+
+                                <td class="p-p-2" rowspan="2">
+                                    {{ formData.noOfVerifier2 }}
+                                </td>
+
+                            </tr>
+
+                            <tr class="text-size-12 ">
+                                <td class="p-p-2">
+                                    {{ formData.vamCoboModulecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamCoboChargeApplicablecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                     {{ formData.vamCoboNormalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamCobopromotionalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamCoboDefaultChargeAccount }}
+                                </td>
+
+                            </tr>
+
+                            <tr class="text-size-12 ">
+                                <td class="p-p-2">
+                                    {{ formData.tradeModulecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.tradeChargeApplicablecheck }}
+                                </td>
+
+                                <td class="p-p-2">
+                                     {{ formData.vamPoboNormalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamPobopromotionalChargeCategory }}
+                                </td>
+
+                                <td class="p-p-2">
+                                    {{ formData.vamPoboDefaultChargeAccount }}
+                                </td>
+
+                            </tr>
+
+                      
+                            
+                        </thead>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+
+</div>

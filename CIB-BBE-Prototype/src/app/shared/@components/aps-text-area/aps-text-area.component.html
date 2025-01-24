@@ -1,0 +1,112 @@
+<div class="box">
+  <div *ngIf="style == 'style4'" [ngClass]="error ? 'error' : ''">
+    <label class=".label">{{ label }}</label
+    ><br />
+    <textarea
+      [value]="value"
+      (blur)="onTouched()"
+      (input)="changed($event)"
+      rows="{{ rows }}"
+      cols="{{ cols }}"
+      placeholder="{{ placeholder }}"
+      [attr.minLength]="minLength"
+      [attr.maxLength]="maxLength"
+    ></textarea>
+    <label *ngIf="error" style="color: var(--color-error)" class="help-text"
+      >This field is required</label
+    >
+  </div>
+
+  <label *ngIf="style == 'style3'" class="group" [ngClass]="error ? 'error' : ''">
+    <textarea
+      [readonly]="readOnly"
+      [value]="value"
+      (blur)="onTouched()"
+      [attr.minLength]="minLength"
+      [attr.maxLength]="maxLength"
+      rows="{{ rows }}"
+      (input)="changed($event)"
+      [disabled]="isDisabled"
+      type="text"
+      placeholder="{{ placeholder }}"
+      required
+    ></textarea>
+    <span class="label">{{ label }}</span>
+    <label *ngIf="error" style="color: var(--color-error)" class="help-text"
+      >This field is required</label
+    >
+  </label>
+
+  <div *ngIf="style == 'style6'" [ngClass]="error ? 'error' : ''">
+    <textarea
+      [readonly]="readOnly"
+      [value]="value"
+      (blur)="onTouched()"
+      [attr.minLength]="minLength"
+      [attr.maxLength]="maxLength"
+      rows="{{ rows }}"
+      (input)="changed($event)"
+      [disabled]="isDisabled"
+      type="text"
+      placeholder="{{ placeholder }}"
+      class="ui-autocomplete-input"
+      autocomplete="off"
+      role="textbox"
+      aria-autocomplete="list"
+      aria-haspopup="true"
+    ></textarea>
+    <label *ngIf="error" style="color: var(--color-error)" class="help-text"
+      >This field is required</label
+    >
+  </div>
+
+  <div *ngIf="style == 'style1'" [ngClass]="error ? 'error' : ''" class="textarea-style1">
+    <span class="p-float-label">
+      <textarea
+        required
+        [readonly]="readOnly"
+        [value]="value"
+        (blur)="onTouched()"
+        [attr.minLength]="minLength"
+        [attr.maxLength]="maxLength"
+        rows="{{ rows }}"
+        (input)="changed($event)"
+        [disabled]="isDisabled"
+        type="text"
+        placeholder="{{ placeholder }}"
+        id="float-input"
+        rows="{{ rows }}"
+        pInputTextarea
+      ></textarea>
+      <label for="float-input">Summary</label>
+    </span>
+    <label *ngIf="error" style="color: var(--color-error)" class="help-text"
+      >This field is required</label
+    >
+  </div>
+
+  <div *ngIf="style == 'style2'" [ngClass]="error ? 'error' : ''" class="textarea-style2">
+    <span class="p-float-label">
+      <textarea
+        required
+        [readonly]="readOnly"
+        [value]="value"
+        (blur)="onTouched()"
+        [attr.minLength]="minLength"
+        [attr.maxLength]="maxLength"
+        rows="{{ rows }}"
+        (input)="changed($event)"
+        [disabled]="isDisabled"
+        type="text"
+        placeholder="{{ placeholder }}"
+        id="float-input"
+        rows="{{ rows }}"
+        pInputTextarea
+      ></textarea>
+      <label for="float-input">Summary</label>
+    </span>
+    <label *ngIf="error" style="color: var(--color-error)" class="help-text"
+      >This field is required</label
+    >
+  </div>
+</div>

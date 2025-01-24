@@ -1,0 +1,80 @@
+<div class="calender">
+  <p-calendar
+    #calender
+    [(ngModel)]="value"
+    (onSelect)="changed(value)"
+    (onBlur)="onBlur($event)"
+    [showTime]="showTime"
+    [hourFormat]="hourFormat"
+    [showIcon]="showIcon"
+    [timeOnly]="timeOnly"
+    [dateFormat]="dateFormat"
+    [selectOtherMonths]="selectOtherMonths"
+    [name]="name"
+    [monthNavigator]="monthNavigator"
+    [yearNavigator]="yearNavigator"
+    [yearRange]="yearRange"
+    [dataType]="dataType"
+    [inputId]="id + name"
+    [showOtherMonths]="showOtherMonths"
+    [numberOfMonths]="numberOfMonths"
+    [selectionMode]="selectionMode"
+    [hideOnDateTimeSelect]="hideOnDateTimeSelect"
+    [view]="view"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    appendTo="body"
+  ></p-calendar>
+</div>
+
+<div [ngClass]="{ 'input-control-rtl': direction === 'rtl' }">
+  <div
+    class="default-style"
+    [ngClass]="{
+      'bordered-style': style === 'style3' || style === 'style4',
+      'disable-floating-label': style === 'style2' || style === 'style4',
+      'no-label': !showLabel
+    }"
+  >
+    <div class="form-group" [ngClass]="required ? 'h-66' : 'h-50'">
+      <div class="input-group" [ngClass]="{ 'input-group-error': error }">
+        <input
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [ngClass]="{ 'input-control-with-icon': showIcon }"
+          [value]="value | dateRangeSeprator"
+          (click)="showCalender($event)"
+          (blur)="touched()"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="isDisabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+        />
+
+        <label
+          class="input-label"
+          [ngClass]="{ 'input-label-with-icon-container': showIcon }"
+          [for]="id + label"
+          [ngClass]="{ 'input-label-floating': value }"
+          *ngIf="showLabel"
+        >
+          <span class="label">
+            {{ label }}<span class="text-color-danger" *ngIf="required">*</span>
+          </span>
+        </label>
+
+        <div class="icon" *ngIf="showIcon" (click)="showCalender($event)">
+          <app-icon [icon]="timeOnly ? 'fa-clock' : 'fa-calendar'" class="app-icon"></app-icon>
+        </div>
+      </div>
+
+      <span *ngIf="helpText && !error" class="input-help-text">{{ helpText }}</span>
+      <span *ngIf="error" class="input-error">This field is required</span>
+    </div>
+  </div>
+</div>

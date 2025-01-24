@@ -1,0 +1,53 @@
+{
+  "columnDefs": [
+    {
+      "checkboxSelection": true,
+      "filter": false,
+      "sortable": false,
+      "width": 50,
+      "pinned": "left"
+    },
+    { "headerName": "Batch No.", "field": "batchNo" },
+    { "headerName": "Sponsor Name", "field": "applicantName" },
+    { "headerName": "Seller/Buyer Name", "field": "sellerBuyerName" },
+    { "headerName": "Invoice No.", "field": "number" },
+    {
+      "headerName": "Invoice Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Invoice Date", "field": "date" },
+    { "headerName": "Invoice Due Date", "field": "dueDate" },
+    { "headerName": "Sub Doc Type", "field": "subDocType" },
+    {
+      "headerName": "Invoice Status",
+      "field": "status",
+      "cellRenderer": "invoiceStatusCellRenderer"
+    },
+    {
+      "headerName": "Amount Paid Till Date",
+      "field": "amountPaidTillDate",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Payable Amount",
+      "field": "totPayment",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer",
+      "width": 230,
+      "pinned": "right",
+      "filter": false,
+      "sortable": false
+    }
+  ]
+}

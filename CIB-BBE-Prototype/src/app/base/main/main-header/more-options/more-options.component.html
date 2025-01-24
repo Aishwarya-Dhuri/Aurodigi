@@ -1,0 +1,105 @@
+<div class="more-options-wrapper p-shadow-2 p-p-3 border-radius-10 background-color-light-4">
+  <div>
+    <div class="option inline-block text-color-normal pointer" (click)="openMyTasks()">
+      <div class="icon border-radius-5 background-color">
+        <i class="text-size-16 fal fa-align-center"></i>
+      </div>
+      <div class="text text-size-10">{{ 'My Tasks' | apsTranslate }}</div>
+    </div>
+    <div class="option inline-block text-color-normal pointer">
+      <div class="icon border-radius-5 background-color">
+        <i class="fal fa-check-square"></i>
+      </div>
+      <div class="text text-size-10">{{ 'My Activities' | apsTranslate }}</div>
+    </div>
+    <div class="option inline-block text-color-normal pointer">
+      <div class="icon border-radius-5 background-color">
+        <i class="fal fa-dollar-sign"></i>
+      </div>
+      <div class="text text-size-10">{{ 'Currency Converter' | apsTranslate }}</div>
+    </div>
+  </div>
+
+  <div class="divider-h border-top p-my-2 aps-w-100p"></div>
+
+  <div>
+    <div class="option inline-block text-color-normal pointer" (click)="isInterestRate = true">
+      <div class="icon border-radius-5 background-color">
+        <i class="fal fa-percentage"></i>
+      </div>
+      <div class="text text-size-10">{{ 'Interest Rate' | apsTranslate }}</div>
+    </div>
+    <div class="option inline-block text-color-normal pointer" (click)="isFxRate = true">
+      <div class="icon border-radius-5 background-color">
+        <i class="fal fa-percentage"></i>
+      </div>
+      <div class="text text-size-10">{{ 'Fx Rates' | apsTranslate }}</div>
+    </div>
+    <div class="option inline-block text-color-normal pointer">
+      <div class="icon border-radius-5 background-color">
+        <i class="fal fa-money-bill"></i>
+      </div>
+      <div class="text text-size-10">{{ 'Loan Calculator' | apsTranslate }}</div>
+    </div>
+  </div>
+</div>
+<app-modal [(isShow)]="isFxRate" size="md">
+  <ng-container body>
+    <div class="aps-card aps-h-400">
+      <div class="aps-card-header">
+        <div class="text-size-18 text-bold p-p-1">{{ 'Fx Rates' | apsTranslate }}</div>
+      </div>
+      <div class="aps-card-body">
+        <app-ag-grid-listing
+          id="fxRate"
+          #fxRate
+          [colDefUrl]="fxRateColDefUrl"
+          [rowDefUrl]="fxRateRowDataUrl"
+          [gridOptions]="gridOptions"
+        >
+        </app-ag-grid-listing>
+      </div>
+    </div>
+  </ng-container>
+  <div footer>
+    <div class="left-right-container">
+      <div class="left-container">
+        <div class="text-size-12 p-p-2">
+          {{ 'All exchange are as of 11/01/2020, Expressed in INR' | apsTranslate }}
+        </div>
+      </div>
+      <div class="right-container">
+        <button class="btn btn-md btn-primary" (click)="isFxRate = false">
+          {{ 'CLOSE' | apsTranslate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</app-modal>
+
+<app-modal [(isShow)]="isInterestRate" size="md">
+  <ng-container body>
+    <div class="aps-card aps-h-400">
+      <div class="aps-card-header">
+        <div class="text-size-18 text-bold p-p-1">{{ 'Interest Rates' | apsTranslate }}</div>
+      </div>
+      <div class="aps-card-body">
+        <app-ag-grid-listing
+          id="interestRate"
+          #interestRate
+          [colDefUrl]="interestRateColDefUrl"
+          [rowDefUrl]="interestRateRowDataUrl"
+          [gridOptions]="gridOptions"
+        >
+        </app-ag-grid-listing>
+      </div>
+    </div>
+  </ng-container>
+  <div footer>
+    <div class="text-right">
+      <button class="btn btn-md btn-primary" (click)="isInterestRate = false">
+        {{ 'CLOSE' | apsTranslate }}
+      </button>
+    </div>
+  </div>
+</app-modal>

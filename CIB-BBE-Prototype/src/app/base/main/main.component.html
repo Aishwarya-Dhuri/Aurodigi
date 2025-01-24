@@ -1,0 +1,49 @@
+<p-scrollTop [threshold]="200"></p-scrollTop>
+
+<app-toaster></app-toaster>
+
+<div
+  class="main-layout"
+  [ngClass]="{
+    'menu-sidebar':
+      !isFullScreen && ((this.menuType === 'sidebar' && !pinnedMenu) || this.menuType === 'slim'),
+    'menu-sidebar-pinned':
+      !isFullScreen && ((this.menuType === 'sidebar' && pinnedMenu) || menuType === 'static')
+  }"
+>
+  <div class="main-container">
+    <!-- main header -->
+    <div class="header-container border aps-shadow-1" [apsHide]="isFullScreen">
+      <app-main-header></app-main-header>
+      <div class="secondary-header-container">
+        <app-breadcrumb></app-breadcrumb>
+        <app-action></app-action>
+        <app-topbar-menus *ngIf="menuType === 'horizontal'"></app-topbar-menus>
+      </div>
+    </div>
+
+    <div
+      class="app-menu-container inline-block"
+      *ngIf="menuType !== 'horizontal'"
+      [apsHide]="isFullScreen"
+    >
+      <app-menu></app-menu>
+    </div>
+    <div class="router-outlet-container inline-block" [ngClass]="{ 'p-pt-2': !isFullScreen }">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="app-footer-container p-mt-2" [apsHide]="isFullScreen">
+    <app-main-footer></app-main-footer>
+  </div>
+
+  <div
+    class="app-sidebar-container"
+    [ngClass]="{
+      'app-sidebar-container-toggle': isSidebarOpen
+    }"
+  >
+    <app-right-sidebar class="fade-in-animation"></app-right-sidebar>
+  </div>
+</div>

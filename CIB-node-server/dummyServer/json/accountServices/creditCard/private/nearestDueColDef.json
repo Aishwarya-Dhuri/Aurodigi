@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "Card No", "field": "cardNo" },
+    { "headerName": "Due Date", "field": "dueDate" },
+    { "headerName": "Statement Date", "field": "statementDate" },
+    { "headerName": "Total Outstanding Amount", "field": "outStandingAmount" },
+    { "headerName": "Unbilled Amount", "field": "unbilledAmount" },
+    { "cellRenderer": "actionCellRenderer", "field": "actions", "headerName": "Actions" }
+  ]
+}

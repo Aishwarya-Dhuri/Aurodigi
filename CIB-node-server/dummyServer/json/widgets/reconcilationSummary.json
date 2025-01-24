@@ -1,0 +1,69 @@
+{
+  "autoSize": true,
+  "data": [
+    {
+      "label": "Jan",
+      "matched": 180,
+      "unmatched": 20
+    },
+    {
+      "label": "Feb",
+      "matched": 110,
+      "unmatched": 100
+    },
+    {
+      "label": "March",
+      "matched": 90,
+      "unmatched": 90
+    },
+    {
+      "label": "April",
+      "matched": 50,
+      "unmatched": 40
+    },
+    {
+      "label": "May",
+      "matched": 60,
+      "unmatched": 10
+    }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "label",
+      "yKeys": ["matched", "unmatched"],
+      "yNames": ["Matched", "Unmatched"],
+      "grouped": true,
+      "shadow": { "enabled": false }
+    }
+  ],
+  "axes": [
+    {
+      "type": "category",
+      "position": "bottom",
+      "title": {
+        "text": "Months",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    },
+    {
+      "type": "number",
+      "position": "left",
+      "title": {
+        "text": "Amount",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

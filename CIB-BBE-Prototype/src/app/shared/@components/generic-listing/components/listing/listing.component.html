@@ -1,0 +1,131 @@
+<div class="container">
+  <!-- Top Template  -->
+  <ng-container [ngTemplateOutlet]="topTemplate" *ngIf="viewport === 'web'"></ng-container>
+
+  <!-- listing buttons and Initiate button -->
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-px-0" *ngIf="viewport === 'web'">
+      <div [ngClass]="{ 'left-right-container': viewport === 'web' }">
+        <div class="left-container">
+          <div class="inline-items" [ngClass]="{ 'overflow-x-scroll': viewport !== 'web' }">
+            <div class="item p-mx-2" *ngFor="let listType of listingTypes">
+              <div class="aps-card p-p-2 text-size-14 text-semi-bold pointer border"
+                [ngClass]="{ 'aps-card-primary': listType == selectedList }" (click)="onListTypeClick(listType)">
+                <span class="p-py-1">{{ listType.displayName }}&nbsp;({{ listType.count }})</span>
+                <!-- <span class="p-py-1 inline-block"></span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-container" [ngClass]="{ 'float-right': viewport !== 'web' }">
+          <button class="btn btn-md btn-tertiary" (click)="onInitiateClick()"
+            [ngClass]="{ 'p-m-2': viewport !== 'web', ' p-mx-2 p-my-1': viewport == 'web' }">
+            <app-icon styleClasses="text-color-primary" class="p-px-1" icon="fa-plus"></app-icon>
+            <span class="inline-block">{{ 'lbl_initiate_cap' | translate }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12 p-px-0" *ngIf="viewport === 'mobile'">
+      <div class="inline-items aps-w-100p overflow-x-scroll hide-scroll">
+        <div class="item p-mr-3" *ngFor="let listType of listingTypes">
+          <div class="aps-card p-p-2 text-size-14 text-semi-bold pointer border"
+            [ngClass]="{ 'aps-card-primary': listType == selectedList }" (click)="onListTypeClick(listType)">
+            <span class="p-py-1">{{ listType.displayName }}&nbsp;({{ listType.count }})</span>
+            <!-- <span class="p-py-1 inline-block"></span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listing based on selected List -->
+  <div class="aps-card" [ngClass]="{ 'margin-for-bulk-action': isBulkActionApplicable() }">
+    <div class="p-grid" *ngIf="selectedList">
+      <!-- Listing Heading and header actions -->
+      <div class="p-col-12 p-px-0">
+        <div [ngClass]="{ 'left-right-container': viewport === 'web' }">
+          <div class="left-container">
+            <div class="heading text-size-16 text-bold p-px-3 p-pt-1">
+              {{ selectedList.displayName }}
+            </div>
+          </div>
+          <div class="right-container" *ngIf="viewport === 'web'" [ngClass]="{ 'p-p-2': viewport !== 'web' }">
+            <app-grid-listing-tools (changeFloatingFilter)="genericListing.changeFloatFilter($event)"
+              (filterRecords)="genericListing.onFilter($event)" (applyColDefs)="genericListing.onApplyConfig($event)"
+              [colDefs]="genericListing.columnDefs"></app-grid-listing-tools>
+          </div>
+          <div class="p-px-3 p-pt-1" *ngIf="viewport !== 'web'">
+            <div class="aps-search-container-1">
+              <input type="text" class="aps-search-input" [(ngModel)]="parentSearchText" (change)="onParentMenuSearch()"
+                placeholder="{{ 'lbl_enter_keyword_to_search' | translate }}" />
+              <div class="search-icon">
+                <app-icon icon="fa-search" class="app-icon"></app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- listing -->
+      <div class="p-col-12 p-p-0 generic-listing-container">
+        <app-ag-grid-listing [id]="'generic-listing'" #genericListing [supressAutoFit]="false" [entityName]="entityName"
+          [gridOptions]="gridOptions" [colDefUrl]="selectedList.colDefUrl" [colDefReq]="selectedList.colDefReq"
+          [rowDefUrl]="selectedList.rowDataUrl" (rowSelected)="rowSelected($event)"></app-ag-grid-listing>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Template  -->
+  <ng-container [ngTemplateOutlet]="bottomTemplate"></ng-container>
+
+  <!-- Bulk actions for pending list -->
+  <div class="aps-card p-mt-3 bulk-action-container" *ngIf="isBulkActionApplicable()">
+    <div class="p-grid">
+      <div class="p-col p-p-0">
+        <button class="btn btn-md btn-secondary float-right p-mx-1" (click)="onRejectAllClick()">
+          {{ 'lbl_reject_all' | translate }}
+        </button>
+        <button class="btn btn-md btn-primary float-right p-mx-1" (click)="onAthorizedAllClick()">
+          {{ 'lbl_authorized_all' | translate }}
+        </button>
+        <!-- <button class="btn btn-md btn-tertiary float-right p-mx-1" (click)="onDeleteAllClick()">
+          DELETE ALL
+        </button> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Reject Reaason Modal -->
+  <app-modal *ngIf="isShowRejectReasonModal" [(isShow)]="isShowRejectReasonModal"
+    [headerText]="'lbl_enter_reason_for_rejection' | translate">
+    <ng-container body>
+      <form name="rejectReasonForm" #rejectReasonForm="ngForm">
+        <div class="p-grid">
+          <div class="p-col-12">
+            <aps-form-input label="Reason" name="reason" [(ngModel)]="rejectReason" required="true">
+            </aps-form-input>
+          </div>
+          <div class="p-col-12">
+            <button class="btn btn-md btn-primary float-right" [disabled]="rejectReasonForm.invalid"
+              (click)="processRejection(rejectReason); isShowRejectReasonModal = false">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </app-modal>
+
+  <!-- Confirm Modal -->
+  <app-modal *ngIf="isOpenConfirm" [(isShow)]="isOpenConfirm" [headerText]="'Confirm'" (onClose)="onConfirm(false)">
+    <div class="p-grid" body>
+      <div class="p-col-12 text-size-16">{{ confirmMessage }}</div>
+      <div class="p-col-12">
+        <button class="btn btn-md btn-primary float-right" (click)="onConfirm(true); isOpenConfirm = false">
+          {{ confirmBtnCaption }}
+        </button>
+      </div>
+    </div>
+  </app-modal>
+</div>

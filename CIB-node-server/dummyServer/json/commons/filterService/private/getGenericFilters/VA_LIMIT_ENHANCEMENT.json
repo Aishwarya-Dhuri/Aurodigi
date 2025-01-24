@@ -1,0 +1,37 @@
+{
+  "type": "vam-limitEnhancement",
+  "isLoggable": false,
+  "responseStatus": { "message": "", "status": "0" },
+  "genericFilterAttributes": [],
+  "suggestions": [
+    {
+      "name": "lcNumber",
+      "displayName": "Limit nearing expiry date",
+      "type": "String",
+      "value": 9876541,
+      "value1": "",
+      "operator": "",
+      "displayValue": ""
+    },
+    {
+      "name": "lcIssueDate",
+      "displayName": "Limit Exhausted",
+      "type": "Date",
+      "value": "15-Oct-2021",
+      "value1": "",
+      "operator": "",
+      "displayValue": ""
+    },
+    {
+      "name": "beneficiaryName",
+      "displayName": "Limit nearing allocated amount",
+      "type": "String",
+      "value": "Toyota Group",
+      "value1": "",
+      "operator": "",
+      "displayValue": ""
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

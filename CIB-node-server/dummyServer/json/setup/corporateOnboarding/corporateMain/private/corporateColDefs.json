@@ -1,0 +1,11 @@
+[
+  {
+    "headerName": "Corporate Code",
+    "checkboxSelection": true,
+    "field": "corporateCode"
+  },
+  {
+    "headerName": "Corporate Name",
+    "field": "corporateName"
+  }
+]

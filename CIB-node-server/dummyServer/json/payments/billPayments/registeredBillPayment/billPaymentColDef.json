@@ -1,0 +1,13 @@
+[
+  { "headerName": "Biller Name", "field": "biller", "cellRenderer": "logoWithLabelRenderer" },
+  { "headerName": "Product", "field": "product" },
+  { "headerName": "Total Bills", "field": "totalBills" },
+  {
+    "headerName": "Total Payable Amount",
+    "field": "totalPayableAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Consumers", "field": "consumers" },
+  { "headerName": "Overdue Bills", "field": "overdueBills" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "fetchBillsActionRenderer" }
+]

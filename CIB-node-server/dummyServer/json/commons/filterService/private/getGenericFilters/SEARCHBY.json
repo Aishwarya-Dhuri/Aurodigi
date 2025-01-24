@@ -1,0 +1,109 @@
+{
+  "type": "Reports-Search By",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "product",
+      "displayName": "Product",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "reports/getProduct",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": "parentId,sellerId",
+      "conditionalBasedOn": null,
+      "basedOnIndex": "0,0",
+      "fillFilterName": "sponsorId,nonSponsorId"
+    },
+    {
+      "name": "category",
+      "displayName": "Category",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "reports/getCategory",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": "parentId,sellerId",
+      "conditionalBasedOn": null,
+      "basedOnIndex": "0,0",
+      "fillFilterName": "sponsorId,nonSponsorId"
+    },
+    {
+      "name": "subCategory",
+      "displayName": "Sub Category",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "reports/getSubCategory",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": "parentId,sellerId",
+      "conditionalBasedOn": null,
+      "basedOnIndex": "0,0",
+      "fillFilterName": "sponsorId,nonSponsorId"
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

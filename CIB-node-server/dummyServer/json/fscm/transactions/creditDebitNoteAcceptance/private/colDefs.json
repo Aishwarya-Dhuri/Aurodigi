@@ -1,0 +1,13 @@
+[
+  {
+    "headerName": "Sponsor Name",
+    "field": "sponsorName",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true
+  },
+  { "headerName": "Seller/Buyer Name", "field": "sellerBuyerName" },
+  { "headerName": "Credit/Debit Note Date", "field": "creditDebitNoteDate" },
+  { "headerName": "Credit/Debit Note Amount", "field": "creditDebitNoteAmount" },
+  { "headerName": "Batch No", "field": "batchNo" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

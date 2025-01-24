@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>Compone.t Generator</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link rel="stylesheet" type="text/css" href="./Styles/bootstrap.css" />
+    <link href="./Styles/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="./Styles/global.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="html5lightbox/html5lightbox.js"></script>
+    <script type="text/javascript" src="html5lightbox/froogaloop2.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container topNav">
+        <div class="navigation">Component Generator</div>
+        <div class="logo">
+          <a href="#"> <img src="./images/aurion-pro-logo.png" alt="" /> </a>
+        </div>
+      </div>
+    </header>
+
+    <!--main body-->
+    <div class="container introBody">
+      <div class="introText" style="margin: 150px auto">
+        <form ref="template" id="template" action="/DownloadTemplate" method="get">
+          <input type="submit" class="btn-primary" value="Download Template" />
+        </form>
+        <form ref="downloadSample" id="downloadSample" action="/downloadSample" method="get">
+          <input type="submit" class="btn-primary" style="padding: 6px 45px" value="Sample File" />
+        </form>
+        <form
+          ref="uploadForm"
+          id="uploadForm"
+          action="/upload"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label style="font-size: 16px; text-decoration: underline">Upload Excel Template</label>
+          <input
+            style="margin-top: 10px"
+            class="input"
+            type="file"
+            name="templateFile"
+            accept=".xlsx"
+          />
+          <input type="submit" style="margin-top: 7px" class="btn-primary" value="Upload!" />
+        </form>
+      </div>
+    </div>
+    <!--main body-->
+
+    <footer>
+      <!-- <div class="container container-footer">
+             <div class="copyright">
+                 � Copyright, All Rights REserved With AurionPro
+             </div>
+     </div>-->
+      <!--<a href="#" class="back-to-top" style="display: inline;">Top</a>-->
+    </footer>
+  </body>
+</html>

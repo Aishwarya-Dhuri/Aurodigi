@@ -1,0 +1,47 @@
+[
+  {
+    "bankReferenceNumber": "CBF8743157909",
+    "customerReferenceNumber": "CBF874345643",
+    "transactionDate": "31 May 2015",
+    "transactionDescription": "Central Bank Payments-CBFT",
+    "debited": "9,132",
+    "credited": "-",
+    "balance": "(800)"
+  },
+  {
+    "bankReferenceNumber": "CBF8743157909",
+    "customerReferenceNumber": "CBF874345643",
+    "transactionDate": "31 May 2015",
+    "transactionDescription": "Central Bank Payments-CBFT",
+    "debited": "9,132",
+    "credited": "700",
+    "balance": "-"
+  },
+  {
+    "bankReferenceNumber": "CBF8743157909",
+    "customerReferenceNumber": "CBF874345643",
+    "transactionDate": "31 May 2015",
+    "transactionDescription": "Central Bank Payments-CBFT",
+    "debited": "9,132",
+    "credited": "-",
+    "balance": "(800)"
+  },
+  {
+    "bankReferenceNumber": "CBF8743157909",
+    "customerReferenceNumber": "CBF874345643",
+    "transactionDate": "31 May 2015",
+    "transactionDescription": "Central Bank Payments-CBFT",
+    "debited": "9,132",
+    "credited": "-",
+    "balance": "(800)"
+  },
+  {
+    "bankReferenceNumber": "CBF8743157909",
+    "customerReferenceNumber": "CBF874345643",
+    "transactionDate": "31 May 2015",
+    "transactionDescription": "Central Bank Payments-CBFT",
+    "debited": "9,132",
+    "credited": "1200",
+    "balance": "-"
+  }
+]

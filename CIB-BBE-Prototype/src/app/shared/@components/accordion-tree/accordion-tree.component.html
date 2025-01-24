@@ -1,0 +1,55 @@
+<div class="accordion-tree-container" *ngFor="let node of treeNode; let i = index">
+  <div
+    class="accordion-tree-wrapper"
+    [ngClass]="{
+      'accordion-tree-wrapper-partial-selected': background,
+      'accordion-tree-wrapper-selected': node.check
+    }"
+  >
+    <div class="left-right-container">
+      <div class="left-container">
+        <div class="tree-node-checkbox-container">
+          <div
+            class="tree-node-checkbox"
+            [ngClass]="{ 'tree-node-checkbox-check': node.partialCheck || node.check }"
+            (click)="onCheckboxChecked(!node.check, i)"
+          >
+            <!-- <i class="pi pi-check" *ngIf="node.check"></i> -->
+            <app-icon icon="fa-check" class="app-icon" *ngIf="node.check"></app-icon>
+            <!-- <i class="pi pi-minus" *ngIf="node.partialCheck"></i> -->
+            <app-icon icon="fa-minus" class="app-icon" *ngIf="node.partialCheck"></app-icon>
+          </div>
+        </div>
+
+        <div class="tree-label" (click)="onLabelClicked(node)">{{ node.label }}</div>
+      </div>
+      <div class="right-container">
+        <div class="data">{{ node.data }}</div>
+        <div class="icon" (click)="expandNode(!node.isExpanded, i)">
+          <!-- <i class="pi" [ngClass]="node.isExpanded ? 'pi-chevron-down' : 'pi-chevron-right'"></i> -->
+          <app-icon
+            icon="{{ node.isExpanded ? 'fa-chevron-down' : 'fa-chevron-right' }}"
+            class="app-icon"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="sub-tree-nodes"
+    [ngClass]="{ 'sub-tree-nodes-expanded': node.isExpanded }"
+    *ngIf="(node.children && node.children.length > 0) || childLevel === 0"
+  >
+    <app-accordion-tree
+      #subTreeNodes
+      id="sub-tree-nodes-{{ childLevel + '' + i }}"
+      [treeNode]="node.children ? node.children : []"
+      [childLevel]="childLevel + 1"
+      [background]="true"
+      (checkboxChecked)="onCurrentNodeChecked($event, i)"
+      (leafNodeChecked)="onLeafNodeChecked($event)"
+      (labelClicked)="onLabelClickedEvent($event)"
+    ></app-accordion-tree>
+  </div>
+</div>

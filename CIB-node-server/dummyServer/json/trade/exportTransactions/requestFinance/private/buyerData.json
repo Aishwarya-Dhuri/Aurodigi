@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": 123456,
+      "buyerCode": "220000665",
+      "buyerName": "Pepsico",
+      "buyerAddress": "Punjab National Bank",
+      "country": "India",
+      "pinCode": "400708",
+      "mobileNumber": "9876543232",
+      "email": "abs@gmail.com",
+      "bankSwiftCode": "BK1234",
+      "bankName": "Abcd Bank",
+      "bankAddress": "India",
+      "buyerAccountNo": "IND 111002670010"
+    },
+    {
+      "id": 567890,
+      "buyerCode": "220000665",
+      "buyerName": "Nestle",
+      "buyerAddress": "Punjab National Bank",
+      "country": "India",
+      "pinCode": "400708",
+      "mobileNumber": "9876543232",
+      "email": "abs@gmail.com",
+      "bankSwiftCode": "BK1234",
+      "bankName": "Abcd Bank",
+      "bankAddress": "India",
+      "buyerAccountNo": "IND 111002670010"
+    }
+  ],
+  "lastRow": 2,
+  "responseStatus": {
+    "message": "MSG_KEY_SUCCESS",
+    "status": "0"
+  }
+}

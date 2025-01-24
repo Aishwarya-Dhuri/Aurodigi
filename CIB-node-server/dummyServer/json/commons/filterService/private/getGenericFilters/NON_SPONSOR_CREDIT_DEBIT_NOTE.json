@@ -1,0 +1,86 @@
+{
+  "type": "Fscm-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": { "message": "", "status": "0" },
+  "genericFilterAttributes": [
+    {
+      "name": "creditDebitNoteNumber",
+      "displayName": "Credit/Debit Note Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "creditDebitNoteAmount",
+      "displayName": "Credit/Debit Note Amount",
+      "type": "String",
+      "fieldType": "AMOUNT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "creditDebitNoteDate",
+      "displayName": "Credit/Debit Note Date",
+      "type": "String",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "validTillDate",
+      "displayName": "Valid Till Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+
+    {
+      "name": "batchNumber",
+      "displayName": "Batch Number",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

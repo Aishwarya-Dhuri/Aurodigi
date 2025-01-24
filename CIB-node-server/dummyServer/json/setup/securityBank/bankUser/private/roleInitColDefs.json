@@ -1,0 +1,19 @@
+[
+  {
+    "headerName": "Sr No",
+    "valueGetter": "node.rowIndex + 1"
+  },
+  {
+    "headerName": "Module Name",
+    "field": "moduleName"
+  },
+  {
+    "headerName": "Role",
+    "field": "roleName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "initActions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

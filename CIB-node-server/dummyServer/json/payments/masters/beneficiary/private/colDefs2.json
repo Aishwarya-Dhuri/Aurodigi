@@ -1,0 +1,7 @@
+[
+  { "headerName": "Instrument Dispatch To", "field": "instrumentDispatchTo" },
+  { "headerName": "Instrument Dispatch Mode", "field": "instrumentDispatchMode" },
+  { "headerName": "Beneficiary Advice Dispatch Mode", "field": "beneficiaryAdviceDispatchMode" },
+  { "headerName": "Status", "field": "status" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

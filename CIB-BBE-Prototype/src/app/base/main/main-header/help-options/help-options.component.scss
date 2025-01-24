@@ -1,0 +1,11 @@
+.help-options-wrapper {
+  width: 11rem;
+
+  .option:hover {
+    background-color: var(--primary-color-light-shade-1);
+  }
+
+  .divider-h {
+    height: 0;
+  }
+}

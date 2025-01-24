@@ -1,0 +1,38 @@
+[
+  {
+    "biller": "biller",
+    "product": "Product",
+    "subscriberName": "subscriberName",
+    "transactionRefNo": "refno_01",
+    "billDate": "21 Jul 2024",
+    "billDueDate": "21 Jul 2024",
+    "billAmount": "10000",
+    "paymentAmount": "1000",
+    "referenceField1": "ref1",
+    "referenceField2": "ref2",
+    "referenceField3": "ref3",
+    "referenceField4": "ref4",
+    "channel": "channel",
+    "status": "Approved",
+    "actions": [
+      {
+        "index": 1,
+        "onClick": "view",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye",
+        "methodName": "onView",
+        "parameterList": ""
+      },
+      {
+        "index": 2,
+        "onClick": "link",
+        "type": "ICON",
+        "displayName": "link",
+        "icon": "fa-link",
+        "methodName": "onLink",
+        "parameterList": ""
+      }
+    ]
+  }
+]

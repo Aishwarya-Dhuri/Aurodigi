@@ -1,0 +1,39 @@
+<div class="user-tasks-container background-color-light-4 aps-h-100p">
+  <div class="tasks-header">
+    <div class="header-text">
+      <app-icon icon="fa-language" class="app-icon"></app-icon>
+      {{ 'Language' | apsTranslate }}
+    </div>
+    <div class="header-actions">
+      <div class="action" (click)="closeSidebar()">
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="language-input">
+    <span class="aps-w-100p p-input-icon-left">
+      <i class="fal fa-search"></i>
+      <input class="aps-search-input" type="search" pInputText placeholder="Search Language" />
+    </span>
+  </div>
+
+  <div class="languages">
+    <div class="language-wrapper" *ngFor="let lang of languages; let i = index">
+      <div class="language">{{ lang.displayName }}</div>
+      <div
+        class="tick"
+        [ngClass]="{ 'tick-selected': lang.id === language.id }"
+        (click)="changeLanguage(lang.id)"
+      >
+        <div class="tick-mark" *ngIf="lang.id === language.id"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="save-button">
+    <button type="button" class="aps-w-100p btn btn-md btn-primary">
+      {{ 'SAVE' | apsTranslate }}
+    </button>
+  </div>
+</div>

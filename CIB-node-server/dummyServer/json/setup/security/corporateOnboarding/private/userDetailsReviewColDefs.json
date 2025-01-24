@@ -1,0 +1,36 @@
+[
+  {
+    "headerName": "Full Name",
+    "field": "firstName"
+  },
+  {
+    "headerName": "User ID",
+    "field": "userId"
+  },
+  {
+    "headerName": "Email ID",
+    "field": "emailId"
+  },
+  {
+    "headerName": "Mobile Number",
+    "field": "mobileNo"
+  },
+  {
+    "headerName": "Default Limit(USD)",
+    "field": "defaultLimit"
+  },
+  {
+    "headerName": "Profile",
+    "field": "profile"
+  },
+  {
+    "headerName": "Role",
+    "field": "role"
+  },
+  {
+    "headerName": "Actions",
+    "field": "reviewActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

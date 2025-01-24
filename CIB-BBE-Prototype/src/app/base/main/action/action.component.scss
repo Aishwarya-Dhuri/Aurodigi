@@ -1,0 +1,22 @@
+.action-container {
+  width: 28%;
+  .action-wrapper {
+    .widget-actions {
+      .active {
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        color: var(--inverted-text-color);
+      }
+    }
+
+    .actions:not(:last-child) {
+      border-right: 1px solid var(--background-color-dark-1);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .action-container {
+    width: 97%;
+  }
+}

@@ -1,0 +1,20 @@
+[
+  { "headerName": "Card Number", "field": "cardNo" },
+  {
+    "headerName": "Account Number",
+    "field": "accountNumber"
+  },
+  { "headerName": "Card Type", "field": "cardType" },
+  { "headerName": "Embossed Name", "field": "embossedName" },
+  { "headerName": "Card Holder Name", "field": "cardHolderName" },
+  { "headerName": "Card Holder CID", "field": "cardHolderCid" },
+  { "headerName": "Card Limit", "field": "cardLimit", "cellRenderer": "amountRenderer" },
+  { "headerName": "Expiry Date", "field": "expiryDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Status", "field": "status" },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

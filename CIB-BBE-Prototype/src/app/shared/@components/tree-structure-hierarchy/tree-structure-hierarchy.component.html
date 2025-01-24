@@ -1,0 +1,25 @@
+<div class="hierarchy-tree-structure-container p-pt-3 background-color-light-1">
+  <div class="zoom-icons" *ngIf="treeStructureHierarchy && treeStructureHierarchy.length > 0">
+    <div class="icon" (click)="zoom = zoom + 10">
+      <app-icon icon="fa-plus" class="app-icon"></app-icon>
+    </div>
+    <div class="icon" (click)="zoom = zoom - 10">
+      <app-icon icon="fa-minus" class="app-icon"></app-icon>
+    </div>
+  </div>
+  <div class="hierarchy-tree-structure" [style]="{ zoom: zoom + '%' }">
+    <p-organizationChart
+      [value]="treeStructureHierarchy"
+      [preserveSpace]="false"
+      selectionMode="single"
+      styleClass="company"
+    >
+      <ng-template let-node pTemplate="leaf">
+        <span (click)="onSelectNode(node)">{{ node.label }}</span>
+      </ng-template>
+      <ng-template let-node pTemplate="default">
+        <span (click)="onSelectNode(node)">{{ node.label }}</span>
+      </ng-template>
+    </p-organizationChart>
+  </div>
+</div>

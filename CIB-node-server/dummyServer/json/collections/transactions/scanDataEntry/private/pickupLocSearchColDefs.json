@@ -1,0 +1,6 @@
+{
+  "columnDefs": [
+    { "headerName": "Pickup Location Code", "field": "pickupLocationCode", "checkboxSelection": true },
+    { "headerName": "Pickup Location Name", "field": "pickupLocationName" }
+  ]
+}

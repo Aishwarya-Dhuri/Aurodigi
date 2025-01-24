@@ -1,0 +1,28 @@
+[
+  {
+    "headerName": "Account Number",
+    "field": "accountNo",
+    "hide": true
+  },
+  {
+    "headerName": "Bank",
+    "field": "bank"
+  },
+  {
+    "headerName": "Country",
+    "field": "country"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Type",
+    "field": "accType"
+  },
+  {
+    "headerName": "Type",
+    "field": "type"
+  },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

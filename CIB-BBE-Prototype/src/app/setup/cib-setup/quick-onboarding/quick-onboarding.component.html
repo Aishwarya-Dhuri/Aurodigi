@@ -1,0 +1,477 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Corporate Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class=" p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'CID' | apsTranslate" name="cid"
+                                id="cid" [(ngModel)]="formData.cid" [required]="true">
+                            </aps-form-input>
+                        </div>
+
+                        <div class="p-col-12 p-md-1 p-lg-1 p-pt-3">
+                            <button class="btn btn-md btn-primary" [disabled]="!formData.cid" (click)="onFetch = true">
+                                VALIDATE
+                            </button>
+                        </div>
+
+                        <div class="p-col-12 p-md-2 p-lg-2 p-pb-0" *ngIf="onFetch">
+                            <div class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2">
+                                Corporate Name
+                            </div>
+                            <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                                {{ formData.corporateName }}
+                            </div>
+                        </div>
+
+
+
+                        <!-- <div class=" p-col-12 p-md-3 p-lg-3 p-py-0" *ngIf="onFetch">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Corporate Name' | apsTranslate"
+                                name="corporateName" id="corporateName" [(ngModel)]="formData.corporateName"
+                                required="true" disabled>
+                            </aps-form-input>
+                        </div> -->
+                    </div>
+
+                    <div class="p-grid">
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="noSpace" [label]="'Group Name' | apsTranslate" name="groupName"
+                                id="groupName" [(ngModel)]="formData.groupName" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="noSpace" [label]="'Corporate Code' | apsTranslate"
+                                name="corporateCode" id="corporateCode" [(ngModel)]="formData.corporateCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Corporate Category' | apsTranslate" name="corporateCat"
+                                id="corporateCat" [(ngModel)]="formData.corporateCat"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/corporateCat"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Module Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid" *ngFor="let module of modules">
+                        <div class="p-col-12 p-md-3 p-sm-12" style="padding-top: 18px;">
+                            <p-checkbox [(ngModel)]="module.moduleCheckbox" [value]="module.moduleCheckbox"
+                                class="p-px-1" id="moduleCheckbox" name="moduleCheckbox" [binary]="true"
+                                [label]="module.name" (click)="onClickCheckbox(module.name)">
+                            </p-checkbox>
+                        </div>
+
+                        <div class=" p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Package' | apsTranslate" [(ngModel)]="module.package"
+                                [value]="module.package" [disabled]="!module.moduleCheckbox"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/package" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class=" p-col-12 p-md-3 p-sm-12" style="padding-top: 23px;">
+                            <button class="btn background text-size-16" [disabled]="!module.moduleCheckbox"
+                                (click)="isShowModule = true"><app-icon icon="fa-eye"></app-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="aps-card p-mb-3">
+            <form name="userDetailForm" #userDetailsForm="ngForm">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> User Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'User ID' | apsTranslate"
+                                name="userId" id="userId" [(ngModel)]="transactionFormData.userId"
+                                [value]="transactionFormData.userId" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'First Name' | apsTranslate"
+                                name="firstName" id="firstName" [(ngModel)]="transactionFormData.firstName"
+                                [value]="transactionFormData.firstName" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Last Name' | apsTranslate"
+                                name="lastName" id="lastName" [(ngModel)]="transactionFormData.lastName" required="true"
+                                [value]="transactionFormData.lastName">
+                            </aps-form-input>
+                        </div>
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Email ID' | apsTranslate"
+                                name="emailId" id="emailId" [(ngModel)]="transactionFormData.emailId"
+                                [value]="transactionFormData.emailId" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class=" p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Mobile Number' | apsTranslate"
+                                name="mobileNo" id="mobileNo" [(ngModel)]="transactionFormData.mobileNo"
+                                [value]="transactionFormData.mobileNo" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Profile Name' | apsTranslate" name="profileName"
+                                id="profileName" [(ngModel)]="transactionFormData.profileName"
+                                [value]="transactionFormData.profileName"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/profileName" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Gender' | apsTranslate" name="gender" id="gender"
+                                [(ngModel)]="transactionFormData.gender" [value]="transactionFormData.gender"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/gender" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Category' | apsTranslate" name="category" id="category"
+                                [(ngModel)]="transactionFormData.category" [value]="transactionFormData.category"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/category" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Corporate Role' | apsTranslate" name="corporateRole"
+                                id="corporateRole" [(ngModel)]="transactionFormData.corporateRole"
+                                [value]="transactionFormData.corporateRole"
+                                dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/corporateRole"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class=" p-col-12 p-md-12 p-lg-12">
+                            <button class="btn btn-md btn-primary float-right" [disabled]="userDetailsForm.invalid"
+                                (click)="editIndex > -1 ? onUpdateTransaction() : onAddTransactionClick()">
+                                {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-grid aps-h-200">
+                        <div class=" p-col-12 p-md-12 p-sm-12">
+                            <app-ag-grid-listing #currencySellInit id="currencySellInit"
+                                [gridOptions]="currencySellGridOptions" [rowData]="formData.transaction"
+                                (gridReady)="onCurrencySellInitGridReady($event)" [supressAutoFit]="true"
+                                colDefUrl="setup/cibSetup/quickOnboarding/private/userDetailsColDefs">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1"> Corporate Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid p-px-2">
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'CID' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.cid }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateName }}</div>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Group Name' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.groupName }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Code' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateCode }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <div class="text-size-12 text-color-light-shade-1">
+                            {{ 'Corporate Category' | apsTranslate }}
+                        </div>
+                        <div class="text-size-14">{{ formData.corporateCat }}</div>
+                    </div>
+                </div>
+
+                <!-- <div class="p-grid p-px-2">
+                    <div class=" p-col-12 p-md-3 p-lg-3 p-py-0">
+                        <div class="p-p-2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Effective From' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.effectiveFrom }}</div>
+                        </div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-lg-3 p-py-0">
+                        <div class="p-p-2">
+                            <div class="text-size-12 text-color-light-shade-1">
+                                {{ 'Effective Till' | apsTranslate }}
+                            </div>
+                            <div class="text-size-14">{{ formData.effectiveTill }}</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1"> Module Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid" *ngFor="let module of modules">
+                    <div class="p-col-12 p-md-3 p-sm-12" style="padding-top: 18px;">
+                        <p-checkbox [(ngModel)]="module.moduleCheckbox" [value]="module.moduleCheckbox" class="p-px-1"
+                            id="moduleCheckbox" name="moduleCheckbox" [binary]="true" [label]="module.name"
+                            (click)="onClickCheckbox(module.name)" disabled>
+                        </p-checkbox>
+                    </div>
+
+                    <div class=" p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Package' | apsTranslate" [(ngModel)]="module.package"
+                            [value]="module.package" [disabled]="!module.moduleCheckbox"
+                            dataUrl="setup/cibSetup/quickOnboarding/private/dropdown/package" [required]="true">
+                        </aps-custom-select>
+                    </div>
+
+                    <div class=" p-col-12 p-md-3 p-sm-12" style="padding-top: 23px;">
+                        <button class="btn background text-size-16" [disabled]="!module.moduleCheckbox"
+                            (click)="isShowModule = true"><app-icon icon="fa-eye"></app-icon></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1"> User Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 aps-h-200">
+                        <app-ag-grid-listing #currencySellReview id="currencySellReview" [supressAutoFit]="true"
+                            (rowSelected)="onRowSelected($event)" [gridOptions]="currencySellGridOptions"
+                            [rowData]="formData.transaction" (gridReady)="onCurrencySellReviewGridReady($event)"
+                            colDefUrl="setup/cibSetup/quickOnboarding/private/userDetailsReviewColDefs">
+                        </app-ag-grid-listing>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <app-modal [(isShow)]="isShowViewModal" size="md" [headerText]="'View Transaction Details' | apsTranslate"
+        (onClose)="onCloseViewModal()">
+
+        <div class="p-grid">
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'User ID' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.userId }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'First Name' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.firstName }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Last Name' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.lastName }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Email ID' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.emailId }}</div>
+            </div>
+
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Mobile Number' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.mobileNo }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Profile Name' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.profileName }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Gender' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.gender }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Category' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.category }}</div>
+            </div>
+            <div class=" p-col-12 p-md-4 p-sm-4">
+                <div class="text-xs text-color-normal">{{ 'Corporate Role' | apsTranslate }}</div>
+                <div class="text-size-13 text-color-dark-shade-1">{{ transactionViewData?.corporateRole }}</div>
+            </div>
+        </div>
+
+    </app-modal>
+
+
+    <app-modal [(isShow)]="isShowModule" size="lg" [headerText]="moduleHeader">
+        <div class="overflow-scroll">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Corporat Code' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{viewModuleData.corporateCode }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Role Code' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.roleCode }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Role Name' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.roleName }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Module Name' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.moduleName }}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Corporate Role Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Role Type' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.roleType }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Role Code' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.roleCode }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Role Name' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.roleName }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Module Name' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.moduleName }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Effective From' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.effectiveFrom }}</div>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-sm-3">
+                        <div class="text-size-14 text-color-normal">{{ 'Effective Till' | apsTranslate }}</div>
+                        <div class="text-size-13 text-color-dark-shade-1">{{ viewModuleData.effectiveTill }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Module Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid aps-h-200">
+                    <div class="p-col-12 p-md-12 p-sm-12">
+                        <div class="table-container p-pl-2">
+                            <table class="table">
+                                <thead>
+                                    <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                        <th class="p-p-2 text-left">Masters</th>
+                                        <th class="p-p-2 text-left">View</th>
+                                        <th class="p-p-2 text-left">Data Entry</th>
+                                        <th class="p-p-2 text-left">Authorize</th>
+                                        <th class="p-p-2 text-left">Enable/Disable</th>
+                                        <th class="p-p-2 text-left">Execute</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="">
+                                    <tr class="text-size-12 text-color-normal border-bottom"
+                                        *ngFor="let master of masters">
+                                        <td class="p-p-2 text-size-14">
+                                            {{master.name}}
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-checkbox [binary]="true" id="setupCheckbox" name="setupCheckbox"
+                                                [(ngModel)]="master.viewCheckbox" disabled>
+                                            </p-checkbox>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-checkbox [binary]="true" id="setupCheckbox" name="setupCheckbox"
+                                                [(ngModel)]="master.dataEntryCheckbox" disabled>
+                                            </p-checkbox>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-checkbox [binary]="true" id="setupCheckbox" name="setupCheckbox"
+                                                [(ngModel)]="master.authorizeCheckbox" disabled>
+                                            </p-checkbox>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-checkbox [binary]="true" id="setupCheckbox" name="setupCheckbox"
+                                                [(ngModel)]="master.enableDisableCheckbox" disabled>
+                                            </p-checkbox>
+                                        </td>
+                                        <td class="p-p-2">
+                                            <p-checkbox [binary]="true" id="setupCheckbox" name="setupCheckbox"
+                                                [(ngModel)]="master.executeCheckbox" disabled>
+                                            </p-checkbox>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </app-modal>
+
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>

@@ -1,0 +1,35 @@
+.limit-bar-container {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  .utilized {
+    display: inline-block;
+    vertical-align: top;
+    background-color: var(--chart-0);
+    height: 100%;
+  }
+  .available {
+    display: inline-block;
+    vertical-align: top;
+    background-color: var(--chart-2);
+    height: 100%;
+  }
+}
+
+.ellipse {
+  margin-top: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(203, 212, 212);
+}
+
+.ellipse-utilized {
+  background-color: var(--chart-0);
+}
+
+.ellipse-available {
+  background-color: var(--chart-2);
+}

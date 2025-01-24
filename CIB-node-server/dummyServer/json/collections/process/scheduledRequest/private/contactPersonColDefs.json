@@ -1,0 +1,26 @@
+[
+  {
+    "headerName": "Primary/Secondary",
+    "field": "primarySecondary"
+  },
+  {
+    "headerName": "Name",
+    "field": "name",
+    "cellRenderer": "collectionFormInputRenderer"
+  },
+  {
+    "headerName": "Telephone Number",
+    "field": "serviceTypePurpose",
+    "cellRenderer": "collectionFormInputRenderer"
+  },
+  {
+    "headerName": "Mobile Number",
+    "field": "payerIdConsumerNo",
+    "cellRenderer": "collectionFormInputRenderer"
+  },
+  {
+    "headerName": "Email ID",
+    "field": "emailId",
+    "cellRenderer": "collectionFormInputRenderer"
+  }
+]

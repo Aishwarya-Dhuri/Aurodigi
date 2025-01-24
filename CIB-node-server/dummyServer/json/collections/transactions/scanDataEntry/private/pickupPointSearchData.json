@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "id": "2883623",
+      "pickupPointCode": "Studio001",
+      "pickupPointName": "Standford Store"
+    },
+    {
+      "id": "2883624",
+      "pickupPointCode": "Studio002",
+      "pickupPointName": "Bishop Store"
+    },
+    {
+      "id": "2883625",
+      "pickupPointCode": "Studio003",
+      "pickupPointName": "Kae View Store"
+    }
+   
+  ],
+  "lastRow": 10
+}

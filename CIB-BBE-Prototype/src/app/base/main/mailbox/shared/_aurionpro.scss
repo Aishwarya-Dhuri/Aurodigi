@@ -1,0 +1,309 @@
+/* Common */
+
+$commonBorderColor: #dddddd;
+$mainBgColor: #dfdfdf;
+$defaultWhiteColor: #fff;
+$commonFontColor: #404040;
+$inputBorderColor: #ced4da;
+$errorMsgColor: #b00020;
+
+/* Change */
+
+$primaryColor: #3ab0c4;
+$primaryHoverColor: #086c7d;
+$secondaryColor: #086c7d;
+$tertiaryColor: rgb(58 176 196 / 22%);
+$tertiaryHoverColor: rgb(58 176 196 / 49%);
+$composeBgColor: #3ab0c4;
+$composeBorderColor: #237380;
+$quaternaryColor: #e7f6fc;
+
+/* Common Button */
+
+.c-btn-primary.p-button {
+  background: $primaryColor;
+  color: $defaultWhiteColor;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $primaryHoverColor;
+  }
+}
+
+.c-btn-secondary.p-button {
+  background: $tertiaryColor;
+  color: $primaryColor;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $tertiaryHoverColor;
+    color: $primaryColor;
+  }
+}
+
+.brower-file-css.p-button-text {
+  color: $primaryColor;
+  &:hover {
+    color: $primaryColor !important;
+  }
+}
+
+// .p-button-rounded {
+//     span {
+//         color: $commonFontColor;
+//     }
+// }
+
+// /* Common Input */
+
+// .p-inputtext:enabled:focus,
+// .p-dropdown:not(.p-disabled).p-focus {
+//     box-shadow: inset 0 0 0 1px $primaryColor, inset 0 0 0 1px $primaryColor, inset 0 0 0 1px $primaryColor, inset 0 0 0 1px $primaryColor;
+// }
+
+// .p-float-label .p-inputwrapper-focus~label {
+//     color: $primaryColor;
+// }
+
+// .p-float-label input:focus~label,
+// .p-float-label .p-inputwrapper-focus~label {
+//     color: $primaryColor;
+// }
+
+// .p-dropdown,
+// .p-dropdown:not(.p-disabled):hover,
+// .p-inputtext,
+// .p-inputtext:not(.p-disabled):hover,
+// .p-multiselect,
+// .p-multiselect:not(.p-disabled):hover,
+// .compose-Mail-Form-section .mail-editor-section {
+//     border-color: $inputBorderColor;
+// }
+
+.ck-editor__editable_inline {
+  border-color: $inputBorderColor !important;
+}
+
+/* Common Checkbox */
+
+// .p-multiselect-item.p-highlight {
+//     span {
+//         color: $primaryHoverColor;
+//     }
+// }
+
+// .p-checkbox .p-checkbox-box.p-highlight {
+//     border-color: $primaryColor;
+//     background: $primaryColor;
+//     &:hover {
+//         border-color: $primaryHoverColor !important;
+//         background: $primaryHoverColor !important;
+//     }
+// }
+
+// .p-multiselect.p-multiselect-chip .p-multiselect-token {
+//     background-color: $quaternaryColor;
+//     color: $primaryColor;
+// }
+
+// /* Common Radio */
+
+// .p-radiobutton .p-radiobutton-box.p-highlight,
+// .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled).p-focus {
+//     border-color: $primaryColor;
+// }
+
+// .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+//     background-color: $primaryColor;
+// }
+
+// .p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+//     border-color: $primaryColor;
+//     color: $primaryColor;
+// }
+
+.mail-box-right-container {
+  background-color: $defaultWhiteColor;
+}
+
+.error-msg {
+  color: $errorMsgColor;
+}
+
+/* Header Component */
+
+.main-box-header {
+  background-color: #086c7d;
+  .header-menu {
+    color: $defaultWhiteColor;
+    &:hover {
+      background-color: $tertiaryColor;
+    }
+  }
+  .header-brand-name {
+    color: $defaultWhiteColor;
+  }
+}
+
+/* Compose Mail */
+
+.compose-Mail-Form-section {
+  .footer-section {
+    .warring-attach {
+      color: $commonFontColor;
+    }
+  }
+  .mult-select-input .p-multiselect {
+    &:after {
+      color: $defaultWhiteColor;
+      background-color: $primaryColor;
+    }
+  }
+}
+
+/* Confirmation Dialog */
+
+.confirmation-model .p-dialog-content {
+  .p-confirm-dialog-icon {
+    color: $tertiaryColor;
+  }
+  .p-confirm-dialog-message {
+    color: $commonFontColor;
+  }
+}
+
+/* Side Nav */
+
+.side-nav-item {
+  background-color: $defaultWhiteColor;
+  li {
+    color: $secondaryColor;
+    .badge {
+      span {
+        background: $secondaryColor;
+        color: $defaultWhiteColor;
+      }
+    }
+    &:hover {
+      background-color: $secondaryColor;
+      color: $defaultWhiteColor;
+      .badge {
+        span {
+          background: $primaryColor;
+        }
+      }
+    }
+    &.active {
+      background-color: $secondaryColor;
+      color: $defaultWhiteColor;
+      .badge {
+        span {
+          background: $primaryColor;
+        }
+      }
+    }
+  }
+  .add-mail {
+    background-color: $composeBgColor;
+    border-color: $composeBorderColor;
+    color: $defaultWhiteColor;
+    &:hover {
+      background-color: $composeBgColor;
+      border-color: $composeBgColor;
+    }
+  }
+}
+
+/* Listing */
+
+.common-table-section {
+  border-color: $commonBorderColor;
+  .p-datatable .p-datatable-thead > tr > th,
+  .p-datatable-scrollable-header {
+    background-color: $primaryColor;
+    color: $defaultWhiteColor;
+  }
+  .p-datatable .p-datatable-thead > tr > th {
+    .p-checkbox .p-checkbox-box.p-highlight {
+      border-color: $composeBorderColor;
+      background: $composeBgColor;
+      &:hover {
+        border-color: $composeBorderColor !important;
+        background: $composeBgColor !important;
+      }
+    }
+  }
+  .mb-listing-filter-btn {
+    span {
+      color: $defaultWhiteColor;
+    }
+  }
+}
+
+.generic-listing-search {
+  box-shadow: 0px 1px 3px 1px $tertiaryColor;
+}
+
+/* Pagination */
+
+.pagination-section {
+  .p-button.p-button-text,
+  .brower-file-css span {
+    color: $commonFontColor;
+  }
+}
+
+/* Attachment Css */
+
+.attachment-section {
+  .multi-doc-section {
+    .multi-doc-item {
+      background-color: $quaternaryColor;
+      color: $primaryColor;
+      span {
+        color: $commonFontColor;
+      }
+    }
+  }
+}
+
+/* View Mail */
+
+.mail-box-view {
+  fieldset {
+    border-color: $commonBorderColor;
+    legend {
+      color: $commonFontColor;
+    }
+    ul {
+      li {
+        background-color: $tertiaryColor;
+        color: $composeBgColor;
+      }
+    }
+  }
+  .header-date-color {
+    color: $commonFontColor;
+  }
+}
+
+/* Trimmed Mail */
+
+.trimmed-mail-section {
+  .trimmed-icon {
+    i {
+      background-color: $commonBorderColor;
+      color: $commonFontColor;
+    }
+  }
+}
+
+/* Reply & Forward */
+
+.isModeMessage {
+  .p-divider.p-divider-horizontal {
+    &::before {
+      border-color: #000;
+    }
+  }
+}

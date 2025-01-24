@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Batch Code",
+      "field": "batchCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Batch No",
+      "field": "batchNo"
+    }
+  ]
+}

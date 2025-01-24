@@ -1,0 +1,12 @@
+[
+  { "headerName": "Client", "field": "client" },
+  { "headerName": "Prod", "field": "product" },
+  { "headerName": "Limit Node", "field": "limitNode" },
+  {
+    "headerName": "Sanctioned",
+    "field": "totalAllocatedLimit",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Utilized", "field": "utilizedLimit", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Available", "field": "availableLimit", "cellRenderer": "currencyRenderer" }
+]

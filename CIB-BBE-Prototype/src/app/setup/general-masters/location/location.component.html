@@ -1,0 +1,129 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Exchange Rate Detail</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="locationCode" name="locationCode"
+                                [label]="'Location Code' | apsTranslate" [(ngModel)]="formData.locationCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="locationName" name="locationName"
+                                [label]="'Location Name' | apsTranslate" [(ngModel)]="formData.locationName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12 p-pb-0">
+                            <aps-custom-select [label]="'Country Code' | apsTranslate" name="countryCode"
+                                id="countryCode" [(ngModel)]="formData.countryCode" [data]="countryCodeList"
+                                [required]="true" (change)="onChangeCountryCode(formData.countryCode)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="countryName" name="countryName"
+                                [label]="'Country Name' | apsTranslate" [(ngModel)]="formData.countryName"
+                                required="true" disabled>
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Province Code' | apsTranslate" name="provinceCode"
+                                id="provinceCode" [(ngModel)]="formData.provinceCode" [data]="provinceCodeList"
+                                [required]="true" (change)="onChangeProvinceCode(formData.provinceCode)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="provinceName" name="provinceName"
+                                [label]="'Province Name' | apsTranslate" [(ngModel)]="formData.provinceName"
+                                required="true" disabled>
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="postalCode" name="postalCode"
+                                [label]="'Postal Code' | apsTranslate" [(ngModel)]="formData.postalCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Exchange Rate Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Location Code" [value]="formData.locationCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Location Name" [value]="formData.locationName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Country Code" [value]="formData.countryCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Country Name" [value]="formData.countryName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Province Code" [value]="formData.provinceCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Province Name" [value]="formData.provinceName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Postal Code" [value]="formData.postalCode">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

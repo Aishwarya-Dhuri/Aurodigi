@@ -1,0 +1,101 @@
+.user-tasks-container {
+  display: block;
+
+  .tasks-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    padding: 12px;
+    border-bottom: 1px solid var(--background-color);
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      color: var(--text-color-dark-shade-1);
+      font-size: 1rem;
+      font-family: 'CIB Bold';
+    }
+    i {
+      margin: 3px 0.5rem 0;
+    }
+    .app-icon {
+      margin: 1px 0.5rem 0;
+    }
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .language-input {
+    display: block;
+    padding: 16px;
+    border-left: none;
+    border-right: none;
+  }
+
+  .languages {
+    display: block;
+    padding: 0 16px;
+
+    .language-wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+
+      .language {
+        display: flex;
+        justify-content: flex-start;
+        font-size: 0.875rem;
+        color: var(--text-color-dark-shade-1);
+      }
+
+      .tick {
+        display: flex;
+        justify-content: flex-end;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid var(--background-color-dark-3);
+        cursor: pointer;
+
+        .tick-mark {
+          display: block;
+          width: 6px;
+          height: 6px;
+          margin: 2px;
+          background-color: var(--primary-color);
+          border-radius: 50%;
+        }
+      }
+
+      .tick:hover {
+        border: 2px solid var(--primary-color);
+        background-color: var(--background-color);
+      }
+
+      .tick-selected {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        text-align: center;
+      }
+    }
+  }
+  .save-button {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    padding: 16px;
+  }
+}

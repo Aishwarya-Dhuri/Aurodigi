@@ -1,0 +1,20 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch No", "field": "edrId" },
+    { "headerName": "MOL ID", "field": "molId" },
+    { "headerName": "Debit Account No", "field": "debitFromAccount" },
+    { "headerName": "Employee Unique ID", "field": "employeeId" },
+    { "headerName": "Employee Bank Code", "field": "routingCodeAgentId" },
+    { "headerName": "Employee Account with Agent", "field": "creditAccount" },
+    { "headerName": "Salary Month", "field": "salaryMonth" },
+    { "headerName": "Salary Year", "field": "salaryYear" },
+    { "headerName": "Income Fixed Component", "field": "fixedSalary" },
+    { "headerName": "Income Variable Component", "field": "variableSalary" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Reject Reason", "field": "rejectReason" },
+    { "headerName": "Pay Start Date", "field": "payStartDate", "hide": true },
+    { "headerName": "Pay End Date", "field": "payEndDate", "hide": true },
+    { "headerName": "Salary Payable Days", "field": "noOfDaysInMonth", "hide": true },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

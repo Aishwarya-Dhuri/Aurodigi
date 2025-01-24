@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'CIB Regular';
+  font-style: normal;
+  src: <<regularFontUrls>>;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB Light';
+  font-style: normal;
+  src: <<lightFontUrls>>;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB SemiBold';
+  font-style: normal;
+  src: <<semiBoldFontUrls>>;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB Bold';
+  font-style: normal;
+  src: <<boldFontUrls>>;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}

@@ -1,0 +1,134 @@
+.user-mails-container {
+  display: block;
+
+  .mails-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    padding: 12px;
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      color: var(--text-color-dark-shade-1);
+      font-size: 1rem;
+      font-family: 'CIB Bold';
+
+      i,
+      .app-icon {
+        margin: 1px 0.5rem 0;
+      }
+
+      .mails-count {
+        display: inline-block;
+        margin: 3px 0.5rem;
+        padding: 2px 4px;
+        border-radius: 7px;
+        font-size: 0.5625rem;
+        color: var(--inverted-text-color);
+        background-color: var(--color-error);
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mail-input {
+    display: block;
+    padding: 16px;
+    border: 2px solid var(--background-color-dark-5);
+    border-left: none;
+    border-right: none;
+  }
+
+  .mails {
+    display: block;
+
+    .mail-wrapper {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--background-color-dark-6);
+
+      .user-image {
+        display: inline-block;
+        vertical-align: top;
+        width: 2.5rem;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 4px;
+          border: 1px solid #d9d7d7;
+        }
+      }
+
+      .mail-content {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 2.5rem);
+        /*padding: 0 0.5rem;*/
+
+        .mail-details {
+          .user-name {
+            font-size: 0.875rem;
+            font-family: 'CIB Bold';
+            color: var(--text-color-dark-shade-1);
+          }
+          .mail-time {
+            font-size: 0.625rem;
+            color: var(--text-color);
+          }
+        }
+
+        .mail-subject {
+          display: block;
+          font-size: 0.75rem;
+          height: 14px;
+          line-height: 14px;
+          margin: 6px 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: var(--text-color-dark-shade-1);
+          font-family: 'CIB Bold';
+        }
+
+        .mail-body {
+          display: block;
+          font-size: 0.75rem;
+          height: 12px;
+          line-height: 12px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: var(--text-color-dark-shade-1);
+        }
+      }
+    }
+
+    .mail-wrapper:hover {
+      background-color: var(--primary-color-light-shade-1);
+    }
+  }
+
+  .save-button {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    padding: 16px;
+  }
+}

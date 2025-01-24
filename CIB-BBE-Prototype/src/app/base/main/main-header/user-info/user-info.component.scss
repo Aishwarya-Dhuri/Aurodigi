@@ -1,0 +1,30 @@
+.user-info-wrapper {
+  width: 18rem;
+  border-radius: 10px;
+
+  .user-details-wrapper {
+    height: 4rem;
+
+    .user-image {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .user-details {
+      width: calc(100% - 3rem);
+    }
+  }
+
+  .user-actions {
+    .icon {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  hr {
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+    border-color: var(--background-color-light-4);
+  }
+}

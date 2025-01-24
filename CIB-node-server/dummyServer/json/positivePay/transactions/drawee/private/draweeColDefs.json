@@ -1,0 +1,11 @@
+[
+  {
+    "checkboxSelection": true,
+    "headerName": "Drawee ID",
+    "field": "id"
+  },
+  {
+    "headerName": "Drawee Name",
+    "field": "draweeName"
+  }
+]

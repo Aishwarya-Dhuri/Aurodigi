@@ -1,0 +1,166 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "entityName": "CORPORATEPROFILE",
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+  "data": [
+    {
+      "profileName": "DHEERAJ",
+      "corporateName": "aaafaagfiv",
+      "profileCode": "DHEERAJ",
+      "id": "xjNhYv8cZnU=,3",
+      "effectiveFrom": "08-Dec-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi822cfeProfile782",
+      "corporateName": "asqpaaflnf",
+      "profileCode": "sahi822cfeProfile782",
+      "id": "Zb8iNHx+fQc=,12",
+      "effectiveFrom": "04-Aug-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "profile 14444",
+      "corporateName": "asqpaaflnf",
+      "profileCode": "PROFILE14",
+      "id": "HpZD7hv56mQ=,10",
+      "effectiveFrom": "18-Dec-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "SAHI712PROFILE66",
+      "corporateName": "-",
+      "profileCode": "SAHI712PROFILE66",
+      "id": "763qwzwN608=,17",
+      "effectiveFrom": "15-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi837cp97",
+      "corporateName": "-",
+      "profileCode": "SAHI837CP97",
+      "id": "zr81X3J4JRY=,17",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahia83bp8",
+      "corporateName": "-",
+      "profileCode": "SAHIA83BP8",
+      "id": "Yc626O6fTHw=,17",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 7,
+          "displayName": "Enable",
+          "icon": "lock_open",
+          "url": "private/enable",
+          "onClick": "id",
+          "color": "primary"
+        }
+      ],
+      "effectiveTill": "08-Jan-2020"
+    }
+  ],
+  "lastRow": 6,
+  "loggable": false,
+  "entityIdentifier": ""
+}

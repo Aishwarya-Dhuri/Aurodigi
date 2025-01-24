@@ -1,0 +1,39 @@
+{
+  "dataList": [
+    {
+      "id": 1,
+      "displayName": "= EQUAL TO"
+    },
+    {
+      "id": 2,
+      "displayName": "!= NOT EQUAL TO"
+    },
+    {
+      "id": 3,
+      "displayName": "< LESS THAN"
+    },
+    {
+      "id": 4,
+      "displayName": " <= LESS THAN OR EQUAL TO"
+    },
+    {
+      "id": 5,
+      "displayName": " > GREATER THAN"
+    },
+    {
+      "id": 6,
+      "displayName": " >= GREATER THAN EQUAL TO"
+    },
+    {
+      "id": 7,
+      "displayName": "NOT LIKE"
+    },
+    {
+      "id": 7,
+      "displayName": "LIKE"
+    }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,41 @@
+{
+  "columnDefs": [
+    { "checkboxSelection": true, "filter": false, "sortable": false },
+    { "headerName": "Reference No.", "field": "refNo" },
+    {
+      "headerName": "Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "VAT Amount",
+      "field": "vatAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Outstanding Amount",
+      "field": "outstandingAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "WHT Amount",
+      "field": "whtAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Net Applicable Amount",
+      "field": "netApplicableAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    }
+  ]
+}

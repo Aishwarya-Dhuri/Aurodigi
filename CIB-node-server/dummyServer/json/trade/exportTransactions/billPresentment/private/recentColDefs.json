@@ -1,0 +1,39 @@
+[
+  {
+    "headerName": "Bill Number",
+    "field": "id"
+  },
+  {
+    "headerName": "User Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "transactionDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "buyerName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "billAmount"
+  },
+  {
+    "headerName": "Bill Date",
+    "field": "billDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "columnDefs": [
+    { "headerName": "Employee ID", "field": "employeeId", "checkboxSelection": true },
+    { "headerName": "Employee Name", "field": "employeeName" }
+  ]
+}

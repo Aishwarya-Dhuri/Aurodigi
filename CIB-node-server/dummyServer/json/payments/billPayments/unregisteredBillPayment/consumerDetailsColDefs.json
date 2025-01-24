@@ -1,0 +1,43 @@
+[
+  {
+    "headerName": "",
+    "field": "checkbox",
+    "sortable": false,
+    "width": 72,
+    "filter": false,
+    "floatingFilter": false,
+    "headerCheckboxSelection": true,
+    "headerCheckboxSelectionFilteredOnly": true,
+    "checkboxSelection": true,
+    "resizable": false,
+    "suppressMenu": true
+  },
+  { "headerName": "Consumer", "field": "consumer" },
+  { "headerName": "Bill No", "field": "billNo" },
+  {
+    "headerName": "Due Date",
+    "field": "dueDate",
+    "cellRenderer": "dueDateRenderer",
+    "filter": "agDateColumnFilter"
+  },
+  {
+    "headerName": "Bill Amount",
+    "field": "billAmount",
+    "cellRenderer": "currencyRenderer",
+    "filter": "agNumberColumnFilter"
+  },
+  {
+    "headerName": "Amount Being Paid",
+    "field": "amountBeingPaid",
+    "cellRenderer": "amountBeingPaidRenderer",
+    "filter": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Payment Date",
+    "field": "paymentDate",
+    "cellRenderer": "paymentDateRenderer",
+    "filter": false,
+    "floatingFilter": false
+  }
+]

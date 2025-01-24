@@ -1,0 +1,77 @@
+<!-- <app-backdrop
+  [zIndex]="5"
+  [background]="'rgba(0,0,0,0)'"
+  (close)="isMoreOptions = false"
+  *ngIf="isMoreOptions"
+></app-backdrop> -->
+
+<div class="widget-header">
+  <div class="header-container">
+    <div class="header-text-container">
+      <span class="text-size-16 text-bold" (click)="actionEvent(actionType.changeTitle)">
+        <div class="gridster-item-content">
+          <div class="heading" [pTooltip]="heading" tooltipPosition="top">
+            {{ heading }}
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class="action-container">
+      <div class="gridster-item-content">
+        <div class="action-wrapper">
+          <div class="action" *ngIf="showChangeChartOption">
+            <app-icon
+              icon="fa-analytics"
+              (click)="isChartOptions = true"
+              class="app-icon"
+            ></app-icon>
+            <div class="chart-types" *ngIf="isChartOptions" (mouseleave)="isChartOptions = false">
+              <app-chart-types
+                (click)="isChartOptions = false"
+                (changeChartType)="actionEvent(actionType.changeChartType, $event)"
+              >
+              </app-chart-types>
+            </div>
+          </div>
+
+          <div class="action">
+            <app-icon icon="fa-sync" class="app-icon"></app-icon>
+          </div>
+
+          <div class="action hide-on-mobile" *ngIf="!isFullScreen">
+            <app-icon
+              icon="{{ !isModal ? 'fa-eye' : 'fa-eye-slash' }}"
+              (click)="actionEvent(!isModal ? actionType.openModal : actionType.closeModal)"
+              class="app-icon"
+            ></app-icon>
+          </div>
+
+          <div class="action hide-on-mobile" *ngIf="!isModal">
+            <app-icon
+              icon="{{ !isFullScreen ? 'fa-expand' : 'fa-compress' }}"
+              (click)="
+                actionEvent(!isFullScreen ? actionType.fullScreen : actionType.closeFullScreen)
+              "
+              class="app-icon"
+            ></app-icon>
+          </div>
+
+          <div class="action" *ngIf="!isFullScreen && !isModal">
+            <app-icon
+              icon="fa-ellipsis-v"
+              class="app-icon"
+              (click)="actionEvent(actionType.openMenu, $event)"
+            ></app-icon>
+            <div class="more-options" *ngIf="isMoreOptions" (mouseleave)="isMoreOptions = false">
+              <app-header-options
+                (click)="isMoreOptions = false"
+                (remove)="actionEvent(actionType.removeWidget)"
+              >
+              </app-header-options>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

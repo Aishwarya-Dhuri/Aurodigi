@@ -1,0 +1,13 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    { "id": "01", "displayName": "Download Format 1" },
+    { "id": "02", "displayName": "Download Format 2" },
+    { "id": "03", "displayName": "Download Format 3" }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

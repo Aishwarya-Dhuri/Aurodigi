@@ -1,0 +1,309 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Geography Detail</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid p-pb-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <p-checkbox id="continent" name="continent" [(ngModel)]="formData.continent"
+                                label="Continent" [binary]="true" [disabled]="formData.country === true"
+                                (click)="onClickGeography(formData.continent, 'continent')"></p-checkbox>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <p-checkbox id="country" name="country" [(ngModel)]="formData.country" label="Country"
+                                [disabled]="formData.province === true" [binary]="true"
+                                (click)="onClickGeography(formData.country, 'country')"></p-checkbox>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <p-checkbox id="province" name="province" [(ngModel)]="formData.province" label="Province"
+                                [binary]="true" (click)="onClickGeography(formData.province, 'province')"></p-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3" *ngIf="continent">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Continent Detail</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyCode" name="geographyCode"
+                                label="Geography Code" [(ngModel)]="formData.geographyCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyName" name="geographyName"
+                                label="Geography Name" [(ngModel)]="formData.geographyName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="ouTypeName" name="ouTypeName" label="OU Type Name"
+                                [(ngModel)]="formData.ouTypeName" required="true" [data]="ouTypeNameList" disabled>
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3" *ngIf="country">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Country Detail</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyCode" name="geographyCode"
+                                label="Geography Code" [(ngModel)]="formData.geographyCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyName" name="geographyName"
+                                label="Geography Name" [(ngModel)]="formData.geographyName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="ouTypeName" name="ouTypeName" label="OU Type Name"
+                                [(ngModel)]="formData.ouTypeName" required="true" [data]="ouTypeNameList" disabled>
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="belongsTo" name="belongsTo" label="Belongs To"
+                                [(ngModel)]="formData.belongsTo" required="true" [data]="belongsToList">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="currency" name="currency" label="Currency"
+                                [(ngModel)]="formData.currency" required="true" [data]="currencyList">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3" *ngIf="province">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Province Detail</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyCode" name="geographyCode"
+                                label="Geography Code" [(ngModel)]="formData.geographyCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="geographyName" name="geographyName"
+                                label="Geography Name" [(ngModel)]="formData.geographyName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="ouTypeName" name="ouTypeName" label="OU Type Name"
+                                [(ngModel)]="formData.ouTypeName" required="true" [data]="ouTypeNameList" disabled>
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="belongsTo" name="belongsTo" label="Belongs To"
+                                [(ngModel)]="formData.belongsTo" required="true" [data]="belongsToList">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select id="currency" name="currency" label="Currency"
+                                [(ngModel)]="formData.currency" required="true" [data]="currencyList" disabled>
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Geography Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid p-pb-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox id="continent" name="continent" [(ngModel)]="formData.continent" label="Continent"
+                            [binary]="true" disabled
+                            (click)="onClickGeography(formData.continent, 'continent')"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox id="country" name="country" [(ngModel)]="formData.country" label="Country" disabled
+                            [binary]="true" (click)="onClickGeography(formData.country, 'country')"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox id="province" name="province" [(ngModel)]="formData.province" label="Province"
+                            [binary]="true" (click)="onClickGeography(formData.province, 'province')"
+                            disabled></p-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3" *ngIf="continent">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Continent Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Code" [value]="formData.geographyCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Name" [value]="formData.geographyName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="OU Type Name" [value]="formData.ouTypeName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3" *ngIf="country">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Continent Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Code" [value]="formData.geographyCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Name" [value]="formData.geographyName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="OU Type Name" [value]="formData.ouTypeName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Belongs To" [value]="formData.belongsTo">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency" [value]="formData.currency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3" *ngIf="province">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Continent Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Code" [value]="formData.geographyCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Geography Name" [value]="formData.geographyName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="OU Type Name" [value]="formData.ouTypeName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Belongs To" [value]="formData.belongsTo">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency" [value]="formData.currency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

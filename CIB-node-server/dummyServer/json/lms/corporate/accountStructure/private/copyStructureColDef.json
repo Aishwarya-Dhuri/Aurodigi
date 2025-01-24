@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Corporate Name", "field": "corporateName", "checkboxSelection": true },
+    { "headerName": "Structure Name", "field": "structureName" },
+    { "headerName": "Sweep Type", "field": "sweepType" },
+    { "headerName": "Main Account Number", "field": "mainAccountNo" },
+    { "headerName": "Execution Sequence", "field": "executionSequence" }
+  ]
+}

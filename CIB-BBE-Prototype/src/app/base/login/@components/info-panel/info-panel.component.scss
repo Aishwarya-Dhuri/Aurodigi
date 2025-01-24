@@ -1,0 +1,102 @@
+.info-panel {
+  position: relative;
+  width: 60.47%;
+  padding: 34px 35px 0px 4px;
+  min-height: 100%;
+
+  .message-container {
+    width: 46%;
+    height: 169px;
+    background-color: var(--background-color-light-4);
+    box-shadow: 0 0 10px var(--background-color-dark-1);
+    margin: 1rem 0.75rem;
+    padding: 1.5rem 3rem 2rem 1rem;
+
+    .message-icon {
+      width: 13%;
+    }
+
+    .message {
+      width: 87%;
+
+      .message-body {
+        max-height: 3.3rem;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .banner-container {
+    box-shadow: 0 0 10px var(--background-color-dark-1);
+    margin: 1rem 1.5rem 0.75rem 0.75rem;
+    position: relative;
+    height: 305px;
+    overflow: hidden;
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .banner-message {
+      position: absolute;
+      top: 2.5rem;
+      left: 3rem;
+      font-size: 2rem;
+      line-height: 1;
+      width: 50%;
+      color: var(--inverted-text-color);
+    }
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: block;
+  margin-top: 1rem;
+
+  .carousel {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+    width: 8px;
+    height: 8px;
+    background-color: var(--background-color-dark-1);
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  .carousel-active {
+    background-color: var(--background-color);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .info-panel {
+    width: 100%;
+    padding: 0rem !important;
+
+    .message-container {
+      width: -moz-calc(100% - 2rem);
+      width: -webkit-calc(100% - 2rem);
+      width: -o-calc(100% - 2rem);
+      width: calc(100% - 2rem);
+      margin: 0.5rem 1rem;
+    }
+
+    .banner-container {
+      margin: 0.5rem 1rem;
+      height: 200px;
+
+      .banner-message {
+        width: -moz-calc(100% - 2rem);
+        width: -webkit-calc(100% - 2rem);
+        width: -o-calc(100% - 2rem);
+        width: calc(100% - 2rem);
+        top: 1rem;
+        left: 1rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

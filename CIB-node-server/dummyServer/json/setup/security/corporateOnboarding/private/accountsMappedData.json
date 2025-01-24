@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "accountNumber": "129000012",
+      "accountType": "CASA",
+      "currency": "AED"
+    },
+    {
+      "id": "101",
+      "accountNumber": "129000121",
+      "accountType": "CASA",
+      "currency": "AED"
+    }
+  ],
+  "lastRow": 2
+}

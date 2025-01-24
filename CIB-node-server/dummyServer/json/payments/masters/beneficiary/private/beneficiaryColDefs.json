@@ -1,0 +1,12 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Beneficiary Code",
+      "field": "enrichments.beneficiaryCode",
+      "checkboxSelection": true
+    },
+    { "headerName": "Beneficiary Name", "field": "enrichments.beneficiaryName" },
+    { "headerName": "Payment Method", "field": "enrichments.paymentMethod" },
+    { "headerName": "Account No", "field": "enrichments.accountNo" }
+  ]
+}

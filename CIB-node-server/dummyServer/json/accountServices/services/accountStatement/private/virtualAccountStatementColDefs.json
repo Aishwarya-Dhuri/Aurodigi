@@ -1,0 +1,19 @@
+[
+  {
+    "headerName": "Customer Reference Number",
+    "field": "customerReferenceNumber",
+    "cellRenderer": "linkRenderer"
+  },
+  { "headerName": "Transaction Date", "field": "transactionDate" },
+  { "headerName": "Value Date", "field": "valueDate" },
+  {
+    "headerName": "Bank Reference Number",
+    "field": "bankReferenceNumber"
+  },
+  { "headerName": "Swift Message", "field": "swiftMessage" },
+  { "headerName": "Description", "field": "transactionDescription" },
+  { "headerName": "Debit Amount", "field": "debited", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Credit Amount", "field": "credited", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Running Balance", "field": "balance", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

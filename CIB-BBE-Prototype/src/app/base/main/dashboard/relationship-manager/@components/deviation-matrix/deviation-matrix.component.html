@@ -1,0 +1,16 @@
+<div class="aps-card aps-h-100p">
+  <div class="aps-card-header p-px-3 aps-py-12">
+    <div class="text-size-14 text-semi-bold">Deviation Matrix</div>
+  </div>
+  <div class="aps-card-body gridster-item-content p-p-3">
+    <div class="left-right-container text-size-13" *ngFor="let dm of deviationMatrixData">
+      <div class="left-container">
+        <div class="">{{ dm.label }}</div>
+      </div>
+      <div class="right-container text-right">
+        <div class="">{{ dm.value }}</div>
+      </div>
+    </div>
+    <div class="text-right link" (click)="parentRef.showDeviationMatrix = true">view more..</div>
+  </div>
+</div>

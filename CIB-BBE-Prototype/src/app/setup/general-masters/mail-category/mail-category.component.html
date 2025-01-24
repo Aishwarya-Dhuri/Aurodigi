@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12" [apsHide]="stepperDetails.currentStep != 1">
+      <div class="aps-card p-p-2">
+        <div class="p-grid">
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <aps-form-input
+              id="categoryCode"
+              name="categoryCode"
+              label="Category Code"
+              [(ngModel)]="formData.categoryCode"
+              [required]="true"
+            ></aps-form-input>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <aps-form-input
+              id="categoryName"
+              name="categoryName"
+              label="Category Name"
+              [(ngModel)]="formData.categoryName"
+              [required]="true"
+            ></aps-form-input>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <aps-custom-select
+              id="typeName"
+              name="typeName"
+              label="Type Name"
+              dataUrl="setup/generalMasters/mailCategory/private/dropdown/type"
+              [(ngModel)]="formData.typeName"
+              [value]="formData.typeName"
+              [required]="true"
+            ></aps-custom-select>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12" *ngIf="formData.typeName == 'Sub-Category'">
+            <aps-custom-select
+              id="belongsTo"
+              name="belongsTo"
+              label="Belongs To"
+              dataUrl="setup/generalMasters/mailCategory/private/getCategoryList"
+              [(ngModel)]="formData.belongsTo"
+              [value]="formData.belongsTo"
+              (change)="formData.belongsToName = $event.displayName"
+              [required]="true"
+            ></aps-custom-select>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <aps-multi-select
+              id="recipientName"
+              name="recipientName"
+              label="Recipient Name"
+              dataUrl="setup/securityBank/bankUser/private/getUserDataList"
+              [(ngModel)]="formData.recipientName"
+              [value]="formData.recipientName"
+              (change)="onSelectRecipient($event)"
+            ></aps-multi-select>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-aps-calender
+              id="effectiveFrom"
+              name="effectiveFrom"
+              label="Effective From"
+              [(ngModel)]="formData.effectiveFrom"
+              [required]="true"
+            ></app-aps-calender>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-aps-calender
+              id="effectiveTill"
+              name="effectiveTill"
+              label="Effective Till"
+              [(ngModel)]="formData.effectiveTill"
+            ></app-aps-calender>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12" [apsHide]="stepperDetails.currentStep != 2">
+      <div class="aps-card p-p-2">
+        <div class="p-grid">
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Category Code"
+              [value]="formData.categoryCode"
+            ></app-review-form-field>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Category Name"
+              [value]="formData.categoryName"
+            ></app-review-form-field>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Type Name"
+              [value]="formData.typeName"
+            ></app-review-form-field>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12" *ngIf="formData.typeName == 'Sub-Category'">
+            <app-review-form-field
+              label="Belongs To"
+              [value]="formData.belongsToName"
+            ></app-review-form-field>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Recipient Name"
+              [value]="formData.recipientName"
+            ></app-review-form-field>
+          </div>
+
+          <div class="p-col-12 p-p-0"></div>
+
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Effective From"
+              [value]="formData.effectiveFrom"
+            ></app-review-form-field>
+          </div>
+          <div class="p-md-4 p-sm-12 p-col-12">
+            <app-review-form-field
+              label="Effective Till"
+              [value]="formData.effectiveTill"
+            ></app-review-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+</div>

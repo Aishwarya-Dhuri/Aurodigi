@@ -1,0 +1,12 @@
+<div class="aps-card aps-h-100p">
+  <div class="aps-card-header p-px-3 aps-py-12">
+    <div class="text-size-14 text-semi-bold">New Customer Acquisition</div>
+  </div>
+  <div class="aps-card-body gridster-item-content">
+    <app-ag-grid-listing
+      [colDefUrl]="newCustomerAcquisitionColDef"
+      [rowDefUrl]="newCustomerAcquisitionRowDataUrl"
+      [gridOptions]="gridServerSideOptions"
+    ></app-ag-grid-listing>
+  </div>
+</div>

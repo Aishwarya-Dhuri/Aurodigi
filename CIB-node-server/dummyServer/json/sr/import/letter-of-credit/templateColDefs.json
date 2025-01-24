@@ -1,0 +1,26 @@
+[
+  {
+    "headerName": "Type of LC",
+    "field": "typeOfLc"
+  },
+  {
+    "headerName": "Template Name",
+    "field": "templateName"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "lcAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "pinned": "right"
+  }
+]

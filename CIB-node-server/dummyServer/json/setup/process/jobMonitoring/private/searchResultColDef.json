@@ -1,0 +1,11 @@
+[
+  { "headerName": "Module Name", "field": "moduleName" },
+  { "headerName": "Job Name", "field": "jobName" },
+  { "headerName": "Frequency Type", "field": "frequencyTypeName" },
+  { "headerName": "Status", "field": "status" },
+  { "headerName": "Start Time", "field": "startTime" },
+  { "headerName": "End Time", "field": "endTime" },
+  { "headerName": "Job Enabled", "field": "jobEnabled" },
+  { "headerName": "Last Executed Time", "field": "lastExecutedTime" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

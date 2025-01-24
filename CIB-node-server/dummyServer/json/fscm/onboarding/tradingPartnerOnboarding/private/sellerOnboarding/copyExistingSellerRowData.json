@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "sellerName": "Anil",
+      "sellerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "sellerName": "Mayank",
+      "sellerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "sellerName": "Anil",
+      "sellerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "sellerName": "Mayank",
+      "sellerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "sellerName": "Anil",
+      "sellerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "sellerName": "Mayank",
+      "sellerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    },
+    {
+      "sellerName": "Anil",
+      "sellerCode": "545467",
+      "taxBranch": "Delhi",
+      "customerType": "Bank Customer"
+    },
+    {
+      "sellerName": "Mayank",
+      "sellerCode": "232311",
+      "taxBranch": "Mumbai",
+      "customerType": "Non Bank Customer"
+    }
+  ],
+  "lastRow": 8
+}

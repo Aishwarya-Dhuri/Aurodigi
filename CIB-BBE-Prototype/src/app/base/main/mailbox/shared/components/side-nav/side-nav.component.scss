@@ -1,0 +1,88 @@
+@mixin transition($time) {
+  transition: $time all linear;
+  -moz-transition: $time all linear;
+  -webkit-transition: $time all linear;
+  -ms-transition: $time all linear;
+  -o-transition: $time all linear;
+}
+
+.side-nav-item {
+  padding: 24px 10px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 13px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 3px;
+    i {
+      width: 30px;
+      text-align: center;
+      font-size: 17px;
+    }
+    .label {
+      font-size: 13px;
+      margin-left: 5px;
+    }
+    .badge {
+      width: 30px;
+      text-align: center;
+      margin-left: auto;
+      @include transition(0.2s);
+      line-height: 1;
+      span {
+        margin-left: auto;
+        padding: 1px 7px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        border-radius: 10px;
+      }
+    }
+  }
+  .collapse-expand-icon {
+    padding: 0px 12px 10px 12px;
+  }
+  .add-mail {
+    margin-bottom: 15px;
+    padding: 10px 6px;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    @include transition(0.1s);
+    i {
+      font-size: 20px;
+    }
+    .label {
+      font-size: 14px;
+    }
+    &:hover {
+      transform: translateY(3px);
+      -moz-transform: translateY(3px);
+      -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+      -o-transform: translateY(3px);
+    }
+  }
+  &.active {
+    .label {
+      display: none;
+    }
+    i {
+      margin: 0 auto;
+    }
+    .badge {
+      position: absolute;
+      top: 5px;
+      right: -1px;
+      span {
+        font-size: 11px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "label": "Payments",
+    "products": [
+      {
+        "label": "Sub Product wise Account Mapping",
+        "subProducts": [
+          { "label": "Sub Product 1", "subProducts": [] },
+          { "label": "Sub Product 2", "subProducts": [] }
+        ]
+      },
+      { "label": "Own Account Transfer", "subProducts": [] },
+      { "label": "CASA Conventional Accounts", "subProducts": [] },
+      { "label": "CASA Islamic Accounts", "subProducts": [] },
+      { "label": "Loan Conventional", "subProducts": [] },
+      { "label": "Loan Islamic Accounts", "subProducts": [] },
+      { "label": "Fixed Deposit Accounts", "subProducts": [] },
+      { "label": "External Account Mapping", "subProducts": [] },
+      { "label": "Send to Bank", "subProducts": [] },
+      {
+        "label": "FD Initiation",
+        "subProducts": [
+          { "label": "Sub Product 1", "subProducts": [] },
+          { "label": "Sub Product 2", "subProducts": [] }
+        ]
+      },
+      { "label": "Credit Card", "subProducts": [] },
+      { "label": "Debit Card", "subProducts": [] },
+      { "label": "Bill Payment", "subProducts": [] },
+      { "label": "MT101 Incoming", "subProducts": [] },
+      { "label": "MT101 Outgoing", "subProducts": [] },
+      { "label": "WPS", "subProducts": [] },
+      { "label": "WPS - Send to Bank", "subProducts": [] },
+      { "label": "Merchant Payment", "subProducts": [] },
+      { "label": "ETF Processing", "subProducts": [] },
+      { "label": "Government Payments", "subProducts": [] },
+      { "label": "Wallet", "subProducts": [] }
+    ]
+  },
+  {
+    "label": "Trade",
+    "products": [
+      { "label": "Letter of Credit", "subProducts": [] },
+      { "label": "Letter of Credit Amend", "subProducts": [] },
+      { "label": "Bill Payment And Apply Finance", "subProducts": [] },
+      { "label": "Request Finance - Import", "subProducts": [] },
+      { "label": "OTT Request", "subProducts": [] },
+      { "label": "Shipping Guarantee", "subProducts": [] },
+      { "label": "Bank Guarantee", "subProducts": [] },
+      { "label": "Bank Guarantee Amend", "subProducts": [] },
+      { "label": "Bill Presentment", "subProducts": [] },
+      { "label": "Request Finance - Export", "subProducts": [] }
+    ]
+  },
+  { "label": "Collections", "subProducts": [] },
+  {
+    "label": "FSCM",
+    "products": [
+      { "label": "Invoice Payment", "subProducts": [] },
+      { "label": "Finance Repayment", "subProducts": [] }
+    ]
+  },
+  {
+    "label": "VAM",
+    "products": [
+      { "label": "POBO", "subProducts": [] },
+      { "label": "COBO", "subProducts": [] }
+    ]
+  },
+  { "label": "LMS", "products": [] },
+  {
+    "label": "Direct Debit",
+    "products": [{ "label": "Direct Debit Accounts", "subProducts": [] }]
+  },
+  { "label": "RMS", "products": [] },
+  { "label": "Cashflow Forecasting", "products": [] },
+  { "label": "Wealth Management", "products": [] },
+  { "label": "Escrow Accounts", "products": [] }
+]

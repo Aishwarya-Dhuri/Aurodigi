@@ -1,0 +1,82 @@
+@mixin transition($time) {
+  transition: $time all linear;
+  -moz-transition: $time all linear;
+  -webkit-transition: $time all linear;
+  -ms-transition: $time all linear;
+  -o-transition: $time all linear;
+}
+
+.view-mail-container {
+  height: 528px;
+}
+
+.mail-box-wrapper-container {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-light-1);
+  .mail-box-container {
+    height: calc(100% - 40px);
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    .mail-inner-container {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      padding-left: 174px;
+      position: relative;
+      @include transition(0.1s);
+      .side-nav-section {
+        height: 100%;
+        width: 174px;
+        position: absolute;
+        left: 0;
+        padding-right: 6px;
+        @include transition(0.1s);
+      }
+      .mail-list-section {
+        width: 100%;
+        height: 100%;
+      }
+      &.active {
+        padding-left: 70px;
+        .side-nav-section {
+          width: 70px;
+        }
+      }
+    }
+  }
+}
+
+.common-vertical-layout-css {
+  .content-section {
+    overflow: auto;
+    min-height: 500px;
+  }
+}
+
+:host ::ng-deep {
+  .mb-sidenav-container {
+    .side-nav-section {
+      height: 100%;
+    }
+    .p-sidebar-header {
+      display: none;
+    }
+    .p-sidebar-content {
+      padding: 0;
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mail-box-wrapper-container {
+    .mail-box-container {
+      .mail-inner-container {
+        padding-left: 0;
+      }
+    }
+  }
+}

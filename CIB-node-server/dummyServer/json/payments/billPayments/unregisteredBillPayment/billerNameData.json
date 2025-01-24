@@ -1,0 +1,26 @@
+[
+  {
+    "billerCode": "Airtel",
+    "billerName": "Airtel"
+  },
+  {
+    "billerCode": "Vodafone",
+    "billerName": "Vodafone"
+  },
+  {
+    "billerCode": "JIO",
+    "billerName": "JIO"
+  },
+  {
+    "billerCode": "POST",
+    "billerName": "POST"
+  },
+  {
+    "billerCode": "FEDEX",
+    "billerName": "FEDEX"
+  },
+  {
+    "billerCode": "DHL",
+    "billerName": "DHL"
+  }
+]

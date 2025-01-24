@@ -1,0 +1,27 @@
+<div class="p-px-3" [ngClass]="classes" *ngIf="formData && formData.modifiedBy">
+  <div class="p-py-3 text-size-14 text-semi-bold" *ngIf="!isShowOnlyValues">
+    Maker Checker Details
+  </div>
+
+  <div class="p-grid p-pb-2">
+    <div class="p-col-6 p-md-4 p-lg-4">
+      <div class="text-size-12 text-color-light-shade-1">Maker</div>
+      <div class="text-size-14">{{ formData.modifiedBy }}</div>
+    </div>
+    <div class="p-col-6 p-md-4 p-lg-4">
+      <div class="text-size-12 text-color-light-shade-1">Maker Date Time</div>
+      <div class="text-size-14">{{ formData.modifiedSysOn }}</div>
+    </div>
+  </div>
+
+  <div class="p-grid p-pb-2" *ngIf="formData.checkedBy">
+    <div class="p-col-6 p-md-4 p-lg-4">
+      <div class="text-size-12 text-color-light-shade-1">Checker</div>
+      <div class="text-size-14">{{ formData.checkedBy }}</div>
+    </div>
+    <div class="p-col-6 p-md-4 p-lg-4">
+      <div class="text-size-12 text-color-light-shade-1">Checker Date Time</div>
+      <div class="text-size-14">{{ formData.checkedSysOn }}</div>
+    </div>
+  </div>
+</div>

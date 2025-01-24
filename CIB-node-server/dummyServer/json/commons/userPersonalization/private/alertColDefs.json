@@ -1,0 +1,13 @@
+[
+  { "headerName": "Category", "field": "category" },
+  { "headerName": "Event Name", "field": "eventName" },
+  {
+    "headerName": "Email SMS Online",
+    "field": "channelTypes",
+    "headerClass": "aps-word-spacing-5",
+    "cellRenderer": "alertCheckboxRenderer",
+    "width": 270
+  },
+  { "headerName": "Status", "field": "status", "cellRenderer": "alertStatusRenderer" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

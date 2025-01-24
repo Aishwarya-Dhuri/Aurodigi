@@ -1,0 +1,147 @@
+<div class="container">
+    <form name="corporateProfileForm" #bankProfileForm="ngForm">
+        <div *ngIf="stepperDetails.currentStep == 1">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Rule Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Rule Code' | apsTranslate"
+                                name="ruleCode" id="ruleCode" [(ngModel)]="formData.ruleCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="alphaNumeric" id="ruleName" name="ruleName"
+                                [label]="'Rule Name' | apsTranslate" [(ngModel)]="formData.ruleName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Rule Type' | apsTranslate" name="ruleType" id="ruleType"
+                                [(ngModel)]="formData.ruleType"
+                                dataUrl="setup/templates/ruleMasterTemplate/private/dropdown/ruleType"
+                                (change)="onModuleChange(formData.ruleType)" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Based On' | apsTranslate" name="basedOn" id="basedOn"
+                                [(ngModel)]="formData.basedOn" [data]="subProductArray" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <div class="text-size-13">Rule Description</div>
+                            <div>
+                                <textarea class="textarea aps-w-100p" name="ruleDesc" id="ruleDesc" rows="4"
+                                    [(ngModel)]="formData.ruleDesc" placeholder="Remarks"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Record/Corporate Client Identifier' |
+                        apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-custom-select [label]="'Criteria1(Source)' | apsTranslate" name="fieldSelect"
+                                id="fieldSelect" [(ngModel)]="transactionFormData.fieldSelect"
+                                [value]="transactionFormData.fieldSelect"
+                                dataUrl="setup/templates/ruleMasterTemplate/private/dropdown/criteria1"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-custom-select [label]="'Criteria2 (Target)' | apsTranslate" name="operator"
+                                id="operator" [(ngModel)]="transactionFormData.operator"
+                                [value]="transactionFormData.operator"
+                                dataUrl="setup/templates/ruleMasterTemplate/private/dropdown/criteria2"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <!-- <div class="p-col-12 p-md-2 p-lg-2">
+                            <aps-custom-select [label]="'Operator' | apsTranslate" name="operator" id="operator"
+                                [(ngModel)]="transactionFormData.operator" [value]="transactionFormData.operator"
+                                dataUrl="setup/templates/ruleMasterTemplate/private/dropdown/criteria2"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div> -->
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <button class="btn btn-md btn-primary p-mt-2"
+                                (click)="editIndex > -1 ? onUpdateTransaction() : onAddTransactionClick()">
+                                {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12 p-md-12 p-sm-12">
+                            <app-ag-grid-listing #currencySellInit id="currencySellInit"
+                                [gridOptions]="currencySellGridOptions" [rowData]="formData.transaction"
+                                (gridReady)="onCurrencySellInitGridReady($event)" [supressAutoFit]="true"
+                                colDefUrl="setup/templates/ruleMasterTemplate/private/userDetailsColDefs">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Rule Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Rule Code" [value]="formData.ruleCode">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Rule Name" [value]="formData.ruleName">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Rule Type" [value]="formData.ruleType">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Based On" [value]="formData.basedOn">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-md-10 p-col-12">
+                            <textarea class="textarea aps-w-100p" name="ruleDesc" id="ruleDesc" rows="4"
+                                [(ngModel)]="formData.ruleDesc" placeholder="" disabled></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Alert Text Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

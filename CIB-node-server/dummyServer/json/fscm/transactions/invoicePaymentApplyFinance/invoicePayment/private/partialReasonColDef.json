@@ -1,0 +1,7 @@
+{
+  "columnDefs": [
+    { "headerName": "Partial Reason Code", "field": "reasonCode", "checkboxSelection": true },
+    { "headerName": "Partial Reason Name", "field": "reasonName" },
+    { "headerName": "Reason in Thai", "field": "reasonNameThai" }
+  ]
+}

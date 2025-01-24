@@ -1,0 +1,11 @@
+[
+  { "headerName": "Virtual ID", "field": "virtualId" },
+  { "headerName": "Beneficiary Advice Dispatch Mode", "field": "beneficiaryAdviceDispatchMode" },
+  {
+    "headerName": "Default Account",
+    "field": "defaultAccount",
+    "cellRenderer": "defaultAccountRenderer"
+  },
+  { "headerName": "Status", "field": "status" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

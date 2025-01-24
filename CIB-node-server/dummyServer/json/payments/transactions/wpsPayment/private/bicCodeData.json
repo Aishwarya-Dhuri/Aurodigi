@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "bicCode": "1001",
+      "bankName": "RAK Bank",
+      "branchName": "Abu Dhabi",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "routingCode": "3001"
+    },
+    {
+      "id": "101",
+      "bicCode": "1002",
+      "bankName": "RAK Bank",
+      "branchName": "Abu Dhabi",
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "routingCode": "4001"
+    }
+  ],
+  "lastRow": 2
+}

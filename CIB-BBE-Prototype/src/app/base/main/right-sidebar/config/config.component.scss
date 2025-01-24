@@ -1,0 +1,103 @@
+.user-tasks-container {
+  display: block;
+
+  .tasks-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    padding: 16px 16px 8px 16px;
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      .app-icon {
+        margin: 3px 0.5rem 0;
+      }
+      i {
+        margin: 3px 0.5rem 0;
+      }
+      color: var(--text-color-dark-shade-1);
+      font-size: 1rem;
+      font-family: 'CIB Bold';
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .menu-container {
+    display: block;
+    height: calc(100vh - 48px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .menu-heading {
+      font-size: 0.875rem;
+      font-family: 'CIB Bold';
+      padding: 4px 16px;
+      /*border-radius: 5px;*/
+      background-color: var(--background-color);
+    }
+
+    .menu-types {
+      display: block;
+      padding: 2px 16px;
+
+      .menu-type-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25rem 0;
+
+        .menu-type {
+          display: flex;
+          justify-content: flex-start;
+          font-size: 0.75rem;
+          color: var(--text-color-dark-shade-1);
+        }
+
+        .tick {
+          display: flex;
+          justify-content: flex-end;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          border: 2px solid var(--background-color-dark-3);
+          cursor: pointer;
+
+          .tick-mark {
+            display: block;
+            width: 6px;
+            height: 6px;
+            margin: 2px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+          }
+        }
+
+        .tick:hover {
+          border: 2px solid var(--primary-color);
+          background-color: var(--background-color);
+        }
+
+        .tick-selected {
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          text-align: center;
+        }
+      }
+    }
+  }
+}

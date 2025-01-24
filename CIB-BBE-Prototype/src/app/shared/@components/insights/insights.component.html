@@ -1,0 +1,13 @@
+<div class="background-color-light-1 text-color-dark-shade-1 p-p-3">
+  <div class="text-size-14 text-semi-bold">Insights</div>
+  <div class="aps-h-120 overflow-y-scroll overflow-x-hidden" [style]="{ height: height + 'px' }">
+    <div class="label-with-icon-container p-mt-1" *ngFor="let insight of insights">
+      <div class="icon text-size-10 p-pt-1">
+        <app-icon [icon]="insight.icon"></app-icon>
+      </div>
+      <div class="label text-size-10 p-pt-1">
+        {{ insight.label }}
+      </div>
+    </div>
+  </div>
+</div>

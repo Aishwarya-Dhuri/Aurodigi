@@ -1,0 +1,24 @@
+[
+  {
+    "batchNumber": {
+      "header": "PO Entry",
+      "label": "0315062001",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/purchesOrderDetails/orderDetails"
+    },
+    "poNumber": "123456",
+    "poDate": "02 Jun 2021",
+    "poDueDate": "30 Jun 2021",
+    "poAmount": "THB 400.00"
+  },
+  {
+    "batchNumber": {
+      "header": "PO Entry",
+      "label": "0315062002",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/purchesOrderDetails/orderDetails"
+    },
+    "poNumber": "654321",
+    "poDate": "03 Jun 2021",
+    "poDueDate": "01 Jul 2021",
+    "poAmount": "THB 600.00"
+  }
+]

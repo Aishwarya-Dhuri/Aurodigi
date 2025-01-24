@@ -1,0 +1,307 @@
+<div class="container">
+    <div class="aps-card aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == 1">
+        <div class="aps-card-body">
+        </div>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Corporate Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Name" [value]="formData.corporateName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Category" [value]="formData.category">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Logo" [value]="">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Aggrement Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Aggrement Reference Number"
+                            [value]="formData.aggrementRefereneNumber">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Aggrement Expiry Date" [value]="formData.aggrementExpiryDate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> RM Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="RM Name" [value]="formData.rmName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="RM Email ID" [value]="formData.rmEmailId">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="RM Mobile Number" [value]="formData.rmMobileNumber">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Contact Person </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-col-12">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Person Name</th>
+                                    <th class="p-p-2 text-left">Designation</th>
+                                    <th class="p-p-2 text-left">Email ID</th>
+                                    <th class="p-p-2 text-left">Telephone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Mark Twain</td>
+                                    <td class="p-p-2">Manager</td>
+                                    <td class="p-p-2">mark.twain@gmail.com</td>
+                                    <td class="p-p-2">9012200192</td>
+                                </tr>
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Bertha Clauss</td>
+                                    <td class="p-p-2">Senior Manager</td>
+                                    <td class="p-p-2">bertha.clauss@gmail.com</td>
+                                    <td class="p-p-2">9892211210</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Modules Offered </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="setup" id="setup" label="Setup" [binary]="true" disabled="true"
+                            [(ngModel)]="setup"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="payment" id="payment" label="Payment" [binary]="true" disabled="true"
+                            [(ngModel)]="payment"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="collection" id="collection" label="Collection" [binary]="true" disabled="true"
+                            [(ngModel)]="collection"></p-checkbox>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3"></div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="directDebit" id="directDebit" label="Direct Debit" [binary]="true"
+                            disabled="true" [(ngModel)]="directDebit"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="fscm" id="fscm" label="FSCM" [binary]="true" disabled="true"
+                            [(ngModel)]="fscm"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="lms" id="lms" label="LMS" [binary]="true" disabled="true"
+                            [(ngModel)]="lms"></p-checkbox>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3"></div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="vam" id="vam" label="VAM" [binary]="true" disabled="true"
+                            [(ngModel)]="vam"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="fx" id="fx" label="FX" [binary]="true" disabled="true"
+                            [(ngModel)]="fx"></p-checkbox>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <p-checkbox name="trade" id="trade" label="Trade" [binary]="true" disabled="true"
+                            [(ngModel)]="trade"></p-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Account Mapped</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-col-12">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Account Number</th>
+                                    <th class="p-p-2 text-left">Currency</th>
+                                    <th class="p-p-2 text-left">Account Type</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">019900038803</td>
+                                    <td class="p-p-2">THB</td>
+                                    <td class="p-p-2">CASA</td>
+                                </tr>
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">019900038801</td>
+                                    <td class="p-p-2">THB</td>
+                                    <td class="p-p-2">CASA</td>
+                                </tr>
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">019900038801</td>
+                                    <td class="p-p-2">THB</td>
+                                    <td class="p-p-2">CASA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Products Mapped</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-col-12">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Payments</th>
+                                    <th class="p-p-2 text-left">Collections</th>
+                                    <th class="p-p-2 text-left">Trade</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Vendor Payments</td>
+                                    <td class="p-p-2">Local Clearing</td>
+                                    <td class="p-p-2">Letter of Credit</td>
+                                </tr>
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Payroll Payment</td>
+                                    <td class="p-p-2">Advance Credit</td>
+                                    <td class="p-p-2">Shipping Guarantee</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Authorization Rule</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-col-12">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Product Name</th>
+                                    <th class="p-p-2 text-left">Module Name</th>
+                                    <th class="p-p-2 text-left">Authorization Rule</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Payments</td>
+                                    <td class="p-p-2">Payment Request</td>
+                                    <td class="p-p-2">Self Authorization and Authorization Matrix</td>
+                                </tr>
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2">Trade</td>
+                                    <td class="p-p-2">Letter of Credit</td>
+                                    <td class="p-p-2">Self Authorization and Authorization Matrix</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Parameter Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency Wise Auth Matrix"
+                            [value]="formData.currencyWiseAuthMatrix">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Primary Currency" [value]="formData.primaryCurrency">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Batch Primary Currency" [value]="formData.batchPrimaryCurrency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Verification Required" [value]="formData.verificationRequired">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Verification Level" [value]="formData.verificationLevel">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> User Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Number of Users" [value]="formData.numberOfUsers">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Token Issued" [value]="formData.tokenIssued">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

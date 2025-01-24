@@ -1,0 +1,65 @@
+.skeleton-container {
+  margin-top: 3rem;
+  .list {
+    min-width: 150px;
+    margin-top: 0.4rem;
+    height: 2rem;
+    border: 1px solid var(--background-color-dark-3);
+    border-radius: 4px;
+
+    .list-circle {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      margin-top: 0.25rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      border-radius: 50%;
+      width: 1.4rem;
+      height: 1.4rem;
+
+      .check-icon {
+        font-size: var(--font-size-12);
+        color: var(--inverted-text-color);
+      }
+    }
+
+    .circle-primary {
+      border: 1px solid var(--primary-color);
+      background-color: var(--primary-color);
+    }
+
+    .row-skeleton {
+      margin-top: 0.3rem;
+      height: 0.35rem;
+      background-color: var(--background-color-dark-1);
+      border: 1px solid var(--background-color-dark-1);
+      border-radius: 4px;
+    }
+
+    .row-skeleton-70 {
+      width: 70%;
+    }
+
+    .row-skeleton-90 {
+      width: 90%;
+    }
+  }
+
+  .list-light {
+    border-color: var(--background-color-dark-2);
+
+    .circle-light {
+      border: 1px solid var(--background-color-dark-2);
+      background-color: var(--background-color-dark-2);
+    }
+  }
+
+  .list-extra-light {
+    border-color: var(--background-color-dark-1);
+
+    .circle-extra-light {
+      border: 1px solid var(--background-color-dark-1);
+      background-color: var(--background-color-dark-1);
+    }
+  }
+}

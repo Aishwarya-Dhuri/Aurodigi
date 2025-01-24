@@ -1,0 +1,207 @@
+{
+  "type": "Fscm-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "trackingId",
+      "displayName": "Tracking ID",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": true,
+      "colDefUrl": "fscm/transactions/invoicePaymentApplyFinance/private/trackingSearchColDefs",
+      "rowDefUrl": "fscm/transactions/invoicePaymentApplyFinance/private/trackingSearchData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "CORPORATESEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_corporate_type",
+            "name": "corporateType",
+            "type": "String",
+            "value": "SPONSOR",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "id,trackingCode",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "parentId",
+      "displayName": "Sponsor Code",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": true,
+      "colDefUrl": "commons/searchService/private/corporateSearchColDefs",
+      "rowDefUrl": "setup/corporateOnboarding/corporateMain/private/getAuthorizedList",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "CORPORATESEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_corporate_type",
+            "name": "corporateType",
+            "type": "String",
+            "value": "SPONSOR",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "id,corporateCode",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "sellerId",
+      "displayName": "Seller/Buyer Code",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": true,
+      "colDefUrl": "commons/searchService/private/corporateSearchColDefs",
+      "rowDefUrl": "setup/corporateOnboarding/corporateMain/private/getAuthorizedList",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "CORPORATESEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "parentId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "id,corporateCode",
+      "basedOn": "parentId",
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "programCode",
+      "displayName": "Program Reference No",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "fscm/transactions/invoicePaymentApplyFinance/private/getProductProgramNumber",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": "parentId,sellerId",
+      "conditionalBasedOn": null,
+      "basedOnIndex": "0,0",
+      "fillFilterName": "sponsorId,nonSponsorId"
+    },
+    {
+      "name": "invoiceNumber",
+      "displayName": "Invoice Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "invoiceAmount",
+      "displayName": "Invoice Amount",
+      "type": "String",
+      "fieldType": "AMOUNT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "invoiceDate",
+      "displayName": "Invoice Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "invoiceDueDate",
+      "displayName": "Invoice Due Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "batchNo",
+      "displayName": "Batch Number",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

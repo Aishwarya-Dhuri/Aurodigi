@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="p-grid g-margin-x" *ngIf="stepperType == 'HORIZONTAL'">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="parentRef"></app-stepper-header>
+    </div>
+    <div class="p-col-12 p-pt-0">
+      <div class="text-size-16 text-bold p-px-1 p-py-3">
+        {{
+          parentRef.stepperDetails.headings[parentRef.stepperDetails.currentStep - 1] | apsTranslate
+        }}
+      </div>
+      <div
+        class="aps-min-h-400"
+        [ngClass]="{
+          'aps-card':
+            parentRef.stepperDetails.currentStep != parentRef.stepperDetails.headings.length
+        }"
+      >
+        <ng-container
+          [ngTemplateOutlet]="parentRef.stepperDetails.currentStep | stepRefTemplate"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="stepperType == 'VERTICAL'">
+    <div
+      class="p-col-12 p-md-3 p-lg-3 p-pb-0"
+      *ngIf="parentRef.stepperDetails.currentStep != parentRef.stepperDetails.headings.length"
+    >
+      <app-stepper-header [parentRef]="parentRef"></app-stepper-header>
+    </div>
+    <div
+      class="p-col-12 p-pb-0 p-mb-3"
+      [ngClass]="{
+        'p-md-9 p-lg-9':
+          parentRef.stepperDetails.currentStep < parentRef.stepperDetails.headings.length
+      }"
+    >
+      <div
+        class="aps-card aps-h-600"
+        *ngIf="parentRef.stepperDetails.currentStep != parentRef.stepperDetails.headings.length"
+      >
+        <div class="aps-card-header">
+          <div class="text-size-16 text-semi-bold p-p-2">
+            {{
+              parentRef.stepperDetails.headings[parentRef.stepperDetails.currentStep - 1]
+                | apsTranslate
+            }}
+          </div>
+        </div>
+        <div class="aps-card-body">
+          <ng-container
+            [ngTemplateOutlet]="parentRef.stepperDetails.currentStep | stepRefTemplate"
+          ></ng-container>
+        </div>
+      </div>
+      <ng-container
+        *ngIf="parentRef.stepperDetails.currentStep == parentRef.stepperDetails.headings.length"
+      >
+        <div class="text-size-16 text-bold p-px-1 p-py-3">
+          {{
+            parentRef.stepperDetails.headings[parentRef.stepperDetails.currentStep - 1]
+              | apsTranslate
+          }}
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="parentRef.stepperDetails.currentStep | stepRefTemplate"
+        ></ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="stepperType == 'ACCORDIAN'">
+    <div class="p-col-12">
+      <p-accordion>
+        <p-accordionTab
+          [header]="stepHeading"
+          *ngFor="let stepHeading of parentRef.stepperDetails.headings; let i = index"
+        >
+          <ng-container [ngTemplateOutlet]="i + 1 | stepRefTemplate"></ng-container>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="stepperType == 'OPEN_ACCORDIAN'">
+    <div class="p-col-12 accordian-container">
+      <div class="aps-card aps-min-h-400">
+        <ng-container *ngFor="let stepHeading of parentRef.stepperDetails.headings; let i = index">
+          <div *ngIf="i + 1 != parentRef.stepperDetails.headings.length">
+            <div class="accordian-heading inline-block border-radius-6 p-p-1">
+              <div class="inline-block step-no-container border-right p-px-1">
+                <app-icon icon="fa-plus-circle"></app-icon>
+                <div class="inline-block text-right aps-w-60p">{{ i + 1 }}</div>
+              </div>
+              <div class="inline-block step-heading-container p-px-2 text-semi-bold">
+                {{ stepHeading | apsTranslate }}
+              </div>
+            </div>
+            <div class="accordian-body">
+              <ng-container [ngTemplateOutlet]="i + 1 | stepRefTemplate"></ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x" *ngIf="stepperType == 'TABS'"></div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12" [ngClass]="{ 'p-pt-0': stepperType == 'VERTICAL' }">
+      <app-stepper-footer [parentRef]="parentRef"></app-stepper-footer>
+    </div>
+  </div>
+</div>

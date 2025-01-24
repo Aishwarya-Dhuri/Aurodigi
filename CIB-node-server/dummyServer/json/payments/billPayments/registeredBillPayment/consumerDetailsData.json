@@ -1,0 +1,179 @@
+[
+  {
+    "id": "1",
+    "checkbox": "",
+    "consumer": "Consumer 1",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "selected": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "raiseDispute",
+        "type": "ICON",
+        "displayName": "Raise Dispute",
+        "icon": "fal  fa-hand-point-up"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "schedulePayment",
+        "type": "ICON",
+        "displayName": "Schedule Payment",
+        "icon": "fal fa-calendar-plus"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "checkbox": "",
+    "consumer": "Consumer 2",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "selected": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "raiseDispute",
+        "type": "ICON",
+        "displayName": "Raise Dispute",
+        "icon": "fal  fa-hand-point-up"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "schedulePayment",
+        "type": "ICON",
+        "displayName": "Schedule Payment",
+        "icon": "fal fa-calendar-plus"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "checkbox": "",
+    "consumer": "Consumer 3",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "raiseDispute",
+        "type": "ICON",
+        "displayName": "Raise Dispute",
+        "icon": "fal  fa-hand-point-up"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "schedulePayment",
+        "type": "ICON",
+        "displayName": "Schedule Payment",
+        "icon": "fal fa-calendar-plus"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "checkbox": "",
+    "consumer": "Consumer 4",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "raiseDispute",
+        "type": "ICON",
+        "displayName": "Raise Dispute",
+        "icon": "fal  fa-hand-point-up"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "schedulePayment",
+        "type": "ICON",
+        "displayName": "Schedule Payment",
+        "icon": "fal fa-calendar-plus"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "checkbox": "",
+    "consumer": "Consumer 5",
+    "billNo": "3 Bills",
+    "dueDate": "",
+    "billAmount": "",
+    "amountBeingPaid": "",
+    "paymentDate": "",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "raiseDispute",
+        "type": "ICON",
+        "displayName": "Raise Dispute",
+        "icon": "fal  fa-hand-point-up"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "schedulePayment",
+        "type": "ICON",
+        "displayName": "Schedule Payment",
+        "icon": "fal fa-calendar-plus"
+      }
+    ]
+  }
+]

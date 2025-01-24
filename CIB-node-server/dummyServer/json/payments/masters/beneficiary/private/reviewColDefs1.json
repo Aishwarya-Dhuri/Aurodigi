@@ -1,0 +1,18 @@
+[
+  { "headerName": "Account Number", "field": "accountNumber" },
+  { "headerName": "Beneficiary Advice Dispatch Mode", "field": "beneficiaryAdviceDispatchMode" },
+  {
+    "headerName": "Default Account",
+    "field": "defaultAccount",
+    "cellRenderer": "defaultAccountRenderer"
+  },
+  {
+    "headerName": "Effective From",
+    "field": "effectiveFrom"
+  },
+  {
+    "headerName": "Effective Till",
+    "field": "effectiveTill"
+  },
+  { "headerName": "Status", "field": "status" }
+]

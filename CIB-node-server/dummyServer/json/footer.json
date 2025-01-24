@@ -1,0 +1,46 @@
+{
+  "copyRight": "2024 Aurionpro Solutions Limited",
+  "socialMedias": [
+    { "icon": "fa-google", "link": "" },
+    { "icon": "fa-facebook", "link": "" },
+    { "icon": "fa-twitter", "link": "" },
+    { "icon": "fa-linkedin-in", "link": "" }
+  ],
+  "links": [
+    {
+      "displayName": "Activation",
+      "linkType": "USERACTIVATIONLINK",
+      "link": "https://172.16.0.163:4201/userActivation?key=26711417bea7fa6247e1875ede383ec07574bf14180b273381401c515f22a5484f6e7139152115d1daffeebd3bd4bb46",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    },
+    {
+      "displayName": "Branch",
+      "linkType": "LINK",
+      "link": "https://www.aurionpro.com/contact-us/",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    },
+    {
+      "displayName": "Privacy",
+      "linkType": "LINK",
+      "link": "https://www.aurionpro.com/news/",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    },
+    {
+      "displayName": "Contact Us",
+      "linkType": "LINK",
+      "link": "https://www.aurionpro.com/contact-us/",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    },
+    {
+      "displayName": "Customer Care",
+      "linkType": "LINK",
+      "link": "https://www.aurionpro.com/contact-us/",
+      "uploadFileName": null,
+      "systemUploadFileName": null
+    }
+  ]
+}

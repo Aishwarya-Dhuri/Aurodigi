@@ -1,0 +1,138 @@
+[
+  {
+    "accountNo": ["678789789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "678889789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "678989789", "678990789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "678989789", "678991789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679089789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679189789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290799"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290799", "679290791"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290799", "679290792"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290809"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290809", "679290800"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679290789", "679290809", "679290801"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679291789"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679291789", "679291799"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  },
+  {
+    "accountNo": ["678789789", "679289789", "679291789", "679291809"],
+    "bank": "HDFC",
+    "country": "IND",
+    "currency": "SAR",
+    "accType": "Current",
+    "type": "Internal"
+  }
+]

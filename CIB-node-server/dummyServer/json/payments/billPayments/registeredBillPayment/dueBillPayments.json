@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Telecom",
+    "count": "15",
+    "colDefUrl": "payments/billPayments/billPayment/billPaymentColDef",
+    "dataUrl": "payments/billPayments/billPayment/telecomDetails",
+    "allDataUrl": "payments/billPayments/billPayment/viewAllTelecomDetails"
+  },
+  {
+    "title": "Courier & Cargo Services",
+    "count": "7",
+    "colDefUrl": "payments/billPayments/billPayment/billPaymentColDef",
+    "dataUrl": "payments/billPayments/billPayment/courierAndCargoDetails",
+    "allDataUrl": "payments/billPayments/billPayment/allCourierAndCargoDetails"
+  }
+]

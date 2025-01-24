@@ -1,0 +1,333 @@
+[
+  {
+    "id": "26",
+    "moduleId": "26",
+    "moduleName": "Dashboard",
+    "icon": "fa-th-large",
+    "isFullMenu": false,
+    "menus": [
+      {
+        "id": "1",
+        "displayName": "Relationship Manager",
+        "url": "dashboard/relationshipManager"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "moduleId": "1",
+    "moduleName": "Setup",
+    "icon": "fa-cog",
+    "isFullMenu": true,
+    "menus": [
+      {
+        "id": "113",
+        "isParentMenu": true,
+        "parentMenuId": "0",
+        "moduleId": "1",
+        "moduleName": "Setup",
+        "menuCategory": "Other",
+        "displayName": "Security-Bank",
+        "entityName": "BANKSECURITY",
+        "menus": [
+          {
+            "id": "11311",
+            "isParentMenu": false,
+            "parentMenuId": "113",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Bank Profile",
+            "entityName": "BANKPROFILE",
+            "serviceUrl": "setup/securityBank/bankProfile",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "1",
+                  "displayName": "Initiate",
+                  "access": "DATA_ENTRY",
+                  "key": "INIT",
+                  "url": "setup/securityBank/bankProfile",
+                  "hide": "N"
+                },
+                {
+                  "id": "2",
+                  "displayName": "Listing",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "url": "setup/securityBank/bankProfile/listing",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11314",
+            "isParentMenu": false,
+            "parentMenuId": "113",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Bank Role",
+            "entityName": "BANKROLE",
+            "serviceUrl": "setup/securityBank/bankRole",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "1",
+                  "displayName": "Initiate",
+                  "access": "DATA_ENTRY",
+                  "key": "INIT",
+                  "url": "setup/securityBank/bankRole",
+                  "hide": "N"
+                },
+                {
+                  "id": "2",
+                  "displayName": "Listing",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "url": "setup/securityBank/bankRole/listing",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11315",
+            "isParentMenu": false,
+            "parentMenuId": "113",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Bank User",
+            "entityName": "BANKUSER",
+            "serviceUrl": "setup/securityBank/bankUser",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "1",
+                  "displayName": "Initiate",
+                  "access": "DATA_ENTRY",
+                  "key": "INIT",
+                  "url": "setup/securityBank/bankUser",
+                  "hide": "N"
+                },
+                {
+                  "id": "2",
+                  "displayName": "Listing",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "url": "setup/securityBank/bankUser/listing",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11316",
+            "isParentMenu": false,
+            "parentMenuId": "113",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Bank User Upload",
+            "entityName": "BANKUSERUPLOAD",
+            "serviceUrl": "setup/securityBank/bankUserUpload",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "2",
+                  "displayName": "Listing",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "url": "setup/securityBank/bankUserUpload/listing",
+                  "hide": "N"
+                },
+                {
+                  "id": "6",
+                  "displayName": "Upload",
+                  "access": "DATA_ENTRY",
+                  "key": "INIT",
+                  "url": "setup/securityBank/bankUserUpload",
+                  "hide": "N"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "114",
+        "isParentMenu": true,
+        "parentMenuId": "0",
+        "moduleId": "1",
+        "moduleName": "Setup",
+        "menuCategory": "Other",
+        "displayName": "Process",
+        "entityName": "PROCESS",
+        "menus": [
+          {
+            "id": "11411",
+            "isParentMenu": false,
+            "parentMenuId": "114",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Query Builder",
+            "entityName": "BANKQUERYBUILDER",
+            "serviceUrl": "-",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "7",
+                  "displayName": "Execute",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "url": "-",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11412",
+            "isParentMenu": false,
+            "parentMenuId": "114",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Authorization Dashboard",
+            "entityName": "BANKSETUPAUTHORIZATIONDASHBOARD",
+            "serviceUrl": "-",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "12",
+                  "displayName": "View",
+                  "access": "VIEW",
+                  "key": "VIEW",
+                  "url": "-",
+                  "hide": "N"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "27",
+    "moduleId": "27",
+    "moduleName": "Reports",
+    "icon": "fa-chart-bar",
+    "isFullMenu": true,
+    "menus": [
+      {
+        "id": "115",
+        "isParentMenu": true,
+        "parentMenuId": "0",
+        "moduleId": "1",
+        "moduleName": "Setup",
+        "menuCategory": "Other",
+        "displayName": "Setup",
+        "entityName": "SETUPREPORTS",
+        "menus": [
+          {
+            "id": "11511",
+            "isParentMenu": false,
+            "parentMenuId": "115",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Audit Trail Report",
+            "entityName": "SETUPAUDITTRAILREPORT",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "8",
+                  "displayName": "Generate",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "url": "reports/services",
+                  "hide": "N"
+                },
+                {
+                  "id": "11",
+                  "displayName": "Report List",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "url": "reports/services",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11512",
+            "isParentMenu": false,
+            "parentMenuId": "115",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Report",
+            "displayName": "Generic Reports",
+            "entityName": "SETUPGENERICREPORT",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "8",
+                  "displayName": "Generate",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "url": "reports/services",
+                  "hide": "N"
+                },
+                {
+                  "id": "11",
+                  "displayName": "Report List",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "url": "reports/services",
+                  "hide": "N"
+                }
+              ]
+            }
+          },
+          {
+            "id": "11513",
+            "isParentMenu": false,
+            "parentMenuId": "115",
+            "moduleId": "1",
+            "moduleName": "Setup",
+            "menuCategory": "Other",
+            "displayName": "Master Report",
+            "entityName": "SETUPMASTERMENUREPORT",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "id": "8",
+                  "displayName": "Generate",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "url": "reports/services",
+                  "hide": "N"
+                },
+                {
+                  "id": "11",
+                  "displayName": "Report List",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "url": "reports/services",
+                  "hide": "N"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

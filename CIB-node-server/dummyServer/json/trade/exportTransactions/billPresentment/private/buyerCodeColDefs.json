@@ -1,0 +1,7 @@
+{
+  "columnDefs": [
+    { "headerName": "Buyer Code", "field": "buyerCode", "checkboxSelection": true },
+    { "headerName": "Buyer Name", "field": "buyerName" },
+    { "headerName": "Buyer Account No", "field": "buyerAccountNo" }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "headerName": "Account Number",
+    "field": "accountNumber"
+  },
+  { "headerName": "Cheque No", "field": "chequeNumber" },
+  { "headerName": "Cheque Amount", "field": "chequeAmount" },
+  { "headerName": "Cheque Date", "field": "chequeDate" },
+  { "headerName": "Drawee Name", "field": "draweeName" },
+  { "headerName": "System Date", "field": "modifiedSysOn", "cellRenderer": "dateRenderer" },
+  { "headerName": "Remark", "field": "remark" },
+  { "headerName": "Exception Reason", "field": "exceptionReason" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  },
+  {
+    "headerName": "Links",
+    "field": "links",
+    "cellRenderer": "linkActionRenderer"
+  }
+]

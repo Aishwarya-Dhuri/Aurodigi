@@ -1,0 +1,23 @@
+[
+  { "headerName": "UETR No", "field": "id" },
+  { "headerName": "Batch No", "field": "id" },
+  { "headerName": "Payer", "field": "payer" },
+  { "headerName": "Payee", "field": "payee" },
+  {
+    "headerName": "Transaction Amount",
+    "field": "transactionAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Charges Born By Payee",
+    "field": "chargesBornByPayee",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Charges Born By Payer",
+    "field": "chargesBornByPayer",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Total Duration", "field": "totalDuration" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

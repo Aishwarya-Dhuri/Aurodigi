@@ -1,0 +1,14 @@
+.data-card {
+  color: var(--text-color-dark-shade-1);
+  border: 2px solid var(--background-color);
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+}
+
+.data-card-active {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--inverted-text-color);
+}

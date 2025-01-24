@@ -1,0 +1,38 @@
+[
+  {
+    "id": "10",
+    "checkbox": "",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 Aug 2021",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 Aug 2021",
+    "selected": false,
+    "actions": []
+  },
+  {
+    "id": "11",
+    "checkbox": "",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 Aug 2021",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 Aug 2021",
+    "selected": false,
+    "actions": []
+  },
+  {
+    "id": "12",
+    "checkbox": "",
+    "consumer": "",
+    "billNo": "Bill No 12345",
+    "dueDate": "20 Aug 2021",
+    "billAmount": "10000",
+    "amountBeingPaid": "10000",
+    "paymentDate": "31 Aug 2021",
+    "selected": false,
+    "actions": []
+  }
+]

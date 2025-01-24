@@ -1,0 +1,282 @@
+:host[style='style3'] {
+  .group {
+    --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    position: relative;
+    display: inline-block;
+    padding-top: 6px;
+    font-family: var(
+      --pure-material-font,
+      'Roboto',
+      'CIB Regular' 'Segoe UI',
+      BlinkMacSystemFont,
+      system-ui,
+      -apple-system
+    );
+    font-size: 1rem;
+    line-height: 1.5;
+    overflow: hidden;
+    width: 100%;
+    // height: 90%;
+  }
+
+  /* textarea, Textarea */
+  .group > textarea,
+  .group > textarea {
+    box-sizing: border-box;
+    margin: 0;
+    border: solid 1px; /* Safari */
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-top-color: transparent;
+    border-radius: 4px;
+    padding: 15px 13px 15px;
+    width: 100%;
+    height: inherit;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    background-color: transparent;
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+
+  /* .label */
+  .group > textarea + .label,
+  .group > textarea + .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    width: 100%;
+    max-height: 100%;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    font-size: 75%;
+    line-height: 15px;
+    cursor: text;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    padding: 0;
+  }
+
+  /* Corners */
+  .group > textarea + .label::before,
+  .group > textarea + .label::after,
+  .group > textarea + .label::before,
+  .group > textarea + .label::after {
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    margin-top: 6px;
+    border-top: solid 1px;
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    min-width: 10px;
+    height: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 1px transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .group > textarea + .label::before,
+  .group > textarea + .label::before {
+    margin-right: 4px;
+    border-left: solid 1px transparent;
+    border-radius: 4px 0;
+  }
+
+  .group > textarea + .label::after,
+  .group > textarea + .label::after {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-right: solid 1px transparent;
+    border-radius: 0 4px;
+  }
+
+  /* Hover */
+  .group:hover > textarea,
+  .group:hover > textarea {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    border-top-color: transparent;
+  }
+
+  .group:hover > textarea + .label::before,
+  .group:hover > textarea + .label::before,
+  .group:hover > textarea + .label::after,
+  .group:hover > textarea + .label::after {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  }
+
+  .group:hover > textarea:not(:focus):placeholder-shown,
+  .group:hover > textarea:not(:focus):placeholder-shown {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  }
+
+  /* Placeholder-shown */
+  .group > textarea:not(:focus):placeholder-shown,
+  .group > textarea:not(:focus):placeholder-shown {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  }
+
+  .group > textarea:not(:focus):placeholder-shown + .label,
+  .group > textarea:not(:focus):placeholder-shown + .label {
+    font-size: inherit;
+    line-height: 400%;
+  }
+
+  .group > textarea:not(:focus):placeholder-shown + .label::before,
+  .group > textarea:not(:focus):placeholder-shown + .label::before,
+  .group > textarea:not(:focus):placeholder-shown + .label::after,
+  .group > textarea:not(:focus):placeholder-shown + .label::after {
+    border-top-color: transparent;
+  }
+
+  /* Focus */
+  .group > textarea:focus,
+  .group > textarea:focus {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-top-color: transparent;
+    box-shadow: inset 1px 0 var(--pure-material-safari-helper1),
+      inset -1px 0 var(--pure-material-safari-helper1),
+      inset 0 -1px var(--pure-material-safari-helper1);
+    outline: none;
+  }
+
+  .group > textarea:focus + .label,
+  .group > textarea:focus + .label {
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  }
+
+  .group > textarea:focus + .label::before,
+  .group > textarea:focus + .label::after,
+  .group > textarea:focus + .label::before,
+  .group > textarea:focus + .label::after {
+    border-top-color: var(--pure-material-safari-helper1) !important;
+    box-shadow: inset 0 1px var(--pure-material-safari-helper1);
+  }
+
+  /* Disabled */
+  .group > textarea:disabled,
+  .group > textarea:disabled + .label,
+  .group > textarea:disabled,
+  .group > textarea:disabled + .label {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+    border-top-color: transparent !important;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    pointer-events: none;
+  }
+
+  .group > textarea:disabled + .label::before,
+  .group > textarea:disabled + .label::after,
+  .group > textarea:disabled + .label::before,
+  .group > textarea:disabled + .label::after {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  }
+
+  .group > textarea:disabled:placeholder-shown,
+  .group > textarea:disabled:placeholder-shown + .label,
+  .group > textarea:disabled:placeholder-shown,
+  .group > textarea:disabled:placeholder-shown + .label {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  }
+
+  .group > textarea:disabled:placeholder-shown + .label::before,
+  .group > textarea:disabled:placeholder-shown + .label::after,
+  .group > textarea:disabled:placeholder-shown + .label::before,
+  .group > textarea:disabled:placeholder-shown + .label::after {
+    border-top-color: transparent !important;
+  }
+
+  /* Faster transition in Safari for less noticable fractional font-size issue */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .group > textarea,
+      .group > textarea + .label,
+      .group > textarea,
+      .group > textarea + .label,
+      .group > textarea + .label::before,
+      .group > textarea + .label::after,
+      .group > textarea + .label::before,
+      .group > textarea + .label::after {
+        transition-duration: 0.1s;
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    font-size: 100%;
+    top: 31%;
+    padding: 4px 8px;
+  }
+
+  .icon ~ .label {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .icon ~ .label {
+    transition: 1 sec linear;
+  }
+
+  .icon + textarea:focus ~ .label {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .icon + textarea:not(:focus):valid ~ .label {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .icon ~ textarea {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .cross {
+    padding: 4px 8px;
+    font-size: 100%;
+    position: absolute;
+    right: 0;
+    top: 31%;
+    cursor: pointer;
+  }
+
+  .icon + textarea:disabled ~ .label {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .icon + textarea:disabled:placeholder-shown ~ .label {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  textarea::placeholder {
+    color: transparent;
+    font-size: 1.125rem;
+  }
+  textarea:focus::placeholder {
+    color: #999;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  .error {
+    .help-text {
+      color: red !important;
+      font-size: 0.775rem;
+      top: -8px;
+      position: relative;
+    }
+
+    textarea {
+      border: 1px solid red;
+    }
+    textarea:not(:focus) {
+      border: 1px solid red !important;
+    }
+  }
+}

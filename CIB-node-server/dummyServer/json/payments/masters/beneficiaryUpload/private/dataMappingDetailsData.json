@@ -1,0 +1,60 @@
+[
+  {
+    "header": [{ "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }],
+    "detail": [
+      {
+        "columnName": "Beneficiary Code",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Beneficiary Name",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Beneficiary Address 1",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Beneficiary Address 2",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Beneficiary Address 3",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Email",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Phone No",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Pin/Zip Code",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      }
+    ],
+    "footer": [{ "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }],
+    "enrichmentFields": [
+      { "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }
+    ],
+    "lastRow": 1
+  }
+]

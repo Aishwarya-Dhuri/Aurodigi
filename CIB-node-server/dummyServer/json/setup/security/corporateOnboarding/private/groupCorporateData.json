@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "groupCode": "AutoGroup1",
+      "groupName": "GroupA"
+    },
+    {
+      "id": "100",
+      "groupCode": "AutoGroup2",
+      "groupName": "GroupB"
+    }
+  ],
+  "lastRow": 2
+}

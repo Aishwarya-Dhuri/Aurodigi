@@ -1,0 +1,30 @@
+[
+  {
+    "headerName": "Template Name",
+    "field": "templateName"
+  },
+  {
+    "headerName": "Type of Shipping Guarantee",
+    "field": "typeOfShippingGuarantee"
+  },
+  {
+    "headerName": "Shipping Guarantee Amount",
+    "field": "shippingGuaranteeAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "pinned": "right"
+  }
+]

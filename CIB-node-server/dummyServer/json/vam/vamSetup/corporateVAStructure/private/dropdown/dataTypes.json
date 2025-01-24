@@ -1,0 +1,13 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    { "id": "Numeric", "displayName": "Numeric" },
+    { "id": "Alphanumeric", "displayName": "Alphanumeric" },
+    { "id": "Freetext", "displayName": "Freetext" }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

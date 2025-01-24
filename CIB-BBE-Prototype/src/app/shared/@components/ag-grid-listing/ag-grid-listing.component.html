@@ -1,0 +1,67 @@
+<ng-container *ngIf="!loading">
+  <div
+    class=""
+    [ngClass]="{ 'aps-hide': viewport == 'mobile' }"
+    [style]="{ width: '100%', height: agGridOptions.pagination ? 'calc(100% - 62px)' : '100%' }"
+  >
+    <ag-grid-angular
+      [style]="{ width: '100%', height: '100%' }"
+      class="ag-theme-alpine"
+      [id]="id"
+      [gridOptions]="agGridOptions"
+    ></ag-grid-angular>
+  </div>
+
+  <div
+    class=""
+    [style]="{ height: agGridOptions.pagination ? 'calc(100% - 62px)' : '100%' }"
+    *ngIf="viewport == 'mobile'"
+  >
+    <div class="aps-card border p-p-2 p-my-2" *ngFor="let data of rowData; let k = index">
+      <div class="p-grid g-margin-x">
+        <ng-container *ngFor="let col of columnDefs; let i = index">
+          <ng-container *ngIf="true">
+            <div
+              class="p-col-6 p-py-0"
+              *ngIf="col.field != 'actions' && !col.cellRenderer"
+              [ngClass]="{ 'text-right': i % 2 != 0 }"
+            >
+              {{ data[col.field] }}
+            </div>
+            <div
+              [ngClass]="{
+                'text-right': i % 2 != 0 && col.field != 'actions',
+                'p-col-6 p-py-0': col.field != 'actions',
+                'p-col-12 p-pt-2 p-pb-0 p-mt-2 border-top': col.field == 'actions'
+              }"
+              *ngIf="col.cellRenderer"
+            >
+              <ndc-dynamic
+                [ndcDynamicComponent]="agGridOptions.frameworkComponents[col.cellRenderer]"
+                [ndcDynamicInputs]="{
+                  data: data,
+                  field: col.field,
+                  context: agGridOptions.context,
+                  isAgGridRenderer: false
+                }"
+              ></ndc-dynamic>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="agGridOptions.pagination">
+    <app-pagination
+      [numberOfRecords]="numberOfRecords"
+      [_pageSize]="pageSize"
+      (goToFirstPage)="gridApi.paginationGoToFirstPage()"
+      (goToNext)="gridApi.paginationGoToNextPage()"
+      (goToPrevious)="gridApi.paginationGoToPreviousPage()"
+      (goToLastPage)="gridApi.paginationGoToLastPage()"
+      (goToPageNumber)="gridApi.paginationGoToPage($event)"
+      (changePageSize)="changePageSize($event)"
+    ></app-pagination>
+  </ng-container>
+</ng-container>

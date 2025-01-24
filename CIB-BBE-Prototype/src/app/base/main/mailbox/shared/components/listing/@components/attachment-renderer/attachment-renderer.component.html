@@ -1,0 +1,10 @@
+<div [class]="params && !params.data.isRead ? 'text-bold' : ''" (click)="openMail()">
+  <span
+    ><app-icon
+      icon="fa-paperclip"
+      styleClasses="pointer"
+      (click)="invokeParentMethod($event)"
+    ></app-icon
+    >&nbsp;{{ cellValue ? cellValue : 0 }}</span
+  >&nbsp;Files
+</div>

@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "label": "Trade",
+      "trade": 5,
+      "loans": 0,
+      "fscm": 0,
+      "payments": 0
+    },
+    {
+      "label": "Loans",
+      "trade": 0,
+      "loans": 2,
+      "fscm": 0,
+      "payments": 0
+    },
+    {
+      "label": "FSCM",
+      "trade": 0,
+      "loans": 0,
+      "fscm": 3,
+      "payments": 0
+    },
+    {
+      "label": "Payments",
+      "trade": 0,
+      "loans": 0,
+      "fscm": 0,
+      "payments": 10
+    }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "label",
+      "yKeys": ["trade", "loans", "fscm", "payments"],
+      "yNames": ["Trade", "Loans", "FSCM", "Payments"],
+      "shadow": { "enabled": false }
+    }
+  ],
+  "axes": [
+    { "type": "category", "position": "bottom" },
+    {
+      "type": "number",
+      "position": "left",
+      "title": {
+        "text": "Line Amount",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "enabled": false
+  }
+}

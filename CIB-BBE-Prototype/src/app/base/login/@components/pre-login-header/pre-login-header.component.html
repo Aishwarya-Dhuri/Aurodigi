@@ -1,0 +1,31 @@
+<div class="header">
+  <img
+    class="logo"
+    [src]="productLogoUrl"
+    alt="iCashPro"
+    (click)="proceedLogin(1)"
+    (contextmenu)="proceedLogin(2)"
+  />
+  <div class="inline-block p-mt-2 float-right">
+    <app-icon class="p-mx-2 p-mt-1 pointer" icon="fa-question-circle"></app-icon>
+  </div>
+  <div class="language p-m-2 float-right">
+    <select
+      name="language"
+      id="language"
+      [ngModel]="language.id"
+      (change)="changeLanguage($event)"
+      *ngIf="language"
+    >
+      <option *ngFor="let lang of languages; let i = index" [value]="lang.id">
+        {{ lang.displayShortName }}
+      </option>
+    </select>
+  </div>
+  <img
+    class="logo p-mx-2 float-right"
+    [src]="bankLogoUrl"
+    alt="bank logo"
+    (click)="proceedLogin(3)"
+  />
+</div>

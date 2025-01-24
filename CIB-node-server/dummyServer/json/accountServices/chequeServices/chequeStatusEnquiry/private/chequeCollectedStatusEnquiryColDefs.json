@@ -1,0 +1,41 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Account Number",
+      "field": "accountNumber"
+    },
+    {
+      "headerName": "Cheque Number",
+      "field": "chequeNumber"
+    },
+    {
+      "headerName": "Cheque Amount",
+      "field": "chequeAmount"
+    },
+    {
+      "headerName": "Cheque Date",
+      "field": "chequeDate"
+    },
+    {
+      "headerName": "Presenting Bank",
+      "field": "presentingBank"
+    },
+    {
+      "headerName": "Payer Name",
+      "field": "payee"
+    },
+    {
+      "headerName": "Reason",
+      "field": "reason"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Cheque Image",
+      "field": "chequeImage",
+      "cellRenderer": "chequeImageCellRenderer"
+    }
+  ]
+}

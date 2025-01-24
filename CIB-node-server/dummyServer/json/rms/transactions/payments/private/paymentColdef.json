@@ -1,0 +1,40 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Payment",
+      "field": "paymentAmount",
+      "checkboxSelection": true,
+      "cellRenderer": "paymentRenderer",
+      "width": 220,
+      "sortable": false
+    },
+    {
+      "headerName": "Reconciliated Amt",
+      "field": "reconciliatedAmount",
+      "cellRenderer": "currencyRenderer",
+      "width": 180,
+      "sortable": false
+    },
+    {
+      "headerName": "Outstanding Amt",
+      "field": "outstandingAmount",
+      "cellRenderer": "editCurrencyRenderer",
+      "width": 190,
+      "sortable": false
+    },
+    { "headerName": "Account No", "field": "accountNo", "sortable": false },
+    { "headerName": "Payment Date", "field": "paymentDate", "sortable": false },
+    {
+      "headerName": "Transaction Description",
+      "field": "transactionDesc",
+      "sortable": false
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer",
+      "sortable": false,
+      "pinned": "right"
+    }
+  ]
+}

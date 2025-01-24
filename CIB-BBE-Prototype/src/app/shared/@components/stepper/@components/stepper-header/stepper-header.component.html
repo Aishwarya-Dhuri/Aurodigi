@@ -1,0 +1,154 @@
+<ng-container *ngIf="parentRef.mode != 'VIEW'">
+  <ng-container *ngIf="viewPort == 'web'">
+    <div
+      class="vertical-stepper-container aps-card text-color-dark-shade-1 aps-h-600 overflow-scroll p-mb-3"
+      *ngIf="parentRef.stepperDetails.stepperType == 'VERTICAL'"
+    >
+      <ng-container *ngFor="let step of parentRef.stepperDetails.steps; let i = index">
+        <div
+          class="border-bottom"
+          *ngIf="
+            parentRef.stepperDetails.isHideLastStep &&
+            i != parentRef.stepperDetails.steps.length - 1
+          "
+        >
+          <div
+            class="pointer"
+            [ngClass]="{
+              'active-step': parentRef.stepperDetails.currentStep == i + 1
+            }"
+            (click)="onStepClicked(i + 1)"
+          >
+            <div
+              class="progress-bar p-m-1"
+              *ngIf="
+                parentRef.getStepCompletePercentage(i + 1) > 0 &&
+                (step.visited || step.active) &&
+                parentRef.getStepCompletePercentage(i + 1) < 100
+              "
+            >
+              <div
+                class="error"
+                [ngStyle]="{
+                  width: parentRef.getStepCompletePercentage(i + 1) + '%'
+                }"
+                *ngIf="
+                  parentRef.stepperDetails.currentStep != i + 1 &&
+                  parentRef.getStepCompletePercentage(i + 1) < 100 &&
+                  step.visited
+                "
+              ></div>
+              <div
+                class="progress"
+                [ngStyle]="{
+                  width: parentRef.getStepCompletePercentage(i + 1) + '%'
+                }"
+                *ngIf="
+                  parentRef.getStepCompletePercentage(i + 1) > 0 &&
+                  parentRef.stepperDetails.currentStep == i + 1
+                "
+              ></div>
+            </div>
+            <div
+              class="p-px-3 p-pb-3"
+              [ngClass]="step.stepStatus == 'success' ? 'p-pt-2' : 'p-pt-3'"
+            >
+              <div class="left-right-container">
+                <div class="left-container">
+                  <div class="text-size-14 text-semi-bold">
+                    {{ i + 1 }}.&nbsp;{{ parentRef.stepperDetails.headings[i] }}
+                  </div>
+                </div>
+                <div class="right-container">
+                  <app-icon
+                    icon="fa-exclamation-triangle"
+                    [styleClasses]="'text-color-danger text-size-12'"
+                    *ngIf="step.visited && !parentRef.validateForm(i + 1)"
+                  ></app-icon>
+                  <app-icon
+                    icon="fa-check-circle"
+                    styleClasses="text-color-success text-size-12"
+                    *ngIf="(step.visited || step.active) && parentRef.validateForm(i + 1)"
+                  ></app-icon>
+                </div>
+              </div>
+
+              <div *ngIf="parentRef.getStepCompletePercentage(i + 1) > 0">
+                <ng-container *ngFor="let displayField of parentRef.getStepFields(i + 1)">
+                  <div
+                    class="inline-block p-m-1 text-size-10 text-color-dark-shade-1 background-color-primary-light-shade-2 borderr-radius-4 p-py-1 p-px-2"
+                    *ngIf="displayField.value"
+                  >
+                    <span class="text-semi-bold">{{ displayField.name }}</span>
+                    <span>&nbsp;{{ displayField.value }}</span>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div
+      class="horizontal-stepper-container"
+      *ngIf="parentRef.stepperDetails.stepperType == 'HORIZONTAL'"
+    >
+      <div
+        class="step-wrapper"
+        *ngFor="let step of parentRef.stepperDetails.steps; let i = index"
+        [style]="getStyle(i)"
+        [ngClass]="{ 'step-completed': step.completed }"
+        (click)="onStepClicked(i + 1)"
+      >
+        <div class="details-container" [ngClass]="{ 'active-details-container': step.active }">
+          <div class="step">
+            <span class="step-no" *ngIf="!step.completed"> {{ i + 1 }}</span>
+            <app-icon
+              icon="fa-check"
+              class="app-icon"
+              aria-hidden="true"
+              *ngIf="step.completed"
+            ></app-icon>
+          </div>
+          <div class="label">
+            <div class="heading">{{ parentRef.stepperDetails.headings[i] }}</div>
+            <div class="sub-heading" *ngIf="step.completed">
+              <span>{{ parentRef.getSubHeading(i + 1) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div
+    class="mobile-stepper-container background-color-primary-light-shade-1 p-p-2"
+    *ngIf="viewPort == 'mobile'"
+  >
+    <div
+      class="step-status"
+      [style]="{
+        'background-image':
+          'linear-gradient(270deg, transparent 50%, var(--background-color-light-1) 50%), linear-gradient(' +
+          percentageCompletedAngle +
+          'deg, var(--background-color-light-1) 50%, transparent 50%)'
+      }"
+    >
+      <div class="current-step-details">
+        {{ parentRef.stepperDetails.currentStep }} of {{ parentRef.stepperDetails.steps.length }}
+      </div>
+    </div>
+    <div class="step-details">
+      <div class="heading">
+        {{ parentRef.stepperDetails.headings[parentRef.stepperDetails.currentStep - 1] }}
+      </div>
+      <div
+        class="sub-heading"
+        *ngIf="parentRef.stepperDetails.steps[parentRef.stepperDetails.currentStep - 1].completed"
+      >
+        <span>{{ parentRef.getSubHeading(parentRef.stepperDetails.currentStep) }}</span>
+      </div>
+    </div>
+  </div>
+</ng-container>

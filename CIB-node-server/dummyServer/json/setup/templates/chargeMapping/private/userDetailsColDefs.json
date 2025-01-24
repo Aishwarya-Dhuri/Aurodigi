@@ -1,0 +1,32 @@
+[
+  {
+    "headerName": "Template Code",
+    "field": "module"
+  },
+  {
+    "headerName": "Product Name",
+    "field": "transactionName"
+  },
+  {
+    "headerName": "Event",
+    "field": "authorizationRule"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Calculating Frequency",
+    "field": "calculatingFrequency"
+  },
+  {
+    "headerName": "Posting Frequency",
+    "field": "postingFrequency"
+  },
+  {
+    "headerName": "Actions",
+    "field": "initActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

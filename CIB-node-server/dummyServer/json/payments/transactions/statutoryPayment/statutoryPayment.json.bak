@@ -1,0 +1,105 @@
+{
+  "insights": [
+    {
+      "icon": "fa-info-circle",
+      "label": "Paid 100,000 in taxes in this year so far, up by 30% from last year."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Paid 10,000 in EPF in this year so far, down by 10% from last year."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "30 days left for the payment of Ports Authority."
+    }
+  ],
+  "suggested": [
+    {
+      "logo": "assets/images/statutory-payment/EPF.PNG",
+      "displayName": "Employees Provident Fund",
+      "info": "Paid regularly for past 8 quarters.",
+      "isComplexData": false
+    },
+    {
+      "logo": "assets/images/statutory-payment/income.png",
+      "displayName": "Advance Tax",
+      "info": "Paid regularly for past 3 years.",
+      "isComplexData": false
+    },
+    {
+      "logo": "assets/images/statutory-payment/gst.png",
+      "displayName": "Goods and Services Tax",
+      "info": "Paid Regularly for past 11 months",
+      "isComplexData": true
+    }
+  ],
+  "drafts": [
+    {
+      "logo": "assets/images/statutory-payment/income.png",
+      "shortName": "Income Tax Department",
+      "fullName": "Advance Tax Payments",
+      "date": "30 JUNE 2023"
+    },
+    {
+      "logo": "assets/images/statutory-payment/SLC.PNG",
+      "shortName": "CUST",
+      "fullName": "Customs",
+      "date": "25 JUNE 2023"
+    },
+    {
+      "logo": "assets/images/statutory-payment/SLE.PNG",
+      "shortName": "EXC",
+      "fullName": "Excise",
+      "date": "23 JUNE 2023"
+    },
+    {
+      "logo": "assets/images/statutory-payment/income Tax.PNG",
+      "shortName": "Advance Tax",
+      "fullName": "Advance Tax Payment",
+      "date": "30 JUNE 2023"
+    },
+    {
+      "logo": "assets/images/statutory-payment/SLC.PNG",
+      "shortName": "CUST",
+      "fullName": "Customs",
+      "date": "25 JUNE 2023"
+    }
+  ],
+  "recents": [
+    {
+      "logo": "assets/images/statutory-payment/CICT.PNG",
+      "shortName": "ICT",
+      "fullName": "International Container Terminal",
+      "date": "28 JUNE 2023",
+      "amount": "100000"
+    },
+    {
+      "logo": "assets/images/statutory-payment/SLPA.PNG",
+      "shortName": "PA",
+      "fullName": "Port Authority",
+      "date": "25 JUNE 2023",
+      "amount": "50000"
+    },
+    {
+      "logo": "assets/images/statutory-payment/income.png",
+      "shortName": "Advance Tax",
+      "fullName": "Advance Tax Payment",
+      "date": "21 JUNE 2023",
+      "amount": "10000"
+    },
+    {
+      "logo": "assets/images/statutory-payment/SLPA.PNG",
+      "shortName": "PA",
+      "fullName": "Port Authority",
+      "date": "25 JUNE 2023",
+      "amount": "50000"
+    },
+    {
+      "logo": "assets/images/statutory-payment/income.png",
+      "shortName": "Income Tax",
+      "fullName": "Advance Tax Payment",
+      "date": "21 JUNE 2023",
+      "amount": "10000"
+    }
+  ]
+}

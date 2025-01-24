@@ -1,0 +1,4 @@
+[
+  { "checkboxSelection": true, "headerName": "Seller / Buyer Code", "field": "sellerBuyerCode" },
+  { "headerName": "Seller / Buyer Name", "field": "sellerBuyerName" }
+]

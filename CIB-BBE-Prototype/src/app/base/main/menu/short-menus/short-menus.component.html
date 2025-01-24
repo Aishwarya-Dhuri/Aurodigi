@@ -1,0 +1,7 @@
+<!-- <app-backdrop [background]="'rgba(0, 0, 0, 0)'" [zIndex]="2"></app-backdrop> -->
+
+<div class="menus">
+  <div class="menu-item" *ngFor="let menu of menus" (click)="onMenuClick(menu)">
+    {{ menu.displayName }}
+  </div>
+</div>

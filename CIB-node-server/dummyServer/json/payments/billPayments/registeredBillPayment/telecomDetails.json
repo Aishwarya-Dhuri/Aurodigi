@@ -1,0 +1,59 @@
+[
+  {
+    "billerIcon": "assets/images/airtel.PNG",
+    "billerName": "Airtel",
+    "product": "Broadband",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  },
+  {
+    "billerIcon": "assets/images/vodafone.PNG",
+    "billerName": "Vodafone",
+    "product": "Broadband",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  },
+  {
+    "billerIcon": "assets/images/vodafone.PNG",
+    "billerName": "JIO",
+    "product": "Broadband",
+    "type": "offline",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  },
+  {
+    "billerIcon": "assets/images/airtel.PNG",
+    "billerName": "Postpaid",
+    "type": "offline",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  },
+  {
+    "billerIcon": "assets/images/vodafone.PNG",
+    "billerName": "Postpaid",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  },
+  {
+    "billerIcon": "assets/images/vodafone.PNG",
+    "billerName": "Jio",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43
+  }
+]

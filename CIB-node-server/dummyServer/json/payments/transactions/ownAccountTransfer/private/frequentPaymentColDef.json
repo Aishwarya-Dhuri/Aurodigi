@@ -1,0 +1,19 @@
+{
+  "columnDefs": [
+    { "headerName": "Transaction Reference No.", "field": "id" },
+    { "headerName": "Credit Account No", "field": "creditAccountNo" },
+    { "headerName": "Debit Account", "field": "debitAccountNo" },
+    { "headerName": "Debit Amount", "field": "debitAmount" },
+    { "headerName": "Payment Method", "field": "paymentMethod", "tooltipField": "paymentMethod" },
+    { "headerName": "Channel", "field": "channel" },
+    { "headerName": "Value Date", "field": "valueDate" },
+    {
+      "headerName": "Payable Amount",
+      "field": "payableAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

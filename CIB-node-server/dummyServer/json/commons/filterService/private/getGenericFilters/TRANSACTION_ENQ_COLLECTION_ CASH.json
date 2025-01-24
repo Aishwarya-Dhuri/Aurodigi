@@ -1,0 +1,93 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "depositSlipNumber",
+      "displayName": "Deposit Slip Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "depositDate",
+      "displayName": "Deposit Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "depositAmount",
+      "displayName": "Deposit Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "depositLocationCode",
+      "displayName": "Deposit Location Code",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+   
+  ],
+  "suggestions": [
+    {
+      "name": "depositDate",
+      "displayName": "Cash deposited last week",
+      "type": "Date",
+      "value": "26-Dec-2022",
+      "operator": "BETWEEN",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+   
+    {
+      "name": "depositAmount",
+      "displayName": "Cash deposited more than 50,000 amount",
+      "type": "String",
+      "value": "50000",
+      "rangeFilter": true,
+      "value1": "100000",
+      "operator": "BETWEEN",
+      "displayValue": "50000 - 100000"
+    }
+    
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Business Code",
+      "field": "businessCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Business Description",
+      "field": "businessDescription"
+    }
+  ]
+}

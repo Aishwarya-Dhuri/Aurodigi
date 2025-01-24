@@ -1,0 +1,241 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "batchNumber",
+      "displayName": "Batch Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "transactionDate",
+      "displayName": "Transaction Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "transactionNumber",
+      "displayName": "Transaction Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "beneficiaryName",
+      "displayName": "Beneficiary Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "instrumentationDate",
+      "displayName": "Instrumentation Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "amount",
+      "displayName": "Amount",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "paymentMethod",
+      "displayName": "Payment Method",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/transactions/singlePaymentRequest/private/dropdown/paymentMethodList",
+      "urlData": {
+        "filters": [{ "name": "moduleCode", "value": "BSINGLEPAYMENTREQUEST", "type": "String" }]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "instrumentNumber",
+      "displayName": "Instrument Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "channel",
+      "displayName": "Channel",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/transactions/singlePaymentRequest/private/dropdown/channel",
+      "urlData": {
+        "filters": [{ "name": "moduleCode", "value": "BSINGLEPAYMENTREQUEST", "type": "String" }]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "valueDate",
+      "displayName": "Value Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "corporateReferenceNumber",
+      "displayName": "Corporate Reference Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "siBatchNumber",
+      "displayName": "SI Batch Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "transactionDate",
+      "displayName": "Single Payment Request in Last Week",
+      "type": "Date",
+      "value": "26-Dec-2022",
+      "value1": "31-Jan-2023",
+      "operator": "BETWEEN",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+    {
+      "name": "transactionDate",
+      "displayName": "Bulk Payment Request in Last Week",
+      "type": "Date",
+      "value": "26-Dec-2022",
+      "value1": "31-Jan-2023",
+      "operator": "BETWEEN",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+    {
+      "name": "amount",
+      "displayName": "Single Payment Request raised for more than 50,000 Amount",
+      "type": "String",
+      "value": "50000",
+      "value1": "100000",
+      "operator": "",
+      "displayValue": "50000 - 100000"
+    },
+    {
+      "name": "paymentMethod",
+      "displayName": "SWIFT Payment In Last week",
+      "type": "String",
+      "value": 5,
+      "value1": "",
+      "operator": "",
+      "displayValue": "5"
+    },
+    {
+      "name": "paymentMethod",
+      "displayName": "OTT Payment",
+      "type": "String",
+      "value": "7",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Outward Telegraphic Transfer"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "headerName": "Sponsor Name",
+    "field": "dealerName",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true
+  },
+  { "headerName": "Seller/Buyer Name", "field": "sellerBuyerName" },
+  { "headerName": "Total Invoices", "field": "totalInvoices" },
+  { "headerName": "Batch Number", "field": "batchNo" },
+  { "headerName": "Total Invoice Amount", "field": "totalInvAmount" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

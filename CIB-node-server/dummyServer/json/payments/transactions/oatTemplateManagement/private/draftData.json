@@ -1,0 +1,194 @@
+{
+  "data": [
+    {
+      "id": 2883623,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "Own Cheque",
+      "creditAccountNo": "1812220918342735-PHP",
+      "valueDate": "28-Jun-2021",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493731,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "SLIPS",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493730,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493729,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "CEFTS",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493728,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "Corporate Cheque",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493727,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "LPOPP",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493726,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "Outward Telegraphic Transfer",
+      "creditAccountNo": "1721235315262394-PHP",
+      "valueDate": "31-Jul-2020",
+
+      "channel": "H2H",
+      "payableAmount": "10000.00",
+
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 7
+}

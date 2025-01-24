@@ -1,0 +1,46 @@
+.user-widgets-container {
+  display: block;
+  /*padding: 16px;*/
+
+  .widgets-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding: 16px;
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      color: var(--text-color-dark-shade-1);
+      font-size: 0.875rem;
+      font-family: 'CIB Bold';
+
+      i,
+      .app-icon {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .widgets {
+    display: block;
+    padding: 16px;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Deal No",
+      "field": "dealNo"
+    },
+    {
+      "headerName": "Currency",
+      "field": "currency"
+    },
+    {
+      "headerName": "Rates",
+      "field": "rates"
+    },
+    {
+      "headerName": "Booked Amount",
+      "field": "bookedAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "O/S Amount",
+      "field": "osAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Utilized Amount",
+      "field": "utilizedAmount",
+      "cellRenderer": "currencyRenderer"
+    }
+  ]
+}

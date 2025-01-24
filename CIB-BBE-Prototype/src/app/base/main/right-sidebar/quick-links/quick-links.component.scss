@@ -1,0 +1,62 @@
+.user-mails-container {
+  display: block;
+
+  .mails-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding: 16px;
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+      color: var(--text-color-dark-shade-1);
+      font-size: 1rem;
+      font-family: 'CIB Bold';
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .quick-links {
+    display: block;
+
+    .quick-link-wrapper {
+      display: block;
+      padding: 1rem;
+
+      .main-link {
+        font-size: 1rem;
+        color: var(--text-color-dark-shade-1);
+        padding-bottom: 0.5rem;
+      }
+
+      .links {
+        border-top: 1px solid var(--background-color);
+        border-bottom: 1px solid var(--background-color);
+        padding: 0.5rem 0;
+
+        .link {
+          font-size: 0.75rem;
+          padding: 0.25rem 0;
+          color: var(--text-color);
+        }
+      }
+    }
+  }
+}

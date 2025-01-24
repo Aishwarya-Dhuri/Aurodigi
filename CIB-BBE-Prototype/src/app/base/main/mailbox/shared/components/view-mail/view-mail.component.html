@@ -1,0 +1,100 @@
+<div class="mail-box-right-container mail-box-view aps-h-300" id="componentID">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-5 p-order-1 p-order-md-0 p-order-sm-1">
+          <fieldset>
+            <legend>From</legend>
+            <p class="mail-Data">{{ viewMail?.sendersCorporateName }}</p>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12 p-md-5">
+      <fieldset>
+        <legend>Category</legend>
+        <p class="mail-Data">{{ viewMail?.categoryName }}</p>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-5">
+      <fieldset>
+        <legend>Sub Category</legend>
+        <p class="mail-Data">{{ viewMail?.subCategoryName }}</p>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-12">
+      <fieldset>
+        <legend>To</legend>
+        <ul class="mail-Data">
+          <li *ngFor="let mailId of viewMail?.mailTo; let i = index">
+            {{ mailId.firstName }}
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-12">
+      <fieldset>
+        <legend>Cc</legend>
+        <ul class="mail-Data">
+          <li *ngFor="let mailId of viewMail?.mailCc; let i = index">
+            {{ mailId.firstName }}
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-12">
+      <div class="p-field-checkbox p-mb-0">
+        <p-checkbox [binary]="true" inputId="copyToRm" [disabled]="true"> </p-checkbox>
+        <label for="copyToRm">Copy to RM</label>
+      </div>
+    </div>
+    <div class="p-col-12 p-md-12">
+      <fieldset>
+        <legend>Subject</legend>
+        <p class="mail-Data">{{ viewMail?.subject }}</p>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-12" *ngIf="!isMailMode">
+      <fieldset>
+        <legend>Message</legend>
+        <p class="message-Data" [innerHTML]="viewMail?.mailBody | safeHtml"></p>
+      </fieldset>
+    </div>
+    <div class="p-col-12 p-md-12" *ngIf="isMailMode">
+      <div class="reply-format-editor">
+        <app-compose-mail
+          [isMailMode]="isMailMode"
+          [isMailType]="isMailType"
+          [viewMail]="viewMail"
+        ></app-compose-mail>
+      </div>
+    </div>
+  </div>
+  <div class="attachment-section" *ngIf="!isMailMode">
+    <ul class="p-d-flex p-flex-wrap multi-doc-section" *ngIf="viewMail?.attachments?.length">
+      <li class="multi-doc-item" *ngFor="let file of viewMail.attachments; let i = index">
+        <a
+          download="{{ file.originalFileName }}"
+          [href]="sanitizeImageUrl(file.fileContent)"
+          target="_blank"
+          class="doc-name p-text-nowrap p-text-truncate"
+          >{{ file.originalFileName }}</a
+        >
+        <span>({{ formatFileSize(file.fileSize) | number: '1.0-0' }}K)</span>
+      </li>
+    </ul>
+  </div>
+  <div class="p-grid p-mt-1" *ngIf="!isMailMode">
+    <div class="p-col-12 p-md-6"></div>
+    <div class="p-col-12 p-md-6 p-d-flex p-ai-center p-jc-end">
+      <button type="button" class="btn btn-md btn-twrtiary" (click)="backToListing()">Back</button>
+      <span class="mb-divider"></span>
+      <button type="button" class="btn btn-md btn-secondary p-mr-2" (click)="replyMail()">
+        <app-icon icon="fa-reply"></app-icon>&nbsp;Reply
+      </button>
+      <button type="button" class="btn btn-md btn-primary" (click)="forwardMail()">
+        <app-icon icon="fa-share"></app-icon>&nbsp;Forward
+      </button>
+    </div>
+  </div>
+</div>

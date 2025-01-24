@@ -1,0 +1,23 @@
+_setValue($text_field[<%=fieldIndex%>], "");
+				_wait(200);
+				_assertEqual("Provide <%=fieldName%>", _getText(_span("Provide <%=fieldName%>")));
+				_wait(200);
+				_setValue($text_field[<%=fieldIndex%>], "asdasd");
+				_wait(200);
+				_assertEqual("Provide <%=fieldName%>", _getText(_span("Provide <%=fieldName%>")));
+				_wait(200);
+				_setValue($text_field[<%=fieldIndex%>], "@@#");
+				_wait(200);
+				_assertEqual("Provide <%=fieldName%>", _getText(_span("Provide <%=fieldName%>")));
+				_wait(200);
+				_setValue($text_field[<%=fieldIndex%>], "12122");
+				_wait(200);
+				_assertEqual("Provide <%=fieldName%>", _getText(_span("Provide <%=fieldName%>")));
+				_wait(200);
+				_setValue($text_field[<%=fieldIndex%>], "12122018");
+				_wait(200);
+				_assertEqual("Provide <%=fieldName%>", _getText(_span("Provide <%=fieldName%>")));
+				_wait(200);
+				_setValue($text_field[<%=fieldIndex%>], $effectiFrom);
+				_wait(200);
+				

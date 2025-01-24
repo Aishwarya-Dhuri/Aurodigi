@@ -1,0 +1,50 @@
+[
+  {
+    "headerName": "Bank Guarantee Number",
+    "field": "bankGuaranteeNo"
+  },
+  {
+    "headerName": "No of Amendments",
+    "field": "noOfAmendments"
+  },
+  {
+    "headerName": "Type of Application / Undertaking",
+    "field": "typeOfApplicationOrUndertaking"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Claim Expiry Date",
+    "field": "claimExpiryDate"
+  },
+  {
+    "headerName": "BG Issue Date",
+    "field": "transactionDate"
+  },
+  {
+    "headerName": "Request Type",
+    "field": "requestType"
+  },
+  {
+    "headerName": "Status",
+    "field": "status"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "width": 350
+  }
+]

@@ -1,0 +1,7 @@
+[
+  { "headerName": "MOL ID", "field": "molId", "isShowOnCardView": true },
+  { "headerName": "Debit A/C No.", "field": "debitAccountNo", "isShowOnCardView": true },
+  { "headerName": "File Format", "field": "fileFormat", "isShowOnCardView": true },
+  { "headerName": "File Charge", "field": "fileCharge", "isShowOnCardView": false },
+  { "headerName": "Transaction Charge", "field": "transactionCharge", "isShowOnCardView": false }
+]

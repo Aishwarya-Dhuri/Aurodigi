@@ -1,0 +1,59 @@
+{
+  "columnDefs": [
+    {
+      "headerCheckboxSelection": true,
+      "checkboxSelection": true,
+      "filter": false,
+      "sortable": false,
+      "width": 50,
+      "pinned": "left"
+    },
+    { "headerName": "Seller/Buyer Name", "field": "sellerBuyerName" },
+    { "headerName": "Sub Doc Type", "field": "subDocType" },
+    { "headerName": "Invoice No.", "field": "number" },
+    { "headerName": "Invoice Date", "field": "date" },
+    {
+      "headerName": "Invoice Status",
+      "field": "status",
+      "cellRenderer": "invoiceStatusCellRenderer"
+    },
+    { "headerName": "Maturity Date", "field": "maturityDate" },
+    {
+      "headerName": "Invoice Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Finance Amount",
+      "field": "financeProcessedAmt",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Already Recovered",
+      "field": "recoverdAmt",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Repayment Amount",
+      "field": "repaymentAmt",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer",
+      "width": 100,
+      "pinned": "right",
+      "filter": false,
+      "sortable": false
+    }
+  ]
+}

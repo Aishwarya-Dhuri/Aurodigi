@@ -1,0 +1,112 @@
+<app-widgets-header
+  [heading]="title"
+  [showChangeChartOption]="showChangeChartOption"
+  (action)="this.actionEvent($event)"
+></app-widgets-header>
+
+<div class="cards-container gridster-item-content">
+  <div class="p-pb-2">
+    <p-radioButton
+      class="p-mr-2"
+      label="Invoice"
+      value="Invoice"
+      (click)="changeSupplierType()"
+      [(ngModel)]="type"
+    ></p-radioButton>
+    <p-radioButton
+      label="PO"
+      value="PO"
+      (click)="changeSupplierType()"
+      [(ngModel)]="type"
+    ></p-radioButton>
+  </div>
+
+  <div class="">
+    <aps-custom-select
+      id="supplierName"
+      name="supplierName"
+      label="Supplier Name"
+      [value]="supplierName"
+      [(ngModel)]="supplierName"
+      [data]="[
+        { id: 'all', displayName: 'All' },
+        { id: 'toyota', displayName: 'Toyota' },
+        { id: 'tata', displayName: 'Tata' }
+      ]"
+      (change)="changeSupplierType()"
+    ></aps-custom-select>
+  </div>
+
+  <div
+    class="card-wrapper"
+    [ngClass]="{
+      'card-wrapper-expand': expandedCard === 1,
+      'card-wrapper-hide': expandedCard && expandedCard !== 1
+    }"
+  >
+    <div class="card-header" (click)="expandedCard ? shrinkCard() : expandCard(1)">
+      <div class="header-wrapper">
+        <div class="header">Total {{ type }}s</div>
+        <div class="data">{{ totalList.length }}</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="card-table">
+        <thead class="table-head">
+          <tr>
+            <th>Invoice Number</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="totalList.length > 0; else noInvoices">
+            <tr *ngFor="let invoice of totalList">
+              <td>{{ invoice.number }}</td>
+              <td class="text-right">{{ invoice.amount | currency: 'USD':'symbol' }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div
+    class="card-wrapper"
+    [ngClass]="{
+      'card-wrapper-expand': expandedCard === 2,
+      'card-wrapper-hide': expandedCard && expandedCard !== 2
+    }"
+  >
+    <div class="card-header" (click)="expandedCard ? shrinkCard() : expandCard(2)">
+      <div class="header-wrapper">
+        <div class="header">Pending {{ type }}s</div>
+        <div class="data">{{ pendingList.length }}</div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <table class="card-table">
+        <thead class="table-head">
+          <tr>
+            <th>Invoice Number</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="pendingList.length > 0; else noInvoices">
+            <tr *ngFor="let invoice of pendingList">
+              <td>{{ invoice.number }}</td>
+              <td class="text-right">{{ invoice.amount | currency: 'USD':'symbol' }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #noInvoices>
+  <tr>
+    <td colspan="2" class="text-center p-p-1">No {{ type }}s</td>
+  </tr>
+</ng-template>

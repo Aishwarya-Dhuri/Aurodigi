@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "label": "Pending",
+      "pending": 4,
+      "reconciled": 0,
+      "rePrint": 0,
+      "printed": 0
+    },
+    {
+      "label": "Reconciled",
+      "pending": 0,
+      "reconciled": 3,
+      "rePrint": 0,
+      "printed": 0
+    },
+    {
+      "label": "RePrint",
+      "pending": 0,
+      "reconciled": 0,
+      "rePrint": 2,
+      "printed": 0
+    },
+    {
+      "label": "Payments",
+      "pending": 0,
+      "reconciled": 0,
+      "rePrint": 0,
+      "printed": 2
+    }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "label",
+      "yKeys": ["pending", "reconciled", "rePrint", "printed"],
+      "yNames": ["Pending", "Reconciled", "Re-Print", "Printed"],
+      "shadow": { "enabled": false }
+    }
+  ],
+  "axes": [
+    {
+      "type": "category",
+      "position": "bottom",
+      "title": {
+        "text": "Status",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    },
+    {
+      "type": "number",
+      "position": "left",
+      "title": {
+        "text": "Printing Volume",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,204 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> BIC Code Details</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Code Type' | apsTranslate" name="codeType" id="codeType"
+                                [(ngModel)]="formData.codeType" [data]="codeTypeList" [required]="true"
+                                (change)="onChangeCodeType(formData.codeType)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="code" name="code" [label]="code"
+                                [(ngModel)]="formData.code" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="Bank Code" name="bankCode"
+                                [label]="'Bank Code' | apsTranslate" [(ngModel)]="formData.bankCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="bankName" name="bankName"
+                                [label]="'Bank Name' | apsTranslate" [(ngModel)]="formData.bankName" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="branchCode" name="branchCode"
+                                [label]="'Branch Code' | apsTranslate" [(ngModel)]="formData.branchCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="branch" name="branch"
+                                [label]="'Branch' | apsTranslate" [(ngModel)]="formData.branch" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Address Details</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="address1" name="address1" [label]="'Address'"
+                                [(ngModel)]="formData.address1" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="city" name="city" [label]="'City'"
+                                [(ngModel)]="formData.city" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="locationName" name="locationName"
+                                [label]="'Location Name'" [(ngModel)]="formData.locationName" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="pinCode" name="pinCode" [label]="'Pin Code'"
+                                [(ngModel)]="formData.pinCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="routingCode" name="routingCode"
+                                [label]="'Routing Code'" [(ngModel)]="formData.routingCode" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="province" name="province" [label]="'Province'"
+                                [(ngModel)]="formData.province" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="country" name="country" [label]="'Country'"
+                                [(ngModel)]="formData.country" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true" [(ngModel)]="formData.effectiveFrom">
+                            </app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true" [(ngModel)]="formData.effectiveTill">
+                            </app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> BIC Code Detail</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Code Type" [value]="formData.codeType">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="code" [value]="formData.code">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Bank Code" [value]="formData.bankCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Bank Name" [value]="formData.bankName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Branch Code" [value]="formData.branchCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Branch" [value]="formData.branch">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Address Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Address" [value]="formData.address1">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="City" [value]="formData.code">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Location Name" [value]="formData.locationName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Pin Code" [value]="formData.pinCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Routing Code" [value]="formData.routingCode">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Province" [value]="formData.province">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Country" [value]="formData.country">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

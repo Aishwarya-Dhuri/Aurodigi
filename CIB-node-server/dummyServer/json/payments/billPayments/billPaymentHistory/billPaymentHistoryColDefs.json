@@ -1,0 +1,37 @@
+[
+  { "headerName": "Biller Name", "field": "billerName" },
+  { "headerName": "Product", "field": "product" },
+  { "headerName": "Ref 1", "field": "refNo" },
+  { "headerName": "Consumer Name", "field": "consumerName" },
+  { "headerName": "Bill No", "field": "billNo" },
+  {
+    "headerName": "Bill Date",
+    "field": "modifiedSysOn",
+    "cellRenderer": "dateRenderer",
+    "filter": "agDateColumnFilter"
+  },
+  {
+    "headerName": "Bill Due Date",
+    "field": "dueDate",
+    "cellRenderer": "dateRenderer",
+    "filter": "agDateColumnFilter"
+  },
+  { "headerName": "Account Number", "field": "cardNumber" },
+  { "headerName": "Transaction Id", "field": "id" },
+  {
+    "headerName": "Bill Amount",
+    "field": "totalPayableAmount",
+    "cellRenderer": "currencyRenderer",
+    "filter": "agNumberColumnFilter"
+  },
+  {
+    "headerName": "Payment Amount",
+    "field": "totalPayableAmount",
+    "cellRenderer": "currencyRenderer",
+    "filter": "agNumberColumnFilter"
+  },
+  { "headerName": "Channel", "field": "channel" },
+  { "headerName": "Status", "field": "status" },
+  { "headerName": "Fail Reason", "field": "failReason" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

@@ -1,0 +1,349 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0",
+    "errorList": null
+  },
+  "entityName": "EMAIL",
+  "headers": [
+    {
+      "displayName": "Id",
+      "type": "String",
+      "isDisplay": "N",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "CorporateName",
+      "type": "number",
+      "isDisplay": "N",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": " ",
+      "type": "boolean",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Category",
+      "type": "string",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "SubCategory",
+      "type": "string",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Subject",
+      "type": "string",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Date Time",
+      "type": "timestamp",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Ticket Number",
+      "type": "String",
+      "isDisplay": "N",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Content",
+      "type": "String",
+      "isDisplay": "N",
+      "isMobileDisplay": "N"
+    }
+  ],
+  "dataList": [
+    [
+      "fFq993g5frI=",
+      "SAHI  CORP1",
+      "true",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      " Test Email from postman Subject ",
+      "07-Sep-2021 11:28:50",
+      "M01140921047",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "MEtRVqGoSQY=",
+      "SAHI  CORP1",
+      "false",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      "The Test Mail Subject",
+      "06-Sep-2021 04:19:36",
+      "M01130921043",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "WkKXMmzqWXI=",
+      "SAHI  CORP1",
+      "false",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      " Test Email from postman Subject ",
+      "03-Sep-2021 09:41:35",
+      "M01080921030",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "BJXO9Kmtfks=",
+      "SAHI  CORP1",
+      "false",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      " Test Email from postman Subject ",
+      "03-Sep-2021 08:17:10",
+      "M01080921029",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "VY5uen7z6l4=",
+      "SAHI  CORP1",
+      "false",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      " Test Email from postman Subject ",
+      "03-Sep-2021 08:07:41",
+      "M01080921025",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "SPcJwxMDvcs=",
+      "SAHI  CORP1",
+      "true",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      "TEST EMAIL SUBJECT",
+      "03-Sep-2021 07:27:51",
+      "M01080921027",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ],
+    [
+      "LAiu010EmIs=",
+      "-",
+      "true",
+      "Payment Services",
+      "Transaction Status Enquiry",
+      "This is a draft to send Example",
+      "31-Aug-2021 03:12:18",
+      "M01160921048",
+      "<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:small\"><span style=\"font-family:ARIAL\">Dear BASHIR SHAIKH ,</span></span></span></span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Warm greetings from HDFC Bank.</span></span></span></span></p>\n\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Hi, This is a test mail for Mail Box app.</span></span></span></span></p>\n"
+    ]
+  ],
+  "filters": [
+    {
+      "displayName": "CorporateName",
+      "name": "corporateId",
+      "type": "number",
+      "operation": "%"
+    },
+    {
+      "displayName": " ",
+      "name": "containsAttachment",
+      "type": "boolean",
+      "operation": "="
+    },
+    {
+      "displayName": "Category",
+      "name": "categoryId",
+      "type": "string",
+      "operation": "%"
+    },
+    {
+      "displayName": "Date Time",
+      "name": "createdDate",
+      "type": "timestamp",
+      "operation": "="
+    },
+    {
+      "displayName": "Ticket Number",
+      "name": "ticketNumber",
+      "type": "String",
+      "operation": "="
+    },
+    {
+      "displayName": "Content",
+      "name": "mailBody",
+      "type": "String",
+      "operation": "%"
+    }
+  ],
+  "pageNumber": 1,
+  "totalPages": 1,
+  "totalRecords": 7,
+  "links": [
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('fFq993g5frI=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('fFq993g5frI=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('fFq993g5frI=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('MEtRVqGoSQY=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('MEtRVqGoSQY=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('MEtRVqGoSQY=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('WkKXMmzqWXI=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('WkKXMmzqWXI=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('WkKXMmzqWXI=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('BJXO9Kmtfks=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('BJXO9Kmtfks=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('BJXO9Kmtfks=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('VY5uen7z6l4=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('VY5uen7z6l4=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('VY5uen7z6l4=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('SPcJwxMDvcs=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('SPcJwxMDvcs=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('SPcJwxMDvcs=,0')"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsUnRead('LAiu010EmIs=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "UnStar",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar('LAiu010EmIs=,0')"
+      },
+      {
+        "index": 1,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail('LAiu010EmIs=,0')"
+      }
+    ]
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

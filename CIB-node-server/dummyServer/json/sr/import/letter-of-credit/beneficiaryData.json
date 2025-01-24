@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "AB Corp",
+      "beneficiaryBank": "Punjab National Bank",
+      "beneficiaryAccountNo": "111002670010",
+      "country": "India"
+    },
+    {
+      "id": 2883623,
+      "beneficiaryCode": "Bene220000666",
+      "beneficiaryName": "HPCC",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670011",
+      "country": "India"
+    },
+    {
+      "id": 2883623,
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670013",
+      "country": "India"
+    },
+    {
+      "id": 2883623,
+      "beneficiaryCode": "Bene220000666",
+      "beneficiaryName": "AB Corp",
+      "beneficiaryBank": "Punjab National Bank",
+      "beneficiaryAccountNo": "111002670014",
+      "country": "India"
+    },
+    {
+      "id": 2883623,
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670015",
+      "country": "India"
+    },
+    {
+      "id": 2883623,
+      "beneficiaryCode": "Bene220000666",
+      "beneficiaryName": "RA Group",
+      "beneficiaryBank": "Bank Of Baroda",
+      "beneficiaryAccountNo": "111002670016",
+      "country": "India"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Column Name",
+      "field": "columnName"
+    },
+    {
+      "headerName": "Data Type",
+      "field": "dataType"
+    },
+    {
+      "headerName": "Sequence Number",
+      "field": "sequenceNumber"
+    },
+    {
+      "headerName": "Operations",
+      "field": "operations"
+    }
+  ]
+}

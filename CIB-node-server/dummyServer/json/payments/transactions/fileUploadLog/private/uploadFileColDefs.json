@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Upload File Code",
+      "field": "uploadFileCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Upload File Name",
+      "field": "uploadFileName"
+    }
+  ]
+}

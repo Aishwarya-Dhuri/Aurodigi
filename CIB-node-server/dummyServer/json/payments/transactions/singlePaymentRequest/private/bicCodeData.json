@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "bicCode": "INDB0000018",
+      "bankName": "IndusInd Bank",
+      "branchName": "Andheri",
+      "city": "Mumbai",
+      "country": "India",
+      "routingCode": "400234003"
+    },
+    {
+      "id": "101",
+      "bicCode": "UBIN0569704",
+      "bankName": "Union Bank of India",
+      "branchName": "Rabale",
+      "city": "Navi Mumbai",
+      "country": "India",
+      "routingCode": "400026006"
+    },
+    {
+      "id": "102",
+      "bicCode": "UTIB0000215",
+      "bankName": "Axis Bank",
+      "branchName": "Chandani Chowk",
+      "city": "Delhi",
+      "country": "India",
+      "routingCode": "444211998"
+    },
+    {
+      "id": "103",
+      "bicCode": "HDFC0004024",
+      "bankName": "HDFC Bank",
+      "branchName": "Howrah",
+      "city": "Kolkata",
+      "country": "India",
+      "routingCode": "400240002"
+    },
+    {
+      "id": "104",
+      "bicCode": "ICIC0000994",
+      "bankName": "ICICI Bank",
+      "branchName": "Banjara Hills",
+      "city": "Hyderabad",
+      "country": "India",
+      "routingCode": "400229128"
+    },
+     {
+      "id": "105",
+      "bicCode": "SBIN0014886",
+      "bankName": "SBI Bank",
+      "branchName": "Whitefield",
+      "city": "Bengaluru",
+      "country": "India",
+      "routingCode": "026009140"
+    }
+  ],
+  "lastRow": 2
+}

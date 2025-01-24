@@ -1,0 +1,702 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+            <div class="aps-card p-mb-2">
+                <div class="aps-card-header aps-py-12 p-px-3">
+                    <div class="text-bold">{{ 'Interest Template' | apsTranslate }}</div>
+                </div>
+
+                <form name="interestTemplateForm" #interestTemplateForm="ngForm">
+                    <div class="aps-card-body p-p-2" *ngIf="stepperDetails.currentStep == 1">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-form-input id="templateCode" name="templateCode" label="Template Code"
+                                    [(ngModel)]="formData.templateCode" [required]="true"></aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-form-input id="interestTemplateName" name="interestTemplateName"
+                                    label="Template Name" [(ngModel)]="formData.interestTemplateName"
+                                    [required]="true"></aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select [label]="'Template for' | apsTranslate" name="templateFor"
+                                    id="templateFor" [(ngModel)]="formData.templateFor" [value]="formData.templateFor"
+                                    [required]="true"
+                                    dataUrl="setup/templates/interestTemplate/private/dropdown/templateFor">
+                                </aps-custom-select>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <aps-custom-select [label]="'Rate Type Code' | apsTranslate" name="rateTypeCode"
+                                    id="rateTypeCode" [(ngModel)]="formData.rateTypeCode"
+                                    [value]="formData.rateTypeCode" [required]="true"
+                                    dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                </aps-custom-select>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-aps-calender label="Effective From" name="effectiveFrom" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-lg-3">
+                                <app-aps-calender label="Effective Till" name="effectiveTill" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                            </div>
+
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-12 text-color-light-shade-1">
+                                    Currency
+                                </div>
+
+                                <p-checkbox name="AED" binary="true" label="AED" [(ngModel)]="formData.AED">
+                                </p-checkbox>
+                                &nbsp;
+
+                                <p-checkbox name="USD" binary="true" label="USD" [(ngModel)]="formData.USD">
+                                </p-checkbox>
+                                &nbsp;
+
+                                <p-checkbox name="EURO" binary="true" label="EURO" [(ngModel)]="formData.EURO">
+                                </p-checkbox>
+                                &nbsp;
+
+                                <p-checkbox name="GBP" binary="true" label="GBP" [(ngModel)]="formData.GBP">
+                                </p-checkbox>
+                                &nbsp;
+
+                                <p-checkbox name="THB" binary="true" label="THB" [(ngModel)]="formData.THB">
+                                </p-checkbox>
+
+                                <br><br>
+                                <div class="text-size-14 text-bold">
+                                    {{ 'Slab Details' | apsTranslate }}
+                                </div>
+
+                                <div *ngIf="formData.AED">
+                                    <div class="p-grid">
+                                        <div class="p-col-12">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <div class="text-size-14 text-semi-bold">
+                                                        {{ 'AED Slab' | apsTranslate }}
+                                                    </div>
+                                                </div>
+                                                <div class="right-container">
+                                                    <button class="btn btn-md btn-secondary" (click)="addSlabInfo()"
+                                                        *ngIf="formData.slabInfo.length < 3">
+                                                        {{ 'Add More' | apsTranslate }}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+
+                                            <div class="p-grid">
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="AEDstartSlab-{{ i }}"
+                                                        id="AEDstartSlab-{{ i }}" label="Start Slab"
+                                                        [(ngModel)]="slabInfo.AEDstartSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="AEDendSlab-{{ i }}" id="AEDendSlab-{{ i }}"
+                                                        label="End Slab" [(ngModel)]="slabInfo.AEDendSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-custom-select [label]="'Rate Type Code' | apsTranslate"
+                                                        name="AEDrateTypeCode-{{ i }}" id="AEDrateTypeCode-{{ i }}"
+                                                        [(ngModel)]="slabInfo.AEDrateTypeCode"
+                                                        [value]="formData.AEDrateTypeCode" [required]="i==0"
+                                                        dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                                    </aps-custom-select>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-form-input name="AEDmargin-{{ i }}" id="margin-{{ i }}"
+                                                        label="Margin" [(ngModel)]="slabInfo.AEDmargin"
+                                                        [required]="i == 0"></aps-form-input>
+
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-form-input name="AEDinterest-{{ i }}" id="margin-{{ i }}"
+                                                        label="Interest" [(ngModel)]="slabInfo.AEDinterest"
+                                                        [required]="i == 0"></aps-form-input>
+
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2 p-py-4">
+
+                                                    <app-icon class="pointer" *ngIf="i > 0" icon="fa-trash-alt"
+                                                        (click)="removeSlabInfo(i)"></app-icon>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div *ngIf="formData.USD">
+                                    <div class="p-grid">
+                                        <div class="p-col-12">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <div class="text-size-14 text-semi-bold">
+                                                        {{ 'USD Slab' | apsTranslate }}
+                                                    </div>
+                                                </div>
+                                                <div class="right-container">
+                                                    <button class="btn btn-md btn-secondary" (click)="addSlabInfo()"
+                                                        *ngIf="formData.slabInfo.length < 3">
+                                                        {{ 'Add More' | apsTranslate }}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+
+                                            <div class="p-grid">
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="USDstartSlab-{{ i }}"
+                                                        id="USDstartSlab-{{ i }}" label="Start Slab"
+                                                        [(ngModel)]="slabInfo.USDstartSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="USDendSlab-{{ i }}" id="USDendSlab-{{ i }}"
+                                                        label="End Slab" [(ngModel)]="slabInfo.USDendSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-custom-select [label]="'Rate Type Code' | apsTranslate"
+                                                        name="USDrateTypeCode-{{ i }}" id="USDrateTypeCode-{{ i }}"
+                                                        [(ngModel)]="slabInfo.USDrateTypeCode"
+                                                        [value]="formData.USDrateTypeCode" [required]="i==0"
+                                                        dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                                    </aps-custom-select>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-form-input name="USDmargin-{{ i }}" id="USDmargin-{{ i }}"
+                                                        label="Margin" [(ngModel)]="slabInfo.USDmargin"
+                                                        [required]="i == 0"></aps-form-input>
+
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+
+                                                    <aps-form-input name="USDinterest-{{ i }}" id="margin-{{ i }}"
+                                                        label="Interest" [(ngModel)]="slabInfo.USDinterest"
+                                                        [required]="i == 0"></aps-form-input>
+
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2 p-py-4">
+
+                                                    <app-icon class="pointer" *ngIf="i > 0" icon="fa-trash-alt"
+                                                        (click)="removeSlabInfo(i)"></app-icon>
+                                                </div>
+                                            </div>
+
+
+                                        </ng-container>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div *ngIf="formData.EURO">
+                                    <div class="p-grid">
+                                        <div class="p-col-12">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <div class="text-size-14 text-semi-bold">
+                                                        {{ 'EURO Slab' | apsTranslate }}
+                                                    </div>
+                                                </div>
+                                                <div class="right-container">
+                                                    <button class="btn btn-md btn-secondary" (click)="addSlabInfo()"
+                                                        *ngIf="formData.slabInfo.length < 3">
+                                                        {{ 'Add More' | apsTranslate }}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+
+                                            <div class="p-grid">
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="EUROstartSlab-{{ i }}"
+                                                        id="EUROstartSlab-{{ i }}" label="Start Slab"
+                                                        [(ngModel)]="slabInfo.EUROstartSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="EUROendSlab-{{ i }}" id="EUROendSlab-{{ i }}"
+                                                        label="End Slab" [(ngModel)]="slabInfo.EUROendSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-custom-select [label]="'Rate Type Code' | apsTranslate"
+                                                        name="EUROrateTypeCode-{{ i }}" id="EUROrateTypeCode-{{ i }}"
+                                                        [(ngModel)]="slabInfo.EUROrateTypeCode"
+                                                        [value]="formData.EUROrateTypeCode" [required]="i==0"
+                                                        dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                                    </aps-custom-select>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="EUROmargin-{{ i }}" id="margin-{{ i }}"
+                                                        label="Margin" [(ngModel)]="slabInfo.EUROmargin"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="EUROinterest-{{ i }}" id="margin-{{ i }}"
+                                                        label="Interest" [(ngModel)]="slabInfo.EUROinterest"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2 p-py-4">
+                                                    <app-icon class="pointer" *ngIf="i > 0" icon="fa-trash-alt"
+                                                        (click)="removeSlabInfo(i)"></app-icon>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+                                    </div>
+                                </div>
+
+                                <div *ngIf="formData.GBP">
+                                    <div class="p-grid">
+                                        <div class="p-col-12">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <div class="text-size-14 text-semi-bold">
+                                                        {{ 'GBP Slab' | apsTranslate }}
+                                                    </div>
+                                                </div>
+                                                <div class="right-container">
+                                                    <button class="btn btn-md btn-secondary" (click)="addSlabInfo()"
+                                                        *ngIf="formData.slabInfo.length < 3">
+                                                        {{ 'Add More' | apsTranslate }}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+
+                                            <div class="p-grid">
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="GBPstartSlab-{{ i }}"
+                                                        id="GBPstartSlab-{{ i }}" label="Start Slab"
+                                                        [(ngModel)]="slabInfo.GBPstartSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="GBPendSlab-{{ i }}" id="GBPendSlab-{{ i }}"
+                                                        label="End Slab" [(ngModel)]="slabInfo.GBPendSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-custom-select [label]="'Rate Type Code' | apsTranslate"
+                                                        name="GBPrateTypeCode-{{ i }}" id="GBPrateTypeCode-{{ i }}"
+                                                        [(ngModel)]="slabInfo.GBPrateTypeCode"
+                                                        [value]="formData.GBPrateTypeCode" [required]="i==0"
+                                                        dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                                    </aps-custom-select>
+                                                </div>
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="GBPmargin-{{ i }}" id="margin-{{ i }}"
+                                                        label="Margin" [(ngModel)]="slabInfo.GBPmargin"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="GBPinterest-{{ i }}" id="margin-{{ i }}"
+                                                        label="Interest" [(ngModel)]="slabInfo.GBPinterest"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2 p-py-4">
+                                                    <app-icon class="pointer" *ngIf="i > 0" icon="fa-trash-alt"
+                                                        (click)="removeSlabInfo(i)"></app-icon>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+                                    </div>
+
+                                </div>
+
+                                <div *ngIf="formData.THB">
+                                    <div class="p-grid">
+                                        <div class="p-col-12">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <div class="text-size-14 text-semi-bold">
+                                                        {{ 'THB Slab' | apsTranslate }}
+                                                    </div>
+                                                </div>
+                                                <div class="right-container">
+                                                    <button class="btn btn-md btn-secondary" (click)="addSlabInfo()"
+                                                        *ngIf="formData.slabInfo.length < 3">
+                                                        {{ 'Add More' | apsTranslate }}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+
+                                            <div class="p-grid">
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="THBstartSlab-{{ i }}"
+                                                        id="THBstartSlab-{{ i }}" label="Start Slab"
+                                                        [(ngModel)]="slabInfo.THBstartSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="THBendSlab-{{ i }}" id="THBendSlab-{{ i }}"
+                                                        label="End Slab" [(ngModel)]="slabInfo.THBendSlab"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-custom-select [label]="'Rate Type Code' | apsTranslate"
+                                                        name="THBrateTypeCode-{{ i }}" id="THBrateTypeCode-{{ i }}"
+                                                        [(ngModel)]="slabInfo.THBrateTypeCode"
+                                                        [value]="formData.GBPrateTypeCode" [required]="i==0"
+                                                        dataUrl="setup/templates/interestTemplate/private/dropdown/rateTypeCode">
+                                                    </aps-custom-select>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="THBmargin-{{ i }}" id="margin-{{ i }}"
+                                                        label="Margin" [(ngModel)]="slabInfo.THBmargin"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2">
+                                                    <aps-form-input name="THBinterest-{{ i }}" id="margin-{{ i }}"
+                                                        label="Interest" [(ngModel)]="slabInfo.THBinterest"
+                                                        [required]="i == 0"></aps-form-input>
+                                                </div>
+
+                                                <div class="p-col-12 p-md-2 p-lg-2 p-py-4">
+                                                    <app-icon class="pointer" *ngIf="i > 0" icon="fa-trash-alt"
+                                                        (click)="removeSlabInfo(i)"></app-icon>
+                                                </div>
+                                            </div>
+
+                                        </ng-container>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="aps-h-400 p-mb-3" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+                        <div class="aps-card-body">
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Template Code' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.templateCode }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Template Name' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.interestTemplateName }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Template For' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.templateFor }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Rate Type Code' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.rateTypeCode }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Effective From' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.effectiveFrom }}</div>
+                                    </div>
+                                </div>
+                                <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                                    <div class="p-p-2">
+                                        <div class="text-size-12 text-color-light-shade-1">
+                                            {{ 'Effective Till' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-14">{{ formData.effectiveTill }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-px-12 p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-16 text-bold">
+                                        Slab Details
+                                    </div>
+                                </div>
+
+                                <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12" *ngIf="formData.AED">
+                                    <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+                                        <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12">
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Start Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.AEDstartSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'End Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.AEDendSlab }}</div>
+
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Rate Type Code' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.AEDrateTypeCode }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Margin' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.AEDmargin }}</div>
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Interest' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.AEDinterest }}</div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                                <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12" *ngIf="formData.USD">
+
+                                    <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+                                        <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12">
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Start Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.USDstartSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'End Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.USDendSlab }}</div>
+
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Rate Type Code' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.USDrateTypeCode }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Margin' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.USDmargin }}</div>
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Interest' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.USDmargin }}</div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+
+                                </div>
+
+                                <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12" *ngIf="formData.EURO">
+                                    <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+                                        <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12">
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Start Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.EUROstartSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'End Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.EUROendSlab }}</div>
+
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Rate Type Code' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.EUROrateTypeCode }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Margin' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.EUROmargin }}</div>
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Interest' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.EUROinterest }}</div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                                <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12" *ngIf="formData.GBP">
+                                    <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+                                        <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12">
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Start Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.GBPstartSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'End Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.GBPendSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Rate Type Code' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.GBPrateTypeCode }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Margin' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.GBPmargin }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Interest' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.GBPinterest }}</div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+
+                                <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12" *ngIf="formData.THB">
+                                    <ng-container *ngFor="let slabInfo of formData.slabInfo; let i = index">
+                                        <div class="p-grid p-px-12 p-col-12 p-md-12 p-lg-12">
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Start Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.THBstartSlab }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'End Slab' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.THBendSlab }}</div>
+
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Rate Type Code' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.THBrateTypeCode }}</div>
+                                            </div>
+
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Margin' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.THBmargin }}</div>
+                                            </div>
+                                            <div class="p-px-3 p-col-12 p-md-2 p-lg-2">
+                                                <div class="text-size-12 text-color-light-shade-1">
+                                                    {{ 'Interest' | apsTranslate }}
+                                                </div>
+                                                <div class="text-size-14">{{ slabInfo.THBinterest }}</div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

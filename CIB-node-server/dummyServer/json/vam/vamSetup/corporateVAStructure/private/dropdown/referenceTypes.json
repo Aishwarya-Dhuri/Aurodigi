@@ -1,0 +1,13 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    { "id": "Corporate Code", "displayName": "Corporate Code" },
+    { "id": "Sub Entity Code", "displayName": "Sub Entity Code" },
+    { "id": "Corporate Alias Name", "displayName": "Corporate Alias Name" }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

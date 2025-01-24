@@ -1,0 +1,34 @@
+[
+  {
+    "headerName": "Date And Time",
+    "field": "dateAndTime"
+  },
+  {
+    "headerName": "User Reference Number",
+    "field": "userReferenceNumber"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status"
+  },
+
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

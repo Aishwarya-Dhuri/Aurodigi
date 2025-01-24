@@ -1,0 +1,13 @@
+[
+  { "headerName": "Field Name", "field": "fieldName" },
+  {
+    "headerName": "Field Type",
+    "field": "fieldType"
+  },
+  { "headerName": "Static Content", "field": "fieldValue" },
+  { "headerName": "Prefix", "field": "prefix" },
+  { "headerName": "Minimum Length", "field": "minLength" },
+  { "headerName": "Maximum Length", "field": "maxLength" },
+  { "headerName": "Date Format", "field": "dateFormat" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

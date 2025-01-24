@@ -1,0 +1,92 @@
+<ng-container *ngIf="type === 'NORMAL'">
+  <div *ngIf="pages && pages.length > 0" class="left-right-container pagination-container">
+    <div class="left-container">
+      <div class="page-size-container">
+        <div class="page-size-label text-size-12">Rows per page</div>
+        &nbsp;
+        <select
+          (change)="changePageListSize($event)"
+          [(ngModel)]="pageSize"
+          class="text-size-12 page-size-select"
+          id="pageSize"
+          name="pageSize"
+        >
+          <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="pagination-wrapper">
+        <div class="page-content">
+          <!-- <i class="pi pi-angle-double-left" (click)="goToFirstPage()"></i> -->
+          <app-icon
+            (click)="jumpToFirstPage()"
+            class="app-icon"
+            icon="fa-angle-double-left"
+            rtlIcon="fa-angle-double-right"
+          ></app-icon>
+        </div>
+        <div class="page-content">
+          <!-- <i class="pi pi-angle-left" (click)="goToPrevious()"></i> -->
+          <app-icon
+            (click)="previousPage()"
+            class="app-icon"
+            icon="fa-angle-left"
+            rtlIcon="fa-angle-right"
+          ></app-icon>
+        </div>
+        <ng-container *ngFor="let page of pages | slice: startPage:endPage; let i = index">
+          <div
+            (click)="jumpToPageNumber(i)"
+            [ngClass]="{ 'page-content-active': currentPage === i }"
+            class="page-content"
+          >
+            {{ page.pageNo }}
+          </div>
+        </ng-container>
+        <div class="page-content">
+          <!-- <i class="pi pi-angle-right" (click)="goToNext()"></i> -->
+          <app-icon
+            (click)="nextPage()"
+            class="app-icon"
+            icon="fa-angle-right"
+            rtlIcon="fa-angle-left"
+          ></app-icon>
+        </div>
+        <div class="page-content">
+          <!-- <i class="pi pi-angle-double-right" (click)="goToLastPage()"></i> -->
+          <app-icon
+            (click)="jumpToLastPage()"
+            class="app-icon"
+            icon="fa-angle-double-right"
+            rtlIcon="fa-angle-double-right"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="type == 'CARD'">
+  <div
+    class="p-grid"
+    [ngStyle]="{
+      'justify-content':
+        (position == 'RIGHT' && 'flex-end') ||
+        (position == 'LEFT' && 'flex-start') ||
+        (position == 'CENTER' && 'center')
+    }"
+  >
+    <div class="p-p-0">
+      <i
+        (click)="previousPage()"
+        class="pi pi-chevron-left p-mr-2 border-primary text-color-primary p-p-1 border-radius-4 pointer"
+      >
+      </i>
+      <i
+        (click)="nextPage()"
+        class="pi pi-chevron-right border-primary text-color-primary p-p-1 border-radius-4 pointer"
+      >
+      </i>
+    </div>
+  </div>
+</ng-container>

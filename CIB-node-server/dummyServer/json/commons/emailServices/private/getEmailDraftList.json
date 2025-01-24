@@ -1,0 +1,287 @@
+{
+  "entityName": "MAILBOX",
+  "headers": [
+    {
+      "displayName": "Id",
+      "type": "String",
+      "isDisplay": "N",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Category",
+      "type": "String",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Sub Category",
+      "type": "String",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Subject",
+      "type": "String",
+      "isDisplay": "Y",
+      "isMobileDisplay": "Y"
+    },
+    {
+      "displayName": "Attachment",
+      "type": "String",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    },
+    {
+      "displayName": "Date & Time",
+      "type": "Date",
+      "isDisplay": "Y",
+      "isMobileDisplay": "N"
+    }
+  ],
+  "dataList": [
+    [
+      "1",
+      "Finance Team",
+      "Bill Payment",
+      "Five Signs of a Highly Intelligent Person | Sean Kernan in Mind Cafe",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "25-May-2035"
+    ],
+    [
+      "2",
+      "Finance Team",
+      "Account Statement",
+      "Consume REST APIs in your React App Like A Pro, Using Services! | John Mwakalinga in We Code & We Write",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "25-May-2035"
+    ],
+    [
+      "3",
+      "Operations Team",
+      "Bill Payment",
+      "Learning Session on Portal and Payments & Mobile Application | July 07th, 2021 | 11:00 am - 12:30 pm",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "27-Jan-2025"
+    ],
+    [
+      "4",
+      "Finance Team",
+      "Account Statement",
+      "Transaction alert on your Visa Foodplus Card Card",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "25-May-2035"
+    ],
+    [
+      "5",
+      "Finance Team",
+      "Bill Payment",
+      "Application Status/WF level Movement",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "25-May-2035"
+    ],
+    [
+      "6",
+      "Operations Team",
+      "Account Statement",
+      "sf 01",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "27-Jan-2025"
+    ],
+    [
+      "7",
+      "Operations Team",
+      "Bill Payment",
+      "Learning session on Negotiation Foundations & Skills in Business !!",
+      "C:/Users/bashir.shaikh/Desktop/DatepickerChanges.xlsx",
+      "27-Jan-2025"
+    ]
+  ],
+  "filters": [
+    {
+      "displayName": "Category",
+      "name": "category",
+      "type": "String"
+    },
+    {
+      "displayName": "Sub Category",
+      "name": "subCategory",
+      "type": "String"
+    },
+    {
+      "displayName": "Subject",
+      "name": "subject",
+      "type": "String"
+    },
+    {
+      "displayName": "Date & Time",
+      "name": "dateTime",
+      "type": "Date"
+    }
+  ],
+  "pageNumber": 1,
+  "totalPages": 7,
+  "totalRecords": 62,
+  "links": [
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsRead"
+      },
+      {
+        "index": 2,
+        "displayName": "Star",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "UnRead",
+        "icon": "far fa-envelope-open",
+        "url": null,
+        "onClick": "markAsUnRead"
+      },
+      {
+        "index": 2,
+        "displayName": "Star",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "UnRead",
+        "icon": "far fa-envelope-open",
+        "url": null,
+        "onClick": "markAsUnRead"
+      },
+      {
+        "index": 2,
+        "displayName": "UnStar",
+        "icon": "fas fa-star",
+        "url": null,
+        "onClick": "markAsNotStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsRead"
+      },
+      {
+        "index": 2,
+        "displayName": "Star",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "UnRead",
+        "icon": "far fa-envelope-open",
+        "url": null,
+        "onClick": "markAsUnRead"
+      },
+      {
+        "index": 2,
+        "displayName": "UnStar",
+        "icon": "fas fa-star",
+        "url": null,
+        "onClick": "markAsNotStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "UnRead",
+        "icon": "far fa-envelope-open",
+        "url": null,
+        "onClick": "markAsUnRead"
+      },
+      {
+        "index": 2,
+        "displayName": "UnStar",
+        "icon": "fas fa-star",
+        "url": null,
+        "onClick": "markAsNotStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ],
+    [
+      {
+        "index": 1,
+        "displayName": "Read",
+        "icon": "far fa-envelope",
+        "url": null,
+        "onClick": "markAsRead"
+      },
+      {
+        "index": 2,
+        "displayName": "Star",
+        "icon": "far fa-star",
+        "url": null,
+        "onClick": "markAsStar"
+      },
+      {
+        "index": 2,
+        "displayName": "Delete",
+        "icon": "far fa-trash-alt",
+        "url": null,
+        "onClick": "deleteMail"
+      }
+    ]
+  ]
+}

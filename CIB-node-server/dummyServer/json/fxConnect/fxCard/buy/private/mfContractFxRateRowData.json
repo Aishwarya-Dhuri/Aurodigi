@@ -1,0 +1,23 @@
+[
+  {
+    "mfContract": "1000564",
+    "currency": "SAR",
+    "mfRate": "67.45",
+    "osAmount": "1000000",
+    "utilizedAmount": "5000"
+  },
+  {
+    "mfContract": "1000567",
+    "currency": "SAR",
+    "mfRate": "67.37",
+    "osAmount": "4000000",
+    "utilizedAmount": ""
+  },
+  {
+    "mfContract": "1000569",
+    "currency": "SAR",
+    "mfRate": "67.34",
+    "osAmount": "5000000",
+    "utilizedAmount": ""
+  }
+]

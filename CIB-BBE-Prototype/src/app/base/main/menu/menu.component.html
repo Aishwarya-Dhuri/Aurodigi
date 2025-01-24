@@ -1,0 +1,158 @@
+<app-backdrop
+  [background]="'rgba(0, 0, 0, 0.5)'"
+  [zIndex]="5"
+  (close)="menuType === 'overlay' || menuType === 'mobile' ? closeOverlayMenu() : toggleMenu()"
+  *ngIf="(menuType === 'overlay' || menuType === 'mobile') && pinnedMenu"
+></app-backdrop>
+
+<div
+  class="menu-container aps-shadow-1"
+  [ngClass]="{
+    'menu-container-expand':
+      (this.menuType !== 'slim' && menuExpand) ||
+      (menuType === 'overlay' && !fullScreenMenu) ||
+      menuType === 'mobile' ||
+      menuType === 'static',
+
+    'menu-container-static-overlay menu-container-static-overlay-hide':
+      menuType === 'mobile' || menuType === 'overlay',
+
+    'menu-container-static-overlay-hide':
+      (menuType === 'overlay' || this.menuType === 'mobile') && !pinnedMenu
+  }"
+  (mouseenter)="mouseEnter()"
+  (mouseleave)="mouseLeave()"
+>
+  <div
+    class="fullscreen-menu p-shadow-2"
+    (mouseleave)="closeMenus()"
+    [ngClass]="{
+      'fullscreen-menu-expand': fullScreenMenus.length > 0
+    }"
+    *ngIf="fullScreenMenu && fullScreenMenus.length > 0"
+  >
+    <app-fullscreen-menus
+      [menus]="fullScreenMenus"
+      [parentMenu]="activeMenu"
+      class="fade-in-animation"
+      (closeFullScreen)="closeMenus()"
+    ></app-fullscreen-menus>
+  </div>
+
+  <div class="menu-toggle">
+    <div class="menu">
+      <div class="icon" (click)="menuType === 'sidebar' && !pinnedMenu ? toggleMenu() : ''">
+        <app-icon
+          icon="{{ menuExpand && menuType === 'sidebar' && !pinnedMenu ? 'fa-times' : 'fa-bars' }}"
+          class="app-icon"
+        ></app-icon>
+      </div>
+      <div class="text">
+        <div class="left-right-container">
+          <div
+            class="left-container"
+            (click)="menuType === 'sidebar' && !pinnedMenu ? toggleMenu() : ''"
+          >
+            {{ menuType === 'sidebar' && !pinnedMenu ? 'Close' : '' }}
+          </div>
+          <div
+            class="right-container"
+            *ngIf="
+              menuType === 'sidebar' ||
+              menuType === 'overlay' ||
+              menuType === 'mobile' ||
+              menuType === 'static'
+            "
+          >
+            <app-icon
+              icon="{{ pinnedMenu ? 'fa-lock' : 'fa-lock-open' }}"
+              (click)="toggleMenuPin()"
+              *ngIf="menuType === 'sidebar'"
+            ></app-icon>
+            <app-icon
+              icon="fa-times"
+              (click)="closeOverlayMenu()"
+              *ngIf="menuType === 'overlay' || menuType === 'mobile'"
+              class="app-icon"
+            ></app-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menus">
+    <div class="mobile-menu" *ngIf="menuType === 'mobile' && mobileMenus && activeMenu">
+      <app-mobile-menu
+        [mobileMenus]="mobileMenus"
+        class="fade-in-animation"
+        (closeMenu)="closeMenus()"
+      >
+      </app-mobile-menu>
+    </div>
+
+    <div [ngClass]="{ 'hide-mobile-menus': menuType === 'mobile' && mobileMenus && activeMenu }">
+      <div class="menu-wrapper" *ngFor="let menu of menus; let i = index">
+        <div
+          class="menu"
+          [ngClass]="{ active: menu.moduleName === selectedMenu }"
+          (click)="
+            menu.menus.length > 0
+              ? menuType !== 'mobile'
+                ? !menu.isShortMenu
+                  ? menu.moduleName === activeMenu
+                    ? toggleFullscreen(menu.moduleName)
+                    : openFullscreen(menu.moduleName, menu.menus)
+                  : menu.moduleName === activeMenu
+                  ? toggleShortMenu(menu.moduleName)
+                  : openShortMenu(menu.moduleName)
+                : openMobileMenu(menu.moduleName, menu.isShortMenu, menu.menus)
+              : ''
+          "
+          (mouseenter)="
+            menuType === 'slim'
+              ? !menu.isShortMenu
+                ? openFullscreen(menu.moduleName, menu.menus)
+                : openShortMenu(menu.moduleName)
+              : ''
+          "
+        >
+          <div class="icon">
+            <app-icon
+              [styleClasses]="menu.moduleName === selectedMenu ? 'fas-default-color' : ''"
+              icon="{{ menu.icon }}"
+              class="app-icon"
+            ></app-icon>
+          </div>
+          <div class="text">
+            <div class="left-right-container">
+              <div class="left-container">{{ menu.moduleName }}</div>
+              <div class="right-container">
+                <app-icon
+                  [styleClasses]="menu.moduleName === selectedMenu ? 'fas-default-color' : ''"
+                  icon="fa-chevron-right"
+                  class="text-size-12 app-icon"
+                  rtlIcon="fa-chevron-left"
+                ></app-icon>
+              </div>
+            </div>
+          </div>
+
+          <ng-container *ngIf="menuType !== 'mobile'">
+            <div
+              class="short-menu p-shadow-2"
+              [ngClass]="{
+                'short-menu-expand':
+                  shortMenu && activeMenu === menu.moduleName && menu.menus.length > 0
+              }"
+              (mouseleave)="closeMenus()"
+              *ngIf="menu.isShortMenu"
+            >
+              <app-short-menus [menus]="menu.menus" class="fade-in-animation"></app-short-menus>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

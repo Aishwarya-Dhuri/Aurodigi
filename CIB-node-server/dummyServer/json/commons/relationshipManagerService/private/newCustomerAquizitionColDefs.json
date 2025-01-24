@@ -1,0 +1,5 @@
+[
+  { "headerName": "Client Name", "field": "corporateName" },
+  { "headerName": "Onboarded On", "field": "onboardedOn" },
+  { "headerName": "CIB Activated", "field": "cibActivated" }
+]

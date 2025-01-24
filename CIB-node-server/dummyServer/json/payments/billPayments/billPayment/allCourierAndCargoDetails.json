@@ -1,0 +1,257 @@
+[
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "",
+
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "",
+
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "",
+
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "",
+
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "",
+
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 43,
+    "autoFetch": true
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "",
+    "autoFetch": false,
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "fetchBills",
+        "type": "BUTTON",
+        "displayName": "FETCH BILLS"
+      }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "MOBILE",
+      "displayName": "MOBILE"
+    },
+    {
+      "id": "WEB",
+      "displayName": "WEB"
+    },
+    {
+      "id": "H2H",
+      "displayName": "H2H"
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

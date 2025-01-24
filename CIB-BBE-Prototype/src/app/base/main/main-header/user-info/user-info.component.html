@@ -1,0 +1,66 @@
+<div class="user-info-wrapper p-p-3 aps-shadow-1 background-color-light-4">
+  <div class="user-details-wrapper">
+    <div class="user-image inline-block">
+      <img
+        [src]="userDetails.profilePicUrl"
+        class="aps-w-100p aps-h-100p border-radius-50p"
+        alt=""
+      />
+    </div>
+    <div class="user-details inline-block p-px-2">
+      <div class="text-size-20 text-color-dark-shade-1">{{ userDetails.fullName }}</div>
+      <div class="text-size-12 text-color-normal">{{ userDetails.profileName }}</div>
+    </div>
+  </div>
+  <div class="p-py-1 p-px-2 border-radius-5 background-color">
+    <div class="p-py-1 text-size-10">
+      {{ 'Branch Name - ' | apsTranslate }}{{ userDetails.branchName }}
+    </div>
+    <hr />
+    <div class="p-py-1 text-size-10">
+      {{ 'Last Logged In - ' | apsTranslate }}{{ userDetails.lastLoginDateTime }}
+    </div>
+    <div class="p-py-1 text-size-10">
+      {{ 'Last Failed Log In - ' | apsTranslate }}{{ userDetails.lastFailedLogin }}
+    </div>
+  </div>
+  <div class="user-actions p-p-1">
+    <div
+      class="pointer text-size-14 text-color-dark-shade-1 p-py-1"
+      (click)="routeTo('setting/userPersonalization')"
+    >
+      <div class="icon inline-block">
+        <app-icon icon="fa-cog"></app-icon>
+      </div>
+      <div class="inline-block p-px-2">{{ 'Settings' | apsTranslate }}</div>
+    </div>
+    <div
+      class="pointer text-size-14 text-color-dark-shade-1 p-py-1"
+      (click)="openSidebar(sidebarComponents.config)"
+    >
+      <div class="icon inline-block">
+        <app-icon icon="fa-sliders-v"></app-icon>
+      </div>
+      <div class="inline-block p-px-2">{{ 'My Preferences' | apsTranslate }}</div>
+    </div>
+    <div class="text-size-14 text-color-dark-shade-1 p-py-1">
+      <div class="icon inline-block">
+        <app-icon icon="fa-pencil"></app-icon>
+      </div>
+      <div class="inline-block p-px-2">{{ 'Edit Profile' | apsTranslate }}</div>
+    </div>
+    <div class="text-size-14 text-color-dark-shade-1 p-py-1">
+      <div class="icon inline-block">
+        <app-icon icon="fa-lock"></app-icon>
+      </div>
+      <div class="inline-block p-px-2">{{ 'Change Password' | apsTranslate }}</div>
+    </div>
+    <hr />
+    <div class="pointer text-size-14 text-color-dark-shade-1 p-py-1" (click)="logout()">
+      <div class="icon inline-block">
+        <app-icon icon="fa-sign-out"></app-icon>
+      </div>
+      <div class="inline-block p-px-2">{{ 'Log Out' | apsTranslate }}</div>
+    </div>
+  </div>
+</div>

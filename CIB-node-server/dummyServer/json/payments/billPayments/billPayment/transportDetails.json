@@ -1,0 +1,62 @@
+[
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "Express",
+    "type": "offline",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "Express",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "Express",
+    "type": "offline",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  },
+  {
+    "billerIcon": "assets/images/fedex.PNG",
+    "billerName": "FedEX",
+    "product": "Same Day",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  },
+  {
+    "billerIcon": "assets/images/dhl.PNG",
+    "billerName": "DHL",
+    "product": "Same Day",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  },
+  {
+    "billerIcon": "assets/images/post.PNG",
+    "billerName": "POST",
+    "product": "Same Day",
+    "type": "online",
+    "totalBills": 9,
+    "totalPayableAmount": "22323389.5",
+    "consumers": 5,
+    "overdueBills": 0
+  }
+]

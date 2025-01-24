@@ -1,0 +1,299 @@
+{
+  "type": "accountServies-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "billerName",
+      "displayName": "Biller",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "payments/billPayments/billPaymentHistory/billerNameColDefs",
+      "rowDefUrl": "payments/billPayments/billPaymentHistory/billerNameData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "BILLPAYMENTHISTORYSEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "parentId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "billerCode,billerName",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "product",
+      "displayName": "Product",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/billPayments/unregisteredBillPayment/getProduct",
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "subscriberName",
+      "displayName": "Consumer / Subscriber Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "transactionRefNo",
+      "displayName": "Transaction Ref No.",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDate",
+      "displayName": "Bill Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDueDate",
+      "displayName": "Bill Due Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billAmount",
+      "displayName": "Bill Amount",
+      "type": "String",
+      "fieldType": "AMOUNT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "paymentAmount",
+      "displayName": "Payment Amount",
+      "type": "String",
+      "fieldType": "AMOUNT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "referenceField1",
+      "displayName": "Reference Field 1",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "referenceField2",
+      "displayName": "Reference Field 2",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "referenceField3",
+      "displayName": "Reference Field 3",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "referenceField4",
+      "displayName": "Reference Field 4",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "channel",
+      "displayName": "Channel",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/billPayments/billPaymentHistory/getChannel",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/billPayments/billPaymentHistory/getStatus",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "billerName",
+      "displayName": "Biller Name",
+      "type": "String",
+      "value": "Safaricom",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Safaricom"
+    },
+    {
+      "name": "product",
+      "displayName": "Product",
+      "type": "String",
+      "value": "Telecom",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Telecom"
+    },
+    {
+      "name": "subscriberName",
+      "displayName": "Consumer / Subscriber Name",
+      "type": "String",
+      "value": "Consumer 10",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Consumer 10"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

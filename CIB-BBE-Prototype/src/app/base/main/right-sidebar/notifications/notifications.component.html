@@ -1,0 +1,53 @@
+<div class="user-notifications-container background-color-light-4 aps-h-100p">
+  <div class="notifications-header">
+    <div class="header-text">
+      <app-icon icon="fa-bell" class="app-icon"></app-icon>
+      Notifications
+      <div class="notifications-count">3</div>
+    </div>
+    <div class="header-actions">
+      <div class="action" (click)="closeSidebar()">
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="notifications">
+    <div class="notification-day">Today</div>
+    <div class="notification-wrapper">
+      <div class="notification">
+        <div class="notification-title">Payment</div>
+        <div class="notification-body">Your payment is approved by John Smith.</div>
+        <div class="notification-time">1 hour ago</div>
+      </div>
+      <!-- <div class="notification">
+        <div class="notification-title">Payment</div>
+        <div class="notification-body">Your payment is approved by John Smith.</div>
+        <div class="notification-time">2 sec ago</div>
+      </div>
+      <div class="notification">
+        <div class="notification-title">Payment</div>
+        <div class="notification-body">Your payment is approved by John Smith.</div>
+        <div class="notification-time">2 sec ago</div>
+      </div> -->
+    </div>
+    <div class="notification-day">Yesterday</div>
+    <div class="notification-wrapper">
+      <div class="notification">
+        <div class="notification-title">Payment</div>
+        <div class="notification-body">Payment for MYR 100,000.00 is successful.</div>
+        <div class="notification-time">26 hours ago</div>
+      </div>
+    </div>
+    <div class="notification-day">Earlier</div>
+    <div class="notification-wrapper">
+      <div class="notification">
+        <div class="notification-title">Payment</div>
+        <div class="notification-body">
+          Your cheque of MYR 50,000.00 has been successfully printed.
+        </div>
+        <div class="notification-time">4 days ago</div>
+      </div>
+    </div>
+  </div>
+</div>

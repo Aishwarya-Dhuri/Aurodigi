@@ -1,0 +1,164 @@
+{
+  "clusterDetails": [
+    {
+      "moduleName": "FSCM",
+      "alertName": "NEWAL",
+      "category": "TRANSACTION",
+      "eventName": "Future Payment Failed",
+      "channel": "EMAIL",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "CUACKNACK",
+      "category": "TRANSACTION",
+      "eventName": "Consolidated Upload Status with ACK/NACK",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "bANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "VP",
+      "category": "TRANSACTION",
+      "eventName": "Transaction Creation - Pending Verification",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "INVOICEENTRYINIT",
+      "category": "TRANSACTION",
+      "eventName": "Invoice Entry/Upload Initiation",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONOSR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "NEWALERTUPLOAD",
+      "category": "TRANSACTION",
+      "eventName": "Consolidated File Upload By Maker",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONOSR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "FUTUREPAYFAIL",
+      "category": "TRANSACTION",
+      "eventName": "Future Payment Failed",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "PROCESSFINANCEAUTH",
+      "category": "TRANSACTION",
+      "eventName": "Process Finance",
+      "channel": "EMAIL, SMS",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "CorporateProgramLimitExpiry",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Corporate Program Limit Expiry",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "APPLYFINSTATUS",
+      "category": "TRANSACTION",
+      "eventName": "Apply Finance Status",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK_SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "FRP",
+      "category": "TRANSACTION",
+      "eventName": "Finance Repayment Initiation",
+      "channel": "EMAIL, SMS",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "INVOICEENTRYINITATE",
+      "category": "TRANSACTION",
+      "eventName": "Invoice Entry/Upload Initiation",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "InvoicepaymentFinalStatusAlert",
+      "category": "TRANSACTION",
+      "eventName": "Invoice Payment Final Status",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "InvoiceDueDate",
+      "category": "TRANSACTION",
+      "eventName": "Invoice Due Date",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "MaturityDueDate",
+      "category": "TRANSACTION",
+      "eventName": "Maturity Due Date",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "InvoicePaymentFinalStatus",
+      "category": "TRANSACTION",
+      "eventName": "Invoice Payment Final Status",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "PROCESSFINANCESTATUSDAILY",
+      "category": "TRANSACTION",
+      "eventName": "Process Finance Status",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "AccountingEntrytoCoreBankFailed",
+      "category": "TECHNICAL",
+      "eventName": "Accounting Entry to core bank failed",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "VERIFIERVERIFICATION",
+      "category": "TRANSACTION",
+      "eventName": "Transaction Creation - Verifier Verification",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "PENDINGVERIFICATION",
+      "category": "TRANSACTION",
+      "eventName": "Transaction Creation - Pending Verification",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "SPONSOR, NON_SPONSOR"
+    },
+    {
+      "moduleName": "FSCM",
+      "alertName": "WHTRefundInitiate",
+      "category": "PROCESS",
+      "eventName": "WHT Refund Request Initiation",
+      "channel": "EMAIL, SMS",
+      "alertTo": "BANK"
+    }
+  ]
+}

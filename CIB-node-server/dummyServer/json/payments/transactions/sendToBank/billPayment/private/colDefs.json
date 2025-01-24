@@ -1,0 +1,22 @@
+[
+  {
+    "headerName": "Biller Name",
+    "field": "id",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "cellRenderer": "agGroupCellRenderer"
+  },
+  { "headerName": "Transaction Date", "field": "dueDate" },
+  { "headerName": "No. of Bills", "field": "totalBills" },
+  {
+    "headerName": "Total Bill Amount",
+    "field": "totalPayableAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

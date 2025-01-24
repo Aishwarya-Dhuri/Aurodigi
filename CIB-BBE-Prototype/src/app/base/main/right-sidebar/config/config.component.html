@@ -1,0 +1,120 @@
+<div class="user-tasks-container background-color-light-4 aps-h-100p">
+  <div class="tasks-header">
+    <div class="header-text">
+      <i class="pi pi-cog"></i>
+      App Configuration
+    </div>
+    <div class="header-actions">
+      <div class="action" (click)="closeSidebar()">
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-container p-mr-1">
+    <div class="menu-heading">Menu Type</div>
+    <div class="menu-types p-mt-1">
+      <aps-custom-select
+        id="menuType"
+        name="menuType"
+        label="Menu Style"
+        [(ngModel)]="menuType"
+        (change)="changeMenu(menuType)"
+        [data]="menuTypes"
+        required="true"
+      >
+      </aps-custom-select>
+    </div>
+
+    <div class="menu-heading">Direction</div>
+    <div class="menu-types">
+      <div class="menu-type-wrapper">
+        <div class="menu-type">LTR</div>
+        <div
+          class="tick"
+          [ngClass]="{ 'tick-selected': direction === 'ltr' }"
+          (click)="changeDirection('ltr')"
+        >
+          <div class="tick-mark" *ngIf="direction === 'ltr'"></div>
+        </div>
+      </div>
+
+      <div class="menu-type-wrapper">
+        <div class="menu-type">RTL</div>
+        <div
+          class="tick"
+          [ngClass]="{ 'tick-selected': direction === 'rtl' }"
+          (click)="changeDirection('rtl')"
+        >
+          <div class="tick-mark" *ngIf="direction === 'rtl'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-heading">Theme</div>
+    <div class="menu-types p-mt-1">
+      <aps-custom-select
+        id="theme"
+        name="theme"
+        label="Theme"
+        [(ngModel)]="theme"
+        (change)="changeTheme(theme)"
+        [data]="themes"
+        required="true"
+      >
+      </aps-custom-select>
+    </div>
+
+    <div class="menu-heading">Form Controls</div>
+    <div class="menu-types p-mt-1">
+      <aps-custom-select
+        id="formControlStyle"
+        name="formControlStyle"
+        label="Form Control Style"
+        [(ngModel)]="style"
+        (change)="changeStyle(style)"
+        [data]="styles"
+        required="true"
+      >
+      </aps-custom-select>
+    </div>
+
+    <div class="menu-heading">Toaster</div>
+    <div class="menu-types p-mt-1">
+      <aps-custom-select
+        id="toasterPosition"
+        name="toasterPosition"
+        label="Toaster Position"
+        [(ngModel)]="toasterData.position"
+        (change)="changeToasterPosition()"
+        [data]="toasterPositions"
+        required="true"
+      >
+      </aps-custom-select>
+      <aps-custom-select
+        id="toasterLift"
+        name="toasterLift"
+        label="Toaster Life (in Seconds)"
+        [(ngModel)]="toasterData.life"
+        (change)="changeToasterTime()"
+        [data]="toasterTimes"
+        required="true"
+      >
+      </aps-custom-select>
+    </div>
+
+    <div class="menu-heading">Icons</div>
+    <div class="menu-types p-mt-1">
+      <aps-custom-select
+        id="iconStyle"
+        name="iconStyle"
+        label="Icon Style"
+        [(ngModel)]="iconStyle"
+        (change)="changeIconStyle(iconStyle)"
+        [data]="iconStyles"
+        required="true"
+      >
+      </aps-custom-select>
+    </div>
+  </div>
+</div>

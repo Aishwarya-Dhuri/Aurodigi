@@ -1,0 +1,32 @@
+<div class="user-widgets-container background-color-light-4 aps-h-100p">
+  <div class="widgets-header">
+    <div class="header-text">
+      <!-- <i class="pi pi-th-large"></i> -->
+      <app-icon icon="fa-th-large" class="app-icon"></app-icon>
+      &nbsp;Widgets
+    </div>
+    <div class="header-actions">
+      <!-- <div class="action">
+        <i class="pi pi-plus-circle"></i>
+      </div> -->
+      <div class="action" (click)="closeSidebar()">
+        <!-- <i class="pi pi-times"></i> -->
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="widgets">
+    <app-sidebar-charts (saveWidgets)="closeSidebar()"></app-sidebar-charts>
+    <!--
+    <p-tabView orientation="left">
+      <p-tabPanel header="Charts">
+        <app-sidebar-charts></app-sidebar-charts>
+      </p-tabPanel>
+      <p-tabPanel header="KPI's">
+        <app-sidebar-kpis></app-sidebar-kpis>
+      </p-tabPanel>
+    </p-tabView>
+     -->
+  </div>
+</div>

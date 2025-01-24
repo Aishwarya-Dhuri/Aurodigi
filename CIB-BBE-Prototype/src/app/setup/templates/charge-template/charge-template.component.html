@@ -1,0 +1,471 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Charge Template Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Template Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="templateType" value="Normal" label="Normal"
+                                    [(ngModel)]="formData.templateType">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="templateType" value="Promotional"
+                                    label="Promotional" [(ngModel)]="formData.templateType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="templateCode" name="templateCode"
+                                [label]="'Template Code' | apsTranslate" [(ngModel)]="formData.templateCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="templateName" name="templateName"
+                                [label]="'Template Name' | apsTranslate" [(ngModel)]="formData.templateName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                                [(ngModel)]="formData.module" [value]="formData.module"
+                                (change)="onModuleChange(formData.module)"
+                                dataUrl="setup/templates/chargeTemplate/private/dropdown/module" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Charge Level' | apsTranslate" name="chargeLevel"
+                                id="chargeLevel" [(ngModel)]="formData.chargeLevel" [value]="formData.chargeLevel"
+                                [data]="chargeLevel" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0"
+                            *ngIf="formData.chargeLevel === 'Product' && formData.module === 'FSCM'">
+                            <aps-custom-select [label]="'Product' | apsTranslate" name="product" id="product"
+                                [(ngModel)]="formData.product" [value]="formData.product" [data]="product"
+                                [required]="true" (change)="onProductChange(formData.product)">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Charge Event' | apsTranslate" name="chargeEvent"
+                                id="chargeEvent" [(ngModel)]="formData.chargeEvent" [value]="formData.chargeEvent"
+                                [data]="chargeEvent" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-custom-select [label]="'Currency' | apsTranslate" name="currency" id="currency"
+                                [(ngModel)]="formData.currency" [value]="formData.currency"
+                                dataUrl="setup/templates/chargeTemplate/private/dropdown/currency" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Charge Frequency Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select label="Calculation Frequency" name="calculationFrequency"
+                                id="calculationFrequency" [(ngModel)]="formData.calculationFrequency"
+                                [value]="formData.calculationFrequency"
+                                dataUrl="setup/templates/chargeTemplate/private/dropdown/calculationFrequency"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select label="Posting Frequency" name="postingFrequency" id="postingFrequency"
+                                [(ngModel)]="formData.postingFrequency" [value]="formData.postingFrequency"
+                                dataUrl="setup/templates/chargeTemplate/private/dropdown/postingFrequency"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-3 p-py-0">
+                            <div class="text-size-14">Charge Round Off</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="chargeRoundOff" value="Yes" label="Yes"
+                                    [(ngModel)]="formData.chargeRoundOff">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="chargeRoundOff" value="No" label="No"
+                                    [(ngModel)]="formData.chargeRoundOff">
+                                </p-radioButton>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0" *ngIf="formData.chargeRoundOff === 'Yes'">
+                            <aps-form-input inputType="normal" id="chargeRoundDecimal" name="chargeRoundDecimal"
+                                [label]="'Charge Round Decimal' | apsTranslate"
+                                [(ngModel)]="formData.chargeRoundDecimal" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Tax Applicable</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="taxApplicable" value="Yes" label="Yes"
+                                    [(ngModel)]="formData.taxApplicable">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="taxApplicable" value="No" label="No"
+                                    [(ngModel)]="formData.taxApplicable">
+                                </p-radioButton>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-3 p-sm-3 p-py-0" *ngIf="formData.taxApplicable === 'Yes'">
+                            <aps-multi-select name="selectTax" id="selectTax" [required]="true"
+                                label="{{ 'Select Tax' | apsTranslate }}" [showCount]="true"
+                                [(ngModel)]="formData.selectTax" [value]="formData.selectTax"
+                                dataUrl="setup/templates/chargeTemplate/private/dropdown/selectTax" [filter]="
+                                true" [showHeader]="true" [showToggleAll]="false"></aps-multi-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Charge Frequency Details 2</div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Charge Basis</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="chargeBasis" value="Volume" label="Volume"
+                                    [(ngModel)]="formData.chargeBasis">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="chargeBasis" value="Value" label="Value"
+                                    [(ngModel)]="formData.chargeBasis">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2">
+                        <div class=" p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Strategy Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="strategyType" value="Linear" label="Linear"
+                                    [(ngModel)]="formData.strategyType">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="strategyType" value="Slab" label="Slab"
+                                    [(ngModel)]="formData.strategyType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Linear'">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="variableCharge" name="variableCharge"
+                                [label]="'Variable Charge' | apsTranslate" [(ngModel)]="formData.variableCharge"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="fixedCharge" name="fixedCharge"
+                                [label]="'Fixed Charge' | apsTranslate" [(ngModel)]="formData.fixedCharge"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Linear'">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="minimumCharge" name="minimumCharge"
+                                [label]="'Minimum Charge' | apsTranslate" [(ngModel)]="formData.minimumCharge"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="maximumCharge" name="maximumCharge"
+                                [label]="'Maximum Charge' | apsTranslate" [(ngModel)]="formData.maximumCharge"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Slab'">
+                        <div class="p-col-12 p-md-3 p-sm-3">
+                            <div class="text-size-14">Slab Strategy Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="slabStrategySlab" value="Cumulative"
+                                    label="Cumulative" [(ngModel)]="formData.slabStrategySlab">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="slabStrategySlab" value="Incremental"
+                                    label="Incremental" [(ngModel)]="formData.slabStrategySlab">
+                                </p-radioButton>
+                            </div>
+                        </div>
+
+
+                        <div class="p-col-12">
+                            <div class="left-right-container">
+                                <div class="left-container">
+                                </div>
+                                <div class="right-container">
+                                    <button class="btn btn-md btn-secondary" (click)="addContactInfo()"
+                                        *ngIf="formData.contactInfo.length < 3">
+                                        {{ 'Add More' | apsTranslate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ng-container *ngFor="let contactInfo of formData.contactInfo; let i = index">
+                            <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="startSlab-{{ i }}" id="startSlab-{{ i }}" label="Start Slab"
+                                    [(ngModel)]="contactInfo.startSlab" [required]="i == 0"></aps-form-input>
+                            </div>
+                            <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="endSlab-{{ i }}" id="endSlab-{{ i }}" label="End Slab"
+                                    [(ngModel)]="contactInfo.endSlab" [required]="i == 0"></aps-form-input>
+                            </div>
+                            <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="fixedCharge-{{ i }}" id="fixedCharge-{{ i }}" label="Fixed Charge"
+                                    [(ngModel)]="contactInfo.fixedCharge" [required]="i == 0"></aps-form-input>
+                            </div>
+                            <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="variableCharge-{{ i }}" id="variableCharge-{{ i }}"
+                                    label="Variable Charge" [(ngModel)]="contactInfo.variableCharge"
+                                    [required]="i == 0"></aps-form-input>
+                            </div>
+                            <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="minimumCharge-{{ i }}" id="minimumCharge-{{ i }}"
+                                    label="Minimum Charge" [(ngModel)]="contactInfo.minimumCharge"
+                                    [required]="i == 0"></aps-form-input>
+                            </div>
+                            <!-- <div class="p-md-2 p-sm-6 p-col-12 p-py-0">
+                                <aps-form-input name="maximumCharge-{{ i }}" id="maximumCharge-{{ i }}"
+                                    label="Maximum Charge" [(ngModel)]="contactInfo.maximumCharge"
+                                    [required]="i == 0"></aps-form-input>
+                            </div> -->
+                            <div class="p-md-2 p-sm-6 p-col-12 p-p-0">
+                                <div class="p-grid">
+                                    <div class="p-py-0" [ngClass]="i == 0 ? 'p-col-12' : 'p-col-10'">
+                                        <aps-form-input name="maximumCharge-{{ i }}" id="maximumCharge-{{ i }}"
+                                            label="Maximum Charge" [(ngModel)]="contactInfo.maximumCharge"
+                                            [required]="i == 0"></aps-form-input>
+                                    </div>
+                                    <div class="p-col-2 p-py-3" *ngIf="i > 0">
+                                        <app-icon class="pointer" icon="fa-trash-alt"
+                                            (click)="removeContactInfo(i)"></app-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-body">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Template Type" [value]="formData.templateType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Template Code" [value]="formData.templateCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Template Name" [value]="formData.templateName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Module" [value]="formData.module">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Charge Level" [value]="formData.chargeLevel">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3"
+                        *ngIf="formData.chargeLevel === 'Product' && formData.module === 'FSCM'">
+                        <app-review-form-field label="Product" [value]="formData.product">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Charge Event" [value]="formData.chargeEvent">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency" [value]="formData.currency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-body">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Calculation Frequency" [value]="formData.calculationFrequency">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Posting Frequency" [value]="formData.postingFrequency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Charge Round Off" [value]="formData.chargeRoundOff">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.chargeRoundOff === 'Yes'">
+                        <app-review-form-field label="Charge Round Decimal" [value]="formData.chargeRoundDecimal">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Tax Applicable" [value]="formData.taxApplicable">
+                        </app-review-form-field>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.taxApplicable === 'Yes'">
+                        <app-review-form-field label="Select Tax" [value]="formData.selectTax">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-body">
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Charge Basis" [value]="formData.chargeBasis">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Strategy Type" [value]="formData.strategyType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Linear'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Variable Charge" [value]="formData.variableCharge">
+                        </app-review-form-field>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Fixed Charge" [value]="formData.fixedCharge">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Linear'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Minimum Charge" [value]="formData.minimumCharge">
+                        </app-review-form-field>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Maximum Charge" [value]="formData.maximumCharge">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Slab'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Slab Strategy Type" [value]="formData.slabStrategySlab">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2" *ngIf="formData.strategyType === 'Slab'">
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="Start Slab" [value]="contactInfo.startSlab">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="End Slab" [value]="contactInfo.endSlab">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="Fixed Charge" [value]="contactInfo.fixedCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="Variable Charge" [value]="contactInfo.variableCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="Minimum Charge" [value]="contactInfo.minimumCharge">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-2 p-lg-2">
+                        <app-review-form-field label="Maximum Charge" [value]="contactInfo.maximumCharge">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

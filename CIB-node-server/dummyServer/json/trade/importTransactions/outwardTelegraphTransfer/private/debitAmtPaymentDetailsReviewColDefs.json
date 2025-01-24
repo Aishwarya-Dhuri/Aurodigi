@@ -1,0 +1,10 @@
+[
+  {
+    "headerName": "CCY",
+    "field": "currency"
+  },
+  {
+    "headerName": "Debit Amount In Payable Currency",
+    "field": "debitAmount"
+  }
+]

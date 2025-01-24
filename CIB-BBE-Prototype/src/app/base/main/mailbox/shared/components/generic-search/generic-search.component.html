@@ -1,0 +1,74 @@
+<form
+  #genericSearchForm="ngForm"
+  (submit)="getListingFilterData(genericSearchForm)"
+  autocomplete="off"
+>
+  <div class="aps-card p-pb-1">
+    <div class="p-fluid p-grid">
+      <div class="p-col-12 p-md-5">
+        <aps-custom-select
+          inputId="searchInput"
+          name="searchInput"
+          label="Search By"
+          dataUrl="commons/emailServices/private/dropdown/searchFilters"
+          [(ngModel)]="searchInput"
+          [value]="searchInput"
+          (change)="onChangeSearchInput($event)"
+          [required]="true"
+        ></aps-custom-select>
+
+        <div class="p-field-checkbox p-mt-2 p-mb-0">
+          <p-checkbox
+            name="containsAttachment"
+            [(ngModel)]="containsAttachment"
+            [binary]="true"
+            inputId="containsAttachment"
+          >
+          </p-checkbox>
+          <label for="containsAttachment">Contains attachment</label>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-7 p-p-0">
+        <div class="p-fluid p-grid">
+          <div class="p-col-12 p-md-8">
+            <aps-form-input
+              *ngIf="searchType != 'Date'"
+              type="text"
+              id="searchData"
+              name="searchData"
+              [label]="searchInputLabel ? searchInputLabel : 'Please Search'"
+              [(ngModel)]="searchData"
+              required="true"
+            ></aps-form-input>
+            <app-aps-calender
+              *ngIf="searchType == 'Date'"
+              type="text"
+              id="searchData"
+              name="searchData"
+              [label]="searchInputLabel ? searchInputLabel : 'Please Search'"
+              [(ngModel)]="searchData"
+              required="true"
+            ></app-aps-calender>
+          </div>
+          <div class="p-col-12 p-md-4 p-py-3">
+            <button
+              class="btn btn-md btn-primary"
+              type="submit"
+              [disabled]="!genericSearchForm.valid"
+            >
+              Search
+            </button>
+            <button
+              class="btn btn-md btn-secondary p-ml-1"
+              type="button"
+              (click)="clearFilter(genericSearchForm)"
+              *ngIf="isFormSubmit"
+            >
+              <app-icon icon="fa-ban"></app-icon>&nbsp;Clear
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

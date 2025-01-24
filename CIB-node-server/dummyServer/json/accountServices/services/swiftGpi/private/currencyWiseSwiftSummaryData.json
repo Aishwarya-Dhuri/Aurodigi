@@ -1,0 +1,38 @@
+[
+  {
+    "currency": "SAR",
+    "count": "10",
+    "amount": "20000",
+    "chargePaid": "350"
+  },
+  {
+    "currency": "SAR",
+    "count": "12",
+    "amount": "40000",
+    "chargePaid": "450"
+  },
+  {
+    "currency": "SAR",
+    "count": "10",
+    "amount": "20000",
+    "chargePaid": "350"
+  },
+  {
+    "currency": "SAR",
+    "count": "15",
+    "amount": "25000",
+    "chargePaid": "400"
+  },
+  {
+    "currency": "SAR",
+    "count": "10",
+    "amount": "21000",
+    "chargePaid": "350"
+  },
+  {
+    "currency": "SAR",
+    "count": "8",
+    "amount": "31000",
+    "chargePaid": "350"
+  }
+]

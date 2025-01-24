@@ -1,0 +1,7 @@
+[
+  { "field": "subProduct", "headerName": "Sub Product" },
+  { "field": "txnRefNo", "headerName": "Txn Ref No" },
+  { "field": "txnDate", "headerName": "Txn Date", "cellRenderer": "dateRenderer" },
+  { "field": "value", "headerName": "Value", "cellRenderer": "currencyRenderer" },
+  { "field": "action", "headerName": "Action", "cellRenderer": "actionCellRenderer" }
+]

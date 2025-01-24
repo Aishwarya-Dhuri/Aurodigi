@@ -1,0 +1,75 @@
+.menu-breadcrumb {
+  background-color: var(--primary-color-light-shade-1);
+  color: var(--text-color-dark-shade-1);
+  font-size: 0.875rem;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+
+  i,
+  .app-icon {
+    font-size: 0.875rem;
+  }
+}
+
+.menu-wrapper {
+  display: block;
+  position: relative;
+  color: var(--text-color-dark-shade-1);
+
+  .menu {
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0.25rem 0;
+    border-radius: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.125s;
+
+    .text {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+
+      // width: 0px;
+      // overflow-x: hidden;
+      // -webkit-transition: ease-in;
+    }
+
+    .sub-menu-text {
+      font-size: 0.875rem;
+    }
+
+    .sub-menu {
+      display: none;
+      font-size: 0.75rem;
+      padding: 0 1rem;
+      padding-top: 0.4rem;
+      color: var(--text-color-dark-shade-1);
+
+      .text {
+        font-size: 0.75rem;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .text:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .sub-menu-expand {
+      display: block;
+    }
+  }
+
+  .active {
+    background-color: var(--primary-color);
+    color: var(--inverted-text-color);
+  }
+
+  .menu:hover {
+    background-color: var(--background-color);
+    color: var(--text-color-dark-shade-1);
+  }
+}

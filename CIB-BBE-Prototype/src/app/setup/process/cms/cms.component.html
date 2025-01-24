@@ -1,0 +1,1517 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+
+            <form name="corporateProfileForm" #bankProfileForm="ngForm">
+                <div class="aps-card" *ngIf="stepperDetails.currentStep == 1">
+                    <div class="aps-card-body">
+                        <div class="p-grid">
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12"
+                                *ngIf="formData.screenName  == 'Login Page'">
+                                <img src="./../../../../../assets/images/aurodigi1.png" alt="" class="width100" />
+                            </div>
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12"
+                                *ngIf="formData.screenName  == 'Landing Page'">
+                                <img src="./../../../../../assets/images/landing-page-screenshot.png" alt=""
+                                    class="width100" />
+                            </div>
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12"
+                                *ngIf="formData.screenName  == 'Logout Page'">
+                                <img src="./../../../../../assets/images/logout-page-screenshot.png" alt=""
+                                    class="width100" />
+                            </div>
+                        </div>
+
+                        <div class="p-grid" *ngIf="formData.screenName  == 'Login Page'">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowModal = true">
+                                            Upload Login Images
+                                        </button>
+                                    </div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowFooterModal = true">
+                                            Upload Footer Details
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-grid" *ngIf="formData.screenName  == 'Landing Page'">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container"></div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLandingPageModal = true">
+                                            Upload Landing Images
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-grid" *ngIf="formData.screenName  == 'Logout Page'">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLogoutImageModal = true">
+                                            Upload Logout Images
+                                        </button>
+                                    </div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLogoutFooterModal = true">
+                                            Upload Footer Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="aps-card" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+                    <div class="aps-card-body" *ngIf="formData.screenName  == 'Landing Page'">
+                        <div class="p-grid">
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12">
+                                <img src="./../../../../../assets/images/landing-page-screenshot.png" alt=""
+                                    class="width100" />
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container"></div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLandingPageModal = true">
+                                            Upload Landing Images
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card-body" *ngIf="formData.screenName  == 'Login Page'">
+                        <div class="p-grid">
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12">
+                                <img src="./../../../../../assets/images/aurodigi1.png" alt="" class="width100" />
+
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowModal = true">
+                                            Upload Login Images
+                                        </button>
+                                    </div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowFooterModal = true">
+                                            Upload Footer Details
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aps-card-body" *ngIf="formData.screenName  == 'Logout Page'">
+                        <div class="p-grid">
+                            <div class="p-p-12 p-col-12 p-md-12 p-lg-12 p-sm-12">
+                                <img src="./../../../../../assets/images/landing-page-screenshot.png" alt=""
+                                    class="width100" />
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12">
+                                <div class="left-right-container">
+                                    <div class="left-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLogoutImageModal = true">
+                                            Upload Logout Images
+                                        </button>
+                                    </div>
+                                    <div class="right-container">
+                                        <button type="submit" class="btn btn-md btn-primary text-bold"
+                                            (click)="isShowLogoutFooterModal = true">
+                                            Upload Footer Details
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <app-modal [(isShow)]="isShowLogoutImageModal" size="lg" [headerText]="'Logout Image'">
+
+                    <div class="overflow-y-scroll aps-h-500">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Default Image' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <upload-form-control [files]="defaultImage" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="defaultImageClickable" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.defaultImageClickable">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="defaultImageClickable" value="No"
+                                        label="No" [(ngModel)]="formData.defaultImageClickable">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.defaultImageClickable == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="defaultImageClickableYes"
+                                    name="defaultImageClickableYes" [label]="'URL' | apsTranslate"
+                                    [(ngModel)]="formData.URL1" required="true">
+                                </aps-form-input>
+                            </div>
+
+
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Image ' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-12">
+
+                                <upload-form-control [files]="otherImage" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="imgClickable" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.imgClickable">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="imgClickable" value="No" label="No"
+                                        [(ngModel)]="formData.imgClickable">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="imgClickable" name="imgClickable"
+                                    [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL2" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <app-aps-calender label="Effective From" name="effectiveFrom2" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom2"></app-aps-calender>
+
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+
+                                <app-aps-calender label="Effective Till" name="effectiveTill2" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill2"></app-aps-calender>
+                            </div>
+                        </div>
+
+
+
+                        <div class="p-grid">
+                            <div class="p-col-12 text-right">
+                                <button type="submit" class="btn btn-md btn-primary text-bold"
+                                    (click)="isShowLogoutImageModal = false">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </app-modal>
+
+                <app-modal [(isShow)]="isShowLogoutFooterModal" size="lg" [headerText]="'Footer Links'">
+
+                    <div class="overflow-y-scroll aps-h-500">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Connect Details' | apsTranslate }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+
+                            <div class="p-col-6 p-md-6 p-lg-6">
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            {{ 'Social Media Name' | apsTranslate }}
+                                        </div>
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            {{ 'Social Media URL' | apsTranslate }}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <img src="./../../../../../assets/images/footer/youtubeicon.png" alt=""
+                                            class="socialIconImage" />
+                                        &nbsp;Youtube
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <aps-form-input inputType="alphaNumeric" id="youtubeLink" name="youtubeLink"
+                                            [label]="'Youtube Link' | apsTranslate" [(ngModel)]="formData.youtubeLink"
+                                            required="true">
+                                        </aps-form-input>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <img src="./../../../../../assets/images/footer/linkedinicon.png" alt=""
+                                            class="socialIconImage" />
+                                        &nbsp;Linkedin
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <aps-form-input inputType="alphaNumeric" id="linkedinLink" name="linkedinLink"
+                                            [label]="'Linkedin Link' | apsTranslate" [(ngModel)]="formData.linkedinLink"
+                                            required="true">
+                                        </aps-form-input>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <img src="./../../../../../assets/images/footer/facebookicon.png" alt=""
+                                            class="socialIconImage" />
+                                        &nbsp;Facebook
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <aps-form-input inputType="alphaNumeric" id="facebookLink" name="facebookLink"
+                                            [label]="'Facebook Link' | apsTranslate" [(ngModel)]="formData.facebookLink"
+                                            required="true">
+                                        </aps-form-input>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <img src="./../../../../../assets/images/footer/twittericon.jpg" alt=""
+                                            class="socialIconImage" />
+                                        &nbsp;Twitter
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <aps-form-input inputType="alphaNumeric" id="twitterLink" name="twitterLink"
+                                            [label]="'Twitter Link' | apsTranslate" [(ngModel)]="formData.twitterLink"
+                                            required="true">
+                                        </aps-form-input>
+                                    </div>
+
+
+                                </div>
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6 d-flex">
+                                        <img src="./../../../../../assets/images/footer/instagramicon.jpg" alt=""
+                                            class="socialIconImage" />
+                                        &nbsp;Instagram
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <aps-form-input inputType="alphaNumeric" id="instagramLink" name="instagramLink"
+                                            [label]="'Instagram Link' | apsTranslate"
+                                            [(ngModel)]="formData.instagramLink" required="true">
+                                        </aps-form-input>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="p-col-6 p-md-6 p-lg-6">
+                                <div class="p-grid">
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            {{ 'Support Text' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            <textarea class="textarea aps-w-100p" name="supportText" id="supportText"
+                                                rows="4" [(ngModel)]="formData.supportText"
+                                                placeholder="Add Support Content"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-col-6 p-md-6 p-lg-6">
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            {{ 'Feedback Text' | apsTranslate }}
+                                        </div>
+                                        <div class="text-size-1 text-bold p-p-1">
+                                            <textarea class="textarea aps-w-100p" name="feedbackText" id="feedbackText"
+                                                rows="4" [(ngModel)]="formData.feedbackText"
+                                                placeholder="Add  Feedback Content"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Link 1' | apsTranslate }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName1" name="linkName1"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName1"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection1" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection1">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection1" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection1">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection1 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload1" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection1 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping1" name="urlMapping1"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping1"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Link 2' | apsTranslate }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName2" name="linkName2"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName2"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection2" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection2">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection2" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection2">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection2 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload2" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection2 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping2" name="urlMapping2"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping2"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Link 3' | apsTranslate }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName3" name="linkName3"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName3"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection3" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection3">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection3" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection3">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection3 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload3" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection3 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping3" name="urlMapping3"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping3"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Link 4' | apsTranslate }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName4" name="linkName4"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName4">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection4" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection4">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection4" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection4">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection4 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload4" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection4 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping4" name="urlMapping4"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping4"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1 border-bottom">
+                                    {{ 'Link 5' | apsTranslate }}
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName5" name="linkName5"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName5">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection5" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection5">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection5" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection5">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection5 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload5" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection5 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping5" name="urlMapping5"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping5"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 text-right">
+                                <button type="submit" class="btn btn-md btn-primary text-bold"
+                                    (click)="isShowLogoutFooterModal = false">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </app-modal>
+
+                <app-modal [(isShow)]="isShowLandingPageModal" size="lg" [headerText]="'Landing Page Image'">
+
+                    <div class="overflow-y-scroll aps-h-500">
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Upload Landing Image</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="genericrdSelection1" value="Generic"
+                                        label="Generic" [(ngModel)]="formData.genericrdSelection1">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="genericrdSelection1" value="Product Wise"
+                                        label="Product Wise" [(ngModel)]="formData.genericrdSelection1">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="formData.genericrdSelection1 == 'Generic'">
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-1 text-bold p-p-1">
+                                        {{ 'Upload Landing Image' | apsTranslate }} <sup
+                                            class="text-color-danger">*</sup>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="genericdefaultImage"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="genericdefaultImageClickable" value="Yes"
+                                            label="Yes" [(ngModel)]="formData.genericdefaultImageClickable">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="genericdefaultImageClickable"
+                                            value="No" label="No" [(ngModel)]="formData.genericdefaultImageClickable">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3"
+                                    *ngIf="formData.genericdefaultImageClickable == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="genericURL1" name="genericURL1"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.genericURL1"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="genericeffectiveFrom1"
+                                        [showIcon]="true"
+                                        [(ngModel)]="formData.genericeffectiveFrom1"></app-aps-calender>
+
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+
+                                    <app-aps-calender label="Effective Till" name="genericeffectiveTill1"
+                                        [showIcon]="true"
+                                        [(ngModel)]="formData.genericeffectiveTill1"></app-aps-calender>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-1 text-bold p-p-1">
+                                        {{ 'Upload Menu Image' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="genericWidgetOtherImage"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="widgetdefaultImageClickable2" value="Yes"
+                                            label="Yes" [(ngModel)]="formData.widgetdefaultImageClickable2">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="widgetdefaultImageClickable2"
+                                            value="No" label="No" [(ngModel)]="formData.widgetdefaultImageClickable2">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3"
+                                    *ngIf="formData.widgetdefaultImageClickable2 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="genericwidgetURL2"
+                                        name="genericwidgetURL2" [label]="'URL' | apsTranslate"
+                                        [(ngModel)]="formData.genericwidgetURL2" required="true">
+                                    </aps-form-input>
+                                </div>
+
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="widgeteffectiveFrom2"
+                                        [showIcon]="true"
+                                        [(ngModel)]="formData.widgeteffectiveFrom2"></app-aps-calender>
+
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective Till" name="widgeteffectiveTill2"
+                                        [showIcon]="true"
+                                        [(ngModel)]="formData.widgeteffectiveTill2"></app-aps-calender>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" *ngIf="formData.genericrdSelection1 == 'Product Wise'">
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-1 text-bold p-p-1">
+                                        {{ 'Upload Landing Image' | apsTranslate }} <sup
+                                            class="text-color-danger">*</sup>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">Setup</div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="otherImage" [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="imgClickable" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.imgClickable">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="imgClickable" value="No" label="No"
+                                            [(ngModel)]="formData.imgClickable">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="imgClickable" name="imgClickable"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL1" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="effectiveFrom1" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveFrom1"></app-aps-calender>
+
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+
+                                    <app-aps-calender label="Effective Till" name="effectiveTill1" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveTill1"></app-aps-calender>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">Payments</div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="otherImage2"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="imgClickable2" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.imgClickable2">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="imgClickable2" value="No" label="No"
+                                            [(ngModel)]="formData.imgClickable2">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable2 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="URL2" name="URL2"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL2" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="effectiveFrom2" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveFrom2"></app-aps-calender>
+
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+
+                                    <app-aps-calender label="Effective Till" name="effectiveTill2" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveTill2"></app-aps-calender>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">VAM</div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="otherImage3"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="imgClickable3" value="Yes" label="Yes"
+                                            [(ngModel)]="formData.imgClickable3">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="imgClickable3" value="No" label="No"
+                                            [(ngModel)]="formData.imgClickable3">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable3 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="URL3" name="URL3"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL3" required="true">
+                                    </aps-form-input>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="effectiveFrom3" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveFrom3"></app-aps-calender>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective Till" name="effectiveTill3" [showIcon]="true"
+                                        [(ngModel)]="formData.effectiveTill3"></app-aps-calender>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-12 p-lg-12">
+                                    <div class="text-size-1 text-bold p-p-1">
+                                        {{ 'Upload Menu Image' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">Setup</div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="widgetImage1"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="widgetImageClickable1" value="Yes"
+                                            label="Yes" [(ngModel)]="formData.widgetImageClickable1">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="widgetImageClickable1" value="No"
+                                            label="No" [(ngModel)]="formData.widgetImageClickable1">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.widgetImageClickable1 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="widgetURL1" name="widgetURL1"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.widgetURL1"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid">
+
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="wdeffectiveFrom1" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveFrom1"></app-aps-calender>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective Till" name="wdeffectiveTill1" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveTill1"></app-aps-calender>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">Payments</div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="widgetImage2"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="widgetImageClickable2" value="Yes"
+                                            label="Yes" [(ngModel)]="formData.widgetImageClickable2">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="widgetImageClickable2" value="No"
+                                            label="No" [(ngModel)]="formData.widgetImageClickable2">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.widgetImageClickable2 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="widgetURL2" name="widgetURL2"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.widgetURL2"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid">
+
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="wdeffectiveFrom2" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveFrom2"></app-aps-calender>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective Till" name="wdeffectiveTill2" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveTill2"></app-aps-calender>
+                                </div>
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14 text-bold">Module Name</div>
+                                    <div class="text-size-14">VAM</div>
+                                </div>
+
+                                <div class="p-col-12 p-md-3 p-sm-12">
+                                    <upload-form-control [files]="widgetImage3"
+                                        [hideDragDropContainerOnFIleUpload]="true"
+                                        (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <div class="text-size-14">Clickable</div>
+                                    <div class="text-size-14">
+                                        <p-radioButton class="p-pt-2" name="widgetImageClickable3" value="Yes"
+                                            label="Yes" [(ngModel)]="formData.widgetImageClickable3">
+                                        </p-radioButton>
+                                        <p-radioButton class="p-pt-2 p-px-3" name="widgetImageClickable3" value="No"
+                                            label="No" [(ngModel)]="formData.widgetImageClickable3">
+                                        </p-radioButton>
+                                    </div>
+                                </div>
+                                <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.widgetImageClickable3 == 'Yes'">
+                                    <aps-form-input inputType="alphaNumeric" id="widgetURL3" name="widgetURL3"
+                                        [label]="'URL' | apsTranslate" [(ngModel)]="formData.widgetURL3"
+                                        required="true">
+                                    </aps-form-input>
+                                </div>
+
+                            </div>
+
+                            <div class="p-grid">
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective From" name="wdeffectiveFrom3" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveFrom3"></app-aps-calender>
+                                </div>
+                                <div class="p-col-12 p-md-2 p-sm-2">
+                                    <app-aps-calender label="Effective Till" name="wdeffectiveTill3" [showIcon]="true"
+                                        [(ngModel)]="formData.wdeffectiveTill3"></app-aps-calender>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-grid">
+                            <div class="p-col-12 text-right">
+                                <button type="submit" class="btn btn-md btn-primary text-bold"
+                                    (click)="isShowLandingPageModal = false">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </app-modal>
+
+                <app-modal [(isShow)]="isShowModal" size="lg" [headerText]="'Advertisement Image'">
+
+                    <div class="overflow-y-scroll aps-h-500">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Default Image' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+
+                            <div class="p-col-12 p-md-3 p-sm-12">
+
+                                <upload-form-control [files]="defaultImage" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="defaultImageClickable" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.defaultImageClickable">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="defaultImageClickable" value="No"
+                                        label="No" [(ngModel)]="formData.defaultImageClickable">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.defaultImageClickable == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="defaultImageClickableYes"
+                                    name="defaultImageClickableYes" [label]="'URL' | apsTranslate"
+                                    [(ngModel)]="formData.URL1" required="true">
+                                </aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <app-aps-calender label="Effective From" name="effectiveFrom1" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom1"></app-aps-calender>
+
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+
+                                <app-aps-calender label="Effective Till" name="effectiveTill1" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill1"></app-aps-calender>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Image 1' | apsTranslate }} <sup class="text-color-danger">*</sup>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-12">
+
+                                <upload-form-control [files]="otherImage" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="imgClickable" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.imgClickable">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="imgClickable" value="No" label="No"
+                                        [(ngModel)]="formData.imgClickable">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="imgClickable" name="imgClickable"
+                                    [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL2" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <app-aps-calender label="Effective From" name="effectiveFrom2" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom2"></app-aps-calender>
+
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+
+                                <app-aps-calender label="Effective Till" name="effectiveTill2" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill2"></app-aps-calender>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Image 2' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <upload-form-control [files]="defaultImage2" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onDefaultImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="defaultImageClickable2" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.defaultImageClickable2">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="defaultImageClickable2" value="No"
+                                        label="No" [(ngModel)]="formData.defaultImageClickable2">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.defaultImageClickable2 == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="defaultImageClickableYes2"
+                                    name="defaultImageClickableYes2" [label]="'URL' | apsTranslate"
+                                    [(ngModel)]="formData.URL3" required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <app-aps-calender label="Effective From" name="effectiveFrom3" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom3"></app-aps-calender>
+
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+
+                                <app-aps-calender label="Effective Till" name="effectiveTill3" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill3"></app-aps-calender>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Image 3' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-12">
+
+                                <upload-form-control [files]="otherImage2" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-sm-2">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="imgClickable2" value="Yes" label="Yes"
+                                        [(ngModel)]="formData.imgClickable2">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="imgClickable2" value="No" label="No"
+                                        [(ngModel)]="formData.imgClickable2">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.imgClickable2 == 'Yes'">
+                                <aps-form-input inputType="alphaNumeric" id="URL4" name="URL4"
+                                    [label]="'URL' | apsTranslate" [(ngModel)]="formData.URL4" required="true">
+                                </aps-form-input>
+                            </div>
+
+                            <div class="p-col-12 p-md-2 p-lg-2">
+                                <app-aps-calender label="Effective From" name="effectiveFrom" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                            </div>
+                            <div class="p-col-12 p-md-2 p-lg-2">
+                                <app-aps-calender label="Effective Till" name="effectiveTill" [showIcon]="true"
+                                    [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <aps-form-input inputType="alphaNumeric" id="heading1" name="heading1"
+                                    [label]="'Heading 1' | apsTranslate" [(ngModel)]="formData.heading1"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-4 p-sm-4">
+                                <textarea class="textarea aps-w-100p" name="message" id="paracontent1" rows="4"
+                                    [(ngModel)]="formData.paracontent1" placeholder="Add Visibility Content"></textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <aps-form-input inputType="alphaNumeric" id="heading2" name="heading2"
+                                    [label]="'Heading 2' | apsTranslate" [(ngModel)]="formData.heading2"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-4 p-sm-4">
+                                <textarea class="textarea aps-w-100p" name="paracontent2" id="paracontent2" rows="4"
+                                    [(ngModel)]="formData.paracontent2" placeholder="Add  Content"></textarea>
+
+                            </div>
+                        </div>
+
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <aps-form-input inputType="alphaNumeric" id="heading3" name="heading3"
+                                    [label]="'Heading 3' | apsTranslate" [(ngModel)]="formData.heading3"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                            <div class="p-col-12 p-md-4 p-sm-4">
+                                <textarea class="textarea aps-w-100p" name="paracontent3" id="paracontent3" rows="4"
+                                    [(ngModel)]="formData.paracontent3" placeholder="Add  Content"></textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 text-right">
+                                <button type="submit" class="btn btn-md btn-primary text-bold"
+                                    (click)="isShowModal = false">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </app-modal>
+
+                <app-modal [(isShow)]="isShowFooterModal" size="lg" [headerText]="'Footer Links'">
+
+                    <div class="overflow-y-scroll aps-h-500">
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Link 1' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName1" name="linkName1"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName1"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection1" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection1">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection1" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection1">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection1 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload1" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection1 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping1" name="urlMapping1"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping1"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Link 2' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName2" name="linkName2"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName2"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection2" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection2">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection2" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection2">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection2 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload2" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection2 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping2" name="urlMapping2"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping2"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Link 3' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName3" name="linkName3"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName3"
+                                    required="true">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection3" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection3">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection3" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection3">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection3 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload3" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection3 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping3" name="urlMapping3"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping3"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Link 4' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName4" name="linkName4"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName4">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection4" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection4">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection4" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection4">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection4 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload4" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection4 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping4" name="urlMapping4"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping4"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 p-md-12 p-lg-12">
+                                <div class="text-size-1 text-bold p-p-1">
+                                    {{ 'Link 5' | apsTranslate }}
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="p-col-12 p-md-3 p-sm-12">
+                                <aps-form-input inputType="alphaNumeric" id="linkName5" name="linkName5"
+                                    [label]="'Link Name' | apsTranslate" [(ngModel)]="formData.linkName5">
+                                </aps-form-input>
+
+
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3">
+                                <div class="text-size-14">Clickable</div>
+                                <div class="text-size-14">
+                                    <p-radioButton class="p-pt-2" name="rdSelection5" value="fileUpload"
+                                        label="File Upload" [(ngModel)]="formData.rdSelection5">
+                                    </p-radioButton>
+                                    <p-radioButton class="p-pt-2 p-px-3" name="rdSelection5" value="urlMapping"
+                                        label="URL Mapping" [(ngModel)]="formData.rdSelection5">
+                                    </p-radioButton>
+                                </div>
+                            </div>
+
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection5 == 'fileUpload'">
+                                <div class="text-size-14 text-bold">
+                                    {{ ' File Upload' | apsTranslate }}
+                                </div>
+                                <upload-form-control [files]="rdFileUpload5" [hideDragDropContainerOnFIleUpload]="true"
+                                    (onUploaded)="onImageUploaded($event)"></upload-form-control>
+                            </div>
+
+                            <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.rdSelection5 == 'urlMapping'">
+
+                                <aps-form-input inputType="alphaNumeric" id="urlMapping5" name="urlMapping5"
+                                    [label]="'URL Mapping' | apsTranslate" [(ngModel)]="formData.urlMapping5"
+                                    required="true">
+                                </aps-form-input>
+                            </div>
+                        </div>
+
+                        <div class="p-grid">
+                            <div class="p-col-12 text-right">
+                                <button type="submit" class="btn btn-md btn-primary text-bold"
+                                    (click)="isShowFooterModal = false">
+                                    Submit
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </app-modal>
+
+
+            </form>
+        </div>
+
+
+
+        <div class="p-col-12">
+            <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+        </div>
+    </div>
+</div>

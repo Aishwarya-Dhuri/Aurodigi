@@ -1,0 +1,124 @@
+{
+  "type": "Reports-Search By",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "date",
+      "displayName": "Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "module",
+      "displayName": "Module",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/process/jobMonitoring/private/dropdown/moduleList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "jobType",
+      "displayName": "Job Type",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/process/jobMonitoring/private/dropdown/jobTypeList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/process/jobMonitoring/private/dropdown/statusList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "sponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "nonSponsorId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

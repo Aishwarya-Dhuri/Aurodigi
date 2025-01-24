@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Shipping Company Code",
+      "field": "shippingCompanyCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Shipping Company Name",
+      "field": "shippingCompanyName"
+    }
+  ]
+}

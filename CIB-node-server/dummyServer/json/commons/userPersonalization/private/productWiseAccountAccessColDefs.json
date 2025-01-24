@@ -1,0 +1,4 @@
+[
+  { "headerName": "Accounts", "field": "accounts" },
+  { "headerName": "Profile (Rights)", "field": "rights" }
+]

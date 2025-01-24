@@ -1,0 +1,20 @@
+[
+  {
+    "headerName": "Batch No.",
+    "field": "id",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "cellRenderer": "agGroupCellRenderer"
+  },
+  { "headerName": "Product Type", "field": "productTypeName" },
+  { "headerName": "FD Placement Date", "field": "placementDate" },
+  { "headerName": "Debit Account", "field": "debitFromAccountName" },
+  { "headerName": "Deposit Amount", "field": "amount", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Tenure", "field": "tenor" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

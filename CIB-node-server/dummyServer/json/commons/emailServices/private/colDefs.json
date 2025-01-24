@@ -1,0 +1,53 @@
+[
+  {
+    "headerName": "",
+    "field": "",
+    "width": 50,
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Category",
+    "field": "category",
+    "cellRenderer": "mailRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Sub Category",
+    "field": "subCategory",
+    "cellRenderer": "mailRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Subject",
+    "field": "subject",
+    "cellRenderer": "mailRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Attachment",
+    "field": "attachmentFiles",
+    "cellRenderer": "attachmentRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Date & Time",
+    "field": "dateTime",
+    "cellRenderer": "dateTimeRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "floatingFilter": false
+  }
+]

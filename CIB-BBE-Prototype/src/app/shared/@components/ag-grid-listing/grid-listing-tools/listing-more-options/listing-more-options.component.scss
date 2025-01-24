@@ -1,0 +1,22 @@
+.download-options-wrapper {
+  background-color: var(--background-color);
+  border-radius: 6px;
+  padding: 12px;
+  width: max-content;
+
+  .label-with-icon-container {
+    font-size: 0.75rem;
+    font-family: 'CIB Bold';
+    padding: 3px 0;
+    color: var(--text-color-dark-shade-1);
+
+    .icon {
+      i {
+        font-size: 0.75rem;
+      }
+    }
+
+    .label {
+    }
+  }
+}

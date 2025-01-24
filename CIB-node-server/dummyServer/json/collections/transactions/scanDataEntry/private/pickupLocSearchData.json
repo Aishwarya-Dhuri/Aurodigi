@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "id": "2883623",
+      "pickupLocationCode": "PL001",
+      "pickupLocationName": "Location 1"
+    },
+    {
+      "id": "2883624",
+      "pickupLocationCode": "PL002",
+      "pickupLocationName": "Location 2"
+    },
+    {
+      "id": "2883625",
+      "pickupLocationCode": "PL003",
+      "pickupLocationName": "Location 3"
+    },
+    {
+      "id": "2883626",
+      "pickupLocationCode": "PL004",
+      "pickupLocationName": "Location 4"
+    }
+   
+  ],
+  "lastRow": 10
+}

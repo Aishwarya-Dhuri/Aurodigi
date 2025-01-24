@@ -1,0 +1,10 @@
+{
+  "dataList": [
+    { "id": "Generic", "displayName": "Generic", "enrichments": {} },
+    { "id": "Master", "displayName": "Master", "enrichments": {} },
+    { "id": "Audit", "displayName": "Audit", "enrichments": {} }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,16 @@
+[
+  { "headerName": "Product/Sub-Product", "field": "product" },
+  {
+    "headerName": "Accounts",
+    "field": "accounts",
+    "cellRenderer": "authMatrixAccountsRenderer",
+    "width": 250
+  },
+  { "headerName": "Authorisation Type", "field": "authType" },
+  { "headerName": "Slab", "field": "slab", "width": 280 },
+  {
+    "headerName": "Additional Information",
+    "field": "additionalInfo",
+    "cellRenderer": "authMatrixAdditionalInfoRenderer"
+  }
+]

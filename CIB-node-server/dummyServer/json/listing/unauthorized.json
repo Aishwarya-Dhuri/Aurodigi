@@ -1,0 +1,1714 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "entityName": "CORPORATEPROFILE",
+  "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+  "data": [
+    {
+      "profileName": "Admin",
+      "corporateName": "-",
+      "lastAction": "Update",
+      "profileCode": "ADMINPRO1",
+      "id": "puzEZCXC/HA=,4",
+      "effectiveFrom": "31-Jul-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "BUSINESS PROFILE1",
+      "corporateName": "-",
+      "lastAction": "Update",
+      "profileCode": "BUSPRO1",
+      "id": "bgCR0pUOsDk=,4",
+      "effectiveFrom": "31-Jul-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "dfg",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Update",
+      "profileCode": "DFG",
+      "id": "NWzJDimuXkA=,7",
+      "effectiveFrom": "02-Jan-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "swap",
+      "corporateName": "aaamaaxknf",
+      "lastAction": "Create",
+      "profileCode": "111",
+      "id": "Qww2AjsWpH8=,0",
+      "effectiveFrom": "25-Dec-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "asdsad",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Create",
+      "profileCode": "ASD12313",
+      "id": "bGdEmk7YOUM=,0",
+      "effectiveFrom": "10-Jan-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "asd",
+      "corporateName": "aaafaagfiv",
+      "lastAction": "Create",
+      "profileCode": "ASDDG",
+      "id": "HIMsehod/hw=,2",
+      "effectiveFrom": "14-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "15-Aug-2018"
+    },
+    {
+      "profileName": "swapnil",
+      "corporateName": "aaamaaxknf",
+      "lastAction": "Create",
+      "profileCode": "01",
+      "id": "XFtKpvN/ebY=,0",
+      "effectiveFrom": "25-Dec-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "pankaj",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Create",
+      "profileCode": "PANKAJ",
+      "id": "WkJeqiGjgGA=,0",
+      "effectiveFrom": "02-Jan-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sdfsdf",
+      "corporateName": "aaafaagfiv",
+      "lastAction": "Create",
+      "profileCode": "DSFDSF",
+      "id": "bRr+f+BLqAo=,0",
+      "effectiveFrom": "23-Nov-2017",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "Payment",
+      "corporateName": "-",
+      "lastAction": "Update",
+      "profileCode": "0099",
+      "id": "n3rqPxm9Auc=,2",
+      "effectiveFrom": "15-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "wq",
+      "corporateName": "aaafaagfiv",
+      "lastAction": "Create",
+      "profileCode": "WEQ",
+      "id": "1FZbq0ypRRU=,0",
+      "effectiveFrom": "13-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "26-Jul-2019"
+    },
+    {
+      "profileName": "sdf",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Create",
+      "profileCode": "ASDASD",
+      "id": "F/O6Bg9g4A4=,0",
+      "effectiveFrom": "25-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "BusinessHead",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "BUSINESSHEAD",
+      "id": "ssO89nwCXV8=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "asdaa",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Create",
+      "profileCode": "ASDAA",
+      "id": "z6lCf0Y634E=,0",
+      "effectiveFrom": "10-Jan-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "31-Jan-2018"
+    },
+    {
+      "profileName": "asd",
+      "corporateName": "asqpaaflnf",
+      "lastAction": "Create",
+      "profileCode": "SASS",
+      "id": "P/thD0MMpzc=,0",
+      "effectiveFrom": "10-Jan-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "one",
+      "corporateName": "Silverline Technologies Ltd.",
+      "lastAction": "Create",
+      "profileCode": "TEST00004",
+      "id": "DVcHPMO4oeI=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "Testing",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "1101",
+      "id": "Ka1r4cpYtFA=,0",
+      "effectiveFrom": "14-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "AccSummary",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "ACCSUMMARY",
+      "id": "0wEXAD6KNaU=,0",
+      "effectiveFrom": "09-Apr-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "342",
+      "corporateName": "aaafaagfiv",
+      "lastAction": "Create",
+      "profileCode": "DSA",
+      "id": "HFbBWk4SIwQ=,0",
+      "effectiveFrom": "13-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "Test",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "01010",
+      "id": "JReUIG3PJ4A=,0",
+      "effectiveFrom": "14-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "tgert",
+      "corporateName": "Silverline Technologies Ltd.",
+      "lastAction": "Create",
+      "profileCode": "VFD",
+      "id": "eMPr40G4jEc=,1",
+      "effectiveFrom": "15-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "01-Oct-2020"
+    },
+    {
+      "profileName": "test",
+      "corporateName": "aaafaagfiv",
+      "lastAction": "Create",
+      "profileCode": "1010",
+      "id": "kxoBB4YDIAY=,0",
+      "effectiveFrom": "15-Mar-2018",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        },
+        {
+          "index": 3,
+          "displayName": "Authorize",
+          "icon": "check",
+          "url": "private/authorize",
+          "onClick": "id",
+          "color": "green"
+        },
+        {
+          "index": 4,
+          "displayName": "Reject",
+          "icon": "close",
+          "url": "private/reject",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "test10",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "TEST10",
+      "id": "pSNx5E53bJY=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "16-Jan-2020"
+    },
+    {
+      "profileName": "TEST100",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "TEST100",
+      "id": "Pdwc8MAgOWQ=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "TEST100",
+      "corporateName": "All About You",
+      "lastAction": "Create",
+      "profileCode": "TESTE100",
+      "id": "xj+P3sbvBwg=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "TEST101",
+      "corporateName": "All About You",
+      "lastAction": "Create",
+      "profileCode": "TESTE101",
+      "id": "tHVwbhIoUzw=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi977cp806",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI977CP806",
+      "id": "0y+3uS0Npp4=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi464cp777",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI464CP777",
+      "id": "4H5dS3i9UMU=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi629cp64",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI629CP64",
+      "id": "t8butb3SgSw=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi716cp859",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI716CP859",
+      "id": "5Ik1kRV7y5w=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi116cp869",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI116CP869",
+      "id": "4bxxI/M520Q=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi835cp575",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI835CP575",
+      "id": "adAkzWyKJq4=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi517cp390",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI517CP390",
+      "id": "OqmFmdZP/9o=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi716cp700",
+      "corporateName": "aaapaakhsw",
+      "lastAction": "Create",
+      "profileCode": "SAHI716CP700",
+      "id": "pbFEYSMlfoA=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi338cp452",
+      "corporateName": "aaapaakhsw",
+      "lastAction": "Create",
+      "profileCode": "SAHI338CP452",
+      "id": "/UbSENOmu44=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi242cp523",
+      "corporateName": "aaapaakhsw",
+      "lastAction": "Create",
+      "profileCode": "SAHI242CP523",
+      "id": "K3yRMgoxncc=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi752cp460",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI752CP460",
+      "id": "ljkKBxl+hEQ=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi829cp665",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "SAHI829CP665",
+      "id": "h3LV/RAKXWo=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "sahi980cp654",
+      "corporateName": "aaapaakhsw",
+      "lastAction": "Create",
+      "profileCode": "SAHI980CP654",
+      "id": "sFK03gkfkUE=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    },
+    {
+      "profileName": "test123",
+      "corporateName": "-",
+      "lastAction": "Create",
+      "profileCode": "TES123",
+      "id": "11lZmZEMYJQ=,0",
+      "effectiveFrom": "08-Jan-2020",
+      "actions": [
+        {
+          "index": 1,
+          "displayName": "View",
+          "icon": "visibility",
+          "url": "route~view",
+          "onClick": "id",
+          "color": null
+        },
+        {
+          "index": 2,
+          "displayName": "Edit",
+          "icon": "drive_file_rename_outline",
+          "url": "route~edit",
+          "onClick": "id",
+          "color": "primary"
+        },
+        {
+          "index": 5,
+          "displayName": "Delete",
+          "icon": "delete_forever",
+          "url": "private/delete",
+          "onClick": "id",
+          "color": "warn"
+        }
+      ],
+      "effectiveTill": "-"
+    }
+  ],
+  "lastRow": 40,
+  "loggable": false,
+  "entityIdentifier": ""
+}

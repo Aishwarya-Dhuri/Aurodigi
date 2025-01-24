@@ -1,0 +1,80 @@
+{
+  "data": [
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "view",
+          "type": "ICON",
+          "displayName": "View",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "reSubmit",
+          "type": "ICON",
+          "displayName": "ReSubmit",
+          "icon": "fa-check"
+        }
+      ]
+    },
+    {
+      "code": "BO006",
+      "roleType": "Normal",
+      "corporateName": "Startmark",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "view",
+          "type": "ICON",
+          "displayName": "View",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "reSubmit",
+          "type": "ICON",
+          "displayName": "ReSubmit",
+          "icon": "fa-check"
+        }
+      ]
+    },
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "view",
+          "type": "ICON",
+          "displayName": "View",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "reSubmit",
+          "type": "ICON",
+          "displayName": "ReSubmit",
+          "icon": "fa-check"
+        }
+      ]
+    }
+  ],
+  "lastRow": 3
+}

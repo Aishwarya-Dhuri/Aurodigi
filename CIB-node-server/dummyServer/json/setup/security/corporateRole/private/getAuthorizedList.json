@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-check"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-times"
+        }
+      ]
+    },
+    {
+      "code": "BO006",
+      "roleType": "Normal",
+      "corporateName": "Startmark",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-check"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-times"
+        }
+      ]
+    },
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-eye"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-check"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-times"
+        }
+      ]
+    }
+  ],
+  "lastRow": 3
+}

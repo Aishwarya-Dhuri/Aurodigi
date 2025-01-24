@@ -1,0 +1,8 @@
+{
+  "columnDefs": [
+    { "checkboxSelection": true, "filter": false, "sortable": false, "width": 20 },
+    { "headerName": "Structure Name", "field": "corporateStructureName" },
+    { "headerName": "Corporate Account", "field": "corporateAccount" },
+    { "headerName": "VA Creation Logic", "field": "vaCreationLogic" }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "label": "Active",
+      "active": 21,
+      "loggedIn": 0,
+      "locked": 0
+    },
+    {
+      "label": "LoggedIn User",
+      "active": 0,
+      "loggedIn": 10,
+      "locked": 0
+    },
+    {
+      "label": "Locked User",
+      "active": 0,
+      "loggedIn": 0,
+      "locked": 2
+    }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "label",
+      "yKeys": ["active", "loggedIn", "locked"],
+      "yNames": ["Active", "Logged In", "Locked"],
+      "shadow": { "enabled": false }
+    }
+  ],
+  "axes": [
+    {
+      "type": "category",
+      "position": "bottom",
+      "title": {
+        "text": "User Status",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    },
+    {
+      "type": "number",
+      "position": "left",
+      "title": {
+        "text": "No of Users",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "enabled": false
+  }
+}

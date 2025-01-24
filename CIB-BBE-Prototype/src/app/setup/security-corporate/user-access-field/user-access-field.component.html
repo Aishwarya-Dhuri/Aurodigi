@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="p-grid g-margin-x" *ngIf="!loading">
+    <div class="p-col-12">
+      <div class="aps-card">
+        <div class="aps-card-header aps-py-12 p-px-3">
+          <div class="text-bold">{{ 'Corporate Details' | apsTranslate }}</div>
+        </div>
+        <div class="aps-card-body p-p-2">
+          <div class="p-grid" *ngIf="stepperDetails.currentStep == 1">
+            <app-search-modal [(isShow)]="showCorporateCodeModal"
+              colDefUrl="setup/security/userFieldAccess/private/corporateColDefs"
+              rowDefUrl="setup/corporateOnboarding/corporateMain/private/getCorporates"
+              (onSelection)="onSelectCorporate($event)"></app-search-modal>
+
+            <div class="p-md-3 p-sm-12 p-col-12">
+              <aps-form-input [label]="'Corporate Code' | apsTranslate" name="corporateCode" id="corporateCode"
+                rightIcon="fa-search" (onRightIcon)="showCorporateCodeModal = true" [(ngModel)]="formData.corporateCode"
+                [required]="true" [readonly]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-md-3 p-sm-12 p-col-12">
+              <aps-form-input [label]="'Corporate Name' | apsTranslate" name="corporateName" id="corporateName"
+                [(ngModel)]="formData.corporateName" [required]="true" [disabled]="true">
+              </aps-form-input>
+            </div>
+          </div>
+
+          <div class="p-grid" *ngIf="stepperDetails.currentStep == 2">
+            <div class="p-md-3 p-sm-12 p-col-12">
+              <app-review-form-field label="Corporate Code" [value]="formData.corporateCode"></app-review-form-field>
+            </div>
+            <div class="p-md-3 p-sm-12 p-col-12">
+              <app-review-form-field label="Corporate Name" [value]="formData.corporateName"></app-review-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12">
+      <div class="aps-card overflow-hidden">
+        <div class="aps-card-header aps-py-12 p-px-3">
+          <div class="text-bold">Field Access</div>
+        </div>
+        <div class="aps-card-body">
+          <div class="aps-h-400">
+            <app-ag-grid-listing colDefUrl="setup/security/userFieldAccess/private/userAccessFieldsColDefs"
+              [rowData]="formData.corporateUserAccessFields" [gridOptions]="gridOptions"
+              [frameworkComponents]="frameworkComponents" [context]="{ componentParent: this }"></app-ag-grid-listing>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+</div>

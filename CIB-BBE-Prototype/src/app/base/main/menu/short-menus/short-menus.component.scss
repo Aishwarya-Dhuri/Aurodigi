@@ -1,0 +1,18 @@
+.menus {
+  display: block;
+  -webkit-transition: 0.25s ease-in;
+  color: var(--text-color-dark-shade-1);
+
+  .menu-item {
+    display: block;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .menu-item:hover {
+    // background-color: var(--background-color-dark-1);
+    color: var(--primary-color);
+  }
+}

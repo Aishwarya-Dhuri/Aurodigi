@@ -1,0 +1,7 @@
+<p-avatarGroup (click)="onClickUsers()" *ngIf="users.length > 0; else noUser">
+    <p-avatar shape="circle" image="assets/images/avatar.png" *ngFor="let user of users | slice: 0:3">
+    </p-avatar>
+    <p-avatar *ngIf="users.length > 3" label="+{{ users.length - 3 }}" shape="circle"> </p-avatar>
+</p-avatarGroup>
+
+<ng-template #noUser> -- </ng-template>

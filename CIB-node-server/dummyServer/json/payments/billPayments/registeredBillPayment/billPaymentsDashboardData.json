@@ -1,0 +1,35 @@
+{
+  "totalBills": 250,
+  "billData": [
+    {
+      "bill": "Overdue Bills",
+      "amount": 100
+    },
+    {
+      "bill": "Due Today",
+      "amount": 100
+    },
+    {
+      "bill": "Pending",
+      "amount": 50
+    }
+  ],
+  "insights": [
+    {
+      "icon": "fa-info-circle",
+      "label": "Most of your bills paid are from account number 773127003002."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Total amount paid in this month is highest for Airtel biller."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Most of your bills paid are from account number 773127003004."
+    },
+    {
+      "icon": "fa-info-circle",
+      "label": "Total amount paid in this month is highest for Airtel biller."
+    }
+  ]
+}

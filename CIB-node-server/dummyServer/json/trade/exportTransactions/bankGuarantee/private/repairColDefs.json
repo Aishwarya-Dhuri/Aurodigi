@@ -1,0 +1,43 @@
+[
+  {
+    "headerName": "User Reference Number",
+    "field": "corporateReferenceNo"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "transactionDate"
+  },
+  {
+    "headerName": "BG Expiry Date",
+    "field": "expiryDate"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Bank Rejection Remark",
+    "field": "bankRejectionRemark"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "width": 350,
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

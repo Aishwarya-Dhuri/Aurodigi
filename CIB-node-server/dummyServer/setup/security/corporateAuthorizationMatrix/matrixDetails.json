@@ -1,0 +1,13 @@
+{
+  "paymentMethodOptions": [
+    {
+      "name": "IFT"
+    },
+    {
+      "name": "NEFT"
+    },
+    {
+      "name": "External Fund Transfer"
+    }
+  ]
+}

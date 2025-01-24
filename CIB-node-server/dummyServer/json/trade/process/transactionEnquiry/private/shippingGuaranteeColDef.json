@@ -1,0 +1,57 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "userRefNo"
+    },
+    {
+      "headerName": "SG Number",
+      "field": "id"
+    },
+    {
+      "headerName": "LC Number",
+      "field": "lcNumber"
+    },
+    {
+      "headerName": "Transaction Date",
+      "field": "transactionDate"
+    },
+    {
+      "headerName": "SG Issue Date",
+      "field": "sgIssueDate"
+    },
+    {
+      "headerName": "SG Expiry Date",
+      "field": "sgExpiryDate"
+    },
+    {
+      "headerName": "Claim Expiry Date",
+      "field": "sgClaimExpiryDate"
+    },
+    {
+      "headerName": "Applicant Name",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "Beneficiary Name",
+      "field": "beneficiaryName"
+    },
+    {
+      "headerName": "SG Amount",
+      "field": "amount"
+    },
+    {
+      "headerName": "Beneficiary Bank",
+      "field": "beneficiaryBank"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

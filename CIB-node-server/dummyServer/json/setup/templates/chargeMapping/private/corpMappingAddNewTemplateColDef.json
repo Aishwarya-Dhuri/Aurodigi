@@ -1,0 +1,27 @@
+[
+  {
+    "headerName": "Template Code",
+    "field": "templateCode",
+    "checkboxSelection": true
+  },
+  {
+    "headerName": "Product Name",
+    "field": "productName"
+  },
+  {
+    "headerName": "Event",
+    "field": "event"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Calculating Frequency",
+    "field": "calFrequency"
+  },
+  {
+    "headerName": "Posting Frequency",
+    "field": "postingFrequency"
+  }
+]

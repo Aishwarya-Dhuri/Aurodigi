@@ -1,0 +1,10 @@
+{
+  "dataList": [
+    { "id": "MIS", "displayName": "MIS", "enrichments": {} },
+    { "id": "Admin", "displayName": "Admin", "enrichments": {} },
+    { "id": "Security", "displayName": "Security", "enrichments": {} }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

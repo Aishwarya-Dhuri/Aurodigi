@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "id": "165432",
+      "beneficiaryAddress": "AB Corp, WB, 1234",
+      "beneficiaryEmail": "ab.corp@gmail.com",
+      "beneficiaryBankAddress": "Punjab National Bank, RM Road, 1234",
+      "beneficiaryCode": "Bene002",
+      "beneficiaryName": "ABC Bene",
+      "beneficiaryBank": "Mobile",
+      "beneficiaryAccountNo": "111002670010",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "165433",
+      "beneficiaryAddress": "HPCC, WB, 1234",
+      "beneficiaryEmail": "hpcc@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene003",
+      "beneficiaryName": "HPCC",
+      "beneficiaryBank": "Mobile",
+      "beneficiaryAccountNo": "111002670011",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "165434",
+      "beneficiaryAddress": "RA Group, WB, 1234",
+      "beneficiaryEmail": "ra.group@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene003",
+      "beneficiaryName": "RA Bene",
+      "beneficiaryBank": "Email",
+      "beneficiaryAccountNo": "rabene@gmail.com",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "165435",
+      "beneficiaryAddress": "AB Corp, WB, 1234",
+      "beneficiaryEmail": "ab.corp@gmail.com",
+      "beneficiaryBankAddress": "Punjab National Bank, RM Road, 1234",
+      "beneficiaryCode": "Bene004",
+      "beneficiaryName": "AB Bene",
+      "beneficiaryBank": "National ID",
+      "beneficiaryAccountNo": "1046403927",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "Saudi Arabia"
+    },
+    {
+      "id": "165436",
+      "beneficiaryAddress": "RA Group, WB, 1234",
+      "beneficiaryEmail": "ra.group@gmail.com",
+      "beneficiaryBankAddress": "Bank Of Baroda, RM Road, 1234",
+      "beneficiaryCode": "Bene005",
+      "beneficiaryName": "RAS Bene",
+      "beneficiaryBank": "National ID",
+      "beneficiaryAccountNo": "1046403447",
+      "beneficiaryVpId": "xyz@cbibank",
+      "country": "Saudi Arabia"
+    }
+  ],
+  "lastRow": 6
+}

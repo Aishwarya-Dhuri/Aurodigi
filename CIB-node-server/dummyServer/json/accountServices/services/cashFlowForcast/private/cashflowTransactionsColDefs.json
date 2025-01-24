@@ -1,0 +1,13 @@
+[
+  { "headerName": "Value Date", "field": "valueDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Transaction Narration", "field": "transactionNarration" },
+  { "headerName": "Beneficiary|Payers", "field": "beneficiaryPayers" },
+  {
+    "headerName": "Withdrawals",
+    "field": "withdrawals",
+    "cellRenderer": "dangerCurrencyRenderer"
+  },
+  { "headerName": "Deposits", "field": "deposited", "cellRenderer": "successCurrencyRenderer" },
+  { "headerName": "Balance", "field": "balance", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Actions", "field": "moreActions", "cellRenderer": "moreActionsRenderer" }
+]

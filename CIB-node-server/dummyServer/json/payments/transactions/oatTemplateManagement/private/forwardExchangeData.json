@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "id": 2883623,
+      "mfContract": "1213143",
+      "currency": "LKR",
+      "mfRate": "3.60",
+      "osAmount": "10,000.00",
+      "utilisedAmount": "5,000.00"
+    },
+    {
+      "id": 2883624,
+      "mfContract": "1213144",
+      "currency": "LKR",
+      "mfRate": "3.60",
+      "osAmount": "15,000.00",
+      "utilisedAmount": "15,000.00"
+    },
+    {
+      "id": 2883625,
+      "mfContract": "1213145",
+      "currency": "LRK",
+      "mfRate": "3.60",
+      "osAmount": "20,000.00",
+      "utilisedAmount": "11,000.00"
+    }
+  ],
+  "lastRow": 3
+}

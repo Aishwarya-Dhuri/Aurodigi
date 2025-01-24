@@ -1,0 +1,28 @@
+[
+  {
+    "headerName": "Deposit Number",
+    "field": "depositNumber"
+  },
+  { "headerName": "Deposit Type", "field": "depositType" },
+  { "headerName": "Currency", "field": "currency" },
+  {
+    "headerName": "Deposit Amount",
+    "field": "depositAmount",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  { "headerName": "Interest Rate", "field": "interestRate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Tenor", "field": "tenor" },
+  {
+    "headerName": "Maturity Amount",
+    "field": "maturityAmount",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  { "headerName": "start Date", "field": "startDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Maturity Date", "field": "maturityDate", "cellRenderer": "dateRenderer" },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

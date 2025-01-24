@@ -1,0 +1,32 @@
+<div class="p-grid">
+  <div class="p-col-12">
+    <div class="card">
+      <h5><%=masterName%> - Initiate</h5>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <%=sections%>
+        <div class="p-grid p-fluid p-mt-4">
+          <div class="p-offset-5 p-col-4 p-md-1">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Back"
+              class="p-button-outlined p-button-secondary"
+              (click)="goToListing()"
+            ></button>
+          </div>
+          <div class="p-col-4 p-md-1" [hidden]="mode == 'view'">
+            <button
+              pButton
+              pRipple
+              type="submit"
+              label="Submit"
+              class="p-button-raised"
+              [disabled]="!form.valid"
+            ></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

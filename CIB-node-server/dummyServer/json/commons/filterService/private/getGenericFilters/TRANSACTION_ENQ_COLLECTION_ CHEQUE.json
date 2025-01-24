@@ -1,0 +1,186 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "depositSlipNumber",
+      "displayName": "Deposit Slip Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "depositDate",
+      "displayName": "Deposit Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "chequeNumber",
+      "displayName": "Cheque Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "chequeAmount",
+      "displayName": "Cheque Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "draweeBank",
+      "displayName": "Drawee Bank",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "collections/process/transactionEnquiry/private/dropdown/collectionStatus",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+   
+    {
+      "name": "fsNumber",
+      "displayName": "FS Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "depositLocationCode",
+      "displayName": "Deposit Location Code",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "clearingLocationCode",
+      "displayName": "Clearing Location Code",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+   
+  ],
+  "suggestions": [
+    {
+      "name": "depositDate",
+      "displayName": "Cheque deposited in last week",
+      "type": "Date",
+      "value": "26-Dec-2022",
+      "value1": "31-Jan-2023",
+      "operator": "BETWEEN",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+    {
+      "name": "status",
+      "displayName": "Cheque paid in last week",
+      "type": "SELECT",
+      "value": "Paid",
+      "operator": "SELECT",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+    {
+      "name": "status",
+      "displayName": "Return cheque in last week",
+      "type": "SELECT",
+      "value": "Return",
+      "operator": "",
+      "displayValue": "26-Dec-2022 - 31-Jan-2023"
+    },
+    {
+      "name": "status",
+      "displayName": "Late return cheques",
+      "type": "SELECT",
+      "value": "Late Return",
+      "operator": "",
+      "displayValue": ""
+    }
+
+   
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

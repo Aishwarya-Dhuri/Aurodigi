@@ -1,0 +1,226 @@
+<app-dynamic-form-grid
+  [parentRef]="parentRef"
+  *ngIf="
+    isDynamicFormAvailable &&
+    (parentRef.stepperDetails.currentStep == parentRef.stepperDetails.headings.length - 1 ||
+      parentRef.stepperDetails.currentStep == parentRef.stepperDetails.headings.length)
+  "
+>
+</app-dynamic-form-grid>
+<div
+  class="aps-card steps-footer-container"
+  *ngIf="isLoaded && !parentRef.stepperDetails.isHideStepFooter"
+>
+  <div class="left-right-container">
+    <div class="left-container">
+      <ng-content select="[left-content]"></ng-content>
+      <button
+        *ngIf="!parentRef.stepperDetails.isCancelOnRight"
+        class="p-mr-3 btn btn-md btn-tertiary text-size-14 text-semi-bold"
+        (click)="onCancelClick()"
+      >
+        <span *ngIf="viewport == 'web'">CANCEL</span>
+        <app-icon icon="fa-times" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+      <button
+        class="p-mr-3 btn btn-md btn-tertiary text-size-14 text-semi-bold"
+        (click)="resetDraft(); isShowSaveAsDraftModal = true"
+        [disbaled]="parentRef.validateDraftForm()"
+        *ngIf="parentRef.mode != 'VIEW' && parentRef.stepperDetails.isSaveDraftApplicable"
+      >
+        <span *ngIf="viewport == 'web'">
+          {{ parentRef.stepperDetails.isUpdateDraft ? 'UPDATE DRAFT' : 'SAVE AS DRAFT' }}
+        </span>
+        <app-icon icon="fa-save" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+    </div>
+
+    <div class="right-container">
+      <ng-content select="[right-content]"></ng-content>
+      <button
+        *ngIf="parentRef.stepperDetails.isCancelOnRight"
+        class="p-mr-3 btn btn-md btn-tertiary text-size-14 text-semi-bold"
+        (click)="onCancelClick()"
+      >
+        <span *ngIf="viewport == 'web'">CANCEL</span>
+        <app-icon icon="fa-times" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+
+      <button
+        class="p-mr-3 btn btn-md btn-secondary text-size-14 text-semi-bold"
+        *ngIf="parentRef.mode"
+        (click)="onBackClick()"
+      >
+        <span *ngIf="viewport == 'web'">BACK</span>
+        <app-icon icon="fa-times" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+
+      <button
+        class="p-mr-3 btn btn-md btn-tertiary text-size-14 text-semi-bold"
+        (click)="onPreviousClick(parentRef.stepperDetails.currentStep)"
+        *ngIf="
+          parentRef.mode != 'VIEW' &&
+          (parentRef.stepperDetails.currentStep !== 1 ||
+            (parentRef.stepperDetails.currentStep == 1 &&
+              parentRef.stepperDetails.currentSubStep &&
+              parentRef.stepperDetails.currentSubStep > 1))
+        "
+      >
+        <span *ngIf="viewport == 'web'"> PREVIOUS </span>
+        <app-icon icon="fa-chevron-left" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+
+      <button
+        class="p-mr-3 btn btn-md btn-secondary text-size-14 text-semi-bold"
+        (click)="resetTemplate(); isShowSaveAsTemplateModal = true"
+        *ngIf="
+          parentRef.mode != 'VIEW' &&
+          parentRef.stepperDetails.isSaveAsTemplateApplicable &&
+          isFinalStep()
+        "
+      >
+        <span *ngIf="viewport == 'web'">
+          {{ parentRef.stepperDetails.isUpdateTemplate ? 'UPDATE TEMPLATE' : 'SAVE AS TEMPLATE' }}
+        </span>
+        <app-icon icon="fa-save" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+
+      <button
+        class="btn btn-md btn-primary text-size-14 text-semi-bold"
+        *ngIf="parentRef.mode != 'VIEW'"
+        [disabled]="
+          !validateForm(
+            parentRef.stepperDetails.currentStep,
+            parentRef.stepperDetails.currentSubStep
+          )
+        "
+        (click)="onNextClick(parentRef.stepperDetails.currentStep)"
+      >
+        <span *ngIf="viewport == 'web'">
+          {{ getNextSubmitButtonCaption() }}
+        </span>
+        <app-icon [icon]="getNextSubmitButtonIcon()" *ngIf="viewport == 'mobile'"></app-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- save as Draft Modal -->
+  <app-modal *ngIf="isShowSaveAsDraftModal" [(isShow)]="isShowSaveAsDraftModal" size="sm">
+    <div class="left-right-container" header>
+      <div class="left-container text-bold text-size-18">
+        <div>If you are not ready to initiate yet,</div>
+        <div>save as a draft.</div>
+      </div>
+      <div class="right-container">
+        <app-icon
+          icon="fa-times"
+          class="pointer"
+          (click)="isShowSaveAsDraftModal = false"
+        ></app-icon>
+      </div>
+    </div>
+    <ng-container *ngIf="parentRef.stepperDetails.saveAsDraftTemplateRef">
+      <ng-container body>
+        <ng-container *ngTemplateOutlet="saveAsDraftTemplateRef"></ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="!parentRef.stepperDetails.saveAsDraftTemplateRef">
+      <div class="p-grid" body>
+        <div class="p-col-12">
+          <aps-form-input
+            id="draftName"
+            label="Draft Name"
+            name="draftName"
+            [(ngModel)]="draft.name"
+            inputType="alphaNumeric"
+            required="true"
+          >
+          </aps-form-input>
+        </div>
+        <div class="p-col-12">
+          <aps-form-input
+            id="draftDesc"
+            label="Draft Description"
+            name="draftDesc"
+            [(ngModel)]="draft.description"
+          >
+          </aps-form-input>
+        </div>
+      </div>
+    </ng-container>
+    <div class="p-grid" footer>
+      <div class="p-col">
+        <button
+          class="btn btn-md btn-primary float-right"
+          [disabled]="!parentRef.stepperDetails.saveAsDraftTemplateRef && !draft.name"
+          (click)="onSaveAsDraftClick()"
+        >
+          SAVE
+        </button>
+        <button
+          class="p-mx-2 btn btn-md btn-tertiary float-right text-size-14 text-semi-bold"
+          (click)="isShowSaveAsDraftModal = false"
+        >
+          CANCEL
+        </button>
+      </div>
+    </div>
+  </app-modal>
+
+  <!-- save as Template Modal -->
+  <app-modal
+    *ngIf="isShowSaveAsTemplateModal"
+    [(isShow)]="isShowSaveAsTemplateModal"
+    size="sm"
+    headerText="Save as a template"
+  >
+    <ng-container *ngIf="parentRef.stepperDetails.saveAsTemplateRef">
+      <ng-container body>
+        <ng-container *ngTemplateOutlet="saveAsTemplateRef"></ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="!parentRef.stepperDetails.saveAsTemplateRef">
+      <div class="p-grid" body>
+        <div class="p-col-12">
+          <aps-form-input
+            id="templateName"
+            label="Template Name"
+            name="templateName"
+            [(ngModel)]="template.name"
+            inputType="alphaNumeric"
+            required="true"
+          >
+          </aps-form-input>
+        </div>
+        <div class="p-col-12">
+          <aps-form-input
+            id="templateDesc"
+            label="Template Description"
+            name="templateDesc"
+            [(ngModel)]="template.description"
+          >
+          </aps-form-input>
+        </div>
+      </div>
+    </ng-container>
+    <div class="p-grid" footer>
+      <div class="p-col">
+        <button
+          class="btn btn-md btn-primary float-right text-size-14 text-semi-bold"
+          [disabled]="!template.name"
+          (click)="onSaveAsTemplateClick()"
+        >
+          SAVE
+        </button>
+        <button
+          class="p-mx-2 btn btn-md btn-tertiary float-right text-size-14 text-semi-bold"
+          (click)="isShowSaveAsTemplateModal = false"
+        >
+          CANCEL
+        </button>
+      </div>
+    </div>
+  </app-modal>
+</div>

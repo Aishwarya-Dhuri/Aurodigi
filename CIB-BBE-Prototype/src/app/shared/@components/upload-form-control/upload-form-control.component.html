@@ -1,0 +1,90 @@
+<div class="">
+  <ng-container *ngIf="!hideDragDropContainerOnFIleUpload || files.length === 0">
+    <div
+      class="upload-container"
+      *ngIf="!isMultiple"
+      (drop)="onFileDropped($event)"
+      (dragover)="onFileDrapoverAndLeave($event)"
+      (dragleave)="onFileDrapoverAndLeave($event)"
+    >
+      <input
+        type="file"
+        class="input pointer"
+        #fileDropRef
+        id="fileDropRef"
+        (change)="fileBrowseHandler($event.target.files)"
+      />
+      <div class="text-size-12" (click)="fileDropRef.click()">
+        <app-icon icon="fa-upload"></app-icon>
+        {{ 'Drop your file here or browse' | apsTranslate }}
+      </div>
+    </div>
+    <div
+      class="upload-container"
+      *ngIf="isMultiple"
+      (drop)="onFileDropped($event)"
+      (dragover)="onFileDrapoverAndLeave($event)"
+      (dragleave)="onFileDrapoverAndLeave($event)"
+    >
+      <input
+        type="file"
+        class="input pointer"
+        #fileDropRef
+        id="fileDropRef"
+        multiple
+        (change)="fileBrowseHandler($event.target.files)"
+      />
+      <div class="text-size-12" (click)="fileDropRef.click()">
+        <app-icon icon="fa-upload"></app-icon>
+        {{ 'Drop your file here or browse' | apsTranslate }}
+      </div>
+    </div>
+    <div
+      class="p-py-2 text-size-12 text-color-light-shade-1"
+      *ngIf="!hideNoFileMessage && files.length === 0"
+    >
+      {{ 'No files uploaded yet' | apsTranslate }}
+    </div>
+
+    <div class="p-pt-2 text-size-12" *ngIf="files.length > 0">{{ 'Uploaded' | apsTranslate }}</div>
+  </ng-container>
+
+  <div class="files-list" *ngIf="!isHideUploadList">
+    <div class="aps-card p-mt-2 p-p-2" *ngFor="let file of files; let i = index">
+      <div class="p-grid">
+        <div class="p-col-12 p-p-0 text-size-12">
+          <div class="p-grid">
+            <div class="p-col-1 p-p-0">
+              <app-icon icon="fa-file" styleClasses="p-p-2"></app-icon>
+            </div>
+            <div class="p-col-7 p-pt-2">
+              <div class="file-name">{{ file?.fileName }}</div>
+            </div>
+            <div class="p-col-3 p-pt-2">
+              <div class="text-size-10 text-color-light-shade-1">
+                |{{ (file?.fileSize / 1024 / 1024).toFixed(2) }}{{ 'Mb' | apsTranslate }}
+              </div>
+            </div>
+            <div class="p-col-1 p-p-2">
+              <app-icon
+                icon="fa-times"
+                class="pointer float-right"
+                (click)="deleteFile(i)"
+              ></app-icon>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-p-0 p-mb-1 text-size-10">
+          {{ file?.status }}
+        </div>
+        <div class="p-col-12 p-p-0">
+          <p-progressBar
+            [value]="file?.progress"
+            [style]="{ height: '6px' }"
+            [showValue]="false"
+          ></p-progressBar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

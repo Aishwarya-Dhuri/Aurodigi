@@ -1,0 +1,11 @@
+{
+  "columnDefs": [
+    { "headerName": "DN Ref. Number", "field": "dnRefNo" },
+    { "headerName": "DN Date", "field": "dnDate" },
+    { "headerName": "DN Amount", "field": "dnAmount" },
+    { "headerName": "VAT Amount", "field": "vatAmount" },
+    { "headerName": "Outstanding Amount", "field": "outstandingAmount" },
+    { "headerName": "WHT Amount", "field": "whtAmount" },
+    { "headerName": "Net Applicable Amount", "field": "netApplicableAmount" }
+  ]
+}

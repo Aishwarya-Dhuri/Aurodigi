@@ -1,0 +1,618 @@
+<div class="p-grid">
+  <div class="p-col-12 p-p-0">
+    <div class="aps-card aps-min-h-{{ cardHeight }}">
+      <div class="p-grid">
+        <!-- Search By Label and PREFILL FROM SAVED -->
+        <div class="p-col-12 p-px-3 p-py-0" *ngIf="isShowSearchByHeader">
+          <div class="left-right-container">
+            <div
+              class="left-container aps-py-12"
+              [ngClass]="{ 'p-mt-1': isDisplayPrefillCriteriaModal }"
+            >
+              <div class="text-size-14 text-semi-bold">{{ 'Search By' | apsTranslate }}</div>
+            </div>
+            <div class="right-container p-py-2" *ngIf="isDisplayPrefillCriteriaModal">
+              <button
+                class="btn btn-md btn-tertiary text-semi-bold"
+                (click)="isShowPrefillCriteriaModal = true"
+              >
+                <app-icon class="p-px-1" icon="fa-save"></app-icon
+                >{{ 'PREFILL FROM SAVED' | apsTranslate }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="p-col-12 p-px-3 p-py-2 background-color-dark-4" *ngIf="suggestions.length > 0">
+          <div class="text-size-14 text-semi-bold">{{ 'Suggested' | apsTranslate }}</div>
+          <div
+            class="aps-tile-container p-mr-1 p-my-1"
+            *ngFor="let suggestion of suggestions"
+            (click)="fillFilter(suggestion)"
+          >
+            <span class="text-semi-bold inline-block">{{ suggestion.displayName }}: </span>
+            <span class="inline-block">{{ suggestion.displayValue }}</span>
+          </div>
+        </div>
+
+        <!-- Mandatory Filters -->
+        <div class="p-col-12 p-px-3 p-py-2">
+          <form name="mandatoryFiltersForm" #mandatoryFiltersForm="ngForm">
+            <div class="p-grid">
+              <div
+                class="p-col-12 p-md-{{ mandatoryParametersColSize }} p-lg-{{
+                  mandatoryParametersColSize
+                }} p-py-0"
+                *ngFor="let filter of genericMandatoryFilters; let i = index"
+              >
+                <!-- TEXT Input Field -->
+                <div *ngIf="filter?.fieldType == 'TEXT'">
+                  <aps-form-input
+                    [id]="filter.name"
+                    [label]="filter.displayName"
+                    [name]="filter.name"
+                    [(ngModel)]="mandatoryFilters[i].value"
+                    (blur)="updateDisplayValue(i, true); updateBasedOn(filter)"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <!-- NUMBER Input Field -->
+                <div *ngIf="filter?.fieldType == 'NUMBER' || filter?.fieldType == 'AMOUNT'">
+                  <!-- NUMBER without Range Input Field -->
+                  <div *ngIf="!filter.rangeFilter">
+                    <aps-form-input
+                      [id]="filter.name"
+                      [label]="filter.displayName | apsTranslate"
+                      [name]="filter.name"
+                      [(ngModel)]="mandatoryFilters[i].value"
+                      (blur)="updateDisplayValue(i, true); updateBasedOn(filter)"
+                      [required]="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <!-- NUMBER with Range Input Field -->
+                  <div *ngIf="filter?.rangeFilter">
+                    <aps-form-input
+                      [id]="filter.name"
+                      [label]="filter.displayName | apsTranslate"
+                      [name]="filter.name"
+                      [(ngModel)]="mandatoryFilters[i].displayValue"
+                      #rangeField
+                      readonly="true"
+                      [required]="true"
+                      [inputType]="
+                        filter?.fieldType == 'NUMBER' ? 'numeric' : 'currencyFormatNotZero'
+                      "
+                      (focus)="rangeFilter.toggle($event)"
+                    >
+                    </aps-form-input>
+                    <p-overlayPanel
+                      [dismissable]="false"
+                      appendTo="body"
+                      (onHide)="
+                        rangeField.changed({ target: { value: mandatoryFilters[i].displayValue } })
+                      "
+                      #rangeFilter
+                    >
+                      <ng-template pTemplate>
+                        <div class="p-grid g-margin-x">
+                          <div class="p-col-6 p-py-0">
+                            <aps-form-input
+                              [id]="filter.name + '1'"
+                              label="{{ 'From' | apsTranslate }}"
+                              [name]="filter.name + '1'"
+                              [inputType]="
+                                filter?.fieldType == 'NUMBER' ? 'numeric' : 'currencyFormatNotZero'
+                              "
+                              [(ngModel)]="mandatoryFilters[i].value"
+                              [required]="true"
+                            >
+                            </aps-form-input>
+                          </div>
+                          <div class="p-col-6 p-py-0">
+                            <aps-form-input
+                              [id]="filter.name + '2'"
+                              label="{{ 'To' | apsTranslate }}"
+                              [name]="filter.name + '2'"
+                              [inputType]="
+                                filter?.fieldType == 'NUMBER' ? 'numeric' : 'currencyFormatNotZero'
+                              "
+                              [(ngModel)]="mandatoryFilters[i].value1"
+                              [required]="true"
+                            >
+                            </aps-form-input>
+                          </div>
+                        </div>
+
+                        <div class="left-right-container">
+                          <div class="left-container">
+                            <button
+                              class="btn btn-md btn-secondary"
+                              (click)="
+                                mandatoryFilters[i].displayValue = '';
+                                mandatoryFilters[i].value = '';
+                                mandatoryFilters[i].value1 = '';
+                                rangeFilter.hide($event)
+                              "
+                            >
+                              CANCEL
+                            </button>
+                          </div>
+                          <div class="right-container">
+                            <button
+                              class="btn btn-md btn-primary float-right"
+                              [disabled]="!mandatoryFilters[i].value || !mandatoryFilters[i].value1"
+                              (click)="
+                                mandatoryFilters[i].displayValue =
+                                  mandatoryFilters[i].value + ' - ' + mandatoryFilters[i].value1;
+                                rangeFilter.hide($event)
+                              "
+                            >
+                              APPLY
+                            </button>
+                            <button
+                              class="btn btn-md btn-tertiary float-right p-mx-2"
+                              (click)="
+                                mandatoryFilters[i].displayValue = '';
+                                mandatoryFilters[i].value = '';
+                                mandatoryFilters[i].value1 = ''
+                              "
+                            >
+                              CLEAR
+                            </button>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </p-overlayPanel>
+                  </div>
+                </div>
+                <!-- DATE Input Field -->
+                <div *ngIf="filter?.fieldType == 'DATE'">
+                  <!-- DATE without Range Input Field -->
+                  <div *ngIf="!filter.rangeFilter">
+                    <app-aps-calender
+                      [label]="filter.displayName | apsTranslate"
+                      [id]="filter.name"
+                      [name]="filter.name"
+                      [(ngModel)]="mandatoryFilters[i].value"
+                      (blur)="updateDisplayValue(i, true); updateBasedOn(filter)"
+                      [required]="true"
+                    >
+                    </app-aps-calender>
+                  </div>
+                  <!-- DATE with Range Input Field -->
+                  <div *ngIf="filter.rangeFilter">
+                    <app-aps-calender
+                      [label]="filter.displayName | apsTranslate"
+                      [id]="filter.name"
+                      [name]="filter.name"
+                      [(ngModel)]="mandatoryFilters[i].extraValue"
+                      (blur)="updateDisplayValue(i, true); updateBasedOn(filter)"
+                      selectionMode="range"
+                      numberOfMonths="2"
+                      [required]="true"
+                    >
+                    </app-aps-calender>
+                  </div>
+                </div>
+                <!-- SEARCH Input Field -->
+                <div *ngIf="filter?.fieldType == 'SEARCH'">
+                  <aps-form-input
+                    [id]="filter.name"
+                    [label]="filter.displayName | apsTranslate"
+                    [name]="filter.name"
+                    rightIcon="fa-search"
+                    (onRightIcon)="showSearchModal(filter, i, true)"
+                    [(ngModel)]="mandatoryFilters[i].displayValue"
+                    disabled="true"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <!-- SELECT Input Field -->
+                <div *ngIf="filter?.fieldType == 'SELECT'">
+                  <aps-custom-select
+                    [id]="filter.name"
+                    [name]="filter.name"
+                    [label]="filter.displayName | apsTranslate"
+                    [(ngModel)]="mandatoryFilters[i].value"
+                    (change)="updateSelectDisplayValue($event, i, true)"
+                    [required]="true"
+                    [data]="filter.selectList"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <ng-container *ngIf="!isAllMandatoryParameters">
+          <ng-container *ngIf="!isAllOptionalParameters || optionalFilters.length > 0">
+            <!-- Optional Parameters Label and ADD button -->
+            <div class="p-col-12 p-px-3 p-py-2">
+              <div class="left-right-container">
+                <div class="left-container">
+                  <div class="p-mt-2 text-size-14 text-semi-bold">
+                    {{ 'Optional Parameters' | apsTranslate }}
+                  </div>
+                </div>
+                <div class="right-container">
+                  <button
+                    class="btn btn-md btn-tertiary text-semi-bold"
+                    (click)="optionalSelection.toggle($event)"
+                  >
+                    <app-icon class="p-px-1" icon="fa-plus"></app-icon>{{ 'ADD' | apsTranslate }}
+                  </button>
+                </div>
+              </div>
+              <p-overlayPanel [dismissable]="false" #optionalSelection>
+                <ng-template pTemplate>
+                  <div class="p-grid aps-w-350">
+                    <ng-container *ngFor="let filter of genericFilterList">
+                      <div class="p-col-12 p-md-6 p-lg-6 p-p-0" *ngIf="!filter.mandatory">
+                        <p-checkbox
+                          name="selectedOptions"
+                          [value]="filter.name"
+                          [label]="filter.displayName | apsTranslate"
+                          [(ngModel)]="selectedOptions"
+                        >
+                        </p-checkbox>
+                      </div>
+                    </ng-container>
+                    <div class="p-col-12 p-py-0">
+                      <button
+                        class="btn btn-md btn-tertiary float-right"
+                        (click)="updateOptionalFilters(); optionalSelection.hide($event)"
+                        [disabled]="!(selectedOptions.length > 0)"
+                      >
+                        {{ 'ADD' | apsTranslate }}
+                      </button>
+                    </div>
+                  </div>
+                </ng-template>
+              </p-overlayPanel>
+            </div>
+
+            <!-- Optional Empty Placeholder -->
+            <div class="p-col-12 p-px-3 p-py-2" *ngIf="optionalFilters.length == 0">
+              <div class="p-grid p-jc-center">
+                <div class="p-col-10 p-md-3 p-lg-3">
+                  <div class="add-optional-container" (click)="optionalSelection.toggle($event)">
+                    <div class="p-grid">
+                      <div class="p-col-9 p-p-0">
+                        <div class="row-skeleton width-90"></div>
+                        <div class="row-skeleton width-90"></div>
+                        <div class="row-skeleton width-60"></div>
+                      </div>
+                      <div class="p-col-2 p-p-0">
+                        <div class="circle-skeleton p-pt-1 p-pl-2">
+                          <app-icon
+                            class="text-size-18 text-color-normal"
+                            icon="fa-plus"
+                          ></app-icon>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-mt-2 text-size-12 p-text-center">
+                    {{ 'Add an optional Parameter' | apsTranslate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional Parameters -->
+            <div class="p-col-12 p-px-3 p-py-2">
+              <form name="optionalFiltersForm" #optionalFiltersForm="ngForm">
+                <div class="p-grid">
+                  <div
+                    class="p-col-12 p-md-{{ optionalParametersColSize }} p-lg-{{
+                      optionalParametersColSize
+                    }} p-py-0"
+                    *ngFor="let filter of genericOptionalFilters; let i = index"
+                  >
+                    <div class="left-right-container">
+                      <div class="left-container" style="width: 95%">
+                        <!-- TEXT Input Field -->
+                        <div *ngIf="filter?.fieldType == 'TEXT'">
+                          <aps-form-input
+                            [id]="filter.name"
+                            [label]="filter.displayName | apsTranslate"
+                            [name]="filter.name"
+                            [(ngModel)]="optionalFilters[i].value"
+                            (blur)="updateDisplayValue(i, false); updateBasedOn(filter)"
+                          >
+                          </aps-form-input>
+                        </div>
+                        <!-- NUMBER Input Field -->
+                        <div *ngIf="filter?.fieldType == 'NUMBER' || filter?.fieldType == 'AMOUNT'">
+                          <!-- NUMBER without Range Input Field -->
+                          <div *ngIf="!filter.rangeFilter">
+                            <aps-form-input
+                              [id]="filter.name"
+                              [label]="filter.displayName | apsTranslate"
+                              [name]="filter.name"
+                              [(ngModel)]="optionalFilters[i].value"
+                              (blur)="updateDisplayValue(i, false); updateBasedOn(filter)"
+                            >
+                            </aps-form-input>
+                          </div>
+                          <!-- NUMBER with Range Input Field -->
+                          <div *ngIf="filter.rangeFilter">
+                            <aps-form-input
+                              [id]="filter.name"
+                              [label]="filter.displayName | apsTranslate"
+                              [name]="filter.name"
+                              [(ngModel)]="optionalFilters[i].displayValue"
+                              #rangeField
+                              [readonly]="true"
+                              [inputType]="
+                                filter?.fieldType == 'NUMBER' ? 'numeric' : 'currencyFormatNotZero'
+                              "
+                              (focus)="rangeFilter.toggle($event)"
+                            >
+                            </aps-form-input>
+                            <p-overlayPanel
+                              [dismissable]="true"
+                              (onHide)="
+                                rangeField.changed({
+                                  target: { value: optionalFilters[i].displayValue }
+                                })
+                              "
+                              #rangeFilter
+                            >
+                              <ng-template pTemplate>
+                                <div class="p-grid g-margin-x">
+                                  <div class="p-col-6 p-py-0">
+                                    <aps-form-input
+                                      [id]="filter.name + '1'"
+                                      label="{{ 'From' | apsTranslate }}"
+                                      [name]="filter.name + '1'"
+                                      [(ngModel)]="optionalFilters[i].value"
+                                      [inputType]="
+                                        filter?.fieldType == 'NUMBER'
+                                          ? 'numeric'
+                                          : 'currencyFormatNotZero'
+                                      "
+                                    >
+                                    </aps-form-input>
+                                  </div>
+                                  <div class="p-col-6 p-py-0">
+                                    <aps-form-input
+                                      [id]="filter.name + '2'"
+                                      label="{{ 'To' | apsTranslate }}"
+                                      [name]="filter.name + '2'"
+                                      [(ngModel)]="optionalFilters[i].value1"
+                                      [inputType]="
+                                        filter?.fieldType == 'NUMBER'
+                                          ? 'numeric'
+                                          : 'currencyFormatNotZero'
+                                      "
+                                    >
+                                    </aps-form-input>
+                                  </div>
+                                </div>
+
+                                <div class="left-right-container">
+                                  <div class="left-container"></div>
+                                  <div class="right-container">
+                                    <button
+                                      class="btn btn-md btn-primary float-right"
+                                      [disabled]="
+                                        !optionalFilters[i].value || !optionalFilters[i].value1
+                                      "
+                                      (click)="
+                                        optionalFilters[i].displayValue =
+                                          optionalFilters[i].value +
+                                          ' - ' +
+                                          optionalFilters[i].value1;
+                                        rangeFilter.hide($event)
+                                      "
+                                    >
+                                      {{ 'APPLY' | apsTranslate }}
+                                    </button>
+                                    <button
+                                      class="btn btn-md btn-tertiary float-right p-mx-2"
+                                      (click)="
+                                        optionalFilters[i].displayValue = '';
+                                        optionalFilters[i].value = '';
+                                        optionalFilters[i].value1 = ''
+                                      "
+                                    >
+                                      {{ 'CLEAR' | apsTranslate }}
+                                    </button>
+                                  </div>
+                                </div>
+                              </ng-template>
+                            </p-overlayPanel>
+                          </div>
+                        </div>
+                        <!-- DATE Input Field -->
+                        <div *ngIf="filter?.fieldType == 'DATE'">
+                          <!-- DATE without Range Input Field -->
+                          <div *ngIf="!filter.rangeFilter">
+                            <app-aps-calender
+                              [label]="filter.displayName | apsTranslate"
+                              [id]="filter.name"
+                              [name]="filter.name"
+                              [(ngModel)]="optionalFilters[i].value"
+                              (blur)="updateDisplayValue(i, false); updateBasedOn(filter)"
+                            >
+                            </app-aps-calender>
+                          </div>
+                          <!-- DATE with Range Input Field -->
+                          <div *ngIf="filter.rangeFilter">
+                            <app-aps-calender
+                              [label]="filter.displayName | apsTranslate"
+                              [id]="filter.name"
+                              [name]="filter.name"
+                              [(ngModel)]="optionalFilters[i].extraValue"
+                              (blur)="updateDisplayValue(i, false); updateBasedOn(filter)"
+                              selectionMode="range"
+                              numberOfMonths="2"
+                            >
+                            </app-aps-calender>
+                          </div>
+                        </div>
+                        <!-- SEARCH Input Field -->
+                        <div *ngIf="filter?.fieldType == 'SEARCH'">
+                          <aps-form-input
+                            [id]="filter.name"
+                            [label]="filter.displayName | apsTranslate"
+                            [name]="filter.name"
+                            rightIcon="fa-search"
+                            (onRightIcon)="showSearchModal(filter, i, false)"
+                            [(ngModel)]="optionalFilters[i].displayValue"
+                            disabled="true"
+                          >
+                          </aps-form-input>
+                        </div>
+                        <!-- SELECT Input Field -->
+                        <div *ngIf="filter?.fieldType == 'SELECT'">
+                          <aps-custom-select
+                            [id]="filter.name"
+                            [name]="filter.name"
+                            [label]="filter.displayName | apsTranslate"
+                            [(ngModel)]="optionalFilters[i].value"
+                            (change)="updateSelectDisplayValue($event, i, false)"
+                            [data]="filter.selectList"
+                          >
+                          </aps-custom-select>
+                        </div>
+                      </div>
+                      <div class="right-container p-pt-3 text-size-14">
+                        <app-icon
+                          class="p-mt-1"
+                          icon="fa-trash-alt"
+                          (click)="removeOptionalFilter(filter.name)"
+                        >
+                        </app-icon>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="isAllOptionalParameters && optionalFilters.length == 0">
+            <div class="p-col-12 p-px-3 p-py-2">
+              <div class="p-grid">
+                <div
+                  class="p-md-{{ optionalParametersColSize }} p-lg-{{
+                    optionalParametersColSize
+                  }} p-sm-6 p-col-6 p-px-0 p-pt-0"
+                  [ngClass]=""
+                  *ngFor="let filter of genericFilterList"
+                >
+                  <p-checkbox
+                    name="selectedOptions"
+                    [value]="filter.name"
+                    [label]="filter.displayName | apsTranslate"
+                    [(ngModel)]="selectedOptions"
+                  ></p-checkbox>
+                </div>
+              </div>
+              <div class="text-right p-py-2" *ngIf="isHideActionFooter">
+                <button
+                  class="btn btn-md btn-tertiary p-mx-2"
+                  (click)="onReset(); mandatoryFiltersForm.resetForm()"
+                  [disabled]="!(selectedOptions.length > 0)"
+                >
+                  {{ 'RESET' | apsTranslate }}
+                </button>
+                <ng-container *ngIf="isAllOptionalParameters && optionalFilters.length == 0">
+                  <button
+                    class="btn btn-md btn-primary"
+                    (click)="updateOptionalFilters()"
+                    [disabled]="!(selectedOptions.length > 0)"
+                  >
+                    {{ 'ADD' | apsTranslate }}
+                  </button>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Actions -->
+  <div class="p-col-12 p-p-0 p-mt-3 p-pos-rel" *ngIf="!isHideActionFooter">
+    <div class="aps-card search-actions aps-w-100p p-px-3 p-py-2">
+      <div class="left-right-container">
+        <div class="left-container">
+          <button
+            class="btn btn-md btn-tertiary"
+            [disabled]="mandatoryFiltersForm.invalid || !isValidOptionalForm()"
+            (click)="showSaveSearchCriteriaModal()"
+            *ngIf="
+              isShowSaveSearchCriteria && (!isAllOptionalParameters || optionalFilters.length > 0)
+            "
+          >
+            <span *ngIf="!isUpdateCriteria">{{ 'SAVE SEARCH CRITERIA' | apsTranslate }}</span>
+            <span *ngIf="isUpdateCriteria">{{ 'UPDATE SEARCH CRITERIA' | apsTranslate }}</span>
+          </button>
+        </div>
+        <div class="right-container">
+          <button
+            class="btn btn-md btn-tertiary p-mx-2"
+            (click)="onReset(); mandatoryFiltersForm.resetForm()"
+          >
+            {{ 'RESET' | apsTranslate }}
+          </button>
+          <button
+            class="btn btn-md btn-primary"
+            [disabled]="mandatoryFiltersForm.invalid || !isValidOptionalForm()"
+            (click)="onSearchClick()"
+            *ngIf="!isAllOptionalParameters || optionalFilters.length > 0"
+          >
+            {{ 'SEARCH' | apsTranslate }}
+          </button>
+          <button
+            class="btn btn-md btn-primary"
+            (click)="updateOptionalFilters()"
+            *ngIf="isAllOptionalParameters && optionalFilters.length == 0"
+          >
+            {{ 'ADD' | apsTranslate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <app-search-modal
+    *ngIf="isShowSearchModal"
+    [(isShow)]="isShowSearchModal"
+    [header]="('lbl_select' | translate) + searchFilter.displayName"
+    [colDefUrl]="searchFilter.colDefUrl"
+    [rowDefUrl]="searchFilter.rowDefUrl"
+    (onSelection)="onSearchFieldSelected($event)"
+  >
+  </app-search-modal>
+
+  <!-- Save/Update Search Criteria -->
+  <app-save-criterial-modal
+    #saveCriteria
+    [(isShow)]="isShowSaveSearchCriteriaModal"
+    [(isUpdate)]="isUpdateCriteria"
+    [entityName]="entityName"
+    [(criteria)]="criteriaData"
+    (onSave)="onSavedCriteria()"
+  >
+  </app-save-criterial-modal>
+
+  <!-- Prefill Modal -->
+  <app-prefill-criterial-modal
+    *ngIf="isShowPrefillCriteriaModal"
+    [(isShow)]="isShowPrefillCriteriaModal"
+    [entityName]="entityName"
+    (onSelect)="saveCriteria.setCriteriaData($event); onFillCriteria($event)"
+  >
+  </app-prefill-criterial-modal>
+</div>

@@ -1,0 +1,109 @@
+[
+  {
+    "type": "details",
+    "data": [
+      {
+        "label": "Sponsor Name",
+        "value": "LK Automobiles"
+      },
+      {
+        "label": "Seller/Buyer Name",
+        "value": "KK Seller"
+      },
+      {
+        "label": "Invoice Number",
+        "value": "CCBBMMNN"
+      },
+      {
+        "label": "Invoice Date",
+        "value": "20 Jun 2035"
+      },
+      {
+        "label": "Invoice Due Date",
+        "value": "16 Sep 2035"
+      },
+      {
+        "label": "Sub - Document Type",
+        "value": "-"
+      },
+      {
+        "label": "Invoice Amount",
+        "value": "THB 4,007.00"
+      },
+      {
+        "label": "Invoice Status",
+        "value": "NORMAL"
+      },
+      {
+        "label": "Payable Amount",
+        "value": "THB 4,007.00"
+      },
+      {
+        "label": "Link CN",
+        "value": "THB 0.00"
+      },
+      {
+        "label": "Link DN",
+        "value": "THB 0.00"
+      },
+      {
+        "label": "Amount Paid Till Date",
+        "value": "2,007.00"
+      },
+      {
+        "label": "Net Payable Amount",
+        "value": "THB 2,000.00"
+      },
+      {
+        "label": "Partial Payment Reason",
+        "value": "Will be paid next month"
+      },
+      {
+        "label": "Payment Date",
+        "value": "20 Jun 2035"
+      },
+      {
+        "label": "Payment Mode",
+        "value": "Fund Transfer"
+      },
+      {
+        "label": "Account",
+        "value": "11199111612345001-CASA"
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "Total Payable",
+        "value": "THB 2,000.00"
+      }
+    ]
+  },
+  {
+    "type": "makerCheckerDetails",
+    "header": "Maker Checker Details",
+    "data": [
+      {
+        "label": "Maker",
+        "value": "Rudra Maker (rudramaker)"
+      },
+      {
+        "label": "Maker Date Time",
+        "value": "20 Jun 2021, 12:13:30"
+      },
+      {
+        "label": "Checker",
+        "value": "Rudra Checker (rudrachecker)"
+      },
+      {
+        "label": "Checker Date Time",
+        "value": "20 Jun 2021, 12:13:42"
+      }
+    ]
+  }
+]

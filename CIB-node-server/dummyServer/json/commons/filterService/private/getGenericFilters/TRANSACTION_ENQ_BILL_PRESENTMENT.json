@@ -1,0 +1,366 @@
+{
+  "type": "Fscm-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "typeOfBillPresentment",
+      "displayName": "Type of Bill Presentment",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/billPresentment/private/dropdown/typeOfBillPresentmentDataList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "invoiceNumber",
+      "displayName": "Invoice Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "lcNumber",
+      "displayName": "LC Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDate",
+      "displayName": "Bill Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDueDate",
+      "displayName": "Bill Due Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billCurrency",
+      "displayName": "Bill Currency",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/generalMasters/currency/private/currencyList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billAmount",
+      "displayName": "Bill Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "lcCurrency",
+      "displayName": "LC Currency",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "setup/generalMasters/currency/private/currencyList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "lcAmount",
+      "displayName": "LC Amount",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "draftAt",
+      "displayName": "Draft At",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/billPresentment/private/dropdown/draftAtDataList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "usance",
+      "displayName": "Usance",
+      "type": "Number",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "applicantName",
+      "displayName": "Applicant Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "onBehalfOf",
+      "displayName": "On Behalf Of",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "importerName",
+      "displayName": "Importer Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "type",
+      "displayName": "Collection / Purchase",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/exportTransactions/billPresentment/private/dropdown/typeDataList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "userRefNumber",
+      "displayName": "corporateRefNo",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "billCurrency",
+      "displayName": "Bill Currency",
+      "type": "String",
+      "value": "SAR   ",
+      "value1": "",
+      "operator": "",
+      "displayValue": "SAR"
+    },
+    {
+      "name": "billDate",
+      "displayName": "Bill Date",
+      "type": "String",
+      "value": "24-Dec-2020",
+      "value1": "",
+      "operator": "",
+      "displayValue": "24-Dec-2020"
+    },
+    {
+      "name": "billAmount",
+      "displayName": "Bill Amount",
+      "type": "String",
+      "value": "200000",
+      "value1": "",
+      "operator": "",
+      "displayValue": "200000"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

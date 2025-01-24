@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Notify Party Code",
+      "field": "notifyPartyCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Notify Party Name",
+      "field": "notifyPartyName"
+    }
+  ]
+}

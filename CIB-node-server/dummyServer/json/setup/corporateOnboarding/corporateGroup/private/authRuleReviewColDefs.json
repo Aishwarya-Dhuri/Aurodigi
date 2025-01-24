@@ -1,0 +1,18 @@
+[
+  {
+    "headerName": "Module",
+    "field": "module"
+  },
+  {
+    "headerName": "Transaction Name",
+    "field": "transactionName"
+  },
+  {
+    "headerName": "Verifier Rule",
+    "field": "verifierName"
+  },
+  {
+    "headerName": "Authorization Rule",
+    "field": "authorizationRule"
+  }
+]

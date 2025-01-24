@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'CIB Regular';
+  font-style: normal;
+  src: url(http://10.10.18.74:3000/assets/fonts/font-files/NunitoSans-Regular.ttf)
+      format('truetype'),
+    url(http://182.76.144.73:3000/assets/fonts/font-files/NunitoSans-Regular.ttf) format('truetype'),
+    url(http://172.16.0.163:3000/assets/fonts/font-files/NunitoSans-Regular.ttf) format('truetype');
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB Light';
+  font-style: normal;
+  src: url(http://10.10.18.74:3000/assets/fonts/font-files/NunitoSans-Light.ttf) format('truetype'),
+    url(http://182.76.144.73:3000/assets/fonts/font-files/NunitoSans-Light.ttf) format('truetype'),
+    url(http://172.16.0.163:3000/assets/fonts/font-files/NunitoSans-Light.ttf) format('truetype');
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB SemiBold';
+  font-style: normal;
+  src: url(http://10.10.18.74:3000/assets/fonts/font-files/NunitoSans-SemiBold.ttf)
+      format('truetype'),
+    url(http://182.76.144.73:3000/assets/fonts/font-files/NunitoSans-SemiBold.ttf)
+      format('truetype'),
+    url(http://172.16.0.163:3000/assets/fonts/font-files/NunitoSans-SemiBold.ttf) format('truetype');
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}
+
+@font-face {
+  font-family: 'CIB Bold';
+  font-style: normal;
+  src: url(http://10.10.18.74:3000/assets/fonts/font-files/NunitoSans-Bold.ttf) format('truetype'),
+    url(http://182.76.144.73:3000/assets/fonts/font-files/NunitoSans-Bold.ttf) format('truetype'),
+    url(http://172.16.0.163:3000/assets/fonts/font-files/NunitoSans-Bold.ttf) format('truetype');
+  -webkit-font-smoothing: antialiased;
+  font-smooth: 2em;
+}

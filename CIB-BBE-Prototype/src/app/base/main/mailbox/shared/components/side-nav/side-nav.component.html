@@ -1,0 +1,31 @@
+<ul
+  class="side-nav-item"
+  [ngClass]="{ active: isMenuActive === 'collapse', '': isMenuActive === 'expend' }"
+>
+  <div
+    class="collapse-expand-icon pointer"
+    [ngClass]="{ 'text-center': isMenuActive === 'collapse' }"
+    (click)="changeMenu()"
+  >
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <li class="add-mail" pRipple (click)="onComposeClick()">
+    <i class="fas fa-plus-circle"></i>
+    <div class="label">Compose</div>
+  </li>
+  <li
+    *ngFor="let item of sideNavItem"
+    pRipple
+    [ngClass]="{
+      'background-color-primary-light-shade-1  text-color-primary': item.label == listingType
+    }"
+    (click)="callMailListing(item.label)"
+  >
+    <i class="{{ item.icon }}"></i>
+    <div class="label">{{ item.label | titlecase }}</div>
+    <div class="badge">
+      <span *ngIf="item.count">{{ item.count }}</span>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,30 @@
+.upload-container {
+  width: 100%;
+  height: 54px;
+  text-align: center;
+  border: dashed 1px var(--primary-color);
+  background-color: var(--primary-color-light-shade-2);
+  position: relative;
+  padding: 1rem;
+  border-radius: 4px;
+
+  .input {
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.files-list {
+  .file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+  }
+}

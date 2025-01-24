@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Beneficiary Code", "field": "beneficiaryCode", "checkboxSelection": true },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Beneficiary Bank", "field": "beneficiaryBank" },
+    { "headerName": "Beneficiary Account No", "field": "beneficiaryAccountNo" },
+    { "headerName": "Country", "field": "country" }
+  ]
+}

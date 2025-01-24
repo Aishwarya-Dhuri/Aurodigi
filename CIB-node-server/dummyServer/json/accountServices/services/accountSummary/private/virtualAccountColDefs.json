@@ -1,0 +1,29 @@
+[
+  {
+    "headerName": "Virtual Account No",
+    "field": "virtualAccountNumber",
+    "cellRenderer": "renderAccountNumber"
+  },
+  {
+    "headerName": "Account No",
+    "field": "accountNumber"
+  },
+  { "headerName": "VA Alias Name", "field": "virtualAccountAliceName" },
+  { "headerName": "Status", "field": "status" },
+  {
+    "headerName": "Available Limit",
+    "field": "availableLimit",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Utilized Limit",
+    "field": "utilizedLimit",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

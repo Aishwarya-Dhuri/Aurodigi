@@ -1,0 +1,37 @@
+[
+  {
+    "headerName": "Letter Of Credit Number",
+    "field": "letterOfCreditNumber"
+  },
+  {
+    "headerName": "Amends",
+    "field": "amends"
+  },
+  {
+    "headerName": "LC Issue Date",
+    "field": "lcIssueDate"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "lcExpiryDate"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

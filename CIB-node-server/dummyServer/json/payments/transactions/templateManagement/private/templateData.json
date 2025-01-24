@@ -1,0 +1,185 @@
+{
+  "data": [
+    {
+      "id": 1493721,
+      "amount": "50000.00",
+      "templateName": "SS Template",
+      "batchNo": "03101020044",
+      "paymentMethod": "UAEFTS",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Suryakant Deshmukh",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493720,
+      "amount": "70000.00",
+      "templateName": "SI IBG",
+      "batchNo": "03101020048",
+      "paymentMethod": "IBG",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Anand M Biradar",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493719,
+      "amount": "150000.00",
+      "templateName": "SI",
+      "batchNo": "03101020061",
+      "paymentMethod": "UAEFTS",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Sachin Prakash Tadmadge",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493718,
+      "amount": "1550000.00",
+      "templateName": "SIOwn cheque",
+      "batchNo": "03101020072",
+      "paymentMethod": "IBG",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Gajendra Rajaram Madane",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493717,
+      "amount": "5500.00",
+      "templateName": "IBG",
+      "batchNo": "03101020076",
+      "paymentMethod": "UAEFTS",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Kishor Ram Punatkar",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493716,
+      "amount": "566600.00",
+      "templateName": "MJ",
+      "batchNo": "03101020081",
+      "paymentMethod": "IBG",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Anil Ramesh Sen",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493715,
+      "amount": "100000.00",
+      "templateName": "9999 CC",
+      "batchNo": "03101020088",
+      "paymentMethod": "UAEFTS",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Swapnil Vishnu Sonavane",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493714,
+      "amount": "2000.00",
+      "templateName": "YouTemplate",
+      "batchNo": "03101020089",
+      "paymentMethod": "IBG",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Sagar Girish Mude",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493713,
+      "amount": "87000.00",
+      "templateName": "GoldTemplate",
+      "batchNo": "03101020093",
+      "paymentMethod": "UAEFTS",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Aniket Pannalal Koshta",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493712,
+      "amount": "99990.99",
+      "templateName": "Silver",
+      "batchNo": "03101020099",
+      "paymentMethod": "IBG",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Kishor Lahu Thorat",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "USE THIS",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 10
+}

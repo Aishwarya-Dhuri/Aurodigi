@@ -1,0 +1,243 @@
+<div
+  class=""
+  [ngClass]="{ 'aps-h-500 overflow-scroll': isMailType != 'Reply' && isMailType != 'Forward' }"
+>
+  <form class="compose-Mail-Form-section" autocomplete="off">
+    <div class="header-section">
+      <h4 class="contain-header p-mb-2">
+        <app-icon icon="fa-reply" *ngIf="isMailType == 'Reply'"></app-icon>
+        <app-icon icon="fa-share" *ngIf="isMailType == 'Forward'"></app-icon>
+        {{ isMailType | apsTranslate }}
+      </h4>
+      <div class="p-fluid p-grid">
+        <div class="p-col-12 p-md-5" *ngIf="!isMailMode">
+          <aps-custom-select
+            id="category"
+            name="category"
+            label="Select Category"
+            [(ngModel)]="formData.categoryId"
+            [value]="formData.categoryId"
+            dataUrl="setup/generalMasters/mailCategory/private/getCategoryList"
+            errorMessage="Provide Category"
+            (change)="formData.category = $event.displayName"
+          ></aps-custom-select>
+        </div>
+        <div class="p-col-12 p-md-5" *ngIf="!isMailMode">
+          <aps-custom-select
+            id="subCategory"
+            name="subCategory"
+            label="Select Sub Category"
+            [(ngModel)]="formData.subCategoryId"
+            [value]="formData.subCategoryId"
+            dataUrl="setup/generalMasters/mailCategory/private/getSubCategoryList"
+            [reqBody]="{ belongsToCategory: formData.categoryId }"
+            errorMessage="Provide Sub Category"
+            (change)="formData.subCategory = $event.displayName"
+          ></aps-custom-select>
+        </div>
+        <div class="p-col-12 p-md-12">
+          <aps-multi-select
+            name="mailTo"
+            id="mailTo"
+            label="To"
+            [showCount]="false"
+            [data]="mailToArray"
+            [value]="formData.mailTo"
+            [filter]="true"
+            [showHeader]="true"
+            [showToggleAll]="false"
+            [(ngModel)]="formData.mailTo"
+            [headerTemplate]="mailToTemplate"
+          ></aps-multi-select>
+
+          <ng-template #mailToTemplate>
+            <div class="multi-header-search">
+              <p class="p-mt-1 p-mb-2 p-text-bold text-size-12">Search By</p>
+              <div class="p-fluid p-grid" *ngIf="commonService.requestBy != 'CFE'">
+                <div class="p-col-4 p-md-4">
+                  <div class="p-field-radiobutton p-mb-1">
+                    <p-radioButton
+                      id="userTypeTo"
+                      name="userTypeTo"
+                      [(ngModel)]="formData.userTypeTo"
+                      value="Bank"
+                      label="Bank"
+                      (onClick)="getMailBankList('mailTo')"
+                    >
+                    </p-radioButton>
+                  </div>
+                </div>
+                <div class="p-col-4 p-md-4">
+                  <div class="p-field-radiobutton p-mb-1">
+                    <p-radioButton
+                      id="userTypeTo"
+                      name="userTypeTo"
+                      [(ngModel)]="formData.userTypeTo"
+                      value="Corporate"
+                      label="Corporate"
+                      (onClick)="getMailCorpoateList('mailTo')"
+                    >
+                    </p-radioButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+
+        <div class="p-col-12 p-md-12">
+          <aps-multi-select
+            name="mailCc"
+            id="mailCc"
+            label="CC"
+            [showCount]="false"
+            [data]="mailCcArray"
+            [filter]="true"
+            [showHeader]="true"
+            [showToggleAll]="false"
+            [value]="formData.mailCc"
+            [(ngModel)]="formData.mailCc"
+            [headerTemplate]="mailCcTemplate"
+          ></aps-multi-select>
+
+          <ng-template #mailCcTemplate>
+            <div class="multi-header-search">
+              <p class="p-mt-1 p-mb-2 p-text-bold text-size-12">Search By</p>
+              <div class="p-fluid p-grid" *ngIf="commonService.requestBy != 'CFE'">
+                <div class="p-col-4 p-md-4">
+                  <div class="p-field-radiobutton p-mb-1">
+                    <p-radioButton
+                      id="userTypeCc"
+                      name="userTypeCc"
+                      [(ngModel)]="formData.userTypeCc"
+                      value="Bank"
+                      inputId="bank"
+                      (onClick)="getMailBankList('mailCc')"
+                    >
+                    </p-radioButton>
+                    <label for="bank">Bank</label>
+                  </div>
+                </div>
+                <div class="p-col-4 p-md-4">
+                  <div class="p-field-radiobutton p-mb-1">
+                    <p-radioButton
+                      id="userTypeCc"
+                      name="userTypeCc"
+                      [(ngModel)]="formData.userTypeCc"
+                      value="Corporate"
+                      inputId="corporate"
+                      (onClick)="getMailCorpoateList('mailCc')"
+                    >
+                    </p-radioButton>
+                    <label for="corporate">Corporate</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+        <div class="c-mb-p5 p-col-12 p-md-12" *ngIf="!isMailMode">
+          <div class="p-field-checkbox p-mb-0">
+            <p-checkbox
+              [binary]="true"
+              id="copyToRm"
+              name="copyToRm"
+              [(ngModel)]="formData.copyToRm"
+            >
+            </p-checkbox>
+            <label for="copyToRm">Copy to RM</label>
+          </div>
+        </div>
+        <div class="c-mb-p5 p-col-12 p-md-12" *ngIf="!isMailMode">
+          <aps-form-input
+            type="text"
+            id="subject"
+            name="subject"
+            [(ngModel)]="formData.subject"
+            label="Subject"
+            [required]="true"
+            errorMessage="Provide Subject"
+          ></aps-form-input>
+        </div>
+      </div>
+    </div>
+    <div class="mail-editor">
+      <p class="p-mb-1 p-text-bold text-size-12">Message</p>
+      <div class="mail-editor-section">
+        <div class="content-section">
+          <ckeditor
+            [config]="config"
+            name="message"
+            id="message"
+            [(ngModel)]="formData.message"
+          ></ckeditor>
+        </div>
+        <div class="document-section attachment-section">
+          <app-reply-forward-mail
+            *ngIf="isMailMode"
+            [isMailType]="isMailType"
+            [viewMail]="viewMail"
+          >
+          </app-reply-forward-mail>
+          <app-trimmed-mail *ngIf="isMailMode"></app-trimmed-mail>
+
+          <ul class="p-d-flex p-flex-wrap multi-doc-section" *ngIf="attachments.length">
+            <li class="multi-doc-item" *ngFor="let file of attachments; let i = index">
+              <a
+                download="{{ file.originalFileName }}"
+                [href]="sanitizeImageUrl(file.fileContent)"
+                target="_blank"
+                class="doc-name p-text-nowrap p-text-truncate"
+                >{{ file.originalFileName }}</a
+              >
+              <span>({{ formatFileSize(file.fileSize) | number: '1.0-0' }}K)</span>
+              <i class="far fa-times-circle p-pl-2 p-as-center" (click)="deleteAttachment(i)"></i>
+            </li>
+          </ul>
+          <!-- <div *ngIf="isFieldValid('message')" class="message-error">
+          <div *ngIf="getControl.message.errors?.required" class="error-msg">Provide Message</div>
+        </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="p-grid p-mt-1">
+        <div class="p-col-12 p-md-6 p-d-flex p-ai-center p-jc-start">
+          <a
+            pButton
+            pRipple
+            type="button"
+            class="p-button-text brower-file-css"
+            label="Add Attachment"
+            icon="fas fa-paperclip"
+            iconPos="left"
+          >
+            <input
+              type="file"
+              #selectedAttachments
+              accept="application/pdf, image/jpeg"
+              (change)="addAttachments($event)"
+            />
+          </a>
+          <em class="warring-attach">(File type PDF and JPEG permitted)</em>
+        </div>
+        <div class="p-col-12 p-md-6 p-d-flex p-ai-center p-jc-end">
+          <button type="button" class="btn btn-md btn-tertiary" (click)="resetCompose()">
+            <app-icon icon="fa-trash-alt"></app-icon>
+          </button>
+          <span class="mb-divider"></span>
+          <button
+            type="button"
+            class="btn btn-md btn-secondary p-mr-3"
+            (click)="composeMail('draft')"
+          >
+            Save as Draft
+          </button>
+          <button type="button" class="btn btn-md btn-primary" (click)="composeMail()">
+            Send&nbsp;<app-icon icon="fa-paper-plane"></app-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

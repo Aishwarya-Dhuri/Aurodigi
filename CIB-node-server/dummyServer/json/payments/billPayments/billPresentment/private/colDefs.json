@@ -1,0 +1,43 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Beneficiary Name",
+      "field": "beneficiaryName"
+    },
+    {
+      "headerName": "Debit CCY",
+      "field": "currency"
+    },
+    {
+      "headerName": "Debit Amount",
+      "field": "totalAmount",
+      "cellRenderer": "amountRenderer"
+    },
+    {
+      "headerName": "Payable CCY",
+      "field": "currency"
+    },
+    {
+      "headerName": "Payable Amount",
+      "field": "totalAmount",
+      "cellRenderer": "amountRenderer"
+    },
+    {
+      "headerName": "Payment Method",
+      "field": "paymentMethod"
+    },
+    {
+      "headerName": "Debit Account Number",
+      "field": "debitAccountNumber"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

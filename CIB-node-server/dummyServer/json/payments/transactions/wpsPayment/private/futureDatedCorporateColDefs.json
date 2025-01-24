@@ -1,0 +1,41 @@
+[
+  { "headerName": "Reference No", "field": "id", "isShowOnCardView": false },
+  { "headerName": "WPS Payment File Name", "field": "fileName", "isShowOnCardView": true },
+  { "headerName": "SIF File Name", "field": "fileName", "isShowOnCardView": true },
+  { "headerName": "MOL ID", "field": "molId", "isShowOnCardView": true },
+  {
+    "headerName": "Salary Date",
+    "field": "salaryMonth",
+    "cellRenderer": "dateRenderer",
+    "isShowOnCardView": false
+  },
+  {
+    "headerName": "Upload Date",
+    "field": "uploadDate",
+    "cellRenderer": "dateRenderer",
+    "isShowOnCardView": false
+  },
+  {
+    "headerName": "Value Date",
+    "field": "valueDate",
+    "cellRenderer": "dateRenderer",
+    "isShowOnCardView": false
+  },
+  { "headerName": "No. of Records", "field": "edrCount", "isShowOnCardView": false },
+  {
+    "headerName": "Total Amount",
+    "field": "totalAmount",
+    "cellRenderer": "currencyRenderer",
+    "isShowOnCardView": false
+  },
+  { "headerName": "Debit Account Number", "field": "debitFromAccount", "isShowOnCardView": false },
+  { "headerName": "Debit Account Title", "field": "debitAccountTitle", "isShowOnCardView": false },
+  { "headerName": "Upload / Manual", "field": "manualUploadType", "isShowOnCardView": false },
+  { "headerName": "Status", "field": "status", "isShowOnCardView": false },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "isShowOnCardView": false
+  }
+]

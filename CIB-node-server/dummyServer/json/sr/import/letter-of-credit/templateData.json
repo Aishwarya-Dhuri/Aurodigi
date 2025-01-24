@@ -1,0 +1,122 @@
+[
+  {
+    "typeOfLc": "New",
+    "templateName": "template-1",
+    "lcAmount": "100000",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "useThis",
+        "type": "BUTTON",
+        "displayName": "USE THIS",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "typeOfLc": "Repair",
+    "templateName": "template-2",
+    "lcAmount": "100000",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "useThis",
+        "type": "BUTTON",
+        "displayName": "USE THIS",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "typeOfLc": "New",
+    "templateName": "template-1",
+    "lcAmount": "100000",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "useThis",
+        "type": "BUTTON",
+        "displayName": "USE THIS",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "typeOfLc": "Repair",
+    "templateName": "template-2",
+    "lcAmount": "100000",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "useThis",
+        "type": "BUTTON",
+        "displayName": "USE THIS",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  },
+  {
+    "typeOfLc": "New",
+    "templateName": "template-1",
+    "lcAmount": "100000",
+    "beneficiaryName": "AB Corp",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "useThis",
+        "type": "BUTTON",
+        "displayName": "USE THIS",
+        "icon": ""
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "delete",
+        "type": "ICON",
+        "displayName": "Delete",
+        "icon": "fa-trash"
+      }
+    ]
+  }
+]

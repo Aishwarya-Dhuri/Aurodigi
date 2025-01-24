@@ -1,0 +1,18 @@
+{
+  "sellerDetails": {
+    "nameInThai": "คู่ค้ารายใหญ่",
+    "expiresOn": "14-Feb-2023",
+    "availableLimit": 8030000.0,
+    "appliedFinanceLimit": 2030000.0,
+    "utilizedLimit": 1030000.0,
+    "availableAdhocLimit": 2030000.0
+  },
+  "buyerDetails": {
+    "nameInThai": "คู่ค้ารายใหญ่",
+    "expiresOn": "25-Dec-2022",
+    "availableLimit": 8030000.0,
+    "appliedFinanceLimit": 2030000.0,
+    "utilizedLimit": 1030000.0,
+    "availableAdhocLimit": 2030000.0
+  }
+}

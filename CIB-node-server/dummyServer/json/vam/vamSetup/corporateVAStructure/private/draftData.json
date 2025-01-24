@@ -1,0 +1,91 @@
+{
+  "data": [
+    {
+      "structureCreationFor": "POBO",
+      "corporateCode": "01060120603",
+      "corporateStructureName": "Struct1",
+      "virtualAccountType": "Normal",
+      "prefixValue": "TATA",
+      "vaStatus": "Active",
+      "lenOfVA": "20",
+      "countOfVA": "1000",
+      "vaStructureComponentList": [],
+      "corporateId": "2883626",
+      "corporateName": "TATA",
+      "corporateAccountId": "01",
+      "corporateAccount": "10002000101121-PHP",
+      "accountDescription": "Payable Account",
+      "accountBranch": "Down Town Branch",
+      "bankStructureId": "01",
+      "bankStructureName": "Struct 1",
+      "maxLength": 30,
+      "vaCreationLogic": "Adhoc VA Creation"
+    },
+    {
+      "structureCreationFor": "POBO",
+      "corporateCode": "01060120603",
+      "corporateStructureName": "Struct2",
+      "virtualAccountType": "Normal",
+      "prefixValue": "TATA",
+      "vaStatus": "Active",
+      "lenOfVA": "15",
+      "countOfVA": "1000",
+      "vaStructureComponentList": [
+        {
+          "isExpand": false,
+          "isPartialMatch": false,
+          "padding": "Left",
+          "fieldLen": "5",
+          "staticValue": "",
+          "startSeries": "",
+          "endSeries": "",
+          "paddingVal": "X",
+          "dynamicType": "Reference Field",
+          "dataType": "",
+          "referenceType": "Corporate Code",
+          "fieldType": "Dynamic"
+        },
+        {
+          "isExpand": false,
+          "isPartialMatch": true,
+          "padding": "Right",
+          "fieldLen": "2",
+          "staticValue": "",
+          "startSeries": "",
+          "endSeries": "",
+          "paddingVal": "0",
+          "dynamicType": "Reference Field",
+          "dataType": "",
+          "referenceType": "Sub Entity Code",
+          "fieldType": "Dynamic"
+        },
+        {
+          "isExpand": false,
+          "isPartialMatch": false,
+          "padding": "Left",
+          "fieldLen": "4",
+          "staticValue": "TATA",
+          "startSeries": "",
+          "endSeries": "",
+          "paddingVal": "",
+          "dynamicType": "",
+          "dataType": "Alphanumeric",
+          "referenceType": "",
+          "fieldType": "Static"
+        }
+      ],
+      "corporateId": "2883626",
+      "corporateName": "TATA",
+      "corporateAccountId": "01",
+      "corporateAccount": "10002000101121-PHP",
+      "accountDescription": "Payable Account",
+      "accountBranch": "Down Town Branch",
+      "bankStructureId": "01",
+      "bankStructureName": "Struct 1",
+      "maxLength": 30,
+      "vaCreationLogic": "Component Based VA",
+      "isPartialMatchRequired": true
+    }
+  ],
+  "lastRow": 2
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "headerName": "Bank Guarantee Number",
+    "field": "bankGuaranteeNo"
+  },
+  {
+    "headerName": "User Reference Number",
+    "field": "corporateReferenceNo"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicant"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "BG Expiry Date",
+    "field": "expiryDate"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

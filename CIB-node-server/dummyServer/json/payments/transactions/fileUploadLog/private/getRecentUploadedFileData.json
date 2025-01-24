@@ -1,0 +1,29 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "paymentType": "Payment Request 1",
+      "batchNo": "12345678",
+      "channel": "H2H",
+      "uploadedDate": "5 Aug 2021",
+      "uploadedTime": "05:30"
+    },
+    {
+      "paymentType": "Payment Request 2",
+      "batchNo": "12345678",
+      "channel": "H2H",
+      "uploadedDate": "5 Aug 2021",
+      "uploadedTime": "05:30"
+    },
+    {
+      "paymentType": "Payment Request 3",
+      "batchNo": "12345678",
+      "channel": "H2H",
+      "uploadedDate": "5 Aug 2021",
+      "uploadedTime": "05:30"
+    }
+  ]
+}

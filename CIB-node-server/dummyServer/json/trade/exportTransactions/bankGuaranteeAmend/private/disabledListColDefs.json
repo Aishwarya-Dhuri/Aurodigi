@@ -1,0 +1,25 @@
+[
+  {
+    "headerName": "LC Number",
+    "field": "lcNumber"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "lcAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

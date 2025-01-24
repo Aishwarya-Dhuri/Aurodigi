@@ -1,0 +1,25 @@
+[
+  {
+    "headerName": " ",
+    "field": "id",
+    "width": 10,
+    "cellRenderer": "agGroupCellRenderer"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "transactionDate",
+    "cellRenderer": "transactionDateRenderer"
+  },
+  {
+    "headerName": "Payment Method",
+    "field": "paymentMethod",
+    "cellRenderer": "paymentMethodRenderer"
+  },
+  { "headerName": "Account Number", "field": "accountId", "cellRenderer": "accountNumberRenderer" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

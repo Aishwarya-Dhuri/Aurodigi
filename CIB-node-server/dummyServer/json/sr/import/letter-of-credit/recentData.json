@@ -1,0 +1,391 @@
+[
+  {
+    "letterOfCreditNumber": "112654500",
+    "userReferenceNumber": "44623354112350",
+    "beneficiaryName": "AB Corp",
+    "amount": "1260000.00",
+    "status": {
+      "displayName": "To Be Repaired",
+      "status": "toBeRepaired"
+    },
+
+    "draftAt": "Usance",
+    "lcExpiryDate": "30 SEP 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112654601",
+    "userReferenceNumber": "44623354112360",
+    "beneficiaryName": "Bosch Group",
+    "amount": "646000000000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+    "draftAt": "Sight",
+    "lcExpiryDate": "05 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112656420",
+    "userReferenceNumber": "44623354112356",
+    "beneficiaryName": "Bridgestone",
+    "amount": "1260000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "20 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112655513",
+    "userReferenceNumber": "44623354112340",
+    "beneficiaryName": "Bridgestone",
+    "amount": "646000000000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "28 SEP 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112656420",
+    "userReferenceNumber": "44623354112350",
+    "beneficiaryName": "Bosch Group",
+    "amount": "1260000.00",
+    "status": {
+      "displayName": "To Be Repaired",
+      "status": "toBeRepaired"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "30 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112655513",
+    "userReferenceNumber": "44623354112560",
+    "beneficiaryName": "AB Bottle Corp",
+    "amount": "546000000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Usance",
+    "lcExpiryDate": "11 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112656420",
+    "userReferenceNumber": "44623354112356",
+    "beneficiaryName": "Bridgestone",
+    "amount": "1260000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "20 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112655513",
+    "userReferenceNumber": "44623354112340",
+    "beneficiaryName": "Bridgestone",
+    "amount": "646000000000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "28 SEP 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112656420",
+    "userReferenceNumber": "44623354112350",
+    "beneficiaryName": "Bosch Group",
+    "amount": "1260000.00",
+    "status": {
+      "displayName": "To Be Repaired",
+      "status": "toBeRepaired"
+    },
+
+    "draftAt": "Sight",
+    "lcExpiryDate": "30 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  },
+  {
+    "letterOfCreditNumber": "112655513",
+    "userReferenceNumber": "44623354112560",
+    "beneficiaryName": "AB Bottle Corp",
+    "amount": "546000000.00",
+    "status": {
+      "displayName": "Authorized",
+      "status": "authorized"
+    },
+
+    "draftAt": "Usance",
+    "lcExpiryDate": "11 OCT 2021",
+    "actions": [
+      {
+        "index": 0,
+        "paramList": "",
+        "methodName": "history",
+        "type": "ICON",
+        "displayName": "History",
+        "icon": "fas fa-history"
+      },
+      {
+        "index": 1,
+        "paramList": "",
+        "methodName": "copy",
+        "type": "ICON",
+        "displayName": "Copy",
+        "icon": "fa-copy"
+      },
+      {
+        "index": 2,
+        "paramList": "",
+        "methodName": "edit",
+        "type": "ICON",
+        "displayName": "Edit",
+        "icon": "fa-pencil"
+      }
+    ]
+  }
+]

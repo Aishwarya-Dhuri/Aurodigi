@@ -1,0 +1,85 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "columnDefs": [
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Currency Code",
+      "field": "currencyCode",
+      "checkboxSelection": true,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Currency Name",
+      "field": "currencyDesc",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Currency Symbol",
+      "field": "currencySymbol",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Effective From",
+      "field": "effectiveFrom",
+      "checkboxSelection": false,
+      "filter": "agDateColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Effective Till",
+      "field": "effectiveTill",
+      "checkboxSelection": false,
+      "filter": "agDateColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Last Action",
+      "field": "lastAction",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "entityIdentifier": "",
+      "loggable": false
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

@@ -1,0 +1,29 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Batch No",
+      "field": "batchNo"
+    },
+    {
+      "headerName": "Channel",
+      "field": "channel"
+    },
+    {
+      "headerName": "Upload File Name",
+      "field": "uploadFileName"
+    },
+    {
+      "headerName": "Uploaded Date Time",
+      "field": "uploadedDateTime"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Action",
+      "field": "action",
+      "cellRenderer": "ackNackCellRenderer"
+    }
+  ]
+}

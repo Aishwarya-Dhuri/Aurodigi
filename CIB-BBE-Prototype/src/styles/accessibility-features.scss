@@ -1,0 +1,176 @@
+/* Accessibility Feature CSS Start */
+:root {
+  //Accessibility Features Variables
+  --font-arial: 'Arial';
+  --font-calibri: 'Calibri';
+  --font-verdana: 'Verdana';
+  --content-scaling-percentage: 100%;
+  --letter-spacing: 0px;
+  --line-height: 1.5;
+  --adjust-text-color: '';
+  --adjust-title-color: '';
+  --blue: #28407e;
+  --primary: #00bfa8;
+  --green: #afde40;
+  --red: #e02525;
+  --orange: #e0941b;
+}
+
+.color-palette-size {
+  width: 20px;
+  height: 20px;
+}
+
+.primary-border-1px-on-hover-active {
+  background-color: var(--primary-color-light-shade-2) !important;
+  border: 1px solid var(--primary-color);
+  // color: #009999;
+}
+
+.content-scaling {
+  zoom: var(--content-scaling-percentage);
+}
+
+.letter-spacing {
+  letter-spacing: var(--letter-spacing);
+}
+
+.line-height {
+  line-height: var(--line-height);
+}
+
+.light-contrast {
+  filter: contrast(50%);
+}
+
+.high-contrast {
+  filter: contrast(1.75);
+}
+
+.title-color {
+  .text-bold {
+    color: var(--adjust-title-color);
+  }
+
+  .text-semi-bold {
+    color: var(--adjust-title-color);
+  }
+}
+
+.monochrome {
+  filter: grayscale(1);
+}
+
+.high-saturation {
+  filter: saturate(250%);
+}
+
+.palette-color-blue {
+  background-color: var(--chart-0);
+}
+
+.palette-color-primary {
+  background-color: var(--chart-1);
+}
+
+.palette-color-yellow {
+  background-color: var(--chart-2);
+}
+
+.palette-color-red {
+  background-color: var(--chart-9);
+}
+
+.palette-color-orange {
+  background-color: var(--chart-6);
+}
+
+.hightlight-titles {
+  .text-bold {
+    border: 2px solid var(--primary-color);
+  }
+
+  .text-semi-bold {
+    border: 2px solid var(--primary-color);
+  }
+}
+
+.highlight-links {
+  a {
+    border: 2px solid var(--primary-color);
+  }
+
+  .link {
+    border: 2px solid var(--primary-color);
+  }
+}
+
+.hide-img {
+  img {
+    visibility: hidden;
+  }
+
+  .bank-logo {
+    visibility: visible !important;
+  }
+
+  .product-logo {
+    visibility: visible !important;
+  }
+
+  .user-image {
+    visibility: visible !important;
+  }
+
+  .corporate {
+    visibility: visible !important;
+  }
+
+  .user {
+    visibility: visible !important;
+  }
+}
+
+.font-arial {
+  .text-light {
+    font-family: var(--font-arial);
+  }
+
+  .text-bold {
+    font-family: var(--font-arial);
+  }
+
+  .text-semi-bold {
+    font-family: var(--font-arial);
+  }
+}
+
+.font-calibri {
+  .text-light {
+    font-family: var(--font-calibri);
+  }
+
+  .text-bold {
+    font-family: var(--font-calibri);
+  }
+
+  .text-semi-bold {
+    font-family: var(--font-calibri);
+  }
+}
+
+.font-verdana {
+  .text-light {
+    font-family: var(--font-verdana);
+  }
+
+  .text-bold {
+    font-family: var(--font-verdana);
+  }
+
+  .text-semi-bold {
+    font-family: var(--font-verdana);
+  }
+}
+
+/* Accessibility Feature CSS End */

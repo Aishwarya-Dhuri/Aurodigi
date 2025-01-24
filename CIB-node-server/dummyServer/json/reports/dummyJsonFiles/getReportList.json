@@ -1,0 +1,10 @@
+{
+  "dataList": [
+    { "id": 16, "displayName": "User Activity Log", "enrichments": {} },
+    { "id": 19, "displayName": "Security User Activity", "enrichments": {} },
+    { "id": 2, "displayName": "User Role Wise Report", "enrichments": {} }
+  ],
+  "responseStatus": { "message": "", "status": "0" },
+  "entityIdentifier": "",
+  "loggable": false
+}

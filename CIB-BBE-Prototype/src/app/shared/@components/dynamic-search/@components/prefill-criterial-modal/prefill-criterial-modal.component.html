@@ -1,0 +1,57 @@
+<app-modal
+  *ngIf="isShow"
+  [(isShow)]="isShow"
+  size="md"
+  headerText="Prefill from Saved Criteria"
+  (onClose)="onClose()"
+>
+  <ng-container body>
+    <div class="p-grid" *ngIf="criteriaList.length > 0">
+      <div class="p-col-12 p-px-0" *ngFor="let criteria of criteriaList; let i = index">
+        <div class="aps-card">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-8 p-lg-8 pointer" (click)="showHideFilters(i)">
+              <div class="text-bold text-size-16">
+                {{ criteria.name }}
+                <span
+                  class="text-color-light-shade-1 text-semi-bold text-size-14"
+                  *ngIf="criteria.description"
+                >
+                  | {{ criteria.description }}</span
+                >
+              </div>
+            </div>
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <app-icon
+                icon="{{ criteriaViewData[i].isShown ? 'pi-chevron-up' : 'pi-chevron-down' }}"
+                class="pointer text-size-12 float-right p-m-2"
+                (click)="showHideFilters(i)"
+              ></app-icon>
+
+              <button class="btn btn-md btn-tertiary float-right" (click)="onSelectClick(criteria)">
+                {{ 'USE THIS' | apsTranslate }}
+              </button>
+              <app-icon
+                icon="fa-trash-alt"
+                class="pointer text-size-12 float-right p-m-2"
+                (click)="onDeleteClick(criteria)"
+              ></app-icon>
+            </div>
+          </div>
+          <div class="p-grid border-top" *ngIf="criteriaViewData[i].isShown">
+            <div class="p-col-12 p-md-6 p-lg-6" *ngFor="let filter of criteriaViewData[i].filters">
+              <div class="text-size-12 text-color-light-shade-1">{{ filter.displayName }}</div>
+              <div class="text-size-14">{{ filter.displayValue }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-nothing-here
+      *ngIf="criteriaList.length == 0"
+      colSize="4"
+      [message]="'Save some Criteria to use'"
+    >
+    </app-nothing-here>
+  </ng-container>
+</app-modal>

@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "transactionReferenceNumber": "TRAN1001",
+      "transactionDate": "09-Apr-2022",
+      "transactionAmount": "5000",
+      "channel": "H2H",
+      "status": "Created"
+    },
+    {
+      "id": "2",
+      "transactionReferenceNumber": "TRAN1002",
+      "transactionDate": "09-Apr-2022",
+      "transactionAmount": "5000",
+      "channel": "Manual",
+      "status": "Deleted"
+    },
+    {
+      "id": "3",
+      "transactionReferenceNumber": "TRAN1003",
+      "transactionDate": "09-Apr-2022",
+      "transactionAmount": "5000",
+      "channel": "H2H",
+      "status": "Created"
+    },
+    {
+      "id": "4",
+      "transactionReferenceNumber": "TRAN1004",
+      "transactionDate": "09-Apr-2022",
+      "transactionAmount": "5000",
+      "channel": "H2H",
+      "status": "Created"
+    },
+    {
+      "id": "5",
+      "transactionReferenceNumber": "TRAN1005",
+      "transactionDate": "09-Apr-2022",
+      "transactionAmount": "5000",
+      "channel": "H2H",
+      "status": "Created"
+    }
+  ],
+  "lastRow": 5,
+  "responseStatus": { "status": 1, "message": "" }
+}

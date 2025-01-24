@@ -1,0 +1,46 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "Pending for Auth",
+      "displayName": "Pending for Auth"
+    },
+    {
+      "id": "Pay Bill",
+      "displayName": "Pay Bill"
+    },
+    {
+      "id": "Processing",
+      "displayName": "Processing"
+    },
+    {
+      "id": "Failed",
+      "displayName": "Failed"
+    },
+    {
+      "id": "Paid",
+      "displayName": "Paid"
+    },
+    {
+      "id": "SI Retrial",
+      "displayName": "SI Retrial"
+    },
+    {
+      "id": "Send to Bank",
+      "displayName": "Send to Bank"
+    },
+    {
+      "id": "Send to Bank Rejected",
+      "displayName": "Send to Bank Rejected"
+    },
+    {
+      "id": "SI Reinitiation",
+      "displayName": "SI Reinitiation"
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

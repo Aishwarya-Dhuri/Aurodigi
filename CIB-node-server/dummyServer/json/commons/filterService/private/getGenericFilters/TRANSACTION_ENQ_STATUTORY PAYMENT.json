@@ -1,0 +1,122 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "institutionType",
+      "displayName": "Institution Type",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/transactions/statutoryPayment/private/dropdown/institutionTypes",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "amount",
+      "displayName": "Amount",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "debitAccountNumber",
+      "displayName": "Debit Account Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "batchNumber",
+      "displayName": "Batch Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "paymentIdNumber",
+      "displayName": "Payment ID Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "status",
+      "displayName": "Statutory Payments with status as Pending",
+      "type": "String",
+      "value": "Pending",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Pending"
+    },
+    {
+      "name": "status",
+      "displayName": "Statutory Payments with status as Awaiting Approval",
+      "type": "String",
+      "value": "Awaiting Approval",
+      "value1": "",
+      "operator": "",
+      "displayValue": "Awaiting Approval"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

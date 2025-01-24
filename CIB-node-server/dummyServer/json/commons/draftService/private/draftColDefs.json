@@ -1,0 +1,8 @@
+{
+  "columnDefs": [
+    { "checkboxSelection": true, "filter": false, "sortable": false, "width": 20 },
+    { "headerName": "Draft Name", "field": "draftName" },
+    { "headerName": "Draft Description", "field": "draftDesc" },
+    { "headerName": "Draft Date Time", "field": "modifiedSysOn" }
+  ]
+}

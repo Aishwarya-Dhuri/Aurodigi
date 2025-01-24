@@ -1,0 +1,13 @@
+[
+  { "headerName": "Mandate Reference Number", "field": "id" },
+  { "headerName": "Organizer Name", "field": "corporateName" },
+  { "headerName": "Payer Name", "field": "payerName" },
+  { "headerName": "Payer Bank", "field": "payerBank" },
+  { "headerName": "Payer Account Number", "field": "payerAccountNumber" },
+  { "headerName": "Consumer ID", "field": "customerNo" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "headerName": "Id",
+    "field": "id",
+    "hide": "true",
+    "lockVisible": "true",
+    "filter": "false",
+    "sortable": "false"
+  },
+  {
+    "headerName": "Corporate Code",
+    "field": "corporateCode",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true
+  },
+  {
+    "headerName": "Corporate Branch Code",
+    "field": "corporateBranchCode",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Corporate Branch Name",
+    "field": "corporateBranchName",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Effective From",
+    "field": "effectiveFrom",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Effective Till",
+    "field": "effectiveTill",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "false",
+    "sortable": "false"
+  }
+]

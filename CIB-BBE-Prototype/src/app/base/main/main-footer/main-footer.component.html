@@ -1,0 +1,14 @@
+<div class="p-grid footer-container text-size-12">
+  <div class="p-col-12 p-md-4 p-lg-4"></div>
+  <div class="p-col-12 p-md-4 p-lg-4 p-text-center">
+    <span>{{ 'Copyright' | apsTranslate }}</span> &nbsp;<span>&copy;</span>&nbsp;
+    <span>2022 Aurionpro Solutions Limited</span>
+  </div>
+  <div class="p-col-12 p-md-4 p-lg-4">
+    <div class="p-d-flex p-jc-end">
+      <div class="inline-block p-mx-2 pointer" *ngFor="let link of footerData?.links">
+        {{ link.displayName }}
+      </div>
+    </div>
+  </div>
+</div>

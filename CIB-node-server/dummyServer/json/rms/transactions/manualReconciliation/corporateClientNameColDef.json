@@ -1,0 +1,8 @@
+[
+  {
+    "headerName": "Corporate Client Name",
+    "field": "corporateClientName",
+    "checkboxSelection": true,
+    "sortable": false
+  }
+]

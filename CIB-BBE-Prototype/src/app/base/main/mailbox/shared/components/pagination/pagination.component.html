@@ -1,0 +1,49 @@
+<div class="p-d-flex p-ai-center p-jc-end pagination-section p-pt-1 p-pb-1">
+  <button type="button" class="btn btn-md btn-secondary" (click)="refresh()">
+    <app-icon icon="fa-redo-alt"></app-icon>&nbsp;Refresh
+  </button>
+  <button
+    type="button"
+    class="btn btn-md btn-tertiary p-ml-1"
+    (click)="firstNext()"
+    [disabled]="isFirstPage()"
+  >
+    <app-icon icon="fa-angle-double-left"></app-icon>
+  </button>
+  <button
+    type="button"
+    class="btn btn-md btn-tertiary p-mx-1"
+    (click)="prev()"
+    [disabled]="isFirstPage()"
+  >
+    <app-icon icon="fa-angle-left"></app-icon>
+  </button>
+  <span>{{ pageNumber }} of {{ totalPages }}</span>
+  <button
+    type="button"
+    class="btn btn-md btn-tertiary p-mx-1"
+    (click)="next()"
+    [disabled]="isLastPage()"
+  >
+    <app-icon icon="fa-angle-right"></app-icon>
+  </button>
+  <button type="button" class="btn btn-md btn-tertiary p-mr-1" (click)="lastNext()">
+    <app-icon icon="fa-angle-double-right"></app-icon>
+  </button>
+
+  <aps-custom-select
+    style="width: 50px"
+    class="p-ml-1"
+    id="getPageNumber"
+    name="getPageNumber"
+    label=""
+    [data]="[
+      { id: 50, displayName: '50' },
+      { id: 75, displayName: '75' },
+      { id: 100, displayName: '100' }
+    ]"
+    [(ngModel)]="selectedPageNumber"
+    [value]="selectedPageNumber"
+    (change)="getPageNumber()"
+  ></aps-custom-select>
+</div>

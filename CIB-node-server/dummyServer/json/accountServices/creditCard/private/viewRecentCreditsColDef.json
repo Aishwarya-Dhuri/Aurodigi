@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Transaction Reference No", "field": "transactionRefNo" },
+    { "headerName": "Transaction Date", "field": "transactionDate" },
+    { "headerName": "Credit Type", "field": "creditType" },
+    { "headerName": "Debit Account", "field": "debitAccount" },
+    { "headerName": "Credit Amount", "field": "creditAmount" }
+  ]
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "headerName": "Initiation Type",
+    "field": "initiationType"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Mode of Shipment",
+    "field": "modeOfShipment"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

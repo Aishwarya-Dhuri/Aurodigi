@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "bicCode": "SBIN0011513",
+      "bankName": "SBI Bank"
+    },
+    {
+      "id": "101",
+      "bicCode": "PUNB0999900",
+      "bankName": "HDFC Bank"
+    }
+  ],
+  "lastRow": 2
+}

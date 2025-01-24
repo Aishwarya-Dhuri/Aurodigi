@@ -1,0 +1,47 @@
+{
+  "structureDetails": {
+    "structureType": "",
+    "structureName": "",
+    "mainAccount": "",
+    "sweepType": "",
+    "executionSequence": ""
+  },
+  "frequencyDetails": {
+    "frequencyOfExecution": "custom",
+    "preDefined": { "dates": [""] },
+    "intraDay": {
+      "recurrenceFrequency": "",
+      "numberOfOccurrence": "",
+      "startDateTime": "",
+      "endDateTime": "",
+      "noEndDate": "",
+      "recurrenceDays": []
+    },
+    "custom": {
+      "recurrenceFrequency": "",
+      "numberOfOccurrence": "",
+      "startDate": "",
+      "endDate": "",
+      "noEndDate": "",
+      "recurrenceDays": []
+    }
+  },
+  "interestSetUp": {
+    "positiveRate": "",
+    "overdraftRate": "",
+    "lendingRate": "",
+    "borrowingRate": "",
+    "applyToSubAccount": "N",
+    "selectedBy": "",
+    "PNGenerationFrequency": "",
+    "PNGenerationMonth": "",
+    "PNGenerationDay": ""
+  },
+  "clusterDetails": {
+    "belongsToClusterCode": "CTS0011001100110011455",
+    "belongsToClusterName": "",
+    "leadForClusterCode": "CTS0000000001111111666",
+    "leadForClusterName": ""
+  },
+  "exceptionHandling": { "fundingAccount": "", "onHoliday": "", "failureRule": "" }
+}

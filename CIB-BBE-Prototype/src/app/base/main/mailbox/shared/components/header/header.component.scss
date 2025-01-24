@@ -1,0 +1,18 @@
+.main-box-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  .header-menu {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    padding: 8px 10px;
+    margin: 0px 8px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .header-brand-name {
+    font-weight: 500;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "columnDefs": [
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Profile Code",
+      "field": "profileCode",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Profile Name",
+      "field": "profileName",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Corporate Name",
+      "field": "corporateName",
+      "checkboxSelection": false,
+      "filter": "agTextColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Effective From",
+      "field": "effectiveFrom",
+      "checkboxSelection": false,
+      "filter": "agDateColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    },
+    {
+      "responseStatus": { "message": "", "status": "0" },
+      "headerName": "Effective Till",
+      "field": "effectiveTill",
+      "checkboxSelection": false,
+      "filter": "agDateColumnFilter",
+      "sortable": true,
+      "resizable": true,
+      "enableRowGroup": true,
+      "enableValue": true,
+      "loggable": false,
+      "entityIdentifier": ""
+    }
+  ],
+  "loggable": false,
+  "entityIdentifier": ""
+}

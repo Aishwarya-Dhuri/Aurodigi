@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "id": 323456,
+      "applicantName": "Pepsico",
+      "currency": "PHP",
+      "amount": "1200",
+      "beneficiaryName": "BK1234",
+      "issuanceDate": "12-Dec-2024",
+      "issuingBank": "PNB Bank",
+      "bankAddress": "Mumbai"
+    },
+    {
+      "id": 567890,
+      "applicantName": "Nestle",
+      "currency": "PHP",
+      "amount": "1650",
+      "beneficiaryName": "BK1234",
+      "issuanceDate": "12-Dec-2024",
+      "issuingBank": "HDFC Bank",
+      "bankAddress": "Bangalore"
+    }
+  ],
+  "lastRow": 2,
+  "responseStatus": {
+    "message": "MSG_KEY_SUCCESS",
+    "status": "0"
+  }
+}

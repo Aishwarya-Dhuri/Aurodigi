@@ -1,0 +1,22 @@
+[
+  {
+    "headerName": "Batch No.",
+    "field": "id",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "cellRenderer": "agGroupCellRenderer"
+  },
+  { "headerName": "Transaction Date", "field": "transactionDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Total Request", "field": "totalRequest" },
+  {
+    "headerName": "Total Amount",
+    "field": "totalAmount",
+    "cellRenderer": "baseCurrencyRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

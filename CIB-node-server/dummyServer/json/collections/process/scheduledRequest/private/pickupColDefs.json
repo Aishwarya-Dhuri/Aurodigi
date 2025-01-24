@@ -1,0 +1,56 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Pickup Point Code",
+      "field": "pickupCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Pickup Point Name",
+      "field": "pickupName"
+    },
+    {
+      "headerName": "Location",
+      "field": "location"
+    },
+    {
+      "headerName": "Address 1",
+      "field": "address1"
+    },
+    {
+      "headerName": "Address 2",
+      "field": "address2",
+      "hide": "true"
+    },
+    {
+      "headerName": "City",
+      "field": "city",
+      "hide": "true"
+    },
+    {
+      "headerName": "State",
+      "field": "state",
+      "hide": "true"
+    },
+    {
+      "headerName": "Postel Code/Zip",
+      "field": "postalCode",
+      "hide": "true"
+    },
+    {
+      "headerName": "Pickup Instruction",
+      "field": "pickupInstruction",
+      "hide": "true"
+    },
+    {
+      "headerName": "Effective Start Date",
+      "field": "startDate",
+      "hide": "true"
+    },
+    {
+      "headerName": "Effective End Date",
+      "field": "endDate",
+      "hide": "true"
+    }
+  ]
+}

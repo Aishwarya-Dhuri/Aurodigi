@@ -1,0 +1,54 @@
+{
+  "data": [
+    { "type": "Mar-2018 3rd Week", "amount": 1626793565.78, "invoice": 19 },
+    { "type": "Mar-2018 4th Week", "amount": 513012403.79, "invoice": 20 },
+    { "type": "Mar-2018 5th Week", "amount": 23322591, "invoice": 14 },
+    { "type": "Apr-2018 1st Week", "amount": 37377733, "invoice": 1 },
+    { "type": "Apr-2018 2nd Week", "amount": 2323311.23, "invoice": 2 },
+    { "type": "Apr-2018 3rd Week", "amount": 33737377, "invoice": 1 },
+    { "type": "Apr-2018 4th Week", "amount": 37373733, "invoice": 1 },
+    { "type": "may-2018 1st Week", "amount": 10001000, "invoice": 2 }
+  ],
+  "series": [
+    {
+      "type": "column",
+      "xKey": "type",
+      "yKeys": ["amount"],
+      "yNames": ["Total Amount"],
+      "grouped": true,
+      "shadow": { "enabled": true }
+    },
+    {
+      "type": "line",
+      "xKey": "type",
+      "yKey": "invoice",
+      "yName": "Total Invoice",
+      "lineTension": 2,
+      "strokeWidth": 2,
+      "marker": {
+        "shape": "circle",
+        "size": 6
+      }
+    }
+  ],
+  "axes": [
+    { "type": "category", "position": "bottom", "label": { "rotation": 45 } },
+    { "type": "number", "position": "left", "keys": ["amount"] },
+    {
+      "type": "number",
+      "position": "right",
+      "keys": ["invoice"],
+      "lineTension": 2,
+      "min": 0
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

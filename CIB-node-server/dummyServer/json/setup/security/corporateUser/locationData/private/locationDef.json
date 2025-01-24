@@ -1,0 +1,26 @@
+[
+  {
+    "headerName": "Location Code",
+    "field": "locationCode",
+    "checkboxSelection": true,
+    "sortable": false
+  },
+  {
+    "headerName": "Location Name",
+    "field": "locationName",
+    "checkboxSelection": false,
+    "sortable": false
+  },
+  {
+    "headerName": "Province",
+    "field": "province",
+    "checkboxSelection": false,
+    "sortable": false
+  },
+  {
+    "headerName": "Country",
+    "field": "country",
+    "checkboxSelection": false,
+    "sortable": false
+  }
+]

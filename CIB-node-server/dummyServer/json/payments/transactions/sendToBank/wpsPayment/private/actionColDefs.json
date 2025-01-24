@@ -1,0 +1,18 @@
+[
+  {
+    "headerName": "Batch No.",
+    "field": "id",
+    "cellRenderer": "agGroupCellRenderer"
+  },
+
+  { "headerName": "Transaction Date", "field": "valueDate" },
+  { "headerName": "Total Request", "field": "edrCount" },
+  { "headerName": "Total Amount", "field": "totalAmount", "cellRenderer": "currencyRenderer" },
+  { "headerName": "SIF File Name", "field": "fileName" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

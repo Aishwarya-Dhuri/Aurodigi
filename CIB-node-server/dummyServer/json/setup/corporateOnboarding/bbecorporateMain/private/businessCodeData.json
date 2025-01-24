@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "businessCode": "BB1001",
+      "businessDescription": "Business 1"
+    },
+    {
+      "id": "101",
+      "businessCode": "BB1002",
+      "businessDescription": "Business 2"
+    }
+  ],
+  "lastRow": 2
+}

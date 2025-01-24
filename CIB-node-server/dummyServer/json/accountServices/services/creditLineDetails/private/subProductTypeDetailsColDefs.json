@@ -1,0 +1,21 @@
+[
+  {
+    "headerName": "Credit Line Offered",
+    "field": "creditLineOffered",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Funded Limit", "field": "fundedLimit", "cellRenderer": "currencyRenderer" },
+  {
+    "headerName": "Unfunded Limit",
+    "field": "unfundedLimit",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Effective Date", "field": "effectiveDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Expiry Date", "field": "expiryDate", "cellRenderer": "dateRenderer" },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "width": 425,
+    "cellRenderer": "actionCellRenderer"
+  }
+]

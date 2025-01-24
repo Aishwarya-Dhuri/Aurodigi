@@ -1,0 +1,67 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3 aps-h-400">
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select name="moduleName" label="Module Name" [(ngModel)]="formData.moduleName"
+                                (change)="onChangeModule(formData.moduleName)" required="true"
+                                dataUrl="setup/securityBank/helpDocument/private/dropdown/moduleName">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select name="subModuleName" label="Sub Module Name"
+                                [(ngModel)]="formData.subModuleName" required="true" [data]="subModuleNameList">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="documentUrl" name="documentUrl"
+                                [label]="'Document URL' | apsTranslate" [(ngModel)]="formData.documentUrl"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input [type]="isViewPassword ? 'text' : 'password'" id="password" name="password"
+                                [rightIcon]="isViewPassword ? ' fa-eye-slash' : ' fa-eye'"
+                                [label]="'Password' | apsTranslate" [(ngModel)]="formData.password" required="true"
+                                (onRightIcon)="isViewPassword = !isViewPassword">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3 aps-h-400">
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Module Name" [value]="formData.moduleName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Sub Module Name" [value]="formData.subModuleName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Document URL" [value]="formData.documentUrl">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Password" [value]="formData.password">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

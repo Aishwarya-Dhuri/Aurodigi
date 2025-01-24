@@ -1,0 +1,4 @@
+[
+  { "field": "accountTitle", "headerName": "Account Title", "checkboxSelection": true },
+  { "field": "displayName", "headerName": "Account Number" }
+]

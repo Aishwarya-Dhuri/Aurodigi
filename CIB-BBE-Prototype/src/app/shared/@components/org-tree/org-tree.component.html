@@ -1,0 +1,138 @@
+<div class="org-tree-container p-col-12 p-lg-12 p-md-12 p-sm-12">
+  <ng-container *ngFor="let data of treeData">
+    <div
+      class="org-tree-wrapper"
+      *ngIf="data.type === 'single'"
+      [ngStyle]="{ width: 100 / treeData.length + '%' }"
+    >
+      <div class="tree-node" style="height: 100%" *ngFor="let node of data.nodes; let i = index">
+        <div class="node-branch">
+          <svg height="100%" width="100%">
+            <line
+              x1="0%"
+              y1="40%"
+              x2="100%"
+              y2="40%"
+              class="line"
+              [ngClass]="{ 'line-deactivated': node.partiallyActive || node.disabled }"
+              *ngIf="!node.isLeafNode"
+            />
+            <circle
+              cx="7"
+              cy="40%"
+              r="6"
+              class="circle"
+              [ngClass]="{
+                'circle-partially-activated': node.partiallyActive,
+                'circle-deactivated': node.disabled
+              }"
+              *ngIf="node.header"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="node-data"
+          style="top: 15px; left: 14px"
+          [ngClass]="{ 'node-data-deactivated': node.disabled }"
+        >
+          <div class="header">{{ node.header }}</div>
+          <div class="sub-header">{{ node.subHeader }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="org-tree-wrapper"
+      *ngIf="data.type === 'single-branched'"
+      [ngStyle]="{ width: 100 / treeData.length + '%' }"
+    >
+      <div class="tree-node" style="height: 100%" *ngFor="let node of data.nodes; let i = index">
+        <div class="node-branch-divider">
+          <svg height="100%" width="100%">
+            <line x1="0%" y1="40%" x2="80%" y2="40%" class="line" />
+            <line x1="80%" y1="40%" x2="95%" y2="10%" class="line" />
+            <line x1="95%" y1="10%" x2="100%" y2="10%" class="line" />
+            <line x1="80%" y1="40%" x2="95%" y2="75%" class="line" />
+            <line x1="95%" y1="75%" x2="100%" y2="75%" class="line" />
+            <circle cx="7" cy="40%" r="6" class="circle" />
+          </svg>
+        </div>
+        <div class="node-data" style="top: 20px; left: 14px">
+          <div class="header">{{ node.header }}</div>
+          <div class="sub-header">{{ node.subHeader }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="org-tree-wrapper"
+      *ngIf="data.type === 'branched'"
+      [ngStyle]="{ width: 100 / treeData.length + '%' }"
+    >
+      <div class="tree-node" style="height: 50%" *ngFor="let node of data.nodes">
+        <div class="node-branch-divider">
+          <svg height="100%" width="100%" *ngIf="node.degree === 1">
+            <line
+              x1="0%"
+              y1="20%"
+              x2="100%"
+              y2="20%"
+              class="line"
+              [ngClass]="{
+                'line-deactivated': node.partiallyActive || node.disabled
+              }"
+              *ngIf="!node.isLeafNode"
+            />
+            <circle
+              cx="7"
+              cy="20%"
+              r="6"
+              class="circle"
+              [ngClass]="{
+                'circle-partially-activated': node.partiallyActive,
+                'circle-deactivated': node.disabled
+              }"
+              *ngIf="node.header"
+            />
+            Sorry, your browser does not support inline SVG.
+          </svg>
+
+          <svg height="100%" width="100%" *ngIf="node.degree === 2">
+            <line
+              x1="0%"
+              y1="50%"
+              x2="100%"
+              y2="50%"
+              class="line"
+              [ngClass]="{
+                'line-deactivated': node.partiallyActive || node.disabled
+              }"
+              *ngIf="!node.isLeafNode"
+            />
+            <circle
+              cx="7"
+              cy="50%"
+              r="6"
+              class="circle"
+              [ngClass]="{
+                'circle-partially-activated': node.partiallyActive,
+                'circle-deactivated': node.disabled
+              }"
+              *ngIf="node.header"
+            />
+            Sorry, your browser does not support inline SVG.
+          </svg>
+        </div>
+        <div
+          class="node-data"
+          [ngClass]="{ 'node-data-deactivated': node.disabled }"
+          [style]="{ top: node.degree === 1 ? '-5px' : '7px', left: '14px' }"
+        >
+          <div class="header">{{ node.header }}</div>
+          <div class="sub-header">{{ node.subHeader }}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

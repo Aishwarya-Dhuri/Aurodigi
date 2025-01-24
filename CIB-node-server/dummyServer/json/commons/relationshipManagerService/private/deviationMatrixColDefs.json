@@ -1,0 +1,11 @@
+[
+  { "headerName": "Sr No", "field": "srNo" },
+  { "headerName": "Company", "field": "corporateName" },
+  { "headerName": "Product", "field": "product" },
+  { "headerName": "Txn Ref No", "field": "transactionRefNo" },
+  { "headerName": "Closure Date", "field": "closureDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "CCY", "field": "currency" },
+  { "headerName": "Amount", "field": "amount", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Type", "field": "type" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

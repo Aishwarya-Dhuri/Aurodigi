@@ -1,0 +1,39 @@
+[
+  {
+    "headerName": "Mandate Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "UMRN",
+    "field": "umrnNumber"
+  },
+  {
+    "headerName": "Utility Code",
+    "field": "utilityCode"
+  },
+  {
+    "headerName": "Originator Name",
+    "field": "corporateName"
+  },
+  {
+    "headerName": "Consumer ID / No",
+    "field": "customerNo"
+  },
+  {
+    "headerName": "Payer Name",
+    "field": "payerName"
+  },
+  {
+    "headerName": "Payer Bank",
+    "field": "payerBank"
+  },
+  {
+    "headerName": "Payer Account Number",
+    "field": "payerAccountNumber"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

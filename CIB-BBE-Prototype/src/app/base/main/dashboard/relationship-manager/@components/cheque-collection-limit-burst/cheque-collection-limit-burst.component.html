@@ -1,0 +1,21 @@
+<div class="aps-card aps-h-100p">
+  <div class="aps-card-header p-px-3 aps-py-12">
+    <div class="text-size-14 text-semi-bold">Cheque Collection - Limit Burst</div>
+  </div>
+  <div
+    class="aps-card-body gridster-item-content"
+    *ngIf="!chequeCollectionLimitBurstLoading; else loadingDataTemplate"
+  >
+    <app-ag-grid-listing
+      #chequeCollectionLimitBurstGrid
+      [colDefUrl]="chequeCollectionLimitBurstColDef"
+      [rowData]="chequeCollectionLimitBurstRowData"
+      [gridOptions]="gridOptions"
+      [context]="context"
+    ></app-ag-grid-listing>
+  </div>
+</div>
+
+<ng-template #loadingDataTemplate>
+  <p class="text-center p-py-3">Loading...</p>
+</ng-template>

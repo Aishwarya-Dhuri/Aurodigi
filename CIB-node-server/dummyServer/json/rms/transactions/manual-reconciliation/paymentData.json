@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "payment": {
+      "amount": "400000.00",
+      "entryType": "M"
+    },
+    "reconciliatedAmount": "400000",
+    "outstandingAmount": {
+      "methodName": "paymentOutstandingAmountUpdated",
+      "amount": "400000"
+    },
+    "accountNumber": "1234545665 - INR",
+    "paymentDate": "02 SEP 2021",
+    "paymentMethod": "Cash",
+    "transactionDescription": "Galaxy/37584593",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, payment, reconciliatedAmount, paymentMethod, outstandingAmount, accountNumber, paymentDate, transactionDescription",
+        "methodName": "viewPayment",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "payment": { "amount": "3000000.00", "entryType": "M" },
+    "reconciliatedAmount": "3000000",
+    "outstandingAmount": {
+      "methodName": "paymentOutstandingAmountUpdated",
+      "amount": "300000"
+    },
+    "accountNumber": "1234545665 - INR",
+    "paymentDate": "02 SEP 2021",
+    "paymentMethod": "Cash",
+    "transactionDescription": "raj/12343",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, payment, reconciliatedAmount, paymentMethod, outstandingAmount, accountNumber, paymentDate, transactionDescription",
+        "methodName": "viewPayment",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "payment": { "amount": "400000.00", "entryType": "S" },
+    "reconciliatedAmount": "4000000",
+    "outstandingAmount": {
+      "methodName": "paymentOutstandingAmountUpdated",
+      "amount": "4000000"
+    },
+    "accountNumber": "1234545665 - INR",
+    "paymentDate": "02 SEP 2021",
+    "paymentMethod": "Cash",
+    "transactionDescription": "Galaxy/37584593",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, payment, reconciliatedAmount, paymentMethod, outstandingAmount, accountNumber, paymentDate, transactionDescription",
+        "methodName": "viewPayment",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "payment": { "amount": "3000000.00", "entryType": "M" },
+    "reconciliatedAmount": "4000",
+    "outstandingAmount": {
+      "methodName": "paymentOutstandingAmountUpdated",
+      "amount": "4000"
+    },
+    "accountNumber": "1234545665 - INR",
+    "paymentDate": "02 SEP 2021",
+    "paymentMethod": "Cash",
+    "transactionDescription": "Raj/12343",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, payment, reconciliatedAmount, paymentMethod, outstandingAmount, accountNumber, paymentDate, transactionDescription",
+        "methodName": "viewPayment",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "payment": { "amount": "400000.00", "entryType": "S" },
+    "reconciliatedAmount": "2000000",
+    "outstandingAmount": {
+      "methodName": "paymentOutstandingAmountUpdated",
+      "amount": "2000000"
+    },
+    "accountNumber": "1234545665 - INR",
+    "paymentDate": "02 SEP 2021",
+    "paymentMethod": "Cash",
+    "transactionDescription": "Galaxy/37584593",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, payment, reconciliatedAmount, paymentMethod, outstandingAmount, accountNumber, paymentDate, transactionDescription",
+        "methodName": "viewPayment",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  }
+]

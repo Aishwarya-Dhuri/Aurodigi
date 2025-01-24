@@ -1,0 +1,15 @@
+{
+  "responseStatus": { "message": "", "status": "0" },
+  "dataMap": {
+    "loginId": "tovmaker",
+    "categoryCode": "NATURE",
+    "phishingImageFileName": "Fifth.jpg",
+    "message": "LOGIN",
+    "categoryName": "Nature",
+    "phishingImageId": "VzvDKtClN+s=",
+    "systemGeneratedImageFileName": "NATURE\\Fifth.jpg"
+  },
+  "entityIdentifier": "",
+  "entity": "",
+  "loggable": false
+}

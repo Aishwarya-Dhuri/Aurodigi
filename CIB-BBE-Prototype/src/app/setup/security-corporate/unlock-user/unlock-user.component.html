@@ -1,0 +1,48 @@
+<div class="container">
+
+    <form name="unlockUserForm" #unlockUserForm="ngForm">
+        <div class="aps-card aps-h-400 p-mb-3">
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <aps-form-input id="corporateCode" label="Corporate Code" name="corporateCode"
+                            rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                            [(ngModel)]="formData.corporateCode" disabled="true" required="true">
+                        </aps-form-input>
+                        <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                            header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                            [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                        </app-search-modal>
+                    </div>
+                    <div class=" p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select [label]="'User Id' | apsTranslate" name="userId" id="userId"
+                            [(ngModel)]="formData.userId" [value]="formData.userId" [data]="userIdArray"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </form>
+
+
+    <div class="footer">
+        <div class="aps-card p-py-2 p-px-2">
+            <div class="left-right-container">
+                <div class="left-container">
+                    <button class="btn btn-md btn-tertiary" (click)="onCancelClick()">CANCEL</button>
+                </div>
+                <div class="right-container">
+                    <button class="btn btn-md btn-primary" [disabled]="unlockUserForm.invalid"
+                        (click)="validateForm()">UNLOCK</button>
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

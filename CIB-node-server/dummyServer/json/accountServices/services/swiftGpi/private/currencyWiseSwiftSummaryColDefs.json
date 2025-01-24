@@ -1,0 +1,6 @@
+[
+  { "headerName": "Currency", "field": "currency" },
+  { "headerName": "Count", "field": "count" },
+  { "headerName": "Amount", "field": "amount", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Charge Paid", "field": "chargePaid", "cellRenderer": "currencyRenderer" }
+]

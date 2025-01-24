@@ -1,0 +1,4 @@
+<div [class]="params && !params.data.isRead ? 'text-bold' : ''" (click)="invokeParentMethod()">
+  <span>{{ cellValue ? (cellValue | date) : '-' }}</span>
+</div>
+{{ params.data.isRead }}

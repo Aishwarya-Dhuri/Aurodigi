@@ -1,0 +1,33 @@
+<app-widgets-header
+  [heading]="title"
+  [showChangeChartOption]="showChangeChartOption"
+  (action)="this.actionEvent($event)"
+></app-widgets-header>
+<div class="p-mt-2">
+  <div class="left-right-container">
+    <div class="left-container">
+      <p-radioButton
+        class="p-mr-2"
+        label="Amount"
+        value="amount"
+        (onClick)="changeInvoiceType()"
+        [(ngModel)]="invoiceType"
+      ></p-radioButton>
+      <p-radioButton
+        label="count"
+        value="count"
+        (onClick)="changeInvoiceType()"
+        [(ngModel)]="invoiceType"
+      ></p-radioButton>
+    </div>
+    <div class="right-container">
+      <app-select-group-button
+        (onSelectionValue)="timePeriodChanged($event)"
+      ></app-select-group-button>
+    </div>
+  </div>
+</div>
+
+<div class="chart-wrapper">
+  <aps-chart #chart [(options)]="options" *ngIf="!loadingCharts"></aps-chart>
+</div>

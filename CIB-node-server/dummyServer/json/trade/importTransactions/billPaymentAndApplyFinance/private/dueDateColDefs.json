@@ -1,0 +1,43 @@
+[
+  {
+    "headerName": "Trade Bill No.",
+    "field": "tradeBillNumber"
+  },
+  {
+    "headerName": "Trade Bill Date",
+    "field": "tradeBillDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "DA/DP",
+    "field": "daDp"
+  },
+  {
+    "headerName": "LC Number",
+    "field": "lcNumber"
+  },
+  {
+    "headerName": "LC Issue Date",
+    "field": "lcIssueDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "lcExpiryDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

@@ -1,0 +1,9 @@
+[
+  { "headerName": "Request No", "field": "id", "cellRenderer": "requestNumberRenderer" },
+  { "headerName": "SR Class", "field": "srClass" },
+  { "headerName": "SR Type", "field": "srType" },
+  { "headerName": "SR Sub Type", "field": "srSubType" },
+  { "headerName": "Request  Date", "field": "modifiedSysOn", "cellRenderer": "dateRenderer" },
+  { "headerName": "Status", "field": "status", "cellRenderer": "requestStatusRenderer" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

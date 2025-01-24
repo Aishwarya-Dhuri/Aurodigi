@@ -1,0 +1,23 @@
+.floating-btn {
+  position: fixed;
+  z-index: 3;
+  // bottom: 60px;
+  // right: 16px;
+}
+
+.cursor {
+  z-index: 10000;
+  position: absolute;
+}
+
+.reading-guide {
+  width: 400px;
+  height: 20px;
+  border-bottom: 5px solid var(--primary-color);
+  border-radius: 15%;
+  position: absolute;
+}
+
+body {
+  cursor: none;
+}

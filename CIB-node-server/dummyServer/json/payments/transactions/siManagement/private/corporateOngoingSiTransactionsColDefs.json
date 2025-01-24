@@ -1,0 +1,16 @@
+{
+  "columnDefs": [
+    { "headerName": "SI Name", "field": "siName" },
+    { "headerName": "Corporate Name", "field": "corporateName" },
+    { "headerName": "Debit Account", "field": "debitAccount" },
+    {
+      "headerName": "Payable Amount",
+      "field": "payableAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Start Date", "field": "startDate", "cellRenderer": "dateRenderer" },
+    { "headerName": "End Date", "field": "endDate", "cellRenderer": "dateRenderer" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "headerName": "Maker Limit",
+    "children": [
+      {
+        "headerName": "Allotted Limit",
+        "field": "makerAllottedLimit",
+        "cellRenderer": "currencyRenderer"
+      },
+      {
+        "headerName": "Available Limit",
+        "field": "makerAvailableLimit",
+        "cellRenderer": "currencyRenderer"
+      }
+    ]
+  },
+  {
+    "headerName": "Checker Limit",
+    "children": [
+      {
+        "headerName": "Allotted Limit",
+        "field": "checkerAllottedLimit",
+        "cellRenderer": "currencyRenderer"
+      },
+      {
+        "headerName": "Available Limit",
+        "field": "checkerAvailableLimit",
+        "cellRenderer": "currencyRenderer"
+      }
+    ]
+  }
+]

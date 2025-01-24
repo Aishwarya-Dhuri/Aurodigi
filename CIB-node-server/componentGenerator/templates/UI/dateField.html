@@ -1,0 +1,18 @@
+<div class="<%=responsiveClasses%>">
+  <span class="p-float-label">
+    <p-calendar
+      [showIcon]="true"
+      dateFormat="dd-M-yy"
+      showOtherMonths="true"
+      selectOtherMonths="true"
+      monthNavigator="true"
+      yearNavigator="true"
+      dataType="string"
+      inputId="<%=fieldName%>"
+      formControlName="<%=fieldName%>"
+      <%="isRequired%"
+      >>
+    </p-calendar>
+    <label for="<%=fieldName%>"><%=fieldDisplayName%></label>
+  </span>
+</div>

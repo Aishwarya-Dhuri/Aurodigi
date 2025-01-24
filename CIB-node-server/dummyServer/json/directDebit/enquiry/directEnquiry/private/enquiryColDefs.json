@@ -1,0 +1,50 @@
+[
+  {
+    "headerName": "Mandate Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "UMRN",
+    "field": "umrnNumber"
+  },
+  {
+    "headerName": "Utility Code",
+    "field": "utilityCode"
+  },
+  {
+    "headerName": "Originator Name",
+    "field": "corporateName"
+  },
+  {
+    "headerName": "Payer Name",
+    "field": "payerName"
+  },
+  {
+    "headerName": "Payer Bank",
+    "field": "payerBank"
+  },
+  {
+    "headerName": "Payer Account Number",
+    "field": "payerAccountNumber"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "modifySysOn",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Transaction Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Transaction Reference Number",
+    "field": "customerNo",
+    "hide": true
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

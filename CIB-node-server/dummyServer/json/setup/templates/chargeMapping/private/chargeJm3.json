@@ -1,0 +1,12 @@
+{
+  "clusterDetails": [
+    {
+      "templateCode": "C110101",
+      "productName": "-",
+      "event": "Administration Charges",
+      "currency": "THB",
+      "calFrequency": "Monthly",
+      "postingFrequency": "Monthly"
+    }
+  ]
+}

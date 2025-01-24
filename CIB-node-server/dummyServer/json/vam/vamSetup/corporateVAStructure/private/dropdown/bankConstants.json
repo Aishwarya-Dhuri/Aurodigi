@@ -1,0 +1,25 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "01",
+      "displayName": "Struct 1",
+      "enrichments": { "maxLength": 30, "prefixValue": "AU" }
+    },
+    {
+      "id": "02",
+      "displayName": "Struct 2",
+      "enrichments": { "maxLength": 35, "prefixValue": "AXIS" }
+    },
+    {
+      "id": "03",
+      "displayName": "Struct 3",
+      "enrichments": { "maxLength": 40, "prefixValue": "HDFC" }
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

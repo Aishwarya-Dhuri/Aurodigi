@@ -1,0 +1,5 @@
+[
+  { "headerName": "Date", "field": "date" },
+  { "headerName": "Description", "field": "description" },
+  { "headerName": "Amount", "field": "amount", "cellRenderer": "currencyRenderer" }
+]

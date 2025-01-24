@@ -1,0 +1,75 @@
+<app-mobile-menu
+  [mobileMenus]="mobileSubMenus"
+  (closeMenu)="closeMobileSubMenu()"
+  *ngIf="mobileSubMenus"
+>
+</app-mobile-menu>
+
+<ng-container *ngIf="!mobileSubMenus">
+  <div class="menu-breadcrumb" (click)="closeMobileMenu()">
+    <!-- <i class="pi pi-angle-left"></i> -->
+    <app-icon icon="fa-angle-left" rtlIcon="fa-angle-right" class="app-icon"></app-icon>
+    {{ mobileMenus.activeMenu }}
+  </div>
+
+  <div class="menu-wrapper" *ngFor="let menu of mobileMenus.menus; let i = index">
+    <div
+      class="menu"
+      (click)="
+        mobileMenus.isSubMenus
+          ? openMobileMenu(menu.displayName, menu.menus)
+          : menu.menuLinksDetail
+          ? toggleMobileSubMenu(menu.displayName)
+          : menuComponent.closeOverlayMenu()
+      "
+    >
+      <div class="text" [ngClass]="{ 'sub-menu-text': menu.menuLinksDetail }">
+        <div class="left-right-container">
+          <div class="left-container">{{ menu.displayName }}</div>
+          <div class="right-container">
+            <!-- <i class="pi" [ngClass]="
+                !menu.menuLinksDetail
+                  ? 'pi-chevron-right'
+                  : menu.displayName === activeMenu
+                  ? 'pi-angle-up'
+                  : 'pi-angle-down'
+              "></i> -->
+            <app-icon
+              icon="{{
+                !menu.menuLinksDetail
+                  ? 'fa-chevron-right'
+                  : menu.displayName === activeMenu
+                  ? 'fa-angle-up'
+                  : 'fa-angle-down'
+              }}"
+              class="app-icon"
+            ></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="menu.menuLinksDetail">
+        <div
+          class="sub-menu"
+          *ngFor="let menu1 of menu.menuLinksDetail.link"
+          [ngClass]="{
+            'sub-menu-expand': menu.displayName === activeMenu
+          }"
+        >
+          <!-- [routerLink]="
+          menu.entityName === 'CORPORATEPROFILE'
+            ? menu1.key === 'INIT'
+              ? '/dashboard/setup/security/corporate-profile/initiate'
+              : '/dashboard/setup/security/corporate-profile/listing'
+            : '/dashboard'"" -->
+          <div
+            class="text"
+            (click)="handleRoute(menu, menu1.url, menu.displayName + '/' + menu1.displayName)"
+          >
+            {{ menu1.displayName }}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

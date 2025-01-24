@@ -1,0 +1,214 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Corporate Account Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Account</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="account" value="External" label="External"
+                                    [(ngModel)]="formData.account">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="account" value="Internal" label="Internal"
+                                    [(ngModel)]="formData.account">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                [(ngModel)]="formData.corporateName" disabled="true" required="true">
+                            </aps-form-input>
+                            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                            </app-search-modal>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="accountNumber" name="accountNumber"
+                                [label]="'Account Number' | apsTranslate" [(ngModel)]="formData.accountNumber"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="accountDescription" name="accountDescription"
+                                [label]="'Account Description' | apsTranslate" [(ngModel)]="formData.accountDescription"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="accountAlias" name="accountAlias"
+                                [label]="'Account Alias' | apsTranslate" [(ngModel)]="formData.accountAlias"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-md-3 p-sm-6 p-col-12 p-py-0">
+                            <aps-custom-select name="accountTypeName" id="accountTypeName" label="Account Type Name"
+                                [(ngModel)]="formData.accountTypeName" [value]="formData.accountTypeName"
+                                dataUrl="setup/security/corporateAccount/private/dropdown/accountTypeName">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-3 p-sm-6 p-col-12 p-py-0">
+                            <aps-custom-select name="country" id="country" label="Country"
+                                [(ngModel)]="formData.country" [value]="formData.country"
+                                dataUrl="setup/security/corporateAccount/private/dropdown/country">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-3 p-sm-6 p-col-12 p-py-0">
+                            <aps-custom-select name="currency" id="currency" label="Currency"
+                                [(ngModel)]="formData.currency" [value]="formData.currency"
+                                dataUrl="setup/security/corporateAccount/private/dropdown/currency">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Bank Name Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input id="bankCode" name="bankCode" label="Bank Code"
+                                [(ngModel)]="formData.bankCode" rightIcon="fa-search"
+                                (onRightIcon)="showBankCode = true" [required]="true"
+                                [readonly]="true"></aps-form-input>
+                            <app-search-modal [(isShow)]="showBankCode"
+                                colDefUrl="setup/security/corporateAccount/private/bankCodeColDefs"
+                                rowDefUrl="setup/security/corporateAccount/private/bankCodeData" header="Bank Details"
+                                (onSelection)="onBankCodeSelection($event)">
+                            </app-search-modal>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="bankName" name="bankName"
+                                [label]="'Bank Name' | apsTranslate" [(ngModel)]="formData.bankName" required="true"
+                                disabled>
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="branchName" name="branchName"
+                                [label]="'Branch Name' | apsTranslate" [(ngModel)]="formData.branchName" required="true"
+                                disabled>
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="branchAddress" name="branchAddress"
+                                [label]="'Branch Address' | apsTranslate" [(ngModel)]="formData.branchAddress"
+                                required="true" disabled>
+                            </aps-form-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Corporate Account Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Account " [value]="formData.account">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Name" [value]="formData.corporateName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Account Number" [value]="formData.accountNumber">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Account Description" [value]="formData.accountDescription">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Account Alias" [value]="formData.accountAlias">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Account Type Name" [value]="formData.accountTypeName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Country" [value]="formData.country">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency" [value]="formData.currency">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Bank Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Bank Code" [value]="formData.bankCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Bank Name" [value]="formData.bankName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Branch Name" [value]="formData.branchName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Branch Address" [value]="formData.branchAddress">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

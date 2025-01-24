@@ -1,0 +1,115 @@
+<div class="header-container aps-w-100p background-color-light-4 border-bottom">
+  <!-- logos -->
+  <div class="logo-container inline-block">
+    <div class="p-pt-2 p-px-3 pointer inline-block" (click)="togglePinnedMenu()">
+      <app-icon styleClasses="text-color-dark-shade-1" icon="fa-bars"></app-icon>
+    </div>
+    <img
+      class="logo-img inline-block"
+      [src]="bankLogoUrl"
+      alt=""
+      routerLink="/dashboard/consolidated"
+    />
+    <div class="divider-v hide-on-mobile inline-block p-mt-2 p-mx-2 border-right"></div>
+    <img
+      class="logo-img inline-block hide-on-mobile"
+      [src]="productLogoUrl"
+      alt=""
+      routerLink="/dashboard/consolidated"
+    />
+  </div>
+  <!-- broadcast messages -->
+  <app-broadcast-messages></app-broadcast-messages>
+  <!-- toggle icons -->
+  <div class="toggle-icons-container inline-block">
+    <div class="float-right pointer p-px-2">
+      <app-backdrop
+        [background]="'rgba(0, 0, 0, 0)'"
+        [zIndex]="5"
+        (close)="
+          helpOptions
+            ? (helpOptions = false)
+            : moreOptions
+            ? (moreOptions = false)
+            : (userInfo = false)
+        "
+        *ngIf="helpOptions || moreOptions || userInfo"
+      ></app-backdrop>
+
+      <app-icon class="hide-on-mobile" icon="fa-search" styleClasses="p-mt-2 p-mx-1"></app-icon>
+      <!-- more options -->
+      <app-icon
+        class="hide-on-mobile"
+        icon="fa-th"
+        (click)="moreOptions = !moreOptions"
+        styleClasses="p-mt-2 p-mx-1"
+      >
+      </app-icon>
+      <div class="more-options-container" *ngIf="moreOptions">
+        <app-more-options class="fade-in-animation"></app-more-options>
+      </div>
+      <div class="divider-v inline-block p-mt-2 p-mx-2 hide-on-mobile border-right"></div>
+      <app-icon
+        icon="fa-language"
+        styleClasses="p-mt-2 p-mx-1"
+        (click)="openSidebar(sidebarComponents.language)"
+      >
+      </app-icon>
+      <app-icon
+        icon="fa-globe"
+        styleClasses="p-mt-2 p-mx-1"
+        (click)="openSidebar(sidebarComponents.country)"
+      >
+      </app-icon>
+      <div class="divider-v inline-block p-mt-2 p-mx-2 border-right"></div>
+      <!-- help options -->
+      <app-icon
+        class="hide-on-mobile"
+        icon="fa-question-circle"
+        styleClasses="p-mt-2 p-mx-1"
+        (click)="helpOptions = !helpOptions"
+      ></app-icon>
+      <div class="help-options-container" *ngIf="helpOptions">
+        <app-help-options class="fade-in-animation"></app-help-options>
+      </div>
+      <span class="notify-container">
+        <app-icon
+          icon="fa-bell"
+          styleClasses="p-mt-2 p-mx-1"
+          (click)="openSidebar(sidebarComponents.notifications)"
+        >
+        </app-icon>
+        <span class="notify"></span>
+      </span>
+      <span class="notify-container">
+        <app-icon
+          icon="fa-envelope"
+          styleClasses="p-mt-2 p-mx-1"
+          (click)="openSidebar(sidebarComponents.mails)"
+        >
+        </app-icon>
+        <span class="notify"></span>
+      </span>
+      <div class="divider-v inline-block p-mt-2 p-mx-2 border-right"></div>
+      <app-icon
+        [icon]="isDarkTheme ? 'fa-sun' : 'fa-moon-stars'"
+        styleClasses="p-mt-2 p-mx-1"
+        (click)="changeThemeDarkMode()"
+      ></app-icon>
+      <!-- user info -->
+      <div
+        class="profile-image inline-block border-radius-6 border-primary"
+        (click)="userInfo = !userInfo"
+      >
+        <img [src]="userDetails.profilePicUrl" alt="" width="100%" height="100%" />
+      </div>
+      <div class="user-info-container" *ngIf="userInfo">
+        <app-user-info
+          [(isShow)]="userInfo"
+          [userDetails]="userDetails"
+          class="fade-in-animation"
+        ></app-user-info>
+      </div>
+    </div>
+  </div>
+</div>

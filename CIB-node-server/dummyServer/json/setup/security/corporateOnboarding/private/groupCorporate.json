@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Group Code",
+      "field": "groupCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Group Name",
+      "field": "groupName"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<div class="gridster-item-content" *ngIf="type == 'pie' || type == 'donut'">
+  <aps-custom-select
+    name="select"
+    id="select"
+    (change)="changePieChartKey($event.id)"
+    [data]="yKeysOptions"
+    [value]="selectedYKey"
+    [showLabel]="false"
+    [(ngModel)]="selectedYKey"
+  ></aps-custom-select>
+</div>
+
+<div [ngClass]="type == 'pie' || type == 'donut' ? 'show-select' : 'hide-select'">
+  <ag-charts-angular [options]="chartOptions" *ngIf="!loading"></ag-charts-angular>
+</div>

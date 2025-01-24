@@ -1,0 +1,8 @@
+{
+  "columnDefs": [
+    { "headerName": "Card No", "field": "cardNo", "checkboxSelection": true },
+    { "headerName": "Currency", "field": "currency" },
+    { "headerName": "Embossed Name", "field": "embossedName" },
+    { "headerName": "Card Type", "field": "cardType" }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "header": [{ "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }],
+    "detail": [
+      {
+        "columnName": "Corporate Name",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Corporate Branch Code",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Corporate Branch Name",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Corporate Branch Address 1",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Corporate Branch Address 2",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Corporate Branch Address 3",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Email",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Phone No",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Pin/Zip Code",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      }
+    ],
+    "footer": [{ "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }],
+    "enrichmentFields": [
+      { "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }
+    ],
+    "lastRow": 1
+  }
+]

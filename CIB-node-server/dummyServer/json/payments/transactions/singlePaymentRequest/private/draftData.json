@@ -1,0 +1,180 @@
+{
+  "data": [
+    {
+      "id": 2883623,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "Own Cheque",
+      "debitAccountNo": "1812220918342735-INR",
+      "valueDate": "28-Jun-2021",
+      "beneficiaryName": "John Smith",
+      "corporateRefNo": "012806214731",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493731,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Joy Wilson Bahe",
+      "corporateRefNo": "0131072041277",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493730,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Robert Tycoon Ghodke",
+      "corporateRefNo": "0131072041276",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493729,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Alice Williams Kelkar",
+      "corporateRefNo": "0131072041275",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493728,
+      "initiateType": "PAYMENTMETHODWISE",
+      "paymentMethod": "Corporate Cheque",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Rupert Riddick",
+      "corporateRefNo": "0131072041274",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493727,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Harry Johnson Sarode",
+      "corporateRefNo": "0131072041273",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493726,
+      "initiateType": "BENEFICIARYWISE",
+      "paymentMethod": "Outward Telegraphic Transfer",
+      "debitAccountNo": "1721235315262394-INR",
+      "valueDate": "31-Jul-2021",
+      "beneficiaryName": "Ricky Sure",
+      "corporateRefNo": "0131072041272",
+      "actions": [
+        {
+          "index": 2,
+          "onClick": "id",
+          "displayName": "delete",
+          "type": "ICON",
+          "icon": "fa-trash-alt"
+        },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "INITIATE",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 7
+}

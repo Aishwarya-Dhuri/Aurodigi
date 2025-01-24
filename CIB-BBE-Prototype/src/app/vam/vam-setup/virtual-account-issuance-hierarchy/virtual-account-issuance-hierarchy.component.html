@@ -1,0 +1,782 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+
+    <div class="p-col-12">
+      <div class="text-bold">{{ stepperDetails.headings[stepperDetails.currentStep - 1] }}</div>
+    </div>
+
+    <div class="p-col-12" *ngIf="stepperDetails.currentStep == 1">
+      <div class="aps-card p-p-2 aps-min-h-400">
+        <form name="form1" #form1="ngForm">
+          <div class="p-grid">
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <aps-form-input
+                id="corporateCode"
+                label="Corporate Code"
+                name="corporateCode"
+                rightIcon="fa-search"
+                (onRightIcon)="isShowCorporateSearch = true"
+                [(ngModel)]="formData.corporateCode"
+                [disabled]="true"
+                [required]="true"
+              >
+              </aps-form-input>
+
+              <app-search-modal
+                *ngIf="isShowCorporateSearch"
+                [(isShow)]="isShowCorporateSearch"
+                header="Corporate Details"
+                colDefUrl="commons/searchService/private/corporateSearchColDefs"
+                rowDefUrl="setup/corporateOnboarding/corporateMain/private/getAuthorizedList"
+                (onSelection)="onCorporateSelected($event)"
+              >
+              </app-search-modal>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <aps-form-input
+                id="corporateName"
+                label="Corporate Name"
+                name="corporateName"
+                [(ngModel)]="formData.corporateName"
+                [disabled]="true"
+                [required]="true"
+              >
+              </aps-form-input>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <app-aps-calender
+                id="expiryDate"
+                label="Expiry Date"
+                name="expiryDate"
+                [(ngModel)]="formData.expiryDate"
+                [required]="true"
+              ></app-aps-calender>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <div class="text-size-12 text-color-normal">
+                Type of Virtual Account<span class="text-color-danger">*</span>
+                <!-- <app-icon
+                class="p-px-2 pointer"
+                icon="fa-question-circle"
+                pTooltip="Based on Bank Parameter master"
+              ></app-icon> -->
+              </div>
+              <div class="">
+                <p-radioButton
+                  class="p-pt-2"
+                  name="virtualAccountType"
+                  value="Normal"
+                  label="Normal"
+                  [(ngModel)]="formData.typeOfVirtualAccount"
+                >
+                </p-radioButton>
+                <p-radioButton
+                  class="p-pt-2 p-px-3"
+                  name="virtualAccountType"
+                  value="VIBAN"
+                  label="VIBAN"
+                  [(ngModel)]="formData.typeOfVirtualAccount"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <aps-custom-select
+                id="accountNumber"
+                label="Account Number"
+                name="accountNumber"
+                dataUrl="setup/corporateOnboarding/corporateMain/private/allAccountList"
+                [reqBody]="{ corporateId: formData.corporateId }"
+                [(ngModel)]="formData.accountId"
+                [value]="formData.accountId"
+                (change)="onAccountNumberSelection($event)"
+                [required]="true"
+              ></aps-custom-select>
+            </div>
+
+            <div class="p-col-12 p-p-0"></div>
+
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <aps-custom-select
+                id="corporateStructure"
+                label="Corporate Structure"
+                name="corporateStructure"
+                dataUrl="vam/vamSetup/virtualAccountIssuanceHierarchy/private/dropdown/corporateVaStructureList"
+                [reqBody]="{
+                  corporateId: formData.corporateId,
+                  vaStructureCreationFor: 'COBO'
+                }"
+                [(ngModel)]="formData.corporateStructure"
+                [value]="formData.corporateStructure"
+                (change)="formData.corporateStructureName = $event.displayName"
+                [required]="true"
+              ></aps-custom-select>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+              <div class="text-size-12 text-color-normal">
+                Entity Type<span class="text-color-danger">*</span>
+              </div>
+              <div class="">
+                <p-radioButton
+                  class="p-pt-2"
+                  name="entityType"
+                  value="Linear"
+                  label="Linear"
+                  [(ngModel)]="formData.entityType"
+                  (onClick)="onChangeEntityType($event)"
+                  [required]="true"
+                >
+                </p-radioButton>
+                <p-radioButton
+                  class="p-pt-2 p-px-3"
+                  name="entityType"
+                  value="Hierarchy"
+                  label="Hierarchy"
+                  [(ngModel)]="formData.entityType"
+                  (onClick)="onChangeEntityType($event)"
+                  [required]="true"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+            <div class="p-lg-3 p-md-3 p-sm-12 p-col-12" *ngIf="formData.entityType == 'Hierarchy'">
+              <aps-form-input
+                id="levelName"
+                label="Level Name"
+                name="levelName"
+                [(ngModel)]="formData.levelName"
+                [required]="true"
+              >
+              </aps-form-input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="p-col-12" *ngIf="stepperDetails.currentStep == 2">
+      <ng-container *ngIf="formData.entityType == 'Linear'">
+        <div class="aps-card p-p-2">
+          <ng-container [ngTemplateOutlet]="childAccountFormTemplate"></ng-container>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="formData.entityType == 'Hierarchy'">
+        <app-modal
+          [(isShow)]="isAddChildAccount"
+          size="lg"
+          headerText="{{ 'Add a Child Account' | apsTranslate }}"
+        >
+          <div body class="">
+            <div class="p-grid">
+              <div class="p-col-12">
+                <div class="text-size-14 text-semi-bold">
+                  {{ 'Parent Account Details' | apsTranslate }}
+                </div>
+              </div>
+              <div class="p-md-4 p-sm-6 p-col-6">
+                <app-review-form-field
+                  label="Entity Name"
+                  [value]="formData.accountNumberName"
+                ></app-review-form-field>
+              </div>
+              <div class="p-md-4 p-sm-6 p-col-6">
+                <app-review-form-field
+                  label="Account Number"
+                  [value]="formData.accountNumber"
+                ></app-review-form-field>
+              </div>
+              <div class="p-md-4 p-sm-6 p-col-6">
+                <app-review-form-field
+                  label="Level Label"
+                  [value]="formData.levelName"
+                ></app-review-form-field>
+              </div>
+            </div>
+
+            <ng-container [ngTemplateOutlet]="childAccountFormTemplate"></ng-container>
+
+            <div class="left-right-container p-pt-4">
+              <div class="left-container">
+                <button class="btn btn-md btn-tertiary p-mr-3" (click)="sAddChildAccount = false">
+                  {{ 'CANCEL' | apsTranslate }}
+                </button>
+              </div>
+              <div class="right-container">
+                <button
+                  class="btn btn-md btn-primary"
+                  (click)="
+                    editChildAccountIndex >= 0 ? saveChildAccountDetails() : addChildAccount()
+                  "
+                  [disabled]="!form2?.valid"
+                >
+                  {{ (editChildAccountIndex >= 0 ? 'SAVE' : 'SUBMIT') | apsTranslate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </app-modal>
+
+        <ng-container [ngTemplateOutlet]="accountHierarchyTemplate"></ng-container>
+      </ng-container>
+    </div>
+
+    <div class="p-col-12" *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+      <div class="p-grid g-margin-x">
+        <div class="p-col-12">
+          <div class="aps-card p-p-2">
+            <div class="p-grid">
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <app-review-form-field
+                  label="Corporate Code"
+                  [value]="formData.corporateCode"
+                ></app-review-form-field>
+              </div>
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <app-review-form-field
+                  label="Corporate Name"
+                  [value]="formData.corporateName"
+                ></app-review-form-field>
+              </div>
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <app-review-form-field
+                  label="Expiry Date"
+                  [value]="formData.expiryDate"
+                ></app-review-form-field>
+              </div>
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <div class="text-size-12 text-color-normal">
+                  Type of Virtual Account<span class="text-color-danger">*</span>
+                  <!-- <app-icon
+                      class="p-px-2 pointer"
+                      icon="fa-question-circle"
+                      pTooltip="Based on Bank Parameter master"
+                    ></app-icon> -->
+                </div>
+                <div class="">
+                  <p-radioButton
+                    class="p-pt-2"
+                    name="virtualAccountType"
+                    value="Normal"
+                    label="Normal"
+                    [(ngModel)]="formData.typeOfVirtualAccount"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                  <p-radioButton
+                    class="p-pt-2 p-px-3"
+                    name="virtualAccountType"
+                    value="VIBAN"
+                    label="VIBAN"
+                    [(ngModel)]="formData.typeOfVirtualAccount"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+              </div>
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <app-review-form-field
+                  label="Account Number"
+                  [value]="formData.accountNumber"
+                ></app-review-form-field>
+              </div>
+
+              <div class="p-col-12 p-p-0"></div>
+
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <app-review-form-field
+                  label="Corporate Structure"
+                  [value]="formData.corporateStructureName"
+                ></app-review-form-field>
+              </div>
+              <div class="p-lg-3 p-md-3 p-sm-12 p-col-12">
+                <div class="text-size-12 text-color-normal">
+                  Entity Type<span class="text-color-danger">*</span>
+                </div>
+                <div class="">
+                  <p-radioButton
+                    class="p-pt-2"
+                    name="entityType"
+                    value="Linear"
+                    label="Linear"
+                    [(ngModel)]="formData.entityType"
+                    (onClick)="onChangeEntityType($event)"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                  <p-radioButton
+                    class="p-pt-2 p-px-3"
+                    name="entityType"
+                    value="Hierarchy"
+                    label="Hierarchy"
+                    [(ngModel)]="formData.entityType"
+                    (onClick)="onChangeEntityType($event)"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+              </div>
+
+              <div
+                class="p-lg-3 p-md-3 p-sm-12 p-col-12"
+                *ngIf="formData.entityType == 'Hierarchy'"
+              >
+                <app-review-form-field
+                  label="Level Name"
+                  [value]="formData.levelName"
+                ></app-review-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12">
+          <ng-container *ngIf="formData.entityType == 'Linear'">
+            <div class="aps-card p-p-2">
+              <div class="p-grid">
+                <div class="p-col-12">
+                  <div class="text-size-14 text-semi-bold">
+                    {{ 'Sub Entity Details' | apsTranslate }}
+                  </div>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6" *ngIf="formData.entityType == 'Hierarchy'">
+                  <app-review-form-field
+                    label="Level Label"
+                    [value]="formData.childAccountDetails[0].levelLabel"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-4 p-sm-6 p-col-12">
+                  <app-review-form-field
+                    label="Sub Entity Code"
+                    [value]="formData.childAccountDetails[0].subEntityCode"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="Sub Entity name"
+                    [value]="formData.childAccountDetails[0].subEntityName"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-col-12 p-p-0"></div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="Address 1"
+                    [value]="formData.childAccountDetails[0].address1"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-4 p-sm-6 p-col-12">
+                  <app-review-form-field
+                    label="Address 2"
+                    [value]="formData.childAccountDetails[0].address2"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="Address 3"
+                    [value]="formData.childAccountDetails[0].address3"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-col-12">
+                  <div class="text-size-14 text-semi-bold">
+                    {{ 'Contact Details' | apsTranslate }}
+                  </div>
+                </div>
+
+                <ng-container
+                  *ngFor="
+                    let childAccount of formData.childAccountDetails[0].contactDetails;
+                    let i = index
+                  "
+                >
+                  <div class="p-md-4 p-sm-6 p-col-6">
+                    <app-review-form-field
+                      label="Name"
+                      [value]="childAccount.name"
+                    ></app-review-form-field>
+                  </div>
+
+                  <div class="p-md-4 p-sm-6 p-col-6">
+                    <app-review-form-field
+                      label="Email ID"
+                      [value]="childAccount.emailId"
+                    ></app-review-form-field>
+                  </div>
+
+                  <div class="p-md-4 p-sm-6 p-col-6">
+                    <app-review-form-field
+                      label="Mobile Number"
+                      [value]="childAccount.mobileNo"
+                    ></app-review-form-field>
+                  </div>
+                </ng-container>
+
+                <div class="p-col-12">
+                  <div class="text-size-14 text-semi-bold">
+                    {{ 'Account Details' | apsTranslate }}
+                  </div>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <div class="text-size-12 text-color-normal">
+                    Linked Account Type<span class="text-color-danger">*</span>
+                  </div>
+                  <div class="">
+                    <p-radioButton
+                      class="p-pt-2"
+                      name="linkedAccountType"
+                      value="Virtual"
+                      label="Virtual"
+                      [(ngModel)]="formData.childAccountDetails[0].linkedAccountType"
+                      [disabled]="true"
+                    >
+                    </p-radioButton>
+                    <p-radioButton
+                      class="p-pt-2 p-px-3"
+                      name="linkedAccountType"
+                      value="Actual"
+                      label="Actual"
+                      [(ngModel)]="formData.childAccountDetails[0].linkedAccountType"
+                      [disabled]="true"
+                    >
+                    </p-radioButton>
+                  </div>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6" *ngIf="">
+                  <app-review-form-field
+                    label="Linked Actual Account"
+                    [label]="
+                      formData.childAccountDetails[0].linkedAccountType == 'Actual'
+                        ? formData.childAccountDetails[0].linkedActualAccount
+                        : formData.accountNumber
+                    "
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-col-12 p-p-0"></div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="VA Issuance Template"
+                    [value]="formData.childAccountDetails[0].vaIssuanceTemplate"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="VA Download Template"
+                    [value]="formData.childAccountDetails[0].vaDownloadTemplate"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="VA Enrichment Template"
+                    [value]="formData.childAccountDetails[0].vaEnrichmentTemplate"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="Virtual Account Number"
+                    [value]="formData.childAccountDetails[0].virtualAccountNumber"
+                  ></app-review-form-field>
+                </div>
+
+                <div class="p-md-4 p-sm-6 p-col-6">
+                  <app-review-form-field
+                    label="Currency"
+                    [value]="formData.childAccountDetails[0].currencyCode"
+                  ></app-review-form-field>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="formData.entityType == 'Hierarchy'">
+            <ng-container [ngTemplateOutlet]="accountHierarchyTemplate"></ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-col-12">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+
+  <ng-template #childAccountFormTemplate>
+    <form name="form2" #form2="ngForm">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <div class="text-size-14 text-semi-bold">{{ 'Sub Entity Details' | apsTranslate }}</div>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6" *ngIf="formData.entityType == 'Hierarchy'">
+          <aps-form-input
+            name="levelLabel"
+            id="levelLabel"
+            label="{{ 'Level Label' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.levelLabel"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+        <div class="p-md-4 p-sm-6 p-col-12">
+          <aps-form-input
+            name="subEntityCode"
+            id="subEntityCode"
+            label="{{ 'Sub Entity Code' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.subEntityCode"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-form-input
+            name="subEntityName"
+            id="subEntityName"
+            label="{{ 'Sub Entity name' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.subEntityName"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+
+        <div class="p-col-12 p-p-0"></div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-form-input
+            name="address1"
+            id="address1"
+            label="{{ 'Address 1' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.address1"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+        <div class="p-md-4 p-sm-6 p-col-12">
+          <aps-form-input
+            name="address2"
+            id="address2"
+            label="{{ 'Address 2' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.address2"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-form-input
+            name="address3"
+            id="address3"
+            label="{{ 'Address 3' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.address3"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+
+        <div class="p-col-12">
+          <div class="text-size-14 text-semi-bold">{{ 'Contact Details' | apsTranslate }}</div>
+        </div>
+
+        <ng-container
+          *ngFor="let childAccount of childAccountDetails.contactDetails; let i = index"
+        >
+          <div class="p-md-4 p-sm-6 p-col-6">
+            <aps-form-input
+              name="name-{{ i }}"
+              id="name-{{ i }}"
+              label="{{ 'Name' | apsTranslate }}"
+              [(ngModel)]="childAccount.name"
+              [required]="true"
+            ></aps-form-input>
+          </div>
+
+          <div class="p-md-4 p-sm-6 p-col-6">
+            <aps-form-input
+              name="emailId-{{ i }}"
+              id="emailId-{{ i }}"
+              label="{{ 'Email ID' | apsTranslate }}"
+              [(ngModel)]="childAccount.emailId"
+              [required]="true"
+            ></aps-form-input>
+          </div>
+
+          <div class="p-md-4 p-sm-6 p-col-6">
+            <aps-form-input
+              name="mobileNumber-{{ i }}"
+              id="mobileNumber-{{ i }}"
+              label="{{ 'Mobile Number' | apsTranslate }}"
+              [(ngModel)]="childAccount.mobileNo"
+              inputType="numeric"
+              maxLength="10"
+              minLength="10"
+              [required]="true"
+            ></aps-form-input>
+          </div>
+        </ng-container>
+
+        <div class="p-col-12">
+          <div class="text-size-14 text-semi-bold">{{ 'Account Details' | apsTranslate }}</div>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <div class="text-size-12 text-color-normal">
+            {{ 'Linked Account Type' | apsTranslate }}<span class="text-color-danger">*</span>
+          </div>
+          <div class="">
+            <p-radioButton
+              class="p-pt-2"
+              name="linkedAccountType"
+              value="Virtual"
+              label="Virtual"
+              [(ngModel)]="childAccountDetails.linkedAccountType"
+            >
+            </p-radioButton>
+            <p-radioButton
+              class="p-pt-2 p-px-3"
+              name="linkedAccountType"
+              value="Actual"
+              label="Actual"
+              [(ngModel)]="childAccountDetails.linkedAccountType"
+            >
+            </p-radioButton>
+          </div>
+        </div>
+
+        <div
+          class="p-md-4 p-sm-6 p-col-6"
+          *ngIf="childAccountDetails.linkedAccountType == 'Actual'"
+        >
+          <aps-custom-select
+            name="linkedActualAccount"
+            id="linkedActualAccount"
+            label="{{ 'Linked Actual Account' | apsTranslate }}"
+            dataUrl="setup/corporateOnboarding/corporateMain/private/allAccountList"
+            [reqBody]="{ corporateId: formData.corporateId }"
+            [(ngModel)]="childAccountDetails.linkedActualAccount"
+            [value]="childAccountDetails.linkedActualAccount"
+            [required]="true"
+          ></aps-custom-select>
+        </div>
+
+        <div
+          class="p-md-4 p-sm-6 p-col-6"
+          *ngIf="childAccountDetails.linkedAccountType == 'Virtual'"
+        >
+          <app-review-form-field
+            label="Linked Actual Account"
+            [value]="formData.accountNumber"
+          ></app-review-form-field>
+        </div>
+
+        <div class="p-col-12 p-p-0"></div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-custom-select
+            name="vaIssuanceTemplate"
+            id="vaIssuanceTemplate"
+            label="{{ 'VA Issuance Template' | apsTranslate }}"
+            dataUrl="vam/vamSetup/virtualAccountIssuanceHierarchy/private/dropdown/vaIssuanceTemplate"
+            [(ngModel)]="childAccountDetails.vaIssuanceTemplate"
+            [value]="childAccountDetails.vaIssuanceTemplate"
+          ></aps-custom-select>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-custom-select
+            name="vaDownloadTemplate"
+            id="vaDownloadTemplate"
+            label="{{ 'VA Download Template' | apsTranslate }}"
+            dataUrl="vam/vamSetup/virtualAccountIssuanceHierarchy/private/dropdown/vaDownloadTemplate"
+            [(ngModel)]="childAccountDetails.vaDownloadTemplate"
+            [value]="childAccountDetails.vaDownloadTemplate"
+          ></aps-custom-select>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-custom-select
+            name="vaEnrichmentTemplate"
+            id="vaEnrichmentTemplate"
+            label="{{ 'VA Enrichment Template' | apsTranslate }}"
+            dataUrl="vam/vamSetup/virtualAccountIssuanceHierarchy/private/dropdown/vaEnrichmentTemplate"
+            [(ngModel)]="childAccountDetails.vaEnrichmentTemplate"
+            [value]="childAccountDetails.vaEnrichmentTemplate"
+          ></aps-custom-select>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-form-input
+            name="virtualAccountNumber"
+            id="virtualAccountNumber"
+            label="{{ 'Virtual Account Number' | apsTranslate }}"
+            [(ngModel)]="childAccountDetails.virtualAccountNumber"
+            [required]="true"
+          ></aps-form-input>
+        </div>
+
+        <div class="p-md-4 p-sm-6 p-col-6">
+          <aps-custom-select
+            name="currency"
+            id="currency"
+            label="{{ 'Currency' | apsTranslate }}"
+            dataUrl="setup/generalMasters/currency/private/currencyList"
+            [(ngModel)]="childAccountDetails.currency"
+            [value]="childAccountDetails.currency"
+            (change)="childAccountDetails.currencyCode = $event.displayName"
+            [disabled]="true"
+          ></aps-custom-select>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #accountHierarchyTemplate>
+    <div class="aps-card aps-h-500">
+      <div class="aps-card-header background-color-primary aps-py-12 p-px-3">
+        <div class="left-right-container">
+          <div class="left-container"></div>
+          <div class="right-container">
+            <div class="toggle-select-container">
+              <div
+                class="action pointer text-color-dark-shade-1"
+                [ngClass]="{ active: treeType === 'grid' }"
+                (click)="treeType = 'grid'"
+              >
+                <app-icon icon="fa-list" class="app-icon"></app-icon>
+              </div>
+              <div
+                class="action pointer text-color-dark-shade-1"
+                [ngClass]="{ active: treeType === 'tree' }"
+                (click)="treeType = 'tree'"
+              >
+                <app-icon icon="fa-sitemap" class="app-icon"></app-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="aps-card-body position-relative">
+        <app-ag-grid-listing
+          [apsHide]="treeType !== 'grid'"
+          id="structure-hirarchy"
+          #structureHierarchy
+          [columnDefs]="colDefs"
+          [rowData]="rowData"
+          [gridOptions]="gridOptions"
+          [context]="context"
+          (gridReady)="refreshStructureHierarchyGrid()"
+          (rowDragEnd)="onRowDragged($event)"
+        ></app-ag-grid-listing>
+
+        <app-tree-structure-hierarchy
+          [treeStructureHierarchy]="accountStructureHierarchyTreeData"
+          [apsHide]="treeType !== 'tree'"
+          (nodeSelected)="selectedTreeNode($event)"
+        ></app-tree-structure-hierarchy>
+      </div>
+    </div>
+  </ng-template>
+</div>

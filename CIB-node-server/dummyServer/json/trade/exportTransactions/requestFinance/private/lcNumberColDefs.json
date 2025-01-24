@@ -1,0 +1,26 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Lc Number",
+      "field": "id",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Applicant Name",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "Beneficiary Name",
+      "field": "beneficiaryName"
+    },
+    {
+      "headerName": "LC Currency",
+      "field": "currency"
+    },
+    {
+      "headerName": "LC Amount",
+      "field": "amount",
+      "cellRenderer": "currencyRenderer"
+    }
+  ]
+}

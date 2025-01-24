@@ -1,0 +1,50 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "1kKNb5bRFJs=",
+      "displayName": "Error",
+      "displayValue": "Error",
+      "enrichments": {
+        "parentTemplateId": "05Gubd+7Kvw=",
+        "programRefNo": "stmp2",
+        "serviceTemplateId": "gtaG5dzSj4g="
+      }
+    },
+    {
+      "id": "XpNZqF+CDmA=",
+      "displayName": "Pending",
+      "displayValue": "Pending",
+      "enrichments": {
+        "parentTemplateId": "05Gubd+7Kvw=",
+        "programRefNo": "stmp1",
+        "serviceTemplateId": "0mzxA+1fnJU="
+      }
+    },
+    {
+      "id": "tHVwbhIoUzw=",
+      "displayName": "Partial Upload",
+      "displayValue": "Partial Upload",
+      "enrichments": {
+        "parentTemplateId": "J2M0VbljSYg=",
+        "programRefNo": "BestFIT Shrikant",
+        "serviceTemplateId": "Dp7wwb9qgeU="
+      }
+    },
+    {
+      "id": "tHVwbhIoUzws=",
+      "displayName": "Upload Success",
+      "displayValue": "Upload Success",
+      "enrichments": {
+        "parentTemplateId": "J2M0VbljSYg=",
+        "programRefNo": "BestFIT Shrikant",
+        "serviceTemplateId": "Dp7wwb9qgeU="
+      }
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

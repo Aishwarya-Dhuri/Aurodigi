@@ -1,0 +1,102 @@
+[
+  {
+    "header": "Originator / Payer",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      {
+        "icon": "fa-user",
+        "payerName": "Prathamesh",
+        "accountNumber": "SAR-1123456789012345"
+      }
+    ],
+    "isViewMore": true
+  },
+  {
+    "header": "Originator Bank",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      {
+        "icon": "fa-university",
+        "bankName": "HDFC",
+        "bic": "SAR-1123456789012345",
+        "dateTimeIn": "01-Jan-2020",
+        "dateTimeOut": "01-Feb-2021",
+        "fxRate": "6.5",
+        "sentAmount": "20000",
+        "chargePaymentMode": "NEFT",
+        "chargeBornByPayee": "250",
+        "chargeBornByPayer": "150",
+        "debitedAmount": "15000"
+      }
+    ],
+    "isViewMore": true
+  },
+  {
+    "header": "Intermediator Bank 1",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      {
+        "icon": "fa-university",
+        "bankName": "HDFC",
+        "bic": "SAR-1123456789012345",
+        "dateTimeIn": "01-Jan-2020",
+        "dateTimeOut": "01-Feb-2021",
+        "fxRate": "6.5",
+        "sentAmount": "20000",
+        "chargePaymentMode": "NEFT",
+        "chargeBornByPayee": "250",
+        "chargeBornByPayer": "150",
+        "debitedAmount": "15000"
+      }
+    ],
+    "isViewMore": true
+  },
+  {
+    "header": "Intermediator Bank 1",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      {
+        "icon": "fa-university",
+        "bankName": "HDFC",
+        "bic": "SAR-1123456789012345",
+        "dateTimeIn": "01-Jan-2020",
+        "dateTimeOut": "01-Feb-2021",
+        "fxRate": "6.5",
+        "sentAmount": "20000",
+        "chargePaymentMode": "NEFT",
+        "chargeBornByPayee": "250",
+        "chargeBornByPayer": "150",
+        "debitedAmount": "15000"
+      }
+    ],
+    "isViewMore": true
+  },
+  {
+    "header": "Receiver Bank",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      {
+        "icon": "fa-university",
+        "bankName": "HDFC",
+        "bic": "SAR-1123456789012345",
+        "dateTimeIn": "01-Jan-2020",
+        "dateTimeOut": "01-Feb-2021",
+        "fxRate": "6.5",
+        "sentAmount": "20000",
+        "chargePaymentMode": "NEFT",
+        "chargeBornByPayee": "250",
+        "chargeBornByPayer": "150",
+        "debitedAmount": "15000"
+      }
+    ],
+    "isViewMore": true
+  },
+  {
+    "header": "Beneficiary",
+    "subHeader": "10-Nov-2022",
+    "data": [
+      { "icon": "fa-user", "payerName": "Prathamesh", "accountNumber": "SAR-1123456789012345" }
+    ],
+    "isViewMore": true
+  }
+]

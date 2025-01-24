@@ -1,0 +1,1141 @@
+<div class="container">
+  <div class="p-grid g-margin-x" *ngIf="!loading; else loadingTemplate">
+    <ng-container *ngIf="stepperDetails.currentStep == 1">
+      <div class="p-col-12">
+        <div class="text-size-16 text-bold">
+          {{ 'Interface Configuration' | apsTranslate }}
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <div class="aps-card">
+          <div class="aps-card-header aps-py-12 p-px-3">
+            <div class="text-size-16 text-bold">
+              {{ 'Interface Configuration Details' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <div class="p-md-3 p-col-12">
+                <app-review-form-field
+                  label="Interface Name"
+                  [value]="formData.interfaceName"
+                ></app-review-form-field>
+              </div>
+              <div class="p-md-4 p-col-12">
+                <div class="text-size-12 text-color-light-shade-1">
+                  {{ 'Request Type' | apsTranslate }}
+                </div>
+                <p-radioButton
+                  id="requestType-REST"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="REST"
+                  value="REST"
+                  (onClick)="onChangeRequestType('REST')"
+                  [(ngModel)]="formData.requestType"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-SOAP"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="SOAP"
+                  value="SOAP"
+                  (onClick)="onChangeRequestType('SOAP')"
+                  [(ngModel)]="formData.requestType"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-MQ"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="MQ"
+                  value="MQ"
+                  (onClick)="onChangeRequestType('MQ')"
+                  [(ngModel)]="formData.requestType"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-SFTP"
+                  name="requestType"
+                  class=""
+                  label="SFTP"
+                  value="SFTP"
+                  (onClick)="onChangeRequestType('SFTP')"
+                  [(ngModel)]="formData.requestType"
+                ></p-radioButton>
+              </div>
+              <div
+                class="p-md-3 p-col-12 p-py-0"
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <aps-custom-select
+                  id="dataType"
+                  name="dataType"
+                  label="Data Type"
+                  dataUrl="setup/process/interfaceConfiguration/private/dropdown/{{
+                    formData.requestType == 'REST' ? 'restDataTypes' : 'soapDataTypes'
+                  }}"
+                  [(ngModel)]="formData.dataType"
+                  [value]="formData.dataType"
+                ></aps-custom-select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="p-col-12"
+        *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+      >
+        <app-modal
+          [(isShow)]="showAddHeaderFields"
+          size="md"
+          headerText="New Header Fields"
+          (onClose)="onCancelHeaderFieldForm()"
+        >
+          <div class="p-grid g-margin-x" body>
+            <div class="p-md-4 p-col-12 p-py-0">
+              <aps-form-input
+                name="fieldName"
+                id="fieldName"
+                label="Field Name"
+                [(ngModel)]="headerFieldForm.fieldName"
+              ></aps-form-input>
+            </div>
+            <div class="p-md-4 p-col-12 p-py-0">
+              <aps-custom-select
+                name="fieldType"
+                id="fieldType"
+                label="Field Type"
+                [(ngModel)]="headerFieldForm.fieldType"
+                [value]="headerFieldForm.fieldType"
+                dataUrl="setup/process/interfaceConfiguration/private/dropdown/fieldType"
+              ></aps-custom-select>
+            </div>
+            <div class="p-md-4 p-col-12 p-py-0" *ngIf="headerFieldForm.fieldType == 'Static'">
+              <aps-form-input
+                name="fieldValue"
+                id="fieldValue"
+                label="Field Value"
+                [(ngModel)]="headerFieldForm.fieldValue"
+              ></aps-form-input>
+            </div>
+            <ng-container *ngIf="headerFieldForm.fieldType == 'Auto Generated'">
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  name="prefix"
+                  id="prefix"
+                  label="prefix"
+                  [(ngModel)]="headerFieldForm.prefix"
+                ></aps-form-input>
+              </div>
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  name="minLength"
+                  id="minLength"
+                  label="Min Length"
+                  inputType="numeric"
+                  [(ngModel)]="headerFieldForm.minLength"
+                ></aps-form-input>
+              </div>
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  name="minLength"
+                  id="minLength"
+                  label="Max Length"
+                  inputType="numeric"
+                  [(ngModel)]="headerFieldForm.minLength"
+                ></aps-form-input>
+              </div>
+            </ng-container>
+            <div class="p-md-4 p-col-12 p-py-0" *ngIf="headerFieldForm.fieldType == 'Date'">
+              <aps-custom-select
+                name="dateFormat"
+                id="dateFormat"
+                label="Date Format"
+                dataUrl="setup/process/interfaceConfiguration/private/dropdown/dateFormat"
+                [(ngModel)]="headerFieldForm.dateFormat"
+                [value]="headerFieldForm.dateFormat"
+              ></aps-custom-select>
+            </div>
+          </div>
+          <div class="p-grid g-margin-x" footer>
+            <div class="p-col-12 text-right">
+              <button class="btn btn-md btn-tertiary p-mr-3" (click)="onCancelHeaderFieldForm()">
+                {{ 'Cancel' | apsTranslate }}
+              </button>
+              <button
+                class="btn btn-md btn-primary"
+                (click)="onAddHeaderFields()"
+                *ngIf="headerFieldIndex == -1"
+              >
+                {{ 'Add' | apsTranslate }}
+              </button>
+              <button
+                class="btn btn-md btn-primary"
+                (click)="onUpdateHeaderField()"
+                *ngIf="headerFieldIndex != -1"
+              >
+                {{ 'Update' | apsTranslate }}
+              </button>
+            </div>
+          </div>
+        </app-modal>
+
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="left-right-container">
+              <div class="left-container aps-py-12">
+                <div class="text-size-16 text-bold">
+                  {{ 'Header Details' | apsTranslate }}
+                </div>
+              </div>
+              <div class="right-container p-py-2">
+                <button class="btn btn-md btn-primary" (click)="showAddHeaderFields = true">
+                  {{ 'ADD' | apsTranslate }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="aps-h-200">
+              <app-ag-grid-listing
+                #headerFieldGrid
+                colDefUrl="setup/process/interfaceConfiguration/private/headerDetailsColDefs"
+                [rowData]="formData.headerFields"
+                [context]="{ componentParent: this }"
+                [gridOptions]="gridOptions"
+              ></app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <app-modal
+          [(isShow)]="showAddReqBodyFields"
+          size="md"
+          headerText="Request Body Fields"
+          (onClose)="onCancelReqBodyFieldForm()"
+        >
+          <div class="p-grid g-margin-x" body>
+            <ng-container *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'">
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-custom-select
+                  name="fieldName"
+                  id="fieldName"
+                  label="Field Name"
+                  [data]="reqBodyFieldNameData"
+                  [(ngModel)]="reqBodyFieldForm.fieldName"
+                  [value]="reqBodyFieldForm.fieldName"
+                ></aps-custom-select>
+              </div>
+            </ng-container>
+
+            <div class="p-md-4 p-col-12 p-py-0">
+              <aps-custom-select
+                name="fieldType"
+                id="fieldType"
+                label="Field Type"
+                dataUrl="setup/process/interfaceConfiguration/private/dropdown/reqBodyFieldTypes"
+                [(ngModel)]="reqBodyFieldForm.fieldType"
+                [value]="reqBodyFieldForm.fieldType"
+              ></aps-custom-select>
+            </div>
+
+            <ng-container *ngIf="formData.requestType == 'MQ'">
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  id="minLength"
+                  name="minLength"
+                  label="Min Length"
+                  inputType="numeric"
+                  [(ngModel)]="reqBodyFieldForm.minLength"
+                ></aps-form-input>
+              </div>
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  id="maxLength"
+                  name="maxLength"
+                  label="Max Length"
+                  inputType="numeric"
+                  [(ngModel)]="reqBodyFieldForm.maxLength"
+                ></aps-form-input>
+              </div>
+
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-custom-select
+                  id="padding"
+                  name="padding"
+                  label="Padding"
+                  [(ngModel)]="reqBodyFieldForm.padding"
+                  [value]="reqBodyFieldForm.padding"
+                  dataUrl="setup/process/interfaceConfiguration/private/dropdown/padding"
+                ></aps-custom-select>
+              </div>
+              <div class="p-md-4 p-col-12 p-py-0">
+                <aps-form-input
+                  id="paddingCharacter"
+                  name="paddingCharacter"
+                  label="Padding Character"
+                  [(ngModel)]="reqBodyFieldForm.paddingCharacter"
+                ></aps-form-input>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="p-grid g-margin-x" footer>
+            <div class="p-col-12 text-right">
+              <button class="btn btn-md btn-tertiary p-mr-3" (click)="onCancelReqBodyFieldForm()">
+                {{ 'Cancel' | apsTranslate }}
+              </button>
+              <button
+                class="btn btn-md btn-primary"
+                (click)="onAddReqBodyFields()"
+                *ngIf="reqBodyFieldIndex == -1"
+              >
+                {{ 'Add' | apsTranslate }}
+              </button>
+              <button
+                class="btn btn-md btn-primary"
+                (click)="onUpdateReqBodyField()"
+                *ngIf="reqBodyFieldIndex != -1"
+              >
+                {{ 'Update' | apsTranslate }}
+              </button>
+            </div>
+          </div>
+        </app-modal>
+
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="left-right-container">
+              <div class="left-container aps-py-12">
+                <div class="text-size-16 text-bold">
+                  {{ 'Request Body Configuration' | apsTranslate }}
+                </div>
+              </div>
+              <div class="right-container p-py-2"></div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <ng-container
+                *ngIf="
+                  formData.requestType == 'REST' ||
+                  formData.requestType == 'SOAP' ||
+                  formData.requestType == 'MQ'
+                "
+              >
+                <ng-container *ngIf="formData.requestType != 'MQ'">
+                  <div class="p-md-10 p-col-12">
+                    <textarea
+                      class="textarea aps-w-100p"
+                      name="requestBody"
+                      id="requestBody"
+                      rows="4"
+                      [(ngModel)]="requestBody"
+                      placeholder="Request {{ formData.dataType }} Body"
+                    ></textarea>
+                  </div>
+                  <div class="p-md-2 p-col-12 text-right">
+                    <button class="btn btn-md btn-primary" (click)="onParseRequestBody()">
+                      {{ 'Parse' | apsTranslate }}
+                    </button>
+                  </div>
+                </ng-container>
+
+                <div class="p-col-12" *ngIf="reqBodyFieldNameData.length > 0">
+                  <div class="p-grid">
+                    <div class="p-md-11 p-col-12">
+                      <div
+                        class="inline-block border border-color-primary text-color-primary text-size-12 border-radius-10 p-py-1 p-px-3 p-mr-2 pointer tile"
+                        *ngFor="let reqBodyField of reqBodyFieldNameData"
+                        (click)="onClickReqBodyField(reqBodyField.id)"
+                      >
+                        {{ reqBodyField.displayName }}
+                      </div>
+                    </div>
+                    <div class="p-md-1 p-col-12 text-right">
+                      <button
+                        class="btn btn-md btn-primary"
+                        (click)="showAddReqBodyFields = true"
+                        *ngIf="formData.requestType != 'SFTP'"
+                      >
+                        {{ 'ADD' | apsTranslate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12">
+                  <div class="aps-h-200">
+                    <app-ag-grid-listing
+                      #reqBodyFieldGrid
+                      [colDefUrl]="
+                        formData.requestType != 'MQ'
+                          ? 'setup/process/interfaceConfiguration/private/reqBodyDetailsColDefs'
+                          : 'setup/process/interfaceConfiguration/private/mqReqBodyDetailColDefs'
+                      "
+                      [rowData]="formData.reqBodyFields"
+                      [context]="{ componentParent: this }"
+                      [gridOptions]="gridOptions"
+                    ></app-ag-grid-listing>
+                  </div>
+                </div>
+              </ng-container>
+
+              <div class="p-col-12 p-p-0" *ngIf="formData.requestType == 'SFTP'">
+                <div class="p-grid">
+                  <div class="p-md-7 p-col-12 p-p-0">
+                    <div class="p-grid">
+                      <div class="p-md-4 p-col-12">
+                        {{ 'File Name Format' | apsTranslate }}
+                      </div>
+
+                      <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input
+                          id="prefix"
+                          name="prefix"
+                          label="Prefix"
+                          [(ngModel)]="formData.prefix"
+                        ></aps-form-input>
+                      </div>
+
+                      <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-custom-select
+                          name="fieldType"
+                          id="fieldType"
+                          label="Field Name"
+                          dataUrl="setup/process/interfaceConfiguration/private/dropdown/resBodyFieldTypes"
+                          [(ngModel)]="formData.fieldType"
+                          [value]="formData.fieldType"
+                        ></aps-custom-select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="p-md-5 p-col-12 p-p-0">
+                    <div class="p-grid">
+                      <div class="p-md-6 p-col-12 p-py-0">
+                        <aps-custom-select
+                          id="dateFormat"
+                          name="dateFormat"
+                          label="Date Format"
+                          [(ngModel)]="formData.dateFormat"
+                          [value]="formData.dateFormat"
+                          dataUrl="setup/process/interfaceConfiguration/private/dropdown/dateFormat"
+                        ></aps-custom-select>
+                      </div>
+
+                      <div class="p-md-6 p-col-12 p-py-0">
+                        <aps-form-input
+                          id="extension"
+                          name="extension"
+                          label="Extension"
+                          [(ngModel)]="formData.extension"
+                        ></aps-form-input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12" *ngIf="formData.requestType != 'SFTP'">
+        <ng-container>
+          <app-modal
+            [(isShow)]="showAddResBodyFields"
+            size="md"
+            headerText="Request Body Fields"
+            (onClose)="onCancelResBodyFieldForm()"
+          >
+            <div class="p-grid g-margin-x" body>
+              <ng-container
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <div class="p-md-4 p-col-12 p-py-0">
+                  <aps-custom-select
+                    name="fieldName"
+                    id="fieldName"
+                    label="Field Name"
+                    [data]="resBodyFieldNameData"
+                    [(ngModel)]="resBodyFieldForm.fieldName"
+                    [value]="resBodyFieldForm.fieldName"
+                  ></aps-custom-select>
+                </div>
+                <div class="p-md-4 p-col-12 p-py-0">
+                  <aps-custom-select
+                    name="fieldType"
+                    id="fieldType"
+                    label="Field Type"
+                    dataUrl="setup/process/interfaceConfiguration/private/dropdown/resBodyFieldTypes"
+                    [(ngModel)]="resBodyFieldForm.fieldType"
+                    [value]="resBodyFieldForm.fieldType"
+                  ></aps-custom-select>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="formData.requestType == 'MQ'">
+                <div class="p-md-4 p-col-6 p-py-0">
+                  <aps-custom-select
+                    id="fieldType"
+                    name="fieldType"
+                    label="fieldType"
+                    [(ngModel)]="resBodyFieldForm.fieldType"
+                    [value]="resBodyFieldForm.fieldType"
+                    dataUrl="setup/process/interfaceConfiguration/private/dropdown/resBodyFieldTypes"
+                  ></aps-custom-select>
+                </div>
+
+                <ng-container *ngIf="formData.mqFieldSeparator == 'Fixed Length'">
+                  <div class="p-md-4 p-col-6 p-py-0">
+                    <aps-form-input
+                      id="startIndex"
+                      name="startIndex"
+                      label="Start Index"
+                      [(ngModel)]="resBodyFieldForm.startIndex"
+                    ></aps-form-input>
+                  </div>
+
+                  <div class="p-md-4 p-col-6 p-py-0">
+                    <aps-form-input
+                      id="endIndex"
+                      name="endIndex"
+                      label="End Index"
+                      [(ngModel)]="resBodyFieldForm.endIndex"
+                    ></aps-form-input>
+                  </div>
+                </ng-container>
+
+                <div class="p-md-4 p-col-6 p-py-0" *ngIf="formData.mqFieldSeparator == 'Delimiter'">
+                  <aps-form-input
+                    id="fieldIndex"
+                    name="fieldIndex"
+                    label="Field Index"
+                    [(ngModel)]="resBodyFieldForm.fieldIndex"
+                  ></aps-form-input>
+                </div>
+              </ng-container>
+            </div>
+            <div class="p-grid g-margin-x" footer>
+              <div class="p-col-12 text-right">
+                <button class="btn btn-md btn-tertiary p-mr-3" (click)="onCancelResBodyFieldForm()">
+                  {{ 'Cancel' | apsTranslate }}
+                </button>
+                <button
+                  class="btn btn-md btn-primary"
+                  (click)="onAddResBodyFields()"
+                  *ngIf="resBodyFieldIndex == -1"
+                >
+                  {{ 'Add' | apsTranslate }}
+                </button>
+                <button
+                  class="btn btn-md btn-primary"
+                  (click)="onUpdateResBodyField()"
+                  *ngIf="resBodyFieldIndex != -1"
+                >
+                  {{ 'Update' | apsTranslate }}
+                </button>
+              </div>
+            </div>
+          </app-modal>
+
+          <div class="aps-card">
+            <div class="aps-card-header p-px-3">
+              <div class="left-right-container">
+                <div class="left-container aps-py-12">
+                  <div class="text-size-16 text-bold">
+                    {{ 'Response Body Configuration' | apsTranslate }}
+                  </div>
+                </div>
+                <div class="right-container p-py-2"></div>
+              </div>
+            </div>
+            <div class="aps-card-body p-p-2">
+              <div
+                class="p-grid"
+                *ngIf="
+                  formData.requestType == 'REST' ||
+                  formData.requestType == 'SOAP' ||
+                  formData.requestType == 'MQ'
+                "
+              >
+                <ng-container
+                  *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+                >
+                  <div class="p-md-10 p-col-12">
+                    <textarea
+                      class="textarea aps-w-100p"
+                      name="responseBody"
+                      id="responseBody"
+                      rows="4"
+                      [(ngModel)]="responseBody"
+                      placeholder="Response {{ formData.dataType }} Body"
+                    ></textarea>
+                  </div>
+                  <div class="p-md-2 p-col-12 text-right">
+                    <button class="btn btn-md btn-primary" (click)="onParseResponseBody()">
+                      {{ 'Parse' | apsTranslate }}
+                    </button>
+                  </div>
+                </ng-container>
+
+                <ng-container *ngIf="formData.requestType == 'MQ'">
+                  <div class="p-md-4 p-col-12">
+                    <p-radioButton
+                      class="p-mr-3"
+                      id="mqFieldSeparator-fixedLength"
+                      name="mqFieldSeparator"
+                      label="Fixed Length"
+                      value="Fixed Length"
+                      [(ngModel)]="formData.mqFieldSeparator"
+                    ></p-radioButton>
+                    <p-radioButton
+                      id="mqFieldSeparator-delimiter"
+                      name="mqFieldSeparator"
+                      label="Delimiter"
+                      value="Delimiter"
+                      [(ngModel)]="formData.mqFieldSeparator"
+                    ></p-radioButton>
+                  </div>
+                  <div
+                    class="p-md-4 p-col-12 p-py-0"
+                    *ngIf="formData.mqFieldSeparator == 'Delimiter'"
+                  >
+                    <aps-form-input
+                      id="fieldDelimiter"
+                      name="fieldDelimiter"
+                      label="Field Delimiter"
+                      [(ngModel)]="formData.mqFieldDelimiter"
+                    ></aps-form-input>
+                  </div>
+                </ng-container>
+
+                <div class="p-col-12 p-p-0" *ngIf="resBodyFieldNameData.length > 0">
+                  <div class="p-grid">
+                    <div class="p-md-11 p-col-12">
+                      <div
+                        class="inline-block border border-color-primary text-color-primary text-size-12 border-radius-10 p-py-1 p-px-3 p-mr-2 pointer tile"
+                        *ngFor="let resBodyField of resBodyFieldNameData"
+                      >
+                        {{ resBodyField }}
+                      </div>
+                    </div>
+                    <div class="p-md-1 p-col-12 text-right">
+                      <button
+                        class="btn btn-md btn-primary"
+                        (click)="showAddResBodyFields = true"
+                        *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+                      >
+                        {{ 'ADD' | apsTranslate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-col-12">
+                  <div class="aps-h-200">
+                    <app-ag-grid-listing
+                      #resBodyFieldGrid
+                      [colDefUrl]="
+                        formData.requestType != 'MQ'
+                          ? 'setup/process/interfaceConfiguration/private/resBodyDetailsColDefs'
+                          : formData.mqFieldSeparator == 'Delimiter'
+                          ? 'setup/process/interfaceConfiguration/private/mqResBodyDelimiterDetailColDefs'
+                          : 'setup/process/interfaceConfiguration/private/mqResBodyFixedLengthDetailCOlDefs'
+                      "
+                      [rowData]="formData.resBodyFields"
+                      [context]="{ componentParent: this }"
+                      [gridOptions]="gridOptions"
+                    ></app-ag-grid-listing>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="p-col-12">
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="aps-py-12">
+              <div class="text-size-16 text-bold">
+                {{ 'Other Details' | apsTranslate }}
+              </div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <ng-container *ngIf="formData.requestType == 'SFTP' || formData.requestType == 'MQ'">
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="server"
+                    id="server"
+                    label="Server"
+                    [(ngModel)]="formData.server"
+                  ></aps-form-input>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="port"
+                    id="port"
+                    label="Port"
+                    inputType="numeric"
+                    [(ngModel)]="formData.port"
+                  ></aps-form-input>
+                </div>
+
+                <ng-container *ngIf="formData.requestType == 'MQ'">
+                  <div class="p-md-3 p-col-12 p-py-0">
+                    <aps-form-input
+                      name="queueName"
+                      id="queueName"
+                      label="Queue Name"
+                      [(ngModel)]="formData.queueName"
+                    ></aps-form-input>
+                  </div>
+                  <div class="p-md-3 p-col-12 p-py-0">
+                    <aps-form-input
+                      name="channel"
+                      id="channel"
+                      label="Channel"
+                      [(ngModel)]="formData.channel"
+                    ></aps-form-input>
+                  </div>
+                </ng-container>
+
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="userId"
+                    id="userId"
+                    label="User ID"
+                    [(ngModel)]="formData.userId"
+                  ></aps-form-input>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="password"
+                    id="password"
+                    label="Password"
+                    type="password"
+                    [(ngModel)]="formData.password"
+                  ></aps-form-input>
+                </div>
+                <div
+                  class="p-col-12 text-right"
+                  [ngClass]="{ 'p-md-6': formData.requestType == 'MQ' }"
+                >
+                  <button class="btn btn-md btn-primary" (click)="onTestConnection()">
+                    {{ 'Test' | apsTranslate }}
+                  </button>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="url"
+                    id="url"
+                    label="URL"
+                    [(ngModel)]="formData.url"
+                  ></aps-form-input>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="timeOutInSeconds"
+                    id="timeOutInSeconds"
+                    label="Time Out In Seconds"
+                    [(ngModel)]="formData.timeOutInSeconds"
+                  ></aps-form-input>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-form-input
+                    name="autoRetryAttempt"
+                    id="autoRetryAttempt"
+                    label="Auto Retry Attempt"
+                    [(ngModel)]="formData.autoRetryAttempt"
+                  ></aps-form-input>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <aps-custom-select
+                    name="httpMethod"
+                    id="httpMethod"
+                    label="HTTP Method"
+                    [(ngModel)]="formData.httpMethod"
+                    [value]="formData.httpMethod"
+                    dataUrl="setup/process/interfaceConfiguration/private/dropdown/httpMethods"
+                  ></aps-custom-select>
+                </div>
+                <div class="p-col-12 text-right">
+                  <button class="btn btn-md btn-primary" (click)="onTestConnection()">
+                    {{ 'Test' | apsTranslate }}
+                  </button>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="stepperDetails.currentStep == 2">
+      <div class="p-col-12">
+        <div class="text-size-16 text-bold">
+          {{ 'Review and Confirm' | apsTranslate }}
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <div class="aps-card">
+          <div class="aps-card-header aps-py-12 p-px-3">
+            <div class="text-size-16 text-bold">
+              {{ 'Interface Configuration Details' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <div class="p-md-3 p-col-12">
+                <app-review-form-field
+                  label="Interface Name"
+                  [value]="formData.interfaceName"
+                ></app-review-form-field>
+              </div>
+              <div class="p-md-4 p-col-12">
+                <div class="text-size-12 text-color-light-shade-1">
+                  {{ 'Request Type' | apsTranslate }}
+                </div>
+                <p-radioButton
+                  id="requestType-REST"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="REST"
+                  value="REST"
+                  [(ngModel)]="formData.requestType"
+                  [disabled]="true"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-SOAP"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="SOAP"
+                  value="SOAP"
+                  [(ngModel)]="formData.requestType"
+                  [disabled]="true"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-MQ"
+                  name="requestType"
+                  class="p-mr-3"
+                  label="MQ"
+                  value="MQ"
+                  [(ngModel)]="formData.requestType"
+                  [disabled]="true"
+                ></p-radioButton>
+                <p-radioButton
+                  id="requestType-SFTP"
+                  name="requestType"
+                  class=""
+                  label="SFTP"
+                  value="SFTP"
+                  [(ngModel)]="formData.requestType"
+                  [disabled]="true"
+                ></p-radioButton>
+              </div>
+              <div
+                class="p-md-3 p-col-12"
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <app-review-form-field
+                  label="Data Type"
+                  [value]="formData.dataType"
+                ></app-review-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="p-col-12"
+        *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+      >
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="aps-py-12">
+              <div class="text-size-16 text-bold">
+                {{ 'Header Details' | apsTranslate }}
+              </div>
+            </div>
+          </div>
+
+          <div class="aps-card-body p-p-2">
+            <div class="aps-h-200">
+              <app-ag-grid-listing
+                #headerFieldGrid
+                colDefUrl="setup/process/interfaceConfiguration/private/headerDetailsReviewColDefs"
+                [rowData]="formData.headerFields"
+                [context]="{ componentParent: this }"
+                [gridOptions]="gridOptions"
+              ></app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="aps-py-12">
+              <div class="text-size-16 text-bold">
+                {{ 'Request Body Configuration' | apsTranslate }}
+              </div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <div
+                class="p-col-12"
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <div class="aps-h-200">
+                  <app-ag-grid-listing
+                    #reqBodyFieldGrid
+                    colDefUrl="setup/process/interfaceConfiguration/private/reqBodyDetailsReviewColDefs"
+                    [rowData]="formData.reqBodyFields"
+                    [context]="{ componentParent: this }"
+                    [gridOptions]="gridOptions"
+                  ></app-ag-grid-listing>
+                </div>
+              </div>
+              <div class="p-col-12 p-p-0" *ngIf="formData.requestType == 'SFTP'">
+                <div class="p-grid">
+                  <div class="p-md-7 p-col-12 p-p-0">
+                    <div class="p-grid">
+                      <div class="p-md-4 p-col-12">
+                        <app-review-form-field
+                          label="File Name Format"
+                          [value]="formData.fileNameFormat"
+                        ></app-review-form-field>
+                      </div>
+                      <div class="p-md-4 p-col-12">
+                        <app-review-form-field
+                          label="Prefix"
+                          [value]="formData.prefix"
+                        ></app-review-form-field>
+                      </div>
+                      <div class="p-md-4 p-col-12">
+                        <app-review-form-field
+                          label="Field Type"
+                          [value]="formData.fieldType"
+                        ></app-review-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-md-5 p-col-12 p-p-0">
+                    <div class="p-grid">
+                      <div class="p-md-6 p-col-12">
+                        <app-review-form-field
+                          label="Date Format"
+                          [value]="formData.dateFormat"
+                        ></app-review-form-field>
+                      </div>
+                      <div class="p-md-6 p-col-12">
+                        <app-review-form-field
+                          label="Extension"
+                          [value]="formData.extension"
+                        ></app-review-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-p-0" *ngIf="formData.requestType == 'MQ'">
+                <div class="aps-h-200">
+                  <app-ag-grid-listing
+                    #reqBodyFieldGrid
+                    colDefUrl="setup/process/interfaceConfiguration/private/mqReqBodyDetailColDefs"
+                    [rowData]="formData.mqReqBodyDetails"
+                    [context]="{ componentParent: this }"
+                    [gridOptions]="gridOptions"
+                  ></app-ag-grid-listing>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12" *ngIf="formData.requestType != 'SFTP'">
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="aps-py-12">
+              <div class="text-size-16 text-bold">
+                {{ 'Response Body Configuration' | apsTranslate }}
+              </div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <div
+                class="p-col-12"
+                *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+              >
+                <div class="aps-h-200">
+                  <app-ag-grid-listing
+                    #resBodyFieldGrid
+                    colDefUrl="setup/process/interfaceConfiguration/private/resBodyDetailsReviewColDefs"
+                    [rowData]="formData.resBodyFields"
+                    [context]="{ componentParent: this }"
+                    [gridOptions]="gridOptions"
+                  ></app-ag-grid-listing>
+                </div>
+              </div>
+
+              <ng-container *ngIf="formData.requestType == 'MQ'">
+                <div class="p-md-4 p-sm-12">
+                  <p-radioButton
+                    class="p-mr-3"
+                    id="mqFieldSeparator-fixedLength"
+                    name="mqFieldSeparator"
+                    label="Fixed Length"
+                    value="Fixed Length"
+                    [(ngModel)]="formData.mqFieldSeparator"
+                    [disabled]="true"
+                  ></p-radioButton>
+                  <p-radioButton
+                    id="mqFieldSeparator-delimiter"
+                    name="mqFieldSeparator"
+                    label="Delimiter"
+                    value="Delimiter"
+                    [(ngModel)]="formData.mqFieldSeparator"
+                    [disabled]="true"
+                  ></p-radioButton>
+                </div>
+                <div class="p-md-8 p-col-12" *ngIf="formData.mqFieldSeparator == 'Delimiter'">
+                  <app-review-form-field
+                    label="Field Delimiter"
+                    [value]="formData.mqFieldDelimiter"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-col-12">
+                  <div class="aps-h-200">
+                    <app-ag-grid-listing
+                      #resBodyFieldGrid
+                      colDefUrl="setup/process/interfaceConfiguration/private/mqResBodyFixedLengthDetailCOlDefs"
+                      [rowData]="formData.mqResBodyDetails"
+                      [context]="{ componentParent: this }"
+                      [gridOptions]="gridOptions"
+                      *ngIf="formData.mqFieldSeparator == 'Fixed Length'"
+                    ></app-ag-grid-listing>
+
+                    <app-ag-grid-listing
+                      #resBodyFieldGrid
+                      colDefUrl="setup/process/interfaceConfiguration/private/mqResBodyDelimiterDetailCOlDefs"
+                      [rowData]="formData.mqResBodyDetails"
+                      [context]="{ componentParent: this }"
+                      [gridOptions]="gridOptions"
+                      *ngIf="formData.mqFieldSeparator == 'Delimiter'"
+                    ></app-ag-grid-listing>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-col-12">
+        <div class="aps-card">
+          <div class="aps-card-header p-px-3">
+            <div class="aps-py-12">
+              <div class="text-size-16 text-bold">
+                {{ 'Other Details' | apsTranslate }}
+              </div>
+            </div>
+          </div>
+          <div class="aps-card-body p-p-2">
+            <div class="p-grid">
+              <ng-container *ngIf="formData.requestType == 'SFTP'">
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <app-review-form-field
+                    label="Server"
+                    [value]="formData.server"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <app-review-form-field
+                    label="Port"
+                    inputType="numeric"
+                    [value]="formData.port"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <app-review-form-field
+                    label="User ID"
+                    [value]="formData.userId"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-3 p-col-12 p-py-0">
+                  <app-review-form-field
+                    label="Password"
+                    type="password"
+                    [value]="formData.password"
+                  ></app-review-form-field>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="
+                  formData.requestType == 'REST' ||
+                  formData.requestType == 'SOAP' ||
+                  formData.requestType == 'MQ'
+                "
+              >
+                <div class="p-md-3 p-col-12">
+                  <app-review-form-field label="URL" [value]="formData.url"></app-review-form-field>
+                </div>
+                <div class="p-md-3 p-col-12">
+                  <app-review-form-field
+                    label="Time Out In Seconds"
+                    [value]="formData.timeOutInSeconds"
+                  ></app-review-form-field>
+                </div>
+                <div class="p-md-3 p-col-12">
+                  <app-review-form-field
+                    label="Auto Retry Attempt"
+                    [value]="formData.autoRetryAttempt"
+                  ></app-review-form-field>
+                </div>
+                <div
+                  class="p-md-3 p-col-12"
+                  *ngIf="formData.requestType == 'REST' || formData.requestType == 'SOAP'"
+                >
+                  <app-review-form-field
+                    label="HTTP Method"
+                    [value]="formData.httpMethod"
+                  ></app-review-form-field>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="p-col-12">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

@@ -1,0 +1,12 @@
+.balance-card-container {
+  padding: 0.25rem 1rem 0.25rem 22px;
+}
+
+// .grid-container {
+// }
+
+@media screen and(max-width: 991px) {
+  .balance-card-container {
+    padding: 0.5rem;
+  }
+}

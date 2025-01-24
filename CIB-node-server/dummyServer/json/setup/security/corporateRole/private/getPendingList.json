@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-file"
+        }
+      ]
+    },
+    {
+      "code": "BO006",
+      "roleType": "Normal",
+      "corporateName": "Startmark",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-file"
+        }
+      ]
+    },
+    {
+      "code": "BO001",
+      "roleType": "Normal",
+      "corporateName": "Galaxy Toyota",
+      "moduleName": "Commons",
+      "effectiveFrom": "13-jan-2017",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "file",
+          "type": "ICON",
+          "displayName": "File",
+          "icon": "fa-file"
+        }
+      ]
+    }
+  ],
+  "lastRow": 3
+}

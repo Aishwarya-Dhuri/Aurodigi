@@ -1,0 +1,60 @@
+[
+  {
+    "headerName": "Mandate Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "UMRN",
+    "field": "umrnNumber"
+  },
+  {
+    "headerName": "Utility Code",
+    "field": "utilityCode"
+  },
+  {
+    "headerName": "Product Name",
+    "field": "utilityCode"
+  },
+  {
+    "headerName": "Group Code",
+    "field": "groupCode"
+  },
+  {
+    "headerName": "Group Name",
+    "field": "groupName"
+  },
+  {
+    "headerName": "Corporate Code",
+    "field": "corporateCode"
+  },
+  {
+    "headerName": "Corporate Name",
+    "field": "corporateName"
+  },
+  {
+    "headerName": "Payer Name",
+    "field": "payerName"
+  },
+  {
+    "headerName": "Payer Bank",
+    "field": "payerBank"
+  },
+  {
+    "headerName": "Payer Account Number",
+    "field": "payerAccountNumber"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount"
+  },
+  {
+    "headerName": "Consumer ID / No",
+    "field": "customerNo"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

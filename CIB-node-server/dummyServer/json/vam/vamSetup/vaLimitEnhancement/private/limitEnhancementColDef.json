@@ -1,0 +1,45 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Corporate Code",
+      "field": "corporateId"
+    },
+    {
+      "headerName": "Account No",
+      "field": "corporateAccount"
+    },
+    {
+      "headerName": "Sub Entity",
+      "field": "subEntityName"
+    },
+    {
+      "headerName": "POBO Account",
+      "field": "virtualAccountNo"
+    },
+    {
+      "headerName": "Allocated Limit",
+      "field": "vaAllocatedLimit"
+    },
+    {
+      "headerName": "Available Limit",
+      "field": "vaAvailableLimit"
+    },
+    {
+      "headerName": "Adhoc Allocated Limit",
+      "field": "vaAdhocLimit"
+    },
+    {
+      "headerName": "Adhoc Allocated Limit %",
+      "field": "vaAdhocLimitInPercent"
+    },
+    {
+      "headerName": "Expiry Date",
+      "field": "vaExpiryDate"
+    },
+    {
+      "cellRenderer": "actionCellRenderer",
+      "field": "actions",
+      "headerName": "Actions"
+    }
+  ]
+}

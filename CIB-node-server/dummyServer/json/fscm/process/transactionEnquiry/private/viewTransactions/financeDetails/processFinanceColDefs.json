@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch Number", "field": "batchNumber" },
+    { "headerName": "Invoice Number", "field": "invoiceNumber" },
+    { "headerName": "Invoice Date", "field": "invoiceDate" },
+    { "headerName": "Invoice Due Date", "field": "invoiceDueDate" },
+    { "headerName": "Invoice Amount", "field": "invoiceAmount" },
+    { "headerName": "Finance (%)", "field": "finance" }
+  ]
+}

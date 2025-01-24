@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Beneficiary Code", "field": "beneficiaryCode", "checkboxSelection": true },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Account No", "field": "accountNo" },
+    { "headerName": "Bank", "field": "bank" },
+    { "headerName": "Favorite", "field": "isFavorite", "cellRenderer": "favoriteRenderer" }
+  ]
+}

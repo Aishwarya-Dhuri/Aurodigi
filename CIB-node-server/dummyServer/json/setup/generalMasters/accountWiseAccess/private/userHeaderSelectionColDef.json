@@ -1,0 +1,12 @@
+[
+  {
+    "field": "uaid",
+    "headerName": "User ID",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "headerCheckboxSelectionFilteredOnly": true
+  },
+  { "field": "firstName", "headerName": "First Name" },
+  { "field": "lastName", "headerName": "Last Name" },
+  { "field": "profile", "headerName": "Profile" }
+]

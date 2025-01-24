@@ -1,0 +1,192 @@
+<!-- <cib-configuration></cib-configuration> -->
+<div [ngClass]="{ container: stepperDetails.currentStep != 2 }">
+  <div class="p-grid g-margin-x" [apsHide]="stepperDetails.currentStep == 2">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+  </div>
+  <ng-container class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == 1">
+    <form name="configurationDetailForm" #configurationDetailForm="ngForm">
+      <div class="text-size-16 text-bold p-px-1 p-py-3">
+        {{ 'Configration Details' | apsTranslate }}
+      </div>
+      <div class="aps-card aps-h-400 p-p-3">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-form-input
+              inputType="noSpaceAlphaNumeric"
+              [label]="'Template Code' | apsTranslate"
+              name="templateCode"
+              id="templateCode"
+              [(ngModel)]="formData.code"
+              required="true"
+            >
+            </aps-form-input>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-form-input
+              inputType="noSpaceAlphaNumeric"
+              [label]="'Template Name' | apsTranslate"
+              name="templateName"
+              id="templateName"
+              [(ngModel)]="formData.name"
+              required="true"
+            >
+            </aps-form-input>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-custom-select
+              id="corporateType"
+              name="corporateType"
+              label="Corporate Type"
+              [value]="formData.corporateType"
+              [(ngModel)]="formData.corporateType"
+              (change)="changeMenu()"
+              [data]="[
+                { id: 'Generic', displayName: 'Generic' },
+                { id: 'MNC', displayName: 'MNC' },
+                { id: 'SME', displayName: 'SME' }
+              ]"
+              [required]="true"
+            >
+            </aps-custom-select>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-custom-select
+              id="corporateCategory"
+              name="corporateCategory"
+              label="Corporate Category"
+              [value]="formData.corporateCategory"
+              [(ngModel)]="formData.corporateCategory"
+              (change)="changeMenu()"
+              [data]="[
+                { id: 'Generic', displayName: 'Generic' },
+                { id: 'Platinium', displayName: 'Platinium' },
+                { id: 'Gold', displayName: 'Gold' },
+                { id: 'Silver', displayName: 'Silver' }
+              ]"
+              [required]="true"
+            >
+            </aps-custom-select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container class="p-col-12 p-px-0" *ngIf="stepperDetails.currentStep == 2">
+    <cib-configuration></cib-configuration>
+  </ng-container>
+  <ng-container
+    class="p-col-12 p-px-0"
+    *ngIf="stepperDetails.currentStep == stepperDetails.headings.length"
+  >
+    <div class="p-py-3 text-size-16 text-bold">
+      {{ 'Review Details & Confirm' | apsTranslate }}
+    </div>
+    <div class="aps-card p-px-3">
+      <div class="p-py-3 text-size-14 text-semi-bold">
+        {{ 'Configuration Details' | apsTranslate }}
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field [label]="'Template Code' | apsTranslate" [value]="formData.code">
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field [label]="'Template Name' | apsTranslate" [value]="formData.name">
+          </app-review-form-field>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Corporate Type' | apsTranslate"
+            [value]="formData.corporateType"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Corporate Category' | apsTranslate"
+            [value]="formData.corporateCategory"
+          ></app-review-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="aps-card p-mt-3 p-px-3">
+      <div class="p-py-3 text-size-14 text-semi-bold">
+        {{ 'Configuration Parameters' | apsTranslate }}
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field [label]="'Menu Style' | apsTranslate" [value]="formData.menuType">
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Color Palette' | apsTranslate"
+            [value]="formData.themeName"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field [label]="'Font Family' | apsTranslate" [value]="formData.fontName">
+          </app-review-form-field>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Form Card Style' | apsTranslate"
+            [value]="formData.formCardBorderStyleName"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Form Control Style' | apsTranslate"
+            [value]="formData.formControlStyle"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Button Style' | apsTranslate"
+            [value]="formData.buttonBorderStyleName"
+          >
+          </app-review-form-field>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Toaster Position' | apsTranslate"
+            [value]="formData.toasterPosition"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Toaster Life (in Mili Seconds)' | apsTranslate"
+            [value]="formData.toasterTimeInMiliSec"
+          >
+          </app-review-form-field>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+          <app-review-form-field
+            [label]="'Icon Style' | apsTranslate"
+            [value]="formData.iconStyleName"
+          >
+          </app-review-form-field>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- Form Actions -->
+  <div class="p-mt-3" [apsHide]="stepperDetails.currentStep == 2">
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+  </div>
+</div>

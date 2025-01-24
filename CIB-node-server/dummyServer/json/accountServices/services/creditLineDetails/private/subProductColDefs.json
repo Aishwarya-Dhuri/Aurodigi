@@ -1,0 +1,15 @@
+[
+  { "headerName": "Sub Products", "field": "subProducts", "hide": true },
+  {
+    "headerName": "Allocated Limit",
+    "field": "allocatedLimit",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Utilized Limit", "field": "utilizedLimit", "cellRenderer": "currencyRenderer" },
+  {
+    "headerName": "Available Limit",
+    "field": "availableLimit",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "moreOptionRenderer" }
+]

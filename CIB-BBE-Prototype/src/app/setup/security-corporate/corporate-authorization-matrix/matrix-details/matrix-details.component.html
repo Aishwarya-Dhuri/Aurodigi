@@ -1,0 +1,249 @@
+<app-search-modal [(isShow)]="isShowAccounts" [isMultiSelect]="true" header="{{ 'Account' | apsTranslate }}"
+    colDefUrl="setup/security/corporateOnboarding/private/accountsMapped"
+    rowDefUrl="setup/security/corporateOnboarding/private/accountsMappedData"
+    (onSelection)="onAccountSelection($event)">
+</app-search-modal>
+
+<div class="left-right-container p-mb-2">
+    <div class="left-container p-pt-1">
+        <div class="inline-items">
+            <div class="item p-mr-2">
+                <div class="text-size-16 text-bold">
+                    {{ 'Matrix Details' | apsTranslate }}
+                </div>
+            </div>
+            <div class="item">
+                <app-icon icon="fa-info-circle"
+                    pTooltip="Define you matrix in 3 easy steps or copy from an existing matrix. The Company's Authorization Matrix (Authorization Matrix”) outlines the functional and financial approvals required, and designates team members that are authorized to sign legal documents (“Authorized Signatories”)."></app-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-container">
+        <div class="inline-items">
+            <div class="item p-mr-3">
+                <div class="btn btn-md btn-tertiary">
+                    <app-icon icon="fa-file" class="p-mr-1"></app-icon>
+                    {{ 'OPEN FROM DRAFT' | apsTranslate }}
+                </div>
+            </div>
+            <div class="item">
+                <div class="btn btn-md btn-tertiary">
+                    <app-icon icon="fa-copy" class="p-mr-1"></app-icon>
+                    {{ 'COPY MATRIX' | apsTranslate }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="aps-card p-px-3 p-pt-3">
+    <div class="text-semi-bold text-size-14">
+        {{ 'Define Matrix For' | apsTranslate }}<span class="text-color-danger">*</span>
+    </div>
+    <div class="p-md-3 p-sm-12 p-col-12">
+        <div class="label text-size-12 p-mb-1 text-color-normal">
+            {{ 'Type' | apsTranslate }}
+        </div>
+        <div class="radio-toolbar">
+            <p-radioButton class="p-pt-2" name="corpType" value="Corporate" label="Corporate"
+                [(ngModel)]="parentRef.formData.corpType">
+            </p-radioButton>
+            <p-radioButton class="p-pt-2 p-px-3" name="corpType" value="Group" label="Group"
+                [(ngModel)]="parentRef.formData.corpType">
+            </p-radioButton>
+        </div>
+    </div>
+    <div class="p-grid g-margin-x p-pt-2" *ngIf="parentRef.formData.corpType ==='Corporate'">
+        <div class="p-col-12 p-md-3 p-lg-3">
+            <aps-form-input id="corporateCode" name="corporateCode" [label]="'Corporate Code' | apsTranslate"
+                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                [(ngModel)]="parentRef.formData.corporateCode" [readonly]="true" [required]="true">
+            </aps-form-input>
+            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                [header]="'Corporate Details' | apsTranslate"
+                colDefUrl="commons/searchService/private/corporateSearchColDefs"
+                rowDefUrl="setup/corporateOnboarding/corporateMain/private/getAuthorizedList"
+                (onSelection)="onCorporateSelected($event)">
+            </app-search-modal>
+        </div>
+        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="parentRef.formData.corporateCode">
+            <div class="text-size-12 text-color-light-shade-2 background-color-disabled p-pt-1 p-px-1">
+                {{ 'Corporate Name' | apsTranslate }}
+            </div>
+            <div class="text-size-14 background-color-disabled p-px-2 p-pb-1">
+                {{ parentRef.formData.corporateName }}
+            </div>
+        </div>
+    </div>
+
+    <div class="p-grid g-margin-x p-pt-2" *ngIf="parentRef.formData.corpType ==='Group'">
+        <div class="p-col-12 p-md-3 p-lg-3">
+            <aps-form-input id="groupCode" name="groupCode" [label]="'Group Code' | apsTranslate" rightIcon="fa-search"
+                (onRightIcon)="isShowGroupSearch = true" [(ngModel)]="parentRef.formData.groupCode" [readonly]="true"
+                [required]="true">
+            </aps-form-input>
+            <app-search-modal *ngIf="isShowGroupSearch" [(isShow)]="isShowGroupSearch"
+                [header]="'Group Details' | apsTranslate"
+                colDefUrl="setup/security/corporateOnboarding/private/groupCorporate"
+                rowDefUrl="setup/security/corporateOnboarding/private/groupCorporateData"
+                (onSelection)="onGroupSelected($event)">
+            </app-search-modal>
+        </div>
+        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="parentRef.formData.groupCode">
+            <div class="text-size-12 text-color-light-shade-2 background-color-disabled p-pt-1 p-px-1">
+                {{ 'Group Name' | apsTranslate }}
+            </div>
+            <div class="text-size-14 background-color-disabled p-px-2 p-pb-1">
+                {{ parentRef.formData.groupName }}
+            </div>
+        </div>
+    </div>
+    <div class="p-grid g-margin-x p-pt-2">
+        <!-- <div class="p-md-3 p-sm-12 p-col-12 p-pb-0">
+            <aps-custom-select label="{{ 'Select Product' | apsTranslate }}" id="selectProduct" name="selectProduct"
+                dataUrl="commons/commonService/private/getProductList" [value]="parentRef.formData.product"
+                [(ngModel)]="parentRef.formData.product" (change)="onChangeSelectProduct(parentRef.formData.product)">
+            </aps-custom-select>
+        </div> -->
+        <div class="p-md-3 p-sm-12 p-col-12 p-pb-0">
+            <aps-custom-select label="{{ 'Select Product' | apsTranslate }}" id="selectProduct" name="selectProduct"
+                [data]="productList" [value]="parentRef.formData.product" [(ngModel)]="parentRef.formData.product"
+                (change)="onChangeSelectProduct(parentRef.formData.product)">
+            </aps-custom-select>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12 p-pb-0">
+            <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                [(ngModel)]="parentRef.formData.module" [value]="parentRef.formData.module" [data]="moduleList"
+                [required]="true">
+            </aps-custom-select>
+        </div>
+        <!-- <div class="p-md-3 p-sm-12 p-col-12 p-pb-0">
+            <aps-custom-select #selectModule label="{{ 'Module' | apsTranslate }}" id="module" name="module"
+                dataUrl="commons/commonService/private/getProductModuleList"
+                [reqBody]="{ module: parentRef.formData.product }" [value]="parentRef.formData.module"
+                [(ngModel)]="parentRef.formData.module" (change)="parentRef.formData.moduleName = $event.displayName"
+                [disabled]="!parentRef.formData.product"></aps-custom-select>
+        </div> -->
+        <div class="p-md-3 p-sm-12 p-col-12 p-pb-0">
+            <aps-form-input name="matrixName" id="matrixName" label="{{ 'Matrix Name' | apsTranslate }}"
+                [(ngModel)]="parentRef.formData.matrixName"></aps-form-input>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="parentRef.formData.product">
+    <div class="aps-card p-px-3 p-pt-3 p-my-3">
+        <div class="text-size-14 text-bold">
+            {{ 'Matrix Details' | apsTranslate }}<sup class="text-color-danger">*</sup>
+        </div>
+        <div class="p-grid g-margin-x p-pt-2">
+            <div class="p-md-3 p-sm-12 p-col-12">
+                <div class="label text-size-12 p-mb-1 text-color-normal">
+                    {{ 'Authorization Level' | apsTranslate }}
+                </div>
+                <div class="radio-toolbar">
+
+                    <p-radioButton class="p-pt-2" name="authorizationLevel" value="Transaction" label="Transaction"
+                        [(ngModel)]="parentRef.formData.authorizationLevel">
+                    </p-radioButton>
+                    <p-radioButton class="p-pt-2 p-px-3" name="authorizationLevel" value="Batch" label="Batch"
+                        [(ngModel)]="parentRef.formData.authorizationLevel">
+                    </p-radioButton>
+
+
+                    <!-- <input type="radio" id="transaction" name="authorizationLevel"
+                        [(ngModel)]="parentRef.formData.authorizationLevel" [checked]="true" value="Transaction" />
+                    <label for="transaction" class="text-size-14 p-p-1">{{
+                        'Transaction' | apsTranslate
+                        }}</label>
+                    <input type="radio" id="batch" name="authorizationLevel"
+                        [(ngModel)]="parentRef.formData.authorizationLevel" value="Batch" />
+                    <label for="batch" class="text-size-14 p-p-1">{{ 'Batch' | apsTranslate }}</label> -->
+                </div>
+            </div>
+
+            <div class="p-md-3 p-sm-12 p-col-12">
+                <div class="label text-size-12 p-mb-1 text-color-normal">
+                    {{ 'Authorization Mode' | apsTranslate }}
+                </div>
+                <div class="radio-toolbar">
+
+                    <p-radioButton class="p-pt-2" name="authorizationMode" value="Sequential" label="Sequential"
+                        (change)="parentRef.formData.allowSkip = parentRef.formData.allowSkip ? 'No' : ''"
+                        [(ngModel)]="parentRef.formData.authorizationMode">
+                    </p-radioButton>
+                    <p-radioButton class="p-pt-2 p-px-3" name="authorizationMode" value="Parallel" label="Parallel"
+                        [(ngModel)]="parentRef.formData.authorizationMode">
+                    </p-radioButton>
+
+
+                    <!-- <input type="radio" id="sequential" name="authorizationMode"
+                        (change)="parentRef.formData.allowSkip = parentRef.formData.allowSkip ? 'No' : ''"
+                        [(ngModel)]="parentRef.formData.authorizationMode" value="Sequential" />
+                    <label for="sequential" class="text-size-14 p-p-1">{{
+                        'Sequential' | apsTranslate
+                        }}</label>
+                    <input type="radio" id="parallel" name="authorizationMode"
+                        [(ngModel)]="parentRef.formData.authorizationMode" value="Parallel" />
+                    <label for="parallel" class="text-size-14 p-p-1">{{ 'Parallel' | apsTranslate }}</label> -->
+                </div>
+            </div>
+
+            <div class="p-md-3 p-sm-12 p-col-12">
+                <div class="radio-toolbar-container">
+                    <div class="label text-size-12 p-mb-1 text-color-normal">
+                        {{ 'Allow Skip' | apsTranslate }}
+                    </div>
+                    <div class="radio-toolbar">
+
+                        <p-radioButton class="p-pt-2" name="allowSkip" value="Yes" label="Yes"
+                            [disabled]="parentRef.formData.authorizationMode != 'Parallel'"
+                            [(ngModel)]="parentRef.formData.allowSkip">
+                        </p-radioButton>
+                        <p-radioButton class="p-pt-2 p-px-3" name="allowSkip" value="No" label="No"
+                            [(ngModel)]="parentRef.formData.allowSkip">
+                        </p-radioButton>
+
+
+                        <!-- <input type="radio" id="yes" name="allowSkip"
+                            [disabled]="parentRef.formData.authorizationMode != 'Parallel'"
+                            [(ngModel)]="parentRef.formData.allowSkip" value="Yes" />
+                        <label for="yes" class="text-size-14 p-p-1">{{ 'Yes' | apsTranslate }}</label>
+                        <input type="radio" id="no" name="allowSkip"
+                            [checked]="parentRef.formData.authorizationMode == 'Parallel'"
+                            [(ngModel)]="parentRef.formData.allowSkip" value="No" />
+                        <label for="no" class="text-size-14 p-p-1">{{ 'No' | apsTranslate }}</label> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-md-3 p-sm-12 p-col-12 p-pr-0 p-pt-1 p-pb-0">
+                <aps-custom-select id="currency" name="currency" label="{{ 'Currency' | apsTranslate }}"
+                    dataUrl="setup/generalMasters/currency/private/currencyList" [value]="parentRef.formData.currency"
+                    [(ngModel)]="parentRef.formData.currency"
+                    (change)="parentRef.formData.currencyName = $event.displayName">
+                </aps-custom-select>
+            </div>
+        </div>
+    </div>
+
+    <div class="aps-card p-px-3 p-pt-3">
+        <div class="header text-bold">
+            {{ 'Additional Parameters' | apsTranslate }}<sup class="asterik">*</sup>
+        </div>
+        <div class="p-grid g-margin-x p-pt-2">
+            <div class="p-md-6 p-sm-12 p-col-12 p-pb-0">
+                <aps-multi-select name="paymentMethod" id="paymentMethod" label="{{ 'Payment Method' | apsTranslate }}"
+                    dataUrl="setup/security/corporateAuthorizationMatrix/private/dropdown/paymentMethods"
+                    [(ngModel)]="parentRef.formData.paymentMethods" [value]="parentRef.formData.paymentMethods"
+                    [showCount]="false"></aps-multi-select>
+            </div>
+            <div class="p-md-6 p-sm-12 p-col-12 p-pb-0">
+                <aps-form-input id="accountsMapped" name="accountsMapped" rightIcon="fa-search"
+                    label="{{ 'Accounts Mapped' | apsTranslate }}" (onRightIcon)="isShowAccounts = true"
+                    [(ngModel)]="parentRef.formData.accountsMapped" [readOnly]="true"></aps-form-input>
+            </div>
+        </div>
+    </div>
+</ng-container>

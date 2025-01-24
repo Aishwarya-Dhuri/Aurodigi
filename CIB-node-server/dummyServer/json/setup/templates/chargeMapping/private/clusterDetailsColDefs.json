@@ -1,0 +1,31 @@
+[
+  {
+    "headerName": "Template Code",
+    "field": "templateCode"
+  },
+  {
+    "headerName": "Product Name",
+    "field": "productName"
+  },
+  {
+    "headerName": "Event",
+    "field": "event"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Calculating Frequency",
+    "field": "calFrequency"
+  },
+  {
+    "headerName": "Posting Frequency",
+    "field": "postingFrequency"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer"
+  }
+]

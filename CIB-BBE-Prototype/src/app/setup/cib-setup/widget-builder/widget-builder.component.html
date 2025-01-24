@@ -1,0 +1,656 @@
+<div class="container">
+  <!-- Stepper Header -->
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+  </div>
+  <!-- Step 1: Widget Details-->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 1">
+    <div class="p-col-12 p-py-3 text-bold">
+      {{ 'Widget Details' | apsTranslate }}
+    </div>
+    <div class="p-col-12">
+      <form name="step1Details" #step1Details="ngForm">
+        <div class="aps-card aps-h-400 p-p-2">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Widget For' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton class="p-mr-2" name="isForAdminPortal" [label]="'Admin Portal' | apsTranslate"
+                  [value]="true" [(ngModel)]="formData.isForAdminPortal"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="isForAdminPortal" [label]="'CIB' | apsTranslate" [value]="false"
+                  [(ngModel)]="formData.isForAdminPortal"></p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select [label]="'Product' | apsTranslate" name="moduleId" id="moduleId"
+                [(ngModel)]="formData.moduleId" [value]="formData.moduleId"
+                dataUrl="setup/cibSetup/widgetBuilder/private/getProductList"
+                [reqBody]="{ isForAdminPortal: formData.isForAdminPortal }" (change)="onProductChange($event)"
+                [required]="true">
+              </aps-custom-select>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Widget Code' | apsTranslate" name="widgetCode" id="widgetCode"
+                inputType="noSpaceAlphaNumeric" [(ngModel)]="formData.widgetCode" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Widget Name' | apsTranslate" name="widgetName" id="widgetName"
+                inputType="alphaNumeric" [(ngModel)]="formData.widgetName" [required]="true">
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-6 p-lg-6 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Widget Type' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton class="p-mr-2" name="widgetType" [label]="'Chart' | apsTranslate" value="Chart"
+                  [(ngModel)]="formData.widgetType"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="widgetType" [label]="'Table/Grid' | apsTranslate" value="Table/Grid"
+                  [(ngModel)]="formData.widgetType"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="widgetType" [label]="'Calender' | apsTranslate" value="Calender"
+                  [(ngModel)]="formData.widgetType"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="widgetType" [label]="'Advertisement' | apsTranslate"
+                  value="Advertisement" [(ngModel)]="formData.widgetType"></p-radioButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Step 2: Widget Generation-->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 2">
+    <!-- Configurations -->
+    <div class="p-col-12 p-md-7 p-lg-7">
+      <div class="aps-card aps-h-100p p-p-2">
+        <ng-container *ngIf="formData.widgetType == 'Chart'">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select [label]="'Data Source' | apsTranslate" name="dataSource" id="dataSource"
+                [(ngModel)]="formData.chartOptions[0].dataSource" [value]="formData.chartOptions[0].dataSource"
+                dataUrl="setup/cibSetup/widgetBuilder/private/dropdown/dataSourceList" [required]="true">
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Data from' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-px-1">
+                <p-radioButton class="p-mr-2" name="dataFrom" [label]="'API' | apsTranslate" value="API"
+                  [(ngModel)]="formData.chartOptions[0].dataFrom"></p-radioButton>
+                <p-radioButton name="dataFrom" [label]="'Query' | apsTranslate" value="Query"
+                  [(ngModel)]="formData.chartOptions[0].dataFrom"></p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-5 p-lg-5" *ngIf="formData.chartOptions[0].dataFrom == 'API'">
+              <aps-form-input [label]="'API Url' | apsTranslate" name="apiUrl" id="apiUrl" inputType="noSpace"
+                [(ngModel)]="formData.chartOptions[0].apiUrl" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-5 p-lg-5" *ngIf="formData.chartOptions[0].dataFrom == 'Query'">
+              <aps-form-input [label]="'Query String' | apsTranslate" name="queryString" id="queryString"
+                [(ngModel)]="formData.chartOptions[0].queryString" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-1 p-lg-1 p-pt-3">
+              <button class="btn btn-sm btn-primary p-mt-1" [disabled]="
+                  (formData.chartOptions[0].dataFrom == 'API' &&
+                    !formData.chartOptions[0].apiUrl) ||
+                  (formData.chartOptions[0].dataFrom == 'Query' &&
+                    !formData.chartOptions[0].queryString)
+                " (click)="fetchChartData()">
+                FETCH
+              </button>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <aps-custom-select label="Chart Type" name="chartType" id="chartType"
+                [(ngModel)]="formData.chartOptions[0].chartType" [value]="formData.chartOptions[0].chartType"
+                dataUrl="setup/cibSetup/widgetBuilder/private/dropdown/chartTypeList" (change)="refreshChart()"
+                [required]="true">
+              </aps-custom-select>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <aps-form-input [label]="'X Title' | apsTranslate" name="categoryAxesTitle" id="categoryAxesTitle"
+                inputType="alphaNumeric" [(ngModel)]="formData.chartOptions[0].categoryAxesTitle" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <aps-form-input [label]="'Y1 Title' | apsTranslate" name="numberAxesTitle0" id="numberAxesTitle0"
+                inputType="alphaNumeric" [(ngModel)]="formData.chartOptions[0].numberAxesTitle[0]" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-4 p-lg-4" *ngIf="
+                ['lineColumn', 'lineGroupedColumn'].includes(formData.chartOptions[0].chartType)
+              ">
+              <aps-form-input [label]="'Y2 Title' | apsTranslate" name="numberAxesTitle1" id="numberAxesTitle1"
+                inputType="alphaNumeric" [(ngModel)]="formData.chartOptions[0].numberAxesTitle[1]" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid">
+            <ng-container *ngFor="
+                let y of [].constructor(formData.chartOptions[0].yLabels.length);
+                let i = index
+              ">
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-0">
+                <div class="p-grid">
+                  <div [ngClass]="{ 'p-col-12': i == 0, 'p-col-11': i != 0 }">
+                    <aps-form-input [label]="'Y label ' + (i + 1) | apsTranslate" [name]="'yLabel' + (i + 1)"
+                      [id]="'yLabel' + (i + 1)" inputType="alphaNumeric"
+                      [(ngModel)]="formData.chartOptions[0].yLabels[i]" [required]="true" (focusout)="refreshChart()">
+                    </aps-form-input>
+                  </div>
+                  <div class="p-col-1 p-px-0 p-pt-4" *ngIf="i != 0">
+                    <app-icon class="pointer p-px-1" icon="fa-trash-alt" (click)="removeChartY(i)">
+                    </app-icon>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <div class="p-col-12 p-pt-0">
+              <button class="btn btn-sm btn-primary float-right"
+                [disabled]="formData.chartOptions[0].yLabels.length == 10" (click)="addChartY()">
+                ADD MORE Y LABEL
+              </button>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Left Padding' | apsTranslate" name="leftPadding" id="leftPadding"
+                inputType="numeric" [(ngModel)]="formData.chartOptions[0].leftPadding" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Right Padding' | apsTranslate" name="rightPadding" id="rightPadding"
+                inputType="numeric" [(ngModel)]="formData.chartOptions[0].rightPadding" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Top Padding' | apsTranslate" name="topPadding" id="topPadding"
+                inputType="numeric" [(ngModel)]="formData.chartOptions[0].topPadding" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Bottom Padding' | apsTranslate" name="bottomPadding" id="bottomPadding"
+                inputType="numeric" [(ngModel)]="formData.chartOptions[0].bottomPadding" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Legend Position' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton class="p-mr-2" name="legendPosition" [label]="'Left' | apsTranslate" value="left"
+                  [(ngModel)]="formData.chartOptions[0].legendPosition" (onClick)="refreshChart()"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendPosition" [label]="'Right' | apsTranslate" value="right"
+                  [(ngModel)]="formData.chartOptions[0].legendPosition" (onClick)="refreshChart()"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendPosition" [label]="'Top' | apsTranslate" value="top"
+                  [(ngModel)]="formData.chartOptions[0].legendPosition" (onClick)="refreshChart()"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendPosition" [label]="'Bottom' | apsTranslate" value="bottom"
+                  [(ngModel)]="formData.chartOptions[0].legendPosition" (onClick)="refreshChart()"></p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Legend Item Marker Shape' | apsTranslate }}
+                <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Circle' | apsTranslate"
+                  value="circle" [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape"
+                  (onClick)="refreshChart()"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Cross' | apsTranslate"
+                  value="cross" [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape" (onClick)="refreshChart()">
+                </p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Diamond' | apsTranslate"
+                  value="diamond" [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape"
+                  (onClick)="refreshChart()"></p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Plus' | apsTranslate" value="plus"
+                  [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape" (onClick)="refreshChart()">
+                </p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Square' | apsTranslate"
+                  value="square" [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape"
+                  (onClick)="refreshChart()">
+                </p-radioButton>
+                <p-radioButton class="p-mr-2" name="legendItemMarkerShape" [label]="'Triangle' | apsTranslate"
+                  value="triangle" [(ngModel)]="formData.chartOptions[0].legendItemMarkerShape"
+                  (onClick)="refreshChart()">
+                </p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Legend Item Marker Size' | apsTranslate" name="legendItemMarkerSize"
+                id="legendItemMarkerSize" inputType="numeric"
+                [(ngModel)]="formData.chartOptions[0].legendItemMarkerSize" [required]="true"
+                (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <aps-form-input [label]="'Legend Item Label Size' | apsTranslate" name="legendItemLabelSize"
+                id="legendItemLabelSize" inputType="numeric" [(ngModel)]="formData.chartOptions[0].legendItemLabelSize"
+                [required]="true" (focusout)="refreshChart()">
+              </aps-form-input>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Table/Grid'">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <aps-custom-select [label]="'Data Source' | apsTranslate" name="dataSource" id="dataSource"
+                [(ngModel)]="formData.tableGridOptions[0].dataSource" [value]="formData.tableGridOptions[0].dataSource"
+                dataUrl="setup/cibSetup/widgetBuilder/private/dropdown/dataSourceList" [required]="true">
+              </aps-custom-select>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-lg-4">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Is API Based Column Defination' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch id="isApiBasedColDefs" name="isApiBasedColDefs"
+                  [(ngModel)]="formData.tableGridOptions[0].isApiBasedColDefs">
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6" *ngIf="formData.tableGridOptions[0].isApiBasedColDefs">
+              <aps-form-input [label]="'ColumnDef Url' | apsTranslate" name="colDefUrl" id="colDefUrl"
+                inputType="noSpace" [(ngModel)]="formData.tableGridOptions[0].colDefUrl" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-1 p-lg-1 p-pt-3" *ngIf="formData.tableGridOptions[0].isApiBasedColDefs">
+              <button class="btn btn-sm btn-primary p-mt-1" [disabled]="!formData.tableGridOptions[0].colDefUrl"
+                (click)="fetchTableGridColumnDef()">
+                FETCH
+              </button>
+            </div>
+          </div>
+          <div class="p-grid" *ngIf="!formData.tableGridOptions[0].isApiBasedColDefs">
+            <div class="p-col-12">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Column Definations' | apsTranslate }}
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-p-0" *ngFor="
+                    let coldef of formData.tableGridOptions[0].tableGridWidgetColDefList;
+                    let i = index
+                  ">
+                  <div class="p-grid">
+                    <div class="p-col-5 p-md-4 p-lg-4 p-py-0">
+                      <aps-form-input [id]="'columnHeading' + i" [name]="'columnHeading' + i"
+                        [label]="'Column Heading' | apsTranslate" inputType="alphaNumeric"
+                        [(ngModel)]="coldef.headerName" (change)="refreshAgGrid()" [required]="true">
+                      </aps-form-input>
+                    </div>
+                    <div class="p-col-5 p-md-4 p-lg-4 p-py-0">
+                      <aps-form-input [id]="'columnName' + i" [name]="'columnName' + i"
+                        [label]="'Data Field Key Name' | apsTranslate" inputType="noSpaceAlphaNumeric"
+                        [(ngModel)]="coldef.field" (change)="refreshAgGrid()" [required]="true">
+                      </aps-form-input>
+                    </div>
+                    <div class="p-col-2 p-pt-3">
+                      <app-icon class="pointer" icon="fa fa-trash-alt" (click)="
+                          formData.tableGridOptions[0].tableGridWidgetColDefList.splice(i, 1);
+                          refreshAgGrid()
+                        ">
+                      </app-icon>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-col-12 p-py-0 p-md-8 p-lg-8">
+                  <button class="btn btn-md btn-primary" (click)="
+                      formData.tableGridOptions[0].tableGridWidgetColDefList.push({
+                        headerName: '',
+                        field: '',
+                        sortable: true
+                      })
+                    ">
+                    ADD MORE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-lg-4 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Row Data from' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-px-1">
+                <p-radioButton class="p-mr-2" name="dataFrom" [label]="'API' | apsTranslate" value="API"
+                  [(ngModel)]="formData.tableGridOptions[0].dataFrom"></p-radioButton>
+                <p-radioButton name="dataFrom" [label]="'Query' | apsTranslate" value="Query"
+                  [(ngModel)]="formData.tableGridOptions[0].dataFrom"></p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6" *ngIf="formData.tableGridOptions[0].dataFrom == 'API'">
+              <aps-form-input [label]="'Row Data Url' | apsTranslate" name="rowDefUrl" id="rowDefUrl"
+                inputType="noSpace" [(ngModel)]="formData.tableGridOptions[0].rowDefUrl" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6" *ngIf="formData.tableGridOptions[0].dataFrom == 'Query'">
+              <aps-form-input [label]="'Row Data Query String' | apsTranslate" name="rowDefQueryString"
+                id="rowDefQueryString" [(ngModel)]="formData.tableGridOptions[0].rowDefQueryString" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-1 p-lg-1 p-pt-3">
+              <button class="btn btn-sm btn-primary p-mt-1" [disabled]="
+                  (formData.tableGridOptions[0].dataFrom == 'API' &&
+                    !formData.tableGridOptions[0].rowDefUrl) ||
+                  (formData.tableGridOptions[0].dataFrom == 'Query' &&
+                    !formData.tableGridOptions[0].rowDefQueryString)
+                " (click)="fetchTableGridData()">
+                FETCH
+              </button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Calender'"></ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Advertisement'">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Is Url Based' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch id="isUrlBased" name="isUrlBased"
+                  [(ngModel)]="formData.advertisementOptions[0].isUrlBased">
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6" *ngIf="formData.advertisementOptions[0].isUrlBased">
+              <aps-form-input [label]="'Advertisement Url' | apsTranslate" name="advertisementUrl" id="advertisementUrl"
+                inputType="noSpace" [(ngModel)]="formData.advertisementOptions[0].advertisementUrl"
+                (change)="refreshAdvertisement()" [required]="true">
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6" *ngIf="!formData.advertisementOptions[0].isUrlBased">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Advertisement File' | apsTranslate }}
+              </div>
+              <upload-form-control [isMultiple]="false" [files]="formData.advertisementOptions[0].advertisementFileList"
+                [hideDragDropContainerOnFIleUpload]="true" (onSelected)="onAdvertisementFileSelected($event)">
+              </upload-form-control>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <!-- Preview -->
+    <div class="p-col-12 p-md-5 p-lg-5">
+      <!-- widget preview -->
+      <div class="aps-card aps-h-350 overflow-hidden p-p-2">
+        <!-- 4 types of widget preview -->
+        <ng-container *ngIf="formData.widgetType == 'Chart'">
+          <div *ngIf="isRefreshed">
+            <aps-chart #chart [options]="formData.chartOptions[0]"></aps-chart>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Table/Grid'">
+          <app-ag-grid-listing *ngIf="isRefreshed" id="gridPreview"
+            [columnDefs]="formData.tableGridOptions[0].tableGridWidgetColDefList"
+            [rowData]="formData.tableGridOptions[0].rowData" [supressAutoFit]="true">
+          </app-ag-grid-listing>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Calender'"></ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Advertisement'">
+          <img *ngIf="formData.advertisementOptions[0].advertisementImgUrl"
+            [src]="formData.advertisementOptions[0].advertisementImgUrl" class="aps-max-w-100p aps-max-h-100p" />
+        </ng-container>
+      </div>
+      <!-- Data preview -->
+      <div class="aps-card aps-h-250 p-mt-3 text-size-12" *ngIf="formData.widgetType != 'Advertisement'"
+        [ngClass]="{ 'aps-h-350': formData.widgetType == 'Chart' }">
+        <ng-container *ngIf="formData.widgetType == 'Chart'">
+          <div class="inline-block aps-h-350 aps-w-100p overflow-y-scroll p-px-2">
+            <pre><p>{{formData.chartOptions[0].data | json}}</p></pre>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Table/Grid'">
+          <div class="inline-block aps-h-250 aps-w-50p overflow-y-scroll p-px-2 border-right">
+            <pre><p>{{formData.tableGridOptions[0].tableGridWidgetColDefList | json}}</p></pre>
+          </div>
+          <div class="inline-block aps-h-250 aps-w-50p overflow-y-scroll p-px-2">
+            <pre><p>{{formData.tableGridOptions[0].rowData | json}}</p></pre>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Calender'"></ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- Step 3: Review and Submit -->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 3">
+    <div class="p-col-12 p-py-3 text-bold">
+      {{ 'Review Details & Confirm' | apsTranslate }}
+    </div>
+    <div class="p-col-12">
+      <!-- 'Widget Details -->
+      <div class="aps-card p-px-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ 'Widget Details' | apsTranslate }}
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'For Admin Portal' | apsTranslate"
+              [value]="(formData.isForAdminPortal ? 'Yes' : 'No') | apsTranslate"></app-review-form-field>
+          </div>
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'Product' | apsTranslate" [value]="formData.moduleName">
+            </app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'Widget Code' | apsTranslate" [value]="formData.widgetCode">
+            </app-review-form-field>
+          </div>
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'Widget Name' | apsTranslate" [value]="formData.widgetName">
+            </app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'Widget Type' | apsTranslate" [value]="formData.widgetType">
+            </app-review-form-field>
+          </div>
+        </div>
+      </div>
+      <!-- 'Widget Generation -->
+      <div class="aps-card p-px-3 p-mt-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ formData.widgetType + ' ' }}{{ 'Details' | apsTranslate }}
+        </div>
+        <!-- Chart Details -->
+        <ng-container *ngIf="formData.widgetType == 'Chart'">
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Data Source' | apsTranslate"
+                [value]="formData.chartOptions[0].dataSource">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Data from' | apsTranslate" [value]="formData.chartOptions[0].dataFrom">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.chartOptions[0].dataFrom == 'API'">
+              <app-review-form-field [label]="'API Url' | apsTranslate" [value]="formData.chartOptions[0].apiUrl">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.chartOptions[0].dataFrom == 'Query'">
+              <app-review-form-field [label]="'Query String' | apsTranslate"
+                [value]="formData.chartOptions[0].queryString">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Chart Type' | apsTranslate" [value]="formData.chartOptions[0].chartType">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'X Title' | apsTranslate"
+                [value]="formData.chartOptions[0].categoryAxesTitle">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Y1 Title' | apsTranslate"
+                [value]="formData.chartOptions[0].numberAxesTitle[0]">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="
+                ['lineColumn', 'lineGroupedColumn'].includes(formData.chartOptions[0].chartType)
+              ">
+              <app-review-form-field [label]="'Y2 Title' | apsTranslate"
+                [value]="formData.chartOptions[0]?.numberAxesTitle[1]">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2" *ngFor="
+                let y of [].constructor(formData.chartOptions[0].yLabels.length);
+                let i = index
+              ">
+              <app-review-form-field [label]="'Y label ' + (i + 1) | apsTranslate"
+                [value]="formData.chartOptions[0].yLabels[i]">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Left Padding' | apsTranslate"
+                [value]="formData.chartOptions[0].leftPadding">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Right Padding' | apsTranslate"
+                [value]="formData.chartOptions[0].rightPadding">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Top Padding' | apsTranslate"
+                [value]="formData.chartOptions[0].topPadding">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Bottom Padding' | apsTranslate"
+                [value]="formData.chartOptions[0].bottomPadding">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Legend Position' | apsTranslate"
+                [value]="formData.chartOptions[0].legendPosition">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Legend Item Marker Shape' | apsTranslate"
+                [value]="formData.chartOptions[0].legendItemMarkerShape">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Legend Item Marker Size' | apsTranslate"
+                [value]="formData.chartOptions[0]?.legendItemMarkerSize">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Legend Item Label Size' | apsTranslate"
+                [value]="formData.chartOptions[0]?.legendItemLabelSize">
+              </app-review-form-field>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Table/Grid'">
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Data Source' | apsTranslate"
+                [value]="formData.tableGridOptions[0].dataSource">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Is API Based Column Defination' | apsTranslate" [value]="
+                  (formData.tableGridOptions[0].isApiBasedColDefs ? 'Yes' : 'No') | apsTranslate
+                ">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.tableGridOptions[0].isApiBasedColDefs">
+              <app-review-form-field [label]="'ColumnDef Url' | apsTranslate"
+                [value]="formData.tableGridOptions[0].colDefUrl">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Row Data from' | apsTranslate"
+                [value]="formData.tableGridOptions[0].dataFrom">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.tableGridOptions[0].dataFrom == 'API'">
+              <app-review-form-field [label]="'Row Data Url' | apsTranslate"
+                [value]="formData.tableGridOptions[0].rowDefUrl">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.tableGridOptions[0].dataFrom == 'Query'">
+              <app-review-form-field [label]="'Row Data Query String' | apsTranslate"
+                [value]="formData.tableGridOptions[0].rowDefQueryString">
+              </app-review-form-field>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="formData.widgetType == 'Advertisement'">
+          <div class="p-grid">
+            <div class="p-col-6 p-md-2 p-lg-2">
+              <app-review-form-field [label]="'Is Url Based' | apsTranslate" [value]="
+                  (formData.advertisementOptions[0].isUrlBased ? 'Yes' : 'No') | apsTranslate
+                ">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="formData.advertisementOptions[0].isUrlBased">
+              <app-review-form-field [label]="'Advertisement Url' | apsTranslate"
+                [value]="formData.advertisementOptions[0].advertisementUrl">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-2 p-lg-2" *ngIf="!formData.advertisementOptions[0].isUrlBased">
+              <app-review-form-field [label]="'Advertisement Url' | apsTranslate"
+                [value]="formData.advertisementOptions[0].advertisementFileList[0].fileName">
+              </app-review-form-field>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- Form Actions -->
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-mt-2">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "mandateRefNo": "CB120622156",
+      "umrn": "12345",
+      "prodName": "400402prg1",
+      "customerName": "Sahi74254",
+      "customerBank": "HDFC",
+      "customerAccNo": "9292",
+      "customerBankIfsc": "HDFC0000121"
+    }
+  ],
+  "lastRow": 2
+}

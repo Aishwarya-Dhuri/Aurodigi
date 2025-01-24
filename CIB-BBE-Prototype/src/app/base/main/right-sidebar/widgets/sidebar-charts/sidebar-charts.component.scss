@@ -1,0 +1,79 @@
+.sidebar-charts-container {
+  display: block;
+
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .charts {
+    display: block;
+
+    .chart-wrapper {
+      display: block;
+      border-bottom: 1px solid var(--background-color);
+
+      .chart-heading {
+        display: block;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--background-color);
+        color: var(--text-color-dark-shade-1);
+      }
+
+      .chart-item-wrapper {
+        display: block;
+
+        .chart-item {
+          display: block;
+          border: 1px solid var(--background-color);
+          margin-bottom: 8px;
+          cursor: pointer;
+
+          .item-heading {
+            display: block;
+            padding: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--text-color-dark-shade-1);
+            border-bottom: 1px solid var(--background-color-dark-1);
+          }
+
+          .item-body {
+            display: block;
+            padding: 0.25rem;
+
+            .body-text {
+              display: inline-block;
+              vertical-align: top;
+              width: calc(100% - 2.5rem);
+              font-size: 0.875rem;
+              padding-right: 0.5rem;
+              color: var(--text-color);
+            }
+            .body-image {
+              display: inline-block;
+              vertical-align: top;
+              width: 2.5rem;
+              height: 2.5rem;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .chart-item-selected {
+        background-color: var(--primary-color-light-shade-1);
+        color: #171717;
+      }
+    }
+  }
+
+  .add-button {
+    position: absolute;
+    bottom: 1rem;
+    width: 15.5rem;
+  }
+}

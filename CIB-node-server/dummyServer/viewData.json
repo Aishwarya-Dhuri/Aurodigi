@@ -1,0 +1,626 @@
+{
+  "companyInformation": [
+    {
+      "companyName": "APS",
+      "customerId": "",
+      "accountNumber": "",
+      "taxIdentificationNumber": "123456",
+      "address": "12, ABC, XYZ",
+      "contactName": "Shubham",
+      "designation": "SE",
+      "emailId": "",
+      "mobileNumber": "",
+      "showOneTimePassword": false,
+      "oneTimePassword": "",
+      "showOtp": false,
+      "id": 1637745525579,
+      "version": 0,
+      "lastAction": "create",
+      "enabled": "Y",
+      "active": "Y",
+      "authorized": "N",
+      "modifiedBy": "adminmaker",
+      "modifiedOn": "15-MAR-18",
+      "modifiedSysOn": "24-Nov-2021 14:48:45",
+      "modifiedAtOU": 1,
+      "mstId": 1637745525579
+    }
+  ],
+  "userDetails": [
+    {
+      "firstName": "Shubham",
+      "lastName": "More",
+      "userId": "shubham.more",
+      "gender": "male",
+      "emailId": "shubham@aps.com",
+      "mobileNumber": "9876543210",
+      "accessRole": "maker",
+      "profile": "manager",
+      "authorizationLogic": "As Per",
+      "authorizationLimit": "100090",
+      "receiveAlerts": true,
+      "id": 1637745525579,
+      "version": 0,
+      "lastAction": "create",
+      "enabled": "Y",
+      "active": "Y",
+      "authorized": "N",
+      "modifiedBy": "adminmaker",
+      "modifiedOn": "15-MAR-18",
+      "modifiedSysOn": "24-Nov-2021 14:48:45",
+      "modifiedAtOU": 1,
+      "mstId": 1637745525579
+    }
+  ],
+  "productDetails": [
+    {
+      "accounts": [
+        {
+          "show": false,
+          "colDefs": [],
+          "reviewColDefs": [],
+          "activeType": "conventional",
+          "conventional": [
+            {
+              "show": false,
+              "rowData": [],
+              "selectedRowData": [],
+              "id": 1637745525580,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525580
+            }
+          ],
+          "islamic": [
+            {
+              "show": false,
+              "rowData": [],
+              "selectedRowData": [],
+              "id": 1637745525581,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525580
+            }
+          ],
+          "islamicConventional": [
+            {
+              "show": false,
+              "rowData": [],
+              "selectedRowData": [],
+              "id": 1637745525582,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525580
+            }
+          ],
+          "loanConventional": [
+            {
+              "show": false,
+              "rowData": [],
+              "selectedRowData": [],
+              "id": 1637745525583,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525580
+            }
+          ],
+          "id": 1637745525580,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "payments": [
+        {
+          "show": true,
+          "activeType": "merchantPayment",
+          "singlePayment": [
+            {
+              "show": true,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525584,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "bulkPayment": [
+            {
+              "show": true,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525584,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "oat": [
+            {
+              "show": true,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525585,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "wps": [
+            {
+              "show": false,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525586,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "billPayment": [
+            {
+              "show": true,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525586,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "merchantPayment": [
+            {
+              "show": true,
+              "colDefs": [],
+              "reviewColDefs": [],
+              "rowData": [],
+              "id": 1637745525587,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "mt101": [
+            {
+              "show": false,
+              "colDefs": [
+                {
+                  "headerName": "All",
+                  "field": "account",
+                  "headerCheckboxSelection": true,
+                  "headerCheckboxSelectionFilteredOnly": true,
+                  "checkboxSelection": true,
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                }
+              ],
+              "reviewColDefs": [
+                {
+                  "headerName": "Accounts",
+                  "field": "account",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                }
+              ],
+              "rowData": [
+                {
+                  "account": "54564232545 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232546 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232547 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232548 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232549 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232545 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232546 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232547 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232548 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                },
+                {
+                  "account": "54564232550 - INR",
+                  "id": 1637745525588,
+                  "version": 0,
+                  "lastAction": "create",
+                  "enabled": "Y",
+                  "active": "Y",
+                  "authorized": "N",
+                  "modifiedBy": "adminmaker",
+                  "modifiedOn": "15-MAR-18",
+                  "modifiedSysOn": "24-Nov-2021 14:48:45",
+                  "modifiedAtOU": 1,
+                  "mstId": 1637745525588
+                }
+              ],
+              "id": 1637745525588,
+              "version": 0,
+              "lastAction": "create",
+              "enabled": "Y",
+              "active": "Y",
+              "authorized": "N",
+              "modifiedBy": "adminmaker",
+              "modifiedOn": "15-MAR-18",
+              "modifiedSysOn": "24-Nov-2021 14:48:45",
+              "modifiedAtOU": 1,
+              "mstId": 1637745525584
+            }
+          ],
+          "authorizationRule": "self-authorization",
+          "authorizationMatrixDoc": [],
+          "limitType": "unlimited",
+          "limit": "",
+          "id": 1637745525584,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "ccss": [
+        {
+          "show": true,
+          "id": 1637745525589,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "dds": [
+        {
+          "show": false,
+          "id": 1637745525589,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "trade": [
+        {
+          "show": false,
+          "id": 1637745525590,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "otherServices": [
+        {
+          "show": true,
+          "forcedDebitFeature": true,
+          "releaserFunctionality": true,
+          "mobileApp": false,
+          "id": 1637745525590,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525580
+        }
+      ],
+      "id": 1637745525580,
+      "version": 0,
+      "lastAction": "create",
+      "enabled": "Y",
+      "active": "Y",
+      "authorized": "N",
+      "modifiedBy": "adminmaker",
+      "modifiedOn": "15-MAR-18",
+      "modifiedSysOn": "24-Nov-2021 14:48:45",
+      "modifiedAtOU": 1,
+      "mstId": 1637745525579
+    }
+  ],
+  "documentDetails": [
+    {
+      "companyTradeLicense": [
+        {
+          "progress": 100,
+          "status": "Complete",
+          "fileName": "Desert.jpg",
+          "fileSize": 845941,
+          "sysFileName": "sys10051991_Desert.jpg",
+          "id": 1637745525590,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525590
+        }
+      ],
+      "memorandumOfAssociation": [
+        {
+          "progress": 100,
+          "status": "Complete",
+          "fileName": "Chrysanthemum.tif",
+          "fileSize": 1813344,
+          "sysFileName": "sys10051991_Chrysanthemum.tif",
+          "id": 1637745525590,
+          "version": 0,
+          "lastAction": "create",
+          "enabled": "Y",
+          "active": "Y",
+          "authorized": "N",
+          "modifiedBy": "adminmaker",
+          "modifiedOn": "15-MAR-18",
+          "modifiedSysOn": "24-Nov-2021 14:48:45",
+          "modifiedAtOU": 1,
+          "mstId": 1637745525590
+        }
+      ],
+      "shareCertificates": [],
+      "boardOfDirectors": [],
+      "otherDocuments": [],
+      "id": 1637745525590,
+      "version": 0,
+      "lastAction": "create",
+      "enabled": "Y",
+      "active": "Y",
+      "authorized": "N",
+      "modifiedBy": "adminmaker",
+      "modifiedOn": "15-MAR-18",
+      "modifiedSysOn": "24-Nov-2021 14:48:45",
+      "modifiedAtOU": 1,
+      "mstId": 1637745525579
+    }
+  ],
+  "id": 1637745525579,
+  "version": 0,
+  "lastAction": "create",
+  "enabled": "Y",
+  "active": "Y",
+  "authorized": "N",
+  "modifiedBy": "adminmaker",
+  "modifiedOn": "15-MAR-18",
+  "modifiedSysOn": "24-Nov-2021 14:48:45",
+  "modifiedAtOU": 1
+}

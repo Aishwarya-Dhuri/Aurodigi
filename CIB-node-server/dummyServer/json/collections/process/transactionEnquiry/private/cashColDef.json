@@ -1,0 +1,12 @@
+{
+  "columnDefs": [
+    { "headerName": "Deposit Slip No", "field": "depositSlipNumber" },
+    { "headerName": "Deposit Date", "field": "depositDate" },
+    { "headerName": "Deposit Amount", "field": "depositAmount" },
+    { "headerName": "Deposit Location", "field": "depositLocationCode" },
+    { "headerName": "Credit Date", "field": "creditDate" },
+    { "headerName": "Pickup Location", "field": "pickupLocation" },
+    { "headerName": "Pickup Point", "field": "pickupPoint" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer","pinned":"right" }
+  ]
+}

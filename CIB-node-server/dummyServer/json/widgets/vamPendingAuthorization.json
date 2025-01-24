@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "label": "Virtual account issuance",
+      "total": 4,
+      "pending": 2
+    },
+    {
+      "label": "VA issuance upload",
+      "total": 10,
+      "pending": 5
+    },
+    {
+      "label": "VAM status mgmt",
+      "total": 60,
+      "pending": 20
+    }
+  ],
+  "series": [
+    {
+      "type": "bar",
+      "xKey": "label",
+      "yKeys": ["pending", "total"],
+      "yNames": ["Pending", "Total"],
+      "grouped": false,
+      "shadow": { "enabled": false }
+    }
+  ],
+  "axes": [
+    { "type": "category", "position": "left" },
+    {
+      "type": "number",
+      "position": "bottom",
+      "title": {
+        "text": "No of Requests",
+        "enabled": true,
+        "fontFamily": "NunitoSans-Bold"
+      }
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

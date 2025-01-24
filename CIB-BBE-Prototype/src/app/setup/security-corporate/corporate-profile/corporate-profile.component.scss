@@ -1,0 +1,42 @@
+.corporate-profile-container {
+  .corporate-profile-list {
+    display: block;
+
+    .list-item {
+      display: inline-block;
+      vertical-align: top;
+      height: 40px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: var(--background-color);
+      border: 1px solid var(--background-color-dark-5);
+      font-size: 0.875rem;
+      color: var(--text-color);
+      transition: all 0.125s;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--primary-color);
+        background-color: var(--primary-color-light-shade-2);
+        color: var(--primary-color);
+      }
+    }
+
+    .active-item {
+      border-color: var(--primary-color) !important;
+      background-color: var(--primary-color) !important;
+      color: var(--inverted-text-color) !important;
+    }
+  }
+
+  .grid-container {
+    display: block;
+    height: 300px;
+    margin-top: 22px;
+  }
+
+  .list-card-container {
+    display: block;
+    margin-top: 22px;
+  }
+}

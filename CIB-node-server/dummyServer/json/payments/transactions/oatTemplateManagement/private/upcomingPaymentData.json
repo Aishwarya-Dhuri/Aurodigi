@@ -1,0 +1,208 @@
+{
+  "data": [
+    {
+      "id": 1493721,
+      "amount": "50000.00",
+      "siOrTemplateName": "SS Template",
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+      "currency": "PHP",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493720,
+      "amount": "70000.00",
+      "siOrTemplateName": "SI Slips",
+
+      "paymentMethod": "CEFTS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493719,
+      "amount": "150000.00",
+      "siOrTemplateName": "SI",
+
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+      "currency": "PHP",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493718,
+      "amount": "1550000.00",
+      "siOrTemplateName": "SIOwn cheque",
+
+      "paymentMethod": "CEFTS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493717,
+      "amount": "5500.00",
+      "siOrTemplateName": "ceftsi",
+
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493716,
+      "amount": "566600.00",
+      "siOrTemplateName": "MJ",
+
+      "paymentMethod": "CEFTS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "LKR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493715,
+      "amount": "100000.00",
+      "siOrTemplateName": "9999 CC",
+
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493714,
+      "amount": "2000.00",
+      "siOrTemplateName": "YouTemplate",
+
+      "paymentMethod": "SLIPS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "LKR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493713,
+      "amount": "87000.00",
+      "siOrTemplateName": "GoldTemplate",
+
+      "paymentMethod": "RTGS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493712,
+      "amount": "99990.99",
+      "siOrTemplateName": "Silver",
+
+      "paymentMethod": "SLIPS",
+      "creditAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2020",
+
+      "currency": "PHP",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 10
+}

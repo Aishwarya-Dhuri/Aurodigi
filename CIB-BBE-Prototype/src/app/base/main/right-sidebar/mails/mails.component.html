@@ -1,0 +1,81 @@
+<app-modal [(isShow)]="showMailbox" size="lg" headerText="Mailbox">
+  <app-mailbox></app-mailbox>
+</app-modal>
+
+<div class="user-mails-container">
+  <div class="mails-header">
+    <div class="header-text">
+      <app-icon icon="fa-envelope" class="app-icon"></app-icon>
+      {{ 'Mails' | apsTranslate }}
+      <div class="mails-count">{{ mails.length }}</div>
+    </div>
+    <div class="header-actions">
+      <div class="action" (click)="closeSidebar()">
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="mail-input">
+    <span class="aps-w-100p p-input-icon-left">
+      <i class="fal fa-search"></i>
+      <input
+        class="aps-search-input"
+        type="search"
+        pInputText
+        placeholder="{{ 'Search Language' | apsTranslate }}"
+      />
+    </span>
+
+    <div class="mails">
+      <ng-container *ngIf="mails.length > 0; else noMailsTemplate">
+        <div class="mail-wrapper" *ngFor="let mail of mails">
+          <div class="user-image">
+            <img
+              [src]="
+                mail.fromUserImage ? mail.fromUserImage : './../../../../assets/images/avatar.png'
+              "
+              [alt]="mail.fromUserName"
+            />
+          </div>
+          <div class="mail-content">
+            <div class="left-right-container mail-details">
+              <div class="left-container user-name">{{ mail.fromUserName }}</div>
+              <div class="right-container mail-time">{{ mail.dateTime | date }}</div>
+            </div>
+            <div class="mail-subject">{{ mail.subject }}</div>
+            <!-- <div class="mail-body">This is regarding the payment that was done previously</div> -->
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noMailsTemplate>
+        <app-nothing-here message="No Unread Mails" colSize="10"> </app-nothing-here>
+      </ng-template>
+
+      <!-- <div class="mail-wrapper">
+        <div class="user-image">
+          <img src="./../../../../assets/images/avatar.png" alt="" />
+        </div>
+        <div class="mail-content">
+          <div class="left-right-container mail-details">
+            <div class="left-container user-name">James Tan</div>
+            <div class="right-container mail-time">11:30 AM</div>
+          </div>
+          <div class="mail-subject">Your Payment has been Approved</div>
+          <div class="mail-body">This is regarding the payment that was done previously</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="save-button">
+    <button
+      type="button"
+      class="aps-w-100p btn btn-md btn-primary p-mt-3"
+      (click)="showMailbox = true"
+    >
+      {{ 'VIEW MORE' | apsTranslate }}
+    </button>
+  </div>
+</div>

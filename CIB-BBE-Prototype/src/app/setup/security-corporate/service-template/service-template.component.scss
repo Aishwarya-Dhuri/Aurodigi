@@ -1,0 +1,50 @@
+.table-container {
+    height: calc(100% - 72px);
+    width: 100%;
+    padding: 0.5rem 0;
+    overflow: scroll;
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+
+        td,
+        th {
+            border: 1px solid var(--background-color-dark-5);
+        }
+    }
+}
+
+.dropDown {
+    height: 100px;
+}
+
+.rightArrow {
+    padding-left: 10rem !important;
+}
+
+.aps-card-primary1 {
+    // display: block;
+    // border-radius: var(--aps-card-border-radius);
+    // background-color: var(--primary-color) !important;
+    background-color: var(--background-color-dark-1) !important;
+    // color: var(--inverted-text-color) !important;
+    color: #009999;
+    // background-repeat: no-repeat;
+}
+
+
+.textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid (--primary-color);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 13px;
+    resize: none;
+    outline: none;
+    font-family: 'CIB Regular';
+}

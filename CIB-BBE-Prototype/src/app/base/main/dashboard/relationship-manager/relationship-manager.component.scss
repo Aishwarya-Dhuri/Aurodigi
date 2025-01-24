@@ -1,0 +1,68 @@
+.video-list {
+  position: relative;
+
+  video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+
+  .video {
+    position: relative;
+
+    transition: all 0.25s;
+
+    .play-icon {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.25s;
+      cursor: pointer;
+
+      &:hover {
+        font-size: 32px;
+      }
+    }
+
+    &:hover {
+      opacity: 0.5;
+
+      .play-icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.ellipse {
+  margin-top: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(203, 212, 212);
+}
+
+.ellipse-utilized {
+  background-color: var(--chart-0);
+}
+
+.ellipse-available {
+  background-color: var(--chart-2);
+}
+
+.gridster-container {
+  background-color: transparent;
+  width: 100% !important;
+  // overflow: initial;
+  // height: initial;
+}
+
+
+
+.chart-wrapper {
+  height: calc(100% - 48px) !important;
+}
+
+.backgroundImage {
+  background: url("../../../../../assets/images/mask/corporate-card-circle-pattern.png")
+}

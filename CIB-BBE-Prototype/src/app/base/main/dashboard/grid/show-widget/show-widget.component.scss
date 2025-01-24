@@ -1,0 +1,17 @@
+.visible-widget-container {
+  position: fixed;
+  width: 75vw;
+  height: 75vh;
+  top: 12.5vh;
+  left: 12.5vw;
+  overflow: hidden;
+  z-index: 20;
+
+  .show-widget {
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem 1rem;
+    background-color: var(--background-color-light-4);
+    border-radius: 5px;
+  }
+}

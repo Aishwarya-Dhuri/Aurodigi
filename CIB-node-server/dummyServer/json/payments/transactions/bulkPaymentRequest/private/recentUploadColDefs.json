@@ -1,0 +1,111 @@
+[
+  {
+    "headerName": "ID",
+    "field": "id",
+    "hide": "true",
+    "lockVisible": "false",
+    "filter": "false",
+    "sortable": "false"
+  },
+  {
+    "headerName": "Txn Date",
+    "field": "transactionDate",
+    "cellRenderer": "dateRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true
+  },
+  {
+    "headerName": "Batch No",
+    "field": "id",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Initiate Type",
+    "field": "initiateType",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Channel",
+    "field": "channel",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Request By",
+    "field": "requestBy",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "File Name",
+    "field": "fileName",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "No. of Txns",
+    "field": "noOfTransactions",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Upload Date Time",
+    "field": "modifiedSysOn",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "CCY",
+    "field": "currency",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "amountRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "false",
+    "sortable": "false"
+  }
+]

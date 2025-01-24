@@ -1,0 +1,12 @@
+[
+  { "headerName": "Sr. No", "field": "id" },
+  { "headerName": "Transaction Reference Number", "field": "transactionReferenceNumber" },
+  { "headerName": "Transaction Date", "field": "transactionDate", "cellRenderer": "dateRenderer" },
+  {
+    "headerName": "Transaction Amount",
+    "field": "transactionAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Channel", "field": "channel" },
+  { "headerName": "Status", "field": "status" }
+]

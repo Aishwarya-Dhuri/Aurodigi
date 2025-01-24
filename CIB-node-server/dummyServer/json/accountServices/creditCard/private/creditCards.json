@@ -1,0 +1,204 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "cardNo": "1234 XXXX XXXX 2345",
+      "currency": "SAR",
+      "dueDate": "19-April-24",
+      "cardType": "Regalia Card",
+      "cardStatus": "Active",
+      "embossedName": "Raj Jain",
+      "cardImg": "assets/images/Regalia.jpg",
+      "statementDate": "15-April-24",
+      "outStandingAmount": "5,0000.00",
+      "unbilledAmount": "20,000.00",
+      "cardLimit": "1,00,00,000.00",
+      "minDueAmount": "15,000",
+      "previousOutstandingBalance": "10,000.00",
+      "cashLimit": "20,000.00",
+      "availableLimit": "70,000.00",
+      "availableCashLimit": "20,000.00",
+      "eligibleLimit": "1,50,00,000.00",
+      "categoryWiseSpendChartData": [
+        { "displayName": "Travel", "amount": 2000 },
+        { "displayName": "Food", "amount": 1000 },
+        { "displayName": "Medical", "amount": 0 },
+        { "displayName": "Utility", "amount": 2000 },
+        { "displayName": "Shopping", "amount": 10000 },
+        { "displayName": "Others", "amount": 5000 }
+      ],
+      "recentCreditsData": [
+        {
+          "transactionRefNo": "233214333",
+          "transactionDate": "12-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "183133313 - SAR",
+          "creditAmount": "SAR 10000.00"
+        },
+        {
+          "transactionRefNo": "563243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Cashback",
+          "debitAccount": "",
+          "creditAmount": "SAR 200.00"
+        },
+        {
+          "transactionRefNo": "593343455",
+          "transactionDate": "9-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "9-April-24",
+          "creditType": "Refund",
+          "debitAccount": "",
+          "creditAmount": "SAR 1200.00"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cardNo": "1234 XXXX XXXX 3456",
+      "currency": "SAR",
+      "dueDate": "20-April-24",
+      "cardType": "Signature Plus",
+      "cardStatus": "Active",
+      "embossedName": "Mahesh Jadhav",
+      "cardImg": "assets/images/Millenia.png",
+      "statementDate": "20-April-24",
+      "outStandingAmount": "47,000.00",
+      "unbilledAmount": "13,000.00",
+      "cardLimit": "1,00,00,000.00",
+      "minDueAmount": "15,000.00",
+      "cashLimit": "20,000.00",
+      "availableLimit": "70,000.00",
+      "eligibleLimit": "1,50,00,000.00",
+      "availableCashLimit": "20,000.00",
+      "previousOutstandingBalance": "10,000.00",
+      "categoryWiseSpendChartData": [
+        { "displayName": "Travel", "amount": 2000 },
+        { "displayName": "Food", "amount": 1000 },
+        { "displayName": "Medical", "amount": 0 },
+        { "displayName": "Utility", "amount": 2000 },
+        { "displayName": "Shopping", "amount": 10000 },
+        { "displayName": "Others", "amount": 5000 }
+      ],
+      "recentCreditsData": [
+        {
+          "transactionRefNo": "233214333",
+          "transactionDate": "12-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "183133313 - SAR",
+          "creditAmount": "SAR 10000.00"
+        },
+        {
+          "transactionRefNo": "563243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Cashback",
+          "debitAccount": "",
+          "creditAmount": "SAR 200.00"
+        },
+        {
+          "transactionRefNo": "593343455",
+          "transactionDate": "9-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "9-April-24",
+          "creditType": "Refund",
+          "debitAccount": "",
+          "creditAmount": "SAR 1200.00"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "cardNo": "1234 XXXX XXXX 4567",
+      "currency": "SAR",
+      "dueDate": "21-April-24",
+      "cardType": "Millenia",
+      "cardStatus": "Inactive",
+      "embossedName": "Sunil Singh",
+      "cardImg": "assets/images/Signature.png",
+      "statementDate": "24-April-24",
+      "outStandingAmount": "22,000.00",
+      "unbilledAmount": "22,000.00",
+      "cardLimit": "1,00,00,000.00",
+      "cashLimit": "20,000.00",
+      "availableLimit": "70,000.00",
+      "eligibleLimit": "1,50,00,000.00",
+      "availableCashLimit": "20,000.00",
+      "minDueAmount": "15,000",
+      "previousOutstandingBalance": "10,000.00",
+      "categoryWiseSpendChartData": [
+        { "displayName": "Travel", "amount": 2000 },
+        { "displayName": "Food", "amount": 1000 },
+        { "displayName": "Medical", "amount": 0 },
+        { "displayName": "Utility", "amount": 2000 },
+        { "displayName": "Shopping", "amount": 10000 },
+        { "displayName": "Others", "amount": 5000 }
+      ],
+      "recentCreditsData": [
+        {
+          "transactionRefNo": "233214333",
+          "transactionDate": "12-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "183133313 - SAR",
+          "creditAmount": "SAR 10000.00"
+        },
+        {
+          "transactionRefNo": "563243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "10-April-24",
+          "creditType": "Cashback",
+          "debitAccount": "",
+          "creditAmount": "SAR 200.00"
+        },
+        {
+          "transactionRefNo": "593343455",
+          "transactionDate": "9-April-24",
+          "creditType": "Account Debit",
+          "debitAccount": "331334413 - SAR",
+          "creditAmount": "SAR 7000.00"
+        },
+        {
+          "transactionRefNo": "473243455",
+          "transactionDate": "9-April-24",
+          "creditType": "Refund",
+          "debitAccount": "",
+          "creditAmount": "SAR 1200.00"
+        }
+      ]
+    }
+  ],
+  "lastRow": 3,
+  "responseStatus": {
+    "message": "MSG_KEY_SUCCESS",
+    "status": "0"
+  }
+}

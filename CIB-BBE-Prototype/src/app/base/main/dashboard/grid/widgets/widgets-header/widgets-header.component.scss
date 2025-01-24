@@ -1,0 +1,111 @@
+.widget-header {
+  height: min-content;
+  padding: 0;
+  background-color: transparent;
+  color: var(--text-color-dark-shade-1);
+  padding: 0.5rem 0rem;
+  // font-size: 1rem;
+  border-bottom: 1.5px solid var(--primary-color);
+  background-color: var(--background-color-light-4);
+
+  .header-container {
+    display: block;
+
+    .header-text-container {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 7rem);
+
+      .heading {
+        display: block;
+        width: 100%;
+        padding-top: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // font-size: 1rem;
+        // font-family: "CIB Bold";
+        // max-width: calc(100% - 7rem);
+      }
+    }
+
+    .action-container {
+      display: inline-block;
+      vertical-align: top;
+      width: 102px;
+
+      .action-wrapper {
+        display: block;
+        width: 7rem;
+        font-size: 0.9rem;
+        opacity: 1;
+        transition: 0.25s all;
+        text-align: right;
+
+        .action {
+          position: relative;
+          display: inline-block;
+
+          .app-icon {
+            display: inline-block;
+            cursor: pointer;
+            color: var(--text-color);
+            margin: 0.5rem 0.25rem;
+          }
+
+          .chart-types {
+            position: absolute;
+            width: 9rem;
+            top: 16;
+            right: 0;
+            z-index: 10;
+          }
+
+          .more-options {
+            position: absolute;
+            width: 7rem;
+            top: 16;
+            right: 0;
+            z-index: 10;
+          }
+        }
+
+        @media screen and (max-width: 991px) {
+          opacity: 1;
+        }
+      }
+
+      .action-container:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.border-dark {
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.float {
+  float: right;
+  margin: 3px;
+}
+
+select {
+  border-radius: 3px;
+}
+
+select:focus {
+  outline: none;
+}
+
+.button {
+  margin-left: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  // transition: all 0.25s;
+}
+
+.btn:hover {
+  // transform: scale(1.05);
+}

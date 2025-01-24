@@ -1,0 +1,45 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Consumer Name",
+      "field": "consumerName"
+    },
+    {
+      "headerName": "Bill Amount",
+      "field": "billAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Payable Amount",
+      "field": "paymentAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Account No / IBAN / Credit Card No",
+      "field": "accountNo"
+    },
+    {
+      "headerName": "Bill Date",
+      "field": "billDate",
+      "cellRenderer": "dateRenderer"
+    },
+    {
+      "headerName": "Due Date",
+      "field": "dueDate",
+      "cellRenderer": "dateRenderer"
+    },
+    {
+      "headerName": "Consumer No / Ref 1",
+      "field": "consumerNo"
+    },
+    {
+      "headerName": "Ref2",
+      "field": "ref2"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

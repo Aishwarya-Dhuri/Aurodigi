@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Consignee Code",
+      "field": "consigneeCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Consignee Name",
+      "field": "consigneeName"
+    }
+  ]
+}

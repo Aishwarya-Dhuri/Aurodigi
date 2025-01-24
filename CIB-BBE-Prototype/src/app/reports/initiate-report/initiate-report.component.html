@@ -1,0 +1,743 @@
+<div class="container">
+  <form name="dynamicReportFieldForm" #dynamicReportFieldForm="ngForm">
+    <div class="p-grid" [ngClass]="{ 'g-margin-x': screenConfig.isSidePanelExpand }">
+      <!-- Search and Report Generation Section -->
+      <div
+        class="p-col-12"
+        [ngClass]="{
+          'p-md-11 p-lg-11 p-px-0': !screenConfig.isSidePanelExpand,
+          'p-md-7 p-lg-7': screenConfig.isSidePanelExpand
+        }"
+      >
+        <!-- Search By -->
+        <div class="aps-card p-p-3">
+          <!-- search by header -->
+          <div
+            class="left-right-container pointer"
+            [ngClass]="{ 'p-pb-2 border-bottom': screenConfig.isSearchExpand }"
+            (click)="toggleMainCard('isSearchExpand', !screenConfig.isSearchExpand)"
+          >
+            <div class="left-container">
+              <div class="text-size-16 text-bold">Search By</div>
+            </div>
+            <div class="right-container">
+              <app-icon
+                class="pointer float-right p-mx-2"
+                [icon]="screenConfig.isSearchExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+              >
+              </app-icon>
+            </div>
+          </div>
+          <!-- Search options -->
+          <div class="p-grid" *ngIf="screenConfig.isSearchExpand">
+            <!-- Product Selection -->
+            <div
+              class="p-col-12"
+              [ngClass]="{
+                'p-md-4 p-lg-4': !screenConfig.isSidePanelExpand,
+                'p-md-6 p-lg-6': screenConfig.isSidePanelExpand
+              }"
+            >
+              <aps-custom-select
+                label="Product"
+                name="product"
+                id="product"
+                [(ngModel)]="formData.product"
+                dataUrl="commons/commonService/private/getProductList"
+                (change)="onProductChange($event)"
+                [required]="true"
+              >
+              </aps-custom-select>
+            </div>
+            <!-- Category Selection -->
+            <div
+              class="p-col-12"
+              [ngClass]="{
+                'p-md-4 p-lg-4': !screenConfig.isSidePanelExpand,
+                'p-md-6 p-lg-6': screenConfig.isSidePanelExpand
+              }"
+            >
+              <aps-custom-select
+                label="Category"
+                name="category"
+                id="category"
+                [(ngModel)]="formData.categoryId"
+                [data]="categoryList"
+                (change)="onCategoryChange($event)"
+                [required]="true"
+              >
+              </aps-custom-select>
+            </div>
+            <!-- Sub Category Selection -->
+            <ng-container *ngIf="formData.categoryId == 'Generic'">
+              <div
+                class="p-col-12"
+                [ngClass]="{
+                  'p-md-4 p-lg-4': !screenConfig.isSidePanelExpand,
+                  'p-md-6 p-lg-6': screenConfig.isSidePanelExpand
+                }"
+              >
+                <aps-custom-select
+                  label="Sub Category"
+                  name="subCategory"
+                  id="subCategory"
+                  [(ngModel)]="formData.subCategoryId"
+                  [data]="subCategoryList"
+                  (change)="onSubCategoryChange($event)"
+                  [required]="true"
+                >
+                </aps-custom-select>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <!-- Report List Card -->
+        <div class="aps-card p-mt-3 aps-h-300" *ngIf="formData.reportFields.length == 0">
+          <!-- nothing here placeholder -->
+          <app-nothing-here
+            *ngIf="reportList.length == 0"
+            [colSize]="3"
+            message="Try diffrent search by"
+          >
+          </app-nothing-here>
+          <!-- report List -->
+          <ng-container *ngIf="reportList.length > 0">
+            <div class="p-grid">
+              <!-- report List header -->
+              <div class="p-col-12 p-md-7 p-lg-7 p-p-3">
+                <div class="text-size-16 text-bold">Reports Found ({{ reportList.length }})</div>
+              </div>
+              <!-- report List Search -->
+              <div class="p-col-12 p-md-5 p-lg-5 p-px-3 p-py-1">
+                <div class="aps-search-container-3">
+                  <input
+                    type="text"
+                    class="aps-search-input"
+                    placeholder="Enter keyword to search"
+                  />
+                  <div class="search-icon">
+                    <app-icon icon="fa-search"></app-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- report list for selection -->
+            <div class="p-grid">
+              <div
+                class="p-col-12 p-py-2 p-px-3 hover-background-color-primary-light-shade-2 pointer"
+                *ngFor="let report of reportList"
+                (click)="onReportClick(report)"
+              >
+                <div class="text-size-14 text-semi-bold">{{ report.displayName }}</div>
+                <div class="text-size-12">
+                  {{ formData.productName }} | {{ formData.categoryName }}
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- Report Generation Fields Card -->
+        <div class="aps-card p-mt-3 p-p-3" *ngIf="formData.reportFields.length > 0">
+          <!-- Report Generation header -->
+          <div
+            class="left-right-container pointer"
+            (click)="toggleMainCard('isReportExpand', !screenConfig.isReportExpand)"
+            [ngClass]="{ 'border-bottom p-pb-2': screenConfig.isReportExpand }"
+          >
+            <div class="left-container">
+              <div class="text-size-16 text-bold">{{ formData.reportName }}</div>
+            </div>
+            <div class="right-container">
+              <app-icon
+                class="pointer float-right p-mx-2"
+                [icon]="screenConfig.isReportExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+              >
+              </app-icon>
+            </div>
+          </div>
+          <!-- Report Generation Fields -->
+          <div [apsHide]="!screenConfig.isReportExpand">
+            <!-- Dynamic Report Fields -->
+            <div class="p-grid">
+              <ng-container *ngFor="let field of formData.reportFields; let i = index">
+                <div class="p-col-12 p-md-6 p-lg-6">
+                  <!-- Text Field -->
+                  <ng-container *ngIf="field.columnName == 'TEXT'">
+                    <aps-form-input
+                      [id]="field.propertyName"
+                      [label]="field.labelName"
+                      [name]="field.propertyName"
+                      [(ngModel)]="field.value"
+                      [required]="field.isMandatory"
+                    >
+                    </aps-form-input>
+                  </ng-container>
+                  <!-- Date Field -->
+                  <ng-container *ngIf="field.columnName == 'DATE'">
+                    <app-aps-calender
+                      [label]="field.labelName"
+                      [id]="field.propertyName"
+                      [name]="field.propertyName"
+                      [(ngModel)]="field.value"
+                      [required]="field.isMandatory"
+                    >
+                    </app-aps-calender>
+                  </ng-container>
+                  <!-- Radio Field -->
+                  <ng-container *ngIf="field.columnName == 'RADIO'">
+                    <div class="text-size-12 text-color-light-shade-1">
+                      {{ field.labelName }}
+                      <sup class="text-color-danger">*</sup>
+                    </div>
+                    <div class="text-size-14 p-pb-3">
+                      <ng-container
+                        *ngFor="let radioOption of field.radioCheckLabel?.split(','); let i = index"
+                      >
+                        <p-radioButton
+                          class="p-p-1"
+                          [name]="field.propertyName"
+                          [value]="field.columnValue.split(',')[i]"
+                          [label]="field.radioCheckLabel.split(',')[i]"
+                          [(ngModel)]="field.value"
+                        >
+                        </p-radioButton>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+                  <!-- Select Field -->
+                  <ng-container
+                    *ngIf="field.columnName == 'SELECT' || field.columnName == 'MULTISELECT'"
+                  >
+                    <!-- Select with Data Url -->
+                    <aps-custom-select
+                      *ngIf="field.searchRowDefUrl"
+                      [id]="field.propertyName"
+                      [label]="field.labelName"
+                      [name]="field.propertyName"
+                      [(ngModel)]="field.value"
+                      [required]="field.isMandatory"
+                      [dataUrl]="field.dataUrl"
+                    >
+                    </aps-custom-select>
+                    <!-- Select with fieldValueList -->
+                    <aps-custom-select
+                      *ngIf="!field.dataUrl"
+                      [id]="field.propertyName"
+                      [label]="field.labelName"
+                      [name]="field.propertyName"
+                      [(ngModel)]="field.value"
+                      [required]="field.isMandatory"
+                      [data]="field.selectData ? field.selectData : []"
+                    >
+                    </aps-custom-select>
+                  </ng-container>
+                  <!-- Search Field -->
+                  <ng-container *ngIf="field.columnName == 'SEARCH'">
+                    <aps-form-input
+                      [id]="field.propertyName"
+                      [label]="field.labelName"
+                      [name]="field.propertyName"
+                      [(ngModel)]="field.value"
+                      rightIcon="fa-search"
+                      (onRightIcon)="showSearchModal(field)"
+                      [required]="field.isMandatory"
+                    >
+                    </aps-form-input>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+            <!-- Filter Conditions -->
+            <div *ngIf="formData.filterConditionList.length > 0">
+              <!-- filter Heading with count -->
+              <div class="p-grid">
+                <div
+                  class="p-col-12 p-px-0 p-py-1 background-color-disabled pointer"
+                  (click)="
+                    screenConfig.isFilterExpand = !screenConfig.isFilterExpand;
+                    screenConfig.isSortExpand = false
+                  "
+                >
+                  <div class="p-grid">
+                    <div class="p-col-9 text-semi-bold">
+                      Set Filter Conditions ({{
+                        isLastFilterInvalid()
+                          ? formData.filterConditionList.length - 1
+                          : formData.filterConditionList.length
+                      }})
+                    </div>
+                    <div class="p-col-3">
+                      <app-icon
+                        class="pointer float-right p-mx-2"
+                        [icon]="screenConfig.isFilterExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+                      >
+                      </app-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Added Filter loop -->
+              <div class="p-grid" [apsHide]="!screenConfig.isFilterExpand">
+                <div
+                  class="p-col-12"
+                  *ngFor="let filter of formData.filterConditionList; let i = index"
+                >
+                  <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                      <aps-custom-select
+                        label="Filter"
+                        [name]="'filter' + i"
+                        [id]="'filter' + i"
+                        [(ngModel)]="filter.filterId"
+                        [data]="filter.filterList ? filter.filterList : []"
+                      >
+                      </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                      <aps-custom-select
+                        label="Operator"
+                        [name]="'operator' + i"
+                        [id]="'operator' + i"
+                        [(ngModel)]="filter.operatorId"
+                        [data]="filterOperatorList"
+                        [required]="filter.filterId != ''"
+                      >
+                      </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                      <aps-form-input
+                        [id]="'filterValue' + i"
+                        label="Value"
+                        [name]="'filterValue' + i"
+                        [(ngModel)]="filter.filterValue"
+                        [required]="filter.filterId != ''"
+                      >
+                      </aps-form-input>
+                    </div>
+                    <!-- delete action only when filter is only 1 or from 2nd onwards -->
+                    <div
+                      class="p-col-12 p-md-3 p-lg-3 p-pt-3 p-pb-0"
+                      *ngIf="formData.filterConditionList.length == 1 || i > 0"
+                    >
+                      <app-icon
+                        class="pointer p-mt-2"
+                        icon="fa-trash-alt"
+                        (click)="onDeleteFilter(i)"
+                      ></app-icon>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add More filter Button -->
+                <div class="p-col-12 p-py-0">
+                  <button
+                    class="btn btn-md btn-tertiary"
+                    [disabled]="isLastFilterInvalid()"
+                    (click)="onAddMoreFilter()"
+                  >
+                    ADD MORE
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Sort Conditions -->
+            <div *ngIf="formData.sortConditionList.length > 0">
+              <!-- sort Heading with count -->
+              <div class="p-grid">
+                <div
+                  class="p-col-12 p-px-0 p-py-1 background-color-disabled pointer p-mt-2"
+                  (click)="
+                    screenConfig.isSortExpand = !screenConfig.isSortExpand;
+                    screenConfig.isFilterExpand = false
+                  "
+                >
+                  <div class="p-grid">
+                    <div class="p-col-9 text-semi-bold">
+                      Set Sort Conditions ({{
+                        isLastSortConditionInvalid()
+                          ? formData.sortConditionList.length - 1
+                          : formData.sortConditionList.length
+                      }})
+                    </div>
+                    <div class="p-col-3">
+                      <app-icon
+                        class="pointer float-right p-mx-2"
+                        [icon]="screenConfig.isSortExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+                      >
+                      </app-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Added Sort condition loop -->
+              <div class="p-grid" [apsHide]="!screenConfig.isSortExpand">
+                <div
+                  class="p-col-12"
+                  *ngFor="let sortCondition of formData.sortConditionList; let i = index"
+                >
+                  <div class="p-grid">
+                    <div class="p-col-12 p-md-5 p-lg-5 p-py-0">
+                      <div class="text-size-12 text-color-light-shade-1">
+                        Sort by<sup class="text-color-danger">*</sup>
+                      </div>
+                      <div class="text-size-14">
+                        <p-radioButton
+                          class="p-p-1"
+                          [name]="'sortBy' + i"
+                          value="ASC"
+                          label="Ascending"
+                          [(ngModel)]="sortCondition.order"
+                        ></p-radioButton>
+                        <p-radioButton
+                          class="p-p-1"
+                          [name]="'sortBy' + i"
+                          value="DESC"
+                          label="Descending"
+                          [(ngModel)]="sortCondition.order"
+                        ></p-radioButton>
+                      </div>
+                    </div>
+                    <div class="p-col-12 p-md-4 p-lg-4 p-py-0">
+                      <aps-custom-select
+                        label="Sort Condition"
+                        [name]="'sortCondition' + i"
+                        [id]="'sortCondition' + i"
+                        [(ngModel)]="sortCondition.sortConditionId"
+                        [data]="sortCondition.sortList ? sortCondition.sortList : []"
+                      >
+                      </aps-custom-select>
+                    </div>
+                    <!-- delete action only when filter is only 1 or from 2nd onwards -->
+                    <div
+                      class="p-col-12 p-md-3 p-lg-3 p-pt-3 p-pb-0"
+                      *ngIf="formData.sortConditionList.length == 1 || i > 0"
+                    >
+                      <app-icon
+                        class="pointer p-mt-2"
+                        icon="fa-trash-alt"
+                        (click)="onDeleteSortCondition(i)"
+                      >
+                      </app-icon>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add More Sort condition Button -->
+                <div class="p-col-12 p-py-0">
+                  <button
+                    class="btn btn-md btn-tertiary"
+                    [disabled]="isLastSortConditionInvalid()"
+                    (click)="onAddMoreSortCondition()"
+                  >
+                    ADD MORE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule Report Card -->
+        <div
+          class="aps-card p-mt-3 p-p-3"
+          *ngIf="formData.reportFields.length > 0 && screenConfig.isScheduleApplicable"
+        >
+          <!-- Schedule header -->
+          <div
+            class="left-right-container"
+            [ngClass]="{ 'p-pb-2 border-bottom': formData.isScheduleReport }"
+          >
+            <div class="left-container">
+              <p-checkbox
+                name="isScheduleReport"
+                id="isScheduleReport"
+                label="Schedule Report"
+                checkboxIcon="fal fa-check"
+                labelStyleClass="text-size-16 text-bold pointer"
+                [(ngModel)]="formData.isScheduleReport"
+                [binary]="true"
+                (onChange)="onIsScheduleReportChanged($event)"
+              >
+              </p-checkbox>
+            </div>
+          </div>
+          <!-- Schedule Form -->
+          <div class="p-grid" *ngIf="formData.isScheduleReport">
+            <div class="p-col-12">
+              <div class="text-size-12 text-color-light-shade-1">
+                Channel<sup class="text-color-danger">*</sup>
+              </div>
+              <div class="text-size-14">
+                <p-checkbox
+                  *ngFor="let channel of channelList"
+                  class="p-p-1"
+                  name="channelId"
+                  id="channelId"
+                  [label]="channel.displayName"
+                  [value]="channel.id"
+                  checkboxIcon="fal fa-check"
+                  [(ngModel)]="formData.scheduleReportList[0].channelList"
+                >
+                </p-checkbox>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select
+                label="Report Frequency"
+                name="reportFrequency"
+                id="reportFrequency"
+                [required]="true"
+                [(ngModel)]="formData.scheduleReportList[0].reportFrequencyId"
+                [data]="reportFrequencyList"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select
+                label="Generated At"
+                name="generatedAt"
+                id="generatedAt"
+                [required]="true"
+                [(ngModel)]="formData.scheduleReportList[0].generatedAtId"
+                [data]="generatedAtList"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select
+                label="Activation Day"
+                name="activationDay"
+                id="activationDay"
+                [required]="true"
+                [(ngModel)]="formData.scheduleReportList[0].activationDayId"
+                [data]="activationDayList"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select
+                label="Report Format"
+                name="reportFormat"
+                id="reportFormat"
+                [required]="true"
+                [(ngModel)]="formData.scheduleReportList[0].reportFormatId"
+                [data]="reportFormatList"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <app-aps-calender
+                label="Start Time"
+                name="startTime"
+                id="startTime"
+                [timeOnly]="true"
+                [(ngModel)]="formData.scheduleReportList[0].startTime"
+                [required]="true"
+              >
+              </app-aps-calender>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <app-aps-calender
+                label="End Time"
+                name="endTime"
+                id="endTime"
+                [timeOnly]="true"
+                [(ngModel)]="formData.scheduleReportList[0].endTime"
+                [required]="true"
+              ></app-aps-calender>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <app-aps-calender
+                label="Every"
+                name="repeatEvery"
+                id="repeatEvery"
+                [timeOnly]="true"
+                [(ngModel)]="formData.scheduleReportList[0].repeatEvery"
+                [required]="true"
+              ></app-aps-calender>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3"></div>
+            <div class="p-col-12 p-md-6 p-lg-6">
+              <app-aps-calender
+                label="From Date"
+                name="scheduleFromDate"
+                id="scheduleFromDate"
+                [(ngModel)]="formData.scheduleReportList[0].scheduleFromDate"
+                [required]="true"
+              ></app-aps-calender>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6">
+              <app-aps-calender
+                label="To Date"
+                name="scheduleToDate"
+                id="scheduleToDate"
+                [(ngModel)]="formData.scheduleReportList[0].scheduleToDate"
+              ></app-aps-calender>
+            </div>
+            <div class="p-col-12 p-p-0">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-6 p-lg-6">
+                  <div class="text-size-12 text-color-light-shade-1">
+                    Email Ids<sup class="text-color-danger">*</sup>
+                  </div>
+                  <div class="text-size-14">
+                    <p-checkbox
+                      class="p-p-1"
+                      name="emailIdTypeList"
+                      id="emailIdTypeList"
+                      label="Registered Email ID"
+                      value="REGISTERED"
+                      checkboxIcon="fal fa-check"
+                      [(ngModel)]="formData.scheduleReportList[0].emailIdTypeList"
+                    >
+                    </p-checkbox>
+                    <p-checkbox
+                      class="p-p-1"
+                      name="emailIdTypeList"
+                      id="emailIdTypeList"
+                      label="Additional Email ID"
+                      value="ADDITIONAL"
+                      checkboxIcon="fal fa-check"
+                      [(ngModel)]="formData.scheduleReportList[0].emailIdTypeList"
+                    >
+                    </p-checkbox>
+                  </div>
+                </div>
+                <div
+                  class="p-col-12 p-md-6 p-lg-6"
+                  *ngIf="formData.scheduleReportList[0].emailIdTypeList?.includes('ADDITIONAL')"
+                >
+                  <aps-form-input
+                    label="Additional Email IDs"
+                    name="additionalEmailIds"
+                    id="additionalEmailIds"
+                    [(ngModel)]="formData.scheduleReportList[0].additionalEmailIds"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12">
+              <div class="text-size-12 text-color-light-shade-1">
+                Download Format<sup class="text-color-danger">*</sup>
+              </div>
+              <div class="text-size-14">
+                <p-radioButton
+                  *ngFor="let format of downloadFormatList"
+                  class="p-p-1"
+                  id="downloadFormat"
+                  name="downloadFormat"
+                  [label]="format.displayName"
+                  [value]="format.id"
+                  [(ngModel)]="formData.scheduleReportList[0].downloadFormat"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="aps-card p-mt-3 action-container">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-6 p-lg-6">
+              <button
+                class="btn btn-md btn-tertiary"
+                *ngIf="formData.reportFields.length > 0"
+                [disabled]="dynamicReportFieldForm.invalid"
+              >
+                SAVE SEARCH CRITERIA
+              </button>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6">
+              <button
+                class="btn btn-md btn-primary p-mx-1 float-right"
+                [disabled]="formData.reportFields.length == 0 || dynamicReportFieldForm.invalid"
+                (click)="onSubmitClick()"
+              >
+                GENERATE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-1 float-right"
+                (click)="navigateToDashboard()"
+              >
+                CANCEL
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Side panel of Saved Criteria and Recent -->
+      <div
+        class="p-col-12"
+        [ngClass]="{
+          'p-md-1 p-lg-1 p-px-3': !screenConfig.isSidePanelExpand,
+          'p-md-5 p-lg-5': screenConfig.isSidePanelExpand
+        }"
+      >
+        <div
+          class="aps-card p-py-2 p-px-3 aps-h-100p fade-in-animation position-relative"
+          [ngClass]="{ 'p-mx-1': !screenConfig.isSidePanelExpand }"
+        >
+          <!-- Side panel Toggle button -->
+          <div
+            class="card-expand-arrow hide-on-mobile"
+            (click)="screenConfig.isSidePanelExpand = !screenConfig.isSidePanelExpand"
+          >
+            <app-icon
+              [icon]="screenConfig.isSidePanelExpand ? 'fa-chevron-right' : 'fa-chevron-left'"
+              styleClasses="text-color-inverted text-size-12"
+              [rtlIcon]="screenConfig.isSidePanelExpand ? 'fa-chevron-left' : 'fa-chevron-right'"
+            >
+            </app-icon>
+          </div>
+          <!-- Side Panel Closed -->
+          <div
+            class="text-size-16 text-semi-bold p-p-1"
+            style="writing-mode: vertical-rl"
+            *ngIf="!screenConfig.isSidePanelExpand"
+          >
+            Saved Criterion &nbsp;&nbsp;&nbsp;&nbsp; Recent
+          </div>
+          <!-- Side Panel Opened -->
+          <div *ngIf="screenConfig.isSidePanelExpand">
+            <p-tabView>
+              <p-tabPanel header="Saved Criterion">
+                <div class="p-py-1 p-px-3 border-bottom left-right-container">
+                  <div class="left-container">
+                    <div class="text-size-12 text-semi-bold p-py-2">Payment</div>
+                    <div class="text-size-10">Audit Trail | Corporate User Report</div>
+                  </div>
+                  <div class="right-container">
+                    <button class="btn btn-md btn-tertiary p-mt-2">REUSE</button>
+                  </div>
+                </div>
+                <div class="p-py-1 p-px-3 border-bottom left-right-container">
+                  <div class="left-container">
+                    <div class="text-size-12 text-semi-bold p-py-2">FSCM</div>
+                    <div class="text-size-10">Master | Corporate User Report</div>
+                  </div>
+                  <div class="right-container">
+                    <button class="btn btn-md btn-tertiary p-mt-2">REUSE</button>
+                  </div>
+                </div>
+              </p-tabPanel>
+              <p-tabPanel header="Recent">
+                <div class="p-py-1 p-px-3 border-bottom left-right-container">
+                  <div class="left-container">
+                    <div class="text-size-12 text-semi-bold p-py-2">FSCM</div>
+                    <div class="text-size-10">Master | Corporate User Report</div>
+                  </div>
+                  <div class="right-container">
+                    <button class="btn btn-md btn-tertiary p-mt-2">REUSE</button>
+                  </div>
+                </div>
+              </p-tabPanel>
+            </p-tabView>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

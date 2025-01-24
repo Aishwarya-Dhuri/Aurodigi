@@ -1,0 +1,53 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User Ref No.",
+      "field": "corporateReferenceNo"
+    },
+    {
+      "headerName": "BG Number",
+      "field": "bankGuaranteeNo"
+    },
+    {
+      "headerName": "No. of Amendments",
+      "field": "noOfAmendments"
+    },
+    {
+      "headerName": "Applicant Name",
+      "field": "applicantName"
+    },
+    {
+      "headerName": "beneficiaryName",
+      "field": "beneficiaryName"
+    },
+    {
+      "headerName": "BG Amount",
+      "field": "amount"
+    },
+    {
+      "headerName": "Beneficiary Bank",
+      "field": "beneficiaryBank"
+    },
+    {
+      "headerName": "BG Issue Date",
+      "field": "transactionDate"
+    },
+    {
+      "headerName": "BG Expiry Date",
+      "field": "expiryDate"
+    },
+    {
+      "headerName": "Claim Expiry Date",
+      "field": "claimExpiryDate"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Actions",
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

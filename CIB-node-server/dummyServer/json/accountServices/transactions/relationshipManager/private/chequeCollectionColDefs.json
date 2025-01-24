@@ -1,0 +1,5 @@
+[
+  { "headerName": "Cheque no", "field": "chequeNo" },
+  { "headerName": "Cheque Amt", "field": "amount", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

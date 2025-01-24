@@ -1,0 +1,40 @@
+.add-optional-container {
+  cursor: pointer;
+  background-color: var(--primary-color-light-shade-1);
+  border: 1px dotted var(--primary-color);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+
+  .row-skeleton {
+    margin-top: 0.3rem;
+    height: 0.35rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--background-color);
+    border-radius: 4px;
+  }
+
+  .width-90 {
+    width: 90%;
+  }
+
+  .width-60 {
+    width: 60%;
+  }
+
+  .circle-skeleton {
+    background-color: var(--primary-color-light);
+    border: 1px solid var(--primary-color-light);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.search-actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.p-pos-rel {
+  position: relative;
+}

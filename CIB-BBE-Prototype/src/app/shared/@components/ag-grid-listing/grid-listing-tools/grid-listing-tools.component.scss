@@ -1,0 +1,110 @@
+.ag-grid-listing-tools {
+  display: block;
+  height: 100%;
+
+  .download-options-container {
+    z-index: 10;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+  }
+
+  .column-configuration-container {
+    z-index: 10;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+  }
+
+  .aps-search-container-1 {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    color: var(--text-color);
+
+    .input-search {
+      display: block;
+      border: 1px solid var(--background-color);
+      border-radius: 4px;
+      padding: 4px 0;
+      padding-left: 36px;
+      outline: none;
+    }
+
+    .icon {
+      position: absolute;
+      left: 16px;
+      top: 2px;
+
+      i,
+      .app-icon {
+        color: var(--text-color);
+
+        font-size: 0.75rem;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .search-container-mobile {
+    width: calc(100% - 154px);
+  }
+
+  .label {
+    display: inline-block;
+    vertical-align: top;
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    margin: 4px 6px;
+    font-family: 'CIB SemiBold';
+  }
+
+  .divider-v {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid var(--background-color);
+    border-radius: 1px;
+    height: calc(100% - 10px);
+    margin: 4px 6px;
+  }
+
+  .icon-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 6px;
+    position: relative;
+
+    i,
+    .app-icon {
+      color: var(--text-color);
+
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+
+  .toggle-select-container {
+    display: inline-block;
+    background-color: var(--background-color);
+    border-radius: 4px;
+
+    .action {
+      display: inline-block;
+
+      i,
+      .app-icon {
+        padding: 0.5rem 0.125rem;
+      }
+    }
+
+    .active {
+      background-color: var(--primary-color);
+      border-radius: 4px;
+
+      i,
+      .app-icon {
+        color: var(--inverted-text-color);
+      }
+    }
+  }
+}

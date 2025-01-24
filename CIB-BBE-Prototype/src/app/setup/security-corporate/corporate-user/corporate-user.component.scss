@@ -1,0 +1,73 @@
+.corporate-user-container {
+  .corporate-user-list {
+    display: block;
+
+    .list-item {
+      display: inline-block;
+      vertical-align: top;
+      height: 40px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: var(--background-color);
+      border: 1px solid var(--background-color-dark-5);
+      font-size: 0.875rem;
+      color: var(--text-color);
+      transition: all 0.125s;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--primary-color);
+        background-color: var(--primary-color-light-shade-2);
+        color: var(--primary-color);
+      }
+    }
+
+    .active-item {
+      border-color: var(--primary-color) !important;
+      background-color: var(--primary-color) !important;
+      color: var(--inverted-text-color) !important;
+    }
+  }
+
+  .grid-container {
+    display: block;
+    height: 300px;
+    margin-top: 22px;
+  }
+
+  .list-card-container {
+    display: block;
+    margin-top: 22px;
+  }
+}
+
+.table-container {
+  height: calc(100% - 72px);
+  width: 100%;
+  padding: 0.5rem 0;
+  overflow: scroll;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td,
+    th {
+      border: 1px solid var(--background-color-dark-5);
+    }
+  }
+}
+
+
+
+.inputText {
+  background: #ffffff !important;
+  padding: 8px 16px;
+  border: 1px solid #ebebeb;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  letter-spacing: 0px;
+}

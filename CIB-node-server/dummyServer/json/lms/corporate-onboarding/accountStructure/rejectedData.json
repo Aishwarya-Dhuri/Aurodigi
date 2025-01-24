@@ -1,0 +1,426 @@
+{
+  "data": [
+    {
+      "corporateGroup": "New Group",
+      "corporateName": "New Group",
+      "structureName": "New Group",
+      "structureType": "Intercompany",
+      "mainAccountNumber": "IND-HDFC-678-789-789-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "BIGC Group",
+      "corporateName": "BIGC Group",
+      "structureName": "BIGC Group",
+      "structureType": "Intercompany",
+      "mainAccountNumber": "IND-HSBC-333-000-111-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "Toyota",
+      "corporateName": "Toyota Corporation",
+      "structureName": "Toyota-new",
+      "structureType": "Sweep",
+      "mainAccountNumber": "IND-CNRB-321-321-321-SAR",
+      "executionFrequency": "Intraday",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "BIGC Group",
+      "corporateName": "BIGC Group",
+      "structureName": "BIGC Group",
+      "structureType": "Sweep",
+      "mainAccountNumber": "IND-HSBC-333-000-111-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "BIGC Group",
+      "corporateName": "BIGC Group",
+      "structureName": "BIGC Group",
+      "structureType": "Intercompany",
+      "mainAccountNumber": "IND-HSBC-333-000-111-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "Toyota",
+      "corporateName": "Toyota Corporation",
+      "structureName": "Toyota-new",
+      "structureType": "Sweep",
+      "mainAccountNumber": "IND-CNRB-321-321-321-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "BIGC Group",
+      "corporateName": "BIGC Group",
+      "structureName": "BIGC Group",
+      "structureType": "Intercompany",
+      "mainAccountNumber": "IND-HSBC-333-000-111-SAR",
+      "executionFrequency": "Intraday",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "Toyota",
+      "corporateName": "Toyota Corporation",
+      "structureName": "Toyota-new",
+      "structureType": "Sweep",
+      "mainAccountNumber": "IND-CNRB-321-321-321-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+    {
+      "corporateGroup": "BIGC Group",
+      "corporateName": "BIGC Group",
+      "structureName": "BIGC Group",
+      "structureType": "Pool",
+      "mainAccountNumber": "IND-HSBC-333-000-111-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    },
+
+    {
+      "corporateGroup": "Millennial Group",
+      "corporateName": "Millennial Group",
+      "structureName": "Millennial Group",
+      "structureType": "Sweep",
+      "mainAccountNumber": "IND-HDFC-678-789-789-SAR",
+      "executionFrequency": "Daily",
+      "actions": [
+        {
+          "index": 1,
+          "paramList": "",
+          "methodName": "edit",
+          "type": "ICON",
+          "displayName": "Edit",
+          "icon": "fa-pencil"
+        },
+        {
+          "index": 2,
+          "paramList": "",
+          "methodName": "initiate",
+          "type": "ICON",
+          "displayName": "Initiate",
+          "icon": "fa-directions"
+        },
+        {
+          "index": 3,
+          "paramList": "",
+          "methodName": "refresh",
+          "type": "ICON",
+          "displayName": "Refresh",
+          "icon": "fa-paperclip"
+        },
+        {
+          "index": 4,
+          "paramList": "",
+          "methodName": "delete",
+          "type": "ICON",
+          "displayName": "Delete",
+          "icon": "fa-trash"
+        }
+      ]
+    }
+  ],
+  "lastRow": 12
+}

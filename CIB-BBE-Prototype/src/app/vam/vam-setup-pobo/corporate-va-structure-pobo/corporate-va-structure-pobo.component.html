@@ -1,0 +1,849 @@
+<div class="container p-mt-3">
+  <!-- Step Tracker -->
+  <app-stepper-header [parentRef]="this"></app-stepper-header>
+
+  <!-- Header and Copy Buttons -->
+  <ng-template #headerAndCopyButtons>
+    <div class="p-grid">
+      <div class="p-col-12 p-md-6 p-lg-6 p-mt-3 p-px-0 p-py-2 text-size-16 text-semi-bold">
+        Corporate Details
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-6 p-mt-3 p-px-0 p-py-0">
+        <button class="btn btn-md btn-tertiary float-right" (click)="isShowCopyFromModal = true">
+          <app-icon class="p-px-2" icon="fa-copy"></app-icon>COPY FROM EXISTING
+        </button>
+        <button class="btn btn-md btn-tertiary float-right" (click)="isShowDraftModal = true">
+          <app-icon class="p-px-2" icon="fa-file"></app-icon>OPEN FROM DRAFT
+        </button>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Step 1 Details -->
+  <ng-container *ngIf="stepperDetails.currentStep == 1">
+    <ng-container *ngTemplateOutlet="headerAndCopyButtons"></ng-container>
+
+    <div class="aps-card p-my-3 p-p-3 aps-min-h-400">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-0">
+          <div class="text-size-14">
+            VA Structure Creation For<sup class="text-color-danger">*</sup>
+          </div>
+          <div class="text-size-14">
+            <p-radioButton
+              class="p-pt-2"
+              name="structureCreationFor"
+              value="POBO"
+              label="POBO"
+              [(ngModel)]="formData.structureCreationFor"
+            >
+            </p-radioButton>
+            <p-radioButton
+              class="p-pt-2 p-px-3"
+              name="structureCreationFor"
+              value="COBO"
+              label="COBO"
+              [(ngModel)]="formData.structureCreationFor"
+            >
+            </p-radioButton>
+          </div>
+        </div>
+        <div class="p-col-12 p-px-0">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+              <aps-form-input
+                id="corporateCode"
+                label="Corporate Code"
+                name="corporateCode"
+                rightIcon="fa-search"
+                (onRightIcon)="isShowCorporateSearch = true"
+                [(ngModel)]="formData.corporateCode"
+                disabled="true"
+                required="true"
+              >
+              </aps-form-input>
+              <app-search-modal
+                *ngIf="isShowCorporateSearch"
+                [(isShow)]="isShowCorporateSearch"
+                header="Corporate Details"
+                [colDefUrl]="corporateSearchColDefUrl"
+                [rowDefUrl]="corporateSearchRowDefUrl"
+                (onSelection)="onCorporateSelected($event)"
+              >
+              </app-search-modal>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.corporateCode">
+              <div
+                class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2"
+              >
+                Corporate Name
+              </div>
+              <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                {{ formData.corporateName }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-px-0">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+              <aps-custom-select
+                id="accountNo"
+                name="accountNo"
+                label="Account Number"
+                [(ngModel)]="formData.corporateAccountId"
+                (focusout)="onAccountSelection()"
+                [data]="accountNoList"
+                required="true"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.corporateAccountId">
+              <div
+                class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2"
+              >
+                Account Description
+              </div>
+              <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                {{ formData.accountDescription }}
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.corporateAccountId">
+              <div
+                class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2"
+              >
+                Account Branch
+              </div>
+              <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                {{ formData.accountBranch }}
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2" *ngIf="formData.corporateAccountId">
+              <p-checkbox
+                name="isDisplayActualAccount"
+                binary="true"
+                [label]="
+                  'Display Actual Account with ' + formData.structureCreationFor + ' Account'
+                "
+                [(ngModel)]="formData.isDisplayActualAccount"
+              >
+              </p-checkbox>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2" *ngIf="formData.corporateAccountId">
+              <p-checkbox
+                name="isMaskActualAccount"
+                binary="true"
+                label="Mask Actual Account Number"
+                [(ngModel)]="formData.isMaskActualAccount"
+                [disabled]="!formData.isDisplayActualAccount"
+              >
+              </p-checkbox>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-px-0">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+              <aps-form-input
+                id="corporateStructureName"
+                label="Corporate Structure Name"
+                name="corporateStructureName"
+                inputType="alphaNumeric"
+                [(ngModel)]="formData.corporateStructureName"
+                required="true"
+              >
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0">
+              <div class="text-size-14 p-px-2">
+                Virtual Account Type<sup class="text-color-danger">*</sup>
+                <app-icon
+                  class="p-px-2 pointer"
+                  icon="fa-question-circle"
+                  pTooltip="Based on Bank Parameter master"
+                ></app-icon>
+              </div>
+              <div class="text-size-14 p-px-2">
+                <p-radioButton
+                  class="p-pt-2"
+                  name="virtualAccountType"
+                  value="Normal"
+                  label="Normal"
+                  [(ngModel)]="formData.virtualAccountType"
+                >
+                </p-radioButton>
+                <p-radioButton
+                  class="p-pt-2 p-px-3"
+                  name="virtualAccountType"
+                  value="VIBAN"
+                  label="VIBAN"
+                  [(ngModel)]="formData.virtualAccountType"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0">
+              <div class="text-size-14 p-px-2">
+                VA Status on Creation<sup class="text-color-danger">*</sup>
+              </div>
+              <div class="text-size-14 p-px-2">
+                <p-radioButton
+                  class="p-pt-2"
+                  name="vaStatus"
+                  value="Active"
+                  label="Active"
+                  [(ngModel)]="formData.vaStatus"
+                >
+                </p-radioButton>
+                <p-radioButton
+                  class="p-pt-2 p-px-3"
+                  name="vaStatus"
+                  value="Inactive"
+                  label="Inactive"
+                  [(ngModel)]="formData.vaStatus"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-col-12 p-px-0">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-0">
+              <aps-custom-select
+                id="bankStructureId"
+                name="bankStructureId"
+                label="Bank Constant"
+                [(ngModel)]="formData.bankStructureId"
+                (focusout)="onBankConstantSelection()"
+                [data]="bankConstantList"
+                required="true"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.bankStructureId">
+              <div
+                class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2"
+              >
+                Maximum Length of VA
+              </div>
+              <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                {{ formData.maxLength }}
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="formData.bankStructureId">
+              <div
+                class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2"
+              >
+                Prefix Value
+              </div>
+              <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                {{ formData.prefixValue }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Step 2 Details -->
+  <ng-container *ngIf="stepperDetails.currentStep == 2">
+    <ng-container *ngTemplateOutlet="headerAndCopyButtons"></ng-container>
+
+    <div class="p-grid">
+      <div class="p-col-12 p-md-9 p-lg-9 p-py-0 p-pl-0 p-pr-2">
+        <div class="aps-card p-my-3 p-py-3 aps-h-400 overflow-y-scroll">
+          <div class="p-grid">
+            <div class="p-col-12 p-p-0">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                  <aps-custom-select
+                    id="vaCreationLogic"
+                    name="vaCreationLogic"
+                    label="VA Creation Logic"
+                    [(ngModel)]="formData.vaCreationLogic"
+                    (focusout)="generateStructures(); generateStructurePreview()"
+                    [data]="vaCreationLogicList"
+                    required="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div
+                  class="p-col-12 p-md-4 p-lg-4 p-pt-3 p-pb-0"
+                  *ngIf="formData.vaCreationLogic == 'Component Based VA'"
+                >
+                  <p-checkbox
+                    name="isPartialMatchRequired"
+                    binary="true"
+                    label="Partial Match Required"
+                    [(ngModel)]="formData.isPartialMatchRequired"
+                  >
+                  </p-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="formData.vaCreationLogic">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                  <aps-form-input
+                    id="lenOfVA"
+                    label="Length of VA"
+                    name="lenOfVA"
+                    inputType="numeric"
+                    [(ngModel)]="formData.lenOfVA"
+                    (change)="generateStructurePreview()"
+                    maxLength="2"
+                    required="true"
+                  ></aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1">
+                  <aps-form-input
+                    id="countOfVA"
+                    label="Total count of VA"
+                    name="countOfVA"
+                    inputType="numeric"
+                    [(ngModel)]="formData.countOfVA"
+                    maxLength="5"
+                  ></aps-form-input>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="formData.vaCreationLogic == 'Adhoc VA Creation'">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                  <aps-custom-select
+                    id="uploadformatId"
+                    name="uploadformatId"
+                    label="Issuance Upload Format"
+                    [(ngModel)]="formData.uploadformatId"
+                    [data]="uploadFormatList"
+                    required="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1">
+                  <aps-custom-select
+                    id="downloadformatId"
+                    name="downloadformatId"
+                    label="Issuance Download Format"
+                    [(ngModel)]="formData.downloadformatId"
+                    [data]="downloadFormatList"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="formData.vaCreationLogic == 'Component Based VA'">
+            <div
+              class="p-grid"
+              *ngFor="let structure of formData.vaStructureComponentList; let i = index"
+            >
+              <div class="p-col-12 p-my-1 p-px-0 p-py-1 background-color-disabled">
+                <div class="p-grid">
+                  <div class="p-col-4 p-md-2 p-lg-2 p-px-3 p-py-2 text-size-14 text-semi-bold">
+                    <span class="inline-block">Component&nbsp;{{ i + 1 }}</span>
+                  </div>
+                  <div class="p-col-5 p-md-7 p-lg-7 p-px-0 p-py-2 text-size-14">
+                    <p-checkbox
+                      *ngIf="formData.isPartialMatchRequired"
+                      name="isPartialMatch"
+                      binary="true"
+                      label="Partial Match"
+                      [(ngModel)]="structure.isPartialMatch"
+                    >
+                    </p-checkbox>
+                  </div>
+                  <div class="p-col-3 p-px-3 p-py-2">
+                    <app-icon
+                      class="float-right pointer"
+                      [icon]="structure.isExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+                      (click)="showHideStructureDetails(i)"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-px-0 p-py-3" *ngIf="structure.isExpand">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                    <aps-custom-select
+                      id="fieldType"
+                      name="fieldType"
+                      label="Field Type"
+                      [(ngModel)]="structure.fieldType"
+                      (focusout)="resetComponent(i, 'All'); generateStructurePreview()"
+                      [data]="fieldTypeList"
+                      required="true"
+                    >
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1">
+                    <aps-form-input
+                      id="fieldLen"
+                      name="fieldLen"
+                      label="Field Length"
+                      inputType="numeric"
+                      [(ngModel)]="structure.fieldLen"
+                      (focusout)="generateStructurePreview()"
+                      maxLenght="2"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                </div>
+                <div class="p-grid" *ngIf="structure.fieldType == 'Static'">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                    <aps-custom-select
+                      id="dataType"
+                      name="dataType"
+                      label="Data Type"
+                      [(ngModel)]="structure.dataType"
+                      (focusout)="resetComponent(i, 'dataType'); generateStructurePreview()"
+                      [data]="dataTypeList"
+                      required="true"
+                    >
+                    </aps-custom-select>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1"
+                    *ngIf="structure.dataType == 'Numeric'"
+                  >
+                    <aps-form-input
+                      id="staticValue"
+                      name="staticValue"
+                      label="Static Value"
+                      inputType="numeric"
+                      [(ngModel)]="structure.staticValue"
+                      (change)="generateStructurePreview()"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1"
+                    *ngIf="structure.dataType == 'Alphanumeric'"
+                  >
+                    <aps-form-input
+                      id="staticValue"
+                      name="staticValue"
+                      label="Static Value"
+                      inputType="alphaNumeric"
+                      [(ngModel)]="structure.staticValue"
+                      (change)="generateStructurePreview()"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1"
+                    *ngIf="structure.dataType == 'Freetext'"
+                  >
+                    <aps-form-input
+                      id="staticValue"
+                      name="staticValue"
+                      label="Static Value"
+                      [(ngModel)]="structure.staticValue"
+                      (change)="generateStructurePreview()"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                </div>
+                <div class="p-grid" *ngIf="structure.fieldType == 'Dynamic'">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                    <aps-custom-select
+                      id="dynamicType"
+                      name="dynamicType"
+                      label="Dynamic Type"
+                      [(ngModel)]="structure.dynamicType"
+                      (focusout)="resetComponent(i, 'dynamicType'); generateStructurePreview()"
+                      [data]="dynamicTypeList"
+                      required="true"
+                    >
+                    </aps-custom-select>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1"
+                    *ngIf="structure.dynamicType == 'Series'"
+                  >
+                    <aps-form-input
+                      id="startSeries"
+                      name="startSeries"
+                      label="Start Series"
+                      inputType="numeric"
+                      [(ngModel)]="structure.startSeries"
+                      (change)="generateStructurePreview()"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1"
+                    *ngIf="structure.dynamicType == 'Series'"
+                  >
+                    <aps-form-input
+                      id="endSeries"
+                      name="endSeries"
+                      label="End Series"
+                      inputType="numeric"
+                      [(ngModel)]="structure.endSeries"
+                      (change)="generateStructurePreview()"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1"
+                    *ngIf="structure.dynamicType == 'Reference Field'"
+                  >
+                    <aps-custom-select
+                      id="referenceType"
+                      name="referenceType"
+                      label="Refrence Type"
+                      [(ngModel)]="structure.referenceType"
+                      (focusout)="resetComponent(i, 'referenceType'); generateStructurePreview()"
+                      [data]="referenceTypeList"
+                      [helpText]="'Length is ' + structure.fieldLen + ' characters'"
+                      required="true"
+                    >
+                    </aps-custom-select>
+                  </div>
+                </div>
+                <div
+                  class="p-grid"
+                  *ngIf="
+                    structure.fieldType == 'Dynamic' && structure.dynamicType == 'Reference Field'
+                  "
+                >
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-py-1">
+                    <div class="text-size-14">
+                      Padding Required<sup class="text-color-danger">*</sup>
+                    </div>
+                    <div class="p-py-2">
+                      <p-radioButton
+                        name="padding"
+                        value="Left"
+                        label="Left"
+                        [(ngModel)]="structure.padding"
+                        (onClick)="generateStructurePreview()"
+                      >
+                      </p-radioButton>
+                      <p-radioButton
+                        class="p-px-2"
+                        name="padding"
+                        value="Right"
+                        label="Right"
+                        [(ngModel)]="structure.padding"
+                        (onClick)="generateStructurePreview()"
+                      >
+                      </p-radioButton>
+                    </div>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1">
+                    <aps-form-input
+                      id="paddingVal"
+                      name="paddingVal"
+                      label="Padding Value"
+                      [(ngModel)]="structure.paddingVal"
+                      (change)="generateStructurePreview()"
+                      helpText="Value can be '0', 'X' or a special character"
+                      maxLength="1"
+                      required="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                </div>
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-1 p-py-1">
+                    <button
+                      class="btn btn-md btn-tertiary text-semi-bold"
+                      (click)="onAddComponent()"
+                    >
+                      <app-icon class="p-px-2" icon="fa-plus"></app-icon>
+                      ADD COMPONENT
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <!-- Structure Preview -->
+      <div class="p-col-12 p-md-3 p-lg-3 p-py-0 p-pl-2 p-pr-0">
+        <div class="aps-card p-my-3 p-px-3 p-py-2 aps-min-h-400">
+          <div class="p-grid">
+            <div class="p-col-12 p-px-0 p-pt-1 p-pb-2 border-bottom text-size-16 text-semi-bold">
+              Structure Preview
+            </div>
+            <ng-container *ngIf="formData.vaCreationLogic && formData.lenOfVA">
+              <div
+                class="p-col-12 p-px-0 p-pt-3 p-pb-0"
+                *ngIf="formData.vaCreationLogic == 'Component Based VA'"
+              >
+                <p-progressBar
+                  [value]="getComponentProgressValue()"
+                  [showValue]="false"
+                ></p-progressBar>
+                <span class="text-size-10 float-right inline-block">remaining</span>
+                <span class="text-size-10 float-right inline-block"
+                  >{{ getRemainigVALength() }}&nbsp;</span
+                >
+              </div>
+              <div class="p-col-12 p-px-0 overflow-scroll">
+                <span
+                  *ngFor="let preview of structurePreviewList"
+                  class="text-size-12 text-color-inverted"
+                  [ngClass]="preview.class"
+                  >{{ preview.value }}</span
+                >
+              </div>
+              <div
+                class="p-col-12 p-py-1 p-px-0 text-size-12"
+                *ngFor="let preview of structurePreviewList; let i = index"
+              >
+                <span [ngClass]="preview.class" class="p-mr-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span *ngIf="i == 0" class="inline-block">{{ preview.name }}</span>
+                <span *ngIf="i > 0" class="inline-block">Component&nbsp;</span>
+                <span
+                  *ngIf="i > 0 && formData.vaCreationLogic == 'Component Based VA'"
+                  class="inline-block"
+                  >{{ i }}</span
+                >
+                <span *ngIf="i > 0" class="inline-block">-&nbsp;{{ preview.name }}</span>
+                <span
+                  *ngIf="
+                    i > 0 &&
+                    formData.vaCreationLogic == 'Component Based VA' &&
+                    formData.vaStructureComponentList[i - 1] &&
+                    formData.vaStructureComponentList[i - 1].isPartialMatch
+                  "
+                  class="text-color-danger inline-block"
+                  >&nbsp;(Partial Match)</span
+                >
+              </div>
+            </ng-container>
+          </div>
+          <app-nothing-here
+            *ngIf="!formData.lenOfVA"
+            colSize="8"
+            messageClasses="text-color-light-shade-1 text-size-10"
+            headingClasses="text-bold text-size-14"
+            message="Enter Virtual Account Length for Preview"
+          >
+          </app-nothing-here>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Step 3 Details -->
+  <ng-container *ngIf="stepperDetails.currentStep == 3">
+    <div class="aps-card p-my-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-p-3 border text-size-16 text-semi-bold">Structure Review</div>
+        <div class="p-col-12 p-md-9 p-lg-9 p-px-0 p-py-3 border aps-h-400 overflow-y-scroll">
+          <div class="p-grid">
+            <div class="p-col-12 p-p-0">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                  <div class="text-size-12 text-color-light-shade-1">VA Creation Logic</div>
+                  <div class="text-size-14">{{ formData.vaCreationLogic }}</div>
+                </div>
+                <div
+                  class="p-col-12 p-md-4 p-lg-4"
+                  *ngIf="formData.vaCreationLogic == 'Component Based VA'"
+                >
+                  <p-checkbox
+                    name="isPartialMatchRequired"
+                    binary="true"
+                    label="Partial Match Required"
+                    [(ngModel)]="formData.isPartialMatchRequired"
+                    disabled="true"
+                  >
+                  </p-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="formData.vaCreationLogic">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                  <div class="text-size-12 text-color-light-shade-1">Length of VA</div>
+                  <div class="text-size-14">{{ formData.lenOfVA }}</div>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-2">
+                  <div class="text-size-12 text-color-light-shade-1">Total count of VA</div>
+                  <div class="text-size-14">{{ formData.countOfVA }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="formData.vaCreationLogic == 'Adhoc VA Creation'">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                  <div class="text-size-12 text-color-light-shade-1">Issuance Upload Format</div>
+                  <div class="text-size-14">{{ formData.uploadformatId }}</div>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4 p-px-2 p-py-1">
+                  <div class="text-size-12 text-color-light-shade-1">Issuance Download Format</div>
+                  <div class="text-size-14">{{ formData.downloadformatId }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="formData.vaCreationLogic == 'Component Based VA'">
+            <div
+              class="p-grid"
+              *ngFor="let structure of formData.vaStructureComponentList; let i = index"
+            >
+              <div class="p-col-12 p-my-1 p-px-0 p-py-1 background-color-disabled">
+                <div class="p-grid">
+                  <div class="p-col-4 p-md-2 p-lg-2 p-px-3 p-py-2 text-size-14 text-semi-bold">
+                    <span class="inline-block">Component&nbsp;{{ i + 1 }}</span>
+                  </div>
+                  <div class="p-col-5 p-md-7 p-lg-7 p-px-0 p-py-1 text-size-14">
+                    <p-checkbox
+                      *ngIf="formData.isPartialMatchRequired"
+                      name="isPartialMatch"
+                      binary="true"
+                      label="Partial Match"
+                      [(ngModel)]="structure.isPartialMatch"
+                      disabled="true"
+                    >
+                    </p-checkbox>
+                  </div>
+                  <div class="p-col-3 p-px-3 p-py-2">
+                    <app-icon
+                      class="float-right pointer"
+                      [icon]="structure.isExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+                      (click)="showHideStructureDetails(i)"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-col-12 p-px-0 p-py-3" *ngIf="structure.isExpand">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                    <div class="text-size-12 text-color-light-shade-1">Field Type</div>
+                    <div class="text-size-14">{{ structure.fieldType }}</div>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-2">
+                    <div class="text-size-12 text-color-light-shade-1">Field Length</div>
+                    <div class="text-size-14">{{ structure.fieldLen }}</div>
+                  </div>
+                </div>
+                <div class="p-grid" *ngIf="structure.fieldType == 'Static'">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                    <div class="text-size-12 text-color-light-shade-1">Data Type</div>
+                    <div class="text-size-14">{{ structure.dataType }}</div>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-2">
+                    <div class="text-size-12 text-color-light-shade-1">Static Value</div>
+                    <div class="text-size-14">{{ structure.staticValue }}</div>
+                  </div>
+                </div>
+                <div class="p-grid" *ngIf="structure.fieldType == 'Dynamic'">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                    <div class="text-size-12 text-color-light-shade-1">Dynamic Type</div>
+                    <div class="text-size-14">{{ structure.dynamicType }}</div>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2"
+                    *ngIf="structure.dynamicType == 'Series'"
+                  >
+                    <div class="text-size-12 text-color-light-shade-1">Start Series</div>
+                    <div class="text-size-14">{{ structure.startSeries }}</div>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-3"
+                    *ngIf="structure.dynamicType == 'Series'"
+                  >
+                    <div class="text-size-12 text-color-light-shade-1">End Series</div>
+                    <div class="text-size-14">{{ structure.endSeries }}</div>
+                  </div>
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4 p-px-2"
+                    *ngIf="structure.dynamicType == 'Reference Field'"
+                  >
+                    <div class="text-size-12 text-color-light-shade-1">Refrence Type</div>
+                    <div class="text-size-14">{{ structure.referenceType }}</div>
+                  </div>
+                </div>
+                <div
+                  class="p-grid"
+                  *ngIf="
+                    structure.fieldType == 'Dynamic' && structure.dynamicType == 'Reference Field'
+                  "
+                >
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-3">
+                    <div class="text-size-12 text-color-light-shade-1">Padding</div>
+                    <div class="text-size-14">{{ structure.padding }}</div>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4 p-px-2">
+                    <div class="text-size-12 text-color-light-shade-1">Padding Value</div>
+                    <div class="text-size-14">{{ structure.paddingVal }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <!-- Structure Preview -->
+        <div class="p-col-12 p-md-3 p-lg-3 p-p-0 aps-h-400 border">
+          <div class="p-grid">
+            <div class="p-col-12 p-px-3 p-pt-3 overflow-scroll">
+              <span
+                *ngFor="let preview of structurePreviewList"
+                class="text-size-12 text-color-inverted"
+                [ngClass]="preview.class"
+                >{{ preview.value }}</span
+              >
+            </div>
+            <div
+              class="p-col-12 p-py-1 p-px-3 text-size-12"
+              *ngFor="let preview of structurePreviewList; let i = index"
+            >
+              <span [ngClass]="preview.class" class="p-mr-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+              <span *ngIf="i == 0" class="inline-block">{{ preview.name }}</span>
+              <span *ngIf="i > 0" class="inline-block">Component&nbsp;</span>
+              <span
+                *ngIf="i > 0 && formData.vaCreationLogic == 'Component Based VA'"
+                class="inline-block"
+                >{{ i }}</span
+              >
+              <span *ngIf="i > 0" class="inline-block">-&nbsp;{{ preview.name }}</span>
+              <span
+                *ngIf="
+                  i > 0 &&
+                  formData.vaCreationLogic == 'Component Based VA' &&
+                  formData.vaStructureComponentList[i - 1].isPartialMatch
+                "
+                class="text-color-danger inline-block"
+                >&nbsp;(Partial Match)</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Copy From Existing -->
+  <app-search-modal
+    [(isShow)]="isShowCopyFromModal"
+    header="Copy from existing"
+    [colDefUrl]="reviewColDefUrl"
+    [rowDefUrl]="reviewRowDefUrl"
+    (onSelection)="onCopyFrom($event)"
+  >
+  </app-search-modal>
+
+  <!-- Open From Draft -->
+  <app-draft-list-modal [(isShow)]="isShowDraftModal" (onOpenDraft)="onOpenDraft($event)">
+  </app-draft-list-modal>
+
+  <!-- Form Actions -->
+  <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

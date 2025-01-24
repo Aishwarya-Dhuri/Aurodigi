@@ -1,0 +1,20 @@
+[
+  {
+    "headerName": "Module",
+    "field": "module"
+  },
+  {
+    "headerName": "Transaction Name",
+    "field": "transactionName"
+  },
+  {
+    "headerName": "Authorization Rule",
+    "field": "authorizationRule"
+  },
+  {
+    "headerName": "Actions",
+    "field": "reviewActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

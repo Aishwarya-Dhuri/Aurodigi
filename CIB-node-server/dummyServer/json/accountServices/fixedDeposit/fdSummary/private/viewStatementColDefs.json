@@ -1,0 +1,32 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Deposit Start Date",
+      "field": "depositStartDate"
+    },
+    {
+      "headerName": "Deposit Amount",
+      "field": "depositAmount"
+    },
+    {
+      "headerName": "Interest Amount",
+      "field": "interestAmount"
+    },
+    {
+      "headerName": "Transaction Type",
+      "field": "transactionType"
+    },
+    {
+      "headerName": "Transaction Date",
+      "field": "transactionDate"
+    },
+    {
+      "headerName": "Transaction Amount",
+      "field": "transactionAmount"
+    },
+    {
+      "headerName": "Cumulative Balance",
+      "field": "cumulativeBalance"
+    }
+  ]
+}

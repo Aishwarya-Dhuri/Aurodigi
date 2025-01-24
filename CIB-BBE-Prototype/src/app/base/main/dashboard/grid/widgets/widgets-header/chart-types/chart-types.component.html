@@ -1,0 +1,15 @@
+<div class="header-options-wrapper aps-shadow">
+  <div class="options text-left">
+    <div class="option" (click)="changeChartType.emit('pie')">Pie</div>
+    <div class="option" (click)="changeChartType.emit('donut')">Donut</div>
+    <div class="option" (click)="changeChartType.emit('line')">Line</div>
+    <div class="option" (click)="changeChartType.emit('column')">Column</div>
+    <div class="option" (click)="changeChartType.emit('groupedColumn')">Grouped Column</div>
+    <div class="option" (click)="changeChartType.emit('bar')">Bar</div>
+    <div class="option" (click)="changeChartType.emit('groupedBar')">Grouped Bar</div>
+    <div class="option" (click)="changeChartType.emit('lineColumn')">Line Column</div>
+    <div class="option" (click)="changeChartType.emit('lineGroupedColumn')">
+      Line Grouped Column
+    </div>
+  </div>
+</div>

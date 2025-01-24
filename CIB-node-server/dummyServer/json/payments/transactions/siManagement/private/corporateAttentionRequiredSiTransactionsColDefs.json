@@ -1,0 +1,17 @@
+{
+  "columnDefs": [
+    { "headerName": "Corporate Name", "field": "corporateName" },
+    { "headerName": "Account Number", "field": "accountNumber" },
+    { "headerName": "No of Transactions", "field": "noOfTransactions" },
+    {
+      "headerName": "Total Debit Amount",
+      "field": "totalDebitAmount",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Available Balance",
+      "field": "availableBalance",
+      "cellRenderer": "currencyRenderer"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "letterOfCreditDetails": [
+    {
+      "irrevocable": true,
+      "transferable": false,
+      "proformaInvoiceNo": "123",
+      "corporateReferenceNo": "34",
+      "currency": "INR",
+      "amount": "2432",
+      "minimumTolerance": "sdv",
+      "maximumTolerance": "sv",
+      "notExceeding": "sdfb",
+      "expiryDate": "25-Nov-2021",
+      "placeOfExpiry": "sdv",
+      "transactionDate": "22-Nov-2021",
+      "effectiveDate": "25-Nov-2021"
+    }
+  ],
+  "applicantDetails": [
+    {
+      "applicantName": "Pepsico",
+      "applicantEmail": "info.dxb@pepsico.in",
+      "applicantMobileNo": "+91 7000000000",
+      "applicantAddress": "7th Street, Near Stadium Metro Station",
+      "onBehalfOf": false,
+      "name": "",
+      "email": "",
+      "mobileNumber": "",
+      "address1": [{ "show": true, "address": "" }],
+      "address2": [{ "show": false, "address": "" }],
+      "address3": [{ "show": false, "address": "" }]
+    }
+  ],
+  "beneficiaryDetails": [
+    {
+      "frequencyOfExecution": "Search Using Beneficiary Code",
+      "beneficiaryCode": "Bene220000665",
+      "beneficiaryName": "B123",
+      "email": "b123@gmail.con",
+      "bankSwiftCode": "6589654122",
+      "beneficiaryAddress1": [{ "show": true, "address": "address 1234" }],
+      "beneficiaryAddress2": [{ "show": false, "address": "" }],
+      "beneficiaryAddress3": [{ "show": false, "address": "" }],
+      "country": "IND",
+      "beneficiaryAccountNumber": "123456787543221",
+      "beneficiaryBankName": "ABCD",
+      "beneficiaryBankAddress1": [{ "show": true, "address": "bank address 1234" }],
+      "beneficiaryBankAddress2": [{ "show": false, "address": "" }],
+      "beneficiaryBankAddress3": [{ "show": false, "address": "" }]
+    }
+  ],
+  "paymentDetails": [
+    {
+      "creditAvailableWith": "Advising Bank",
+      "bankName": "",
+      "bankSwiftCode": "",
+      "bankAddress1": [{ "show": true, "address": "" }],
+      "bankAddress2": [{ "show": false, "address": "" }],
+      "bankAddress3": [{ "show": false, "address": "" }],
+      "creditAvailableBy": "Def Payment",
+      "draftAt": "Sight",
+      "numberOfDays": "",
+      "selectBeforeAfter": "",
+      "document": "Bill Of Exchange",
+      "documentType": "",
+      "deferredPaymentDetails": "sdv",
+      "mixedPaymentDetails": "",
+      "confirmationInstruction": "Instruction 1",
+      "accountNumberForCharges": "1234567891",
+      "accountNumberForSettlement": "1234567891",
+      "charges": [
+        {
+          "chargesType": "Other",
+          "chargeDetails": "222",
+          "confirmation": true,
+          "confirmationBourneBy": "Our",
+          "legalization": true,
+          "legalizationBourneBy": "Not Required",
+          "outsideCountry": false,
+          "outsideCountryBourneBy": "",
+          "amendment": false,
+          "amendmentBourneBy": "",
+          "reimbursement": false,
+          "reimbursementBourneBy": ""
+        }
+      ]
+    }
+  ],
+  "shippingDetails": [
+    {
+      "placeOfTakingIncharge": "sfvb",
+      "modeOfShipment": "Sea",
+      "latestDateOfShipping": "01-Nov-2021",
+      "partialShipment": "Allowed",
+      "transhipment": "Allowed",
+      "portAirportOfLoading": "sv",
+      "portAirportOfDischarge": "sfb",
+      "finalDestination": "sb",
+      "periodOfPresentation": "sb",
+      "descriptionOfGoodsServices": "sbf",
+      "shippingMarks": "sdb",
+      "timeOfShipment": "Cost and freight"
+    }
+  ],
+  "supportingDocuments": [
+    {
+      "lcIrrevocable": true,
+      "lcIrrevocableRefNo": "savd",
+      "lcIrrevocableDocument": [
+        {
+          "progress": 100,
+          "status": "Complete",
+          "fileName": "dropdown 2.png",
+          "fileSize": 3406,
+          "sysFileName": "sys10051991_dropdown 2.png"
+        }
+      ],
+      "proformaInvoice": false,
+      "proformaInvoiceRefNo": "",
+      "proformaInvoiceDocument": [],
+      "insurancePolicy": false,
+      "insurancePolicyRefNo": "",
+      "insurancePolicyDocument": []
+    }
+  ],
+  "clauses": [
+    {
+      "GoodsReceivedNoteDatedNotLaterThan": true,
+      "latestDateOfDelivery": "09-Nov-2021",
+      "grn": "sdv",
+      "packingListIn": false,
+      "number": ""
+    }
+  ],
+  "termsAndCondition": [
+    {
+      "agreeToTermsAndCondition": true,
+      "additionalCondition": "",
+      "specialCondition": ""
+    }
+  ]
+}

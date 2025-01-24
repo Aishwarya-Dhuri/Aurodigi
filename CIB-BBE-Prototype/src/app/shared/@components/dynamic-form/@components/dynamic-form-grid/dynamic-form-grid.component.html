@@ -1,0 +1,75 @@
+<div class="p-grid g-margin-x">
+  <div class="p-col-12 p-py-0">
+    <div class="aps-h-600 aps-w-100p p-mb-3">
+      <gridster class="grid-container" [options]="options">
+        <gridster-item [item]="item" *ngFor="let item of parentRef.gridDataList; let i = index">
+          <!-- Generic Type Item -->
+          <div class="aps-h-100p aps-w-100p p-px-2" *ngIf="item.itemType == 'GENERIC'">
+            <div class="text-bold" *ngIf="item.componentClassName == 'HEADING'">
+              {{ item.value }}
+            </div>
+            <div class="text-semi-bold" *ngIf="item.componentClassName == 'SUB_HEADING'">
+              {{ item.value }}
+            </div>
+            <div
+              class="text-size-12 text-color-light-shade-1"
+              *ngIf="item.componentClassName == 'LABEL'"
+            >
+              {{ item.label }}
+            </div>
+            <app-review-form-field
+              *ngIf="item.componentClassName == 'LABEL_VALUE'"
+              [label]="item.label"
+              [value]="item.value"
+            >
+            </app-review-form-field>
+            <ng-container *ngIf="item.componentClassName == 'AG_GRID'">
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [colDefUrl]="item.colDefUrl"
+                [rowDefUrl]="item.rowDefUrl"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && !item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [columnDefs]="item.colDefs"
+                [rowDefUrl]="item.rowDefUrl"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [colDefUrl]="item.colDefUrl"
+                [rowData]="item.rowData"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+              <app-ag-grid-listing
+                *ngIf="item.isLoaded && !item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                [id]="item.elementId"
+                [columnDefs]="item.colDefs"
+                [rowData]="item.rowData"
+                [gridOptions]="item"
+              >
+              </app-ag-grid-listing>
+            </ng-container>
+          </div>
+          <!-- Card Type Item -->
+          <div class="aps-h-100p aps-w-100p" *ngIf="item.componentClassName == 'CARD'">
+            <app-dynamic-card
+              [parentGridItem]="item"
+              [height]="item.height"
+              [width]="item.width"
+              [parentRef]="parentRef"
+            >
+            </app-dynamic-card>
+          </div>
+        </gridster-item>
+      </gridster>
+    </div>
+  </div>
+</div>

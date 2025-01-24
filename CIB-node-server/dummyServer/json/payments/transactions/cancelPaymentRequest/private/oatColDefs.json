@@ -1,0 +1,6 @@
+[
+  { "field": "entryType", "headerName": "Entry Type" },
+  { "field": "activationDate", "headerName": "Activation Date" },
+  { "field": "corporateRefNo", "headerName": "Corporate Ref No" },
+  { "field": "actions", "cellRenderer": "actionCellRenderer", "headerName": "Action" }
+]

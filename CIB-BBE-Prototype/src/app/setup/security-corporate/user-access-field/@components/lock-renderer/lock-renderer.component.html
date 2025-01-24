@@ -1,0 +1,8 @@
+<div style="display: flex; padding: 0.5rem">
+  <p-inputSwitch
+    id="lock"
+    [(ngModel)]="isCheck"
+    (onChange)="onChange()"
+    [disabled]="params.context.componentParent.stepperDetails.currentStep == 2"
+  ></p-inputSwitch>
+</div>

@@ -1,0 +1,48 @@
+[
+  {
+    "headerName": "Start Date",
+    "field": "startDate"
+  },
+  {
+    "headerName": "Originator Name",
+    "field": "corporateName"
+  },
+  {
+    "headerName": "Mandate Reference No",
+    "field": "id"
+  },
+  {
+    "headerName": "UMRN",
+    "field": "umrnNumber"
+  },
+  {
+    "headerName": "Utility Code",
+    "field": "utilityCode"
+  },
+  {
+    "headerName": "Product Code - Product Name",
+    "field": "productCodeName"
+  },
+  {
+    "headerName": "Consumer ID / No",
+    "field": "customerNo"
+  },
+  {
+    "headerName": "Stop Payment Reason",
+    "field": "reason"
+  },
+  {
+    "headerName": "Payer Account Number",
+    "field": "payerAccountNumber"
+  },
+  {
+    "headerName": "Status",
+    "field": "status"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

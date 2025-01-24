@@ -1,0 +1,231 @@
+[
+  {
+    "label": "1.1 Invoice Details",
+    "data": [
+      {
+        "type": "details",
+        "data": [
+          {
+            "label": "Invoice Type",
+            "value": "Normal"
+          },
+          {
+            "label": "Batch Number",
+            "value": "01200635003"
+          },
+          {
+            "label": "Transaction Status",
+            "value": "Fully Paid"
+          },
+          {
+            "label": "Seller Code",
+            "value": "KK009"
+          },
+          {
+            "label": "Seller Name",
+            "value": "KK Seller"
+          },
+          {
+            "label": "Program Reference Number",
+            "value": "PRGSELLERFINANCEEaa828-SFP"
+          },
+          {
+            "label": "Buyer Code",
+            "value": "LK123"
+          },
+          {
+            "label": "Buyer Name",
+            "value": "LK Automobiles"
+          },
+          {
+            "label": "Sub - Document Type",
+            "value": "-"
+          },
+          {
+            "label": "Invoice Number",
+            "value": "CCBBMMNN"
+          },
+          {
+            "label": "Invoice Amount",
+            "value": "THB 4,007.00"
+          },
+          {
+            "label": "Invoice Outstanding Amount",
+            "value": "THB 0.00"
+          },
+          {
+            "label": "Invoice Entry Date",
+            "value": "20 Jun 2021"
+          },
+          {
+            "label": "VAT %",
+            "value": "-"
+          },
+          {
+            "label": "VAT Amount",
+            "value": "THB 0.00"
+          },
+          {
+            "label": "WHT %",
+            "value": "-"
+          },
+          {
+            "label": "WHT Amount",
+            "value": "THB 0.00"
+          },
+          {
+            "label": "Grace Period",
+            "value": "3"
+          },
+          {
+            "label": "Invoice Date",
+            "value": "20 Jun 2021"
+          },
+          {
+            "label": "Invoice Due Date",
+            "value": "(88 Days) 16 Sep 2021"
+          },
+          {
+            "label": "Group Due Date",
+            "value": "16 Sep 2021"
+          },
+          {
+            "label": "Tracking ID",
+            "value": "-"
+          },
+          {
+            "label": "Interest Collection Method",
+            "value": "Advance"
+          },
+          {
+            "label": "Charges",
+            "value": "20.00"
+          },
+          {
+            "label": "Interest",
+            "value": "70.00"
+          }
+        ]
+      },
+      {
+        "type": "files",
+        "data": [
+          {
+            "fileName": "Document.docx",
+            "fileSize": "5.5 MB"
+          },
+          {
+            "fileName": "Document.docx",
+            "fileSize": "5.5 MB"
+          },
+          {
+            "fileName": "Document.docx",
+            "fileSize": "5.5 MB"
+          }
+        ]
+      },
+      {
+        "type": "makerCheckerDetails",
+        "header": "Invoice Maker Checker Details",
+        "data": [
+          {
+            "label": "Maker",
+            "value": "RUDRA MAKER (rudramaker)"
+          },
+          {
+            "label": "Maker Date Time",
+            "value": "20 Jun 2021, 12:12:14"
+          },
+          {
+            "label": "Checker",
+            "value": "RUDRA Checker (rudrachecker)"
+          },
+          {
+            "label": "Checker Date Time",
+            "value": "20 Jun 2021, 12:12:28"
+          }
+        ]
+      },
+      {
+        "type": "makerCheckerDetails",
+        "header": "Invoice Maker Checker Details",
+        "data": [
+          {
+            "label": "Maker",
+            "value": "RUDRA MAKER (rudramaker)"
+          },
+          {
+            "label": "Maker Date Time",
+            "value": "20 Jun 2021, 12:13:30"
+          },
+          {
+            "label": "Checker",
+            "value": "RUDRA Checker (rudrachecker)"
+          },
+          {
+            "label": "Checker Date Time",
+            "value": "20 Jun 2021, 12:13:42"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "1.2 Enrichment Details",
+    "data": [
+      {
+        "type": "details",
+        "data": [
+          {
+            "label": "1234",
+            "value": "123"
+          },
+          {
+            "label": "3",
+            "value": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "1.3 Purchase Order Details",
+    "data": [
+      {
+        "type": "grid",
+        "colDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/purchesOrderDetails/purchesOrderDetailsColDefs",
+        "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/purchesOrderDetails/purchesOrderDetailsRowData"
+      }
+    ]
+  },
+  {
+    "label": "1.4 Payment Details",
+    "data": [
+      {
+        "type": "grid",
+        "colDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/paymentDetailsColDefs",
+        "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/paymentDetailsRowData"
+      }
+    ]
+  },
+  {
+    "label": "1.5 Finance Details",
+    "data": [
+      {
+        "type": "grid",
+        "colDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/financeDetails/financeDetailsColDefs",
+        "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/financeDetails/financeDetailsRowData"
+      }
+    ]
+  },
+  {
+    "label": "1.6 Recovery Details",
+    "data": [
+      {
+        "type": "grid",
+        "colDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/recoveryDetails/recoveryDetailsColDefs",
+        "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/recoveryDetails/recoveryDetailsRowData"
+      }
+    ]
+  }
+]

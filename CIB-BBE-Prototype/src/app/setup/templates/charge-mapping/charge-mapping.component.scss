@@ -1,0 +1,30 @@
+.aps-search-container {
+    position: relative;
+    color: var(--text-color);
+
+    .aps-search-input {
+        height: 40px;
+        padding: 8px 8px;
+        font-size: 0.875rem;
+        outline: none;
+        border: none;
+        border: 1px solid var(--background-color-dark-1);
+        border-radius: 0.25rem;
+        margin-top: 8px;
+        background-color: transparent;
+    }
+
+    .search-icon {
+        position: absolute;
+        top: 6px;
+        left: 0px;
+        display: block;
+        width: 24px;
+        height: 24px;
+
+        i {
+            font-size: 0.75rem;
+            padding: 6px;
+        }
+    }
+}

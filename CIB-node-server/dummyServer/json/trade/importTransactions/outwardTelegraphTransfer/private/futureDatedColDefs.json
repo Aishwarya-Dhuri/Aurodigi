@@ -1,0 +1,30 @@
+[
+  {
+    "headerName": "Effective Date",
+    "field": "effectiveDate"
+  },
+  {
+    "headerName": "Template Name",
+    "field": "templateName"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "pinned": "right"
+  }
+]

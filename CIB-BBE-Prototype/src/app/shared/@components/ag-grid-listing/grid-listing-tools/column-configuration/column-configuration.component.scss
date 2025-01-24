@@ -1,0 +1,117 @@
+.column-configuration-wrapper {
+  background-color: var(--background-color);
+  width: 15rem;
+  border-radius: 6px;
+  padding: 0;
+
+  .header-options {
+    padding: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--background-color);
+
+    .configure {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .reset {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 12px;
+    }
+
+    .apply {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .aps-search-container-1 {
+    display: block;
+    position: relative;
+    color: var(--text-color);
+    margin: 10px 16px;
+
+    .input-search {
+      display: block;
+      border: 1px solid var(--background-color);
+      border-radius: 4px;
+      padding: 4px 0;
+      padding-left: 36px;
+      outline: none;
+    }
+
+    .icon {
+      position: absolute;
+      left: 16px;
+      top: 6px;
+
+      i,
+      .app-icon {
+        color: var(--text-color);
+
+        font-size: 0.75rem;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .columns-container {
+    display: block;
+    padding: 16px;
+    padding-top: 0;
+    max-height: 280px;
+    overflow: scroll;
+
+    color: var(--text-color-dark-shade-1);
+
+    i,
+    .app-icon {
+      font-size: 0.75rem;
+    }
+
+    .select-all-label {
+      display: block;
+    }
+
+    .column {
+      padding-top: 10px;
+
+      .move {
+        display: inline-block;
+        vertical-align: top;
+        color: var(--text-color);
+      }
+
+      .check-box {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 10px;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        border: 1px solid var(--background-color-dark-2);
+        cursor: pointer;
+      }
+
+      .check-box-checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        text-align: center;
+
+        i,
+        .app-icon {
+          font-size: 0.625rem;
+          color: var(--inverted-text-color);
+        }
+      }
+
+      .label {
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+    .pin-icon {
+    }
+  }
+}

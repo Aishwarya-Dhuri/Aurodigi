@@ -1,0 +1,30 @@
+[
+  {
+    "headerName": "Sequence Number",
+    "field": "sequenceNo"
+  },
+  {
+    "headerName": "Field Name",
+    "field": "fieldName"
+  },
+  {
+    "headerName": "Data Type",
+    "field": "dataType"
+  },
+  {
+    "headerName": "Dropdown Values",
+    "field": "dropdownValues"
+  },
+  {
+    "headerName": "Allow Null",
+    "field": "isAllow"
+  },
+  {
+    "headerName": "Minmum Length",
+    "field": "minLength"
+  },
+  {
+    "headerName": "Maximum Length",
+    "field": "maxLength"
+  }
+]

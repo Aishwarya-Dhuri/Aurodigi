@@ -1,0 +1,32 @@
+[
+  {
+    "headerName": "Shipping Guarantee Number",
+    "field": "id"
+  },
+  {
+    "headerName": "Issue Date",
+    "field": "transactionDate"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Type of Shipping Guarantee",
+    "field": "typeOfShippingGuarantee"
+  },
+  {
+    "headerName": "Currency",
+    "field": "currency"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

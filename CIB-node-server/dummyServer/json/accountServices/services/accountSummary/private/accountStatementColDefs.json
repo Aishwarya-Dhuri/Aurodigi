@@ -1,0 +1,15 @@
+[
+  { "headerName": "Transaction Date", "field": "transactionDate" },
+  { "headerName": "Value Date", "field": "valueDate" },
+ 
+  { "headerName": "Debit Amount", "field": "debited", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Credit Amount", "field": "credited", "cellRenderer": "currencyRenderer" },
+  { "headerName": "Running Balance", "field": "balance", "cellRenderer": "runningBalanceRenderer" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" },
+  {
+    "headerName": "Reference Number",
+    "field": "customerReferenceNumber",
+    "cellRenderer": "linkRenderer"
+  },
+  { "headerName": "Description", "field": "transactionDescription" }
+]

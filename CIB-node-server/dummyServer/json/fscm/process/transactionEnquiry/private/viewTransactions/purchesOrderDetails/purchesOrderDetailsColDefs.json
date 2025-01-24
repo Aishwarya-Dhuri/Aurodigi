@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch Number", "field": "batchNumber", "cellRenderer": "linkRenderer" },
+    { "headerName": "PO Number", "field": "poNumber" },
+    { "headerName": "PO Date", "field": "poDate" },
+    { "headerName": "PO Due Date", "field": "poDueDate" },
+    { "headerName": "PO Amount", "field": "poAmount" }
+  ]
+}

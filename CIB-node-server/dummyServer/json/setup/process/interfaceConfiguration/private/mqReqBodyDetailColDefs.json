@@ -1,0 +1,11 @@
+[
+  {
+    "headerName": "Field Type",
+    "field": "fieldType"
+  },
+  { "headerName": "Minimum Length", "field": "minLength" },
+  { "headerName": "Maximum Length", "field": "maxLength" },
+  { "headerName": "Padding", "field": "padding" },
+  { "headerName": "Padding Character", "field": "paddingCharacter" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

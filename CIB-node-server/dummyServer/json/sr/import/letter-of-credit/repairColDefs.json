@@ -1,0 +1,43 @@
+[
+  {
+    "headerName": "User Reference Number",
+    "field": "userReferenceNumber"
+  },
+  {
+    "headerName": "Proforma Invoice Number",
+    "field": "proformaInvoiceNumber"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "lcExpiryDate"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Bank Rejection Remark",
+    "field": "bankRejectionRemark"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "width": 350,
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

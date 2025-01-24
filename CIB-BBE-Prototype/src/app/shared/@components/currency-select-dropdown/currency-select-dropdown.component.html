@@ -1,0 +1,24 @@
+<div class="inline-block white-space-nowrap" [ngClass]="classes">
+  <div class="inline-block p-pr-2" *ngIf="showFlag">
+    <img
+      class="country-flag-icon p-mt-1"
+      [ngClass]="flagStyleClass"
+      src="assets/images/currency/{{ currency }}.png"
+      alt=""
+    />
+  </div>
+  <div class="inline-block">
+    <select
+      [ngClass]="selectStyleClass"
+      name="currency"
+      id="currency"
+      [value]="currency"
+      (change)="currencyChange($event.target.value)"
+      [(ngModel)]="currency"
+    >
+      <option *ngFor="let c of currencyList" [value]="c.displayName">
+        {{ c.displayName }}
+      </option>
+    </select>
+  </div>
+</div>

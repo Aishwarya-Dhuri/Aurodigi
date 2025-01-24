@@ -1,0 +1,324 @@
+<div class="container">
+  <!-- Top card with product selection and widgets -->
+  <div class="aps-card">
+    <div class="p-grid">
+      <!-- product selection -->
+      <div class="p-col-12 p-md-3 p-lg-3 p-p-0">
+        <div class="aps-card-primary" [ngClass]="{ 'p-p-3': !isMinimalView, 'p-p-2': isMinimalView }">
+          <div class="text-size-16 text-semi-bold" *ngIf="!isMinimalView">
+            {{ 'Select Product' | apsTranslate }}
+          </div>
+          <div class="p-pt-2">
+            <aps-custom-select id="product" colorClass="text-color-inverted" name="product"
+              [(ngModel)]="selectedProduct" (change)="getProductWiseDashboard($event)" [showLabel]="false"
+              [data]="productList">
+            </aps-custom-select>
+          </div>
+          <div class="background-color-primary-light border-radius-4" *ngIf="!isMinimalView">
+            <div class="p-p-2 text-size-12 text-semi-bold">
+              <div class="left-right-container">
+                <div class="left-container">
+                  {{ 'Critical Pending Authorizations' | apsTranslate }}
+                </div>
+                <div class="right-container">
+                  {{
+                  productWiseDashbard ? productWiseDashbard.overallCounts.pendingCriticalCount : 0
+                  }}
+                </div>
+              </div>
+              <hr />
+              <div class="left-right-container">
+                <div class="left-container">
+                  {{ 'Overall Pending Authorizations' | apsTranslate }}
+                </div>
+                <div class="right-container">
+                  {{ productWiseDashbard ? productWiseDashbard.overallCounts.pendingCount : 0 }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-col-12 p-md-9 p-lg-9 p-p-0" *ngIf="!isMinimalView">
+        <div class="p-grid" *ngIf="!isLoading">
+          <!-- Overview: Authorization Types -->
+          <div class="p-col-12 p-md-5 p-lg-5 border-right">
+            <div class="text-size-16 text-bold">
+              {{ 'Overview: Authorization Types' | apsTranslate }}
+            </div>
+            <div class="p-mt-2 aps-h-120 background-color-disabled">
+              <ag-charts-angular [options]="overviewPieChartOptions"></ag-charts-angular>
+            </div>
+          </div>
+          <!-- Category-Wise Overview -->
+          <div class="p-col-12 p-md-7 p-lg-7 p-p-0">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-5 p-lg-5 text-size-16 text-bold">
+                {{ 'Category-Wise Overview' | apsTranslate }}
+              </div>
+              <div class="p-col-12 p-md-7 p-lg-7 text-size-14">
+                <div class="left-right-container no-left-right-container-on-mobile">
+                  <div class="left-container"></div>
+                  <div class="right-container">
+                    <p-radioButton class="p-mx-1" name="barChartCategory" value="Authorization type"
+                      [label]="'Authorization type' | apsTranslate" [(ngModel)]="barChartCategory">
+                    </p-radioButton>
+
+                    <p-radioButton class="p-mx-1" name="barChartCategory" value="Criticality"
+                      [label]="'Criticality' | apsTranslate" [(ngModel)]="barChartCategory">
+                    </p-radioButton>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-py-0 aps-h-120">
+                <ag-charts-angular *ngIf="barChartCategory == 'Authorization type'"
+                  [options]="overviewAuthorizationTypeBarChartOptions"></ag-charts-angular>
+                <ag-charts-angular *ngIf="barChartCategory == 'Criticality'"
+                  [options]="overviewCriticalityBarChartOptions"></ag-charts-angular>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <!-- minimal view data -->
+      <div class="p-col-12 p-md-9 p-lg-9 p-p-0" *ngIf="isMinimalView">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 p-lg-4"></div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-pt-3">
+            <span class="float-right text-size-20 text-bold">{{
+              productWiseDashbard ? productWiseDashbard.overallCounts.pendingCriticalCount : 0
+              }}</span>
+            <span class="float-right text-size-16 aps-pt-2">{{ 'Critical Pending Authorizations' | apsTranslate
+              }}&nbsp;&nbsp;</span>
+          </div>
+          <div class="p-col-12 p-md-4 p-lg-4 p-pt-3">
+            <span class="float-right text-size-20 text-bold">{{
+              productWiseDashbard ? productWiseDashbard.overallCounts.pendingCount : 0
+              }}</span>
+            <span class="float-right text-size-16 aps-pt-2">{{ 'Overall Pending Authorizations' | apsTranslate
+              }}&nbsp;&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top card expand colap -->
+  <div class="p-grid p-jc-center" *ngIf="productWiseDashbard && parentMenus.length > 0">
+    <div class="border expand-container" (click)="isMinimalView = !isMinimalView">
+      <app-icon [icon]="isMinimalView ? 'fa-chevron-down' : 'fa-chevron-up'"></app-icon>
+    </div>
+  </div>
+
+  <!-- Dashboard Data -->
+  <div class="p-grid g-margin-x" *ngIf="productWiseDashbard && parentMenus.length > 0">
+    <!-- all heading -->
+    <div class="p-col-12 p-md-4 p-lg-4 text-size-16 text-bold">
+      <span class="p-p-1">
+        {{ 'All Pending Authorizations' | apsTranslate }} ({{
+        productWiseDashbard ? productWiseDashbard.overallCounts.pendingCount : 0
+        }})
+      </span>
+    </div>
+    <!-- category selection -->
+    <div class="p-col-12 p-md-7 p-lg-7">
+      <div class="left-right-container no-left-right-container-on-mobile">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <p-radioButton class="p-m-1" name="masterCategory" value="CRITICAL" [label]="'Critical' | apsTranslate"
+            [(ngModel)]="masterCategory">
+          </p-radioButton>
+          <p-radioButton class="p-m-1" name="masterCategory" value="ONLY_FAVORITES"
+            [label]="'Only Favorites' | apsTranslate" [(ngModel)]="masterCategory">
+          </p-radioButton>
+          <p-radioButton class="p-m-1" name="masterCategory" value="ALL" [label]="'Show All' | apsTranslate"
+            [(ngModel)]="masterCategory">
+          </p-radioButton>
+        </div>
+      </div>
+    </div>
+    <!-- card view toggle -->
+    <div class="p-col-12 p-md-1 p-lg-1 text-right hide-on-mobile">
+      <div class="toggle-select-container inline-block p-mx-2" *ngIf="viewport === 'web'">
+        <div class="action pointer text-color-dark-shade-1" (click)="listType = 'grid'"
+          [ngClass]="{ active: listType === 'grid' }">
+          <app-icon icon="fa-list" class="app-icon"></app-icon>
+        </div>
+        <div class="action pointer text-color-dark-shade-1" (click)="listType = 'card'"
+          [ngClass]="{ active: listType === 'card' }">
+          <app-icon icon="fa-th-large" class="app-icon"></app-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- left side menu selection with parentMenu -->
+    <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+      <div class="aps-card aps-h-100p">
+        <div class="aps-card-header p-px-3 aps-py-12">
+          <div class="aps-search-container-1">
+            <input type="text" class="aps-search-input" [(ngModel)]="parentSearchText" (change)="onParentMenuSearch()"
+              placeholder="{{ 'lbl_enter_keyword_to_search' | translate }}" />
+            <div class="search-icon">
+              <app-icon icon="fa-search" class="app-icon"></app-icon>
+            </div>
+          </div>
+        </div>
+        <div class="aps-card-body">
+          <app-tree [treeNode]="getParentMenus()" [showData]="false" [selectedNode]="selectedParentMenu"
+            (leafNodeSelected)="onParentMenuSelected($event)"></app-tree>
+        </div>
+      </div>
+    </div>
+
+    <!-- master wise cards -->
+    <div class="p-md-9 p-lg-9 p-sm-12 p-col-12">
+      <!-- Grid type listing -->
+      <div class="aps-card p-p-3 aps-h-100p" *ngIf="selectedParentMenu && listType == 'grid'">
+        <div class="aps-card p-mb-3 p-p-3 pointer"
+          *ngFor="let master of filterMasterList(selectedParentMenu.data.masterList)">
+          <div class="p-grid">
+            <div class="p-col-3 p-p-0 text-bold text-size-14"
+              (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+              <span>{{ master.displayName | apsTranslate }}&nbsp;</span>
+              <span class="text-color-primary">({{ master.pendingCount }})</span>
+            </div>
+            <div class="p-col-4 p-p-0" (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+              <div class="p-grid">
+                <div class="p-col-7 p-p-0">
+                  <span *ngIf="master.pendingCriticalCount">
+                    <span class="text-size-12">{{ 'All Critical Authorizations' | apsTranslate }}&nbsp;</span>
+                    <span class="text-size-14 text-color-primary">({{ master.pendingCriticalCount }})</span>
+                  </span>
+                </div>
+                <div class="p-col-5 p-p-0">
+                  <div class="aps-h-10 aps-mt-6px aps-w-100p">
+                    <div class="inline-block aps-h-100p" [style.background-color]="this.themeColor[0]"
+                      [style.width]="calculateWidth(master.justCreatedCount, master.pendingCount)"></div>
+                    <div class="inline-block aps-h-100p" [style.background-color]="this.themeColor[1]"
+                      [style.width]="calculateWidth(master.partialAuthorized, master.pendingCount)"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-4 p-p-0" (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+              <div class="p-grid">
+                <div class="p-col-5 p-py-0 p-pl-1 p-pr-0">
+                  <div class="inline-block p-mx-1 border-radius-6 legend aps-mt-8px"
+                    [style.background-color]="this.themeColor[0]"></div>
+                  <span>
+                    <span class="text-size-12">{{ 'Just Created' | apsTranslate }}&nbsp;</span>
+                    <span class="text-size-14 text-color-primary">{{
+                      master.justCreatedCount
+                      }}</span>
+                  </span>
+                </div>
+                <div class="p-col-7 p-p-0">
+                  <div class="inline-block p-mx-1 border-radius-6 legend aps-mt-8px"
+                    [style.background-color]="this.themeColor[1]"></div>
+                  <span>
+                    <span class="text-size-12">{{ 'Partially Authorized' | apsTranslate }}&nbsp;</span>
+                    <span class="text-size-14 text-color-primary">{{
+                      master.partialAuthorized
+                      }}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="p-col-1 p-p-0">
+              <app-icon class="p-mx-1 float-right pointer" icon="fa-ellipsis-v" (click)="actions.toggle($event)">
+              </app-icon>
+              <i *ngIf="master.isFavourite" class="pointer p-mx-1 float-right text-color-primary fas fa-star"
+                (click)="master.isFavourite = false"></i>
+              <i *ngIf="!master.isFavourite" class="pointer p-mx-1 float-right fal fa-star"
+                (click)="master.isFavourite = true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card type listing -->
+      <div class="aps-card p-p-2 aps-h-100p" *ngIf="selectedParentMenu && listType == 'card'">
+        <div class="p-grid">
+          <div class="p-col-12 p-md-4 lg-4" *ngFor="let master of filterMasterList(selectedParentMenu.data.masterList)">
+            <div class="aps-card p-px-3 p-py-4 pointer">
+              <div class="p-grid">
+                <div class="p-col-9 p-p-0 text-bold"
+                  (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+                  <span class="text-size-12">{{ master.displayName | apsTranslate }}&nbsp;</span>
+                  <span class="text-size-14 text-color-primary">({{ master.pendingCount }})</span>
+                </div>
+                <div class="p-col-3 p-p-0">
+                  <app-icon class="p-mx-1 float-right pointer" icon="fa-ellipsis-v" (click)="actions.toggle($event)">
+                  </app-icon>
+                  <i *ngIf="master.isFavourite" class="pointer p-mx-1 float-right text-color-primary fas fa-star"
+                    (click)="master.isFavourite = false"></i>
+                  <i *ngIf="!master.isFavourite" class="pointer p-mx-1 float-right fal fa-star"
+                    (click)="master.isFavourite = true"></i>
+                </div>
+                <div class="p-col-12 p-px-0" (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+                  <span *ngIf="master.pendingCriticalCount">
+                    <span class="text-size-12">{{ 'All Critical Authorizations' | apsTranslate }}&nbsp;</span>
+                    <span class="text-size-14 text-color-primary">({{ master.pendingCriticalCount }})</span>
+                  </span>
+                  <span *ngIf="!master.pendingCriticalCount">&nbsp;</span>
+                </div>
+                <div class="p-col-12 p-p-0" (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+                  <div class="aps-h-10 aps-w-100p">
+                    <div class="inline-block aps-h-100p" [style.background-color]="this.themeColor[0]"
+                      [style.width]="calculateWidth(master.justCreatedCount, master.pendingCount)"></div>
+                    <div class="inline-block aps-h-100p" [style.background-color]="this.themeColor[1]"
+                      [style.width]="calculateWidth(master.partialAuthorized, master.pendingCount)"></div>
+                  </div>
+                </div>
+                <div class="p-col-12 p-px-0" (click)="navigateTo(master.serviceUrl, master.pendingListRouteUrl)">
+                  <div class="p-grid">
+                    <div class="p-col-5 p-p-0">
+                      <div class="inline-block p-mx-1 border-radius-6 legend aps-mt-8px"
+                        [style.background-color]="this.themeColor[0]"></div>
+                      <span>
+                        <span class="text-size-12">{{ 'Just Created' | apsTranslate }}&nbsp;</span>
+                        <span class="text-size-14 text-color-primary">{{
+                          master.justCreatedCount
+                          }}</span>
+                      </span>
+                    </div>
+                    <div class="p-col-7 p-p-0">
+                      <div class="inline-block p-mx-1 border-radius-6 legend aps-mt-8px"
+                        [style.background-color]="this.themeColor[1]"></div>
+                      <span>
+                        <span class="text-size-12">{{ 'Partially Authorized' | apsTranslate }}&nbsp;</span>
+                        <span class="text-size-14 text-color-primary">{{
+                          master.partialAuthorized
+                          }}</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- master actions -->
+      <p-overlayPanel #actions>
+        <ng-template pTemplate>
+          <div class="p-py-2">
+            <button class="p-mx-1 btn btn-md btn-tertiary text-size-14 text-semi-bold">
+              {{ 'AUTHORIZE ALL' | apsTranslate }}
+            </button>
+            <button class="p-mx-1 btn btn-md btn-tertiary text-size-14 text-semi-bold">
+              {{ 'REJECT ALL' | apsTranslate }}
+            </button>
+          </div>
+        </ng-template>
+      </p-overlayPanel>
+    </div>
+  </div>
+
+  <!-- No records -->
+  <div class="aps-card p-pb-3 p-my-3" *ngIf="parentMenus.length == 0">
+    <app-nothing-here [message]="'No records to authorize' | apsTranslate" [colSize]="viewport === 'web' ? 2 : 8">
+    </app-nothing-here>
+  </div>
+</div>

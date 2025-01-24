@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "shippingCompanyCode": "Bene220000665",
+      "shippingCompanyName": "AB Corp",
+      "shippingCompanyAddress1": [
+        {
+          "address": "Delhi"
+        }
+      ]
+    },
+    {
+      "shippingCompanyCode": "Bene220000666",
+      "shippingCompanyName": "HPCC",
+      "shippingCompanyAddress1": [
+        {
+          "address": "Bangalore"
+        }
+      ]
+    },
+    {
+      "shippingCompanyCode": "Bene220000665",
+      "shippingCompanyName": "RA Group",
+      "shippingCompanyAddress1": [
+        {
+          "address": "Mumbai"
+        }
+      ]
+    }
+  ]
+}

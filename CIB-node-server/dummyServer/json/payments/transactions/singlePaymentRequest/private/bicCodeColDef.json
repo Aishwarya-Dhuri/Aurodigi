@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "IFSC Code", "field": "bicCode", "checkboxSelection": true },
+    { "headerName": "Bank Name", "field": "bankName" },
+    { "headerName": "Branch Name", "field": "branchName" },
+    { "headerName": "City", "field": "city" },
+    { "headerName": "Country", "field": "country" },
+    { "headerName": "Routing Code", "field": "routingCode" }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "pickupCode": "Studio001",
+      "pickupName": "Stanford Store",
+      "location": "Mumbai",
+      "address1": "Downtown",
+      "address2": "Shaikh Road",
+      "city": "Mumbai",
+      "state": "Mumbai, India",
+      "postalCode": "00000",
+      "pickupInstruction": "Pickup",
+      "startDate": "05-May-2023",
+      "endDate": "12-May-2023"
+    },
+    {
+      "id": "101",
+      "pickupCode": "Studio002",
+      "pickupName": "Bishop Store",
+      "location": "Chennai",
+      "address1": "Chennai",
+      "address2": "Yas Island",
+      "city": "Chennai",
+      "state": "Chennai, India",
+      "postalCode": "00000",
+      "pickupInstruction": "Pickup",
+      "startDate": "15-May-2023",
+      "endDate": "20-May-2023"
+    },
+    {
+      "id": "102",
+      "pickupCode": "Studio003",
+      "pickupName": "Kae View Store",
+      "location": "Delhi",
+      "address1": "Delhi",
+      "address2": "Palm Road",
+      "city": "Delhi",
+      "state": "Delhi, India",
+      "postalCode": "00000",
+      "pickupInstruction": "Pickup",
+      "startDate": "02-June-2023",
+      "endDate": "05-June-2023"
+    }
+  ],
+  "lastRow": 4
+}

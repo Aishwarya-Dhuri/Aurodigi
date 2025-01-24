@@ -1,0 +1,1021 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-md-3 p-lg-3 p-pb-0" *ngIf="stepperDetails.currentStep < stepperDetails.headings.length">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+    <div class="p-col-12 p-pb-0 p-mb-3"
+      [ngClass]="{ 'p-md-9 p-lg-9': stepperDetails.currentStep < stepperDetails.headings.length }">
+      <div [apsHide]="stepperDetails.currentStep != 1">
+        <form name="step1Form" #step1Form="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'User Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <!-- <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-custom-select [label]="'Corporate Name' | apsTranslate" name="corporateId" id="corporateId"
+                    dataUrl="setup/corporateOnboarding/corporateMain/private/getCorporateList"
+                    [(ngModel)]="formData.corporateId" [value]="formData.corporateId" [required]="true">
+                  </aps-custom-select>
+                </div> -->
+
+                <!-- <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+                  <aps-custom-select [label]="'Corporate Name' | apsTranslate" name="corporateName" id="corporateName"
+                    [(ngModel)]="formData.corporateId"
+                    dataUrl="setup/corporateOnboarding/corporateMain/private/getCorporateList" [required]="true">
+                  </aps-custom-select>
+
+                  <aps-form-input id="corporateCode" name="corporateCode" [label]="'Corporate Code' | apsTranslate"
+                    rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                    [(ngModel)]="formData.corporateCode" [readonly]="true" [required]="true">
+                  </aps-form-input>
+                  <app-search-modal ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                    [header]="'Corporate Details' | apsTranslate"
+                    colDefUrl="commons/searchService/private/corporateSearchColDefs"
+                    rowDefUrl="setup/corporateOnboarding/corporateMain/private/getAuthorizedList"
+                    (onSelection)="onCorporateSelected($event)">
+                  </app-search-modal>
+                </div> -->
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input id="corporateCode" name="corporateCode" [label]="'Corporate Code' | apsTranslate"
+                    rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                    [(ngModel)]="formData.corporateCode" [readonly]="true" [required]="true">
+                  </aps-form-input>
+                  <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                    [header]="'Corporate Details' | apsTranslate"
+                    colDefUrl="commons/searchService/private/corporateSearchColDefs"
+                    rowDefUrl="setup/corporateOnboarding/corporateMain/private/getAuthorizedList"
+                    (onSelection)="onCorporateSelected($event)">
+                  </app-search-modal>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4" *ngIf="formData.corporateCode">
+                  <div class="text-size-12 text-color-light-shade-2 background-color-disabled p-pt-1 p-px-1">
+                    {{ 'Corporate Name' | apsTranslate }}
+                  </div>
+                  <div class="text-size-14 background-color-disabled p-px-2 p-pb-1">
+                    {{ formData.corporateName }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'User Id' | apsTranslate" name="userId"
+                    id="userId" [(ngModel)]="formData.userId" [required]="true">
+                  </aps-form-input>
+                </div>
+                <!-- <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input [type]="isPasswordVisibale ? 'text' : 'password'" [label]="'Password' | apsTranslate"
+                    name="password" id="password" [(ngModel)]="formData.password" [required]="true"
+                    [rightIcon]="isPasswordVisibale ? 'fa-eye-slash' : 'fa-eye'"
+                    (onRightIcon)="isPasswordVisibale = !isPasswordVisibale">
+                  </aps-form-input>
+                </div> -->
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'First Name' | apsTranslate" name="firstName"
+                    id="firstName" [(ngModel)]="formData.firstName" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'Last Name' | apsTranslate" name="lastName"
+                    id="lastName" [(ngModel)]="formData.lastName" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Gender' | apsTranslate" name="gender" id="gender"
+                    [(ngModel)]="formData.genderId" dataUrl="setup/security/corporateUser/private/dropdown/genderList"
+                    (change)="onGenderChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="noSpace" [label]="'Email ID' | apsTranslate" name="emailId" id="emailId"
+                    [(ngModel)]="formData.email" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="numeric" [label]="'Mobile No' | apsTranslate" name="mobileNo" id="mobileNo"
+                    [(ngModel)]="formData.telephoneNo" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="numeric" [label]="'Fax No' | apsTranslate" name="faxNo" id="faxNo"
+                    [(ngModel)]="formData.faxNo">
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'User Alias' | apsTranslate" name="userAlias"
+                    id="userAlias" [(ngModel)]="formData.userAlias">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'Signature Code' | apsTranslate"
+                    name="signatureCode" id="signatureCode" [(ngModel)]="formData.signatureCode">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <div class="text-size-14 text-semi-bold text-color-dark-shade-2">
+                    {{ 'Signature Upload' | apsTranslate }}
+                  </div>
+                  <upload-form-control [files]="signatureFiles" [hideDragDropContainerOnFIleUpload]="true"
+                    (onUploaded)="onSignatureFileSelected($event)"></upload-form-control>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 2">
+        <form name="step2Form" #step2Form="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Organization Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'Employee Code' | apsTranslate" name="employeeCode"
+                    id="employeeCode" [(ngModel)]="formData.employeeCode" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'Designation' | apsTranslate" name="designation"
+                    id="designation" [(ngModel)]="formData.designation" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input inputType="alphaNumeric" [label]="'Department' | apsTranslate" name="department"
+                    id="department" [(ngModel)]="formData.department" [required]="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Category' | apsTranslate" name="category" id="category"
+                    [(ngModel)]="formData.categoryId"
+                    dataUrl="setup/security/corporateUser/private/dropdown/categoryList"
+                    (change)="onCategoryChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Profile' | apsTranslate" name="profileId" id="profileId"
+                    [(ngModel)]="formData.profileId"
+                    dataUrl="setup/security/corporateProfile/private/getProfileNameList"
+                    (change)="onProfileChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Corporate Branch' | apsTranslate" name="corporateBranchId"
+                    id="corporateBranchId" [(ngModel)]="formData.corporateBranchId"
+                    dataUrl="setup/security/corporateUser/private/dropdown/corporateBranchList"
+                    (change)="onCorporateBranchChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Enter Address' | apsTranslate"
+                    name="address" id="address" [(ngModel)]="formData.address">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'City' | apsTranslate" name="city" id="city"
+                    [(ngModel)]="formData.city">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input inputType="numeric" [label]="'Pin Code' | apsTranslate" name="pinCode" id="pinCode"
+                    [(ngModel)]="formData.pinCode">
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Location Name' | apsTranslate"
+                    name="locationName" id="locationName" rightIcon="fa-search" (onRightIcon)="isLocation = true"
+                    [(ngModel)]="formData.locationName">
+                  </aps-form-input>
+                </div>
+
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input [label]="'State' | apsTranslate" name="state" id="state" [(ngModel)]="formData.state"
+                    disabled="true">
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-form-input [label]="'Country' | apsTranslate" name="country" id="country"
+                    [(ngModel)]="formData.country" disabled="true">
+                  </aps-form-input>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 3">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">{{ 'Assign Role' | apsTranslate }}</div>
+          </div>
+          <div class="aps-card-body">
+            <form name="step3Form" #step3Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleId" id="moduleId"
+                    [(ngModel)]="roleFormData.moduleId" [value]="roleFormData.moduleId"
+                    dataUrl="commons/commonService/private/getCorporateProductList" (change)="onModuleChange($event)"
+                    [required]="true">
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select [label]="'Role' | apsTranslate" name="roleId" id="roleId"
+                    [(ngModel)]="roleFormData.roleId" [value]="roleFormData.roleId"
+                    dataUrl="setup/security/corporateRole/private/dropdown/roleList" [reqBody]="roleListReqData"
+                    [isLoadUrlData]="isFireRoleList" (change)="onRoleChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <button class="btn btn-md btn-tertiary p-mt-2" (click)="onAddRoleClick()"
+                    [disabled]="step3Form.invalid">
+                    {{ 'ADD' | apsTranslate }}
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="p-grid aps-h-450">
+              <div class="p-col-12">
+                <app-ag-grid-listing #userRole id="userRoleGrid" [gridOptions]="roleGridOptions"
+                  [rowData]="formData.roles" colDefUrl="setup/securityBank/bankUser/private/roleInitColDefs"
+                  (gridReady)="onRoleInitGridReady($event)">
+                </app-ag-grid-listing>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 4">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">
+              {{ 'Security Detail' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body">
+            <form name="step4Form" #step4Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-px-1 p-py-1">
+                    {{ 'User Type' | apsTranslate }}
+                  </div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuth" class="p-px-1 p-py-1"
+                    id="userType" name="Soft Token" value="Soft Token" [label]="'Soft Token' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuth" class="p-px-1 p-py-1"
+                    id="userType" name="Hard Token" value="Hard Token" [label]="'Hard Token' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuth" class="p-px-1 p-py-1"
+                    id="userType" name="Mobile Token" value="Mobile Token" [label]="'Mobile Token' | apsTranslate">
+                  </p-radioButton>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <aps-custom-select [label]="'Default Dashboard' | apsTranslate" name="defaultDashboard"
+                    id="defaultDashboard" [(ngModel)]="corporateSecurityDetailsFormData.defaultDashboardId"
+                    [value]="corporateSecurityDetailsFormData.defaultDashboardId"
+                    (change)="onDefaultDashboardChange($event)" [data]="defaultDashboardList" [required]="true">
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-p-1">{{ 'User' | apsTranslate }}</div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuthorize" class="p-px-1 p-py-1"
+                    id="selfAuthorizer" name="selfAuthorizer" value="selfAuthorizer"
+                    [label]="'Self Authorizer' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuthorize" class="p-px-1 p-py-1"
+                    id="normalUser" name="normalUser" value="Normal User" [label]="'Normal User' | apsTranslate">
+                  </p-radioButton>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.enableOTP" class="p-px-1 p-pt-5"
+                    id="enableOTP" name="enableOTP" [binary]="true" [label]="'Enable OTP' | apsTranslate">
+                  </p-checkbox>
+                </div>
+              </div>
+              <div class="p-grid" *ngIf="corporateSecurityDetailsFormData.userAuthorize == 'selfAuthorizer'">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.transactionSelfAuthorizer" class="p-p-1"
+                    (click)="onChangetransactionSelfAuth(corporateSecurityDetailsFormData.transactionSelfAuthorizer)"
+                    id="transactionSelfAuthorizer" name="transactionSelfAuthorizer" [binary]="true"
+                    [label]="'Transaction Self Authorizer' | apsTranslate"></p-checkbox>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.masterSelfAuthorizer" class="p-p-1"
+                    id="masterSelfAuthorizer" name="masterSelfAuthorizer" [binary]="true"
+                    [label]="'Master Self Authorizer' | apsTranslate"></p-checkbox>
+                </div>
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.selfServiceRequest" class="p-p-1"
+                    id="selfServiceRequest" name="selfServiceRequest" [binary]="true"
+                    [label]="'Self Service Request' | apsTranslate"></p-checkbox>
+                </div>
+              </div>
+              <div class="p-grid" *ngIf="corporateSecurityDetailsFormData.userAuthorize == 'selfAuthorizer'">
+                <div class="p-col-4 text-size-13 p-ml-4" *ngIf="noOfAccMap > 0">
+                  <span (click)="isShowTransactionSelfAuthModal = true">
+                    <a class="text-color-dark-shade-1 text-underline pointer">{{noOfAccMap}} Account Mapped </a>
+                  </span>
+                </div>
+              </div>
+
+
+
+              <div class="p-grid">
+                <!-- <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-p-1">
+                    {{ 'Multi Country' | apsTranslate }}
+                  </div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isMultiCountry" class="p-p-1"
+                    name="isMultiCountryYes" value="True" [label]="'Yes' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isMultiCountry" class="p-p-1"
+                    name="isMultiCountryNo" value="False" [label]="'No' | apsTranslate">
+                  </p-radioButton>
+                </div> -->
+
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-p-1">
+                    {{ 'Masking Required ' | apsTranslate }}
+                  </div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.maskingReq" class="p-p-1"
+                    name="maskingReqYes" value="True" [label]="'Yes' | apsTranslate" [required]="true">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.maskingReq" class="p-p-1"
+                    name="maskingReqNo" value="False" [label]="'No' | apsTranslate" [required]="true">
+                  </p-radioButton>
+                </div>
+                <!-- <div
+                  class="p-col-12 p-md-4 p-sm-12"
+                  *ngIf="corporateSecurityDetailsFormData.isGroup != 'False'"
+                >
+                  <aps-custom-select
+                    [label]="'Group Name' | apsTranslate"
+                    name="groupId"
+                    [(ngModel)]="corporateSecurityDetailsFormData.groupId"
+                    [value]="corporateSecurityDetailsFormData.groupId"
+                    dataUrl="setup/corporateOnboarding/corporateGroup/private/getGroupList"
+                    (change)="onGroupChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div> -->
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-p-1">
+                    {{ 'IP Mapping Restriction' | apsTranslate }}
+                  </div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.ipMappingRestriction" class="p-p-1"
+                    name="ipMappingRestrictionYes" value="Yes" [label]="'Yes' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.ipMappingRestriction" class="p-p-1"
+                    name="ipMappingRestrictionNo" value="No" [label]="'No' | apsTranslate">
+                  </p-radioButton>
+                </div>
+                <!-- <div class="p-col-12 p-p-0" *ngIf="corporateSecurityDetailsFormData.ipMappingRestriction === 'Yes'">
+                  <form #form="ngForm" (ngSubmit)="onSubmitIpMapped(form)">
+                    <div class="p-grid">
+                      <div class="p-md-4 p-lg-4 p-sm-12 p-col-12">
+                        <div class="text-size-14 text-color-light-shade-1">Start Range</div>
+                        <div class="p-grid">
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                            <aps-form-input name="startRange1" id="startRange1" label="Start Range 1" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.startRange1">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                            <aps-form-input name="startRange2" id="startRange2" label="Start Range 2" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.startRange2">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                            <aps-form-input name="startRange3" id="startRange3" label="Start Range 3" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.startRange3">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0 p-pr-0">
+                            <aps-form-input name="startRange4" id="startRange4" label="Start Range 4" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.startRange4">
+                            </aps-form-input>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="p-col-12 p-md-1 p-lg-1 p-sm-12 p-pt-4"></div>
+
+                      <div class="p-md-4 p-lg-4 p-sm-12 p-col-12">
+                        <div class="text-size-14 text-color-light-shade-1">End Range</div>
+                        <div class="p-grid">
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12 p-pl-0">
+                            <aps-form-input name="endRange1" id="endRange1" label="End Range 1" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.endRange1">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                            <aps-form-input name="endRange2" id="endRange2" label="End Range 2" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.endRange2">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                            <aps-form-input name="endRange3" id="endRange3" label="End Range 3" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.endRange3">
+                            </aps-form-input>
+                          </div>
+                          <div class="p-md-3 p-lg-3 p-sm-12 p-col-12">
+                            <aps-form-input name="endRange4" id="endRange4" label="End Range 4" required="true"
+                              numericInput maxLength="3" [showLabel]="false" [(ngModel)]="ipMapping.endRange4">
+                            </aps-form-input>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="p-md-2 p-lg-2 p-sm-12 p-col-12 p-pt-4">
+                        <button type="submit" class="btn btn-md btn-primary text-bold">
+                          {{ editing ? 'SAVE' : 'ADD' }}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div> -->
+
+                <div class="p-col-12" *ngIf="
+                    corporateSecurityDetailsFormData.ipMappingRestriction === 'Yes' &&
+                    corporateSecurityDetailsFormData.ipMapping.length > 0
+                  ">
+                  <div class="ag-grid-listing aps-h-150 border-radius-5">
+                    <app-ag-grid-listing id="ipMappedGrid" #ipMappedGrid [colDefUrl]="ipMappingColDefs"
+                      [gridOptions]="ipMappedGridOptions" [rowData]="corporateSecurityDetailsFormData.ipMapping">
+                    </app-ag-grid-listing>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 5">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">
+              {{ 'Login Restriction Details' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                  {{ 'Set Login Restriction' | apsTranslate }}
+                </div>
+                <div class="p-px-3">
+                  <p-inputSwitch name="isLoginRestrictions" id="isLoginRestrictions"
+                    [(ngModel)]="formData.isLoginRestrictions" (onChange)="formData.corporateLoginRestrictions = []">
+                  </p-inputSwitch>
+                </div>
+              </div>
+            </div>
+            <form name="step5Form" #step5Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender [label]="'Effective From' | apsTranslate" name="effectiveFrom" id="effectiveFrom"
+                    [showIcon]="true" [(ngModel)]="formData.effectiveFrom" required="true">
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender [label]="'Effective Till' | apsTranslate" name="effectiveTill" id="effectiveTill"
+                    [showIcon]="true" [(ngModel)]="formData.effectiveTill">
+                  </app-aps-calender>
+                </div>
+              </div>
+              <div class="p-mb-1 border-bottom" [apsHide]="!formData.isLoginRestrictions"></div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <aps-custom-select [label]="'Day' | apsTranslate" name="weekdayno" id="weekdayno"
+                    [(ngModel)]="loginRestrictionFormData.weekdayno" [value]="loginRestrictionFormData.weekdayno"
+                    [data]="filteredWeekDays" (change)="onDayChange($event)" [required]="true">
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-6 p-md-2 p-lg-2" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender [label]="'Start Time' | apsTranslate" name="startTime" id="startTime"
+                    [showIcon]="true" [(ngModel)]="loginRestrictionFormData.startTime" timeOnly="true"
+                    [required]="true">
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-6 p-md-2 p-lg-2" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender [label]="'End Time' | apsTranslate" name="endTime" id="endTime" [showIcon]="true"
+                    [(ngModel)]="loginRestrictionFormData.endTime" timeOnly="true" [required]="true">
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <button class="btn btn-md btn-primary p-mt-2" (click)="onAddOrUpdateRestrictionClick()"
+                    [disabled]="step5Form.invalid">
+                    {{ (editRestrictionIndex == -1 ? 'ADD' : 'UPDATE') | apsTranslate }}
+                  </button>
+                  <button class="btn btn-md btn-tertiary p-mx-2 p-mt-2" (click)="onResetClick()"
+                    [apsHide]="editRestrictionIndex == -1">
+                    {{ 'CANCEL' | apsTranslate }}
+                  </button>
+                </div>
+              </div>
+              <div class="p-grid aps-h-320">
+                <div class="p-col-12" [apsHide]="!formData.isLoginRestrictions">
+                  <app-ag-grid-listing #loginRestrictions id="loginRestrictions"
+                    [gridOptions]="loginRestrictionGridOptions" [rowData]="formData.corporateLoginRestrictions"
+                    colDefUrl="setup/securityBank/bankUser/private/loginRestrictionsInitColDefs"
+                    (gridReady)="onLoginRestrictionInitGridReady($event)">
+                  </app-ag-grid-listing>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 6">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">
+              {{ 'Group User' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body">
+            <form name="step6Form" #step6Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-sm-12">
+                  <div class="text-size-14 text-bold p-p-1">
+                    {{ 'Is Group User' | apsTranslate }}
+                  </div>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupYes"
+                    value="True" [label]="'Yes' | apsTranslate">
+                  </p-radioButton>
+                  <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupNo"
+                    value="False" [label]="'No' | apsTranslate">
+                  </p-radioButton>
+                </div>
+                <!-- (onClick)="onIsGroupSelected(corporateSecurityDetailsFormData.isGroup)" -->
+              </div>
+
+              <div *ngIf="corporateSecurityDetailsFormData.isGroup ==='True'">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                    <p-checkbox [(ngModel)]="groupUserFormData.isGroupAdmin" class="p-px-1 p-py-4" id="isGroupAdmin"
+                      name="isGroupAdmin" [binary]="true" [label]="'Is Group Admin' | apsTranslate">
+                    </p-checkbox>
+                  </div>
+                </div>
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                    <aps-custom-select [label]="'Group Name' | apsTranslate" name="groupId"
+                      [(ngModel)]="groupUserFormData.groupId" [value]="groupUserFormData.groupId"
+                      dataUrl="setup/corporateOnboarding/corporateGroup/private/getGroupList"
+                      (change)="onGroupChange($event)" [required]="true">
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+                    <aps-custom-select [label]="'Group Profile Name' | apsTranslate" name="groupProfileId"
+                      id="groupProfileId" [(ngModel)]="groupUserFormData.groupProfileId"
+                      [value]="groupUserFormData.groupProfileId"
+                      dataUrl="setup/security/corporateProfile/private/getProfileNameList"
+                      (change)="onGroupUserModuleChange($event)" [required]="true">
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-12 p-md-2 p-lg-2">
+                    <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleId" id="moduleId"
+                      [(ngModel)]="groupUserFormData.moduleId" [value]="groupUserFormData.moduleId"
+                      dataUrl="commons/commonService/private/getProductList" (change)="onGroupUserModuleChange($event)"
+                      [required]="true">
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-12 p-md-3 p-lg-3">
+                    <aps-custom-select [label]="'Role' | apsTranslate" name="roleId" id="roleId"
+                      [(ngModel)]="groupUserFormData.roleId" [value]="groupUserFormData.roleId"
+                      dataUrl="setup/security/corporateRole/private/dropdown/roleList" [reqBody]="roleListReqData"
+                      [isLoadUrlData]="isFireRoleList" (change)="onGroupRoleChange($event)" [required]="true">
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-12 p-md-1 p-lg-1">
+                    <button class="btn btn-md btn-tertiary p-mt-2" (click)="onAddGroupUserClick()"
+                      [disabled]="step6Form.invalid">
+                      {{ 'ADD' | apsTranslate }}
+                    </button>
+                  </div>
+                </div>
+
+
+                <div class="p-grid">
+                  <div class="p-col-12">
+                    <app-ag-grid-listing #userRole id="userRoleGrid" [gridOptions]="roleGridOptions"
+                      [rowData]="formData.groupUser" colDefUrl="setup/securityBank/bankUser/private/roleInitColDefs"
+                      (gridReady)="onGroupRoleInitGridReady($event)">
+                    </app-ag-grid-listing>
+                  </div>
+                </div>
+                <div class="p-grid">
+                  <div class="p-col-12">
+                    <p-checkbox [(ngModel)]="groupUserFormData.isSelfAuthorizer" class="p-p-1" id="isSelfAuthorizer"
+                      name="isSelfAuthorizer" [binary]="true"
+                      [label]="'Self Authorizer and Authorization Matrix' | apsTranslate"></p-checkbox>
+                  </div>
+                </div>
+                <div class="p-grid" *ngIf="groupUserFormData.isSelfAuthorizer">
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <p-checkbox [(ngModel)]="groupUserFormData.isTransactionSelfAuthorizer" class="p-p-1"
+                      id="isTransactionSelfAuthorizer" name="isTransactionSelfAuthorizer" [binary]="true"
+                      [label]="'Transaction Self Authorizer' | apsTranslate"></p-checkbox>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <p-checkbox [(ngModel)]="groupUserFormData.isMasterSelfAuthorizer" class="p-p-1"
+                      id="isMasterSelfAuthorizer" name="isMasterSelfAuthorizer" [binary]="true"
+                      [label]="'Master Self Authorizer' | apsTranslate"></p-checkbox>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <p-checkbox [(ngModel)]="groupUserFormData.isSelftServiceRequest" class="p-p-1"
+                      id="isSelftServiceRequest" name="isSelftServiceRequest" [binary]="true"
+                      [label]="'Self-Service Request -Self Authorizer' | apsTranslate"></p-checkbox>
+                  </div>
+                </div>
+                <!-- <div class="p-grid">
+                  <div class="p-col-12">
+                    <app-ag-grid-listing #userRole id="userRoleGrid" [gridOptions]="roleGridOptions"
+                      [rowData]="formData.groupUser" colDefUrl="setup/securityBank/bankUser/private/selfAuthInitColDefs"
+                      (gridReady)="onGroupRoleInitGridReady($event)">
+                    </app-ag-grid-listing>
+                  </div>
+                </div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != stepperDetails.headings.length">
+        <div class="p-py-3 text-size-16 text-bold">
+          {{ 'Review Details & Confirm' | apsTranslate }}
+        </div>
+        <!-- Step 1 Review-->
+        <div class="aps-card p-px-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'User Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'User Id' | apsTranslate" [value]="formData.userId">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'First Name' | apsTranslate" [value]="formData.firstName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Last Name' | apsTranslate" [value]="formData.lastName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Gender' | apsTranslate" [value]="formData.genderName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Email ID' | apsTranslate" [value]="formData.email">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Mobile No' | apsTranslate" [value]="formData.telephoneNo">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Fax No' | apsTranslate" [value]="formData.faxNo"></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'User Alias' | apsTranslate" [value]="formData.userAlias">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Signature Code' | apsTranslate" [value]="formData.signatureCode">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Signature File Name' | apsTranslate" [value]="formData.uploadedFileName">
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Organization Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Employee Code' | apsTranslate" [value]="formData.employeeCode">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Designation' | apsTranslate" [value]="formData.designation">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Department' | apsTranslate" [value]="formData.department">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Category' | apsTranslate" [value]="formData.categoryName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Profile' | apsTranslate" [value]="formData.profileName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Corporate Branch' | apsTranslate" [value]="formData.corporateBranchName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Address' | apsTranslate" [value]="formData.address">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'City' | apsTranslate" [value]="formData.city"></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Pin Code' | apsTranslate" [value]="formData.pinCode">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Location Name' | apsTranslate" [value]="formData.locationName">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'State' | apsTranslate" [value]="formData.state"></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Country' | apsTranslate" [value]="formData.country">
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Assign Role' | apsTranslate }}
+          </div>
+          <div class="p-grid aps-h-200">
+            <div class="p-col-12">
+              <app-ag-grid-listing #userRoleReviewGrid id="userRoleReviewGrid" [gridOptions]="roleGridOptions"
+                [rowData]="formData.roles" colDefUrl="setup/securityBank/bankUser/private/roleReviewColDefs"
+                (gridReady)="onRoleReviewGridReady($event)">
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4 Review -->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Security Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <div class="text-size-14 text-bold p-px-1 p-py-1">
+                {{ 'User Type' | apsTranslate }}
+              </div>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuth" class="p-px-1 p-py-1" id="soft"
+                name="soft" value="soft" [label]="'Soft' | apsTranslate" disabled>
+              </p-radioButton>
+            </div>
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <app-review-form-field [label]="'Default Dashboard' | apsTranslate"
+                [value]="corporateSecurityDetailsFormData.defaultDashboardName"></app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <div class="text-size-14 text-bold p-p-1">{{ 'User' | apsTranslate }}</div>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuthorize" class="p-px-1 p-py-1"
+                id="selfAuthorizer" name="selfAuthorizer" value="selfAuthorizer"
+                [label]="'Self Authorizer' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.userAuthorize" class="p-px-1 p-py-1"
+                id="normalUser" name="normalUser" value="Normal User" [label]="'Normal User' | apsTranslate"
+                [disabled]="true">
+              </p-radioButton>
+            </div>
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.enableOTP" class="p-px-1 p-py-1" id="enableOTP"
+                name="enableOTP" [binary]="true" [label]="'Enable OTP' | apsTranslate" [disabled]="true">
+              </p-checkbox>
+            </div>
+          </div>
+          <div class="p-grid" *ngIf="corporateSecurityDetailsFormData.userAuthorize == 'selfAuthorizer'">
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.transactionSelfAuthorizer" class="p-p-1"
+                id="transactionSelfAuthorizer" name="transactionSelfAuthorizer" [binary]="true"
+                [label]="'Transaction Self Authorizer' | apsTranslate" [disabled]="true"></p-checkbox>
+            </div>
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.masterSelfAuthorizer" class="p-p-1"
+                id="masterSelfAuthorizer" name="masterSelfAuthorizer" [binary]="true"
+                [label]="'Master Self Authorizer' | apsTranslate" [disabled]="true"></p-checkbox>
+            </div>
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <p-checkbox [(ngModel)]="corporateSecurityDetailsFormData.selfServiceRequest" class="p-p-1"
+                id="selfServiceRequest" name="selfServiceRequest" [binary]="true"
+                [label]="'Self Service Request' | apsTranslate" [disabled]="true"></p-checkbox>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <div class="text-size-14 text-bold p-p-1">
+                {{ 'Multi Country' | apsTranslate }}
+              </div>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isMultiCountry" class="p-p-1"
+                name="isMultiCountryYes" value="True" [label]="'Yes' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isMultiCountry" class="p-p-1"
+                name="isMultiCountryNo" value="False" [label]="'No' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+            </div>
+            <!-- <div class="p-col-12 p-md-4 p-sm-12">
+              <div class="text-size-14 text-bold p-p-1">
+                {{ 'Is Group User' | apsTranslate }}
+              </div>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupYes"
+                value="True" [label]="'Yes' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupNo"
+                value="False" [label]="'No' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+            </div> -->
+            <!-- <div class="p-col-12 p-md-4 p-sm-12" *ngIf="corporateSecurityDetailsFormData.isGroup != 'False'">
+              <aps-custom-select [label]="'Group Name' | apsTranslate" name="groupId"
+                [(ngModel)]="corporateSecurityDetailsFormData.groupId"
+                [value]="corporateSecurityDetailsFormData.groupId" [data]="userService.userGroups"
+                (change)="onGroupChange($event)" [required]="true" [disabled]="true">
+              </aps-custom-select>
+            </div> -->
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-4 p-sm-12">
+              <div class="text-size-14 text-bold p-p-1">
+                {{ 'IP Mapping Restriction' | apsTranslate }}
+              </div>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.ipMappingRestriction" class="p-p-1" id="yes"
+                name="yes" value="Yes" [label]="'Yes' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+              <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.ipMappingRestriction" class="p-p-1" id="no"
+                name="no" value="No" [label]="'No' | apsTranslate" [disabled]="true">
+              </p-radioButton>
+            </div>
+
+            <div class="p-col-12" *ngIf="
+                corporateSecurityDetailsFormData.ipMappingRestriction === 'Yes' &&
+                corporateSecurityDetailsFormData.ipMapping.length > 0
+              ">
+              <div class="ag-grid-listing aps-h-150 border-radius-5">
+                <app-ag-grid-listing id="ipMappedGrid" #ipMappedGrid [colDefUrl]="ipMappingColDefs"
+                  [gridOptions]="ipMappedGridOptions" (actionClicked)="onActionClicked($event)"
+                  [rowData]="corporateSecurityDetailsFormData.ipMapping">
+                </app-ag-grid-listing>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step 5 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Login Restriction Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Login Restriction' | apsTranslate"
+                [value]="(formData.isLoginRestrictions ? 'Yes' : 'No') | apsTranslate"></app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3" [apsHide]="!formData.isLoginRestrictions">
+              <app-review-form-field [label]="'Effective From' | apsTranslate" [value]="formData.effectiveFrom">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3" [apsHide]="!formData.isLoginRestrictions">
+              <app-review-form-field [label]="'Effective Till' | apsTranslate" [value]="formData.effectiveTill">
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid aps-h-200">
+            <div class="p-col-12" [apsHide]="!formData.isLoginRestrictions">
+              <app-ag-grid-listing #loginReviewRestrictions id="loginReviewRestrictions"
+                [gridOptions]="loginRestrictionGridOptions" [rowData]="formData.corporateLoginRestrictions"
+                colDefUrl="setup/securityBank/bankUser/private/loginRestrictionsReviewColDefs"
+                (gridReady)="onLoginRestrictionReviewGridReady($event)">
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+        <!-- Step 6 Review -->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Group User' | apsTranslate }}
+          </div>
+          <div class="p-col-12 p-md-4 p-sm-12 p-pt-0">
+            <div class="text-size-14 text-bold p-p-1">
+              {{ 'Is Group User' | apsTranslate }}
+            </div>
+            <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupYes"
+              value="True" [label]="'Yes' | apsTranslate" disabled>
+            </p-radioButton>
+            <p-radioButton [(ngModel)]="corporateSecurityDetailsFormData.isGroup" class="p-p-1" name="isGroupNo"
+              value="False" [label]="'No' | apsTranslate" disabled>
+            </p-radioButton>
+          </div>
+
+          <div class="p-grid" *ngIf="corporateSecurityDetailsFormData.isGroup ==='True'">
+            <div class="p-col-12 p-md-3 p-lg-3 p-sm-12">
+              <p-checkbox [(ngModel)]="groupUserFormData.isGroupAdmin" class="p-px-1 p-py-4" id="isGroupAdmin"
+                name="isGroupAdmin" [binary]="true" [label]="'Is Group Admin' | apsTranslate" disabled>
+              </p-checkbox>
+            </div>
+          </div>
+
+          <div class="p-grid aps-h-200" *ngIf="corporateSecurityDetailsFormData.isGroup ==='True'">
+            <div class="p-col-12">
+              <app-ag-grid-listing #userRoleReviewGrid id="userRoleReviewGrid" [gridOptions]="roleGridOptions"
+                [rowData]="formData.groupUser" colDefUrl="setup/securityBank/bankUser/private/roleReviewColDefs"
+                (gridReady)="onGroupRoleReviewGridReady($event)">
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-pt-0">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+  <!-- Role View Modal -->
+  <app-modal [(isShow)]="isShowRoleViewModal" size="lg" [headerText]="'Role Details' | apsTranslate">
+    <ng-container body>
+      <app-corporate-role viewOnAnotherComponent="true" #corporateRoleView></app-corporate-role>
+    </ng-container>
+  </app-modal>
+
+  <app-modal [(isShow)]="isShowTransactionSelfAuthModal" size="md"
+    [headerText]="'Account-Wise Authorization Limit' | apsTranslate">
+    <div class="table-container p-pl-2">
+      <table class="table">
+        <thead>
+          <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+            <th class="p-p-2 text-left">Select</th>
+            <th class="p-p-2 text-left">Account Numbers</th>
+            <th class="p-p-2 text-left">Authorization Limit</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          <tr class="text-size-12 text-color-normal border-bottom"
+            *ngFor="let account of accountWiseAuthLimit; let i = index">
+            <td class="p-p-2">
+              <p-checkbox [binary]="true" id="account.isSelect-{{ i }}" name="account.isSelect-{{ i }}"
+                [(ngModel)]="account.isSelect" (change)="onIsSelect($event, account.isSelect)">
+              </p-checkbox>
+            </td>
+            <td class="p-p-2">
+              {{account.accountNo}}
+            </td>
+            <td class="p-p-2">
+              <span class="p-input-icon-left aps-w-100p">
+                <input id="userName" name="account.authLimit" class="inputText" type="account.authLimit"
+                  [(ngModel)]="account.authLimit" autocomplete="username" [placeholder]="'Enter Limit' | apsTranslate">
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="left-right-container" footer>
+      <div class="left-container"></div>
+      <div class="right-container">
+        <!-- <button type="button" class="btn btn-md btn-secondary p-mr-2">No</button> -->
+        <button type="button" class="btn btn-md btn-primary" (click)="onSubmitAuthLimit()">Submit</button>
+      </div>
+    </div>
+  </app-modal>
+
+  <!-- Login View Modal -->
+  <app-search-modal header="Locations" colDefUrl="setup/security/corporateUser/private/locationDef"
+    rowDefUrl="setup/generalMasters/location/private/getAuthorizedList" [(isShow)]="isLocation"
+    (onSelection)="setSearchModelData($event)"></app-search-modal>
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "headerName": "User ID",
+    "field": "uaid",
+    "cellRenderer": "profilePictureRenderer",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "headerCheckboxSelectionFilteredOnly": true
+  },
+  {
+    "headerName": "First Name",
+    "field": "firstName"
+  },
+  {
+    "headerName": "Last Name",
+    "field": "lastName"
+  }
+]

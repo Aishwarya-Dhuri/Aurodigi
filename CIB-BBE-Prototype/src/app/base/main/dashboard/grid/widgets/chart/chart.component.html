@@ -1,0 +1,12 @@
+<app-widgets-header
+  [heading]="title"
+  [showChangeChartOption]="showChangeChartOption"
+  (action)="this.actionEvent($event)"
+></app-widgets-header>
+<div class="p-mt-2">
+  <app-select-group-button *ngIf="options && options.type === 'pie'"></app-select-group-button>
+</div>
+
+<div class="chart-wrapper">
+  <aps-chart #chart [options]="options" *ngIf="!loading"></aps-chart>
+</div>

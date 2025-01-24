@@ -1,0 +1,40 @@
+[
+  {
+    "headerName": "Debit Account",
+    "field": "debitAccount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Payment Amount",
+    "field": "paymentAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Payment Date",
+    "field": "paymentDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Exchange Detail",
+    "field": "exchangeDetail"
+  },
+  {
+    "headerName": "Deal No.",
+    "field": "dealNo"
+  },
+  {
+    "headerName": "Debit Amount",
+    "field": "debitAmount",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Remarks",
+    "field": "remarks"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

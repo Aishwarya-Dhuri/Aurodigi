@@ -1,0 +1,74 @@
+:host[style='style1'] {
+  textarea {
+    width: 100%;
+    border: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    resize: none;
+    border-bottom: 1px solid #cccccc;
+    outline: none;
+    padding: 10px 0;
+    font: normal normal normal 0.875rem Nunito Sans;
+    background: none;
+    border-radius: 0px;
+  }
+  textarea:valid {
+    top: 2.3rem;
+  }
+  textarea:hover {
+    border-bottom: 1px solid #333333;
+  }
+  textarea:hover ~ label {
+    color: #333333;
+  }
+  textarea:focus {
+    border: none;
+    border-bottom: 1px solid #009999;
+    box-shadow: none;
+  }
+  //   pInputTextarea
+  .p-inputtextarea:enabled:focus {
+    box-shadow: none;
+    border-bottom: 1px solid var(--primary-color);
+  }
+
+  textarea:not(:focus):valid ~ label {
+    font-size: 0.75rem;
+    top: -0.39rem !important;
+    background-color: #ffffff;
+    padding: 2px 4px;
+    margin-left: -4px;
+    margin-top: 0;
+  }
+  textarea:focus ~ label {
+    top: 0.25rem;
+  }
+
+  textarea::placeholder {
+    font: normal normal normal 0.875rem Nunito Sans;
+
+    color: transparent;
+  }
+  textarea:focus::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .p-float-label > label {
+    left: 0;
+    font-size: 0.75rem;
+  }
+
+  .error {
+    .help-text {
+      color: red !important;
+      font-size: 0.775rem;
+      top: -3px;
+      position: relative;
+    }
+
+    textarea {
+      border-bottom: 1px solid red;
+    }
+  }
+}

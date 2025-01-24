@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "entryType": "SINGLE",
+    "corporateRefNo": "1234",
+    "batchNo": "16123456789",
+    "beneficiary": "TATA",
+    "amount": "20000",
+    "activationDate": "02-Aug-2022"
+  },
+  {
+    "id": "2",
+    "entryType": "SINGLE",
+    "corporateRefNo": "1235",
+    "batchNo": "16123456790",
+    "beneficiary": "Vistara Ltd",
+    "amount": "5000",
+    "activationDate": "01-Aug-2022"
+  }
+]

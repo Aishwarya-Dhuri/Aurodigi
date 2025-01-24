@@ -1,0 +1,28 @@
+<div class="mailbox">
+  <div class="mail-box-wrapper-container">
+    <div class="mail-box-container">
+      <div
+        class="mail-inner-container"
+        [ngClass]="{ active: isMenuActive == 'collapse', '': isMenuActive == 'expend' }"
+      >
+        <div class="side-nav-section isDesktopView" app-side-nav></div>
+
+        <div class="mail-list-section common-vertical-layout-css">
+          <div class="content-section" *ngIf="!viewMail">
+            <app-compose *ngIf="listingType == 'compose'"></app-compose>
+            <app-inbox *ngIf="listingType == 'inbox'"></app-inbox>
+            <app-sent *ngIf="listingType == 'sent'"></app-sent>
+            <app-starred *ngIf="listingType == 'starred'"></app-starred>
+            <app-trash *ngIf="listingType == 'trash'"></app-trash>
+            <app-draft *ngIf="listingType == 'draft'"></app-draft>
+          </div>
+          <div class="view-mail-container" *ngIf="viewMail">
+            <app-view-mail></app-view-mail>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-mailbox-toaster></app-mailbox-toaster>
+  <app-confirmdialog></app-confirmdialog>
+</div>

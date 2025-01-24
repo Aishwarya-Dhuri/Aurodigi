@@ -1,0 +1,10 @@
+[
+  { "headerName": "Corporate Name", "field": "corporateName" },
+  { "headerName": "Account Number", "field": "accountName" },
+  {
+    "headerName": "Total Debit Amount",
+    "field": "debitBalance",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Account Balance", "field": "balance", "cellRenderer": "currencyRenderer" }
+]

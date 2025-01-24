@@ -1,0 +1,137 @@
+{
+  "type": "Account-Servie-chequeStatusEnquiry",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "paymentType",
+      "displayName": "Payment Type",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "payments/transactions/fileUploadLog/private/dropdown/paymentType",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "batchNo",
+      "displayName": "Batch No",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "payments/transactions/fileUploadLog/private/batchNoColDefs",
+      "rowDefUrl": "payments/transactions/fileUploadLog/private/batchNoData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "FILEUPLOADLOGSEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "parentId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "batchCode,batchNo",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "channel",
+      "displayName": "Channel",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/transactions/fileUploadLog/private/getChannel",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "uploadFileName",
+      "displayName": "Upload File Name",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "payments/transactions/fileUploadLog/private/uploadFileColDefs",
+      "rowDefUrl": "payments/transactions/fileUploadLog/private/uploadFileData",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "UPLOADFILENAMESEARCH",
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "parentId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "uploadFileCode,uploadFileName",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "uploadedDate",
+      "displayName": "Uploaded Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "payments/transactions/fileUploadLog/private/getStatus",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

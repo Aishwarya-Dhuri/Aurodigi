@@ -1,0 +1,15 @@
+<div class="inline-block white-space-nowrap" *ngIf="currency">
+  <div class="inline-block p-pr-2" *ngIf="showFlag">
+    <img
+      src="./../../../../assets/images/currency/{{ currency.trim() }}.png"
+      [alt]="currency"
+      class="country-flag-icon"
+      [ngClass]="flagStyleClass"
+    />
+  </div>
+  <div class="inline-block">
+    <div [ngClass]="amountStyleClass">
+      {{ amount | currency: currency:display:digitsInfo }}
+    </div>
+  </div>
+</div>

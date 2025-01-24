@@ -1,0 +1,38 @@
+[
+  {
+    "id": "en",
+    "direction": "ltr",
+    "icon": "",
+    "displayShortName": "EN",
+    "displayName": "English"
+  },
+  {
+    "id": "hn",
+    "direction": "ltr",
+    "icon": "",
+    "displayShortName": "HN",
+    "displayName": "Hindi"
+  },
+  {
+    "id": "ma",
+    "direction": "ltr",
+    "icon": "",
+    "displayShortName": "MA",
+    "displayName": "Malay"
+  },
+  {
+    "id": "ar",
+    "direction": "rtl",
+    "icon": "",
+    "displayShortName": "AR",
+    "displayName": "Arabic"
+  },
+  {
+    "id": "cn",
+    "direction": "ltr",
+    "icon": "",
+    "displayShortName": "CN",
+    "displayName": "Chinese"
+  }
+ 
+]

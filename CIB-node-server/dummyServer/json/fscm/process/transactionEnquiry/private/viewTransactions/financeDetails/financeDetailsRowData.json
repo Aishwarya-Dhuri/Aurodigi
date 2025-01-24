@@ -1,0 +1,14 @@
+[
+  {
+    "batchNumber": {
+      "header": "Process Finance",
+      "label": "PF20222001",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/financeDetails/financeDetails"
+    },
+    "financeApplied": "THB 1,006.40",
+    "financeAppliedDate": "02 Feb 2022",
+    "financeProcessDate": "07 Feb 2022",
+    "finance": "80%",
+    "maxFinance": "THB 10000.00"
+  }
+]

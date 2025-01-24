@@ -1,0 +1,140 @@
+[
+  {
+    "header": [
+      {
+        "columnName": "MOL ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Debit From Account",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Routing Code / Agent ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Payable Currency and Total Salary Amount",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Salary Month",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "EDR Count",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Employee Reference",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      }
+    ],
+    "detail": [
+      {
+        "columnName": "MOL ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Debit From Account",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Routing Code / Agent ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Payable Currency and Total Salary Amount",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Salary Month",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "EDR Count",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Employee Reference",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      }
+    ],
+    "footer": [
+      {
+        "columnName": "MOL ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Debit From Account",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Routing Code / Agent ID",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Payable Currency and Total Salary Amount",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Salary Month",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "EDR Count",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      },
+      {
+        "columnName": "Employee Reference",
+        "dataType": "TEXT",
+        "sequenceNumber": "1",
+        "operations": "Create Authorized"
+      }
+    ],
+    "enrichmentFields": [
+      { "columnName": "", "dataType": "", "sequenceNumber": "", "operations": "" }
+    ],
+    "lastRow": 1
+  }
+]

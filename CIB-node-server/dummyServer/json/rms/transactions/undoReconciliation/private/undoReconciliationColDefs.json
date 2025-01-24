@@ -1,0 +1,41 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "Match Id",
+      "field": "matchId"
+    },
+    {
+      "headerName": "Program",
+      "field": "program"
+    },
+    {
+      "headerName": "Corporate Name",
+      "field": "corporateName"
+    },
+    {
+      "headerName": "Total Invoice Amount",
+      "field": "totalInvoiceAmount"
+    },
+    {
+      "headerName": "Total Invoices",
+      "field": "totalInvoices"
+    },
+    {
+      "headerName": "Total Payment Amount",
+      "field": "totalPaymentAmount"
+    },
+    {
+      "headerName": "Total Payments",
+      "field": "totalPayments"
+    },
+    {
+      "headerName": "Status",
+      "field": "status"
+    },
+    {
+      "headerName": "Links",
+      "field": "links",
+      "cellRenderer": "linksCellRenderer"
+    }
+  ]
+}

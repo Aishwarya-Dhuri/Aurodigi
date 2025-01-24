@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "displayName": "Auto-Renewal with Principal and credit interest to account",
+    "productType": 1
+  },
+  {
+    "id": 2,
+    "displayName": "Credit Principal and Interest to same account",
+    "productType": 1
+  },
+  {
+    "id": 3,
+    "displayName": "Auto renew Principal and Interest as separate FD",
+    "productType": 1
+  },
+  {
+    "id": 4,
+    "displayName": "Credit Principal and Interest to different accounts",
+    "productType": 1
+  },
+  {
+    "id": 5,
+    "displayName": "Credit Principal and Profit to the same Account",
+    "productType": 2
+  },
+  {
+    "id": 6,
+    "displayName": "Credit Principal and Profit to different account",
+    "productType": 2
+  },
+  {
+    "id": 7,
+    "displayName": "Auto renewal for the Principal and credit profit to account",
+    "productType": 2
+  },
+  {
+    "id": 8,
+    "displayName": "Credit Principal and Profit to the same account",
+    "productType": 3
+  },
+  {
+    "id": 9,
+    "displayName": "Credit Principal and Profit to different accounts",
+    "productType": 3
+  }
+]

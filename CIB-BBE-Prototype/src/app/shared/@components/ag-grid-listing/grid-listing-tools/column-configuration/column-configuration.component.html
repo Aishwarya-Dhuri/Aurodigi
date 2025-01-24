@@ -1,0 +1,50 @@
+<div class="column-configuration-wrapper text-size-12 aps-shadow-1">
+  <div class="header-options">
+    <div class="left-right-container">
+      <div class="left-container">
+        <div class="configure text-bold text-color-dark-shade-1">Configure</div>
+      </div>
+      <div class="right-container">
+        <div class="reset text-color-normal">RESET</div>
+        <div class="apply pointer text-color-primary" (click)="onApplyColDefs()">APPLY</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aps-search-container-1">
+    <input type="text" class="input-search" placeholder="Enter keyword to search" />
+    <div class="icon">
+      <!-- <i class="pi pi-search"></i> -->
+      <app-icon icon="fa-search" class="app-icon"></app-icon>
+    </div>
+  </div>
+
+  <div class="columns-container">
+    <div class="select-all-label text-color-primary">Select All</div>
+
+    <div class="column left-right-container" *ngFor="let colDef of columnDefs; let i = index">
+      <div class="left-container">
+        <div class="move">
+          <app-icon icon="fa-th" class="app-icon"></app-icon>
+        </div>
+
+        <div
+          class="check-box"
+          [ngClass]="{ 'check-box-checked': colDef.showOnGrid }"
+          (click)="clickOnCheckBox(!colDef.showOnGrid, i)"
+        >
+          <!-- <i class="pi pi-check" *ngIf="colDef.showOnGrid"></i> -->
+          <app-icon icon="fa-check" class="app-icon" *ngIf="colDef.showOnGrid"></app-icon>
+        </div>
+
+        <div class="label">{{ colDef.headerName }}</div>
+      </div>
+      <div class="right-container">
+        <div class="pin-icon">
+          <!-- <i class="pi pi-unlock"></i> -->
+          <app-icon icon="fa-unlock" class="app-icon"></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

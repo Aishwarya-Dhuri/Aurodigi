@@ -1,0 +1,6 @@
+[
+  { "field": "uaid", "headerName": "Account No" },
+  { "field": "accountType", "headerName": "Account Type" },
+  { "field": "aliasName", "headerName": "Alias Name" },
+  { "field": "currency", "headerName": "Currency" }
+]

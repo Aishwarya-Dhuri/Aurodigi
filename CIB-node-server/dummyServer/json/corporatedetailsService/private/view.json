@@ -1,0 +1,141 @@
+{
+  "type": "CollectPro-MANUALRECOVERY",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "corporateName": "Thai Beverage Public Company Ltd",
+  "category": "Gold",
+  "corporateLogo": "CorporateProfileLogo",
+  "agreementRefNo": "102359103",
+  "agreementExpDate": "01-April-2020",
+  "rmName": "Richard Strauss",
+  "rmEmailId": "01-April-2020",
+  "rmMobileNo": "991002012012",
+  "contactPerson": [
+    {
+      "personName": "Mark Twain",
+      "designation": "Manager",
+      "emailId": "mark.twain@thaib.com",
+      "telephoneNo": "9010201200"
+    },
+    {
+      "personName": "Bertha Clauss",
+      "designation": "Sr. Manager",
+      "emailId": "mark.twain@thaib.com",
+      "telephoneNo": "9010201200"
+    }
+  ],
+  "modulesOfferedSetup": true,
+  "modulesOfferedPayment": true,
+  "modulesOfferedCollection": true,
+  "modulesOfferedDirectDebit": true,
+  "modulesOfferedFSCM": true,
+  "modulesOfferedLMS": true,
+  "modulesOfferedVAM": true,
+  "modulesOfferedFX": true,
+  "modulesOfferedTrade": true,
+  "accountMapped": [
+    {
+      "accountNumber": "019900038803",
+      "Currency": "THB",
+      "accountType": "CASA"
+    },
+    {
+      "accountNumber": "019900038801",
+      "Currency": "THB",
+      "accountType": "CASA"
+    },
+    {
+      "accountNumber": "019900038801",
+      "Currency": "THB",
+      "accountType": "CASA"
+    }
+  ],
+  "productMapped": {
+    "payment": [
+      {
+        "name": "Vendor Payments"
+      },
+      {
+        "name": "Payroll Payment"
+      }
+    ],
+    "collection": [
+      {
+        "name": "Local Clearing"
+      },
+      {
+        "name": "Advance Credit"
+      }
+    ],
+    "trade": [
+      {
+        "name": "Letter Of Credit"
+      },
+      {
+        "name": "Shipping Guarantee"
+      }
+    ]
+  },
+  "authArray": [
+    {
+      "productName": "Payment",
+      "moduleName": [
+        {
+          "name": "Payment Request"
+        },
+        {
+          "name": "SI Management"
+        },
+        {
+          "name": "Bill Payment"
+        }
+      ],
+      "authRule": [
+        {
+          "rule": "Self Authorization and Authorization Matrix"
+        },
+        {
+          "rule": "Maker Checker"
+        },
+        {
+          "rule": "Maker Checker"
+        }
+      ]
+    },
+    {
+      "productName": "Trade",
+      "moduleName": [
+        {
+          "name": "Letter of Credit"
+        },
+        {
+          "name": "Trade Bill Acceptance"
+        },
+        {
+          "name": "Trade Bill Presentment"
+        }
+      ],
+      "authRule": [
+        {
+          "rule": "Self Authorization and Authorization Matrix"
+        },
+        {
+          "rule": "Maker Checker"
+        },
+        {
+          "rule": "Maker Checker"
+        }
+      ]
+    }
+  ],
+  "currencyWiseAuthMatrix": "Yes",
+  "primaryCurrency": "THB",
+  "batchPrimaryCurrency": "THB",
+  "verificartionRequired": "Yes",
+  "verificartionLevel": "Batch",
+  "noOfUsers": "12",
+  "tokenIssued": "5"
+}

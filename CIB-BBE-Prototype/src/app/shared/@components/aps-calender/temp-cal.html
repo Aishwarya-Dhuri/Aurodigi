@@ -1,0 +1,111 @@
+[6:27 PM, 10/12/2021] Suhail Ahamad Aurionpro:
+<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [selectOtherMonths]="true"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    [(ngModel)]="optionalFilters[i].value"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>
+[6:27 PM, 10/12/2021] Suhail Ahamad Aurionpro: ----------------------- [6:27 PM, 10/12/2021] Suhail
+Ahamad Aurionpro:
+<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    numberOfMonths="2"
+    selectionMode="range"
+    hideOnDateTimeSelect="true"
+    [(ngModel)]="optionalFilters[i].value"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>
+[7:45 PM, 10/12/2021] Suhail Ahamad Aurionpro: ----------------- [7:45 PM, 10/12/2021] Suhail Ahamad
+Aurionpro:
+<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [selectOtherMonths]="true"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    [(ngModel)]="mandatoryFilters[i].value"
+    (onBlur)="updateDisplayValue(i, true);updateBasedOn(filter);"
+    [required]="true"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>
+[7:46 PM, 10/12/2021] Suhail Ahamad Aurionpro: -------------------- [7:46 PM, 10/12/2021] Suhail
+Ahamad Aurionpro:
+<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    numberOfMonths="2"
+    selectionMode="range"
+    hideOnDateTimeSelect="true"
+    [(ngModel)]="mandatoryFilters[i].value"
+    (onBlur)="updateDisplayValue(i, true);updateBasedOn(filter);"
+    [required]="true"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>
+[8:41 PM, 10/12/2021] Suhail Ahamad Aurionpro: -----------<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [selectOtherMonths]="true"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    (onSelect)="updateDisplayValue(i, true);updateBasedOn(filter);"
+    [(ngModel)]="optionalFilters[i].value"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>
+[8:42 PM, 10/12/2021] Suhail Ahamad Aurionpro: ---------------- [8:42 PM, 10/12/2021] Suhail Ahamad
+Aurionpro:
+<span class="p-float-label">
+  <p-calendar
+    [showIcon]="true"
+    dateFormat="dd-M-yy"
+    [name]="filter.name"
+    [monthNavigator]="true"
+    [yearNavigator]="true"
+    dataType="string"
+    [inputId]="filter.name"
+    numberOfMonths="2"
+    selectionMode="range"
+    hideOnDateTimeSelect="true"
+    (onSelect)="updateDisplayValue(i, true);updateBasedOn(filter);"
+    [(ngModel)]="optionalFilters[i].extraValue"
+  >
+  </p-calendar>
+  <label [for]="filter.name">{{filter.displayName}}</label>
+</span>

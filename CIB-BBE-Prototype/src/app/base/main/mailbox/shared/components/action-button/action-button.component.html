@@ -1,0 +1,12 @@
+<div class="action-btn-section p-d-flex p-flex-row">
+  <div class="action-btn" *ngFor="let link of actionBtnArray; let i = index">
+    <button
+      pButton
+      pRipple
+      type="button"
+      class="p-button-rounded p-button-text"
+      (click)="allActionBtn(link.displayName)"
+      icon="{{ link.icon }}"
+    ></button>
+  </div>
+</div>

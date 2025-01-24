@@ -1,0 +1,18 @@
+{
+  "columnDefs": [
+    { "headerName": "SI/ Template Name", "field": "siOrTemplateName" },
+    { "headerName": "Batch No", "field": "batchNo" },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Payment Method", "field": "paymentMethod" },
+    { "headerName": "Transaction Date", "field": "transactionDate" },
+
+    {
+      "headerName": "Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

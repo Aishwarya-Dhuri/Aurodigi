@@ -1,0 +1,19 @@
+{
+  "columnDefs": [
+    { "headerName": "Biller", "field": "biller" },
+    { "headerName": "Product", "field": "product" },
+    { "headerName": "Subscriber Name", "field": "subscriberName" },
+    { "headerName": "Transaction ref No", "field": "transactionRefNo" },
+    { "headerName": "Bill Date", "field": "billDate" },
+    { "headerName": "Bill Due Date", "field": "billDueDate" },
+    { "headerName": "Bill Amount", "field": "billAmount" },
+    { "headerName": "Payment Amount", "field": "paymentAmount" },
+    { "headerName": "Reference Field 1", "field": "referenceField1" },
+    { "headerName": "Reference Field 2", "field": "referenceField2" },
+    { "headerName": "Reference Field 3", "field": "referenceField3" },
+    { "headerName": "Reference Field 4", "field": "referenceField4" },
+    { "headerName": "Channel", "field": "channel" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

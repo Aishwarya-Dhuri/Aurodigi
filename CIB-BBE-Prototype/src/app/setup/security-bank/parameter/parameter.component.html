@@ -1,0 +1,62 @@
+<div class="container">
+    <!-- <div class="p-px-1 p-py-3 text-size-16 text-bold">
+        {{ 'Profile Details' | apsTranslate }}
+    </div> -->
+    <form name="corporateProfileForm" #parameterForm="ngForm">
+        <div *ngIf="stepperDetails.currentStep == 1">
+            <div class="aps-card aps-h-400 p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Parameter Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Parameter Description' | apsTranslate"
+                                name="paramDesc" id="paramDesc" [(ngModel)]="formData.paramDesc"  required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="paramVal" name="paramVal"
+                                [label]="'Parameter Value' | apsTranslate" [(ngModel)]="formData.paramVal" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Allowed Parameter Value' | apsTranslate"
+                                name="paramUiMsg" id="paramUiMsg" [(ngModel)]="formData.paramUiMsg" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Parameter Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Parameter Description" [value]="formData.paramDesc">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Parameter Value" [value]="formData.paramVal">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Allowed Parameter Value" [value]="formData.paramUiMsg">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

@@ -1,0 +1,339 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2">Select Module</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                                [(ngModel)]="formData.module" (change)="onChangeModule(formData.module)"
+                                dataUrl="setup/process/reportMapping/private/dropdown/module" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Report Type' | apsTranslate" name="reportType" id="reportType"
+                                [(ngModel)]="formData.reportType" [data]="reportTypeData" [required]="true"
+                                (change)="onChangeReportType(formData.module, formData.reportType)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Report Name' | apsTranslate" name="reportName" id="reportName"
+                                [(ngModel)]="formData.reportName" [data]="reportNameData" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid"
+                        *ngIf="formData.module ==='Setup' && formData.reportType ==='Corporate' || formData.reportType === 'Query Builder - Corporate' || formData.module === 'FSCM' && formData.reportType === 'Corporate' || formData.reportType === 'Query Builder - Corporate'">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                [(ngModel)]="formData.corporateName" disabled="true" required="true">
+                            </aps-form-input>
+                            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                            </app-search-modal>
+                        </div>
+                        <!-- <div class="p-col-12 p-md-2 p-lg-2" *ngIf="formData.corporateCode">
+                            <div class="text-size-14 text-color-light-shade-2 background-color-disabled p-pt-2 p-px-2">
+                                Corporate Name
+                            </div>
+                            <div class="text-size-14 background-color-disabled p-px-2 p-pb-2">
+                                {{ formData.corporateName }}
+                            </div>
+                        </div> -->
+                        <div class="p-col-12 p-md-3 p-sm-3 p-py-0" *ngIf="formData.corporateCode">
+                            <aps-multi-select name="productProgramMapping" id="productProgramMapping" [required]="true"
+                                label="{{ 'Product - Program Mapping' | apsTranslate }}" [showCount]="true"
+                                [(ngModel)]="formData.productProgramMapping" [value]="formData.productProgramMapping"
+                                dataUrl="setup/process/reportMapping/private/dropdown/productProgramMapping" [filter]="
+                                true" [showHeader]="true" [showToggleAll]="false"></aps-multi-select>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Report Scheduling </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <!-- <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="groupName" name="groupName"
+                                [label]="'Group Name' | apsTranslate" [(ngModel)]="formData.groupName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div> -->
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <div class="text-size-14">Channel</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-2" name="channelH2h" binary="true" label="H2H"
+                                    [(ngModel)]="formData.channelSMS">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-2" name="channelEmail" binary="true" label="Email"
+                                    [(ngModel)]="formData.channelEmail">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-2" name="channelOnline" binary="true" label="Online CFE"
+                                    [(ngModel)]="formData.channelOnline">
+                                </p-checkbox>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Report Format' | apsTranslate" name="reportFormat"
+                                id="reportFormat" [(ngModel)]="formData.reportFormat"
+                                dataUrl="setup/process/reportMapping/private/dropdown/reportFormat" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Report Frequency' | apsTranslate" name="reportFrequency"
+                                id="reportFrequency" [(ngModel)]="formData.reportFrequency"
+                                dataUrl="setup/process/reportMapping/private/dropdown/reportFrequency" [required]="true"
+                                (change)="onChangeReportFrequency(formData.reportFrequency)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Activation Day' | apsTranslate" name="activationDay"
+                                id="activationDay" [(ngModel)]="formData.activationDay"
+                                [disabled]="formData.reportFrequency === '' || formData.reportFrequency === 'Daily' || formData.reportFrequency === 'Fortnightly' || formData.reportFrequency === 'Quartely' || formData.reportFrequency === 'Half Yearly' || formData.reportFrequency === 'Annually'"
+                                [required]="formData.reportFrequency === 'Weekly' || formData.reportFrequency === 'Monthly'"
+                                [data]="activationDayData">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Generation At' | apsTranslate" name="generationAt"
+                                id="generationAt" [(ngModel)]="formData.generationAt"
+                                dataUrl="setup/process/reportMapping/private/dropdown/generationAt" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <div class="text-size-14">Holiday Rule</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-2" name="holidayRuleProcess" binary="true" label="Process"
+                                    [(ngModel)]="formData.holidayRuleProcess">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-2" name="holidayRulePrepone" binary="true" label="Prepone"
+                                    [(ngModel)]="formData.holidayRulePrepone">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-2" name="holidayRulePostpone" binary="true" label="Postpone"
+                                    [(ngModel)]="formData.holidayRulePostpone">
+                                </p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid" *ngIf="formData.generationAt === 'Time Based'">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender label="Start Time" name="startTime" id="startTime" [timeOnly]="true"
+                                [(ngModel)]="formData.startTime" [required]="true">
+                            </app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender label="End Time" name="endTime" id="endTime" [timeOnly]="true"
+                                [(ngModel)]="formData.endTime" [required]="true"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender label="Every" name="repeatEvery" id="repeatEvery" [timeOnly]="true"
+                                [(ngModel)]="formData.repeatEvery" [required]="true"></app-aps-calender>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <app-aps-calender [label]="'Execution Date From' | apsTranslate" id="executionDateFrom"
+                                name="executionDateFrom" [showIcon]="true"
+                                [(ngModel)]="formData.executionDateFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12">
+                            <app-aps-calender [label]="'Execution Date Till' | apsTranslate" id="executionDateTill"
+                                name="executionDateTill" [showIcon]="true"
+                                [(ngModel)]="formData.executionDateTill"></app-aps-calender>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Email ID's</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="manualEntry" value="Manual Entry"
+                                    label="Manual Entry" [(ngModel)]="formData.manualEntry">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="manualEntry" value="Both" label="Both"
+                                    [(ngModel)]="formData.manualEntry">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <textarea class="textarea aps-w-100p" name="addtionalEmailId" id="addtionalEmailId" rows="4"
+                                [(ngModel)]="formData.addtionalEmailId" placeholder="Add Email ID"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2">Select Module</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Module" [value]="formData.module">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Report Type" [value]="formData.reportType">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Report Name" [value]="formData.reportName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid"
+                    *ngIf="formData.module ==='Setup' && formData.reportType ==='Corporate' || formData.reportType === 'Query Builder - Corporate' || formData.module === 'FSCM' && formData.reportType === 'Corporate' || formData.reportType === 'Query Builder - Corporate'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Corporate Name" [value]="formData.corporateName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.corporateCode">
+                        <app-review-form-field label="Product - Program Mapping"
+                            [value]="formData.productProgramMapping">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Report Scheduling </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Group Name" [value]="formData.groupName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <div class="text-size-14">Channel</div>
+                        <div class="text-size-14">
+                            <p-checkbox class="p-mx-2" name="channelEmail" binary="true" label="Email"
+                                [(ngModel)]="formData.channelEmail" disabled>
+                            </p-checkbox>
+                            <p-checkbox class="p-mx-2" name="channelSMS" binary="true" label="SMS"
+                                [(ngModel)]="formData.channelSMS" disabled>
+                            </p-checkbox>
+                            <p-checkbox class="p-mx-2" name="channelOnline" binary="true" label="Online"
+                                [(ngModel)]="formData.channelOnline" disabled>
+                            </p-checkbox>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Report Format" [value]="formData.reportFormat">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Report Frequency" [value]="formData.reportFrequency">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Activation Day" [value]="formData.activationDay">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Generation At" [value]="formData.generationAt">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <div class="text-size-14">Holiday Rule</div>
+                        <div class="text-size-14">
+                            <p-checkbox class="p-mx-2" name="holidayRuleProcess" binary="true" label="Process"
+                                [(ngModel)]="formData.holidayRuleProcess" disabled>
+                            </p-checkbox>
+                            <p-checkbox class="p-mx-2" name="holidayRulePrepone" binary="true" label="Prepone"
+                                [(ngModel)]="formData.holidayRulePrepone" disabled>
+                            </p-checkbox>
+                            <p-checkbox class="p-mx-2" name="holidayRulePostpone" binary="true" label="Postpone"
+                                [(ngModel)]="formData.holidayRulePostpone" disabled>
+                            </p-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-grid" *ngIf="formData.generationAt === 'Time Based'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Start Time" [value]="formData.startTime">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="End Time" [value]="formData.endTime">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Every" [value]="formData.repeatEvery">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Execution Date From" [value]="formData.executionDateFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Execution Date Till" [value]="formData.executionDateTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Email ID's" [value]="formData.manualEntry">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <textarea class="textarea aps-w-100p" name="addtionalEmailId" id="addtionalEmailId" rows="4"
+                            [(ngModel)]="formData.addtionalEmailId" placeholder="Add Email ID" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

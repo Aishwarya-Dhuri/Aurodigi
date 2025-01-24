@@ -1,0 +1,20 @@
+[
+  { "headerName": "Account No", "field": "accountNo", "cellRenderer": "renderAccountNumber" },
+  { "headerName": "Account Name", "field": "accountName" },
+  { "headerName": "Account Type", "field": "accountType" },
+  { "headerName": "Currency", "field": "currency" },
+  { "headerName": "Net Balance", "field": "netBalance", "cellRenderer": "accCurrencyRenderer" },
+  { "headerName": "OD Limit", "field": "odLimit", "cellRenderer": "accCurrencyRenderer" },
+  {
+    "headerName": "Available Balance",
+    "field": "availableBalance",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Ledger Balance",
+    "field": "ledgerBalance",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  { "headerName": "Status", "field": "status", "cellRenderer": "statusWithStarRenderer" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "accountSummeryActions" }
+]

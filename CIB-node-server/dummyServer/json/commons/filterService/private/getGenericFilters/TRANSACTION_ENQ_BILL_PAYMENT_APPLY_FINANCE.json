@@ -1,0 +1,272 @@
+{
+  "type": "Trade-GenericSearchResponse",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "withAndWithoutLC",
+      "displayName": "With / Without LC",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/importTransactions/billPaymentAndApplyFinance/private/dropdown/withAndWithoutLcList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "lcNumber",
+      "displayName": "LC Number",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDate",
+      "displayName": "Bill Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "billDueDate",
+      "displayName": "Bill Due Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "tradeBillNumber",
+      "displayName": "Trade Bill No.",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "currency",
+      "displayName": "Bill Currency",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/generalMasters/currency/private/currencyList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "currencyId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "currencyName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "amount",
+      "displayName": "Bill Amount",
+      "type": "String",
+      "fieldType": "AMOUNT",
+      "mandatory": true,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "exporterBeneficiaryName",
+      "displayName": "Exporter Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "importerName",
+      "displayName": "Importer Name",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "onBehalfOf",
+      "displayName": "On Behalf Of",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "daDp",
+      "displayName": "DA / DP",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "trade/importTransactions/billPaymentAndApplyFinance/private/dropdown/daDpList",
+      "urlData": {
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "id",
+            "type": "String",
+            "value": "",
+            "operator": null
+          },
+          {
+            "displayName": "lbl_",
+            "name": "displayName",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "corporateRefNumber",
+      "displayName": "User Ref No.",
+      "type": "String",
+      "fieldType": "TEXT",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [
+    {
+      "name": "billDate",
+      "displayName": "Bill Date",
+      "type": "Date",
+      "value": "15-Oct-2021",
+      "value1": "",
+      "operator": "",
+      "displayValue": "15 OCT 2021"
+    },
+    {
+      "name": "currency",
+      "displayName": "Bill Currency",
+      "type": "String",
+      "value": "1",
+      "value1": "",
+      "operator": "",
+      "displayValue": "SAR"
+    },
+    {
+      "name": "amount",
+      "displayName": "Bill Amount",
+      "type": "String",
+      "value": "100000",
+      "value1": "",
+      "operator": "",
+      "displayValue": "100000"
+    }
+  ],
+  "entity": "",
+  "entityIdentifier": ""
+}

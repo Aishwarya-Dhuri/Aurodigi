@@ -1,0 +1,11 @@
+.broadcast-messages-container {
+  width: 40%;
+
+  .message {
+    vertical-align: middle;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

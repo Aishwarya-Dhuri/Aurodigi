@@ -1,0 +1,68 @@
+:host ::ng-deep {
+  .p-paginator-bottom {
+    display: none;
+  }
+  .common-table-section {
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    .p-datatable .p-datatable-thead > tr > th {
+      border-bottom: 0;
+    }
+    .p-datatable .p-datatable-thead > tr > th,
+    .p-datatable .p-datatable-tbody > tr > td {
+      padding: 0.75rem 0.5rem;
+      .fas.fa-star {
+        color: var(--color-warning);
+      }
+    }
+    .p-datatable .p-datatable-tbody > tr > td {
+      padding: 0.95rem 0.5rem;
+      color: var(--text-color-dark-shade-3) !important;
+    }
+    .p-datatable .p-datatable-thead > tr > th:nth-of-type(1),
+    .p-datatable .p-datatable-tbody > tr > td:nth-of-type(1) {
+      width: 2.5rem;
+    }
+    .p-datatable .p-datatable-thead > tr > th:nth-child(2),
+    .p-datatable .p-datatable-tbody > tr > td:nth-child(2),
+    .p-datatable .p-datatable-thead > tr > th:nth-of-type(3),
+    .p-datatable .p-datatable-tbody > tr > td:nth-of-type(3) {
+      width: 2.5rem;
+      padding: 0;
+      text-align: center;
+      button {
+        width: 2rem;
+        padding: 0.2rem;
+        height: 2rem;
+      }
+    }
+    .p-datatable .p-datatable-thead > tr > th:nth-child(6),
+    .p-datatable .p-datatable-tbody > tr > td:nth-child(6) {
+      width: 18rem;
+      white-space: nowrap !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mb-listing-filter-btn {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      box-shadow: 1px 1px 3px 1px var(--background-color-dark-6);
+    }
+  }
+  .mb-filter-container {
+    .p-sidebar-bottom {
+      height: auto;
+      .generic-listing-search {
+        box-shadow: none;
+      }
+      .p-sidebar-content {
+        overflow-y: initial;
+      }
+    }
+  }
+}

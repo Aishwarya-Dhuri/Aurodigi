@@ -1,0 +1,85 @@
+<div class="sidebar-charts-container">
+  <div class="charts p-pr-2 p-pb-2">
+    <div class="chart-wrapper" *ngFor="let p of products; let i = index">
+      <div class="chart-heading">
+        <div class="left-right-container">
+          <div class="left-container">
+            {{ p.name }}
+          </div>
+          <div class="left-container">
+            <app-icon
+              [icon]="p.isExpand ? 'fa-chevron-up' : 'fa-chevron-down'"
+              (click)="p.isExpand = !p.isExpand"
+            ></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-item-wrapper" *ngIf="p.isExpand">
+        <div
+          class="chart-item"
+          *ngFor="let w of p.widgets; let j = index"
+          [ngClass]="{ 'chart-item-selected': w.isChecked }"
+        >
+          <div class="item-heading">
+            <p-checkbox
+              name="widget{{ i }}{{ j }}"
+              id="widget{{ i }}{{ j }}"
+              [label]="w.title"
+              [binary]="true"
+              labelStyleClass="text-size-14 text-color-dark-shade-2"
+              [(ngModel)]="w.isShow"
+              (onChange)="onWidgetChecked($event, w)"
+            ></p-checkbox>
+          </div>
+          <div class="item-body">
+            <div class="body-text">The widget displays {{ w.title }} on basis of</div>
+            <div class="body-image">
+              <img src="./../../../../../assets/images/chart-1.PNG" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="chart-item">
+          <div class="item-heading">Top 5 Dealers</div>
+          <div class="item-body">
+            <div class="body-text">The widget displays top 5 suppliers on basis of</div>
+            <div class="body-image">
+              <img src="./../../../../../assets/images/chart-1.PNG" alt="" />
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="chart-wrapper">
+      <div class="chart-heading">Setup</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">Collection</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">VAM</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">Receivable</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">LMS</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">Trade</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">Credit</div>
+    </div>
+    <div class="chart-wrapper">
+      <div class="chart-heading">Cash Flow</div>
+    </div> -->
+  </div>
+
+  <div class="add-button">
+    <button type="button" class="aps-w-100p btn btn-md btn-primary" (click)="onSaveWidgets()">
+      {{ 'ADD TO DASHBOARD' | apsTranslate }}
+    </button>
+  </div>
+</div>

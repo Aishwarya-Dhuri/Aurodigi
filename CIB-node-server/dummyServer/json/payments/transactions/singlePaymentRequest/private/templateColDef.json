@@ -1,0 +1,16 @@
+{
+  "columnDefs": [
+    { "headerName": "Template Name", "field": "templateName" },
+    { "headerName": "Batch No", "field": "id" },
+    { "headerName": "Payment Method", "field": "paymentMethodName" },
+    { "headerName": "Transaction Date", "field": "valueDate" },
+    {
+      "headerName": "Amount",
+      "field": "totalRequestAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

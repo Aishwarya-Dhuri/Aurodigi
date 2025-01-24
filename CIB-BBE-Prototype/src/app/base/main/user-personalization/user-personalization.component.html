@@ -1,0 +1,2242 @@
+<div class="container p-mt-3">
+  <div class="p-grid g-margin-x">
+    <!-- User Logo and Tabs Container -->
+    <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+      <div class="aps-card p-mb-3">
+        <!-- logo and progress bar -->
+        <div class="p-grid">
+          <div class="p-col-12 p-p-3">
+            <div class="p-grid">
+              <div class="profile-pic">
+                <img
+                  class="border-radius-4"
+                  id="profileImage"
+                  [src]="
+                    personalizationData.userDetail.profilePicUrl
+                      ? personalizationData.userDetail.profilePicUrl
+                      : './../../../assets/images/avatar.jpg'
+                  "
+                  alt=""
+                />
+                <app-icon
+                  (click)="fileDropRef.click()"
+                  icon="fa-camera-alt"
+                  class="cam-icon text-size-12 pointer"
+                >
+                </app-icon>
+                <input
+                  type="file"
+                  class="input"
+                  #fileDropRef
+                  onchange="document.getElementById('profileImage').src = window.URL.createObjectURL(this.files[0])"
+                  (change)="updateProfilePic($event.target.files)"
+                />
+              </div>
+              <div class="p-col-8 p-px-3">
+                <div class="text-size-16 text-bold">{{ personalizationData.userDetail.name }}</div>
+                <div class="text-size-10">{{ personalizationData.userDetail.designation }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-col-12 p-px-3 p-py-0">
+            <p-progressBar [value]="getOverallProgress()" [showValue]="false"></p-progressBar>
+            <span class="text-size-10 float-right">{{ getOverallProgress() }}%</span>
+          </div>
+        </div>
+        <!-- tabs -->
+        <div class="p-grid">
+          <div
+            class="p-col-12 border-radius-4 pointer"
+            *ngFor="let tab of tabDetails; let i = index"
+            (mouseover)="tab.isHover = true"
+            (mouseout)="tab.isHover = false"
+            (click)="onTabClick(i)"
+            [ngClass]="{
+              'p-mt-3': i == 0,
+              'p-mt-2': i != 0,
+              'border-primary': tab.isActive,
+              'text-color-primary': tab.isActive || tab.isHover,
+              'background-color-primary-light-shade-1': tab.isHover && !tab.isActive
+            }"
+          >
+            <div class="p-grid">
+              <div class="p-col-2 p-p-0 text-size-16">
+                <app-icon [icon]="tab.icon" class="p-px-2"></app-icon>
+              </div>
+              <div class="p-col-10 p-p-0 text-size-14 text-semi-bold">
+                {{ tab.displayName }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Details Container -->
+    <div class="p-col-12 p-md-9 p-lg-9 p-py-0">
+      <!-- User Info tab Details -->
+      <ng-container *ngIf="selectedTab == 'userInfo'">
+        <ng-container *ngTemplateOutlet="userInfo"></ng-container>
+      </ng-container>
+
+      <!-- Corporate Info tab Details -->
+      <ng-container *ngIf="selectedTab == 'corporateInfo'">
+        <ng-container *ngTemplateOutlet="corporateInfo"></ng-container>
+      </ng-container>
+
+      <!-- Security tab Details -->
+      <ng-container *ngIf="selectedTab == 'security'">
+        <ng-container *ngTemplateOutlet="security"></ng-container>
+      </ng-container>
+
+      <!-- Personalisation tab Details -->
+      <ng-container *ngIf="selectedTab == 'personalisation'">
+        <ng-container *ngTemplateOutlet="personalisation"></ng-container>
+      </ng-container>
+
+      <!-- Alerts and Notifications tab Details -->
+      <ng-container *ngIf="selectedTab == 'alertsAndNotifications'">
+        <ng-container *ngTemplateOutlet="alertsAndNotifications"></ng-container>
+      </ng-container>
+
+      <!-- Maker/Checker Limits tab Details -->
+      <ng-container *ngIf="selectedTab == 'makerCheckerLimits'">
+        <ng-container *ngTemplateOutlet="makerCheckerLimits"></ng-container>
+      </ng-container>
+
+      <!-- Authorisation Matrix Information tab Details -->
+      <ng-container *ngIf="selectedTab == 'authMatrixInfo'">
+        <ng-container *ngTemplateOutlet="authMatrixInfo"></ng-container>
+      </ng-container>
+
+      <!-- Account Wise Access Information tab Details -->
+      <ng-container *ngIf="selectedTab == 'accountWiseAccessInfo'">
+        <ng-container *ngTemplateOutlet="accountWiseAccessInfo"></ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #userInfo>
+    <!-- User Details -->
+    <div class="aps-card">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">User Details</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.userDetail.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.userDetail.isEdit"
+                class="pointer float-right"
+                [icon]="
+                  personalizationData.userDetail.isExpand ? 'fa-chevron-up' : 'fa-chevron-down'
+                "
+                (click)="onOpenCloseClick('userDetail')"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.userDetail.isEdit"
+                (click)="
+                  personalizationData.userDetail.isEdit = true;
+                  personalizationData.userDetail.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.userDetail.isEdit"
+                (click)="onSaveClick(); personalizationData.userDetail.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.userDetail.isEdit"
+                (click)="personalizationData.userDetail.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.userDetail.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 border-top">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">User ID</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.userName }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4" [ngClass]="{ 'border-top': viewport == 'web' }">
+                <div class="p-p-2" *ngIf="!personalizationData.userDetail.isEdit">
+                  <div class="text-size-12 text-color-light-shade-1">Alias Name</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.aliasName }}</div>
+                </div>
+                <div class="p-p-0" *ngIf="personalizationData.userDetail.isEdit">
+                  <aps-form-input
+                    id="aliasName"
+                    label="Alias Name"
+                    name="aliasName"
+                    [(ngModel)]="personalizationEditData.userDetail.aliasName"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+              <div
+                class="p-col-12 p-md-4 p-lg-4"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              ></div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">First Name</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.firstName }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Last Name</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.lastName }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Gender</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.gender }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Employee Code</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.employeeCode }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Designation</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.designation }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Department</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.department }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-pb-0">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Category</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.category }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-pb-0">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Profile Name</div>
+                  <div class="text-size-14">{{ personalizationData.userDetail.profileName }}</div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-pb-0">
+                <div
+                  class="p-p-2"
+                  [ngClass]="{ 'background-color-disabled': personalizationData.userDetail.isEdit }"
+                >
+                  <div class="text-size-12 text-color-light-shade-1">Branch Name</div>
+                  <div class="text-size-14">
+                    {{ personalizationData.userDetail.corporateBranch }}
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Details -->
+    <div class="aps-card p-mt-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Contact Details</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.addressDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.addressDetails.isExpand"
+                (click)="onOpenCloseClick('addressDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.addressDetails.isExpand &&
+                  !personalizationData.addressDetails.isEdit
+                "
+                (click)="onOpenCloseClick('addressDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.addressDetails.isEdit"
+                (click)="
+                  personalizationData.addressDetails.isEdit = true;
+                  personalizationData.addressDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.addressDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.addressDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.addressDetails.isEdit"
+                (click)="personalizationData.addressDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.addressDetails.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 border-top">
+                <div class="p-p-2" *ngIf="!personalizationData.addressDetails.isEdit">
+                  <div class="text-size-12 text-color-light-shade-1">Contact No</div>
+                  <div class="text-size-14">{{ personalizationData.addressDetails.contactNo }}</div>
+                </div>
+                <div class="p-p-0" *ngIf="personalizationData.addressDetails.isEdit">
+                  <aps-form-input
+                    id="contactNo"
+                    label="Contact No"
+                    name="contactNo"
+                    [(ngModel)]="personalizationEditData.addressDetails.contactNo"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4" [ngClass]="{ 'border-top': viewport == 'web' }">
+                <div class="p-p-2" *ngIf="!personalizationData.addressDetails.isEdit">
+                  <div class="text-size-12 text-color-light-shade-1">Email ID</div>
+                  <div class="text-size-14">{{ personalizationData.addressDetails.emailId }}</div>
+                </div>
+                <div class="p-p-0" *ngIf="personalizationData.addressDetails.isEdit">
+                  <aps-form-input
+                    id="emailId"
+                    label="Email ID"
+                    name="emailId"
+                    [(ngModel)]="personalizationEditData.addressDetails.emailId"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4" [ngClass]="{ 'border-top': viewport == 'web' }">
+                <div class="p-p-2" *ngIf="!personalizationData.addressDetails.isEdit">
+                  <div class="text-size-12 text-color-light-shade-1">Address</div>
+                  <div class="text-size-14">{{ personalizationData.addressDetails.address1 }}</div>
+                  <div class="text-size-14">{{ personalizationData.addressDetails.address2 }}</div>
+                  <div class="text-size-14">{{ personalizationData.addressDetails.address3 }}</div>
+                </div>
+                <div class="p-p-0" *ngIf="personalizationData.addressDetails.isEdit">
+                  <aps-form-input
+                    id="address1"
+                    label="Address"
+                    name="address1"
+                    [(ngModel)]="personalizationEditData.addressDetails.address1"
+                  >
+                  </aps-form-input>
+                  <aps-form-input
+                    id="address2"
+                    name="address2"
+                    [showLabel]="false"
+                    [(ngModel)]="personalizationEditData.addressDetails.address2"
+                  >
+                  </aps-form-input>
+                  <aps-form-input
+                    id="address3"
+                    name="address3"
+                    [showLabel]="false"
+                    [(ngModel)]="personalizationEditData.addressDetails.address3"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Login Restrictions -->
+    <div class="aps-card p-mt-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-0 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-3 text-size-16 text-semi-bold">Login Restrictions</div>
+            <div class="p-col-6 p-pb-2 p-px-3 text-size-16">
+              <app-icon
+                *ngIf="!personalizationData.loginRestrictionDetails.isExpand"
+                (click)="onOpenCloseClick('loginRestrictionDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="personalizationData.loginRestrictionDetails.isExpand"
+                (click)="onOpenCloseClick('loginRestrictionDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+            </div>
+            <ng-container *ngIf="personalizationData.loginRestrictionDetails.isExpand">
+              <div class="p-col-12 p-p-0 aps-h-320">
+                <app-ag-grid-listing
+                  id="loginRestrictions"
+                  [columnDefs]="personalizationData.loginRestrictionDetails.headers"
+                  [rowData]="personalizationData.loginRestrictionDetails.data"
+                  [gridOptions]="{ rowModelType: 'clientSide', pagination: false }"
+                >
+                </app-ag-grid-listing>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Security Criteria -->
+    <div class="aps-card p-my-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Security Criteria</div>
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16">
+              <app-icon
+                *ngIf="!personalizationData.securityCriteriaDetails.isExpand"
+                (click)="onOpenCloseClick('securityCriteriaDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="personalizationData.securityCriteriaDetails.isExpand"
+                (click)="onOpenCloseClick('securityCriteriaDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+            </div>
+            <ng-container *ngIf="personalizationData.securityCriteriaDetails.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 border-top">
+                <div class="text-size-12 text-color-light-shade-1">IP Mapping Restriction</div>
+                <div class="text-size-14 p-px-2 p-py-1">
+                  <p-radioButton
+                    name="ipMappingRestriction"
+                    value="Yes"
+                    label="Yes"
+                    [(ngModel)]="personalizationData.securityCriteriaDetails.ipMappingRestriction"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+                <div class="text-size-14 p-px-2 p-py-1">
+                  <p-radioButton
+                    name="ipMappingRestriction"
+                    value="No"
+                    label="No"
+                    [(ngModel)]="personalizationData.securityCriteriaDetails.ipMappingRestriction"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-8 p-lg-8" [ngClass]="{ 'border-top': viewport == 'web' }">
+                <div class="text-size-12 text-color-light-shade-1">User Type Header</div>
+                <div class="text-size-14 p-px-2 p-py-1">
+                  <p-radioButton
+                    name="userTypeHeader"
+                    value="Self Authorisation and Corporate Authorisation Matrix"
+                    label="Self Authorisation and Corporate Authorisation Matrix"
+                    [(ngModel)]="personalizationData.securityCriteriaDetails.userTypeHeader"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+                <div class="text-size-14 p-px-2 p-py-1">
+                  <p-radioButton
+                    name="userTypeHeader"
+                    value="Normal User"
+                    label="Normal User"
+                    [(ngModel)]="personalizationData.securityCriteriaDetails.userTypeHeader"
+                    [disabled]="true"
+                  >
+                  </p-radioButton>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #corporateInfo>
+    <!-- Corporate Main -->
+    <div class="aps-card">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Corporate Main</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.corporateMainDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.corporateMainDetails.isExpand"
+                (click)="onOpenCloseClick('corporateMainDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.corporateMainDetails.isExpand &&
+                  !personalizationData.corporateMainDetails.isEdit
+                "
+                (click)="onOpenCloseClick('corporateMainDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.corporateMainDetails.isEdit"
+                (click)="
+                  personalizationData.corporateMainDetails.isEdit = true;
+                  personalizationData.corporateMainDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.corporateMainDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.corporateMainDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.corporateMainDetails.isEdit"
+                (click)="personalizationData.corporateMainDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.corporateMainDetails.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3 border-top">
+                <div class="text-size-12 text-color-light-shade-1">Group Name</div>
+                <div class="text-size-14">
+                  {{ personalizationData.corporateMainDetails.groupName }}
+                </div>
+              </div>
+              <div
+                class="p-col-12 p-md-4 p-lg-4 p-p-3"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              >
+                <div class="text-size-12 text-color-light-shade-1">Corporate Code</div>
+                <div class="text-size-14">
+                  {{ personalizationData.corporateMainDetails.corporateCode }}
+                </div>
+              </div>
+              <div
+                class="p-col-12 p-md-4 p-lg-4 p-p-3"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              >
+                <div class="text-size-12 text-color-light-shade-1">CID</div>
+                <div class="text-size-14">{{ personalizationData.corporateMainDetails.CID }}</div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Corporate Name</div>
+                <div class="text-size-14">
+                  {{ personalizationData.corporateMainDetails.corporateName }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Holding Company</div>
+                <div class="text-size-14">
+                  {{ personalizationData.corporateMainDetails.holdingCompany }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Parent Name</div>
+                <div class="text-size-14">
+                  {{ personalizationData.corporateMainDetails.parentName }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Office Details -->
+    <div class="aps-card p-my-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Office Details</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.officeDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.officeDetails.isExpand"
+                (click)="onOpenCloseClick('officeDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.officeDetails.isExpand &&
+                  !personalizationData.officeDetails.isEdit
+                "
+                (click)="onOpenCloseClick('officeDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.officeDetails.isEdit"
+                (click)="
+                  personalizationData.officeDetails.isEdit = true;
+                  personalizationData.officeDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.officeDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.officeDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.officeDetails.isEdit"
+                (click)="personalizationData.officeDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.officeDetails.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3 border-top">
+                <div class="text-size-12 text-color-light-shade-1">Registered Office Location</div>
+                <div class="text-size-14">
+                  {{
+                    personalizationData.officeDetails.registeredOfficeLocationDetails
+                      .registeredOfficeLocation
+                  }}
+                </div>
+              </div>
+              <div
+                class="p-col-12 p-md-4 p-lg-4 p-p-3"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              >
+                <div class="text-size-12 text-color-light-shade-1">Address</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.registeredOfficeLocationDetails.address1 }}
+                </div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.registeredOfficeLocationDetails.address2 }}
+                </div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.registeredOfficeLocationDetails.address3 }}
+                </div>
+              </div>
+              <div
+                class="p-col-12 p-md-4 p-lg-4 p-p-3"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              ></div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3 border-bottom">
+                <div class="text-size-12 text-color-light-shade-1">Telephone No</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.registeredOfficeLocationDetails.contactNo }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3 border-bottom">
+                <div class="text-size-12 text-color-light-shade-1">Corporate Branch</div>
+                <div class="text-size-14">
+                  {{
+                    personalizationData.officeDetails.registeredOfficeLocationDetails
+                      .corporateBranch
+                  }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3 border-bottom">
+                <div class="text-size-12 text-color-light-shade-1">Email ID</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.registeredOfficeLocationDetails.emailId }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3">
+                <div class="text-size-12 text-color-light-shade-1">Corporate Office Location</div>
+                <div class="text-size-14">
+                  {{
+                    personalizationData.officeDetails.corporateOfficeLocationDetails
+                      .corporateOfficeLocation
+                  }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3">
+                <div class="text-size-12 text-color-light-shade-1">Address</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.address1 }}
+                </div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.address2 }}
+                </div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.address3 }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-p-3"></div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Telephone No</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.contactNo }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Fax No</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.faxNo }}
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-3 p-pt-3 p-pb-1">
+                <div class="text-size-12 text-color-light-shade-1">Email ID</div>
+                <div class="text-size-14">
+                  {{ personalizationData.officeDetails.corporateOfficeLocationDetails.emailId }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #security>
+    <!-- Anti Phishing -->
+    <div class="aps-card">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Anti Phishing
+              <app-icon
+                class="p-px-2 pointer"
+                icon="fa-question-circle"
+                pTooltip="Antiphishing Image and Message"
+              >
+              </app-icon>
+            </div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.antiPhishingDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.antiPhishingDetails.isExpand"
+                (click)="onOpenCloseClick('antiPhishingDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.antiPhishingDetails.isExpand &&
+                  !personalizationData.antiPhishingDetails.isEdit
+                "
+                (click)="onOpenCloseClick('antiPhishingDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.antiPhishingDetails.isEdit"
+                (click)="
+                  personalizationData.antiPhishingDetails.isEdit = true;
+                  personalizationData.antiPhishingDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.antiPhishingDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                (click)="personalizationData.antiPhishingDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.antiPhishingDetails.isExpand">
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-0 p-py-3 p-px-0 border-top">
+                <div class="text-size-12 text-color-light-shade-1">
+                  <span *ngIf="!personalizationData.antiPhishingDetails.isEdit"
+                    >Selected Image</span
+                  >
+                  <span *ngIf="personalizationData.antiPhishingDetails.isEdit">Select Image</span>
+                  <sup
+                    class="text-color-danger"
+                    *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                    >*</sup
+                  >
+                  <span
+                    class="text-size-10 text-color-light-shade-1"
+                    *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                  >
+                    (Click on image below to change)</span
+                  >
+                </div>
+                <img
+                  class="p-mt-2 aps-w-90p aps-h-150 border-radius-4"
+                  *ngIf="!personalizationData.antiPhishingDetails.isEdit"
+                  [src]="antiPhishingPath + personalizationData.antiPhishingDetails.image"
+                  alt=""
+                />
+                <img
+                  class="p-mt-2 aps-w-90p aps-h-150 border-radius-4 pointer"
+                  *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                  (click)="
+                    tempPhishingImage = personalizationEditData.antiPhishingDetails.image;
+                    isShowPhishingImages = true
+                  "
+                  [src]="antiPhishingPath + personalizationEditData.antiPhishingDetails.image"
+                  alt=""
+                />
+
+                <!-- Phishing Image Selection Modal -->
+                <app-modal [(isShow)]="isShowPhishingImages" size="sm" headerText="Select Image">
+                  <div body class="p-grid">
+                    <div class="p-col-12 p-mt-3 p-px-0 p-pt-3 p-pb-0 border-top">
+                      <img
+                        class="p-mt-2 aps-w-100p aps-h-150 border-radius-4"
+                        [src]="antiPhishingPath + tempPhishingImage"
+                        alt=""
+                      />
+                    </div>
+                    <div class="p-col-12 p-px-0 p-pt-1 pb-3 border-bottom">
+                      <div class="p-grid">
+                        <div
+                          class="p-col-4 p-md-2 p-lg-2"
+                          *ngFor="let img of [].constructor(18); let i = index"
+                        >
+                          <img
+                            class="p-mt-2 aps-w-100p aps-h-100p border-radius-4 pointer"
+                            (click)="tempPhishingImage = 'phishing' + i + '.jpg'"
+                            [src]="antiPhishingPath + 'phishing' + i + '.jpg'"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div footer class="left-right-container">
+                    <div class="left-container"></div>
+                    <div class="right-container">
+                      <button
+                        class="p-mx-3 btn btn-md btn-tertiary"
+                        (click)="isShowPhishingImages = false"
+                      >
+                        CANCEL
+                      </button>
+                      <button
+                        class="btn btn-md btn-primary"
+                        (click)="
+                          personalizationEditData.antiPhishingDetails.image = tempPhishingImage;
+                          isShowPhishingImages = false
+                        "
+                      >
+                        SELECT
+                      </button>
+                    </div>
+                  </div>
+                </app-modal>
+              </div>
+              <div
+                class="p-col-12 p-md-8 p-lg-8 p-px-0 p-py-3 p-px-0 text-size-12"
+                [ngClass]="{ 'border-top': viewport == 'web' }"
+              >
+                <div class="text-color-light-shade-1">
+                  Message
+                  <sup
+                    class="text-color-danger"
+                    *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                    >*</sup
+                  >
+                </div>
+                <div
+                  class="p-p-2 p-mt-2 aps-h-60 border-radius-4 background-color-disabled border"
+                  *ngIf="!personalizationData.antiPhishingDetails.isEdit"
+                >
+                  <div>{{ personalizationData.antiPhishingDetails.message }}</div>
+                  <div class="float-right text-color-light-shade-3">
+                    {{ personalizationData.antiPhishingDetails.message.length }}/100
+                  </div>
+                </div>
+                <div
+                  class="p-py-2 p-mt-2"
+                  *ngIf="personalizationData.antiPhishingDetails.isEdit && isLoaded"
+                >
+                  <aps-custom-select
+                    id="message"
+                    name="message"
+                    label="Message Suggestions"
+                    [(ngModel)]="tempMessage"
+                    (change)="onMessageSelection()"
+                    [data]="messageSuggestions"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div
+                  class="p-p-2 p-mt-2 aps-h-60 border-radius-4 background-color-disabled border"
+                  *ngIf="personalizationData.antiPhishingDetails.isEdit"
+                >
+                  <div>{{ personalizationEditData.antiPhishingDetails.message }}</div>
+                  <div class="float-right text-color-light-shade-3">
+                    <span class="inline-block"
+                      >{{ personalizationEditData.antiPhishingDetails.message.length }}/</span
+                    >
+                    <span class="inline-block">100</span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Security Questions -->
+    <div class="aps-card p-my-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-7 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Security Questions
+              <app-icon
+                class="p-px-2 pointer"
+                icon="fa-question-circle"
+                pTooltip="Security Questions and Answers"
+              >
+              </app-icon>
+            </div>
+            <div
+              class="p-col-5 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.securityQuestionsDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.securityQuestionsDetails.isExpand"
+                (click)="onOpenCloseClick('securityQuestionsDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.securityQuestionsDetails.isExpand &&
+                  !personalizationData.securityQuestionsDetails.isEdit
+                "
+                (click)="onOpenCloseClick('securityQuestionsDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.securityQuestionsDetails.isEdit"
+                (click)="
+                  personalizationData.securityQuestionsDetails.isEdit = true;
+                  personalizationData.securityQuestionsDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.securityQuestionsDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.securityQuestionsDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.securityQuestionsDetails.isEdit"
+                (click)="personalizationData.securityQuestionsDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.securityQuestionsDetails.isExpand">
+              <div
+                class="p-col-12"
+                *ngFor="
+                  let questionAnswer of personalizationData.securityQuestionsDetails
+                    .questionAnswers;
+                  let i = index
+                "
+                [ngClass]="{ 'border-top': i == 0 }"
+              >
+                <div class="p-grid">
+                  <div
+                    class="p-col-12 p-md-4 p-lg-4"
+                    [ngClass]="{ 'p-py-0': personalizationData.securityQuestionsDetails.isEdit }"
+                  >
+                    <ng-container *ngIf="!personalizationData.securityQuestionsDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Question {{ i + 1 }}</div>
+                      <div class="text-size-14">{{ questionAnswer.question }}</div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.securityQuestionsDetails.isEdit">
+                      <aps-custom-select
+                        [id]="'question' + (i + 1)"
+                        [name]="'question' + (i + 1)"
+                        [label]="'Question ' + (i + 1)"
+                        [(ngModel)]="
+                          personalizationEditData.securityQuestionsDetails.questionAnswers[i]
+                            .question
+                        "
+                        [data]="securityQuestions"
+                        required="true"
+                      >
+                      </aps-custom-select>
+                    </ng-container>
+                  </div>
+                  <div
+                    class="p-col-8 p-md-2 p-lg-2"
+                    [ngClass]="{ 'p-py-0': personalizationData.securityQuestionsDetails.isEdit }"
+                  >
+                    <ng-container *ngIf="!personalizationData.securityQuestionsDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Answer {{ i + 1 }}</div>
+                      <div class="text-size-14" *ngIf="questionAnswer.isView">
+                        {{ questionAnswer.answer }}
+                      </div>
+                      <div class="text-size-14 p-pt-1" *ngIf="!questionAnswer.isView">
+                        <span *ngFor="let star of [].constructor(questionAnswer.answer.length)"
+                          >*</span
+                        >
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.securityQuestionsDetails.isEdit">
+                      <aps-form-input
+                        [id]="'answer' + (i + 1)"
+                        [label]="'Answer ' + (i + 1)"
+                        [name]="'answer' + (i + 1)"
+                        [(ngModel)]="
+                          personalizationEditData.securityQuestionsDetails.questionAnswers[i].answer
+                        "
+                        required="true"
+                      >
+                      </aps-form-input>
+                    </ng-container>
+                  </div>
+                  <div
+                    class="p-col-4 p-md-2 p-lg-2 p-px-0 p-pt-3"
+                    *ngIf="!personalizationData.securityQuestionsDetails.isEdit"
+                  >
+                    <app-icon
+                      *ngIf="!questionAnswer.isView"
+                      class="p-p-3 pointer"
+                      icon="fa-eye"
+                      (click)="questionAnswer.isView = true"
+                    ></app-icon>
+                    <app-icon
+                      *ngIf="questionAnswer.isView"
+                      class="p-p-3 pointer"
+                      icon="fa-eye-slash"
+                      (click)="questionAnswer.isView = false"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #personalisation>
+    <!-- Default Language -->
+    <div class="aps-card">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Default Language</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.defaultLanguageDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.defaultLanguageDetails.isExpand"
+                (click)="onOpenCloseClick('defaultLanguageDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.defaultLanguageDetails.isExpand &&
+                  !personalizationData.defaultLanguageDetails.isEdit
+                "
+                (click)="onOpenCloseClick('defaultLanguageDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.defaultLanguageDetails.isEdit"
+                (click)="
+                  personalizationData.defaultLanguageDetails.isEdit = true;
+                  personalizationData.defaultLanguageDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.defaultLanguageDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.defaultLanguageDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.defaultLanguageDetails.isEdit"
+                (click)="personalizationData.defaultLanguageDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.defaultLanguageDetails.isExpand">
+              <div class="p-col-12 p-pt-3 p-px-0 border-top">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4 p-p-0">
+                    <ng-container *ngIf="!personalizationData.defaultLanguageDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Default Language</div>
+                      <div class="text-size-14">
+                        {{ personalizationData.defaultLanguageDetails.defaultLanguage }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.defaultLanguageDetails.isEdit">
+                      <aps-custom-select
+                        id="defaultLanguage"
+                        name="defaultLanguage"
+                        label="Default Language"
+                        [(ngModel)]="personalizationEditData.defaultLanguageDetails.defaultLanguage"
+                        [data]="languages"
+                        required="true"
+                      >
+                      </aps-custom-select>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Login Preferences -->
+    <div class="aps-card p-mt-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Login Preferences</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.loginPreferenceDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.loginPreferenceDetails.isExpand"
+                (click)="onOpenCloseClick('loginPreferenceDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.loginPreferenceDetails.isExpand &&
+                  !personalizationData.loginPreferenceDetails.isEdit
+                "
+                (click)="onOpenCloseClick('loginPreferenceDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.loginPreferenceDetails.isEdit"
+                (click)="
+                  personalizationData.loginPreferenceDetails.isEdit = true;
+                  personalizationData.loginPreferenceDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.loginPreferenceDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.loginPreferenceDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.loginPreferenceDetails.isEdit"
+                (click)="personalizationData.loginPreferenceDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.loginPreferenceDetails.isExpand">
+              <div class="p-col-12 p-pt-3 p-px-0 border-top">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <ng-container *ngIf="!personalizationData.loginPreferenceDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Country</div>
+                      <div class="text-size-14">
+                        {{ personalizationData.loginPreferenceDetails.country }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.loginPreferenceDetails.isEdit">
+                      <aps-custom-select
+                        id="country"
+                        name="country"
+                        label="Country"
+                        [(ngModel)]="personalizationEditData.loginPreferenceDetails.country"
+                        [data]="countries"
+                        required="true"
+                      >
+                      </aps-custom-select>
+                    </ng-container>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <ng-container *ngIf="!personalizationData.loginPreferenceDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Bank Type</div>
+                      <div class="text-size-14">
+                        {{ personalizationData.loginPreferenceDetails.bankType }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.loginPreferenceDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">
+                        Bank Type<sup class="text-color-danger">*</sup>
+                      </div>
+                      <p-radioButton
+                        class="p-px-1"
+                        name="bankType"
+                        value="Conventional"
+                        label="Conventional"
+                        [(ngModel)]="personalizationEditData.loginPreferenceDetails.bankType"
+                      >
+                      </p-radioButton>
+                      <p-radioButton
+                        class="p-px-1"
+                        name="bankType"
+                        value="Islamic"
+                        label="Islamic"
+                        [(ngModel)]="personalizationEditData.loginPreferenceDetails.bankType"
+                      >
+                      </p-radioButton>
+                    </ng-container>
+                  </div>
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <ng-container *ngIf="!personalizationData.loginPreferenceDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Login Type</div>
+                      <div class="text-size-14">
+                        {{ personalizationData.loginPreferenceDetails.loginType }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.loginPreferenceDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">
+                        Login Type<sup class="text-color-danger">*</sup>
+                      </div>
+                      <p-radioButton
+                        class="p-px-1"
+                        name="loginType"
+                        value="Individual"
+                        label="Individual"
+                        [(ngModel)]="personalizationEditData.loginPreferenceDetails.loginType"
+                      >
+                      </p-radioButton>
+                      <p-radioButton
+                        class="p-px-1"
+                        name="loginType"
+                        value="Group"
+                        label="Group"
+                        [(ngModel)]="personalizationEditData.loginPreferenceDetails.loginType"
+                      >
+                      </p-radioButton>
+                    </ng-container>
+                  </div>
+                  <div class="p-col-12 text-size-14">
+                    <ng-container *ngIf="!personalizationData.loginPreferenceDetails.isEdit">
+                      <p-checkbox
+                        name="displayWelcomeCardAtLogin"
+                        binary="true"
+                        label="Display Welcome Card at login?"
+                        [(ngModel)]="
+                          personalizationData.loginPreferenceDetails.displayWelcomeCardAtLogin
+                        "
+                        disabled="true"
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.loginPreferenceDetails.isEdit">
+                      <p-checkbox
+                        name="displayWelcomeCardAtLogin"
+                        binary="true"
+                        label="Display Welcome Card at login?"
+                        [(ngModel)]="
+                          personalizationEditData.loginPreferenceDetails.displayWelcomeCardAtLogin
+                        "
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                  </div>
+                  <div class="p-col-12 text-size-14">
+                    <ng-container *ngIf="!personalizationData.loginPreferenceDetails.isEdit">
+                      <p-checkbox
+                        name="displayLoginPreferencesAfterLogin"
+                        binary="true"
+                        label="Display Login Preferences After Login?"
+                        [(ngModel)]="
+                          personalizationData.loginPreferenceDetails
+                            .displayLoginPreferencesAfterLogin
+                        "
+                        disabled="true"
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.loginPreferenceDetails.isEdit">
+                      <p-checkbox
+                        name="displayLoginPreferencesAfterLogin"
+                        binary="true"
+                        label="Display Login Preferences After Login?"
+                        [(ngModel)]="
+                          personalizationEditData.loginPreferenceDetails
+                            .displayLoginPreferencesAfterLogin
+                        "
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Widget Mapping -->
+    <div class="aps-card p-mt-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Widget Mapping</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.widgetMappingDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.widgetMappingDetails.isExpand"
+                (click)="onOpenCloseClick('widgetMappingDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.widgetMappingDetails.isExpand &&
+                  !personalizationData.widgetMappingDetails.isEdit
+                "
+                (click)="onOpenCloseClick('widgetMappingDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.widgetMappingDetails.isEdit"
+                (click)="
+                  personalizationData.widgetMappingDetails.isEdit = true;
+                  personalizationData.widgetMappingDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.widgetMappingDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.widgetMappingDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.widgetMappingDetails.isEdit"
+                (click)="personalizationData.widgetMappingDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.widgetMappingDetails.isExpand">
+              <div class="p-col-12 p-pt-3 p-px-0 border-top">
+                <div class="p-grid">
+                  <div class="p-col-12 p-md-4 p-lg-4">
+                    <ng-container *ngIf="!personalizationData.widgetMappingDetails.isEdit">
+                      <div class="text-size-12 text-color-light-shade-1">Default Landing Page</div>
+                      <div class="text-size-14">
+                        {{ personalizationData.widgetMappingDetails.defaultLandingPage }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.widgetMappingDetails.isEdit">
+                      <aps-custom-select
+                        id="defaultLandingPage"
+                        name="defaultLandingPage"
+                        label="Default Landing Page"
+                        [(ngModel)]="
+                          personalizationEditData.widgetMappingDetails.defaultLandingPage
+                        "
+                        [data]="dashboardList"
+                        required="true"
+                      >
+                      </aps-custom-select>
+                    </ng-container>
+                  </div>
+                  <div class="p-col-12 p-md-8 p-lg-8 text-size-14 p-pt-3">
+                    <ng-container *ngIf="!personalizationData.widgetMappingDetails.isEdit">
+                      <p-checkbox
+                        name="enableConsolidatedView"
+                        binary="true"
+                        label="Enable Consolidated View"
+                        [(ngModel)]="
+                          personalizationData.widgetMappingDetails.enableConsolidatedView
+                        "
+                        disabled="true"
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                    <ng-container *ngIf="personalizationData.widgetMappingDetails.isEdit">
+                      <p-checkbox
+                        name="enableConsolidatedView"
+                        binary="true"
+                        label="Enable Consolidated View"
+                        [(ngModel)]="
+                          personalizationEditData.widgetMappingDetails.enableConsolidatedView
+                        "
+                      >
+                      </p-checkbox>
+                    </ng-container>
+                  </div>
+                  <!-- Widgets -->
+                  <ng-container
+                    *ngIf="
+                      (!personalizationData.widgetMappingDetails.isEdit &&
+                        personalizationData.widgetMappingDetails.enableConsolidatedView) ||
+                      (personalizationData.widgetMappingDetails.isEdit &&
+                        personalizationEditData.widgetMappingDetails.enableConsolidatedView)
+                    "
+                  >
+                    <div class="p-col-12 p-mt-3 p-px-0 border-bottom">
+                      <span class="text-size-14 text-semi-bold p-py-1 inline-block"
+                        >Widgets&nbsp;</span
+                      >
+                      <span class="text-size-12 p-py-1 inline-block"
+                        >(&nbsp;{{ getTotalSelectedWidgets() }}&nbsp;Widgets Selected)</span
+                      >
+                    </div>
+                    <div
+                      class="p-col-12 p-px-0 border-bottom"
+                      *ngFor="let product of productWidgets"
+                    >
+                      <div class="p-grid">
+                        <div class="p-col-6 p-py-1 p-px-0">
+                          <div class="text-size-12 text-semi-bold p-py-1">
+                            <span class="inline-block">{{ product.name }} </span>
+                            <span
+                              *ngIf="!personalizationData.widgetMappingDetails.isEdit"
+                              class="inline-block"
+                            >
+                              ({{
+                                personalizationData.widgetMappingDetails.widgets[product.name]
+                                  .length
+                              }})
+                            </span>
+                            <span
+                              *ngIf="personalizationData.widgetMappingDetails.isEdit"
+                              class="inline-block"
+                            >
+                              ({{
+                                personalizationEditData.widgetMappingDetails.widgets[product.name]
+                                  .length
+                              }})
+                            </span>
+                          </div>
+                        </div>
+                        <div class="p-col-6 p-py-1 p-px-0">
+                          <app-icon
+                            *ngIf="!product.isExpand"
+                            (click)="showHideWidgetDetails(product.name)"
+                            icon="fa-chevron-down"
+                            class="float-right pointer"
+                          >
+                          </app-icon>
+                          <app-icon
+                            *ngIf="product.isExpand"
+                            (click)="showHideWidgetDetails(product.name)"
+                            icon="fa-chevron-up"
+                            class="float-right pointer"
+                          >
+                          </app-icon>
+                        </div>
+                        <ng-container *ngIf="product.isExpand">
+                          <div
+                            class="p-col-12 p-md-4 p-lg-4"
+                            *ngFor="let widget of product.widgets"
+                          >
+                            <div class="p-m-3 p-p-2 border">
+                              <div class="text-size-14">
+                                <ng-container
+                                  *ngIf="!personalizationData.widgetMappingDetails.isEdit"
+                                >
+                                  <p-checkbox
+                                    [name]="product.name"
+                                    [label]="widget.name"
+                                    [value]="widget.name"
+                                    [(ngModel)]="
+                                      personalizationData.widgetMappingDetails.widgets[product.name]
+                                    "
+                                    disabled="true"
+                                  >
+                                  </p-checkbox>
+                                </ng-container>
+                                <ng-container
+                                  *ngIf="personalizationData.widgetMappingDetails.isEdit"
+                                >
+                                  <p-checkbox
+                                    [name]="product.name"
+                                    [label]="widget.name"
+                                    [value]="widget.name"
+                                    [(ngModel)]="
+                                      personalizationEditData.widgetMappingDetails.widgets[
+                                        product.name
+                                      ]
+                                    "
+                                  >
+                                  </p-checkbox>
+                                </ng-container>
+                              </div>
+                              <div class="p-grid">
+                                <div
+                                  class="p-col-9 p-p-1 p-mt-1 border-top text-size-12 text-color-normal"
+                                >
+                                  {{ widget.description }}
+                                </div>
+                                <div class="p-col-3 p-p-1 p-mt-1 border-top">
+                                  <img
+                                    class="aps-h-100p aps-w-100p"
+                                    [src]="
+                                      './../../../../../assets/images/widgets/' +
+                                      widget.type +
+                                      '.jpg'
+                                    "
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Theme Selection -->
+    <div class="aps-card p-my-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">Theme Selection</div>
+            <div
+              class="p-col-6 p-pb-2 p-px-0 text-size-16"
+              [ngClass]="{ 'p-py-1': personalizationData.themeSelectionDetails.isEdit }"
+            >
+              <app-icon
+                *ngIf="!personalizationData.themeSelectionDetails.isExpand"
+                (click)="onOpenCloseClick('themeSelectionDetails')"
+                icon="fa-chevron-down"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="
+                  personalizationData.themeSelectionDetails.isExpand &&
+                  !personalizationData.themeSelectionDetails.isEdit
+                "
+                (click)="onOpenCloseClick('themeSelectionDetails')"
+                icon="fa-chevron-up"
+                class="float-right pointer"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.themeSelectionDetails.isEdit"
+                (click)="
+                  personalizationData.themeSelectionDetails.isEdit = true;
+                  personalizationData.themeSelectionDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-3"
+              >
+              </app-icon>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.themeSelectionDetails.isEdit"
+                (click)="onSaveClick(); personalizationData.themeSelectionDetails.isEdit = false"
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.themeSelectionDetails.isEdit"
+                (click)="personalizationData.themeSelectionDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+            </div>
+            <ng-container *ngIf="personalizationData.themeSelectionDetails.isExpand">
+              <div class="p-col-12 p-my-1 p-p-0 border-top"></div>
+              <div class="p-col-12 border border-radius-4 p-mt-2">
+                <div class="p-grid">
+                  <div class="p-col-5 text-semi-bold p-p-1">Theme style</div>
+                  <div class="p-col-7 p-p-1">
+                    <span class="text-size-14 float-right p-px-2">Light</span>
+                    <p-inputSwitch
+                      styleClass="float-right"
+                      *ngIf="!personalizationData.themeSelectionDetails.isEdit"
+                      [(ngModel)]="personalizationData.themeSelectionDetails.isLightMode"
+                      disabled="true"
+                    >
+                    </p-inputSwitch>
+                    <p-inputSwitch
+                      styleClass="float-right"
+                      *ngIf="personalizationData.themeSelectionDetails.isEdit"
+                      [(ngModel)]="personalizationEditData.themeSelectionDetails.isLightMode"
+                    >
+                    </p-inputSwitch>
+                    <span class="text-size-14 float-right p-px-2">Dark</span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-md-4 p-lg-4 p-px-2" *ngFor="let theme of themes">
+                <div class="border p-pb-2">
+                  <img
+                    class="aps-h-100p aps-w-100p"
+                    [src]="'./../../../../../assets/images/themes/' + theme + '.jpg'"
+                  />
+                  <div class="p-grid p-jc-center">
+                    <div class="p-col-6 p-md-3 p-lg-3 p-p-1">
+                      <p-radioButton
+                        *ngIf="!personalizationData.themeSelectionDetails.isEdit"
+                        name="theme"
+                        [value]="theme"
+                        [label]="theme"
+                        [(ngModel)]="personalizationData.themeSelectionDetails.theme"
+                        disabled="true"
+                      >
+                      </p-radioButton>
+                      <p-radioButton
+                        *ngIf="personalizationData.themeSelectionDetails.isEdit"
+                        name="theme"
+                        [value]="theme"
+                        [label]="theme"
+                        [(ngModel)]="personalizationEditData.themeSelectionDetails.theme"
+                      >
+                      </p-radioButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #alertsAndNotifications>
+    <!-- Alerts and Notifications -->
+    <div class="aps-card p-mb-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Alerts and Notifications
+            </div>
+            <div class="p-col-6 p-pb-2 p-px-0 p-pt-1 text-size-16">
+              <app-icon
+                (click)="personalizationData.alertsAndNotificationsDetails.isExpand = true"
+                [ngClass]="{ 'p-mt-2': personalizationData.alertsAndNotificationsDetails.isEdit }"
+                icon="fa-search"
+                class="float-right pointer p-px-2"
+              >
+              </app-icon>
+              <app-icon
+                (click)="personalizationData.alertsAndNotificationsDetails.isExpand = true"
+                [ngClass]="{ 'p-mt-2': personalizationData.alertsAndNotificationsDetails.isEdit }"
+                icon="fa-filter"
+                class="float-right pointer p-px-2"
+                (click)="alertFilters.toggle($event)"
+              >
+              </app-icon>
+              <app-icon
+                *ngIf="!personalizationData.alertsAndNotificationsDetails.isEdit"
+                (click)="
+                  personalizationData.alertsAndNotificationsDetails.isEdit = true;
+                  personalizationData.alertsAndNotificationsDetails.isExpand = true;
+                  onEditClick()
+                "
+                icon="fa-pencil"
+                class="float-right pointer p-px-2"
+              >
+              </app-icon>
+              <div
+                class="border-left float-right aps-h-100p p-mx-2"
+                *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+              ></div>
+              <button
+                class="btn btn-md btn-primary float-right"
+                *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+                (click)="
+                  onSaveClick(); personalizationData.alertsAndNotificationsDetails.isEdit = false
+                "
+              >
+                SAVE
+              </button>
+              <button
+                class="btn btn-md btn-tertiary p-mx-2 float-right"
+                *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+                (click)="personalizationData.alertsAndNotificationsDetails.isEdit = false"
+              >
+                CANCEL
+              </button>
+              <p-overlayPanel [dismissable]="true" #alertFilters>
+                <ng-template pTemplate>
+                  <div>
+                    <p-checkbox
+                      class="p-m-2"
+                      name="alertFilters"
+                      value="Enabled"
+                      label="Enabled"
+                      [(ngModel)]="selectedAlertFilters"
+                    ></p-checkbox>
+                  </div>
+                  <div>
+                    <p-checkbox
+                      class="p-m-2"
+                      name="alertFilters"
+                      value="Suspended"
+                      label="Suspended"
+                      [(ngModel)]="selectedAlertFilters"
+                    ></p-checkbox>
+                  </div>
+                  <div>
+                    <p-checkbox
+                      class="p-m-2"
+                      name="alertFilters"
+                      value="Disabled"
+                      label="Disabled"
+                      [(ngModel)]="selectedAlertFilters"
+                    ></p-checkbox>
+                  </div>
+                  <button
+                    class="p-m-2 btn btn-md btn-primary float-right"
+                    (click)="alertFilters.hide()"
+                  >
+                    SAVE
+                  </button>
+                </ng-template>
+              </p-overlayPanel>
+            </div>
+            <div class="p-col-6 p-py-3 border-top border-bottom text-size-14 text-semi-bold">
+              <span class="inline-block">All&nbsp;</span>
+              <span class="inline-block">({{ getTotalAlerts() }})</span>
+            </div>
+            <div class="p-col-6 p-py-2 border-top border-bottom text-size-14 text-semi-bold">
+              <button
+                *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+                class="btn btn-md btn-tertiary float-right"
+                (click)="suspendAll()"
+              >
+                <app-icon icon="fa-times-circle" class="pointer p-px-1"></app-icon>
+                SUSPEND ALL
+              </button>
+            </div>
+            <div
+              class="p-col-12 p-py-2 border-bottom"
+              *ngFor="let product of productToggleList; let i = index"
+            >
+              <div class="p-grid">
+                <div class="p-col-12 p-px-0 p-md-4 p-lg-4 text-size-12 text-semi-bold">
+                  <span class="inline-block">{{ product.name }}</span>
+                  <span
+                    *ngIf="!personalizationData.alertsAndNotificationsDetails.isEdit"
+                    class="inline-block"
+                    >({{
+                      personalizationData.alertsAndNotificationsDetails.productWiseAlertsDetails[
+                        product.name
+                      ].length
+                    }})</span
+                  >
+                  <span
+                    *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+                    class="inline-block"
+                    >({{
+                      personalizationEditData.alertsAndNotificationsDetails
+                        .productWiseAlertsDetails[product.name].length
+                    }})</span
+                  >
+                </div>
+                <div class="p-col-12 p-md-8 p-lg-8" [ngClass]="{ 'p-py-0': product.isExpand }">
+                  <app-icon
+                    *ngIf="!product.isExpand"
+                    (click)="showHideProductDetails(product.name)"
+                    icon="fa-chevron-down"
+                    class="float-right pointer"
+                  >
+                  </app-icon>
+                  <app-icon
+                    *ngIf="product.isExpand"
+                    (click)="showHideProductDetails(product.name)"
+                    icon="fa-chevron-up"
+                    class="p-mt-1 float-right pointer"
+                  >
+                  </app-icon>
+                  <span
+                    *ngIf="!product.isExpand"
+                    class="text-size-12 background-color-danger-light text-color-danger p-px-1 p-mr-2 p-ml-1 float-right"
+                  >
+                    <span class="inline-block">Disabled&nbsp;</span>
+                    <span class="inline-block"
+                      >({{ getAlertStatusCountByProduct(product.name, 'Disabled') }})</span
+                    >
+                  </span>
+                  <span
+                    *ngIf="!product.isExpand"
+                    class="text-size-12 background-color-warning-light text-color-warning p-px-1 p-mx-1 float-right"
+                  >
+                    <span class="inline-block">Suspended&nbsp;</span>
+                    <span class="inline-block"
+                      >({{ getAlertStatusCountByProduct(product.name, 'Suspended') }})</span
+                    >
+                  </span>
+                  <span
+                    *ngIf="!product.isExpand"
+                    class="text-size-12 background-color-success-light text-color-success p-px-1 p-mx-1 float-right"
+                  >
+                    <span class="inline-block">Enabled&nbsp;</span>
+                    <span class="inline-block"
+                      >({{ getAlertStatusCountByProduct(product.name, 'Enabled') }})</span
+                    >
+                  </span>
+                  <button
+                    *ngIf="
+                      product.isExpand && personalizationData.alertsAndNotificationsDetails.isEdit
+                    "
+                    class="p-py-1 btn btn-md btn-tertiary float-right"
+                    (click)="suspendAllAlertsByProduct(product.name)"
+                  >
+                    <app-icon icon="fa-times-circle" class="pointer p-px-1"></app-icon>
+                    SUSPEND
+                  </button>
+                </div>
+                <div class="p-col-12 aps-h-180" *ngIf="product.isExpand">
+                  <app-ag-grid-listing
+                    #productAlerts
+                    id="productAlerts"
+                    *ngIf="!personalizationData.alertsAndNotificationsDetails.isEdit"
+                    [columnDefs]="personalizationData.alertsAndNotificationsDetails.alertHeaders"
+                    [rowData]="
+                      personalizationData.alertsAndNotificationsDetails.productWiseAlertsDetails[
+                        product.name
+                      ]
+                    "
+                    [gridOptions]="alertGridOptions"
+                    [frameworkComponents]="alertFrameworkComponents"
+                    supressAutoFit="true"
+                  >
+                  </app-ag-grid-listing>
+                  <app-ag-grid-listing
+                    #productAlerts
+                    id="productAlerts"
+                    *ngIf="personalizationData.alertsAndNotificationsDetails.isEdit"
+                    [columnDefs]="
+                      personalizationEditData.alertsAndNotificationsDetails.alertHeaders
+                    "
+                    [rowData]="
+                      personalizationEditData.alertsAndNotificationsDetails
+                        .productWiseAlertsDetails[product.name]
+                    "
+                    [gridOptions]="alertGridOptions"
+                    [frameworkComponents]="alertFrameworkComponents"
+                  >
+                  </app-ag-grid-listing>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #makerCheckerLimits>
+    <!-- Maker/Checker Limits -->
+    <div class="aps-card p-mb-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Maker/Checker Limits
+            </div>
+            <div class="p-col-6 p-pb-2 p-px-0 p-pt-1 text-size-16">
+              <app-icon icon="fa-search" class="float-right pointer p-px-2"></app-icon>
+            </div>
+            <div class="p-col-12 p-mt-2 p-p-0 aps-h-500">
+              <app-ag-grid-listing
+                id="makerChekerGrid"
+                [columnDefs]="personalizationData.makerCheckerLimitDetails.headers"
+                [rowData]="personalizationData.makerCheckerLimitDetails.data"
+                [gridOptions]="makerCheckerGridOptions"
+              >
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #authMatrixInfo>
+    <!-- Authorisation Matrix Information -->
+    <div class="aps-card p-mb-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Authorisation Matrix Information
+            </div>
+            <div class="p-col-6 p-pb-2 p-px-0 p-pt-1 text-size-16">
+              <app-icon icon="fa-search" class="float-right pointer p-px-2"></app-icon>
+            </div>
+            <div class="p-col-12 p-mt-3 p-p-0">
+              <div class="p-grid">
+                <ng-container *ngFor="let product of productToggleList">
+                  <div class="p-col-12 p-mt-1 p-p-0 background-color-disabled">
+                    <div class="p-grid">
+                      <div class="p-col-10 p-px-3 p-py-2 text-size-14 text-semi-bold">
+                        <span class="inline-block">{{ product.name }}&nbsp;</span>
+                        <span class="inline-block"
+                          >({{
+                            personalizationData.authMatrixInfoDetails.productWiseAuthMatrixDetails[
+                              product.name
+                            ].length
+                          }})</span
+                        >
+                      </div>
+                      <div class="p-col-2 p-px-3 p-py-2">
+                        <app-icon
+                          *ngIf="!product.isExpand"
+                          (click)="
+                            showHideProductDetails(product.name);
+                            isShowAuthMatrixAdditionalInfo = false
+                          "
+                          icon="fa-chevron-down"
+                          class="float-right pointer"
+                        >
+                        </app-icon>
+                        <app-icon
+                          *ngIf="product.isExpand"
+                          (click)="
+                            showHideProductDetails(product.name);
+                            isShowAuthMatrixAdditionalInfo = false
+                          "
+                          icon="fa-chevron-up"
+                          class="p-mt-1 float-right pointer"
+                        >
+                        </app-icon>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-col-12 p-mt-1 p-px-3 py-2 aps-h-200" *ngIf="product.isExpand">
+                    <app-ag-grid-listing
+                      id="authMatrixInfoGrid"
+                      [columnDefs]="personalizationData.authMatrixInfoDetails.headers"
+                      [rowData]="
+                        personalizationData.authMatrixInfoDetails.productWiseAuthMatrixDetails[
+                          product.name
+                        ]
+                      "
+                      [gridOptions]="authMatrixGridOptions"
+                      [frameworkComponents]="authMatrixFrameworkComponents"
+                      supressAutoFit="true"
+                    >
+                    </app-ag-grid-listing>
+                    <app-modal
+                      [(isShow)]="isShowAuthMatrixAdditionalInfo"
+                      hideBackdrop="true"
+                      [customStyles]="authMatrixModalStyles"
+                    >
+                      <div body class="left-right-container aps-w-230">
+                        <div class="left-container">{{ authMatrixAdditionalInfo }}</div>
+                        <div class="right-container">
+                          <!-- <i class="pi pi-times pointer" (click)="isShowAuthMatrixAdditionalInfo = false"></i> -->
+                          <app-icon
+                            icon="fa-times"
+                            class="pointer"
+                            (click)="isShowAuthMatrixAdditionalInfo = false"
+                          >
+                          </app-icon>
+                        </div>
+                      </div>
+                    </app-modal>
+                    <app-modal
+                      [(isShow)]="isShowAuthMatrixAccounts"
+                      hideBackdrop="true"
+                      [customStyles]="authMatrixModalStyles"
+                    >
+                      <div body class="p-grid aps-w-200">
+                        <div class="p-col-12 border-bottom">
+                          <div class="left-right-container">
+                            <div class="left-container text-size-14 text-semi-bold">Accounts</div>
+                            <div class="right-container">
+                              <!-- <i class="pi pi-search pointer p-px-1"></i> -->
+                              <app-icon icon="fa-search" class="pointer p-px-1"></app-icon>
+                              <!-- <i class="pi pi-times pointer" (click)="isShowAuthMatrixAccounts = false"></i> -->
+                              <app-icon
+                                icon="fa-times"
+                                class="pointer"
+                                (click)="isShowAuthMatrixAccounts = false"
+                              >
+                              </app-icon>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="p-col-12 p-p-0 aps-h-200 overflow-scroll">
+                          <div class="p-grid">
+                            <ng-container *ngFor="let account of authMatrixAccounts">
+                              <div class="p-col-12 text-size-13">
+                                {{ account }}
+                              </div>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                    </app-modal>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #accountWiseAccessInfo>
+    <!-- Account Wise Access Information -->
+    <div class="aps-card p-mb-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-px-3 p-py-2">
+          <div class="p-grid">
+            <div class="p-col-6 p-pb-2 p-px-0 text-size-16 text-semi-bold">
+              Account Wise Access Information
+            </div>
+            <div class="p-col-6 p-pb-2 p-px-0 p-pt-1 text-size-16">
+              <app-icon icon="fa-search" class="float-right pointer p-px-2"></app-icon>
+            </div>
+            <div class="p-col-12 p-py-3 border-top">
+              <span class="text-size-14 text-bold"> View By: </span>
+              <p-radioButton
+                class="p-px-2"
+                name="accountWiseAccessViewBy"
+                value="Products"
+                label="Products"
+                [(ngModel)]="accountWiseAccessViewBy"
+              ></p-radioButton>
+              <p-radioButton
+                class="p-px-2"
+                name="accountWiseAccessViewBy"
+                value="Accounts"
+                label="Accounts"
+                [(ngModel)]="accountWiseAccessViewBy"
+              ></p-radioButton>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="accountWiseAccessViewBy == 'Products'">
+              <div class="p-grid">
+                <ng-container *ngFor="let product of productToggleList">
+                  <div class="p-col-12 p-mt-1 p-p-0 background-color-disabled">
+                    <div class="p-grid">
+                      <div class="p-col-10 p-px-3 p-py-2 text-size-14 text-semi-bold">
+                        <span class="inline-block">{{ product.name }}&nbsp;</span>
+                        <span class="inline-block"
+                          >({{
+                            personalizationData.accountWiseAccessInfoDetails
+                              .productWiseAccountAccessDetails[product.name].length
+                          }})</span
+                        >
+                      </div>
+                      <div class="p-col-2 p-px-3 p-py-2">
+                        <app-icon
+                          *ngIf="!product.isExpand"
+                          (click)="showHideProductDetails(product.name)"
+                          icon="fa-chevron-down"
+                          class="float-right pointer"
+                        >
+                        </app-icon>
+                        <app-icon
+                          *ngIf="product.isExpand"
+                          (click)="showHideProductDetails(product.name)"
+                          icon="fa-chevron-up"
+                          class="p-mt-1 float-right pointer"
+                        >
+                        </app-icon>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-col-12 p-mt-1 p-px-3 py-2 aps-h-400" *ngIf="product.isExpand">
+                    <app-ag-grid-listing
+                      id="productWiseAccountAccessGrid"
+                      [columnDefs]="
+                        personalizationData.accountWiseAccessInfoDetails.productWiseHeaders
+                      "
+                      [rowData]="
+                        personalizationData.accountWiseAccessInfoDetails
+                          .productWiseAccountAccessDetails[product.name]
+                      "
+                      [gridOptions]="accountWiseAccessProductGridOptions"
+                    >
+                    </app-ag-grid-listing>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+            <div class="p-col-12 p-p-0" *ngIf="accountWiseAccessViewBy == 'Accounts'">
+              <div class="p-grid">
+                <ng-container *ngFor="let account of accountToggleList">
+                  <div class="p-col-12 p-mt-1 p-p-0 background-color-disabled">
+                    <div class="p-grid">
+                      <div class="p-col-10 p-px-3 p-py-2 text-size-14 text-semi-bold">
+                        <span class="inline-block">{{ account.no }}&nbsp;</span>
+                        <span class="inline-block"
+                          >({{
+                            personalizationData.accountWiseAccessInfoDetails
+                              .accountWiseAccountAccessDetails[account.no].length
+                          }})</span
+                        >
+                      </div>
+                      <div class="p-col-2 p-px-3 p-py-2">
+                        <app-icon
+                          *ngIf="!account.isExpand"
+                          (click)="showHideAccountDetails(account.no)"
+                          icon="fa-chevron-down"
+                          class="float-right pointer"
+                        >
+                        </app-icon>
+                        <app-icon
+                          *ngIf="account.isExpand"
+                          (click)="showHideAccountDetails(account.no)"
+                          icon="fa-chevron-up"
+                          class="p-mt-1 float-right pointer"
+                        >
+                        </app-icon>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-col-12 p-mt-1 p-px-3 py-2 aps-h-400" *ngIf="account.isExpand">
+                    <app-ag-grid-listing
+                      id="accountWiseAccountAccessGrid"
+                      [columnDefs]="
+                        personalizationData.accountWiseAccessInfoDetails.accountWiseHeaders
+                      "
+                      [rowData]="
+                        personalizationData.accountWiseAccessInfoDetails
+                          .accountWiseAccountAccessDetails[account.no]
+                      "
+                      [gridOptions]="accountWiseAccessAccountGridOptions"
+                    >
+                    </app-ag-grid-listing>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

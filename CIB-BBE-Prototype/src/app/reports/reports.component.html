@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-md-3 p-sm-12 p-col-12">
+      <div
+        class="aps-card aps-filled-card text-color-inverted pointer"
+        (click)="createNewReport()"
+        style="height: 122px"
+      >
+        <div class="aps-card-header p-px-3 aps-py-12 overflow-visible">
+          <div class="text-size-16 text-semi-bold p-mb-4">
+            {{ 'Create New Report' | apsTranslate }}
+          </div>
+        </div>
+        <div class="aps-card-body p-px-3 p-py-2">
+          <div class="text-size-12">
+            {{ 'Click here to initiate a new Report' | apsTranslate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-md-9 p-sm-12 p-col-12">
+      <div class="aps-card p-mb-3">
+        <div class="aps-card-header p-px-3 aps-py-12 overflow-visible">
+          <div class="text-size-16 text-bold p-mb-4">
+            {{ 'Most Frequent Reports' | apsTranslate }}
+          </div>
+        </div>
+        <div class="aps-card-body" style="padding: 0.7rem">
+          <div class="p-grid text-color-dark-shade-1 p-pl-2">
+            <div
+              class="p-md-3 p-sm-12 p-col-12 p-p-0 p-my-1"
+              *ngFor="let item of mostFrequentReports"
+            >
+              <div class="text-size-13 pointer" (click)="onFrequentReportClick(item)">
+                {{ item.reportName }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-col-12 p-py-0">
+      <div class="aps-card aps-h-400 p-mb-3">
+        <div class="card-header overflow-visible">
+          <div class="p-px-3" [ngClass]="{ 'left-right-container': viewPort === 'web' }">
+            <div class="left-container">
+              <div class="text-size-16 text-color-dark-shade-1 text-bold aps-py-12">
+                {{ 'Generated Reports' | apsTranslate }}
+              </div>
+            </div>
+            <div class="right-container aps-py-12">
+              <app-grid-listing-tools
+                (changeFloatingFilter)="generatedReportGrid.changeFloatFilter($event)"
+                (filterRecords)="generatedReportGrid.onFilter($event)"
+                (applyColDefs)="generatedReportGrid.onApplyConfig($event)"
+                [colDefs]="generatedReportGrid.columnDefs"
+                [columnConfig]="true"
+                [moreOptions]="false"
+                [showMail]="false"
+                [showDownload]="false"
+                [showPrint]="true"
+                [showRefresh]="true"
+              >
+              </app-grid-listing-tools>
+            </div>
+          </div>
+        </div>
+        <div class="aps-card-body">
+          <app-ag-grid-listing
+            id="generatedReportGrid"
+            #generatedReportGrid
+            [colDefUrl]="colDefsUrl"
+            [rowDefUrl]="rowDefsUrl"
+            [gridOptions]="gridOptions"
+            [frameworkComponents]="frameworkComponents"
+          >
+          </app-ag-grid-listing>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <ng-template #topTemplate>
+
+</ng-template> -->
+<!-- <app-listing #listing [parentComponentRef]="parentComponentRef" [topTemplate]="topTemplate">
+    </app-listing> -->

@@ -1,0 +1,15 @@
+{
+  "columnDefs": [
+    { "headerName": "DS No", "field": "dsNumber" },
+    { "headerName": "Deposit Date", "field": "depositDate" },
+    { "headerName": "Cheque Number", "field": "chequeNumber" },
+    { "headerName": "Cheque Amount", "field": "chequeAmount" },
+    { "headerName": "Drawee Bank", "field": "draweeBank" },
+    { "headerName": "Credit Date", "field": "creditDate" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Pickup Location", "field": "pickupLocation" },
+    { "headerName": "Pickup Point", "field": "pickupPoint" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer",
+    "pinned":"right" }
+  ]
+}

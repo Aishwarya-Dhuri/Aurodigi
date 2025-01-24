@@ -1,0 +1,68 @@
+<div
+  *ngIf="isReadingGuide"
+  class="reading-guide cursor"
+  [style.top]="readingGuideTop"
+  [style.left]="readingGuideLeft"
+></div>
+<i
+  *ngIf="isBigWhiteCursor"
+  class="far fa-mouse-pointer cursor text-size-42"
+  [style.top]="cursorTop"
+  [style.left]="cursorLeft"
+></i>
+<i
+  *ngIf="isBigBlackCursor"
+  class="fas fa-mouse-pointer cursor text-size-42"
+  [style.top]="cursorTop"
+  [style.left]="cursorLeft"
+></i>
+
+<app-modal [(isShow)]="isShowAccessibilityModal" size="sm">
+  <div body>
+    <div class="text-size-16 text-bold text-color-dark-shade-1">Hide Accessibility Interface?</div>
+    <div class="text-size-14 text-color-dark-shade-1 p-mt-3">
+      Please Note: If you choose to hide the accessibility interface, you won't be able to see it
+      anymore, unless you clear your browsing history and data. Are you sure that you wish to hide
+      the interface?
+    </div>
+  </div>
+  <div footer>
+    <div class="left-right-container p-mt-3">
+      <div class="left-container"></div>
+      <div class="right-container">
+        <button class="btn btn-md btn-primary" (click)="accept()">ACCEPT</button>
+        &nbsp;
+        <button class="btn btn-md btn-tertiary" (click)="cancel()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</app-modal>
+<!-- Overlay -->
+<p-overlayPanel [dismissable]="false" #accessiblityPanel>
+  <ng-template pTemplate>
+    <app-accessibility-modal
+      (isHideInterface)="isShowAccessibilityModal = true; accessiblityPanel.toggle($event)"
+      (isBigWhiteCursor)="onWhiteCursorClick($event)"
+      (isBigBlackCursor)="onBlackCursorClick($event)"
+      (isReadingGuide)="onReadingGuideClick($event)"
+      (isCancel)="accessiblityPanel.toggle($event)"
+    >
+    </app-accessibility-modal>
+  </ng-template>
+</p-overlayPanel>
+<!-- Icon -->
+<div
+  class="floating-btn"
+  id="accessibility-btn"
+  *ngIf="accessibilityConfig.isInterfaceEnabled"
+  (dragstart)="dragStart($event)"
+  (dragend)="dragEnd($event)"
+  [draggable]="true"
+  [style.top]="accessibilityConfig.iconTop"
+  [style.left]="accessibilityConfig.iconLeft"
+>
+  {{ counter }}
+  <button class="btn btn-primary" (click)="accessiblityPanel.toggle($event)">
+    <app-icon icon="fal fa-universal-access" class="text-size-24"></app-icon>
+  </button>
+</div>

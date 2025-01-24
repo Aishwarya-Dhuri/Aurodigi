@@ -1,0 +1,2184 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Corporate Group Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="groupCode" name="groupCode"
+                                [label]="'Group Code' | apsTranslate" [(ngModel)]="formData.groupCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="groupName" name="groupName"
+                                [label]="'Group Name' | apsTranslate" [(ngModel)]="formData.groupName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Group Type</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="groupType" value="Transactional"
+                                    label="Transactional" [(ngModel)]="formData.groupType">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="groupType" value="Non Transactional"
+                                    label="Non Transactional" [(ngModel)]="formData.groupType">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input id="corporateCode" label="Corporate Code" name="corporateCode"
+                                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                [(ngModel)]="transactionFormData.corporateCode" disabled="true" required="true">
+                            </aps-form-input>
+                            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                            </app-search-modal>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                [value]="transactionFormData.corporateName"
+                                [(ngModel)]="transactionFormData.corporateName" disabled>
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <button class="btn btn-md btn-primary p-mt-2"
+                                (click)="editIndex > -1 ? onUpdateTransaction() : onAddTransactionClick()">
+                                {{ (editIndex > -1 ? 'SAVE' : 'ADD') }}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12 p-md-12 p-sm-12">
+                            <app-ag-grid-listing #currencySellInit id="currencySellInit"
+                                [gridOptions]="currencySellGridOptions" [rowData]="formData.transaction"
+                                (gridReady)="onCurrencySellInitGridReady($event)" [supressAutoFit]="true"
+                                colDefUrl="setup/security/corporateGroup/private/userDetailsColDefs">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+                    <div class="p-grid" *ngIf="formData.groupType === 'Transactional'">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="liabilityId" name="liabilityId"
+                                [label]="'Liability ID' | apsTranslate" [(ngModel)]="formData.liabilityId"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3" *ngIf="isShowLiabilityName">
+                            <aps-form-input inputType="normal" id="liabilityName" name="liabilityName"
+                                [label]="'Liability Name' | apsTranslate" [(ngModel)]="formData.liabilityName"
+                                required="true" disabled>
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <button class="btn btn-md btn-primary p-mt-2" (click)="isShowLiabilityName = true">
+                                Validate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Common Parameters </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid p-pb-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Select AuthMatrix Required</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="selectAuthMatrixReq" value="Yes" label="Yes"
+                                    [(ngModel)]="formData.selectAuthMatrixReq">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="selectAuthMatrixReq" value="No" label="No"
+                                    [(ngModel)]="formData.selectAuthMatrixReq">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Select VerifierMatrix Required</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="selectVerifierMatrixReq" value="Yes" label="Yes"
+                                    [(ngModel)]="formData.selectVerifierMatrixReq">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="selectVerifierMatrixReq" value="No"
+                                    label="No" [(ngModel)]="formData.selectVerifierMatrixReq">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6 p-lg-6">
+                            <div class="text-size-14">Debit Transaction Changes From</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="debitTranChangesFrom"
+                                    value="Transaction Debit Amount" label="Transaction Debit Amount"
+                                    [(ngModel)]="formData.debitTranChangesFrom">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="debitTranChangesFrom"
+                                    value="Default Charge Amount" label="Default Charge Amount"
+                                    [(ngModel)]="formData.debitTranChangesFrom">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Module Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6 p-lg-6">
+                            <!-- <div class="text-size-14">Debit Transaction Changes From</div> -->
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="moduleDetails" value="Service Details"
+                                    label="Service Details" [(ngModel)]="formData.moduleDetails">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="moduleDetails" value="Authorization Rule"
+                                    label="Authorization Rule" [(ngModel)]="formData.moduleDetails">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-grid" *ngIf="formData.moduleDetails === 'Authorization Rule'">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="module" id="module"
+                                [(ngModel)]="authorizationRuleData.module" [value]="authorizationRuleData.module"
+                                dataUrl="setup/security/corporateOnboarding/private/dropdown/module" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Transaction Name' | apsTranslate" name="transactionName"
+                                id="transactionName" [(ngModel)]="authorizationRuleData.transactionName"
+                                [value]="authorizationRuleData.transactionName"
+                                dataUrl="setup/security/corporateOnboarding/private/dropdown/transactionName"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Verifier Rule' | apsTranslate" name="verifierName"
+                                id="verifierName" [(ngModel)]="authorizationRuleData.verifierName"
+                                [value]="authorizationRuleData.verifierName" [data]="verifierRuleList"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-custom-select [label]="'Authorization Rule' | apsTranslate" name="authorizationRule"
+                                id="authorizationRule" [(ngModel)]="authorizationRuleData.authorizationRule"
+                                [value]="authorizationRuleData.authorizationRule"
+                                dataUrl="setup/security/corporateOnboarding/private/dropdown/authorizationRule"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 text-right p-pt-0">
+                            <button class="btn btn-md btn-primary"
+                                (click)="editauthRuleIndex > -1 ? onUpdateAuthRule() : onAddAuthRuleClick()">
+                                {{ (editauthRuleIndex > -1 ? 'SAVE' : 'ADD') }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-grid aps-h-200" *ngIf="formData.moduleDetails === 'Authorization Rule'">
+                        <div class="p-col-12 p-md-12 p-sm-12">
+                            <app-ag-grid-listing #AuthorizationRuleInit id="AuthorizationRuleInit"
+                                [gridOptions]="authRuleGridOptions" [rowData]="formData.authRule"
+                                (gridReady)="onAuthRuleInitGridReady($event)" [supressAutoFit]="true"
+                                colDefUrl="setup/security/corporateGroup/private/authRuleInitColDefs">
+                            </app-ag-grid-listing>
+                        </div>
+                    </div>
+
+                    <div class="p-grid" *ngIf="formData.moduleDetails === 'Service Details'">
+                        <div class="p-md-3 p-sm-12 p-col-12 p-pl-0">
+                            <div class="aps-card aps-h-450">
+                                <div class="aps-card-header">
+                                    <app-header-with-search heading="Products"
+                                        (search)="(null)"></app-header-with-search>
+                                </div>
+                                <div class="aps-card-body overflow-scroll">
+
+                                    <div class="p-mr-2" *ngFor="let list of serviceDetailsListingTypes">
+                                        <div class="p-px-2 p-py-1 text-color-normal text-semi-bold pointer border-bottom"
+                                            [ngClass]="{ 'aps-card-primary1': list.label  == serviceDetailsSelectedListing?.label}"
+                                            (click)="serviceDetailsSelectededListing(list)">
+                                            <div class="left-right-container">
+                                                <div class="left-container">
+                                                    <span class="p-py-0 p-pl-2 inline-block">
+                                                        <p-checkbox [binary]="true" id="copyToRm" name="copyToRm"
+                                                            [(ngModel)]="list.checkbox" [value]="list.checkbox">
+                                                        </p-checkbox>
+                                                    </span>
+                                                    <span class="p-py-1 p-pl-3 inline-block text-size-14">
+                                                        {{list.label}}&nbsp;</span>
+                                                </div>
+                                                <div class="right-container">
+                                                    <span class="p-py-1 p-pr-2 inline-block">{{list.count}}</span>
+                                                    <span class="p-py-1 inline-block"><app-icon icon="fa-chevron-right"
+                                                            styleClasses="text-size-14"
+                                                            rtlIcon="fa-chevron-left"></app-icon></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-md-9 p-sm-12 p-col-12 p-pr-0">
+                            <div class="aps-card aps-h-450">
+                                <div *ngIf="serviceDetailsSelectedListing.id === 1">
+                                    <div class="table-container p-pl-2">
+                                        <table class="table">
+                                            <thead>
+                                                <tr
+                                                    class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                                    <th class="p-p-2 text-left">Charge Applicable</th>
+                                                    <th class="p-p-2 text-left">Normal Charge Category</th>
+                                                    <th class="p-p-2 text-left">Promotional Charge Category</th>
+                                                    <th class="p-p-2 text-left">Charge Account</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="">
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox [binary]="true" id="setupCheckbox"
+                                                            name="setupCheckbox" [(ngModel)]="setupCheckbox">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupNormalChargeCat" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!setupCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupPromotionalChargeCat"
+                                                            optionLabel="displayName" optionValue="id"
+                                                            placeholder="Please Select" [showClear]="false"
+                                                            [disabled]="!setupCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupChargeAccount" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!setupCheckbox"></p-dropdown>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div *ngIf="serviceDetailsSelectedListing.id === 2">
+                                    <div class="p-grid p-px-2">
+                                        <div class="p-col-12 p-md-5 p-sm-5">
+                                            <div class="text-size-14">Entity Type<sup>*</sup></div>
+                                            <div>
+                                                <p-checkbox [(ngModel)]="fscmSellerSponsor" [value]="fscmSellerSponsor"
+                                                    class="p-pr-2" id="fscmSellerSponsor" name="fscmSellerSponsor"
+                                                    [binary]="true" label="Seller Sponsor">
+                                                </p-checkbox>
+
+                                                <p-checkbox [(ngModel)]="fscmBuyerSponsor" [value]="fscmBuyerSponsor"
+                                                    class="p-px-2" id="fscmBuyerSponsor" name="fscmBuyerSponsor"
+                                                    [binary]="true" label="Buyer Sponsor">
+                                                </p-checkbox>
+                                            </div>
+                                        </div>
+
+                                        <div class="p-col-12 p-md-5 p-sm-5">
+                                            <div class="text-size-14">Channel<sup>*</sup></div>
+                                            <div>
+                                                <p-checkbox [(ngModel)]="fscmPortalCheckbox"
+                                                    [value]="fscmPortalCheckbox" class="p-pr-2" id="fscmPortalCheckbox"
+                                                    name="fscmPortalCheckbox" [binary]="true" label="Portal">
+                                                </p-checkbox>
+
+                                                <p-checkbox [(ngModel)]="fscmH2hCheckbox" [value]="fscmH2hCheckbox"
+                                                    class="p-px-2" id="fscmH2hCheckbox" name="fscmH2hCheckbox"
+                                                    [binary]="true" label="H2H">
+                                                </p-checkbox>
+
+                                                <p-checkbox [(ngModel)]="fscmWebService" [value]="fscmWebService"
+                                                    class="p-px-2" id="fscmWebService" name="fscmWebService"
+                                                    [binary]="true" label="Web Service">
+                                                </p-checkbox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-container p-pl-2">
+                                        <table class="table">
+                                            <thead>
+                                                <tr
+                                                    class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                                    <th class="p-p-2 text-left">
+                                                        <p-checkbox [binary]="true" id="copyToRm" name="copyToRm">
+                                                        </p-checkbox>
+                                                    </th>
+                                                    <th class="p-p-2 text-left">Product</th>
+                                                    <th class="p-p-2 text-left">Service Package</th>
+                                                    <th class="p-p-2 text-left">Program Reference Number</th>
+                                                    <th class="p-p-2 text-left">Program Name</th>
+                                                    <th class="p-p-2 text-left">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="">
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox id="fscmEippCheckbox" name="fscmEippCheckbox"
+                                                            [(ngModel)]="fscmEippCheckbox" [binary]="true"
+                                                            (click)="onfscmEippClick(fscmEippCheckbox)">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        EIPP
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-custom-select [label]="'Service Package' | apsTranslate"
+                                                            name="fscmServicePackage" id="fscmServicePackage"
+                                                            [disabled]="!fscmEippCheckbox"
+                                                            [(ngModel)]="fscmServicePackage"
+                                                            [value]="fscmServicePackage" [data]="servicePackage">
+                                                        </aps-custom-select>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal" id="fscmProgramRefNo"
+                                                            [disabled]="!fscmEippCheckbox" name="fscmProgramRefNo"
+                                                            [(ngModel)]="fscmProgramRefNo"
+                                                            [label]="'Program Reference Number' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal" id="fscmProgramName"
+                                                            [disabled]="!fscmEippCheckbox" name="fscmProgramName"
+                                                            [(ngModel)]="fscmProgramName"
+                                                            [label]="'Program Name' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2 pointer"
+                                                                (click)="showFscmViewModal = true"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="pointer"
+                                                                (click)="showFscmEditModal = true"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox id="fscmSellerFinanceCheckbox"
+                                                            name="fscmSellerFinanceCheckbox"
+                                                            (click)="onfscmSellerFinanceClick(fscmSellerFinanceCheckbox)"
+                                                            [(ngModel)]="fscmSellerFinanceCheckbox" [binary]="true">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        Seller Finance
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-custom-select [label]="'Service Package' | apsTranslate"
+                                                            name="fscmSellerFinanceServicePackage"
+                                                            id="fscmSellerFinanceServicePackage"
+                                                            [disabled]="!fscmSellerFinanceCheckbox"
+                                                            [(ngModel)]="fscmSellerFinanceServicePackage"
+                                                            [value]="fscmSellerFinanceServicePackage"
+                                                            [data]="servicePackage">
+                                                        </aps-custom-select>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmSellerFinanceProgramRefNo"
+                                                            [disabled]="!fscmSellerFinanceCheckbox"
+                                                            name="fscmSellerFinanceProgramRefNo"
+                                                            [(ngModel)]="fscmSellerFinanceProgramRefNo"
+                                                            [label]="'Program Reference Number' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmSellerFinanceProgramName"
+                                                            [disabled]="!fscmSellerFinanceCheckbox"
+                                                            name="fscmSellerFinanceProgramName"
+                                                            [(ngModel)]="fscmSellerFinanceProgramName"
+                                                            [label]="'Program Name' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2 pointer"
+                                                                (click)="showFscmViewModal = true"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="pointer"
+                                                                (click)="showFscmEditModal = true"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox id="fscmBuyerFinanceCheckbox"
+                                                            (click)="onfscmBuyerFinanceClick(fscmBuyerFinanceCheckbox)"
+                                                            name="fscmBuyerFinanceCheckbox"
+                                                            [(ngModel)]="fscmBuyerFinanceCheckbox" [binary]="true">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        Buyer Finance
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-custom-select [label]="'Service Package' | apsTranslate"
+                                                            name="fscmBuyerFinanceServicePackage"
+                                                            id="fscmBuyerFinanceServicePackage"
+                                                            [disabled]="!fscmBuyerFinanceCheckbox"
+                                                            [(ngModel)]="fscmBuyerFinanceServicePackage"
+                                                            [value]="fscmBuyerFinanceServicePackage"
+                                                            [data]="servicePackage">
+                                                        </aps-custom-select>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmBuyerFinanceProgramRefNo"
+                                                            [disabled]="!fscmBuyerFinanceCheckbox"
+                                                            name="fscmBuyerFinanceProgramRefNo"
+                                                            [(ngModel)]="fscmBuyerFinanceProgramRefNo"
+                                                            [label]="'Program Reference Number' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmBuyerFinanceProgramName"
+                                                            [disabled]="!fscmBuyerFinanceCheckbox"
+                                                            name="fscmBuyerFinanceProgramName"
+                                                            [(ngModel)]="fscmBuyerFinanceProgramName"
+                                                            [label]="'Program Name' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2 pointer"
+                                                                (click)="showFscmViewModal = true"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="pointer"
+                                                                (click)="showFscmEditModal = true"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox id="fscmWarehouseFinanceCheckbox"
+                                                            (click)="onfscmWarehouseFinanceClick(fscmWarehouseFinanceCheckbox)"
+                                                            name="fscmWarehouseFinanceCheckbox"
+                                                            [(ngModel)]="fscmWarehouseFinanceCheckbox" [binary]="true">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        Wareouse Finance
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-custom-select [label]="'Service Package' | apsTranslate"
+                                                            name="fscmWarehouseFinanceServicePackage"
+                                                            id="fscmWarehouseFinanceServicePackage"
+                                                            [disabled]="!fscmWarehouseFinanceCheckbox"
+                                                            [(ngModel)]="fscmWarehouseFinanceServicePackage"
+                                                            [value]="fscmWarehouseFinanceServicePackage"
+                                                            [data]="servicePackage">
+                                                        </aps-custom-select>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmWarehouseFinanceProgramRefNo"
+                                                            [disabled]="!fscmWarehouseFinanceCheckbox"
+                                                            name="fscmWarehouseFinanceProgramRefNo"
+                                                            [(ngModel)]="fscmWarehouseFinanceProgramRefNo"
+                                                            [label]="'Program Reference Number' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <aps-form-input inputType="normal"
+                                                            id="fscmWarehouseFinanceProgramName"
+                                                            [disabled]="!fscmWarehouseFinanceCheckbox"
+                                                            name="fscmWarehouseFinanceProgramName"
+                                                            [(ngModel)]="fscmWarehouseFinanceProgramName"
+                                                            [label]="'Program Name' | apsTranslate">
+                                                        </aps-form-input>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2 pointer"
+                                                                (click)="showFscmViewModal = true"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="pointer"
+                                                                (click)="showFscmEditModal = true"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div *ngIf="serviceDetailsSelectedListing.id === 3">
+                                    <div class="table-container p-pl-2">
+                                        <table class="table">
+                                            <thead>
+                                                <tr
+                                                    class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                                    <th class="p-p-2 text-left">
+                                                        <p-checkbox [binary]="true" id="copyToRm" name="copyToRm">
+                                                        </p-checkbox>
+                                                    </th>
+                                                    <th class="p-p-2 text-left">Product</th>
+                                                    <th class="p-p-2 text-left">Service Template</th>
+                                                    <th class="p-p-2 text-left"></th>
+                                                    <th class="p-p-2 text-left">Program Ref No</th>
+                                                    <th class="p-p-2 text-left">Program Name</th>
+                                                    <th class="p-p-2 text-left">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="">
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox [binary]="true" id="paymentSalaryCheckbox"
+                                                            name="paymentSalaryCheckbox"
+                                                            [(ngModel)]="paymentSalaryCheckbox">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        Salary
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="paymentServicePackage" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!paymentSalaryCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class=""><app-icon class="pi pi-eye"></app-icon>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupPromotionalChargeCat"
+                                                            optionLabel="displayName" optionValue="id"
+                                                            placeholder="Please Select" [showClear]="false"
+                                                            [disabled]="!paymentSalaryCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupChargeAccount" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!paymentSalaryCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2"
+                                                                (click)="showPaymentsViewModal = true"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="p-mr-2"
+                                                                (click)="showPaymentsEditModal = true"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                            <span class=""><app-icon
+                                                                    class="pi pi-plus-circle"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-size-12 text-color-normal border-bottom">
+                                                    <td class="p-p-2 p-pl-4">
+                                                        <p-checkbox [binary]="true" id="paymentVendorCheckbox"
+                                                            name="paymentVendorCheckbox"
+                                                            [(ngModel)]="paymentVendorCheckbox">
+                                                        </p-checkbox>
+                                                    </td>
+                                                    <td class="p-p-2 text-size-14">
+                                                        Vendor
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="paymentServicePackage" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!paymentVendorCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupPromotionalChargeCat"
+                                                            optionLabel="displayName" optionValue="id"
+                                                            placeholder="Please Select" [showClear]="false"
+                                                            [disabled]="!paymentVendorCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <p-dropdown appendTo="body" class="custom-dropdown"
+                                                            [options]="setupChargeAccount" optionLabel="displayName"
+                                                            optionValue="id" placeholder="Please Select"
+                                                            [showClear]="false"
+                                                            [disabled]="!paymentVendorCheckbox"></p-dropdown>
+                                                    </td>
+                                                    <td class="p-p-2">
+                                                        <div>
+                                                            <span class="p-mr-2"><app-icon
+                                                                    class="pi pi-eye"></app-icon></span>
+                                                            <span class="p-mr-2"><app-icon
+                                                                    class="pi pi-pencil"></app-icon></span>
+                                                            <span class=""><app-icon
+                                                                    class="pi pi-plus-circle"></app-icon></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Group Code' | apsTranslate" [value]="formData.groupCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Group Name' | apsTranslate" [value]="formData.groupName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Group Type' | apsTranslate" [value]="formData.groupType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid p-px-2 aps-h-200">
+                    <div class="p-col-12 p-md-12 p-sm-12">
+                        <app-ag-grid-listing #currencySellReview id="currencySellReview"
+                            [gridOptions]="currencySellGridOptions" [rowData]="formData.transaction"
+                            (gridReady)="onCurrencySellInitGridReady($event)" [supressAutoFit]="true"
+                            colDefUrl="setup/security/corporateGroup/private/userDetailsRowColDefs">
+                        </app-ag-grid-listing>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>
+
+<app-modal [(isShow)]="showFscmViewModal" size="lg" [headerText]="'View Template Details' | apsTranslate">
+    <div class="overflow-y-scroll aps-h-500">
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Service Package Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Service Package Code' | apsTranslate"
+                            [value]="fscm.servicePackageCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Service Package Name' | apsTranslate"
+                            [value]="fscm.servicePackageName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Module Name' | apsTranslate" [value]="fscm.moduleName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Product' | apsTranslate" [value]="fscm.product">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Customer Category' | apsTranslate"
+                            [value]="fscm.customerCategory">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Configuration</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'File Upload By' | apsTranslate" [value]="fscm.fileUploadBy">
+                        </app-review-form-field>
+                    </div>
+                    <div class="table-container p-pl-2">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Upload For</th>
+                                    <th class="p-p-2 text-left">Data Layout</th>
+                                    <th class="p-p-2 text-left">Partial Upload</th>
+                                    <th class="p-p-2 text-left">H2H Prefix</th>
+                                    <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.uploadFor}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.dataLayout}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.partialUpload}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.h2hPrefix}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.h2hAuthReq}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Enrichment' | apsTranslate" [value]="fscm.enrichment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Workflow Template' | apsTranslate"
+                            [value]="fscm.workflowTemplate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Normal Charge Category' | apsTranslate"
+                            [value]="fscm.normalChargeCategory">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Promotional Charge Category' | apsTranslate"
+                            [value]="fscm.promotionalChargeCategory">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Finance/Payment Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Payment' | apsTranslate" [value]="fscm.invoicePayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Partial Payment' | apsTranslate" [value]="fscm.partialPayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Out of system settlement allowed' | apsTranslate"
+                            [value]="fscm.outOffSysAllowed">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dummy Invoice Allowed' | apsTranslate"
+                            [value]="fscm.dummyInvoiceAllowed">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Overdue Invoices Accepted' | apsTranslate"
+                            [value]="fscm.oberdueInvoiceAccepted">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Maximum Overdue Days' | apsTranslate"
+                            [value]="fscm.maximumOverdueDays">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Overdue Invoices Payment Allowed' | apsTranslate"
+                            [value]="fscm.overdueInvoicesPaymentAllowed">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Maximum Overdue Payment Days' | apsTranslate"
+                            [value]="fscm.maximumOverduePaymentDays">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'CN/DN Date Validation' | apsTranslate"
+                            [value]="fscm.cnDnDateValidation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'CN/DN Invoice Validation' | apsTranslate"
+                            [value]="fscm.cnDnInvoiceValidation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'VAT/WHT Calculation' | apsTranslate"
+                            [value]="fscm.vatWhtCalculation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'If Holiday' | apsTranslate" [value]="fscm.ifHoliday">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Future Dated Payment' | apsTranslate"
+                            [value]="fscm.futureDatedPayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Future Hold' | apsTranslate" [value]="fscm.futureHold">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Tracking ID' | apsTranslate" [value]="fscm.trackingId">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Multiple Tracking ID Per File' | apsTranslate"
+                            [value]="fscm.multipleTrackingPerFile">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dynamic Discount Applicable' | apsTranslate"
+                            [value]="fscm.dynamicDiscountApplicable">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dynamic Discount Template' | apsTranslate"
+                            [value]="fscm.dynamicDiscountTemplate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Entry Cut Off Time' | apsTranslate"
+                            [value]="fscm.incEntryCutOffTime">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Payment Cut Off Time' | apsTranslate"
+                            [value]="fscm.incPaymentCutOffTime">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sponsor Account Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Finance Payment Mode' | apsTranslate"
+                            [value]="fscm.financePaymentMode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Sponsor CASA Account' | apsTranslate"
+                            [value]="fscm.sponsorCasaAcc">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Sponsor Interest Account' | apsTranslate"
+                            [value]="fscm.sponsroInterestAccount">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sub Document Type</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice' | apsTranslate" [value]="fscm.invoice">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Purchase Order' | apsTranslate" [value]="fscm.purchaseOrder">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Credit Note' | apsTranslate" [value]="fscm.creditNote">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Debit Note' | apsTranslate" [value]="fscm.debitNote">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Color Mapping</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Normal Invoice' | apsTranslate" [value]="fscm.normalInvoice">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice on Due Date' | apsTranslate"
+                            [value]="fscm.invoiceOnDueDate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice after Due Date' | apsTranslate"
+                            [value]="fscm.invoiceAfterDueDate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice days before Due Date' | apsTranslate"
+                            [value]="fscm.invoiceDaysBeforDueDate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal [(isShow)]="showFscmEditModal" size="lg" [headerText]="'Add Template Details' | apsTranslate">
+    <div class="overflow-y-scroll aps-h-500">
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Service Package Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-form-input inputType="normal" id="servicePackageCode" name="servicePackageCode"
+                            [label]="'Service Package Code' | apsTranslate" [(ngModel)]="formData.servicePackageCode"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-form-input inputType="normal" id="servicePackageName" name="servicePackageName"
+                            [label]="'Service Package Name' | apsTranslate" [(ngModel)]="formData.servicePackageName"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleName" id="moduleName"
+                            [(ngModel)]="formData.moduleName"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/moduleName" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Product' | apsTranslate" name="product" id="product"
+                            [(ngModel)]="formData.product"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/product" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Customer Category' | apsTranslate" name="customerCategory"
+                            id="customerCategory" [(ngModel)]="formData.customerCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/customerCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Configuration</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'File Upload By' | apsTranslate" name="moduleName" id="fileUploadBy"
+                            [(ngModel)]="formData.fileUploadBy"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/fileUploadBy"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12">
+
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Enrichment' | apsTranslate" name="enrichment" id="enrichment"
+                            [(ngModel)]="formData.enrichment"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/enrichment" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Charge Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isChargeApplicable" name="isChargeApplicable"
+                                [(ngModel)]="formData.isChargeApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.isChargeApplicable === true">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Normal Charge Category' | apsTranslate" name="normalChargeCategory"
+                            id="normalChargeCategory" [(ngModel)]="formData.normalChargeCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/normalChargeCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                            name="promotionalChargeCategory" id="promotionalChargeCategory"
+                            [(ngModel)]="formData.promotionalChargeCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/promotionalChargeCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Upload Type' | apsTranslate" name="uploadType" id="uploadType"
+                            [(ngModel)]="formData.uploadType"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/uploadType" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Workflow' | apsTranslate" name="workflow" id="workflow"
+                            [(ngModel)]="formData.workflow"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/workflow" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Duplicate Logic on Invoice Number' | apsTranslate"
+                            name="dupLogIncNo" id="dupLogIncNo" [(ngModel)]="formData.dupLogIncNo"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/dupLogIncNo" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Finance/Payment Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Invoice Payment' | apsTranslate" name="invoicePayment"
+                            id="invoicePayment" [(ngModel)]="formData.invoicePayment"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/invoicePayment"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Partial Payment' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isParialPayment" name="isParialPayment"
+                                [(ngModel)]="formData.isParialPayment">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Out of System Settled Allowed' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOutOfSysSettAll" name="isOutOfSysSettAll"
+                                [(ngModel)]="formData.isOutOfSysSettAll">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Dummy Invoice Allowed' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isDummyInvoiceAllowed" name="isDummyInvoiceAllowed"
+                                [(ngModel)]="formData.isDummyInvoiceAllowed">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Overdue Invoice Accpeted' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOverInvoiceAccepted" name="isOverInvoiceAccepted"
+                                [(ngModel)]="formData.isOverInvoiceAccepted">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoiceAccepted === true">
+                        <aps-form-input inputType="normal" id="maximumOverdueDays" name="maximumOverdueDays"
+                            [label]="'Maximum Overdue Days' | apsTranslate" [(ngModel)]="formData.maximumOverdueDays"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Overdue Invoice Payment Accpeted' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOverInvoicePaymentAccepted" name="isOverInvoicePaymentAccepted"
+                                [(ngModel)]="formData.isOverInvoicePaymentAccepted">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                        <aps-form-input inputType="normal" id="maximumOverduePaymentDays"
+                            name="maximumOverduePaymentDays" [label]="'Maximum Overdue Payment Days' | apsTranslate"
+                            [(ngModel)]="formData.maximumOverduePaymentDays" required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Late Penalty Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isLatePenaltyApplicable" name="isLatePenaltyApplicable"
+                                [(ngModel)]="formData.isLatePenaltyApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isLatePenaltyApplicable === true">
+                        <aps-custom-select id="latePenaltyTemplate" name="latePenaltyTemplate"
+                            label="Late Penalty Template" [(ngModel)]="formData.latePenaltyTemplate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/latePenaltyTemplate">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'CN/DN Date Validation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isCnDnDateValid" name="isCnDnDateValid"
+                                [(ngModel)]="formData.isCnDnDateValid">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'CN/DN Invoice Validation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isCnDnInvoiceValid" name="isCnDnInvoiceValid"
+                                [(ngModel)]="formData.isCnDnInvoiceValid">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'VAT/WHT Calculation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isWatWhtCalculation" name="isWatWhtCalculation"
+                                [(ngModel)]="formData.isWatWhtCalculation">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="ifHoliday" name="ifHoliday" label="If Holiday"
+                            [(ngModel)]="formData.ifHoliday" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/ifHoliday">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Future Dated Payment' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isFutureDatedPayment" name="isFutureDatedPayment"
+                                [(ngModel)]="formData.isFutureDatedPayment">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <div class="text-size-14">
+                            {{ 'Future Hold' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isFutureHold" name="isFutureHold" [(ngModel)]="formData.isFutureHold">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <aps-form-input inputType="normal" id="futureMaxDays" name="futureMaxDays"
+                            [label]="'Future Max Days' | apsTranslate" [(ngModel)]="formData.futureMaxDays"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <aps-form-input inputType="normal" id="futureChargeAfter" name="futureChargeAfter"
+                            [label]="'Future Charge After' | apsTranslate" [(ngModel)]="formData.futureChargeAfter"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Tracking ID' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isTrackingId" name="isTrackingId" [(ngModel)]="formData.isTrackingId">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3" *ngIf="formData.isTrackingId === true">
+                        <div class="text-size-14">
+                            {{ 'Multiple Tracking ID per File' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isMultipleTracking" name="isMultipleTracking"
+                                [(ngModel)]="formData.isMultipleTracking">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Dynamic Discount Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isDynamicDiscountApplicable" name="isDynamicDiscountApplicable"
+                                [(ngModel)]="formData.isDynamicDiscountApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isDynamicDiscountApplicable == true">
+                        <aps-custom-select id="dynamicDiscountTemplate" name="dynamicDiscountTemplate"
+                            label="Dynamic Discount Template" [(ngModel)]="formData.dynamicDiscountTemplate"
+                            required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/dynamicDiscountTemplate">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sponsor Account Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Payment/Disbursement Mode' | apsTranslate"
+                            name="paymentDisbursementCode" id="paymentDisbursementCode"
+                            [(ngModel)]="formData.paymentDisbursementCode"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/paymentDisbursementCode"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Sponsor CASA Account' | apsTranslate" name="sponsorCASAAccount"
+                            id="sponsorCASAAccount" [(ngModel)]="formData.sponsorCASAAccount"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/sponsorCASAAccount"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Sponsor Interest Account' | apsTranslate"
+                            name="sponsorInterestAccount" id="sponsorInterestAccount"
+                            [(ngModel)]="formData.sponsorInterestAccount"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/sponsorInterestAccount"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Sub Document Type </div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="table-container p-pl-2">
+                        <table class="table">
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom" *ngFor="let subDoc of subDocs">
+                                    <td class="text-size-14">
+                                        {{subDoc.name}}
+                                    </td>
+                                    <td class="">
+                                        <aps-form-input inputType="normal" id="subDoc.aliasName" name="subDoc.aliasName"
+                                            [showLabel]="false" [value]="subDoc.aliasName"
+                                            [(ngModel)]="subDoc.aliasName" required="true">
+                                        </aps-form-input>
+                                    </td>
+                                    <td class="p-pl-3">
+                                        <p-checkbox [binary]="true" id="subDoc.checkbox" name="subDoc.checkbox"
+                                            [(ngModel)]="subDoc.checkbox" [value]="subDoc.checkbox">
+                                        </p-checkbox>
+                                    </td>
+                                    <td class="text-size-14">Mandatory in Consolidated File</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-size-12 p-px-2 text-semi-bold">Note: Alias name should be comma
+                        seperated</div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Color Mapping </div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="normalInvoice" name="normalInvoice" label="Normal Invoice"
+                            [(ngModel)]="formData.normalInvoice" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="invoiceOnDueDate" name="invoiceOnDueDate" label="Invoice on Due Date"
+                            [(ngModel)]="formData.invoiceOnDueDate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="invoiceAfterDueDate" name="invoiceAfterDueDate"
+                            label="Invoice after Due Date" [(ngModel)]="formData.invoiceAfterDueDate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal [(isShow)]="showPaymentsViewModal" size="lg" [headerText]="'View Template Details' | apsTranslate">
+    <div class="overflow-y-scroll aps-h-500">
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Service Package Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Service Package Code' | apsTranslate"
+                            [value]="fscm.servicePackageCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Service Package Name' | apsTranslate"
+                            [value]="fscm.servicePackageName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Module Name' | apsTranslate" [value]="fscm.moduleName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Product' | apsTranslate" [value]="fscm.product">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Customer Category' | apsTranslate"
+                            [value]="fscm.customerCategory">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Configuration</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'File Upload By' | apsTranslate" [value]="fscm.fileUploadBy">
+                        </app-review-form-field>
+                    </div>
+                    <div class="table-container p-pl-2">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-size-12 background-color-dark-5 text-color-dark-shade-1">
+                                    <th class="p-p-2 text-left">Upload For</th>
+                                    <th class="p-p-2 text-left">Data Layout</th>
+                                    <th class="p-p-2 text-left">Partial Upload</th>
+                                    <th class="p-p-2 text-left">H2H Prefix</th>
+                                    <th class="p-p-2 text-left">H2H Authorization Required</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom">
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.uploadFor}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.dataLayout}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.partialUpload}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.h2hPrefix}}
+                                    </td>
+                                    <td class="p-p-2 text-size-14">
+                                        {{fscm.h2hAuthReq}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Enrichment' | apsTranslate" [value]="fscm.enrichment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Workflow Template' | apsTranslate"
+                            [value]="fscm.workflowTemplate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Normal Charge Category' | apsTranslate"
+                            [value]="fscm.normalChargeCategory">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Promotional Charge Category' | apsTranslate"
+                            [value]="fscm.promotionalChargeCategory">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Finance/Payment Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Payment' | apsTranslate" [value]="fscm.invoicePayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Partial Payment' | apsTranslate" [value]="fscm.partialPayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Out of system settlement allowed' | apsTranslate"
+                            [value]="fscm.outOffSysAllowed">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dummy Invoice Allowed' | apsTranslate"
+                            [value]="fscm.dummyInvoiceAllowed">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Overdue Invoices Accepted' | apsTranslate"
+                            [value]="fscm.oberdueInvoiceAccepted">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Maximum Overdue Days' | apsTranslate"
+                            [value]="fscm.maximumOverdueDays">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Overdue Invoices Payment Allowed' | apsTranslate"
+                            [value]="fscm.overdueInvoicesPaymentAllowed">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Maximum Overdue Payment Days' | apsTranslate"
+                            [value]="fscm.maximumOverduePaymentDays">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'CN/DN Date Validation' | apsTranslate"
+                            [value]="fscm.cnDnDateValidation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'CN/DN Invoice Validation' | apsTranslate"
+                            [value]="fscm.cnDnInvoiceValidation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'VAT/WHT Calculation' | apsTranslate"
+                            [value]="fscm.vatWhtCalculation">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'If Holiday' | apsTranslate" [value]="fscm.ifHoliday">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Future Dated Payment' | apsTranslate"
+                            [value]="fscm.futureDatedPayment">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Future Hold' | apsTranslate" [value]="fscm.futureHold">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Tracking ID' | apsTranslate" [value]="fscm.trackingId">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Multiple Tracking ID Per File' | apsTranslate"
+                            [value]="fscm.multipleTrackingPerFile">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dynamic Discount Applicable' | apsTranslate"
+                            [value]="fscm.dynamicDiscountApplicable">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Dynamic Discount Template' | apsTranslate"
+                            [value]="fscm.dynamicDiscountTemplate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Entry Cut Off Time' | apsTranslate"
+                            [value]="fscm.incEntryCutOffTime">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice Payment Cut Off Time' | apsTranslate"
+                            [value]="fscm.incPaymentCutOffTime">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sponsor Account Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Finance Payment Mode' | apsTranslate"
+                            [value]="fscm.financePaymentMode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Sponsor CASA Account' | apsTranslate"
+                            [value]="fscm.sponsorCasaAcc">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Sponsor Interest Account' | apsTranslate"
+                            [value]="fscm.sponsroInterestAccount">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sub Document Type</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice' | apsTranslate" [value]="fscm.invoice">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Purchase Order' | apsTranslate" [value]="fscm.purchaseOrder">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Credit Note' | apsTranslate" [value]="fscm.creditNote">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Debit Note' | apsTranslate" [value]="fscm.debitNote">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Color Mapping</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Normal Invoice' | apsTranslate" [value]="fscm.normalInvoice">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice on Due Date' | apsTranslate"
+                            [value]="fscm.invoiceOnDueDate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice after Due Date' | apsTranslate"
+                            [value]="fscm.invoiceAfterDueDate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Invoice days before Due Date' | apsTranslate"
+                            [value]="fscm.invoiceDaysBeforDueDate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>
+
+<app-modal [(isShow)]="showPaymentsEditModal" size="lg" [headerText]="'Add Template Details' | apsTranslate">
+    <div class="overflow-y-scroll aps-h-500">
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Service Package Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-form-input inputType="normal" id="servicePackageCode" name="servicePackageCode"
+                            [label]="'Service Package Code' | apsTranslate" [(ngModel)]="formData.servicePackageCode"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-form-input inputType="normal" id="servicePackageName" name="servicePackageName"
+                            [label]="'Service Package Name' | apsTranslate" [(ngModel)]="formData.servicePackageName"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Module Name' | apsTranslate" name="moduleName" id="moduleName"
+                            [(ngModel)]="formData.moduleName"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/moduleName" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Product' | apsTranslate" name="product" id="product"
+                            [(ngModel)]="formData.product"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/product" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Customer Category' | apsTranslate" name="customerCategory"
+                            id="customerCategory" [(ngModel)]="formData.customerCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/customerCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Configuration</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'File Upload By' | apsTranslate" name="moduleName" id="fileUploadBy"
+                            [(ngModel)]="formData.fileUploadBy"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/fileUploadBy"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12">
+
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Enrichment' | apsTranslate" name="enrichment" id="enrichment"
+                            [(ngModel)]="formData.enrichment"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/enrichment" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Charge Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isChargeApplicable" name="isChargeApplicable"
+                                [(ngModel)]="formData.isChargeApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.isChargeApplicable === true">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Normal Charge Category' | apsTranslate" name="normalChargeCategory"
+                            id="normalChargeCategory" [(ngModel)]="formData.normalChargeCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/normalChargeCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Promotional Charge Category' | apsTranslate"
+                            name="promotionalChargeCategory" id="promotionalChargeCategory"
+                            [(ngModel)]="formData.promotionalChargeCategory"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/promotionalChargeCategory"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Upload Type' | apsTranslate" name="uploadType" id="uploadType"
+                            [(ngModel)]="formData.uploadType"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/uploadType" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Workflow' | apsTranslate" name="workflow" id="workflow"
+                            [(ngModel)]="formData.workflow"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/workflow" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Duplicate Logic on Invoice Number' | apsTranslate"
+                            name="dupLogIncNo" id="dupLogIncNo" [(ngModel)]="formData.dupLogIncNo"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/dupLogIncNo" [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Finance/Payment Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Invoice Payment' | apsTranslate" name="invoicePayment"
+                            id="invoicePayment" [(ngModel)]="formData.invoicePayment"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/invoicePayment"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Partial Payment' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isParialPayment" name="isParialPayment"
+                                [(ngModel)]="formData.isParialPayment">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Out of System Settled Allowed' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOutOfSysSettAll" name="isOutOfSysSettAll"
+                                [(ngModel)]="formData.isOutOfSysSettAll">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Dummy Invoice Allowed' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isDummyInvoiceAllowed" name="isDummyInvoiceAllowed"
+                                [(ngModel)]="formData.isDummyInvoiceAllowed">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Overdue Invoice Accpeted' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOverInvoiceAccepted" name="isOverInvoiceAccepted"
+                                [(ngModel)]="formData.isOverInvoiceAccepted">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoiceAccepted === true">
+                        <aps-form-input inputType="normal" id="maximumOverdueDays" name="maximumOverdueDays"
+                            [label]="'Maximum Overdue Days' | apsTranslate" [(ngModel)]="formData.maximumOverdueDays"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Overdue Invoice Payment Accpeted' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isOverInvoicePaymentAccepted" name="isOverInvoicePaymentAccepted"
+                                [(ngModel)]="formData.isOverInvoicePaymentAccepted">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                        <aps-form-input inputType="normal" id="maximumOverduePaymentDays"
+                            name="maximumOverduePaymentDays" [label]="'Maximum Overdue Payment Days' | apsTranslate"
+                            [(ngModel)]="formData.maximumOverduePaymentDays" required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.isOverInvoicePaymentAccepted === true">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Late Penalty Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isLatePenaltyApplicable" name="isLatePenaltyApplicable"
+                                [(ngModel)]="formData.isLatePenaltyApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isLatePenaltyApplicable === true">
+                        <aps-custom-select id="latePenaltyTemplate" name="latePenaltyTemplate"
+                            label="Late Penalty Template" [(ngModel)]="formData.latePenaltyTemplate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/latePenaltyTemplate">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'CN/DN Date Validation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isCnDnDateValid" name="isCnDnDateValid"
+                                [(ngModel)]="formData.isCnDnDateValid">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'CN/DN Invoice Validation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isCnDnInvoiceValid" name="isCnDnInvoiceValid"
+                                [(ngModel)]="formData.isCnDnInvoiceValid">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'VAT/WHT Calculation' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isWatWhtCalculation" name="isWatWhtCalculation"
+                                [(ngModel)]="formData.isWatWhtCalculation">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="ifHoliday" name="ifHoliday" label="If Holiday"
+                            [(ngModel)]="formData.ifHoliday" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/ifHoliday">
+                        </aps-custom-select>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Future Dated Payment' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isFutureDatedPayment" name="isFutureDatedPayment"
+                                [(ngModel)]="formData.isFutureDatedPayment">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <div class="text-size-14">
+                            {{ 'Future Hold' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isFutureHold" name="isFutureHold" [(ngModel)]="formData.isFutureHold">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <aps-form-input inputType="normal" id="futureMaxDays" name="futureMaxDays"
+                            [label]="'Future Max Days' | apsTranslate" [(ngModel)]="formData.futureMaxDays"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFutureDatedPayment == true">
+                        <aps-form-input inputType="normal" id="futureChargeAfter" name="futureChargeAfter"
+                            [label]="'Future Charge After' | apsTranslate" [(ngModel)]="formData.futureChargeAfter"
+                            required="true">
+                        </aps-form-input>
+                    </div>
+                </div>
+                <div class="p-grid p-px-2">
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Tracking ID' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isTrackingId" name="isTrackingId" [(ngModel)]="formData.isTrackingId">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3" *ngIf="formData.isTrackingId === true">
+                        <div class="text-size-14">
+                            {{ 'Multiple Tracking ID per File' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isMultipleTracking" name="isMultipleTracking"
+                                [(ngModel)]="formData.isMultipleTracking">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3 p-pt-3">
+                        <div class="text-size-14">
+                            {{ 'Dynamic Discount Applicable' | apsTranslate }}
+                        </div>
+                        <div class="p-px-3">
+                            <p-inputSwitch id="isDynamicDiscountApplicable" name="isDynamicDiscountApplicable"
+                                [(ngModel)]="formData.isDynamicDiscountApplicable">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isDynamicDiscountApplicable == true">
+                        <aps-custom-select id="dynamicDiscountTemplate" name="dynamicDiscountTemplate"
+                            label="Dynamic Discount Template" [(ngModel)]="formData.dynamicDiscountTemplate"
+                            required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/dynamicDiscountTemplate">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Sponsor Account Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Payment/Disbursement Mode' | apsTranslate"
+                            name="paymentDisbursementCode" id="paymentDisbursementCode"
+                            [(ngModel)]="formData.paymentDisbursementCode"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/paymentDisbursementCode"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Sponsor CASA Account' | apsTranslate" name="sponsorCASAAccount"
+                            id="sponsorCASAAccount" [(ngModel)]="formData.sponsorCASAAccount"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/sponsorCASAAccount"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-sm-12">
+                        <aps-custom-select [label]="'Sponsor Interest Account' | apsTranslate"
+                            name="sponsorInterestAccount" id="sponsorInterestAccount"
+                            [(ngModel)]="formData.sponsorInterestAccount"
+                            dataUrl="setup/security/corporateOnboarding/private/dropdown/sponsorInterestAccount"
+                            [required]="true">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Sub Document Type </div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="table-container p-pl-2">
+                        <table class="table">
+                            <tbody class="">
+                                <tr class="text-size-12 text-color-normal border-bottom" *ngFor="let subDoc of subDocs">
+                                    <td class="text-size-14">
+                                        {{subDoc.name}}
+                                    </td>
+                                    <td class="">
+                                        <aps-form-input inputType="normal" id="subDoc.aliasName" name="subDoc.aliasName"
+                                            [showLabel]="false" [value]="subDoc.aliasName"
+                                            [(ngModel)]="subDoc.aliasName" required="true">
+                                        </aps-form-input>
+                                    </td>
+                                    <td class="p-pl-3">
+                                        <p-checkbox [binary]="true" id="subDoc.checkbox" name="subDoc.checkbox"
+                                            [(ngModel)]="subDoc.checkbox" [value]="subDoc.checkbox">
+                                        </p-checkbox>
+                                    </td>
+                                    <td class="text-size-14">Mandatory in Consolidated File</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-size-12 p-px-2 text-semi-bold">Note: Alias name should be comma
+                        seperated</div>
+                </div>
+            </div>
+        </div>
+        <div class="p-pb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Color Mapping </div>
+            </div>
+            <div class="aps-card-body">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="normalInvoice" name="normalInvoice" label="Normal Invoice"
+                            [(ngModel)]="formData.normalInvoice" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="invoiceOnDueDate" name="invoiceOnDueDate" label="Invoice on Due Date"
+                            [(ngModel)]="formData.invoiceOnDueDate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <aps-custom-select id="invoiceAfterDueDate" name="invoiceAfterDueDate"
+                            label="Invoice after Due Date" [(ngModel)]="formData.invoiceAfterDueDate" required="true"
+                            dataUrl="setup/security/serviceTemplate/private/dropdown/normalInvoice">
+                        </aps-custom-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>

@@ -1,0 +1,41 @@
+[
+  { "headerName": "Account No", "field": "accountNo" },
+  { "headerName": "Account Name", "field": "accountName" },
+  { "headerName": "Currency", "field": "currency" },
+  { "headerName": "Product", "field": "product" },
+  { "headerName": "Granted Date", "field": "grantedDate", "cellRenderer": "dateRenderer" },
+  { "headerName": "Status", "field": "status" },
+  { "headerName": "Tenor", "field": "tenor" },
+  {
+    "headerName": "Amount Approved",
+    "field": "amountApproved",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Amount Disbursed",
+    "field": "amountDisbursed",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Outstanding Amount",
+    "field": "outstandingAmount",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  {
+    "headerName": "Outstanding Amount (Base CCY)",
+    "field": "outstandingAmount",
+    "cellRenderer": "baseCurrencyRenderer"
+  },
+  {
+    "headerName": "Overdue Amount",
+    "field": "overdueAmount",
+    "cellRenderer": "accCurrencyRenderer"
+  },
+  { "headerName": "Maturity Date", "field": "maturityDate", "cellRenderer": "dateRenderer" },
+  {
+    "headerName": "Action",
+    "field": "actions",
+    "cellRenderer": "accountSummeryActions",
+    "pinned": "right"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "autoSize": true,
+  "data": [
+    {
+      "type": "Client 1",
+      "value": 30
+    },
+
+    {
+      "type": "Client 2",
+      "value": 48
+    },
+
+    {
+      "type": "Client 3",
+      "value": 22
+    }
+  ],
+  "series": [
+    {
+      "type": "pie",
+      "labelKey": "type",
+      "angleKey": "value",
+      "shadow": { "enabled": false },
+      "innerRadiusOffset": -20,
+      "label": {
+        "enabled": false
+      }
+    }
+  ],
+  "legend": {
+    "position": "bottom",
+    "item": {
+      "marker": { "shape": "circle", "size": 8 },
+      "label": {
+        "fontSize": 12
+      }
+    }
+  }
+}

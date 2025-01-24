@@ -1,0 +1,69 @@
+[
+  {
+    "headerName": "Id",
+    "field": "id",
+    "hide": "true",
+    "lockVisible": "true",
+    "filter": "false",
+    "sortable": "false"
+  },
+  {
+    "headerName": "Report Name",
+    "field": "reportName",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "true",
+    "sortable": "true",
+    "checkboxSelection": false,
+    "headerCheckboxSelection": false
+  },
+  {
+    "headerName": "Product Name",
+    "field": "productName",
+    "hide": false,
+    "lockVisible": false,
+    "filter": true,
+    "sortable": true
+  },
+  {
+    "headerName": "Category",
+    "field": "categoryName",
+    "hide": false,
+    "lockVisible": false,
+    "filter": true,
+    "sortable": true
+  },
+  {
+    "headerName": "Generated Date",
+    "field": "generatedDate",
+    "hide": false,
+    "lockVisible": false,
+    "filter": true,
+    "sortable": true
+  },
+  {
+    "headerName": "From Date",
+    "field": "fromDate",
+    "hide": false,
+    "lockVisible": false,
+    "filter": true,
+    "sortable": true
+  },
+  {
+    "headerName": "To Date",
+    "field": "toDate",
+    "hide": false,
+    "lockVisible": false,
+    "filter": true,
+    "sortable": true
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "hide": "false",
+    "lockVisible": "false",
+    "filter": "false",
+    "sortable": "false"
+  }
+]

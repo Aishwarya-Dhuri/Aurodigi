@@ -1,0 +1,151 @@
+[
+  {
+    "type": "tabs",
+    "mainHeader": "",
+    "data": [
+      {
+        "label": "View Details",
+        "data": [
+          {
+            "type": "details",
+            "data": [
+              {
+                "label": "Sponsor Code",
+                "value": "LK123"
+              },
+              {
+                "label": "Sponsor Name",
+                "value": "LK Automobiles"
+              },
+              {
+                "label": "Product Category",
+                "value": "Seller Finance"
+              },
+              {
+                "label": "Seller/Buyer Code",
+                "value": "KK009"
+              },
+              {
+                "label": "Seller/Buyer Name",
+                "value": "KK Seller"
+              },
+              {
+                "label": "Program Reference Number",
+                "value": "PRGSELLERFINANCEEaa828-SFP"
+              },
+              {
+                "label": "Entity Sub Code",
+                "value": "LKA2"
+              },
+              {
+                "label": "Entity Sub Code Descript.",
+                "value": "LKA2"
+              },
+              {
+                "label": "Sub - Document Type",
+                "value": "PO"
+              },
+              {
+                "label": "PO No",
+                "value": "123456"
+              },
+              {
+                "label": "PO Date",
+                "value": "02 Jun 2020"
+              },
+              {
+                "label": "PO Entry Date",
+                "value": "15 Jun 2020"
+              },
+              {
+                "label": "Total PO Value",
+                "value": "THB 400.00"
+              },
+              {
+                "label": "PO Expiry Date",
+                "value": "30 Jun 2020"
+              },
+              {
+                "label": "Expected Delivery Date",
+                "value": "09 Jun 2020"
+              },
+              {
+                "label": "Billing Address",
+                "value": "aaaaaaaa"
+              },
+              {
+                "label": "Delivery Address",
+                "value": "bbbbbbb"
+              },
+              {
+                "label": "Remarks",
+                "value": "rrrrrrrrrr"
+              },
+              {
+                "label": "Invoice Date",
+                "value": "20 Jun 2021"
+              },
+              {
+                "label": "Invoice Due Date",
+                "value": "(88 Days) 16 Sep 2021"
+              },
+              {
+                "label": "Group Due Date",
+                "value": "16 Sep 2021"
+              }
+            ]
+          },
+          {
+            "type": "makerCheckerDetails",
+            "header": "Maker Checker Details",
+            "data": [
+              {
+                "label": "Maker",
+                "value": "Lakshman Kulkarni (lakshmanmaker)"
+              },
+              {
+                "label": "Maker Date Time",
+                "value": "15 Jun 2021, 11:58:48"
+              },
+              {
+                "label": "Checker",
+                "value": "KEN CHECKER (CHECKER)"
+              },
+              {
+                "label": "Checker Date Time",
+                "value": "15 Jun 2021, 11:59:10"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Acceptance Details",
+        "data": [
+          {
+            "type": "makerCheckerDetails",
+            "header": "PO Acceptance Maker Checker Details",
+            "data": [
+              {
+                "label": "Maker",
+                "value": "Lakshman Kulkarni (lakshmanmaker)"
+              },
+              {
+                "label": "Maker Date Time",
+                "value": "15 Jun 2021, 11:58:48"
+              },
+              {
+                "label": "Checker",
+                "value": "KEN CHECKER (CHECKER)"
+              },
+              {
+                "label": "Checker Date Time",
+                "value": "15 Jun 2021, 11:59:10"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

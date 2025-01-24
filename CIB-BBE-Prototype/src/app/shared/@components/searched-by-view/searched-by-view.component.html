@@ -1,0 +1,28 @@
+<div class="p-grid">
+  <div class="p-col-12 p-p-0">
+    <div class="aps-card p-p-3">
+      <div class="p-grid">
+        <div class="p-col-12 p-p-0">
+          <div class="left-right-container p-pb-2">
+            <div class="left-container">
+              <div class="text-size-16px text-semi-bold">Searched By</div>
+            </div>
+            <div class="right-container">
+              <button class="btn btn-md btn-tertiary p-py-0" (click)="onClearClick()">
+                CLEAR SEARCH
+              </button>
+              <button class="btn btn-md btn-tertiary p-mr-1 p-py-0" (click)="onModifyClick()">
+                MODIFY
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-col-12 p-md-3 p-lg-3" *ngFor="let filter of filters">
+          <div class="text-size-14 text-color-light-shade-1">{{ filter.displayName }}</div>
+          <div class="text-size-16">{{ filter.displayValue }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

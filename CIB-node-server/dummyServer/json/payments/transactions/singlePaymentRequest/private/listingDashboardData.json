@@ -1,0 +1,14 @@
+{
+  "dataMap": {
+    "chartData": [
+      { "displayName": "Pending Transactions", "value": 15 },
+      { "displayName": "Authorized Transactions", "value": 35 },
+      { "displayName": "Rejected Transactions", "value": 23 }
+    ],
+    "cardData": {
+      "paidInvoices": "52323389",
+      "pendingInvoices": "4000000",
+      "top3BatchNoDueToday": ["4348499494", "4348495555", "4348497799"]
+    }
+  }
+}

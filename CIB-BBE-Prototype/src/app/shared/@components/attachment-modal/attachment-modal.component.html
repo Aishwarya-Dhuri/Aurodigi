@@ -1,0 +1,38 @@
+<app-modal
+  *ngIf="isShow"
+  [(isShow)]="isShow"
+  headerText="Upload Attachments"
+  (onClose)="onSubmit(false)"
+>
+  <div class="p-grid" body>
+    <div class="p-col-12 p-p-0 p-my-3 text-size-16">
+      Upload the email with invoice or other invoice documents. Max.10Mb each
+    </div>
+    <div class="p-col-12 p-p-0">
+      <upload-form-control
+        *ngIf="isLoaded"
+        isMultiple="true"
+        [files]="files"
+        (onUploaded)="onFileUploaded($event)"
+      ></upload-form-control>
+    </div>
+  </div>
+  <div class="p-grid" footer>
+    <div class="p-col-12 p-p-0 p-mt-3">
+      <button
+        class="btn btn-md btn-primary float-right"
+        [disabled]="files.length == 0"
+        (click)="onSubmit()"
+      >
+        UPLOAD FILE
+      </button>
+      <button
+        class="btn btn-md btn-tertiary p-mx-2 float-right"
+        [disabled]="files.length == 0"
+        (click)="reset()"
+      >
+        CLEAR
+      </button>
+    </div>
+  </div>
+</app-modal>

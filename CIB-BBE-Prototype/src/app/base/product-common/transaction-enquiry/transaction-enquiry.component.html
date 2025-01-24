@@ -1,0 +1,206 @@
+<div class="container">
+  <!-- Filters Screen -->
+  <div class="p-grid g-margin-x" *ngIf="formData.currentScreen == 'FILTERS'">
+    <!-- Dynamic Filters -->
+    <div class="p-col-12 p-md-7 p-lg-7">
+      <div class="aps-card p-mb-3" [ngClass]="{ 'aps-min-h-175': !extraData.isHideProduct }">
+        <!-- <div class="p-px-3 text-size-14 text-semi-bold">Search By</div> -->
+        <!-- Product selection -->
+        <div class="p-grid p-px-2" *ngIf="!extraData.isHideProduct">
+          <div class="p-col-12 p-px-3 p-pt-3 p-md-6 p-lg-6">
+            <aps-custom-select
+              id="product"
+              name="product"
+              label="Product"
+              [(ngModel)]="formData.productId"
+              (change)="onProductChange()"
+              required="true"
+              [data]="extraData.productList"
+            >
+            </aps-custom-select>
+          </div>
+        </div>
+        <!-- Sub Product selection -->
+        <div class="p-grid p-px-2" *ngIf="formData.product && !extraData.isHideSubProduct">
+          <div
+            class="p-col-12 p-px-3 p-md-6 p-lg-6"
+            *ngIf="extraData.subProductList && extraData.subProductList.length > 2"
+          >
+            <aps-custom-select
+              id="subProduct"
+              name="subProduct"
+              label="Search By"
+              [(ngModel)]="formData.subProductId"
+              (change)="onSubProductChange()"
+              required="true"
+              [data]="extraData.subProductList"
+            >
+            </aps-custom-select>
+          </div>
+          <div
+            class="p-col-12 p-px-3"
+            *ngIf="extraData.subProductList && extraData.subProductList.length == 2"
+          >
+            <div class="text-size-14 text-semi-bold">Search Based On</div>
+            <div class="p-my-2">
+              <p-radioButton
+                *ngFor="let subProduct of extraData.subProductList"
+                class="p-mr-3"
+                name="subProduct"
+                [value]="subProduct.id"
+                [label]="subProduct.displayName"
+                [(ngModel)]="formData.subProductId"
+                (onClick)="onSubProductChange()"
+              >
+              </p-radioButton>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-grid" *ngIf="formData.isLoadGenericFilters">
+        <div class="p-col-12 p-p-0">
+          <app-dynamic-search
+            #dynamicSearch
+            [(entityName)]="formData.genericFilterEntityName"
+            (onSearch)="getRecords($event)"
+            [isShowSearchByHeader]="false"
+            (onSaveCriteria)="getCriteriaList()"
+            (onFiltersReady)="onDynamicFiltersReady()"
+          >
+          </app-dynamic-search>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saved Criterias -->
+    <div class="p-col-12 p-md-5 p-lg-5">
+      <div class="aps-card aps-h-100p p-px-3 p-pb-3 p-pt-0">
+        <app-nothing-here
+          *ngIf="extraData.criteriaList.length == 0"
+          colSize="5"
+          message="Select Search by to view Saved Criteria"
+        ></app-nothing-here>
+        <p-tabView *ngIf="extraData.criteriaList.length > 0">
+          <p-tabPanel header="Saved Criterion">
+            <div
+              class="p-px-0 p-pt-3 p-pb-1 border-bottom"
+              *ngFor="let criteria of extraData.criteriaList"
+            >
+              <div class="left-right-container">
+                <div class="left-container text-color-dark-shade-1 text-semi-bold">
+                  <div class="text-size-12">{{ criteria.name }}</div>
+                  <div class="text-size-10">{{ getCriteriaFilterCount(criteria) }} Parameters</div>
+                </div>
+                <div class="right-container">
+                  <button class="btn btn-md btn-tertiary" (click)="applyCriteria(criteria)">
+                    Apply
+                  </button>
+                  <!-- <span class="p-mx-1 inline-block p-py-2 text-color-dark-shade-1">
+                    <app-icon icon="fa-pencil" class=" text-size-14 pointer"></app-icon>
+                  </span> -->
+                  <span class="p-mx-1 inline-block p-py-2 text-color-dark-shade-1">
+                    <app-icon
+                      icon="fa-trash-alt"
+                      class="text-size-14 pointer"
+                      (click)="deleteCriteria(criteria)"
+                    ></app-icon>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </p-tabPanel>
+          <p-tabPanel header="Recent">
+            <ng-container *ngFor="let criteria of extraData.criteriaList; let i = index">
+              <div class="p-px-0 p-pt-3 p-pb-1 border-bottom" *ngIf="i < 3">
+                <div class="left-right-container">
+                  <div class="left-container text-color-dark-shade-1 text-semi-bold">
+                    <div class="text-size-12">{{ criteria.modifiedSysOn }}</div>
+                    <div class="text-size-10">
+                      {{ getCriteriaFilterCount(criteria) }} Parameters {{ criteria.name }}
+                    </div>
+                  </div>
+                  <div class="right-container">
+                    <button class="btn btn-md btn-tertiary" (click)="applyCriteria(criteria)">
+                      REUSE
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </p-tabPanel>
+        </p-tabView>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Listing Screen -->
+  <div class="p-grid" *ngIf="formData.currentScreen == 'LISTING'">
+    <!-- Searched Filters -->
+    <div class="p-col-12 p-p-0">
+      <div class="aps-card p-p-3">
+        <div class="p-grid">
+          <div class="p-col-12 p-p-0">
+            <div class="left-right-container p-pb-2">
+              <div class="left-container">
+                <div class="text-size-16px text-semi-bold">Searched By</div>
+              </div>
+              <div class="right-container">
+                <button
+                  class="btn btn-md btn-tertiary p-py-0"
+                  (click)="formData.selectedFilters = []; formData.currentScreen = 'FILTERS'"
+                >
+                  CLEAR SEARCH
+                </button>
+                <button
+                  class="btn btn-md btn-tertiary p-mr-1 p-py-0"
+                  (click)="formData.currentScreen = 'FILTERS'"
+                >
+                  MODIFY
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-col-12 p-md-3 p-lg-3" *ngFor="let filter of formData.selectedFilters">
+            <div class="text-size-14 text-color-light-shade-1">{{ filter.displayName }}</div>
+            <div class="text-size-16">{{ filter.displayValue }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Listing -->
+    <div class="p-col-12 p-p-0 p-mt-3">
+      <div class="aps-card aps-h-400">
+        <div class="aps-card-header overflow-visible p-px-3 p-py-2">
+          <div class="left-right-container">
+            <div class="left-container">
+              <div class="text-size-16 text-color-dark-shade-1 text-bold">Transactions</div>
+            </div>
+            <div class="right-container">
+              <app-grid-listing-tools
+                [showSearch]="false"
+                [showRefresh]="false"
+                (changeFloatingFilter)="searchResults.changeFloatFilter($event)"
+                (applyColDefs)="searchResults.onApplyConfig($event)"
+                [colDefs]="searchResults.columnDefs"
+              >
+              </app-grid-listing-tools>
+            </div>
+          </div>
+        </div>
+        <div class="aps-card-body">
+          <app-ag-grid-listing
+            id="searchDetails"
+            #searchResults
+            [context]="context"
+            [colDefUrl]="formData.searchColDefUrl"
+            [rowDefUrl]="formData.searchRowDefUrl"
+            supressAutoFit="true"
+          >
+          </app-ag-grid-listing>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+.top-menu-container {
+  padding: 0rem 0.35rem;
+
+  .short-menu {
+    position: absolute;
+    top: 3rem;
+    left: 0rem;
+    z-index: 10;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--background-color-light-4);
+    display: none;
+  }
+
+  .short-menu-expand {
+    display: block;
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25a ease-out;
+  }
+
+  .fullscreen-menu {
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    margin: 1rem;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+    // height: calc(100vh - 2rem);
+    padding: 0.5rem;
+    border-radius: 5px;
+    z-index: 10;
+    display: none;
+    background-color: var(--background-color-light-4);
+    -webkit-transition: 0.25s ease-in;
+    transition: 0.25s ease-in;
+  }
+
+  .fullscreen-menu-expand {
+    display: block;
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25s ease-in;
+  }
+
+  .menus {
+    // display: block;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 auto;
+    color: var(--text-color-dark-shade-1);
+    // flex-direction: row;
+    // flex: 1 auto;
+    // white-space: nowrap;
+    // overflow-wrap: auto;
+
+    .menu-wrapper {
+      // display: inline-block;
+      display: flex;
+      vertical-align: top;
+      position: relative;
+
+      .menu {
+        padding: 0.5rem;
+        width: max-content;
+        height: 2.25rem;
+        margin: 0;
+        border-radius: 5px;
+        // text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: all 0.125s;
+
+        .icon {
+          width: 18px;
+          display: inline-block;
+
+          i,
+          .app-icon {
+            padding: 1px;
+            font-size: 1rem;
+          }
+          .app-icon {
+            padding: 1px;
+            font-size: 1rem;
+          }
+        }
+
+        .text {
+          display: inline-block;
+          font-size: 1rem;
+          padding: 0 0.25rem;
+          // width: 0px;
+          // overflow-x: hidden;
+          // -webkit-transition: ease-in;
+        }
+
+        .lock {
+          display: inline-block;
+          width: 18px;
+          margin-left: 0.25rem;
+
+          i,
+          .app-icon {
+            padding: 1px;
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .active {
+        background-color: var(--primary-color);
+        color: var(--inverted-text-color);
+      }
+
+      .menu:hover {
+        background-color: var(--background-color);
+        color: var(--text-color-dark-shade-1);
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "containerNo": "1111111111111",
+    "srNo": 1,
+    "docNo": "2427652",
+    "docDate": "07-Mar-2023",
+    "challanNo": "633100024652",
+    "jecName": "JEC Name1",
+    "dutyAmount": "12,002.00",
+    "weightCharges": "",
+    "collectionStartDate": "",
+    "collectionEndDate": "",
+    "outstandingAmount": "",
+    "tax": "",
+    "total": ""
+  },
+  {
+    "containerNo": "CMHU123",
+    "srNo": 2,
+    "docNo": "32123140",
+    "docDate": "18-May-2023",
+    "challanNo": "21201299100",
+    "jecName": "JEC Name2",
+    "dutyAmount": "10,002.00",
+    "weightCharges": "",
+    "collectionStartDate": "",
+    "collectionEndDate": "",
+    "outstandingAmount": "",
+    "tax": "",
+    "total": ""
+  }
+]

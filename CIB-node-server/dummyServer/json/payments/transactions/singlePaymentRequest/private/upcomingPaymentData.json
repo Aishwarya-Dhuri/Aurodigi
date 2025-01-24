@@ -1,0 +1,211 @@
+{
+  "data": [
+    {
+      "id": 1493721,
+      "amount": "50000.00",
+      "siOrTemplateName": "SS Template",
+      "batchNo": "03101020044",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "John Smith",
+      "currency": "INR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493720,
+      "amount": "70000.00",
+      "siOrTemplateName": "SI SWIFT",
+      "batchNo": "03101020048",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Robert C",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493719,
+      "amount": "150000.00",
+      "siOrTemplateName": "SI",
+      "batchNo": "03101020061",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Alice Williams",
+      "currency": "INR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493718,
+      "amount": "1550000.00",
+      "siOrTemplateName": "SIOwn cheque",
+      "batchNo": "03101020072",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Robert H",
+      "currency": "INR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493717,
+      "amount": "5500.00",
+      "siOrTemplateName": "SWIFTi",
+      "batchNo": "03101020076",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Kishor Ram Punatkar",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493716,
+      "amount": "566600.00",
+      "siOrTemplateName": "MJ",
+      "batchNo": "03101020081",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Joy Pointing",
+      "currency": "LKR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493715,
+      "amount": "100000.00",
+      "siOrTemplateName": "9999 CC",
+      "batchNo": "03101020088",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Alisha H",
+      "currency": "INR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493714,
+      "amount": "2000.00",
+      "siOrTemplateName": "YouTemplate",
+      "batchNo": "03101020089",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Martin H",
+      "currency": "LKR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    },
+    {
+      "id": 1493713,
+      "amount": "87000.00",
+      "siOrTemplateName": "GoldTemplate",
+      "batchNo": "03101020093",
+      "paymentMethod": "UAEFTS",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Grima Selena",
+      "currency": "INR",
+      "actions": [
+        { "index": 2, "onClick": "id", "displayName": "edit", "type": "ICON", "icon": "fa-pencil" },
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "disable",
+          "type": "ICON",
+          "icon": "fa-minus-circle"
+        }
+      ]
+    },
+    {
+      "id": 1493712,
+      "amount": "99990.99",
+      "siOrTemplateName": "Silver",
+      "batchNo": "03101020099",
+      "paymentMethod": "SWIFT",
+      "debitAccountNo": "1721235315262394",
+      "transactionDate": "31-Jul-2021",
+      "beneficiaryName": "Amy Amith",
+      "currency": "INR",
+      "actions": [
+        {
+          "index": 1,
+          "onClick": "id",
+          "displayName": "CANCEL",
+          "type": "BUTTON",
+          "class": "p-button-text p-button-sm"
+        }
+      ]
+    }
+  ],
+  "lastRow": 10
+}

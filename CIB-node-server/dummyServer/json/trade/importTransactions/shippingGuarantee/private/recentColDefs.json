@@ -1,0 +1,44 @@
+[
+  {
+    "headerName": "Shipping Guarantee Number",
+    "field": "id"
+  },
+  {
+    "headerName": "User Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "transactionDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "SG Expiry Date",
+    "field": "sgExpiryDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

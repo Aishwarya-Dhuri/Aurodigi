@@ -1,0 +1,17 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "User ID",
+      "field": "userId",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "First Name",
+      "field": "firstName"
+    },
+    {
+      "headerName": "Last Name",
+      "field": "lastName"
+    }
+  ]
+}

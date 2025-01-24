@@ -1,0 +1,41 @@
+<app-modal
+  *ngIf="isShow"
+  [(isShow)]="isShow"
+  size="sm"
+  [headerText]="isUpdate ? 'Update Criteria Details' : 'Save Criteria Details'"
+  (onClose)="onClose()"
+>
+  <div class="p-grid" body>
+    <div class="p-col-12">
+      <aps-form-input
+        id="criteriaName"
+        label="{{ 'Criteria Name' | apsTranslate }}"
+        name="criteriaName"
+        [(ngModel)]="criteriaData.name"
+        required="true"
+      >
+      </aps-form-input>
+    </div>
+    <div class="p-col-12">
+      <aps-form-input
+        id="criteriaDesc"
+        label="{{ 'Criteria Description' | apsTranslate }}"
+        name="criteriaDesc"
+        [(ngModel)]="criteriaData.description"
+      >
+      </aps-form-input>
+    </div>
+  </div>
+  <div class="p-grid" footer>
+    <div class="p-col">
+      <button
+        class="btn btn-md btn-primary float-right"
+        [disabled]="!criteriaData.name"
+        (click)="onSubmit()"
+      >
+        <span *ngIf="!isUpdate">{{ 'SAVE' | apsTranslate }}</span>
+        <span *ngIf="isUpdate">{{ 'UPDATE' | apsTranslate }}</span>
+      </button>
+    </div>
+  </div>
+</app-modal>

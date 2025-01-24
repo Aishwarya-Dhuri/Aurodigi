@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "Payment Method", "field": "paymentMethod" },
+    { "headerName": "Debit Account No", "field": "debitAccountNo" },
+    { "headerName": "Value Date", "field": "valueDate" },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Corporate Reference No", "field": "corporateRefNo" },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

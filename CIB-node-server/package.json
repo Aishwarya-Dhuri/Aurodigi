@@ -1,0 +1,34 @@
+{
+  "name": "cib-node-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "inspect-dev": "nodemon --inspect app.js",
+    "dev": "nodemon app.js",
+    "inspect-bbe-dev": "nodemon --inspect bbe-app.js",
+    "bbe-dev": "nodemon bbe-app.js",
+    "pretty": "prettier --write \"./**/*.{html,css,scss,ts,js,jsx,json}\"",
+    "prod": "node app.js"
+  },
+  "author": "Aurionpro Solutions",
+  "license": "ISC",
+  "dependencies": {
+    "alasql": "^1.7.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "ip": "^1.1.5",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "xlsx": "^0.17.0",
+    "zip-local": "^0.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

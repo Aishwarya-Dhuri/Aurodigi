@@ -1,0 +1,22 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch No", "field": "id" },
+    { "headerName": "Beneficiary Name", "field": "beneficiaryName" },
+    { "headerName": "Payment Method", "field": "paymentMethodName" },
+    { "headerName": "Transaction Date", "field": "valueDate" },
+
+    {
+      "headerName": "Amount",
+      "field": "payableAmount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    {
+      "headerName": "Actions",
+      "width": 200,
+      "field": "actions",
+      "cellRenderer": "actionCellRenderer"
+    }
+  ]
+}

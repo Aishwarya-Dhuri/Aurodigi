@@ -1,0 +1,45 @@
+<div class="user-tasks-container background-color-light-4 aps-h-100p">
+  <div class="tasks-header">
+    <div class="header-text">
+      <app-icon icon="fa-globe" class="app-icon"></app-icon>
+      Country
+    </div>
+    <div class="header-actions">
+      <div class="action" (click)="closeSidebar()">
+        <app-icon icon="fa-times" class="app-icon"></app-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="country-input">
+    <span class="aps-w-100p p-input-icon-left">
+      <i class="fal fa-search"></i>
+      <input class="aps-search-input" type="search" pInputText placeholder="Search Country" />
+    </span>
+  </div>
+
+  <div class="countries">
+    <div class="country-wrapper">
+      <div class="country">
+        <img src="./../../../../assets/images/country/india.png" alt="" />
+        <span class="text">India</span>
+      </div>
+      <div class="tick tick-selected">
+        <div class="tick-mark"></div>
+      </div>
+    </div>
+    <div class="country-wrapper">
+      <div class="country">
+        <img src="./../../../../assets/images/country/united-kingdom.png" alt="" />
+        <span class="text">United Kingdom</span>
+      </div>
+      <div class="tick"></div>
+    </div>
+  </div>
+
+  <div class="save-button">
+    <button type="button" class="aps-w-100p btn btn-md btn-primary p-mt-3">
+      {{ 'SAVE' | apsTranslate }}
+    </button>
+  </div>
+</div>

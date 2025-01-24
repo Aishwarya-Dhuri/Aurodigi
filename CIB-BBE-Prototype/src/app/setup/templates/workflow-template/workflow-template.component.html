@@ -1,0 +1,220 @@
+<div class="container">
+    <!-- <div class="p-px-1 p-py-3 text-size-16 text-bold">
+        {{ 'Profile Details' | apsTranslate }}
+    </div> -->
+    <form name="corporateProfileForm" #bankProfileForm="ngForm">
+        <div *ngIf="stepperDetails.currentStep == 1">
+            <div class="aps-card  p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Workflow Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="noSpaceAlphaNumeric" [label]="'Workflow Code' | apsTranslate"
+                                name="workflowCode" id="workflowCode" [(ngModel)]="formData.workflowCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-px-3 p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="alphaNumeric" id="workflowName" name="workflowName"
+                                [label]="'Workflow Name' | apsTranslate" [(ngModel)]="formData.workflowName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="moduleValue" id="moduleValue"
+                                [(ngModel)]="formData.moduleValue"
+                                dataUrl="setup/templates/workflowTemplate/private/dropdown/moduleList"
+                                (change)="onModuleChange(formData.moduleValue)" [required]="true">
+                            </aps-custom-select>
+                        </div>
+
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <aps-custom-select [label]="'Product' | apsTranslate" name="productValue" id="productValue"
+                                [(ngModel)]="formData.productValue" [data]="subProductArray"
+                                (change)="onProductChange(formData.productValue)" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Workflow Configuration </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-4 background-color-dark-5 p-py-1">
+                            <div class="text-size-12 text-semi-bold">Workflow Event</div>
+                        </div>
+                        <div class="p-col-4 background-color-dark-5 p-py-1">
+                            <div class="text-size-12 text-semi-bold">Required</div>
+                        </div>
+                        <div class="p-col-4 background-color-dark-5 p-py-1">
+                            <div class="text-size-12 text-semi-bold">Action By</div>
+                        </div>
+                    </div>
+                    <!-- <div class="p-grid p-px-2">
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-12">
+                                <p-checkbox id="tnc" name="tnc" label="101010009388539" [binary]="true"
+                                    [(ngModel)]="formData.accNoCheckbox1"></p-checkbox>
+                                <p-checkbox id="tnc" name="tnc" label="101010009388577" [binary]="true"
+                                    [(ngModel)]="formData.accNoCheckbox2"></p-checkbox>
+                                <p-checkbox id="tnc" name="tnc" label="101010009388448" [binary]="true"
+                                    [(ngModel)]="formData.accNoCheckbox3"></p-checkbox>
+                                <p-checkbox id="tnc" name="tnc" label="101010009388971" [binary]="true"
+                                    [(ngModel)]="formData.accNoCheckbox4"></p-checkbox>
+                                <p-checkbox id="tnc" name="tnc" label="101010009388775" [binary]="true"
+                                    [(ngModel)]="formData.accNoCheckbox5"></p-checkbox>
+                            </div>
+                        </div>
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-14 text-semi-bold">CASA</div>
+                            <div class="text-size-12 text-semi-bold">ODB</div>
+                            <div class="text-size-12 text-semi-bold">Control</div>
+                            <div class="text-size-12 text-semi-bold">ODB</div>
+                            <div class="text-size-12 text-semi-bold">CASA</div>
+                        </div>
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-12 text-semi-bold">Corporate Saving Account</div>
+                            <div class="text-size-12 text-semi-bold">Receivable Saving Account</div>
+                            <div class="text-size-12 text-semi-bold">SOD Account</div>
+                            <div class="text-size-12 text-semi-bold">Dollar Account</div>
+                            <div class="text-size-12 text-semi-bold">Receivable Saving Account</div>
+                        </div>
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-12 text-semi-bold">Open</div>
+                            <div class="text-size-12 text-semi-bold">Open</div>
+                            <div class="text-size-12 text-semi-bold">Open</div>
+                            <div class="text-size-12 text-semi-bold">Open</div>
+                            <div class="text-size-12 text-semi-bold">Open</div>
+                        </div>
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-12 text-semi-bold">INR</div>
+                            <div class="text-size-12 text-semi-bold">INR</div>
+                            <div class="text-size-12 text-semi-bold">INR</div>
+                            <div class="text-size-12 text-semi-bold">INR</div>
+                            <div class="text-size-12 text-semi-bold">INR</div>
+                        </div>
+                        <div class="p-col-2 p-py-1">
+                            <div class="text-size-12 text-semi-bold">-</div>
+                            <div class="text-size-12 text-semi-bold">-</div>
+                            <div class="text-size-12 text-semi-bold">-</div>
+                            <div class="text-size-12 text-semi-bold">-</div>
+                            <div class="text-size-12 text-semi-bold">-</div>
+                        </div>
+                    </div> -->
+                    <div class="p-grid p-px-2" *ngFor="let wfCong of workflowConfigurationFSCM; let i = index">
+                        <div class="p-col-4 p-py-1">
+                            <div class="text-size-12">
+                                <p-checkbox id="wfCong.stepincluded" name="wfCong.stepincluded"
+                                    label="{{wfCong.eventName}}" [binary]="true"
+                                    [(ngModel)]="wfCong.stepincluded"></p-checkbox>
+                            </div>
+                        </div>
+                        <div class="p-col-4 p-py-1">
+                            <div class="text-size-12">
+                                <p-checkbox id="required" name="required" [binary]="true"
+                                    [(ngModel)]="wfCong.required"></p-checkbox>
+                            </div>
+                        </div>
+                        <div class="p-col-4 p-py-1">
+                            <div class="text-size-12">
+                                <p-checkbox id="actionBySeller" name="actionBySeller" label="Seller" [binary]="true"
+                                    [(ngModel)]="wfCong.actionBySeller"></p-checkbox>
+                                <p-checkbox id="actionByBuyer" name="actionByBuyer" label="Buyer" [binary]="true"
+                                    [(ngModel)]="wfCong.actionByBuyer"></p-checkbox>
+                                <p-checkbox id="actionByBank" name="actionByBank" label="Bank" [binary]="true"
+                                    [(ngModel)]="wfCong.actionByBank"></p-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> {{ 'Alert Details' | apsTranslate }} </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Alert Code" [value]="formData.alertCode">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Alert Name" [value]="formData.alertName">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Module" [value]="formData.moduleId">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Category" [value]="formData.categoryId">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field label="Event" [value]="formData.eventId">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-px-3 p-col-12 p-md-3 p-sm-12">
+                            <div class="text-size-14"> Channel</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-3" name="channelEmail" binary="true" label="Email"
+                                    [(ngModel)]="formData.channelEmail" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="channelSMS" binary="true" label="SMS"
+                                    [(ngModel)]="formData.channelSMS" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="channelOnline" binary="true" label="Online"
+                                    [(ngModel)]="formData.channelOnline" [disabled]="true">
+                                </p-checkbox>
+                            </div>
+
+                        </div>
+                        <div class="p-px-3 p-col-12 p-md-4 p-sm-12">
+                            <div class="text-size-14"> Send Alerts to</div>
+                            <div class="text-size-14">
+                                <p-checkbox class="p-mx-3" name="alertBank" binary="true" label="Bank"
+                                    [(ngModel)]="formData.alertBank" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="alertCorporate" binary="true" label="Corporate"
+                                    [(ngModel)]="formData.alertCorporate" [disabled]="true">
+                                </p-checkbox>
+                                <p-checkbox class="p-mx-3" name="alertcorporateClient" binary="true"
+                                    label="Corporate Client" [(ngModel)]="formData.alertcorporateClient"
+                                    [disabled]="true">
+                                </p-checkbox>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Alert Text Details </div>
+                </div>
+                <div class="aps-card-body">
+                    <div class="p-grid p-px-2">
+                        <div class="p-col-12">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

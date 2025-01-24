@@ -1,0 +1,41 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "ifscCode": "SBIN0006359",
+      "bankName": "SBI",
+      "branchName": "Bhatia Chowk",
+      "city": "Mumbai",
+      "country": "India",
+      "routingCode": "-"
+    },
+    {
+      "id": "101",
+      "ifscCode": "ICIC8021781",
+      "bankName": "ICICI",
+      "branchName": "Hutatma Chowk",
+      "city": "Mumbai",
+      "country": "India",
+      "routingCode": "-"
+    },
+    {
+      "id": "102",
+      "ifscCode": "IDIB000K042",
+      "bankName": "IDBI",
+      "branchName": "Kalyan",
+      "city": "Thane",
+      "country": "India",
+      "routingCode": "-"
+    },
+    {
+      "id": "103",
+      "ifscCode": "PNBBOKHANDB",
+      "bankName": "PNB",
+      "branchName": "Chandni Chowk",
+      "city": "Delhi",
+      "country": "India",
+      "routingCode": "-"
+    }
+  ],
+  "lastRow": 4
+}

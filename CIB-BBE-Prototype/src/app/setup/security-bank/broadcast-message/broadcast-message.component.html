@@ -1,0 +1,170 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Broadcast Message Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Display Type<sup>*</sup></div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="displayType" value="Online" label="Online"
+                                    [(ngModel)]="formData.displayType"
+                                    (click)="onClickDisplayType(formData.displayType)">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="displayType" value="Offline" label="Offline"
+                                    [(ngModel)]="formData.displayType"
+                                    (click)="onClickDisplayType(formData.displayType)">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14">Message For<sup>*</sup></div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="messageFor" value="Bank" label="Bank"
+                                    [(ngModel)]="formData.messageFor" [disabled]="formData.displayType ==='Offline'">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="messageFor" value="Corporate"
+                                    label="Corporate" [(ngModel)]="formData.messageFor">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-pr-3" name="messageFor" value="Both" label="Both"
+                                    [(ngModel)]="formData.messageFor" [disabled]="formData.displayType ==='Offline'">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" id="briefMassage" name="briefMassage"
+                                [label]="'Brief Message' | apsTranslate" [(ngModel)]="formData.briefMassage"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid" *ngIf="formData.displayType ==='Online' && formData.messageFor === 'Corporate'">
+                        <div class="p-col-12 p-md-6 p-lg-6">
+                            <div class="text-size-14">Send To<sup>*</sup></div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="sendTo" value="Corporate Category"
+                                    label="Corporate Category" [(ngModel)]="formData.sendTo">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="sendTo" value="Corporate Code"
+                                    label="Corporate Code" [(ngModel)]="formData.sendTo">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-pr-3" name="sendTo" value="Corporate User"
+                                    label="Corporate User" [(ngModel)]="formData.sendTo">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid" *ngIf="formData.displayType ==='Online' && formData.messageFor === 'Corporate'">
+                        <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.sendTo === 'Corporate Category'">
+                            <aps-multi-select name="selectCategory" id="selectCategory" [required]="true"
+                                label="Select Category" [showCount]="true" [(ngModel)]="formData.selectCategory"
+                                [value]="formData.selectCategory"
+                                dataUrl="setup/securityBank/broadcastMessage/private/dropdown/selectCategory"
+                                [filter]="true" [showHeader]="true" [showToggleAll]="false"></aps-multi-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.sendTo === 'Corporate Code'">
+                            <aps-multi-select name="selectCode" id="selectCode" [required]="true" label="Select Code"
+                                [showCount]="true" [(ngModel)]="formData.selectCode" [value]="formData.selectCode"
+                                dataUrl="setup/securityBank/broadcastMessage/private/dropdown/selectCode"
+                                [filter]="true" [showHeader]="true" [showToggleAll]="false"></aps-multi-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-3" *ngIf="formData.sendTo === 'Corporate User'">
+                            <aps-multi-select name="selectUser" id="selectUser" [required]="true" label="Select User"
+                                [showCount]="true" [(ngModel)]="formData.selectUser" [value]="formData.selectUser"
+                                dataUrl="setup/securityBank/broadcastMessage/private/dropdown/selectUser"
+                                [filter]="true" [showHeader]="true" [showToggleAll]="false"></aps-multi-select>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <textarea class="textarea aps-w-100p" name="message" id="message" rows="4"
+                                [(ngModel)]="formData.message" placeholder="Add Message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Start Date' | apsTranslate" id="startDate" name="startDate"
+                                [showIcon]="true" [(ngModel)]="formData.startDate"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'To Date' | apsTranslate" id="toDate" name="toDate"
+                                [showIcon]="true" [(ngModel)]="formData.toDate"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Broadcast Message Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Display Type" [value]="formData.displayType">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Message For" [value]="formData.messageFor">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Brief Message" [value]="formData.briefMassage">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.displayType ==='Online' && formData.messageFor === 'Corporate'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Send To" [value]="formData.sendTo">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.displayType ==='Online' && formData.messageFor === 'Corporate'">
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.sendTo === 'Corporate Category'">
+                        <app-review-form-field label="Select Category" [value]="formData.selectCategory">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.sendTo === 'Corporate Code'">
+                        <app-review-form-field label="Select Code" [value]="formData.selectCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.sendTo === 'Corporate User'">
+                        <app-review-form-field label="Select User" [value]="formData.selectUser">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <textarea class="textarea aps-w-100p" name="message" id="message" rows="4"
+                            [(ngModel)]="formData.message" placeholder="Add Message" disabled></textarea>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Start Date" [value]="formData.startDate">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="To Date" [value]="formData.toDate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

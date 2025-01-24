@@ -1,0 +1,16 @@
+{
+  "columnDefs": [
+    { "headerName": "Template Name", "field": "templateName" },
+
+    { "headerName": "Payment Method", "field": "paymentMethod" },
+    { "headerName": "Transaction Date", "field": "transactionDate" },
+    {
+      "headerName": "Amount",
+      "field": "amount",
+      "type": "rightAligned",
+      "filterFramework": "agNumberColumnFilter",
+      "cellRenderer": "currencyRenderer"
+    },
+    { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

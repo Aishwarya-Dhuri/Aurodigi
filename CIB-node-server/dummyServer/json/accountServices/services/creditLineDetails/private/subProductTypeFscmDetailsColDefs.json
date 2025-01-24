@@ -1,0 +1,26 @@
+[
+  {
+    "headerName": "Process Finance Batch No",
+    "field": "processFinanceBatchNo"
+  },
+  {
+    "headerName": "Dealer / Supplier Name",
+    "field": "dealerSupplierName"
+  },
+  {
+    "headerName": "Financed Amount",
+    "field": "financedAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Finance Posting Date",
+    "field": "financePostingDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "width": 400,
+    "cellRenderer": "actionCellRenderer"
+  }
+]

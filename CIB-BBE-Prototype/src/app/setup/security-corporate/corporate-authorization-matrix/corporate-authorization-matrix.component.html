@@ -1,0 +1,18 @@
+<div class="container" *ngIf="!loading">
+    <app-stepper-header [parentRef]="this"></app-stepper-header>
+
+    <div class="p-my-3">
+
+        <app-matrix-details *ngIf="stepperDetails.currentStep == 1" [parentRef]="this"></app-matrix-details>
+
+        <ng-container *ngIf="stepperDetails.currentStep == 2">
+            <app-add-users [parentRef]="this" *ngIf="!showAddSlab"></app-add-users>
+
+            <app-add-slab [parentRef]="this" [slabFormData]="slabForEdit" *ngIf="showAddSlab"></app-add-slab>
+        </ng-container>
+
+        <app-review-and-submit *ngIf="stepperDetails.currentStep == 3" [parentRef]="this"></app-review-and-submit>
+    </div>
+
+    <app-stepper-footer [parentRef]="this" *ngIf="!showAddSlab"></app-stepper-footer>
+</div>

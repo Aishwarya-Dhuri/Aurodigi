@@ -1,0 +1,29 @@
+[
+  {
+    "headerName": "Initiation Type",
+    "field": "initiationType"
+  },
+  {
+    "headerName": "Corporate Ref No",
+    "field": "corporateReferenceNo"
+  },
+  {
+    "headerName": "Bank Guarantee Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicant"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

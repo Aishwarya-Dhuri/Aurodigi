@@ -1,0 +1,16 @@
+:host ::ng-deep {
+  .pagination-section {
+    .p-button.p-button-text,
+    .brower-file-css span {
+      opacity: 0.9;
+    }
+    .pagination-dropdown {
+      .p-dropdown-label {
+        padding: 0.5rem 0.3rem;
+      }
+      .p-dropdown-trigger {
+        width: 1.75rem;
+      }
+    }
+  }
+}

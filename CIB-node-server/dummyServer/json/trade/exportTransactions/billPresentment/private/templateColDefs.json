@@ -1,0 +1,26 @@
+[
+  {
+    "headerName": "Template Name",
+    "field": "templateName"
+  },
+  {
+    "headerName": "Type of Bill Presentment",
+    "field": "typeOfBillPresentment"
+  },
+  {
+    "headerName": "Bill Amount",
+    "field": "billAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "buyerName"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "pinned": "right"
+  }
+]

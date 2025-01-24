@@ -1,0 +1,164 @@
+{
+  "clusterDetails": [
+    {
+      "moduleName": "Setup",
+      "alertName": "MasterModification",
+      "category": "SETUP",
+      "eventName": "Master Modification - Pending Authorization",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "ModifyParameters",
+      "category": "SETUP",
+      "eventName": "Modification Of Parameters",
+      "channel": "EMAIL, SMS",
+      "alertTo": "BANK"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "02",
+      "category": "ADMINISTRATION",
+      "eventName": "Unsuccessful Login",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "ALERT011",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Disabling Corporate",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "01",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "corporate Security Mapping Auth Successfully",
+      "channel": "EMAIL",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "SelfservicerequestCorpAuth",
+      "category": "PROCESS",
+      "eventName": "Self-Service Request Corporate Authorization",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "DisableCorpUser",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Disabling Corporate User",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "SELFSERVICEUPDATEBBE",
+      "category": "PROCESS",
+      "eventName": "Self-Service Request Successful Update",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "SELFSERVICEINITCFE",
+      "category": "PROCESS",
+      "eventName": "Self Service Request Initiation / Update",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "DisablingCorporate1",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Disable Corporate",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "MasterModification",
+      "category": "SETUP",
+      "eventName": "Master Modification - Pending Authorization",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "CORPDISABLE",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Disabling Corporate",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "CORPONBOARD",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "Creation of Corporate Onboarding",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "MasterModification",
+      "category": "SETUP",
+      "eventName": "Master Modification - Pending Authorization",
+      "channel": "EMAIL, SMS, ONLINE",
+      "alertTo": "BANK, CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "CreateBankUser",
+      "category": "ADMINISTRATION",
+      "eventName": "Creation of Bank User",
+      "channel": "EMAIL",
+      "alertTo": "BANK"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "DisableBankUser",
+      "category": "ADMINISTRATION",
+      "eventName": "Disabling Bank User",
+      "channel": "EMAIL, SMS",
+      "alertTo": "BANK"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "Uncessfulllogin",
+      "category": "ADMINISTRATION",
+      "eventName": "Uncessfull Login",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "CreationCorporate",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "-",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "DisablingCorporate",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "-",
+      "channel": "EMAIL, SMS",
+      "alertTo": "CORPORATE"
+    },
+    {
+      "moduleName": "Setup",
+      "alertName": "CorpSecureMapAuthSuccess",
+      "category": "CORPORATE ONBOARDING",
+      "eventName": "-",
+      "channel": "EMAIL",
+      "alertTo": "CORPORATE"
+    }
+  ]
+}

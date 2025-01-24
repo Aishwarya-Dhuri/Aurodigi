@@ -1,0 +1,7 @@
+[
+  {
+    "headerName": "Field Type",
+    "field": "fieldType"
+  },
+  { "headerName": "Field Index", "field": "fieldIndex" }
+]

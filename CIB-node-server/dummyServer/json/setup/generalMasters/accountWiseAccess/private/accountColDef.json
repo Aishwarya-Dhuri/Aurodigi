@@ -1,0 +1,6 @@
+[
+  { "field": "uaid", "headerName": "Account / IBAN / Card No." },
+  { "field": "accountType", "headerName": "Account / Card Type" },
+  { "field": "aliasName", "headerName": "Alias / Embossed Name" },
+  { "field": "category", "headerName": "Category" }
+]

@@ -1,0 +1,144 @@
+<app-modal [(isShow)]="isShowConflictedUsers" size="md" headerText="{{ 'Users' | apsTranslate }}">
+    <div body class="aps-h-200">
+        <app-ag-grid-listing #listing id="conflictedUsers" [frameworkComponents]="frameworkComponents"
+            [gridOptions]="gridOptions" [colDefUrl]="conflictedUsersColDefUrl" [rowDefUrl]="conflictedUsersRowDataUrl">
+        </app-ag-grid-listing>
+    </div>
+</app-modal>
+
+<app-search-modal [(isShow)]="isShowUsers" header="{{ 'Users' | apsTranslate }}" [isMultiSelect]="true"
+    colDefUrl="setup/security/corporateOnboarding/private/authMatrix"
+    rowDefUrl="setup/security/corporateOnboarding/private/authMatrixData"
+    (onSelection)="onAddProfileUsers($event)"></app-search-modal>
+
+<div class="text-bold p-pb-3">{{ 'Add Slab' | apsTranslate }}</div>
+
+<div class="aps-card p-px-3 p-pt-3 p-pb-0" *ngIf="parentRef.formData.matrixStructureType == 'Slab'">
+    <div class="text-semi-bold text-size-14 p-mb-2">
+        {{ 'Slab Range' | apsTranslate }}<span class="text-color-danger">*</span>
+    </div>
+    <div class="p-grid g-margin-x">
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <aps-form-input id="startSlabRange" name="startSlabRange" inputType="numeric"
+                label="{{ 'Start Slab Range' | apsTranslate }}" [(ngModel)]="slabFormData.slabStartRange">
+            </aps-form-input>
+        </div>
+        <div class="p-md-3 p-sm-12 p-col-12">
+            <aps-form-input id="endSlabRange" name="endSlabRange" inputType="numeric"
+                [(ngModel)]="slabFormData.slabEndRange" label="{{ 'End Slab Range' | apsTranslate }}">
+            </aps-form-input>
+        </div>
+    </div>
+
+    <!-- <div class="p-grid g-margin-x">
+        <div class="p-md-3 p-col-12 p-lg-3 p-pt-0 text-size-12">
+            <div *ngIf="slabFormData.slabStartRange">
+                {{ slabFormData.slabStartRange | numberToWord }}
+                {{ currencyService.getCurrencyName() | async }} {{ 'Only' | apsTranslate }}/-
+            </div>
+        </div>
+        <div class="p-md-3 p-col-12 p-lg-3 p-py-0 text-size-12">
+            <div *ngIf="slabFormData.slabEndRange">
+                {{ slabFormData.slabEndRange | numberToWord }}
+                {{ currencyService.getCurrencyName() | async }} {{ 'Only' | apsTranslate }}/-
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="aps-card p-my-3">
+    <div class="aps-card-header">
+        <app-header-with-search heading="{{ 'Profiles' | apsTranslate }}"
+            (search)="onFilterProfiles($event)"></app-header-with-search>
+    </div>
+
+    <div class="aps-card-body">
+        <div class="text-color-dark-shade-1 border-bottom" *ngFor="let profile of slabFormData.profiles">
+            <div class="p-grid p-p-2">
+                <div class="p-md-4 p-sm-12 p-col-12">
+                    <p-checkbox [binary]="true" [label]="profile.profileName"
+                        labelStyleClass="text-size-14 text-semi-bold" [(ngModel)]="profile.isChecked"></p-checkbox>
+                    <span class="inline-block p-ml-2" *ngIf="profile.isChecked && profile.conflictedUsers">
+                        <app-icon icon="fa-user" class="pointer"
+                            (click)="conflictedUsersOverlay.toggle($event)"></app-icon>
+                        <p-overlayPanel #conflictedUsersOverlay [showCloseIcon]="true">
+                            <ng-template pTemplate>
+                                <div class="text-size-16 text-semi-bold p-mb-2">
+                                    {{ 'Users Notifications' | apsTranslate }}
+                                </div>
+                                <div class="text-size-12">
+                                    <span class="inline-block text-bold">{{ profile.users.length }}</span>&nbsp;{{
+                                    'Users already mapped to existing slab.' | apsTranslate }}
+                                </div>
+                            </ng-template>
+                        </p-overlayPanel>
+                    </span>
+                </div>
+                <div class="p-md-8 p-sm-12 p-col-12">
+                    <div class="left-right-container">
+                        <div class="left-container"></div>
+                        <div class="right-container">
+                            <div class="inline-items text-color-normal text-size-12">
+                                <div class="item p-mr-3">
+                                    {{ 'Number of Signatories' | apsTranslate }}
+                                    <span class="inline-item p-ml-1">{{ profile.noOfSignatories }}</span>
+                                </div>
+                                <div class="item p-mr-3">
+                                    {{ 'Priority' | apsTranslate }}
+
+                                    <span class="inline-item p-ml-1">{{ profile.priority }}</span>
+                                </div>
+
+                                <div class="item p-mr-3">
+                                    <div class="count text-bold">{{ profile.users.length }}</div>
+                                </div>
+                                <div class="item pointer">
+                                    <app-icon [icon]="
+                        currentProfile && currentProfile.profileName === profile.profileName
+                          ? 'fa-chevron-up'
+                          : 'fa-chevron-down'
+                      " (click)="
+                        currentProfile && currentProfile.profileName && profile.isChecked
+                          ? (currentProfile = null)
+                          : (currentProfile = profile)
+                      "></app-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-grid background-color-dark-3 p-p-2" *ngIf="
+            currentProfile && currentProfile.profileName === profile.profileName && profile.isChecked
+          ">
+                <div class="p-md-3 p-sm-12 p-col-12">
+                    <aps-form-input id="numberOfSignatures" name="numberOfSignatures"
+                        label="{{ 'Number Of Signatures' | apsTranslate }}"
+                        [(ngModel)]="profile.noOfSignatories"></aps-form-input>
+                </div>
+                <div class="p-md-3 p-sm-12 p-col-12">
+                    <aps-form-input id="priority" name="priority" label="{{ 'Priority' | apsTranslate }}"
+                        [(ngModel)]="profile.priority"></aps-form-input>
+                </div>
+                <div class="p-md-3 p-sm-12 p-col-12">
+                    <aps-form-input id="usersMapped" name="usersMapped" rightIcon="fa-search"
+                        (onRightIcon)="isShowUsers = true" label="{{ 'Users Mapped' | apsTranslate }}"
+                        [(ngModel)]="profile.usersMapped" [readonly]="true"></aps-form-input>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="left-right-container">
+    <div class="left-container"></div>
+    <div class="right-container">
+        <button class="btn btn-md btn-secondary p-mr-3" (click)="parentRef.showAddSlab = false">
+            {{ 'CANCEL' | apsTranslate }}
+        </button>
+        <button class="btn btn-md btn-primary" (click)="parentRef.editSlabIndex >= 0 ? onSaveSlab() : onAddSlab()">
+            {{ parentRef.editSlabIndex >= 0 ? ('SAVE' | apsTranslate) : ('ADD' | apsTranslate) }}
+        </button>
+    </div>
+</div>

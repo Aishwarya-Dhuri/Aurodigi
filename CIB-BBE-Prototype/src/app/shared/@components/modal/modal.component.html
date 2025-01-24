@@ -1,0 +1,21 @@
+<div *ngIf="isShow">
+  <app-backdrop *ngIf="!hideBackdrop" [background]="'rgba(0, 0, 0, 0.5)'" [zIndex]="10">
+  </app-backdrop>
+
+  <div class="aps-card text-color-dark-shade-1 aps-modal" [ngClass]="[sizeClass]" [ngStyle]="customStyles">
+    <div class="left-right-container" *ngIf="headerText">
+      <div class="left-container text-bold text-size-18">
+        {{ headerText }}
+      </div>
+      <div class="right-container">
+        <app-icon icon="fa-times" class="pointer" (click)="close()"></app-icon>
+      </div>
+    </div>
+    <ng-content select="[header]"></ng-content>
+    <div class="aps-100vh-100 overflow-y-scroll overflow-x-hidden">
+      <ng-content select="[body]"></ng-content>
+    </div>
+    <ng-content></ng-content>
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>

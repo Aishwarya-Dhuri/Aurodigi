@@ -1,0 +1,16 @@
+<div class="aps-card aps-h-100p">
+  <div class="aps-card-header p-px-3 aps-py-12">
+    <div class="text-size-14 text-semi-bold">Ongoing Transactions</div>
+  </div>
+  <div class="aps-card-body gridster-item-content p-p-3">
+    <app-pie-chart
+      [options]="ongoingTransactionsOptions"
+      [isDynamicHeight]="true"
+      *ngIf="!ongoingTransactionsDataLoading; else loadingDataTemplate"
+    ></app-pie-chart>
+  </div>
+</div>
+
+<ng-template #loadingDataTemplate>
+  <p class="text-center p-py-3">Loading...</p>
+</ng-template>

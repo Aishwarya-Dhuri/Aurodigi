@@ -1,0 +1,86 @@
+[
+  {
+    "INR": [
+      {
+        "id": "1",
+        "name": "UPI",
+        "line1": "INR-2",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      },
+      {
+        "id": "2",
+        "name": "IMPS",
+        "line1": "INR-3",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      },
+      {
+        "id": "3",
+        "name": "NEFT",
+        "line1": "INR-5",
+        "line2": "",
+        "line3": "",
+        "recommended": "false"
+      }
+    ]
+  },
+  {
+    "USD": [
+      {
+        "id": "1",
+        "name": "Immediate Payment",
+        "line1": "INR-2",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      },
+      {
+        "id": "2",
+        "name": "Low Value Payment",
+        "line1": "INR-2",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      },
+      {
+        "id": "3",
+        "name": "High Value Payment",
+        "line1": "INR-2",
+        "line2": "",
+        "line3": "",
+        "recommended": "false"
+      }
+    ]
+  },
+  {
+    "QAR": [
+      {
+        "id": "1",
+        "name": "Immediate Payment",
+        "line1": "QAR-2",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      },
+      {
+        "id": "2",
+        "name": "Low Value Payment",
+        "line1": "QAR-1",
+        "line2": "",
+        "line3": "",
+        "recommended": "false"
+      },
+      {
+        "id": "3",
+        "name": "High Value Payment",
+        "line1": "QAR-4",
+        "line2": "",
+        "line3": "",
+        "recommended": "true"
+      }
+    ]
+  }
+]

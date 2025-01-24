@@ -1,0 +1,4 @@
+[
+  { "checkboxSelection": true, "headerName": "Sponsor Code", "field": "sponsorCode" },
+  { "headerName": "Sponsor Name", "field": "sponsorName" }
+]

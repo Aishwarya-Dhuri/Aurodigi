@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="p-grid g-margin-x">
+        <div class="p-col-12 p-py-0">
+            <div class="aps-card">
+                <div class="text-size-16 text-bold p-px-3 p-pt-3">{{'Search By' | apsTranslate}}</div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-p-3">
+                        <p-radioButton class="p-mr-2" label="Today Job" value="Today Job"
+                            [(ngModel)]="searchType"></p-radioButton>
+                        <p-radioButton label="Log History" value="Log History" [(ngModel)]="searchType"></p-radioButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-col-12">
+            <app-dynamic-search #dynamicSearch entityName="JOB_MONITORING" (onSearch)="getRecords($event)"
+                [isShowSearchByHeader]="false" [isShowSaveSearchCriteria]="false" cardHeight="300"
+                (onFiltersReady)="onDynamicFiltersReady()">
+            </app-dynamic-search>
+        </div>
+    </div>
+</div>

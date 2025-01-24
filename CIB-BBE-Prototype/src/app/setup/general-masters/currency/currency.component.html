@@ -1,0 +1,126 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Currency Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="currencyCode" name="currencyCode"
+                                [label]="'Currency Code' | apsTranslate" [(ngModel)]="formData.currencyCode"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="currencyName" name="currencyName"
+                                [label]="'Currency Name' | apsTranslate" [(ngModel)]="formData.currencyName"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-pb-0">
+                            <aps-form-input inputType="normal" id="isoCurrencyNo" name="isoCurrencyNo"
+                                [label]="'ISO Currency Number' | apsTranslate" [(ngModel)]="formData.isoCurrencyNo"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-search-modal [(isShow)]="showCurrencyModal"
+                                colDefUrl="setup/generalMasters/adminCurrency/private/currencyColDefs"
+                                rowDefUrl="setup/generalMasters/adminCurrency/private/currencyRowDefs"
+                                header="Currency Symbols" (onSelection)="onCurrencySelection($event)">
+                            </app-search-modal>
+                            <aps-form-input id="currencySymbol" label="Currency Symbol" name="currencySymbol"
+                                [(ngModel)]="formData.currencySymbol" rightIcon="fa-info-circle"
+                                (onRightIcon)="showCurrencyModal = true" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="number" id="decimalPlace" name="decimalPlace"
+                                [label]="'Decimal Place' | apsTranslate" [(ngModel)]="formData.decimalPlace"
+                                required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-6"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="majorUnit" name="majorUnit"
+                                [label]="'Major Unit' | apsTranslate" [(ngModel)]="formData.majorUnit" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <aps-form-input inputType="normal" id="minorUnit" name="minorUnit"
+                                [label]="'Minor Unit' | apsTranslate" [(ngModel)]="formData.minorUnit" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-6 p-lg-6"></div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveFrom"></app-aps-calender>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3 p-py-0">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Currency Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency Code" [value]="formData.currencyCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency Name" [value]="formData.currencyName">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="ISO Currency Number" [value]="formData.isoCurrencyNo">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3"></div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Currency Symbol" [value]="formData.currencySymbol">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Decimal Place" [value]="formData.decimalPlace">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-6 p-lg-6"></div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Major Unit" [value]="formData.majorUnit">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Minor Unit" [value]="formData.minorUnit">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-6 p-lg-6"></div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective From" [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Effective Till" [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

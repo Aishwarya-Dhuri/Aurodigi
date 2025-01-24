@@ -1,0 +1,54 @@
+.user-tasks-container {
+  display: block;
+  padding: 16px;
+
+  .tasks-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
+
+    .header-text {
+      display: flex;
+      justify-content: flex-start;
+
+      color: var(--text-color-dark-shade-1);
+      font-size: 0.875rem;
+      font-family: 'CIB Bold';
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: flex-end;
+      color: var(--text-color);
+
+      .action {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .tasks {
+    display: block;
+
+    .task-wrapper {
+      display: block;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--background-color-dark-1);
+      .task {
+        font-size: 0.875rem;
+        color: var(--text-color-dark-shade-1);
+      }
+      .task-date {
+        font-size: 0.75rem;
+        color: var(--text-color);
+      }
+    }
+  }
+}

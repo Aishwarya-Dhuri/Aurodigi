@@ -1,0 +1,29 @@
+{
+  "mainHeading": "Demo Bank is pleased to inform you that our new branch is opening at Business Avenue.",
+  "backgroundImages": [{ "link": "bg1.jpg" }, { "link": "bg2.jpg" }, { "link": "bg3.jpg" }],
+  "helpOptions": [
+    { "icon": "fa-arrow-circle-right", "id": "tli", "label": "Trouble Logging In", "link": "https://www.aurionpro.com/contact-us/" },
+    { "icon": "fa-question-circle", "id": "faq", "label": "FAQ's", "link": "https://www.aurionpro.com/whitepaper-case-studies/" },
+    { "icon": "fa-play", "id": "dv", "label": "Demo Video's", "link": "" }
+  ],
+  "subHeadings": [
+    {
+      "icon": "fa-globe",
+      "heading": "Visibility",
+      "details": "360-degree Visibility of transactions enabling account aggregation",
+      "link": ""
+    },
+    {
+      "icon": "fa-book",
+      "heading": "Bulletin Board",
+      "details": "Bulletin Board to see broadcast messages and scheduled reports.",
+      "link": ""
+    },
+    {
+      "icon": "fa-desktop",
+      "heading": "User Experience",
+      "details": "Responsive user experience across all Devices",
+      "link": ""
+    }
+  ]
+}

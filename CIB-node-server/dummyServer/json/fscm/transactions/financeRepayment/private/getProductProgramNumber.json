@@ -1,0 +1,37 @@
+{
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "dataList": [
+    {
+      "id": "1kKNb5bRFJs=",
+      "displayName": "Program1",
+      "enrichments": {
+        "parentTemplateId": "05Gubd+7Kvw=",
+        "programRefNo": "stmp2",
+        "serviceTemplateId": "gtaG5dzSj4g="
+      }
+    },
+    {
+      "id": "XpNZqF+CDmA=",
+      "displayName": "Program2",
+      "enrichments": {
+        "parentTemplateId": "05Gubd+7Kvw=",
+        "programRefNo": "stmp1",
+        "serviceTemplateId": "0mzxA+1fnJU="
+      }
+    },
+    {
+      "id": "tHVwbhIoUzw=",
+      "displayName": "Program3",
+      "enrichments": {
+        "parentTemplateId": "J2M0VbljSYg=",
+        "programRefNo": "BestFIT Shrikant",
+        "serviceTemplateId": "Dp7wwb9qgeU="
+      }
+    }
+  ],
+  "entityIdentifier": "",
+  "loggable": false
+}

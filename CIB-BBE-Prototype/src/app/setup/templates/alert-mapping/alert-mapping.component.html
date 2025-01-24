@@ -1,0 +1,275 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Corporate Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input id="corporateCode" label="Corporate Code" name="corporateCode"
+                                rightIcon="fa-search" (onRightIcon)="isShowCorporateSearch = true"
+                                [(ngModel)]="formData.corporateCode" disabled="true" required="true">
+                            </aps-form-input>
+                            <app-search-modal *ngIf="isShowCorporateSearch" [(isShow)]="isShowCorporateSearch"
+                                header="Corporate Details" [colDefUrl]="corporateSearchColDefUrl"
+                                [rowDefUrl]="corporateSearchRowDefUrl" (onSelection)="onCorporateSelected($event)">
+                            </app-search-modal>
+                        </div>
+
+                        <div class="p-md-1"></div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input id="corporateName" label="Corporate Name" name="corporateName"
+                                [value]="formData.corporateName" [(ngModel)]="formData.corporateName" disabled>
+                            </aps-form-input>
+                        </div>
+
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective From' | apsTranslate" id="effectiveFrom"
+                                name="effectiveFrom" [showIcon]="true" [(ngModel)]="formData.effectiveFrom"
+                                required="true">
+                            </app-aps-calender>
+                        </div>
+
+                        <div class="p-md-1"></div>
+
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-aps-calender [label]="'Effective Till' | apsTranslate" id="effectiveTill"
+                                name="effectiveTill" [showIcon]="true"
+                                [(ngModel)]="formData.effectiveTill"></app-aps-calender>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <aps-custom-select name="copyFromExistingUser" id="copyFromExistingUser"
+                                label="Copy From Existing User" [(ngModel)]="formData.copyFromExistingUser"
+                                [value]="formData.copyFromExistingUser"
+                                dataUrl="setup/templates/alertMapping/private/dropdown/copyFromExistingUser">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-1">
+                            <button class="btn btn-md btn-primary p-mt-2 p-mr-3"
+                                [disabled]="!formData.copyFromExistingUser" (click)="onGoCorpMapping()">
+                                {{ 'COPY' | apsTranslate }}
+                            </button>
+                        </div>
+                        <div class="p-md-3 p-sm-6 p-col-12">
+                            <aps-custom-select name="copyClusterFromExisting" id="copyClusterFromExisting"
+                                label="Module" [(ngModel)]="formData.copyClusterFromExisting"
+                                [value]="formData.copyClusterFromExisting"
+                                (change)="formData.copyClusterFromExistingName = $event.displayName"
+                                dataUrl="setup/templates/alertMapping/private/dropdown/module">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-1">
+                            <button class="btn btn-md btn-primary p-mt-2 p-mr-3"
+                                [disabled]="!formData.copyClusterFromExisting" (click)="onCopyFromExistingCLuster()">
+                                {{ 'GO' | apsTranslate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1"> Alert Details </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid aps-h-400">
+                        <div class="p-col-12" *ngIf="!loadingList">
+                            <app-ag-grid-listing #clusterDetailsList id="clusterDetailsList"
+                                colDefUrl="setup/templates/alertMapping/private/clusterDetailsColDefs"
+                                (rowSelected)="onRowSelectedAlertDetails($event)" [context]="{ componentParent: this }"
+                                [gridOptions]="gridOptions" [rowData]="formData.clusterDetails"
+                                [supressAutoFit]="true"></app-ag-grid-listing>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Corporate Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Corporate Code' | apsTranslate"
+                            [value]="formData.corporateCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Corporate Name' | apsTranslate"
+                            [value]="formData.corporateCode">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Effective From' | apsTranslate"
+                            [value]="formData.effectiveFrom">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Effective Till' | apsTranslate"
+                            [value]="formData.effectiveTill">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Copy From Existing User' | apsTranslate"
+                            [value]="formData.copyFromExistingUser">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field [label]="'Module' | apsTranslate"
+                            [value]="formData.copyClusterFromExisting">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-2">
+                <div class="text-size-16 text-semi-bold p-p-1">Alert Details</div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid aps-h-400">
+                    <div class="p-col-12">
+                        <app-ag-grid-listing #clusterDetailsList id="clusterDetailsList"
+                            colDefUrl="setup/templates/alertMapping/private/clusterDetailsReviewColDefs"
+                            [context]="{ componentParent: this }" [gridOptions]="gridOptions"
+                            [rowData]="formData.clusterDetails" disabled [supressAutoFit]="true"></app-ag-grid-listing>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------MODALS--------->
+    <app-modal [(isShow)]="isShowAlertDetailsModal" size="lg" headerText="Alert Template View">
+        <div class="overflow-scroll aps-h-500">
+            <div class="">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1">Alert Details</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Alert Code' | apsTranslate"
+                                [value]="getDataFromRow.alertName">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Alert Name' | apsTranslate"
+                                [value]="getDataFromRow.eventName">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Module' | apsTranslate"
+                                [value]="getDataFromRow.moduleName">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Category' | apsTranslate"
+                                [value]="getDataFromRow.category">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Event' | apsTranslate" [value]="getDataFromRow.eventName">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Channel' | apsTranslate" [value]="getDataFromRow.channel">
+                            </app-review-form-field>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Send Alert To' | apsTranslate"
+                                [value]="getDataFromRow.alertTo">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1">Alert Frequency</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <app-review-form-field [label]="'Frequency' | apsTranslate"
+                                [value]="getDataFromRow.frequency">
+                            </app-review-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <div class="aps-card-header p-p-2">
+                    <div class="text-size-16 text-semi-bold p-p-1">Alert Text Details</div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid aps-h-200">
+                        <div class="p-col-12">
+                            <editor id="textEdtr" name="textEdtr" [init]="editorInitConfig" [(ngModel)]="formData.text"
+                                [required]="false" disabled>
+                            </editor>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+
+    <app-modal [(isShow)]="isShowAdditonalIdModal" size="md" headerText="Additional ID Details">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-6 p-lg-6">
+                <textarea class="textarea aps-w-100p" name="addtionalEmailId" id="addtionalEmailId" rows="4"
+                    [(ngModel)]="formData.addtionalEmailId" placeholder="Add Email ID"></textarea>
+                <div class="text-size-13">
+                    Please Enter values separated by '<b>,</b>'
+                </div>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6">
+                <textarea class="textarea aps-w-100p" name="mobileNo" id="mobileNo" rows="4"
+                    [(ngModel)]="formData.mobileNo" placeholder="Add Mobile Number"></textarea>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <div class="left-right-container p-mt-3">
+                    <div class="left-container"></div>
+                    <div class="right-container">
+                        <button class="btn btn-md btn-tertiary" (click)="onCancel()">CANCEL</button>
+                        &nbsp;
+                        <button class="btn btn-md btn-primary" (click)="onSubmit()">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+    <!--------MODALS--------->
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

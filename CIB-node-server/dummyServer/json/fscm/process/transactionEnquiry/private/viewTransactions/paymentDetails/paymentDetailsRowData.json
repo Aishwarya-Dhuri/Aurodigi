@@ -1,0 +1,52 @@
+[
+  {
+    "batchNumber": {
+      "header": "Payment Details",
+      "label": "12200635001",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/paymentDetails"
+    },
+    "invoiceAmount": "THB 4007.00",
+    "status": "Partially Paid",
+    "linkCn": {
+      "header": "Link Credit Note",
+      "label": "THB 0.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/linkCreditNote"
+    },
+    "linkDn": {
+      "header": "Link Debit Note",
+      "label": "THB 0.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/linkDebitNote"
+    },
+    "totalPayable": {
+      "header": "Payable Amount",
+      "label": "THB 2000.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/payableAmount"
+    },
+    "amountPaid": "THB 0.00"
+  },
+  {
+    "batchNumber": {
+      "header": "Payment Details",
+      "label": "12200635002",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/paymentDetails"
+    },
+    "invoiceAmount": "THB 4007.00",
+    "status": "Fully Paid",
+    "linkCn": {
+      "header": "Link Credit Note",
+      "label": "THB 0.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/linkCreditNote"
+    },
+    "linkDn": {
+      "header": "Link Debit Note",
+      "label": "THB 0.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/linkDebitNote"
+    },
+    "totalPayable": {
+      "header": "Payable Amount",
+      "label": "THB 2007.00",
+      "link": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/payableAmount"
+    },
+    "amountPaid": "THB 0.00"
+  }
+]

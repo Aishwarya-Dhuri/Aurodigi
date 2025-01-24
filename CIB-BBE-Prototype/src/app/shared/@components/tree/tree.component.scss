@@ -1,0 +1,66 @@
+.tree-container {
+  width: 100%;
+
+  .tree-wrapper {
+    height: 3rem;
+    padding: 16px;
+    border-bottom: 1px solid var(--background-color);
+    white-space: nowrap;
+    color: var(--text-color-dark-shade-1);
+
+    .left-container {
+      width: calc(100% - 48px);
+
+      .tree-label {
+        width: calc(100% - 24px);
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.875rem;
+        margin-right: 24px;
+        font-family: 'CIB SemiBold';
+        /*color: var(--text-color-dark-shade-1);*/
+      }
+    }
+
+    .right-container {
+      .data {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 0.875rem;
+        margin: 0 8px;
+      }
+
+      .icon {
+        display: inline-block;
+        vertical-align: top;
+        cursor: pointer;
+
+        i,
+        .app-icon {
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+
+  .tree-wrapper-partial-selected {
+    background-color: var(--background-color);
+  }
+
+  .tree-wrapper-selected {
+    background-color: var(--primary-color) !important;
+    color: var(--inverted-text-color) !important;
+    font-family: CIB Bold !important;
+  }
+
+  .sub-tree-nodes {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .sub-tree-nodes-expanded {
+    height: max-content;
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "dataMap": {
+    "bankUserList": [
+      {
+        "id": "isEbFz6/ufQ=",
+        "displayName": "Admin-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "admin.maker@dfcc.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "puzEZCXC/HA=",
+        "displayName": "Admin-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "admin.checker@dfcc.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "6Gci088zql4=",
+        "displayName": "sahi-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "sahichecker@kk.mm"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "BJXO9Kmtfks=",
+        "displayName": "adm-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "shaila.qureshi@aurionpro.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "9VPf5eSioSo=",
+        "displayName": "adm-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "shaila.qureshi@aurionpro.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "Gq9cZo4FFJ8=",
+        "displayName": "jrs-Business",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "jrs@gvg.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "YBsQQ1erHs0=",
+        "displayName": "suresh-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "suresh@mailinator.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "7+lMczO2X9M=",
+        "displayName": "suresh-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "suresh@mailinator.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "7QGcFowmcyE=",
+        "displayName": "adi-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "aditya@aps.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "Mz61zw29yTM=",
+        "displayName": "adi-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "adi@aps.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "g7+IsWvfakk=",
+        "displayName": "bank-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "asdas@asd.asd"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "c5oXAQ6LvAg=",
+        "displayName": "nikita-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "test@test.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "bVxyCwMm28Q=",
+        "displayName": "nikita-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "jsja@bshdb.cncb"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "zHoM3UONa0Q=",
+        "displayName": "auto-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "auto@ss.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "PEtOAmhCEDc=",
+        "displayName": "mahindra-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "mahindra@mailinator.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "wKpRKiwntOY=",
+        "displayName": "mahindra-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "mahindrachecker@mailinator.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "SYYLdNXCGIw=",
+        "displayName": "aubank-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "aubankuser1@wseft.wert"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "v5dIf5tMVtw=",
+        "displayName": "Raji-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "rajalakshmi.nataraj@aurionpro.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "05Gubd+7Kvw=",
+        "displayName": "Raji-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "rajivcet@gmail.com"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "0mzxA+1fnJU=",
+        "displayName": "newbank-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "newbankuser1@asd.asd"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "+vAlL1BFSkU=",
+        "displayName": "newbank-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "newbankuser2@asd.asd"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "Is82JPdmxFA=",
+        "displayName": "bank-Administrator",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "bankuser1@asd.asd"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "a1C4bjI5XWs=",
+        "displayName": "ankita-Operations",
+        "code": null,
+        "enrichments": {
+          "userFrom": "BANK",
+          "emailAddress": "test@ss.dnj"
+        },
+        "totalRecords": 0,
+        "headerEnrichments": null
+      }
+    ]
+  },
+  "entityIdentifier": "",
+  "entity": ""
+}

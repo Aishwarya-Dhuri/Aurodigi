@@ -1,0 +1,24 @@
+[
+  {
+    "headerName": "Module",
+    "field": "module"
+  },
+  {
+    "headerName": "Transaction Name",
+    "field": "transactionName"
+  },
+  {
+    "headerName": "Verifier Rule",
+    "field": "verifierRule"
+  },
+  {
+    "headerName": "Authorization Rule",
+    "field": "authorizationRule"
+  },
+  {
+    "headerName": "Actions",
+    "field": "initActions",
+    "cellRenderer": "actionCellRenderer",
+    "pinned": "right"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "headerName": "Field Type",
+    "field": "fieldType"
+  },
+  { "headerName": "Start Index", "field": "startIndex" },
+  { "headerName": "End Index", "field": "endIndex" },
+  { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

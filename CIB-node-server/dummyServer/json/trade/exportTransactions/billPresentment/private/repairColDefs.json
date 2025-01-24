@@ -1,0 +1,58 @@
+[
+  {
+    "headerName": "User Reference Number",
+    "field": "id"
+  },
+  {
+    "headerName": "Transaction Date",
+    "field": "transactionDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Bill Presentment Type",
+    "field": "billPresentmentType"
+  },
+  {
+    "headerName": "LC Number",
+    "field": "lcNumber"
+  },
+  {
+    "headerName": "LC Issued Date",
+    "field": "lcIssuedDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Buyer Importer Name",
+    "field": "buyerName"
+  },
+  {
+    "headerName": "Bill Date",
+    "field": "billDate",
+    "cellRenderer": "dateRenderer"
+  },
+  {
+    "headerName": "Currency",
+    "field": "billCurrency"
+  },
+  {
+    "headerName": "Amount",
+    "field": "billAmount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Bank Rejection Remark",
+    "field": "rejectReason"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "width": 350,
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

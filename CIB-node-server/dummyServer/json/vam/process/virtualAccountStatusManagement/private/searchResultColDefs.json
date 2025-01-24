@@ -1,0 +1,11 @@
+{
+  "columnDefs": [
+    { "headerName": "Corporate Code", "field": "corporateCode" },
+    { "headerName": "Corporate Client Code", "field": "corporateClientCode" },
+    { "headerName": "Corporate Structure", "field": "corporateStructureName" },
+    { "headerName": "Virtual Account", "field": "virtualAccount" },
+    { "headerName": "VA Alias Name", "field": "vaAliceName" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Action", "field": "actions", "cellRenderer": "actionCellRenderer" }
+  ]
+}

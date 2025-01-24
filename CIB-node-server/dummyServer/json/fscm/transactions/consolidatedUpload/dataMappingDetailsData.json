@@ -1,0 +1,67 @@
+{
+  "layout": [
+    {
+      "columnName": "",
+      "dataType": ""
+    }
+  ],
+  "header": [
+    {
+      "columnName": "",
+      "dataType": ""
+    }
+  ],
+  "detail": [
+    {
+      "columnName": "Invoice Number",
+      "dataType": "Alphanumeric"
+    },
+    {
+      "columnName": "Buyer Code",
+      "dataType": "Alphanumeric"
+    },
+
+    {
+      "columnName": "Invoice Date",
+      "dataType": "Date"
+    },
+    {
+      "columnName": "Product Category",
+      "dataType": "Alphanumeric"
+    },
+    {
+      "columnName": "Invoice Due Date",
+      "dataType": Date"
+    },
+    {
+      "columnName": "Currency",
+      "dataType": "Alphanumeric"
+    },
+    {
+      "columnName": "Invoice Ammount",
+      "dataType": "numeric"
+    },
+    {
+      "columnName": "Delivery Challan",
+      "dataType": "Alphanumeric"
+    },
+    {
+      "columnName": "Delivery Date",
+      "dataType": "Alphanumeric"
+    },
+    
+  ],
+  "footer": [
+    {
+      "columnName": "",
+      "dataType": ""
+    }
+  ],
+  "enrichmentFields": [
+    {
+      "columnName": "",
+      "dataType": ""
+    }
+  ],
+  "lastRow": 1
+}

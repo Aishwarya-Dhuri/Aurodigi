@@ -1,0 +1,107 @@
+[
+  {
+    "id": "INV14567",
+    "invoiceAmount": "1000000.00",
+    "outstandingAmount": "600000.00",
+    "balance": {
+      "methodName": "invoiceBalanceUpdated",
+      "amount": "400000.00"
+    },
+    "invoiceDate": "15 AUG 2021",
+    "dueDate": "25 AUG 2021",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, invoiceAmount, outstandingAmount, balance, invoiceDate, dueDate",
+        "methodName": "viewInvoice",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": "INV13479",
+    "invoiceAmount": "12500000.00",
+    "outstandingAmount": "8000000.00",
+    "balance": {
+      "methodName": "invoiceBalanceUpdated",
+      "amount": "800000.00"
+    },
+    "invoiceDate": "15 AUG 2021",
+    "dueDate": "25 AUG 2021",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, invoiceAmount, outstandingAmount, balance, invoiceDate, dueDate",
+        "methodName": "viewInvoice",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": "INV54534",
+    "invoiceAmount": "5000000.00",
+    "outstandingAmount": "1600000.00",
+    "balance": {
+      "methodName": "invoiceBalanceUpdated",
+      "amount": "400000.00"
+    },
+    "invoiceDate": "15 AUG 2021",
+    "dueDate": "25 AUG 2021",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, invoiceAmount, outstandingAmount, balance, invoiceDate, dueDate",
+        "methodName": "viewInvoice",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": "INV12534",
+    "invoiceAmount": "5000.00",
+    "outstandingAmount": "1000.00",
+    "balance": {
+      "methodName": "invoiceBalanceUpdated",
+      "amount": "1000.00"
+    },
+    "invoiceDate": "15 AUG 2021",
+    "dueDate": "25 AUG 2021",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, invoiceAmount, outstandingAmount, balance, invoiceDate, dueDate",
+        "methodName": "viewInvoice",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  },
+  {
+    "id": "INV34564",
+    "invoiceAmount": "90000000.00",
+    "outstandingAmount": "6000000.00",
+    "balance": {
+      "methodName": "invoiceBalanceUpdated",
+      "amount": "400000.00"
+    },
+    "invoiceDate": "15 AUG 2021",
+    "dueDate": "25 AUG 2021",
+    "actions": [
+      {
+        "index": 1,
+        "paramList": "id, invoiceAmount, outstandingAmount, balance, invoiceDate, dueDate",
+        "methodName": "viewInvoice",
+        "type": "ICON",
+        "displayName": "View",
+        "icon": "fa-eye"
+      }
+    ]
+  }
+]

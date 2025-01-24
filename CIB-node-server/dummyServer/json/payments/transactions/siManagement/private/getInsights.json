@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "fa-info-circle",
+    "label": "Most recent fund tranfer of PHP 12,456,711.00 to Mokshada Yash Kelkar"
+  },
+  {
+    "icon": "fa-info-circle",
+    "label": "Total fund tranfer in this week is PHP 91,500,711.00."
+  },
+  {
+    "icon": "fa-info-circle",
+    "label": "most frequent payment of PHP 5,000.01 to John Smith."
+  },
+  {
+    "icon": "fa-info-circle",
+    "label": "Total fund tranfer in this month is PHP 501,500,711.00."
+  }
+]

@@ -1,0 +1,625 @@
+<div class="container">
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-md-3 p-lg-3 p-pb-0" *ngIf="stepperDetails.currentStep < 5">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+    <div
+      class="p-col-12 p-pb-0 p-mb-3"
+      [ngClass]="{ 'p-md-9 p-lg-9': stepperDetails.currentStep < 5 }"
+    >
+      <div [apsHide]="stepperDetails.currentStep != 1">
+        <form name="step1Form" #step1Form="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Structure Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="noSpaceAlphaNumeric"
+                    [label]="'User Id' | apsTranslate"
+                    name="userId"
+                    id="userId"
+                    [(ngModel)]="formData.loginId"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    [type]="isPasswordVisibale ? 'text' : 'password'"
+                    [label]="'Password' | apsTranslate"
+                    name="password"
+                    id="password"
+                    [(ngModel)]="formData.password"
+                    [required]="true"
+                    [rightIcon]="isPasswordVisibale ? 'fa-eye-slash' : 'fa-eye'"
+                    (onRightIcon)="isPasswordVisibale = !isPasswordVisibale"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'First Name' | apsTranslate"
+                    name="firstName"
+                    id="firstName"
+                    [(ngModel)]="formData.firstName"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Last Name' | apsTranslate"
+                    name="lastName"
+                    id="lastName"
+                    [(ngModel)]="formData.lastName"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Gender' | apsTranslate"
+                    name="gender"
+                    id="gender"
+                    [(ngModel)]="formData.sex"
+                    dataUrl="setup/securityBank/bankUser/private/dropdown/genderList"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="noSpace"
+                    [label]="'Email ID' | apsTranslate"
+                    name="emailId"
+                    id="emailId"
+                    [(ngModel)]="formData.email"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="numeric"
+                    [label]="'Mobile No' | apsTranslate"
+                    name="mobileNo"
+                    id="mobileNo"
+                    [(ngModel)]="formData.telephoneNo"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="numeric"
+                    [label]="'Fax No' | apsTranslate"
+                    name="faxNo"
+                    id="faxNo"
+                    [(ngModel)]="formData.faxNo"
+                  >
+                  </aps-form-input>
+                </div>
+              </div>
+              <div class="p-grid">
+                <!-- <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Signature Code' | apsTranslate"
+                    name="signatureCode"
+                    id="signatureCode"
+                    [(ngModel)]="formData.signatureCode"
+                  >
+                  </aps-form-input>
+                </div> -->
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <div class="text-size-14 text-semi-bold text-color-dark-shade-2">
+                    {{ 'Signature Upload' | apsTranslate }}
+                  </div>
+                  <upload-form-control
+                    [files]="signatureFiles"
+                    [hideDragDropContainerOnFIleUpload]="true"
+                    (onUploaded)="onSignatureFileSelected($event)"
+                  ></upload-form-control>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 2">
+        <form name="step2Form" #step2Form="ngForm">
+          <div class="aps-card aps-h-600">
+            <div class="aps-card-header">
+              <div class="text-size-16 text-semi-bold p-p-2">
+                {{ 'Organization Details' | apsTranslate }}
+              </div>
+            </div>
+            <div class="aps-card-body">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                    {{ 'Is Super User' | apsTranslate }}
+                  </div>
+                  <div class="p-px-3">
+                    <p-inputSwitch
+                      name="isAdminUser"
+                      id="isAdminUser"
+                      [(ngModel)]="formData.isAdminUser"
+                    >
+                    </p-inputSwitch>
+                  </div>
+                </div>
+              </div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Employee Code' | apsTranslate"
+                    name="employeeCode"
+                    id="employeeCode"
+                    [(ngModel)]="formData.employeeCode"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Designation' | apsTranslate"
+                    name="designation"
+                    id="designation"
+                    [(ngModel)]="formData.designation"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-form-input
+                    inputType="alphaNumeric"
+                    [label]="'Department' | apsTranslate"
+                    name="department"
+                    id="department"
+                    [(ngModel)]="formData.department"
+                    [required]="true"
+                  >
+                  </aps-form-input>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Branch Name' | apsTranslate"
+                    name="ouId"
+                    id="ouId"
+                    [(ngModel)]="formData.ouId"
+                    dataUrl="setup/securityBank/bankUser/private/dropdown/branchList"
+                    (change)="onBranchChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Category' | apsTranslate"
+                    name="category"
+                    id="category"
+                    [(ngModel)]="formData.category"
+                    dataUrl="setup/securityBank/bankUser/private/dropdown/categoryList"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Profile' | apsTranslate"
+                    name="profileId"
+                    id="profileId"
+                    [(ngModel)]="formData.profileId"
+                    dataUrl="setup/securityBank/bankProfile/private/dropdown/profileList"
+                    (change)="onProfileChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 3">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">{{ 'Assign Role' | apsTranslate }}</div>
+          </div>
+          <div class="aps-card-body">
+            <form name="step3Form" #step3Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Module Name' | apsTranslate"
+                    name="moduleId"
+                    id="moduleId"
+                    [(ngModel)]="roleFormData.moduleId"
+                    [value]="roleFormData.moduleId"
+                    dataUrl="commons/commonService/private/getProductList"
+                    (change)="onModuleChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <aps-custom-select
+                    [label]="'Role' | apsTranslate"
+                    name="roleId"
+                    id="roleId"
+                    [(ngModel)]="roleFormData.roleId"
+                    [value]="roleFormData.roleId"
+                    dataUrl="setup/securityBank/bankRole/private/dropdown/roleList"
+                    [reqBody]="roleListReqData"
+                    [isLoadUrlData]="isFireRoleList"
+                    (change)="onRoleChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4">
+                  <button
+                    class="btn btn-md btn-tertiary p-mt-2"
+                    (click)="onAddRoleClick()"
+                    [disabled]="step3Form.invalid"
+                  >
+                    {{ 'ADD' | apsTranslate }}
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="p-grid aps-h-450">
+              <div class="p-col-12">
+                <app-ag-grid-listing
+                  #userRole
+                  id="userRoleGrid"
+                  [gridOptions]="roleGridOptions"
+                  [rowData]="formData.roles"
+                  colDefUrl="setup/securityBank/bankUser/private/roleInitColDefs"
+                  (gridReady)="onRoleInitGridReady($event)"
+                >
+                </app-ag-grid-listing>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != 4">
+        <div class="aps-card aps-h-600">
+          <div class="aps-card-header">
+            <div class="text-size-16 text-semi-bold p-p-2">
+              {{ 'Login Restriction Details' | apsTranslate }}
+            </div>
+          </div>
+          <div class="aps-card-body">
+            <div class="p-grid">
+              <div class="p-col-12 p-md-4 p-lg-4">
+                <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                  {{ 'Set Login Restriction' | apsTranslate }}
+                </div>
+                <div class="p-px-3">
+                  <p-inputSwitch
+                    name="isLoginRestrictions"
+                    id="isLoginRestrictions"
+                    [(ngModel)]="formData.isLoginRestrictions"
+                    (onChange)="formData.bankLoginRestrictions = []"
+                  >
+                  </p-inputSwitch>
+                </div>
+              </div>
+            </div>
+            <form name="step4Form" #step4Form="ngForm">
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender
+                    [label]="'Effective From' | apsTranslate"
+                    name="effectiveFrom"
+                    id="effectiveFrom"
+                    [showIcon]="true"
+                    [(ngModel)]="formData.effectiveFrom"
+                    required="true"
+                  >
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender
+                    [label]="'Effective Till' | apsTranslate"
+                    name="effectiveTill"
+                    id="effectiveTill"
+                    [showIcon]="true"
+                    [(ngModel)]="formData.effectiveTill"
+                  >
+                  </app-aps-calender>
+                </div>
+              </div>
+              <div class="p-mb-1 border-bottom" [apsHide]="!formData.isLoginRestrictions"></div>
+              <div class="p-grid">
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <aps-custom-select
+                    [label]="'Day' | apsTranslate"
+                    name="weekdayno"
+                    id="weekdayno"
+                    [(ngModel)]="loginRestrictionFormData.weekdayno"
+                    [value]="loginRestrictionFormData.weekdayno"
+                    [data]="filteredWeekDays"
+                    (change)="onDayChange($event)"
+                    [required]="true"
+                  >
+                  </aps-custom-select>
+                </div>
+                <div class="p-col-6 p-md-2 p-lg-2" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender
+                    [label]="'Start Time' | apsTranslate"
+                    name="startTime"
+                    id="startTime"
+                    [showIcon]="true"
+                    [(ngModel)]="loginRestrictionFormData.startTime"
+                    timeOnly="true"
+                    [required]="true"
+                  >
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-6 p-md-2 p-lg-2" [apsHide]="!formData.isLoginRestrictions">
+                  <app-aps-calender
+                    [label]="'End Time' | apsTranslate"
+                    name="endTime"
+                    id="endTime"
+                    [showIcon]="true"
+                    [(ngModel)]="loginRestrictionFormData.endTime"
+                    timeOnly="true"
+                    [required]="true"
+                  >
+                  </app-aps-calender>
+                </div>
+                <div class="p-col-12 p-md-4 p-lg-4" [apsHide]="!formData.isLoginRestrictions">
+                  <button
+                    class="btn btn-md btn-primary p-mt-2"
+                    (click)="onAddOrUpdateRestrictionClick()"
+                    [disabled]="step4Form.invalid"
+                  >
+                    {{ (editRestrictionIndex == -1 ? 'ADD' : 'UPDATE') | apsTranslate }}
+                  </button>
+                  <button
+                    class="btn btn-md btn-tertiary p-mx-2 p-mt-2"
+                    (click)="onResetClick()"
+                    [apsHide]="editRestrictionIndex == -1"
+                  >
+                    {{ 'CANCEL' | apsTranslate }}
+                  </button>
+                </div>
+              </div>
+              <div class="p-grid aps-h-320">
+                <div class="p-col-12" [apsHide]="!formData.isLoginRestrictions">
+                  <app-ag-grid-listing
+                    #loginRestrictions
+                    id="loginRestrictions"
+                    [gridOptions]="loginRestrictionGridOptions"
+                    [rowData]="formData.bankLoginRestrictions"
+                    colDefUrl="setup/securityBank/bankUser/private/loginRestrictionsInitColDefs"
+                    (gridReady)="onLoginRestrictionInitGridReady($event)"
+                  >
+                  </app-ag-grid-listing>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div [apsHide]="stepperDetails.currentStep != stepperDetails.headings.length">
+        <div class="p-py-3 text-size-16 text-bold">
+          {{ 'Review Details & Confirm' | apsTranslate }}
+        </div>
+        <!-- Step 1 Review-->
+        <div class="aps-card p-px-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Structure Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'User Id' | apsTranslate" [value]="formData.loginId">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'First Name' | apsTranslate"
+                [value]="formData.firstName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Last Name' | apsTranslate"
+                [value]="formData.lastName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Gender' | apsTranslate"
+                [value]="formData.sex"
+              ></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field [label]="'Email ID' | apsTranslate" [value]="formData.email">
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Mobile No' | apsTranslate"
+                [value]="formData.telephoneNo"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Fax No' | apsTranslate"
+                [value]="formData.faxNo"
+              ></app-review-form-field>
+            </div>
+            <!-- <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Signature Code' | apsTranslate"
+                [value]="formData.signatureCode"
+              >
+              </app-review-form-field>
+            </div> -->
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Signature File Name' | apsTranslate"
+                [value]="formData.uploadedFileName"
+              >
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Organization Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12">
+              <app-review-form-field
+                [label]="'Is Super User' | apsTranslate"
+                [value]="formData.isAdminUser ? 'Yes' : 'No'"
+              ></app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Employee Code' | apsTranslate"
+                [value]="formData.employeeCode"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Designation' | apsTranslate"
+                [value]="formData.designation"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Department' | apsTranslate"
+                [value]="formData.department"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Branch Name' | apsTranslate"
+                [value]="formData.branchName"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Category' | apsTranslate"
+                [value]="formData.category"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Profile' | apsTranslate"
+                [value]="formData.profileName"
+              >
+              </app-review-form-field>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Assign Role' | apsTranslate }}
+          </div>
+          <div class="p-grid aps-h-200">
+            <div class="p-col-12">
+              <app-ag-grid-listing
+                #userRoleReviewGrid
+                id="userRoleReviewGrid"
+                [gridOptions]="roleGridOptions"
+                [rowData]="formData.roles"
+                colDefUrl="setup/securityBank/bankUser/private/roleReviewColDefs"
+                (gridReady)="onRoleReviewGridReady($event)"
+              >
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+        <!-- Step 4 Review-->
+        <div class="aps-card p-px-3 p-mt-3">
+          <div class="p-py-3 text-size-14 text-semi-bold">
+            {{ 'Login Restriction Details' | apsTranslate }}
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3">
+              <app-review-form-field
+                [label]="'Login Restriction' | apsTranslate"
+                [value]="(formData.isLoginRestrictions ? 'Yes' : 'No') | apsTranslate"
+              ></app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-6 p-md-3 p-lg-3" [apsHide]="!formData.isLoginRestrictions">
+              <app-review-form-field
+                [label]="'Effective From' | apsTranslate"
+                [value]="formData.effectiveFrom"
+              >
+              </app-review-form-field>
+            </div>
+            <div class="p-col-6 p-md-3 p-lg-3" [apsHide]="!formData.isLoginRestrictions">
+              <app-review-form-field
+                [label]="'Effective Till' | apsTranslate"
+                [value]="formData.effectiveTill"
+              >
+              </app-review-form-field>
+            </div>
+          </div>
+          <div class="p-grid aps-h-200">
+            <div class="p-col-12" [apsHide]="!formData.isLoginRestrictions">
+              <app-ag-grid-listing
+                #loginReviewRestrictions
+                id="loginReviewRestrictions"
+                [gridOptions]="loginRestrictionGridOptions"
+                [rowData]="formData.bankLoginRestrictions"
+                colDefUrl="setup/securityBank/bankUser/private/loginRestrictionsReviewColDefs"
+                (gridReady)="onLoginRestrictionReviewGridReady($event)"
+              >
+              </app-ag-grid-listing>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-pt-0">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+  <!-- Role View Modal -->
+  <app-modal
+    [(isShow)]="isShowRoleViewModal"
+    size="lg"
+    [headerText]="'Role Details' | apsTranslate"
+  >
+    <ng-container body>
+      <app-bank-role viewOnAnotherComponent="true" #bankRoleView></app-bank-role>
+    </ng-container>
+  </app-modal>
+</div>

@@ -1,0 +1,16 @@
+<div
+  class="broadcast-messages-container hide-on-mobile inline-block p-mt-1 p-mx-4 border-radius-4 background-color"
+>
+  <div class="message p-py-1 p-px-2 text-size-14 inline-block">{{ broadcastMessage }}</div>
+  <div class="inline-block pointer float-right">
+    <div class="action inline-block p-pt-1 p-px-2" (click)="previous()">
+      <app-icon icon="fa-chevron-left" rtlIcon="fa-chevron-right"> </app-icon>
+    </div>
+    <div class="action inline-block p-pt-1 p-px-2" (click)="playPause(!play)">
+      <app-icon icon="{{ !play ? 'fa-play' : 'fa-pause' }}"> </app-icon>
+    </div>
+    <div class="action inline-block p-pt-1 p-px-2" (click)="next()">
+      <app-icon icon="fa-chevron-right" rtlIcon="fa-chevron-left"> </app-icon>
+    </div>
+  </div>
+</div>

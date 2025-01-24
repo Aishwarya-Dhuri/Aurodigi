@@ -1,0 +1,40 @@
+{
+  "dataMap": {
+    "CategoryList": [
+      {
+        "id": "bgCR0pUOsDk=",
+        "displayName": "CAT3",
+        "code": null,
+        "enrichments": null,
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "IK85qrfH/PQ=",
+        "displayName": "NAME5",
+        "code": null,
+        "enrichments": null,
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "YguQxR5h+x8=",
+        "displayName": "Payment Services",
+        "code": null,
+        "enrichments": null,
+        "totalRecords": 0,
+        "headerEnrichments": null
+      },
+      {
+        "id": "+G9Lz98hfVw=",
+        "displayName": "Account Services",
+        "code": null,
+        "enrichments": null,
+        "totalRecords": 0,
+        "headerEnrichments": null
+      }
+    ]
+  },
+  "entityIdentifier": "",
+  "entity": ""
+}

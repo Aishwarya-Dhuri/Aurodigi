@@ -1,0 +1,10 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch Number", "field": "batchNumber", "cellRenderer": "linkRenderer" },
+    { "headerName": "Finance Applied", "field": "financeApplied" },
+    { "headerName": "Finance Applied Date", "field": "financeAppliedDate" },
+    { "headerName": "Finance Process Date", "field": "financeProcessDate" },
+    { "headerName": "Finance (%)", "field": "finance" },
+    { "headerName": "Max Finance", "field": "maxFinance" }
+  ]
+}

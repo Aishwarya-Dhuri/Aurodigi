@@ -1,0 +1,55 @@
+<div class="" [ngClass]="classes">
+  <div
+    class="p-p-3 text-size-14 text-semi-bold"
+    *ngIf="!isShowOnlyValues"
+    [ngClass]="{ 'border-bottom': showHeaderBorderBottom }"
+  >
+    {{ 'lbl_enrichment_details' | translate }}
+  </div>
+
+  <ng-container *ngIf="enrichmentModel.length > 0; else noEnrichmentsAvailable">
+    <div class="p-grid p-px-3" *ngIf="mode != 'VIEW'">
+      <div class="p-col-12 p-md-4 p-lg-4 p-py-0" *ngFor="let enrich of enrichmentModel">
+        <ng-container *ngIf="enrich.enrichmentDataTypeName != 'Date'">
+          <aps-form-input
+            [id]="id + ''"
+            [name]="id + ''"
+            [label]="enrich.enrichmentFieldName"
+            [inputType]="enrich.inputType"
+            [(ngModel)]="enrich.value"
+            [maxLength]="enrich.enrichmentMaxLength"
+            [minLength]="enrich.enrichmentMinLength"
+            [required]="!enrich.enrichmentIsNull"
+          >
+          </aps-form-input>
+        </ng-container>
+        <ng-container *ngIf="enrich.enrichmentDataTypeName == 'Date'">
+          <app-aps-calender
+            [id]="id + ''"
+            [name]="id + ''"
+            [label]="enrich.enrichmentFieldName"
+            [(ngModel)]="enrich.value"
+            [required]="!enrich.enrichmentIsNull"
+          >
+          </app-aps-calender>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="p-grid p-px-3 p-pb-2" *ngIf="mode == 'VIEW'">
+      <div class="p-col-6 p-md-4 p-lg-4" *ngFor="let enrich of enrichmentModel">
+        <div class="text-size-12 text-color-light-shade-1">{{ enrich.enrichmentFieldName }}</div>
+        <div class="text-size-14" *ngIf="enrich.enrichmentDataTypeName != 'Amount'">
+          {{ enrich.value ? enrich.value : '-' }}
+        </div>
+        <div class="text-size-14" *ngIf="enrich.enrichmentDataTypeName == 'Amount'">
+          {{ enrich.value | currency: currencyName:'code' }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #noEnrichmentsAvailable>
+  <div class="p-py-3 text-size-14 text-center">{{ 'No Enrichments Available' | apsTranslate }}</div>
+</ng-template>

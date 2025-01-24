@@ -1,0 +1,13 @@
+{
+  "columnDefs": [
+    {
+      "headerName": "IFSC Code",
+      "field": "bicCode",
+      "checkboxSelection": true
+    },
+    {
+      "headerName": "Payer Bank",
+      "field": "bankName"
+    }
+  ]
+}

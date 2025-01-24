@@ -1,0 +1,9 @@
+{
+  "columnDefs": [
+    { "headerName": "Invoice Amount", "field": "invoiceAmount" },
+    { "headerName": "VAT Amount", "field": "vatAmount" },
+    { "headerName": "Invoice Outstanding Amount", "field": "invoiceOutstandingAmount" },
+    { "headerName": "WHT Amount", "field": "whtAmount" },
+    { "headerName": "Payable Amount", "field": "payableAmount" }
+  ]
+}

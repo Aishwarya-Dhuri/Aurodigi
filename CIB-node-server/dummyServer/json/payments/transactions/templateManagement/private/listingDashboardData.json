@@ -1,0 +1,14 @@
+{
+  "dataMap": {
+    "chartData": [
+      { "displayName": "Pending Payments", "value": 15 },
+      { "displayName": "Authorized Payments", "value": 35 },
+      { "displayName": "Rejected Payments", "value": 23 }
+    ],
+    "cardData": {
+      "paidInvoices": "INR 5,23,23389",
+      "pendingInvoices": "INR 4,00,0000",
+      "top3BatchNoDueToday": ["4348499494", "4348495555", "4348497799"]
+    }
+  }
+}

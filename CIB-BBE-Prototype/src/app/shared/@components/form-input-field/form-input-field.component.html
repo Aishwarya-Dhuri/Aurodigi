@@ -1,0 +1,184 @@
+<div [ngClass]="{ 'input-control-rtl': direction === 'rtl' }">
+  <div
+    class="default-style"
+    [ngClass]="{
+      'bordered-style': style === 'style3' || style === 'style4',
+      'disable-floating-label': style === 'style2' || style === 'style4',
+      'no-label': !showLabel
+    }"
+  >
+    <div class="form-group">
+      <div class="input-group" [ngClass]="{ 'input-group-error': error }">
+        <!-- normal -->
+        <input
+          *ngIf="inputType === 'normal'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+        />
+        <!-- numeric -->
+        <input
+          *ngIf="inputType === 'numeric'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+          numericInput
+        />
+        <!-- alphaNumeric -->
+        <input
+          *ngIf="inputType === 'alphaNumeric'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+          alphaNumericInput
+        />
+        <!-- noSpaceAlphaNumeric -->
+        <input
+          *ngIf="inputType === 'noSpaceAlphaNumeric'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+          noSpaceInput
+          alphaNumericInput
+        />
+        <!-- noSpace -->
+        <input
+          *ngIf="inputType === 'noSpace'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+          noSpaceInput
+        />
+        <!-- currencyFormatNotZero -->
+        <input
+          *ngIf="inputType === 'currencyFormatNotZero'"
+          [id]="id + label"
+          [name]="name ? name : label"
+          class="input-control"
+          [type]="type"
+          [ngClass]="{ 'input-control-with-icon': icon }"
+          [value]="value"
+          (blur)="touched()"
+          [attr.minLength]="minLength"
+          [attr.maxLength]="maxLength"
+          (input)="changed($event)"
+          (focus)="onFocus($event)"
+          (focusout)="onFocusOut($event)"
+          (blur)="onBlur($event)"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          type="text"
+          placeholder="{{ label }}"
+          autocomplete="off"
+          currencyFormatNotZero
+        />
+
+        <label
+          class="input-label"
+          [for]="id + label"
+          [ngClass]="{ 'input-label-floating': value, 'input-label-with-icon-container': icon }"
+          *ngIf="showLabel"
+        >
+          <span class="label">
+            {{ label }}<span class="text-color-danger" *ngIf="required">*</span>
+          </span>
+        </label>
+
+        <div class="icon" *ngIf="icon">
+          <!-- <i [class]="icon"></i> -->
+          <app-icon icon="{{ icon }}" class="app-icon"></app-icon>
+        </div>
+
+        <div class="actions-wrapper">
+          <div class="action" *ngIf="showClear && value" (click)="clearInput()">
+            <!-- <i class="pi pi-times"></i> -->
+            <app-icon icon="fa-times" class="app-icon"></app-icon>
+          </div>
+          <div class="action" *ngIf="rightIcon" (click)="onRightIconClick()">
+            <!-- <i [class]="rightIcon"></i> -->
+            <app-icon icon="{{ rightIcon }}" class="app-icon"></app-icon>
+          </div>
+        </div>
+      </div>
+
+      <span *ngIf="helpText && !error" class="input-help-text">{{ helpText }}</span>
+      <!--      <span *ngIf="error" class="input-error">This field is required</span>-->
+      <span *ngIf="errorMessage" class="input-error">{{ errorMessage }}</span>
+    </div>
+  </div>
+</div>

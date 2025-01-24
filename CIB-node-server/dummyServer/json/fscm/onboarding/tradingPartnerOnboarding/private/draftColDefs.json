@@ -1,0 +1,19 @@
+[
+  {
+    "headerName": "Type",
+    "field": "type"
+  },
+  {
+    "headerName": "Customer Type",
+    "field": "customerType"
+  },
+  {
+    "headerName": "Code",
+    "field": "code"
+  },
+  {
+    "headerName": "Name",
+    "field": "name"
+  },
+  { "headerName": "Actions", "field": "actions", "cellRenderer": "actionCellRenderer" }
+]

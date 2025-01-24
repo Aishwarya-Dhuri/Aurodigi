@@ -1,0 +1,46 @@
+[
+  {
+    "headerName": "Letter Of Credit Number",
+    "field": "letterOfCreditNo"
+  },
+  {
+    "headerName": "User Reference Number",
+    "field": "corporateReferenceNo"
+  },
+  {
+    "headerName": "Applicant Name",
+    "field": "applicantName"
+  },
+  {
+    "headerName": "Beneficiary Name",
+    "field": "beneficiaryName"
+  },
+  {
+    "headerName": "Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+  {
+    "headerName": "Status",
+    "field": "status",
+    "cellRenderer": "statusRenderer"
+  },
+  {
+    "headerName": "Draft At",
+    "field": "draftAt"
+  },
+  {
+    "headerName": "LC Issue Date",
+    "field": "lcIssueDate"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "expiryDate"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false
+  }
+]

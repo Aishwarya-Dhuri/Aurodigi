@@ -1,0 +1,7 @@
+[
+  { "headerName": "MF Contract", "field": "mfContract", "checkboxSelection": true },
+  { "headerName": "Currency", "field": "currency" },
+  { "headerName": "MF Rate", "field": "mfRate" },
+  { "headerName": "O/S Amount", "field": "osAmount" },
+  { "headerName": "Utilized Amount", "field": "utilizedAmount" }
+]

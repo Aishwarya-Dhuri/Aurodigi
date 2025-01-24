@@ -1,0 +1,32 @@
+<div class="limit-bar-container">
+  <div class="utilized" [ngStyle]="{ width: utilizedInPercent + '%' }"></div>
+  <div class="available" [ngStyle]="{ width: availableInPercent + '%' }"></div>
+</div>
+
+<div class="p-pt-2 text-size-12 text-color-dark-shade-1" *ngIf="showLegend">
+  <div class="inline-block p-mr-4">
+    <div class="inline-items">
+      <div class="item p-mr-2">
+        <div class="ellipse ellipse-utilized"></div>
+      </div>
+      <div class="item p-mr-2">Utilized</div>
+      <div class="item text-semi-bold">
+        <app-base-currency [amount]="utilized"></app-base-currency>
+        <!-- <div>{{ utilized | currency: 'USD':'code' }}</div> -->
+      </div>
+    </div>
+  </div>
+  <div class="inline-block">
+    <div class="inline-items">
+      <div class="item p-mr-2">
+        <div class="ellipse ellipse-available"></div>
+      </div>
+      <div class="item p-mr-2">Available</div>
+      <div class="item text-semi-bold">
+        <app-base-currency [amount]="available"></app-base-currency>
+
+        <!-- <div>{{ available | currency: 'USD':'code' }}</div> -->
+      </div>
+    </div>
+  </div>
+</div>

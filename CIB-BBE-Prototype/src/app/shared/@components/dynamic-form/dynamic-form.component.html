@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Step 1: Grid Generation -->
+  <app-dynamic-form-grid
+    [parentRef]="this"
+    *ngIf="stepperDetails.currentStep == 1"
+  ></app-dynamic-form-grid>
+  <!-- Step 2: Review and Submit -->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 2">
+    <div class="p-col-12 p-py-3 text-bold">
+      {{ 'Review Details & Confirm' | apsTranslate }}
+    </div>
+    <div class="p-col-12 border-primary">
+      <app-dynamic-form-grid [parentRef]="this"></app-dynamic-form-grid>
+    </div>
+    <div class="p-col-12 p-my-2">
+      <app-maker-checker-detail classes="aps-card" [formData]="formData"></app-maker-checker-detail>
+    </div>
+  </div>
+  <!-- Form Actions -->
+  <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

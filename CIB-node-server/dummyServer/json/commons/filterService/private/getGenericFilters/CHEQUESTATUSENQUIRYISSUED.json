@@ -1,0 +1,121 @@
+{
+  "type": "Account-Servie-chequeStatusEnquiry",
+  "isLoggable": false,
+  "responseStatus": {
+    "message": "",
+    "status": "0"
+  },
+  "genericFilterAttributes": [
+    {
+      "name": "accountNo",
+      "displayName": "Account No",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": true,
+      "url": "setup/corporateOnboarding/corporateMain/private/accountList",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "chequeNumber",
+      "displayName": "Cheque Number",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "chequeAmount",
+      "displayName": "Cheque Amount",
+      "type": "String",
+      "fieldType": "NUMBER",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "chequeDate",
+      "displayName": "Cheque Date",
+      "type": "Date",
+      "fieldType": "DATE",
+      "mandatory": false,
+      "url": null,
+      "urlData": null,
+      "rangeFilter": true,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "status",
+      "displayName": "Status",
+      "type": "String",
+      "fieldType": "SELECT",
+      "mandatory": false,
+      "url": "accountServices/chequeServices/chequeStatusEnquiry/private/dropdown/chequeIssuedStatusDataList",
+      "urlData": {
+        "filters": []
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": null,
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    },
+    {
+      "name": "beneficiaryName",
+      "displayName": "Beneficiary Name / Payee",
+      "type": "String",
+      "fieldType": "SEARCH",
+      "mandatory": false,
+      "colDefUrl": "payments/transactions/singlePaymentRequest/private/beneficiaryWidgetColDef",
+      "rowDefUrl": "payments/masters/beneficiary/private/getAuthorizedList",
+      "urlData": {
+        "pageNumber": "1",
+        "searchType": "BENEFICIARYNAME",
+        "filters": [
+          {
+            "displayName": "lbl_",
+            "name": "parentId",
+            "type": "String",
+            "value": "",
+            "operator": null
+          }
+        ]
+      },
+      "rangeFilter": false,
+      "searchResultIndexes": "0,1",
+      "searchResultFields": "beneficiaryCode,beneficiaryName",
+      "basedOn": null,
+      "conditionalBasedOn": null,
+      "basedOnIndex": null,
+      "fillFilterName": null
+    }
+  ],
+  "suggestions": [],
+  "entity": "",
+  "entityIdentifier": ""
+}

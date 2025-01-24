@@ -1,0 +1,11 @@
+{
+  "columnDefs": [
+    { "headerName": "Batch Number", "field": "batchNumber", "cellRenderer": "linkRenderer" },
+    { "headerName": "Invoice Amount", "field": "invoiceAmount" },
+    { "headerName": "Status", "field": "status" },
+    { "headerName": "Link CN", "field": "linkCn", "cellRenderer": "linkRenderer" },
+    { "headerName": "Link DN", "field": "linkDn", "cellRenderer": "linkRenderer" },
+    { "headerName": "Total Payable", "field": "totalPayable", "cellRenderer": "linkRenderer" },
+    { "headerName": "Amount Paid", "field": "amountPaid" }
+  ]
+}

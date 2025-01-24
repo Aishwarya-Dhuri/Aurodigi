@@ -1,0 +1,27 @@
+[
+  {
+    "headerName": "LC Number",
+    "field": "letterOfCreditNumber"
+  },
+  {
+    "headerName": "LC Amount",
+    "field": "amount",
+    "cellRenderer": "currencyRenderer"
+  },
+
+  {
+    "headerName": "LC Issue Date",
+    "field": "lcIssueDate"
+  },
+  {
+    "headerName": "LC Expiry Date",
+    "field": "lcExpiryDate"
+  },
+  {
+    "headerName": "Actions",
+    "field": "actions",
+    "cellRenderer": "actionCellRenderer",
+    "sortable": false,
+    "pinned": "right"
+  }
+]

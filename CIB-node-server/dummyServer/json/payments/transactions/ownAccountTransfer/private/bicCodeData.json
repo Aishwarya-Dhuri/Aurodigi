@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "100",
+      "bicCode": "1001",
+      "bankName": "Induind Bank",
+      "branchName": "Andheri",
+      "city": "Mumbai",
+      "country": "India",
+      "routingCode": "3001"
+    },
+    {
+      "id": "101",
+      "bicCode": "1002",
+      "bankName": "Induind Bank",
+      "branchName": "Rabale",
+      "city": "Navi Mumbai",
+      "country": "India",
+      "routingCode": "4001"
+    }
+  ],
+  "lastRow": 2
+}

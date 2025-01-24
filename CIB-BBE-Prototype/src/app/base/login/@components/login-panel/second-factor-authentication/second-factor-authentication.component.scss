@@ -1,0 +1,42 @@
+.verification-mode {
+  .verification-icon {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    display: inline-block;
+    background-color: var(--primary-color-light-shade-1);
+    font-size: 1.5rem;
+  }
+
+  .verification-icon:hover {
+    border-color: var(--primary-color) !important;
+  }
+
+  .verification-label {
+    width: 3rem;
+  }
+}
+
+.verification-mode:hover {
+  color: var(--primary-color) !important;
+}
+
+.verification-active {
+  color: var(--primary-color) !important;
+  .verification-icon {
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color-light-shade-1) !important;
+  }
+}
+
+.biomatric-container {
+  .image {
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 10px;
+  }
+}
+
+.gray-scale {
+  filter: grayscale(90%);
+}

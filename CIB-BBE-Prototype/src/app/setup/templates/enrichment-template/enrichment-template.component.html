@@ -1,0 +1,230 @@
+<div class="container">
+    <div *ngIf="stepperDetails.currentStep == 1">
+        <form name="corporateProfileForm" #bankProfileForm="ngForm">
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Enrichment Template </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Enrichment Template Code' | apsTranslate"
+                                name="enrichmentCode" [(ngModel)]="formData.enrichmentCode" required="true">
+                            </aps-form-input>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <aps-form-input inputType="normal" [label]="'Enrichment Template Name' | apsTranslate"
+                                name="enrichmentName" [(ngModel)]="formData.enrichmentName" required="true">
+                            </aps-form-input>
+                        </div>
+                    </div>
+
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Module' | apsTranslate" name="module"
+                                [(ngModel)]="formData.module" [value]="formData.module"
+                                dataUrl="setup/templates/enrichmentTemplate/private/dropdown/module" [required]="true"
+                                (change)="oncChangeModule(formData.module)">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0">
+                            <aps-custom-select [label]="'Product' | apsTranslate" name="product"
+                                [(ngModel)]="formData.product" [value]="formData.product" [data]="productArrayList"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-col-12 p-md-3 p-sm-12 p-py-0" *ngIf="formData.module === 'Collection'">
+                            <aps-custom-select [label]="'Menu' | apsTranslate" name="menu" [(ngModel)]="formData.menu"
+                                [value]="formData.menu"
+                                dataUrl="setup/templates/enrichmentTemplate/private/dropdown/menu" [required]="true">
+                            </aps-custom-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-p-1">
+                    <div class="text-size-16 text-semi-bold p-p-2"> Copy From Enrichment Configuration </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-lg-3">
+                            <div class="text-size-14"> Copy From Existing Configuration</div>
+                            <div class="text-size-14">
+                                <p-radioButton class="p-pt-2" name="copyFromExistConfig" value="Yes" label="Yes"
+                                    [(ngModel)]="formData.copyFromExistConfig">
+                                </p-radioButton>
+                                <p-radioButton class="p-pt-2 p-px-3" name="copyFromExistConfig" value="No" label="No"
+                                    [(ngModel)]="formData.copyFromExistConfig">
+                                </p-radioButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-3 p-sm-12" *ngIf="formData.copyFromExistConfig === 'Yes'">
+                            <aps-custom-select [label]="'Enrichment Template' | apsTranslate" name="enrichmentTemplate"
+                                [(ngModel)]="formData.enrichmentTemplate" [value]="formData.enrichmentTemplate"
+                                dataUrl="setup/templates/enrichmentTemplate/private/dropdown/enrichmentTemplate"
+                                [required]="true">
+                            </aps-custom-select>
+                        </div>
+                        <div class="p-md-1" *ngIf="formData.copyFromExistConfig === 'Yes'">
+                            <button class="btn btn-md btn-primary p-mt-2 p-mr-3">
+                                {{ 'Copy' | apsTranslate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <app-modal [(isShow)]="showAddHeaderFields" size="md" headerText="Enrichment Mapping Details"
+                (onClose)="onCancelHeaderFieldForm()">
+                <div class="p-grid g-margin-x" body>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input name="sequenceNo" id="sequenceNo" label="Sequence Number"
+                            [(ngModel)]="headerFieldForm.sequenceNo"></aps-form-input>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input name="fieldName" id="fieldName" label="Field Name"
+                            [(ngModel)]="headerFieldForm.fieldName"></aps-form-input>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-custom-select name="dataType" id="dataType" label="Data Type"
+                            [(ngModel)]="headerFieldForm.dataType" [value]="headerFieldForm.dataType"
+                            dataUrl="setup/templates/enrichmentTemplate/private/dropdown/dataType"></aps-custom-select>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input name="dropdownValues" id="dropdownValues" label="Dropdown Values"
+                            [(ngModel)]="headerFieldForm.dropdownValues"></aps-form-input>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input name="minLength" id="minLength" label="Minimum Length"
+                            [(ngModel)]="headerFieldForm.minLength"></aps-form-input>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-py-0">
+                        <aps-form-input name="maxLength" id="maxLength" label="Maximum Length"
+                            [(ngModel)]="headerFieldForm.maxLength"></aps-form-input>
+                    </div>
+                    <div class="p-md-4 p-col-12 p-mt-1">
+                        <p-checkbox [binary]="true" id="isAllow" name="isAllow" label="Is Allow" class="p-mr-2"
+                            [(ngModel)]="headerFieldForm.isAllow" [value]="headerFieldForm.isAllow">
+                        </p-checkbox>
+                    </div>
+                </div>
+                <div class="p-grid g-margin-x" footer>
+                    <div class="p-col-12 text-right">
+                        <button class="btn btn-md btn-tertiary p-mr-3" (click)="onCancelHeaderFieldForm()">
+                            {{ 'Cancel' | apsTranslate }}
+                        </button>
+                        <button class="btn btn-md btn-primary" (click)="onAddHeaderFields()"
+                            *ngIf="headerFieldIndex == -1">
+                            {{ 'Add' | apsTranslate }}
+                        </button>
+                        <button class="btn btn-md btn-primary" (click)="onUpdateHeaderField()"
+                            *ngIf="headerFieldIndex != -1">
+                            {{ 'Update' | apsTranslate }}
+                        </button>
+                    </div>
+                </div>
+            </app-modal>
+
+            <div class="aps-card p-mb-3">
+                <div class="aps-card-header p-px-3">
+                    <div class="left-right-container">
+                        <div class="left-container aps-py-12">
+                            <div class="text-size-16 text-bold">
+                                Enrichment Mapping Details
+                            </div>
+                        </div>
+                        <div class="right-container p-py-2">
+                            <button class="btn btn-md btn-primary" (click)="showAddHeaderFields = true">
+                                {{ 'ADD' | apsTranslate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="aps-card-body p-px-2">
+                    <div class="aps-h-200 p-pt-2">
+                        <app-ag-grid-listing #headerFieldGrid
+                            colDefUrl="setup/templates/enrichmentTemplate/private/headerDetailsInitiateColDefs"
+                            [rowData]="formData.headerFields" [context]="{ componentParent: this }"
+                            [gridOptions]="gridOptions"></app-ag-grid-listing>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div *ngIf="stepperDetails.currentStep == stepperDetails.headings.length">
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Enrichment Template </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Enrichment Template Code" [value]="formData.enrichmentCode">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Enrichment Template Name" [value]="formData.enrichmentName">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Module" [value]="formData.module">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Product" [value]="formData.product">
+                        </app-review-form-field>
+                    </div>
+                    <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.module === 'Collection'">
+                        <app-review-form-field label="Menu" [value]="formData.menu">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Copy From Enrichment Configuration </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="p-grid">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Copy From Existing Configuration"
+                            [value]="formData.copyFromExistConfig">
+                        </app-review-form-field>
+                    </div>
+                </div>
+                <div class="p-grid" *ngIf="formData.copyFromExistConfig === 'Yes'">
+                    <div class="p-col-12 p-md-3 p-lg-3">
+                        <app-review-form-field label="Enrichment Template" [value]="formData.enrichmentTemplate">
+                        </app-review-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="aps-card p-mb-3">
+            <div class="aps-card-header p-p-1">
+                <div class="text-size-16 text-semi-bold p-p-2"> Enrichment Mapping Details </div>
+            </div>
+            <div class="aps-card-body p-px-2">
+                <div class="aps-h-200 p-pt-2">
+                    <app-ag-grid-listing #headerFieldGrid
+                        colDefUrl="setup/templates/enrichmentTemplate/private/headerDetailsReviewColDefs"
+                        [rowData]="formData.headerFields" [context]="{ componentParent: this }"
+                        [gridOptions]="gridOptions"></app-ag-grid-listing>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Form Actions -->
+    <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+</div>

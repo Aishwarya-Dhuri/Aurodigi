@@ -1,0 +1,7 @@
+[
+  {
+    "type": "grid",
+    "colDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/payableAmountColDefs",
+    "rowDefUrl": "fscm/process/transactionEnquiry/private/viewTransactions/paymentDetails/payableAmountRowData"
+  }
+]

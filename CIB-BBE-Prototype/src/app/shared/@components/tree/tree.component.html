@@ -1,0 +1,42 @@
+<div class="tree-container" *ngFor="let node of treeNode; let i = index">
+  <div
+    class="tree-wrapper"
+    [ngClass]="{
+      'tree-wrapper-partial-selected': background,
+      'tree-wrapper-selected': selectedNode && selectedNode.label === node.label
+    }"
+  >
+    <div class="left-right-container">
+      <div class="left-container" [style]="{ 'padding-left': 16 * childLevel + 'px' }">
+        <div class="tree-label" (click)="onLabelClick(node)">
+          {{ node.label }} {{ node.count ? '(' + node.count + ')' : '' }}
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="data" *ngIf="showData">{{ node.data }}</div>
+        <div class="icon" (click)="expandNode(!node.isExpanded, i)">
+          <app-icon
+            icon="{{ node.isExpanded ? 'fa-chevron-down' : 'fa-chevron-right' }}"
+            class="app-icon"
+          ></app-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="sub-tree-nodes"
+    [ngClass]="{ 'sub-tree-nodes-expanded': node.isExpanded }"
+    *ngIf="node.children && node.children.length > 0"
+  >
+    <app-tree
+      #subTreeNodes
+      [treeNode]="node.children"
+      [background]="true"
+      [selectedNode]="selectedNode"
+      [childLevel]="childLevel + 1"
+      (leafNodeSelected)="onLeafNodeSelected($event)"
+      (nodeLabelClicked)="onLabelClickEvent($event)"
+    ></app-tree>
+  </div>
+</div>

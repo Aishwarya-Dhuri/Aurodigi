@@ -1,0 +1,4239 @@
+[
+  {
+    "isLock": false,
+    "isFullMenu": false,
+    "icon": "fa-th-large",
+    "index": 0,
+    "moduleId": "0",
+    "moduleName": "Dashboard",
+    "menus": [
+      {
+        "id": "0",
+        "displayName": "Consolidated",
+        "enrichments": {
+          "maxwidgetCount": "5"
+        }
+      },
+      {
+        "id": "2",
+        "displayName": "Payments",
+        "enrichments": {
+          "maxwidgetCount": "5"
+        }
+      },
+      {
+        "id": "1",
+        "displayName": "Commons",
+        "enrichments": {
+          "maxwidgetCount": "5"
+        }
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-cog",
+    "index": 1,
+    "moduleId": "1",
+    "moduleName": "Setup",
+    "menus": [
+      {
+        "displayName": "General Masters",
+        "id": "1000",
+        "url": "",
+        "entityName": "CORPMASTERS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+        "menus": [
+          {
+            "displayName": "Account Wise Access",
+            "id": "1104",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountwiseaccesslist.do&type=authorized&fromMenu=Y",
+            "entityName": "ACCOUNTWISEACCESS",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "serviceUrl": "setup/generalMasters/accountWiseAccess",
+            "menuCategory": "General Master",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/generalMasters/accountWiseAccess",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Currency",
+            "id": "1002",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatebranchlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CURRENCY",
+            "serviceUrl": "commons/currencyService/",
+            "serviceUrl1": "setup/generalMasters/currency/",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/generalMasters/industry/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Listing",
+                  "url": "setup/generalMasters/industry/listing",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Product",
+            "id": "10021",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatebranchlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEPRODUCT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Portfolio",
+                  "url": "setup/generalMasters/corporate-product/portfolio",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Branch",
+            "id": "1002",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatebranchlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEBRANCH",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/commons/master/corporatebranch/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/commons/master/corporatebranch/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/commons/master/corporatebranch/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/commons/master/corporatebranch/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Branch Upload",
+            "id": "1004",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatebranchlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEBRANCH",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "#!/commons/master/corporatebranchupload/upload",
+                  "access": "DATA-ENTRY",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/commons/master/corporatebranchupload/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/commons/master/corporatebranchupload/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "originalEntity": "CORPORATEBRANCHUPLOAD",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Cluster",
+            "id": "1003",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporateclusterlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATECLUSTER",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/commons/master/corporatecluster/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/commons/master/corporatecluster/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/commons/master/corporatecluster/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/commons/master/corporatecluster/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/commons/master/corporatecluster/disable",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "masters",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Entity Enrolment",
+        "id": "5001",
+        "url": "",
+        "entityName": "EntityEnrolment",
+        "menus": [
+          {
+            "displayName": "Add Biller/Institutions",
+            "id": "110112",
+            "entityName": "ABI",
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/entity-enrollment/add-biller-instructor",
+                  "access": "INIT",
+                  "key": "ABI",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "authorization",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Security",
+        "id": "2000",
+        "url": "",
+        "entityName": "CORPSECURITY",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+        "menus": [
+          {
+            "displayName": "Role",
+            "id": "2001",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/rolelist.do&type=authorized&fromMenu=Y",
+            "entityName": "ROLE",
+            "serviceUrl": "setup/security/corporateRole",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/security/corporateRole",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/security/corporateRole/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "setup/security/corporateRole/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/security/corporateRole/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "setup/security/corporateRole/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Security Mapping",
+            "id": "1902",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatesecuritymappinglist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATESECURITYMAPPING",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/commons/security/corporateSecurity/pendingAuthorization",
+                  "access": "AUTHORIZE",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/commons/security/corporateSecurity/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/commons/security/corporateSecurity/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/commons/security/corporateSecurity/disabled",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Authorization Matrix",
+            "id": "2002",
+            "url": "",
+            "entityName": "CORPORATEAUTHORIZATIONMATRIX",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Security",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/security/corporateAuthorizationMatrix",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/setup/corporateauthorizationmatrix/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/setup/corporateauthorizationmatrix/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/setup/corporateauthorizationmatrix/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/setup/corporateauthorizationmatrix/disable",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate Profile",
+            "id": "2402",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporateprofilelist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEPROFILE",
+            "serviceUrl": "setup/security/corporateProfile",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/security/corporateProfile",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/security/corporateProfile/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "setup/security/corporateProfile/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/security/corporateProfile/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "setup/security/corporateProfile/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate User",
+            "id": "2401",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporateuserlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEUSER",
+            "serviceUrl": "setup/security/corporateUser",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/security/corporateUser",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/security/corporateUser/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "setup/security/corporateUser/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/security/corporateUser/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "setup/security/corporateUser/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "User Upload",
+            "id": "2408",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporateuserlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEUSER",
+            "serviceUrl": "setup/security/userUpload",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "setup/security/userUpload",
+                  "access": "DATA-ENTRY",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/security/userUpload/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/security/userUpload/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "originalEntity": "CORPORATEUSERUPLOAD",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "User Access Management",
+            "id": "2406",
+            "url": "/toModule.do?prefix=/jsp/Commons/Security&page=/useraccessmanagementforcorpuser.do&method=show&fromMenu=Y",
+            "entityName": "USERACCESSMANAGEMENT",
+            "access": ["EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/security/user-access-management",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "security-New",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Process",
+        "id": "6000",
+        "url": "",
+        "entityName": "PROCESS",
+        "access": ["EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Query Builder",
+            "id": "6002",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Execute",
+                  "url": "#!/commons/process/querybuilder",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "6003",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "setup/process/authorizationDashboard",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "process",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-money-bill",
+    "index": 2,
+    "moduleId": "2",
+    "moduleName": "Payments",
+    "menus": [
+      {
+        "displayName": "Masters",
+        "id": "1000",
+        "url": "",
+        "entityName": "MASTERS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Account Alias Name",
+            "id": "1103",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corporateaccountaliaslist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEACCOUNTALIAS",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "General Master",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/master/accountaliasname/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/master/accountaliasname/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/master/accountaliasname/rejected",
+                  "access": "",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Account Wise Access",
+            "id": "1104",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountwiseaccesslist.do&type=authorized&fromMenu=Y",
+            "entityName": "ACCOUNTWISEACCESS",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "serviceUrl": "payments/masters/accountWiseAccess",
+            "menuCategory": "General Master",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "setup/generalMasters/accountWiseAccess",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "setup/generalMasters/accountWiseAccess/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Beneficiary",
+            "id": "1101",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/beneficiarylist.do&type=authorized&fromMenu=Y",
+            "entityName": "BENEFICIARY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "General Master",
+            "serviceUrl": "payments/masters/beneficiary",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/masters/beneficiary",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/masters/beneficiary/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/masters/beneficiary/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/masters/beneficiary/listing#REJECTLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "payments/masters/beneficiary/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Beneficiary Upload",
+            "id": "11011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/beneficiarylist.do&type=authorized&fromMenu=Y",
+            "entityName": "BENEFICIARYUPLOAD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "General Master",
+            "serviceUrl": "payments/masters/beneficiaryUpload",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "payments/masters/beneficiaryUpload",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/masters/beneficiaryUpload/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/masters/beneficiaryUpload/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/masters/beneficiaryUpload/listing#REJECTLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "payments/masters/beneficiaryUpload/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Corporate User Limit",
+            "id": "1108",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corporatelimitlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEUSERLIMIT",
+            "access": ["VIEW"],
+            "menuCategory": "General Master",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "#!/paypro/master/corporateUserlimit/view",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "MT Registration",
+            "id": "1510",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corpmt9xregistrationlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPMT9XREGISTRATION",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "General Master",
+            "serviceUrl": "payments/masters/mtRegistration",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/masters/mtRegistration",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/masters/mtRegistration/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/masters/mtRegistration/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/masters/mtRegistration/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "payments/masters/mtRegistration/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "masters",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Transactions",
+        "id": "3000",
+        "url": "",
+        "entityName": "TRANSACTIONS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Own Account Transfer",
+            "id": "3027",
+            "url": "",
+            "entityName": "BOWNACCOUNTTRANSFER",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "serviceUrl": "payments/transactions/ownAccountTransfer",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/ownAccountTransfer",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/ownAccountTransfer/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/ownAccountTransfer/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/ownAccountTransfer/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Bank Rejected List",
+                  "url": "payments/transactions/ownAccountTransfer/listing#BANKREJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "BANKREJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Fund Transfer",
+            "id": "3012",
+            "url": "",
+            "entityName": "BSINGLEPAYMENTREQUEST",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "serviceUrl": "payments/transactions/singlePaymentRequest",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/singlePaymentRequest",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/singlePaymentRequest/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/singlePaymentRequest/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/singlePaymentRequest/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Bank Rejected List",
+                  "url": "payments/transactions/singlePaymentRequest/listing#BANKREJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "BANKREJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Bulk Payment Request",
+            "id": "3011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/bbulkpaymentrequestlist.do&type=unauthorized&fromMenu=Y",
+            "entityName": "BBULKPAYMENTREQUEST",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "serviceUrl": "payments/transactions/bulkPaymentRequest",
+
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/bulkPaymentRequest",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/bulkPaymentRequest/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/bulkPaymentRequest/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/bulkPaymentRequest/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Bank Rejected List",
+                  "url": "payments/transactions/bulkPaymentRequest/listing#BANKREJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "BANKREJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Statutory Payment Request",
+            "id": "30111",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/bbulkpaymentrequestlist.do&type=unauthorized&fromMenu=Y",
+            "entityName": "STATUTORYPAYMENTREQUEST",
+            "serviceUrl": "payments/transactions/statutoryPayment",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/statutoryPayment/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "View",
+                  "url": "payments/transactions/statutoryPayment",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "VIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/statutoryPayment/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/statutoryPayment/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/statutoryPayment/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Cancel Payment Request",
+            "id": "3003",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/cancelpaymentrequestlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CANCELPAYMENTREQUEST",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Transactions",
+            "serviceUrl": "payments/transactions/cancelPaymentRequest",
+
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/cancelPaymentRequest",
+                  "access": "VIEW",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/cancelPaymentRequest/listing#REVIRELIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/cancelPaymentRequest/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Cancelled List",
+                  "url": "payments/transactions/cancelPaymentRequest/listing#CANCELLEDLIST",
+                  "access": "VIEW",
+                  "key": "CANCELLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/cancelPaymentRequest/listing#REJECTLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "WPS Payment",
+            "id": "30123",
+            "url": "",
+            "entityName": "WPSPAYMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "serviceUrl": "payments/transactions/wpsPayment",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/wpsPayment",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/transactions/wpsPayment/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/transactions/wpsPayment/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/transactions/wpsPayment/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+
+          {
+            "displayName": "Send to Bank",
+            "id": "3004",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/sendtobanklist.do&type=authorized&method=getSendToBankContent&fromMenu=Y",
+            "entityName": "SENDTOBANK",
+            "access": ["AUTHORIZE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "payments/transactions/sendToBank/initiate",
+                  "access": "AUTHORIZE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Action",
+                  "url": "payments/transactions/sendToBank/action",
+                  "access": "AUTHORIZE",
+                  "key": "ACTIONLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "SI Management",
+            "id": "3025",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/sitemplatelist.do&modelType=SI&type=authorized&fromMenu=Y",
+            "entityName": "SIMANAGEMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/simgmt/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/simgmt/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/simgmt/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/simgmt/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/paypro/transaction/simgmt/disable",
+                  "access": "VIEW",
+                  "key": "DISABLELIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "OAT Template Management",
+            "id": "3028",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/ownaccounttransferlist.do&type=unauthorized&fromMenu=Y",
+            "entityName": "OATTEMPLATEMANAGEMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/ownaccounttransfertemplates/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/ownaccounttransfertemplates/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/ownaccounttransfertemplates/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/ownaccounttransfertemplates/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/paypro/transaction/ownaccounttransfertemplates/disable",
+                  "access": "VIEW",
+                  "key": "DISABLELIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "OAT SI Management",
+            "id": "3029",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/ownaccounttransferlist.do&type=unauthorized&fromMenu=Y",
+            "entityName": "OATSIMANAGEMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/ownaccounttransfersimanagement/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/ownaccounttransfersimanagement/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/ownaccounttransfersimanagement/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/ownaccounttransfersimanagement/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/paypro/transaction/ownaccounttransfersimanagement/disable",
+                  "access": "VIEW",
+                  "key": "DISABLELIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Template Management",
+            "id": "3024",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/sitemplatelist.do&modelType=TEMPLATE&type=authorized&fromMenu=Y",
+            "entityName": "TEMPLATEMANAGEMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/templatemgmt/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/templatemgmt/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/templatemgmt/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/templatemgmt/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/paypro/transaction/templatemgmt/disable",
+                  "access": "VIEW",
+                  "key": "DISABLELIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "H2H Upload Log",
+            "id": "3023",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/h2huploadloglist.do&type=authorized&fromMenu=Y",
+            "entityName": "H2HUPLOADLOG",
+            "access": ["VIEW", "DATA-ENTRY", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Report List",
+                  "url": "payments/transactions/fil-upload-log",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "H2H Report",
+            "id": "3026",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/h2hreportlist.do&type=authorized&fromMenu=Y",
+            "entityName": "H2HREPORT",
+            "access": ["VIEW", "DATA-ENTRY", "EXECUTE"],
+            "menuCategory": "Transactions",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Report List",
+                  "url": "#!/paypro/transaction/h2hreport",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "transaction",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Bill Payment",
+        "id": "4011",
+        "entityName": "BILLS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Biller Registration",
+            "id": "40190",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/billerregistrationlist.do&type=authorized&fromMenu=Y",
+            "entityName": "BILLERREGISTRATION",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Biller",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "/payments/billPayments/billerRegistration",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "/payments/billPayments/billerRegistration",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "/payments/billPayments/billerRegistration/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "/payments/billPayments/billerRegistration/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "/payments/billPayments/billerRegistration/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "/payments/billPayments/billerRegistration/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLELIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Biller Registration Upload",
+            "id": "4019",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/billerregistrationlist.do&type=authorized&fromMenu=Y",
+            "entityName": "BILLERREGISTRATION",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Biller",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "/payments/billPayments/billerRegistrationUpload",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "payments/billPayments/billerRegistrationUpload",
+                  "access": "DATA-ENTRY",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/billPayments/billerRegistrationUpload/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/billPayments/billerRegistrationUpload/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Subscriber Confirmation",
+            "id": "1107",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/subscriberconfirmationlist.do&type=unauthorized&fromMenu=Y",
+            "entityName": "SUBSCRIBERCONFIRMATION",
+            "access": ["VIEW", "AUTHORIZE"],
+            "menuCategory": "Biller",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/master/subscriberconfirm/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/master/subscriberconfirm/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/master/subscriberconfirm/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Unregistered Bill Payment",
+            "id": "40121",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "BILLPAYMENT",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "serviceUrl": "payments/billPayments/unregisteredBillPayment",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "/payments/billPayments/unregisteredBillPayment",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Pay Bill",
+            "id": "400121",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "BILLPAYMENT",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "serviceUrl": "/payments/billPayments/payBill",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Registered Bills",
+                  "url": "/payments/billPayments/billPayment",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "payments/billPayments/payBill/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "payments/billPayments/payBill/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "payments/billPayments/payBill/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Bill Presentment",
+            "id": "4016",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/billuploadlist.do&type=authorized&fromMenu=Y",
+            "entityName": "BILLUPLOAD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Biller",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/billPresentment/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/billPresentment/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/billPresentment/pendingAuthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/billPresentment/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Bill Payment Upload",
+            "id": "4018",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/billpaymentuploadlist.do&type=authorized&fromMenu=Y",
+            "entityName": "BILLPAYMENTUPLOAD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Biller",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/billpaymentupload/initiate",
+                  "access": "DATA-ENTRY",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/billpaymentupload/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/billpaymentupload/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/billpaymentupload/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Bill Payment History",
+            "id": "4022",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/billpaymenthistorylist.do&type=authorized&fromMenu=Y",
+            "entityName": "BILLPAYMENTHISTORY",
+            "access": ["VIEW"],
+            "menuCategory": "Biller",
+            "serviceUrl": "/payments/billPayments/billPaymentHistory",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Search",
+                  "url": "/payments/billPayments/billPaymentHistory",
+                  "access": "VIEW",
+                  "key": "SEARCH",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa fa-list-alt",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Security",
+        "id": "2000",
+        "url": "",
+        "entityName": "SECURITYMANAGEMENT",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Corporate Authorization Matrix",
+            "id": "2002",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corporateauthorizationmatrixlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEAUTHORIZATIONMATRIX",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE"],
+            "menuCategory": "Security",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/security/corporateauthorizationmatrix/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/security/corporateauthorizationmatrix/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/security/corporateauthorizationmatrix/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/security/corporateauthorizationmatrix/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "#!/paypro/security/corporateauthorizationmatrix/disable",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "security-New",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Printing",
+        "id": "9000",
+        "url": "",
+        "entityName": "PRINTING",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Cheque Reprinting Authorization",
+            "id": "9011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corpreprintingauthlist.do&method=showSearchForm&fromMenu=Y",
+            "entityName": "CORPREPRINTINGAUTH",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Printing",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/chequeReprinting/initiate",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/chequeReprinting/pendingAuthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "T",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Printing & Reconcile",
+            "id": "9002",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/ccprintinglist.do&type=authorized&fromMenu=Y",
+            "entityName": "CCPRINTING-CORPRECONCILEPRINTING",
+            "entityId": "0",
+            "access": ["EXECUTE"],
+            "menuCategory": "Printing",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/printing/reconcilePrinting/initiate",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "printing",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Inventory Management",
+        "id": "11000",
+        "url": "",
+        "entityName": "CORPINVENTORY",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Inventory",
+            "id": "11004",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/acceptfromhublist.do&type=authorized&fromMenu=Y",
+            "entityName": "INVENTORY-MANAGEMENT",
+            "entityId": "0",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Inventory",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate / Accept",
+                  "url": "#!/payments/inventorymanagement/initiate",
+                  "access": "",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "inventory_management",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Process",
+        "id": "6000",
+        "url": "",
+        "entityName": "PROCESS",
+        "access": ["EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Transaction Query",
+            "id": "6003",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Process&page=/instrumentquery.do&method=show&fromMenu=Y",
+            "entityName": "INSTRUMENTQUERY",
+            "access": ["EXECUTE"],
+            "menuCategory": "Process",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Query",
+                  "url": "payments/process/transactionEnquiry",
+                  "access": "EXECUTE",
+                  "key": "QUERY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Query Builder",
+            "id": "6012",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["EXECUTE"],
+            "menuCategory": "Process",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Execute",
+                  "url": "#!/paypro/process/querybuilder",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "6013",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "payments/process/authorizationDashboard",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "process",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-compass",
+    "index": 6,
+    "moduleName": "FSCM",
+    "moduleId": "6",
+    "menus": [
+      {
+        "displayName": "Onboarding",
+        "id": "4000",
+        "url": "",
+        "entityName": "Onboarding",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Trading Partner Onboarding",
+            "id": "4001",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "TradingPartnerOnboarding",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "fscm/onboarding/tradingPartnerOnboarding",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "fscm/onboarding/tradingPartnerOnboarding",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "fscm/onboarding/tradingPartnerOnboarding/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "fscm/onboarding/tradingPartnerOnboarding/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "fscm/onboarding/tradingPartnerOnboarding/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "fscm/onboarding/tradingPartnerOnboarding/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ]
+      },
+      {
+        "displayName": "Transactions",
+        "id": "5000",
+        "url": "",
+        "entityName": "TRASACTIONS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Invoice Entry",
+            "id": "5004",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "INVOICEENTRY",
+            "serviceUrl": "fscm/transactions/invoiceEntry",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "fscm/transactions/invoiceEntry",
+                  "access": "INIT",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "fscm/transactions/invoiceEntry/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "fscm/transactions/invoiceEntry/listing##REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "fscm/transactions/invoiceEntry/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Invoice Upload",
+            "id": "5003",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "INVOICEUPLOAD",
+            "serviceUrl": "fscm/transactions/invoiceUpload",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "fscm/transactions/invoiceUpload",
+                  "access": "INIT",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "fscm/transactions/invoiceUpload/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "fscm/transactions/invoiceUpload/listing##REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "fscm/transactions/invoiceUpload/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Invoice Payment/Apply Finance",
+            "id": "5001",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "INVOICEPAYMENTAPPLYFINANCE",
+            "serviceUrl": "fscm/transactions/invoicePaymentApplyFinance",
+            "access": ["VIEW"],
+            "menuCategory": "Transactions",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance",
+                  "access": "INIT",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "IP - Pending Authorization List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#IPPENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "IP - Review List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#IPREVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "IP - Rejected List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#IPREJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "AF - Pending Authorization List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#AFPENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "AF - Review List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#AFREVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "AF - Rejected List",
+                  "url": "fscm/transactions/invoicePaymentApplyFinance/listing#AFREJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Finance Repayment",
+            "id": "5002",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "FINANCEREPAYMENT",
+            "serviceUrl": "fscm/transactions/financeRepayment",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "fscm/transactions/financeRepayment",
+                  "access": "INIT",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "fscm/transactions/financeRepayment/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "fscm/transactions/financeRepayment/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "fscm/transactions/financeRepayment/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ]
+      },
+      {
+        "displayName": "Process",
+        "id": "4010",
+        "url": "",
+        "entityName": "Onboarding",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Transaction Enquiry",
+            "id": "4011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "TradingPartnerOnboarding",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "fscm/process/transactionEnquiry",
+                  "access": "INIT",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "6003",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "fscm/process/authorizationDashboard",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-user",
+    "index": 3,
+    "moduleName": "Account Services",
+    "moduleId": "13",
+    "menus": [
+      {
+        "displayName": "Services",
+        "id": "4000",
+        "url": "",
+        "entityName": "ACCOUNTSERVICES",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Account Summary",
+            "id": "4001",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "ACCOUNTSUMMARY",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "accountServices/services/accountSummary",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "accountServices/services/accountSummary",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Credit Line Summary",
+            "id": "4011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "CREDITLINESUMMARY",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "accountServices/services/creditLineSummary",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "accountServices/services/creditLineSummary",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Service Request",
+            "id": "40011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "SERVICEREQUEST",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "accountServices/services/serviceRequest",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "accountServices/services/serviceRequest/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Listing",
+                  "url": "accountServices/services/serviceRequest/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Wealth Management",
+            "id": "400011",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "WEALTHMANAGEMENT",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "accountServices/services/wealthManagement",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "accountServices/services/wealthManagement",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Cashflow Forecast",
+            "id": "400021",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "WEALTHMANAGEMENT",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "accountServices/services/cashflowForecast",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Summary",
+                  "url": "accountServices/services/cashflowForecast",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Account Statement",
+            "id": "4002",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Masters&page=/accountstatementdownload.do&method=showPage&fromMenu=Y",
+            "entityName": "ACCOUNTSTATEMENT",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "account-services/services/account-statement",
+                  "access": "VIEW",
+                  "key": "VIEWSTATEMENT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Historical Account Statement",
+            "id": "4000",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Masters&page=/accountstatementdownload.do&method=showPage&fromMenu=Y",
+            "entityName": "HISTORICALACCOUNTSTATEMENT",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "account-services/services/historical-account-statement",
+                  "access": "VIEW",
+                  "key": "VIEWSTATEMENT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Rates And Foreign Exchange",
+            "id": "4003",
+            "url": "",
+            "entityName": "RATESANDFOREIGNEXCHANGE",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "News Flash",
+                  "url": "#!/ratesandforeignexchange/newsflash",
+                  "access": "VIEW",
+                  "key": "NEWSFLASH",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Outstanding Transaction Summary",
+                  "url": "#!/ratesandforeignexchange/outstandingtransactionsummary",
+                  "access": "VIEW",
+                  "key": "OUTSTANDINGTRANSACTIONSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Leasing Summary",
+            "id": "4004",
+            "url": "",
+            "entityName": "LEASINGSUMMARY",
+            "access": ["VIEW"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "#!/leasingsummary",
+                  "access": "VIEW",
+                  "key": "LEASINGSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa fa-credit-card",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Credit Card",
+        "id": "14000",
+        "url": "",
+        "entityName": "CREDITCARD",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Credit Card Summary",
+            "id": "140020",
+            "url": "",
+            "entityName": "CREDITCARDSUMMARY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "account-services/credit-card/credit-card-summary",
+                  "access": "VIEW",
+                  "key": "VIEW",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Statement Download",
+            "id": "140022",
+            "url": "",
+            "entityName": "CREDITCARDSTATEMENT",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Download",
+                  "url": "account-services/credit-card/credit-card-statement-download",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Credit Card Bill Payment",
+            "id": "140023",
+            "url": "",
+            "entityName": "CREDITCARDBILLPAYMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/credit-card-bill-payment",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/credit-card/credit-card-bill-payment",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/credit-card-bill-payment/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/credit-card-bill-payment/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/credit-card-bill-payment/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Block Card",
+            "id": "140024",
+            "url": "",
+            "entityName": "BLOCKCREDITCARD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/block-credit-card",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/credit-card/block-credit-card",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/block-credit-card/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/block-credit-card/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/block-credit-card/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Unblock Card",
+            "id": "140025",
+            "url": "",
+            "entityName": "UNBLOCKCREDITCARD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/unblock-credit-card",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/credit-card/unblock-credit-card",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/unblock-credit-card/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/unblock-credit-card/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/unblock-credit-card/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Upgrade Limit",
+            "id": "140026",
+            "url": "",
+            "entityName": "CREDITCARDUPGRADELIMIT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/credit-card-upgrade-limit",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/credit-card/credit-card-upgrade-limit",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/credit-card-upgrade-limit/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/credit-card-upgrade-limit/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/credit-card-upgrade-limit/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Manage Auto Pay (Standing Instructions)",
+            "id": "140027",
+            "url": "",
+            "entityName": "CREDITCARDAUTOPAY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/manage-auto-pay",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/manage-auto-pay/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/manage-auto-pay/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/manage-auto-pay/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Change PIN",
+            "id": "140028",
+            "url": "",
+            "entityName": "CREDITCARDCHANGEPIN",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "serviceUrl": "account-services/credit-card/credit-card-change-pin",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/credit-card/credit-card-change-pin",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Set Card Controls / Usage Limits",
+            "id": "140029",
+            "url": "",
+            "entityName": "CREDITCARDBILLPAYMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "serviceUrl": "account-services/credit-card/credit-card-controls",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/credit-card/credit-card-controls/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/credit-card/credit-card-controls/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/credit-card/credit-card-controls/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa fa-credit-card",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Debit Card",
+        "id": "14050",
+        "url": "",
+        "entityName": "DEBITCARD",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Debit Card Summary",
+            "id": "140032",
+            "url": "",
+            "entityName": "DEBITCARDSUMMARY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "#!/paypro/transaction/debitcard/debitcardsummary",
+                  "access": "VIEW",
+                  "key": "VIEW",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Debit Card Statement",
+            "id": "140031",
+            "url": "",
+            "entityName": "DEBITCARDSTATEMENT",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Download",
+                  "url": "#!/paypro/transaction/debitcard/debitcardstatement/statementdownload",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Debit Card Bill Payment",
+            "id": "140033",
+            "url": "",
+            "entityName": "DEBITCARDBILLPAYMENT",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/paypro/transaction/debitcard/billpayment/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "#!/paypro/transaction/debitcard/billpayment/pendingauthorization",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "#!/paypro/transaction/debitcard/billpayment/review",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "#!/paypro/transaction/debitcard/billpayment/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa    fa-credit-card",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Cheque Services",
+        "id": "4004",
+        "entityName": "CHEQUESERVICES",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+        "menus": [
+          {
+            "displayName": "Cheque Status Inquiry",
+            "id": "4007",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Transactions&page=/chequestatusenquiry.do&method=showSearchForm&fromMenu=Y",
+            "entityName": "CHEQUESTATUSINQUIRY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Query",
+                  "url": "account-services/services/cheque-status-enquiry",
+                  "access": "VIEW",
+                  "key": "ENQUIRY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Cheque Book Request",
+            "id": "4008",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Transactions&page=/chequestatusenquiry.do&method=showSearchForm&fromMenu=Y",
+            "entityName": "CHEQUEBOOKREQUEST",
+            "serviceUrl": "account-services/services/cheque-book-request",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/services/cheque-book-request",
+                  "access": "VIEW",
+                  "key": "ENQUIRY",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/services/cheque-book-request/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/services/cheque-book-request/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/services/cheque-book-request/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "account-services/services/cheque-book-request/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Stop Pay / Revoke",
+            "id": "4009",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Transactions&page=/chequestatusenquiry.do&method=showSearchForm&fromMenu=Y",
+            "entityName": "STOPPPAYREVOKE",
+            "serviceUrl": "account-services/services/stop-pay-revoke",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "account-services/services/stop-pay-revoke",
+                  "access": "VIEW",
+                  "key": "ENQUIRY",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "account-services/services/stop-pay-revoke/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "account-services/services/stop-pay-revoke/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEWLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "account-services/services/stop-pay-revoke/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled List",
+                  "url": "account-services/services/stop-pay-revoke/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa fa-list-alt",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Fixed Deposit",
+        "id": "4030",
+        "entityName": "FIXEDDEPOSITPLACEMENT",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "FD Placement",
+            "id": "4031",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/fixeddepositplacementlist.do&type=authorized&fromMenu=Y",
+            "entityName": "FIXEDDEPOSITPLACEMENT",
+            "serviceUrl": "/account-services/fixed-deposit/fd-initiation",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Deposit",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "/account-services/fixed-deposit/fd-initiation",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "/account-services/fixed-deposit/fd-initiation/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "/account-services/fixed-deposit/fd-initiation/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "/account-services/fixed-deposit/fd-initiation/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "FD Summary",
+            "id": "4033",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/accountsummary.do&method=showAccSummary&fromMenu=Y",
+            "entityName": "FIXEDDEPOSITPLACEMENTSUMMARY",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "/account-services/fixed-deposit/fd-summary",
+                  "access": "VIEW",
+                  "key": "VIEWSUMMARY",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Early Redemption",
+            "id": "4032",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/fixeddepositliquidationlist.do&type=authorized&fromMenu=Y",
+            "entityName": "EARLYREDEMPTION",
+            "serviceUrl": "/account-services/fixed-deposit/early-redemption",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Deposit",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "/account-services/fixed-deposit/early-redemption",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "/account-services/fixed-deposit/early-redemption/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "/account-services/fixed-deposit/early-redemption/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "/account-services/fixed-deposit/early-redemption/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Maturity Instructions",
+            "id": "4034",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/fixeddepositplacementlist.do&type=authorized&fromMenu=Y",
+            "entityName": "FIXEDDEPOSITPLACEMENT",
+            "serviceUrl": "/account-services/fixed-deposit/maturity-instructions",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Deposit",
+            "showAccountServicesOnly": "Y",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "/account-services/fixed-deposit/maturity-instructions",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "/account-services/fixed-deposit/maturity-instructions/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "/account-services/fixed-deposit/maturity-instructions/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "/account-services/fixed-deposit/maturity-instructions/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "fa fa-rupee",
+        "menuCategory": "Other",
+        "showAccountServicesOnly": "Y",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Process",
+        "id": "6000",
+        "url": "",
+        "entityName": "PROCESS",
+        "access": ["EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "6003",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "accountServices/process/authorizationDashboard",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "faIcon": "process",
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-briefcase",
+    "index": 10,
+    "moduleId": 10,
+    "moduleName": "VAM",
+    "menus": [
+      {
+        "displayName": "VAM Setup",
+        "id": "19098",
+        "url": "",
+        "entityName": "CORPORATESETUP",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Corporate VA Structure",
+            "id": "19011",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corporatevastructurelist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPORATEVASTRUCTURE",
+            "serviceUrl": "vam/vamSetup/corporateVAStructure",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "vam/vamSetup/corporateVAStructure",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review List",
+                  "url": "vam/vamSetup/corporateVAStructure/listing#REVIEWLIST",
+                  "access": "VIEW",
+                  "key": "REVIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization List",
+                  "url": "vam/vamSetup/corporateVAStructure/listing#PENDINGLIST",
+                  "access": "VIEW",
+                  "key": "PENDINGAUTH",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected List",
+                  "url": "vam/vamSetup/corporateVAStructure/listing#REJECTEDLIST",
+                  "access": "VIEW",
+                  "key": "REJECTED",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Disabled",
+                  "url": "vam/vamSetup/corporateVAStructure/listing#DISABLEDLIST",
+                  "access": "VIEW",
+                  "key": "DISABLED",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "isCorporateEnable": "false",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Virtual Account Issuance",
+            "id": "19012",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/virtualaccountissuancelist.do&type=authorized&fromMenu=Y",
+            "entityName": "VIRTUALACCOUNTISSUANCE",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Review",
+                  "url": "#!/vam/virtualAccountIssuance/review",
+                  "access": "VIEW",
+                  "key": "REVIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization",
+                  "url": "#!/vam/virtualAccountIssuance/pending",
+                  "access": "VIEW",
+                  "key": "PENDINGAUTH",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected",
+                  "url": "#!/vam/virtualAccountIssuance/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTED",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "virtualAccountIssuanceService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Virtual Account Issuance Upload",
+            "id": "19013",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/virtualaccountissuanceuploadlist.do&type=authorized&fromMenu=Y",
+            "entityName": "VIRTUALACCOUNTISSUANCEUPLOAD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Upload",
+                  "url": "#!/vam/virtualAccountIssuanceUpload/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review",
+                  "url": "#!/vam/virtualAccountIssuanceUpload/review",
+                  "access": "VIEW",
+                  "key": "REVIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization",
+                  "url": "#!/vam/virtualAccountIssuanceUpload/pending",
+                  "access": "VIEW",
+                  "key": "PENDINGAUTH",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected",
+                  "url": "#!/vam/virtualAccountIssuanceUpload/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTED",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "virtualAccountIssuanceUploadService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Account Wise Access",
+            "id": "19014",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/accountwiseaccesslist.do&type=authorized&fromMenu=Y",
+            "entityName": "ACCOUNTWISEACCESS",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Initiate",
+                  "url": "#!/vam/accountWiseAccess/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review",
+                  "url": "#!/vam/accountWiseAccess/review",
+                  "access": "VIEW",
+                  "key": "REVIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization",
+                  "url": "#!/vam/accountWiseAccess/pending",
+                  "access": "VIEW",
+                  "key": "PENDINGAUTH",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Rejected",
+                  "url": "#!/vam/accountWiseAccess/rejected",
+                  "access": "VIEW",
+                  "key": "REJECTED",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "virtualAccountWiseAccessService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "menuCategory": "Other",
+        "serviceUrl": "",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Process",
+        "id": "19097",
+        "url": "",
+        "entityName": "PROCESS",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "19021",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/authorizationdashboardlist.do&type=authorized&fromMenu=Y",
+            "entityName": "AUTHORIZATIONDASHBOARD",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Enquiry",
+                  "url": "#!/vam/authorizationDashboard/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "authorizationDashboardService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Virtual Account Status Management",
+            "id": "19022",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/virtualaccountstatusmarkinglist.do&type=authorized&fromMenu=Y",
+            "entityName": "VIRTUALACCOUNTSTATUSMARKING",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Enquiry",
+                  "url": "#!/vam/virtualAccountStatusMarking/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Review",
+                  "url": "#!/vam/virtualAccountStatusMarking/review",
+                  "access": "VIEW",
+                  "key": "REVIEW",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Pending Authorization",
+                  "url": "#!/vam/virtualAccountStatusMarking/pending",
+                  "access": "VIEW",
+                  "key": "PENDINGAUTH",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "virtualAccountStatusMarkingService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "VAM Enquiry",
+            "id": "19023",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/vamenquirylist.do&type=authorized&fromMenu=Y",
+            "entityName": "VAMENQUIRY",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Enquiry",
+                  "url": "#!/vam/vamEnquiry/initiate",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "vamEnquiryService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Query Builder",
+            "id": "19025",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/querybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "QUERYBUILDER",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Execute",
+                  "url": "#!/vam/queryBuilder/initiate",
+                  "access": "VIEW",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "queryBuilderService",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Authorization Dashboard",
+            "id": "6003",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/corpquerybuilderlist.do&type=authorized&fromMenu=Y",
+            "entityName": "CORPQUERYBUILDER",
+            "access": ["VIEW", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "View",
+                  "url": "vam/process/authorizationDashboard",
+                  "access": "EXECUTE",
+                  "key": null,
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "menuCategory": "Other",
+        "serviceUrl": "",
+        "allowCorporateVsGroup": "false"
+      }
+    ]
+  },
+  {
+    "isLock": false,
+    "isFullMenu": true,
+    "icon": "fa-chart-bar",
+    "index": 4,
+    "moduleId": "4",
+    "moduleName": "Reports",
+    "menus": [
+      {
+        "displayName": "Setup",
+        "id": "8000",
+        "url": "/menu.do?method=switchProductForReport&fromMenu=Y",
+        "entityName": "REPORTS",
+        "reportServicesOnly": "Y",
+        "access": ["EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Audit Trail Report",
+            "id": "8001",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/audittrailreportlist.do&type=authorized&reportType=commons&fromMenu=Y",
+            "entityName": "AUDITTRAILREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["EXECUTE"],
+            "menuCategory": "Other",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/setup/audit/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/setup/audit",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Generic Reports",
+            "id": "50126",
+            "entityName": "GENERICREPORT",
+            "reportServicesOnly": "Y",
+            "menuCategory": "Report",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/setup/generic/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/setup/generic",
+                  "access": "VIEW",
+                  "key": "PENDINGLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Master Report",
+            "id": "50421",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/mastermenureportlist.do&type=authorized&fromMenu=Y",
+            "entityName": "MASTERMENUREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["EXECUTE"],
+            "menuCategory": "Other",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/setup/master/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/setup/master",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "Payments",
+        "id": "5000",
+        "url": "/menu.do?method=switchProductForReport&fromMenu=Y",
+        "entityName": "CORPORATEREPORTS",
+        "reportServicesOnly": "Y",
+        "access": ["EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Audit Trail Report",
+            "id": "5041",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/audittrailreportlist.do&type=authorized&reportType=payments&fromMenu=Y",
+            "entityName": "AUDITTRAILREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["EXECUTE"],
+            "menuCategory": "Report",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/payments/audit/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/payments/audit",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Generic Reports",
+            "id": "50127",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/genericreportlist.do&type=authorized&reportType=payments&fromMenu=Y",
+            "entityName": "GENERICREPORT",
+            "reportServicesOnly": "Y",
+            "menuCategory": "Report",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/payments/generic/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/payments/generic",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Master Report",
+            "id": "50557",
+            "url": "/toModule.do?prefix=/jsp/PayPro/Commons&page=/mastermenureportlist.do&type=authorized&fromMenu=Y",
+            "entityName": "MASTERMENUREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["EXECUTE"],
+            "menuCategory": "Report",
+            "serviceUrl": "reports/services",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/payments/master/initiate/0",
+                  "access": "EXECUTE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/payments/master",
+                  "access": "EXECUTE",
+                  "key": "AUTHORIZEDLIST",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "menuCategory": "Other",
+        "allowCorporateVsGroup": "false"
+      },
+      {
+        "displayName": "VAM",
+        "id": "19096",
+        "url": "",
+        "entityName": "REPORTS",
+        "reportServicesOnly": "Y",
+        "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+        "menus": [
+          {
+            "displayName": "Audit Trail Report",
+            "id": "19032",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/audittrail.do&type=authorized&fromMenu=Y",
+            "entityName": "AUDITTRAIL",
+            "reportServicesOnly": "Y",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/vam/audit/initiate/0",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/vam/audit",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "reports/services",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Generic Report",
+            "id": "19033",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/genericreportlist.do&type=authorized&fromMenu=Y",
+            "entityName": "GENERICREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/vam/generic/initiate/0",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/vam/generic",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "reports/services",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          },
+          {
+            "displayName": "Master Report",
+            "id": "19031",
+            "url": "/toModule.do?prefix=/jsp/Commons&page=/masterreportlist.do&type=authorized&fromMenu=Y",
+            "entityName": "MASTERREPORT",
+            "reportServicesOnly": "Y",
+            "access": ["VIEW", "DATA-ENTRY", "AUTHORIZE", "ENABLE-DISABLE", "EXECUTE"],
+            "menuCategory": "Other",
+            "menuLinksDetail": {
+              "link": [
+                {
+                  "displayName": "Generate",
+                  "url": "/reports/vam/master/initiate/0",
+                  "access": "DATA-ENTRY,ENABLE-DISBLE",
+                  "key": "INIT",
+                  "hide": "N",
+                  "icon": null
+                },
+                {
+                  "displayName": "Report List",
+                  "url": "reports/vam/master",
+                  "access": "VIEW",
+                  "key": "LISTING",
+                  "hide": "N",
+                  "icon": null
+                }
+              ]
+            },
+            "serviceUrl": "reports/services",
+            "isCorporateEnable": "true",
+            "allowCorporateVsGroup": "false"
+          }
+        ],
+        "menuCategory": "Other",
+        "serviceUrl": "",
+        "allowCorporateVsGroup": "false"
+      }
+    ]
+  }
+]

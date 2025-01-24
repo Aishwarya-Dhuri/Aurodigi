@@ -1,0 +1,9 @@
+[
+  { "headerName": "Month", "field": "month", "cellRenderer": "cashflowForecastMonthLinkRenderer" },
+  {
+    "headerName": "Opening Balance",
+    "field": "openingBalance",
+    "cellRenderer": "currencyRenderer"
+  },
+  { "headerName": "Closing Balance", "field": "closingBalance", "cellRenderer": "currencyRenderer" }
+]

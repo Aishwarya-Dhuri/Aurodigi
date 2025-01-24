@@ -1,0 +1,11 @@
+[
+  {
+    "field": "uaid",
+    "headerName": "Account / IBAN / Card No.",
+    "checkboxSelection": true,
+    "headerCheckboxSelection": true,
+    "headerCheckboxSelectionFilteredOnly": true
+  },
+  { "field": "accountType", "headerName": "Account / Card Type" },
+  { "field": "aliasName", "headerName": "Alias / Embossed Name" }
+]

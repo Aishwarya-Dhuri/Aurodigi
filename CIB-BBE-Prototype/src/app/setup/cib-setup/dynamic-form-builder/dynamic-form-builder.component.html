@@ -1,0 +1,890 @@
+<div class="container">
+  <!-- Stepper Header -->
+  <div class="p-grid g-margin-x" [apsHide]="!isGridEdit && stepperDetails.currentStep == 2">
+    <div class="p-col-12">
+      <app-stepper-header [parentRef]="this"></app-stepper-header>
+    </div>
+  </div>
+  <!-- Step 1: Menu Related Fields -->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 1">
+    <div class="p-col-12 p-py-3 text-bold">
+      {{ 'Master Details' | apsTranslate }}
+    </div>
+    <div class="p-col-12">
+      <form name="step1Details" #step1Details="ngForm">
+        <div class="aps-card p-p-3">
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Dynamic Fields For' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton
+                  class="p-mr-2"
+                  name="isForAdminPortal"
+                  [label]="'Admin Portal' | apsTranslate"
+                  [value]="true"
+                  [(ngModel)]="formData.isForAdminPortal"
+                ></p-radioButton>
+                <p-radioButton
+                  class="p-mr-2"
+                  name="isForAdminPortal"
+                  [label]="'CIB' | apsTranslate"
+                  [value]="false"
+                  [(ngModel)]="formData.isForAdminPortal"
+                ></p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3 p-pb-3">
+              <div class="text-size-12 text-color-light-shade-1 p-px-2">
+                {{ 'Dynamic Fields Type' | apsTranslate }} <sup class="text-color-danger">*</sup>
+              </div>
+              <div class="p-p-1">
+                <p-radioButton
+                  class="p-mr-2"
+                  name="isFullMaster"
+                  [label]="'Full Master' | apsTranslate"
+                  [value]="true"
+                  [(ngModel)]="formData.isFullMaster"
+                  (onChange)="onIsFullMasterChange()"
+                ></p-radioButton>
+                <p-radioButton
+                  class="p-mr-2"
+                  name="isFullMaster"
+                  [label]="'Inside Another Master' | apsTranslate"
+                  [value]="false"
+                  [(ngModel)]="formData.isFullMaster"
+                  (onChange)="onIsFullMasterChange()"
+                >
+                </p-radioButton>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2" *ngIf="formData.isFullMaster">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Existing Parent Menu' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isExistingParentMenu"
+                  name="isExistingParentMenu"
+                  [(ngModel)]="formData.isExistingParentMenu"
+                  [disabled]="!formData.isFullMaster"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3">
+              <aps-custom-select
+                label="Product"
+                name="moduleId"
+                id="moduleId"
+                [(ngModel)]="formData.moduleId"
+                [value]="formData.moduleId"
+                dataUrl="setup/cibSetup/dynamicFormBuilder/private/getProductList"
+                [reqBody]="{ isForAdminPortal: formData.isForAdminPortal }"
+                (change)="onProductChange($event)"
+                [required]="true"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isExistingParentMenu">
+              <aps-custom-select
+                label="Parent Menu"
+                name="parentMenuId"
+                id="parentMenuId"
+                [(ngModel)]="formData.parentMenuId"
+                [value]="formData.parentMenuId"
+                dataUrl="setup/cibSetup/dynamicFormBuilder/private/getParentMenuList"
+                [isLoadUrlData]="formData.moduleName"
+                [reqBody]="parentMenuListReqData"
+                (change)="onParentMenuChange($event)"
+                [required]="true"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="!formData.isExistingParentMenu">
+              <aps-form-input
+                label="Parent Menu"
+                name="parentMenu"
+                id="parentMenu"
+                [(ngModel)]="formData.parentMenu"
+                [required]="true"
+              >
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="formData.isFullMaster">
+              <aps-form-input
+                label="Menu Name"
+                name="menuDisplayName"
+                id="menuDisplayName"
+                [(ngModel)]="formData.displayName"
+                [required]="true"
+              >
+              </aps-form-input>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="!formData.isFullMaster">
+              <aps-custom-select
+                label="Menu Name"
+                name="menuDisplayName"
+                id="menuDisplayName"
+                [(ngModel)]="formData.menuId"
+                [value]="formData.menuId"
+                dataUrl="setup/cibSetup/dynamicFormBuilder/private/getChildMenuList"
+                [isLoadUrlData]="formData.parentMenuId"
+                [reqBody]="childMenuListReqData"
+                (change)="onChildMenuChange($event)"
+                [required]="true"
+              >
+              </aps-custom-select>
+            </div>
+            <div class="p-col-12 p-md-3 p-lg-3" *ngIf="!formData.isFullMaster">
+              <aps-form-input
+                label="Step Label"
+                name="stepDisplayName"
+                id="stepDisplayName"
+                [(ngModel)]="formData.stepDisplayName"
+                [required]="true"
+              >
+              </aps-form-input>
+            </div>
+          </div>
+          <div class="p-grid" *ngIf="!formData.isForAdminPortal">
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Available For Individual' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isApplicableForNormalUser"
+                  name="isApplicableForNormalUser"
+                  [(ngModel)]="formData.isApplicableForNormalUser"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Available For Group' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isApplicableForGroupUser"
+                  name="isApplicableForGroupUser"
+                  [(ngModel)]="formData.isApplicableForGroupUser"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Available for SME' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isAvailableForSME"
+                  name="isAvailableForSME"
+                  [(ngModel)]="formData.isAvailableForSME"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Available for MSME' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isAvailableForMSME"
+                  name="isAvailableForMSME"
+                  [(ngModel)]="formData.isAvailableForMSME"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+          </div>
+          <div class="p-grid" *ngIf="formData.isFullMaster">
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'View Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isViewApplicable"
+                  name="isViewApplicable"
+                  [(ngModel)]="formData.isViewApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Data Entry Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isDataEntryApplicable"
+                  name="isDataEntryApplicable"
+                  [(ngModel)]="formData.isDataEntryApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Authorize Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isAuthorizeApplicable"
+                  name="isAuthorizeApplicable"
+                  [(ngModel)]="formData.isAuthorizeApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Enable-Disable Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isEnableDisableApplicable"
+                  name="isEnableDisableApplicable"
+                  [(ngModel)]="formData.isEnableDisableApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+          </div>
+          <div class="p-grid" *ngIf="formData.isFullMaster">
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Execute Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isExecuteApplicable"
+                  name="isExecuteApplicable"
+                  [(ngModel)]="formData.isExecuteApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Verifer Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isVeriferApplicable"
+                  name="isVeriferApplicable"
+                  [(ngModel)]="formData.isVeriferApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2">
+              <div class="text-size-12 text-color-light-shade-1 p-p-2">
+                {{ 'Self-Auth Applicable' | apsTranslate }}
+              </div>
+              <div class="p-px-3">
+                <p-inputSwitch
+                  id="isSelfAuthApplicable"
+                  name="isSelfAuthApplicable"
+                  [(ngModel)]="formData.isSelfAuthApplicable"
+                >
+                </p-inputSwitch>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Step 2: Grid Generation -->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 2">
+    <!-- sub heading and preview button -->
+    <div class="p-col-12 p-py-0">
+      <div class="left-right-container">
+        <div class="left-container p-py-3 text-bold">
+          <span *ngIf="isGridEdit">{{ 'Dynamic Field Generation' | apsTranslate }}</span>
+        </div>
+        <div class="right-container p-pt-2">
+          <button
+            class="btn btn-md btn-secondary text-size-14 text-semi-bold p-mx-1"
+            *ngIf="!isGridEdit"
+            (click)="updateIsEdit(true)"
+          >
+            {{ 'BACK' | apsTranslate }}
+          </button>
+          <button
+            class="btn btn-md btn-secondary text-size-14 text-semi-bold p-mx-1"
+            *ngIf="isGridEdit"
+            (click)="updateIsEdit(false)"
+          >
+            {{ 'PREVIEW' | apsTranslate }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Grid Generator -->
+    <ng-container *ngTemplateOutlet="gridGenerator"></ng-container>
+  </div>
+  <!-- Step 3: Review and Submit -->
+  <div class="p-grid g-margin-x" *ngIf="stepperDetails.currentStep == 3">
+    <div class="p-col-12 p-py-3 text-bold">
+      {{ 'Review Details & Confirm' | apsTranslate }}
+    </div>
+    <div class="p-col-12">
+      <div class="aps-card p-px-3">
+        <div class="p-py-3 text-size-14 text-semi-bold">
+          {{ 'Master Details' | apsTranslate }}
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'For Admin Portal' | apsTranslate"
+              [value]="(formData.isForAdminPortal ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Full Master' | apsTranslate"
+              [value]="(formData.isFullMaster ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2" *ngIf="formData.isFullMaster">
+            <app-review-form-field
+              [label]="'Existing Parent Menu' | apsTranslate"
+              [value]="(formData.isExistingParentMenu ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field [label]="'Product' | apsTranslate" [value]="formData.moduleName">
+            </app-review-form-field>
+          </div>
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Parent Menu' | apsTranslate"
+              [value]="formData.parentMenu"
+            >
+            </app-review-form-field>
+          </div>
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Menu Name' | apsTranslate"
+              [value]="formData.displayName"
+            >
+            </app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-6 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Available For Individual' | apsTranslate"
+              [value]="(formData.isApplicableForNormalUser ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Available For Group' | apsTranslate"
+              [value]="(formData.isApplicableForGroupUser ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Available For SME' | apsTranslate"
+              [value]="(formData.isAvailableForSME ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Available For MSME' | apsTranslate"
+              [value]="(formData.isAvailableForMSME ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'View Applicable' | apsTranslate"
+              [value]="(formData.isViewApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Data Entry Applicable' | apsTranslate"
+              [value]="(formData.isDataEntryApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Authorize Applicable' | apsTranslate"
+              [value]="(formData.isAuthorizeApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Enable-Disable Applicable' | apsTranslate"
+              [value]="(formData.isEnableDisableApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+        </div>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Execute Applicable' | apsTranslate"
+              [value]="(formData.isExecuteApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Verifer Applicable' | apsTranslate"
+              [value]="(formData.isVeriferApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+          <div class="p-col-12 p-md-2 p-lg-2">
+            <app-review-form-field
+              [label]="'Self-Auth Applicable' | apsTranslate"
+              [value]="(formData.isSelfAuthApplicable ? 'Yes' : 'No') | apsTranslate"
+            ></app-review-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="border-primary p-mt-3">
+        <div class="p-grid g-margin-x">
+          <ng-container *ngTemplateOutlet="gridGenerator"></ng-container>
+        </div>
+      </div>
+      <app-maker-checker-detail
+        classes="p-mt-3 p-mb-2"
+        [formData]="formData"
+      ></app-maker-checker-detail>
+      <!-- <div class="aps-card p-mt-3">
+      </div> -->
+    </div>
+  </div>
+  <!-- Form Actions -->
+  <div class="p-grid g-margin-x">
+    <div class="p-col-12 p-mt-2" [apsHide]="!isGridEdit && stepperDetails.currentStep == 2">
+      <app-stepper-footer [parentRef]="this"></app-stepper-footer>
+    </div>
+  </div>
+  <!-- Grid Template -->
+  <ng-template #gridGenerator>
+    <!-- Draggable Options -->
+    <div class="p-col-12 p-md-2 p-lg-2 p-py-0" *ngIf="isGridEdit">
+      <div class="aps-card aps-h-100p">
+        <div class="p-grid">
+          <div class="p-col-12 p-py-1" *ngFor="let draggableItem of draggableItemList">
+            <div
+              class="border border-radius-4 draggable p-p-2"
+              draggable="true"
+              (dragstart)="onDragStart(draggableItem)"
+            >
+              <app-icon
+                class="p-p-1 border-primary border-radius-4 pointer"
+                [styleClasses]="'text-color-primary'"
+                [icon]="draggableItem.icon"
+              ></app-icon>
+              {{ draggableItem.displayName }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Grid -->
+    <div class="p-col-12 p-py-0" [ngClass]="{ 'p-md-10 p-lg-10': isGridEdit }">
+      <div class="aps-h-600 aps-w-100p" [ngClass]="{ border: isGridEdit }">
+        <gridster [ngClass]="{ 'grid-container': !isGridEdit }" [options]="options">
+          <gridster-item [item]="item" *ngFor="let item of formData.gridDataList; let i = index">
+            <!-- Item Edit Action icons -->
+            <div class="left-right-container p-py-1 p-px-2" *ngIf="isGridEdit">
+              <div class="left-container"></div>
+              <div class="right-container text-size-14">
+                <app-icon
+                  *ngIf="item.isConfigurable"
+                  class="pointer p-mx-1"
+                  icon="fa fa-pencil"
+                  (click)="configureItem(item)"
+                  (touchstart)="configureItem(item)"
+                >
+                </app-icon>
+                <app-icon class="draggable drag-selector p-mx-1" icon="fa fa-arrows-alt"></app-icon>
+                <app-icon
+                  class="pointer p-mx-1"
+                  icon="fa fa-trash-alt"
+                  (click)="removeItem(item)"
+                  (touchstart)="removeItem(item)"
+                >
+                </app-icon>
+              </div>
+            </div>
+            <!-- Generic Type Item -->
+            <div class="aps-h-100p aps-w-100p p-px-2" *ngIf="item.itemType == 'GENERIC'">
+              <div class="text-bold" *ngIf="item.componentClassName == 'HEADING'">
+                {{ item.value }}
+              </div>
+              <div class="text-semi-bold" *ngIf="item.componentClassName == 'SUB_HEADING'">
+                {{ item.value }}
+              </div>
+              <div
+                class="text-size-12 text-color-light-shade-1"
+                *ngIf="item.componentClassName == 'LABEL'"
+              >
+                {{ item.label }}
+              </div>
+              <app-review-form-field
+                *ngIf="item.componentClassName == 'LABEL_VALUE'"
+                [label]="item.label"
+                [value]="item.value"
+              >
+              </app-review-form-field>
+              <ng-container *ngIf="item.componentClassName == 'AG_GRID'">
+                <app-ag-grid-listing
+                  *ngIf="item.isLoaded && item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                  [id]="item.elementId"
+                  [colDefUrl]="item.colDefUrl"
+                  [rowDefUrl]="item.rowDefUrl"
+                  [gridOptions]="item"
+                >
+                </app-ag-grid-listing>
+                <app-ag-grid-listing
+                  *ngIf="item.isLoaded && !item.isApiBasedColDefs && item.isApiBasedRowDefs"
+                  [id]="item.elementId"
+                  [columnDefs]="item.colDefs"
+                  [rowDefUrl]="item.rowDefUrl"
+                  [gridOptions]="item"
+                >
+                </app-ag-grid-listing>
+                <app-ag-grid-listing
+                  *ngIf="item.isLoaded && item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                  [id]="item.elementId"
+                  [colDefUrl]="item.colDefUrl"
+                  [rowData]="item.rowData"
+                  [gridOptions]="item"
+                >
+                </app-ag-grid-listing>
+                <app-ag-grid-listing
+                  *ngIf="item.isLoaded && !item.isApiBasedColDefs && !item.isApiBasedRowDefs"
+                  [id]="item.elementId"
+                  [columnDefs]="item.colDefs"
+                  [rowData]="item.rowData"
+                  [gridOptions]="item"
+                >
+                </app-ag-grid-listing>
+              </ng-container>
+            </div>
+            <!-- Card Type Item -->
+            <div class="aps-h-100p aps-w-100p" *ngIf="item.componentClassName == 'CARD'">
+              <app-dynamic-card-builder
+                [parentGridItem]="item"
+                [height]="item.height"
+                [width]="item.width"
+                [parentRef]="this"
+              >
+              </app-dynamic-card-builder>
+            </div>
+          </gridster-item>
+        </gridster>
+      </div>
+    </div>
+  </ng-template>
+  <!-- Edit Modal -->
+  <app-modal
+    [(isShow)]="isShowFieldEditModal"
+    size="md"
+    [headerText]="'Configure ' + selectedConfigField?.displayName"
+  >
+    <div class="p-grid" body>
+      <ng-container *ngFor="let config of selectedConfigField?.configurationFields">
+        <ng-container
+          *ngIf="
+            config.type == 'TEXT' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-form-input
+              [id]="config.name"
+              [name]="config.name"
+              [label]="config.displayName"
+              [(ngModel)]="selectedConfigField[config.valueFieldName]"
+              (change)="refreshAgGrid()"
+            >
+            </aps-form-input>
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            config.type == 'SELECT' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-12 p-md-4 p-lg-4">
+            <aps-custom-select
+              [id]="config.name"
+              [name]="config.name"
+              [label]="config.displayName"
+              [(ngModel)]="selectedConfigField[config.valueFieldName]"
+              [required]="true"
+              [data]="config.configSelectOptionList"
+              (change)="refreshAgGrid()"
+            >
+            </aps-custom-select>
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            config.type == 'TOGGLE_SWITCH' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-6 p-md-4 p-lg-4">
+            <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ config.displayName }}</div>
+            <div class="p-px-3">
+              <p-inputSwitch
+                [id]="config.name"
+                [name]="config.name"
+                [(ngModel)]="selectedConfigField[config.valueFieldName]"
+                (onChange)="refreshAgGrid()"
+              >
+              </p-inputSwitch>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            config.type == 'FIELD_OPTION' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-12 border">
+            <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ config.displayName }}</div>
+            <div class="p-grid">
+              <div
+                class="p-col-12 p-p-0"
+                *ngFor="let option of selectedConfigField[config.valueFieldName]; let i = index"
+              >
+                <div class="p-grid">
+                  <div class="p-col-5 p-md-4 p-lg-4 p-py-0">
+                    <aps-form-input
+                      [id]="selectedConfigField[config.valueFieldName] + i"
+                      [name]="selectedConfigField[config.valueFieldName] + i"
+                      label="Option Id"
+                      inputType="alphaNumeric"
+                      [(ngModel)]="option.id"
+                      [required]="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div class="p-col-5 p-md-4 p-lg-4 p-py-0">
+                    <aps-form-input
+                      [id]="selectedConfigField[config.valueFieldName] + i + 1"
+                      [name]="selectedConfigField[config.valueFieldName] + i + 1"
+                      label="Option Display Value"
+                      inputType="alphaNumeric"
+                      [(ngModel)]="option.displayName"
+                      [required]="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div class="p-col-2 p-pt-3">
+                    <app-icon
+                      class="pointer"
+                      icon="fa fa-trash-alt"
+                      (click)="selectedConfigField[config.valueFieldName].splice(i, 1)"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-py-0 p-md-8 p-lg-8">
+                <button
+                  class="btn btn-md btn-primary"
+                  (click)="
+                    selectedConfigField[config.valueFieldName].push({ id: '', displayName: '' })
+                  "
+                >
+                  Add More
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            config.type == 'GRID_COLDEFS' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-12 border">
+            <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ config.displayName }}</div>
+            <div class="p-grid">
+              <div
+                class="p-col-12 p-p-0"
+                *ngFor="let coldef of selectedConfigField[config.valueFieldName]; let i = index"
+              >
+                <div class="p-grid">
+                  <div class="p-col-4 p-md-3 p-lg-3 p-py-0">
+                    <aps-form-input
+                      [id]="selectedConfigField[config.valueFieldName] + i"
+                      [name]="selectedConfigField[config.valueFieldName] + i"
+                      [label]="'Column Name' | apsTranslate"
+                      inputType="alphaNumeric"
+                      [(ngModel)]="coldef.headerName"
+                      (change)="
+                        convertToCamelCase(coldef, 'field', coldef.headerName);
+                        updateGridRowField();
+                        refreshAgGrid()
+                      "
+                      [required]="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div class="p-col-4 p-md-3 p-lg-3 p-py-0">
+                    <aps-custom-select
+                      [id]="'filter' + i"
+                      [name]="'filter' + i"
+                      [label]="'Filter Type' | apsTranslate"
+                      [(ngModel)]="coldef.filter"
+                      [required]="true"
+                      (change)="refreshAgGrid()"
+                      [data]="[
+                        { id: 'agTextColumnFilter', displayName: 'Text' },
+                        { id: 'agNumberColumnFilter', displayName: 'Number' },
+                        { id: 'agDateColumnFilter', displayName: 'Date' },
+                        { id: 'agSetColumnFilter', displayName: 'Set' }
+                      ]"
+                    >
+                    </aps-custom-select>
+                  </div>
+                  <div class="p-col-4 p-md-2 p-lg-2 p-py-0">
+                    <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ 'Sortable' }}</div>
+                    <div class="p-px-3">
+                      <p-inputSwitch
+                        [id]="'Sortable' + i"
+                        [name]="'Sortable' + i"
+                        [(ngModel)]="coldef.sortable"
+                        (onChange)="refreshAgGrid()"
+                      >
+                      </p-inputSwitch>
+                    </div>
+                  </div>
+                  <div class="p-col-4 p-md-2 p-lg-2 p-py-0">
+                    <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ 'Hidden' }}</div>
+                    <div class="p-px-3">
+                      <p-inputSwitch
+                        [id]="'Hidden' + i"
+                        [name]="'Hidden' + i"
+                        [(ngModel)]="coldef.hide"
+                        (onChange)="refreshAgGrid()"
+                      >
+                      </p-inputSwitch>
+                    </div>
+                  </div>
+                  <div class="p-col-2 p-pt-3">
+                    <app-icon
+                      class="pointer"
+                      icon="fa fa-trash-alt"
+                      (click)="selectedConfigField[config.valueFieldName].splice(i, 1)"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-py-0 p-md-8 p-lg-8">
+                <button
+                  class="btn btn-md btn-primary"
+                  (click)="
+                    selectedConfigField[config.valueFieldName].push({
+                      headerName: '',
+                      field: '',
+                      sortable: true
+                    })
+                  "
+                >
+                  Add More
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            config.type == 'GRID_ROWDATA' &&
+            ((!config.basedOn && !config.basedOnNotEquals) ||
+              (config.basedOn && selectedConfigField[config.basedOn]) ||
+              (config.basedOnNotEquals && !selectedConfigField[config.basedOnNotEquals]))
+          "
+        >
+          <div class="p-col-12 border">
+            <div class="text-size-12 text-color-light-shade-1 p-p-2">{{ config.displayName }}</div>
+            <div class="p-grid">
+              <div
+                class="p-col-12 p-p-0"
+                *ngFor="let row of selectedConfigField[config.valueFieldName]; let i = index"
+              >
+                <div class="p-grid">
+                  <div
+                    class="p-col-4 p-md-4 p-lg-4 p-py-0"
+                    *ngFor="let col of selectedConfigField.colDefs; let j = index"
+                  >
+                    <aps-form-input
+                      [id]="col.field + j"
+                      [name]="col.field + j"
+                      [label]="col.headerName"
+                      [inputType]="col.filter == 'agNumberColumnFilter' ? 'numeric' : 'normal'"
+                      [(ngModel)]="row[col.field]"
+                      (change)="refreshAgGrid()"
+                      [required]="true"
+                    >
+                    </aps-form-input>
+                  </div>
+                  <div
+                    class="p-col-12 p-pt-3"
+                    [ngClass]="{
+                      'p-md-8 p-lg-8': selectedConfigField.colDefs.length % 3 == 1,
+                      'p-md-4 p-lg-4': selectedConfigField.colDefs.length % 3 == 2
+                    }"
+                  >
+                    <app-icon
+                      class="pointer float-right"
+                      icon="fa fa-trash-alt"
+                      (click)="selectedConfigField[config.valueFieldName].splice(i, 1)"
+                    ></app-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="p-col-12 p-py-0 p-md-8 p-lg-8">
+                <button class="btn btn-md btn-primary" (click)="addGridRowData()">Add More</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div footer>
+      <div class="left-right-container p-mt-3">
+        <div class="left-container"></div>
+        <div class="right-container">
+          <button class="btn btn-md btn-primary" (click)="isShowFieldEditModal = false">Ok</button>
+        </div>
+      </div>
+    </div>
+  </app-modal>
+</div>
